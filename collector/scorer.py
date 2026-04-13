@@ -403,53 +403,113 @@ def _market_context_multiplier(articles, ticker, all_news_map):
 
 
 # ══════════════════════════════════════
-# 테마 태그 추출
+# 테마 태그 추출 (기사 본문 기반 동적 추출)
 # ══════════════════════════════════════
 
-_THEME_KEYWORDS = [
-    # 소재/원자재 (구체적)
-    '알루미늄', '페라이트', '구리', '리튬', '희토류', '마그네슘', '니켈', '아연',
-    # 통신/인프라
-    '광통신', '전력설비', '전력', '원전', '송전', '변압기',
-    # 에너지
-    '태양광', '풍력', '수소', '원유', 'LNG',
-    # 방위/운송
-    '방산', '조선', '해운', '우주', '항공',
-    # 테크 (구체적 우선)
-    'HBM', 'GPU', 'NPU', 'CXL', 'AI', '반도체', '파운드리',
-    '로봇', '휴머노이드', '자율주행', '드론', '전기차', 'UAM',
-    # 배터리
-    '2차전지', '배터리', '양극재', '음극재', '전고체',
-    # 바이오
-    '신약', '임상', 'ADC', 'FDA', 'GLP-1', '바이오시밀러', '바이오',
-    # 소비재
-    '화장품', 'K뷰티', '엔터', '게임', '제지', 'K푸드',
-    # 금속/소재
-    '비철금속', '원자재', '철강', '희소금속',
-    # IT/금융
-    '핀테크', '클라우드', '사이버보안', '블록체인',
-    # 이벤트성
-    'M&A', '자사주', '배당',
+_THEME_PATTERNS = [
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*관련주'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*테마주'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*테마(?:[^주]|$)'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*수혜주'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*대장주'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})주(?:가|는|도|의)?\s*(?:강세|급등|상한가|상승|올라|치솟|폭등)'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*(?:업종|종목|섹터)(?:은|이|도|의)?\s*(?:\d|강세|급등|상승|상한가|올라|폭등)'),
 ]
 
+_THEME_NOISE = {
+    '해당', '전체', '국내', '일부', '다수', '특정', '대형', '중소형',
+    '관련', '소형', '시장', '증시', '주식', '코스피', '코스닥',
+    '개별', '상승', '하락', '주요', '이날', '오늘', '어제',
+    '우리', '이번', '종목', '투자', '매수', '매도', '최근',
+    '해외', '글로벌', '전일', '금일', '장중', '오전', '오후',
+    '올해', '내년', '지난', '이달', '연속', '이후', '거래',
+    '우려', '직접적', '직접', '가능성', '전망', '기대', '불안', '부진',
+    '전쟁', '긴장', '불확실성', '위기', '리스크', '충돌', '갈등',
+    '일제히', '줄줄이', '동반', '동시', '변동성',
+    '중심으로', '제외한', '포함한', '대비', '경쟁',
+    '주도', '주목', '성장', '확대', '강화', '촉진',
+    '중동', '미국', '중국', '유럽', '일본', '북한',
+    '스테이블코', '스테이블코인',
+}
 
-def extract_theme_tag(articles):
-    """뉴스 제목에서 핵심 테마 키워드 1개 추출 (빈도 기반)"""
-    if not articles:
-        return ''
 
-    all_titles = ' '.join(a.get('title', '') for a in articles)
+def _clean_theme_tag(raw):
+    """추출된 태그에서 조사/접미사/용언어미 제거"""
+    tag = raw.strip().strip('·')
+    # 가운데점 연결 → 첫 번째 부분만
+    if '·' in tag:
+        parts = [p.strip() for p in tag.split('·') if len(p.strip()) >= 2]
+        tag = parts[0] if parts else tag
+    # 용언 어미 제거 (하는, 되는, 있는 등)
+    tag = re.sub(r'(?:하는|되는|있는|없는|적인|에서|부터|까지|으로|에의)$', '', tag)
+    # 한글 조사/접미사 제거 (2회 반복)
+    tag = re.sub(r'[에을를은는의이가와과도로서께한인적하]$', '', tag)
+    tag = re.sub(r'[에을를은는의이가와과도로서께한인적하]$', '', tag)
+    return tag
 
-    counts = {}
-    for kw in _THEME_KEYWORDS:
-        c = all_titles.count(kw)
-        if c > 0:
-            counts[kw] = c
 
-    if not counts:
-        return ''
+def _extract_themes_from_text(text):
+    """텍스트에서 테마 패턴 추출 → Counter"""
+    from collections import Counter
+    counts = Counter()
+    for pattern in _THEME_PATTERNS:
+        for m in pattern.finditer(text):
+            tag = _clean_theme_tag(m.group(1))
+            if len(tag) >= 2 and tag not in _THEME_NOISE:
+                counts[tag] += 1
+    return counts
 
-    return max(counts, key=counts.get)
+
+def extract_theme_tag(articles, article_bodies=None, stock_name=''):
+    """기사 본문에서 테마 태그를 동적 추출
+
+    전략:
+    1. 기사 본문에서 종목명이 등장하는 문단을 우선 분석
+    2. 종목명 근처의 테마 패턴이 가장 정확함
+    3. 매치 없으면 전체 본문 → 제목 순으로 fallback
+
+    Args:
+        articles: 뉴스 기사 목록 (title 포함)
+        article_bodies: 기사 본문 텍스트 리스트
+        stock_name: 종목명 (문단 필터링용)
+
+    Returns:
+        str: 테마 태그 (예: '광통신', '알루미늄', '방산')
+    """
+    bodies = [b for b in (article_bodies or []) if b]
+
+    # 전략 1: 종목명 근처 200자 윈도우에서 추출 (가장 정확)
+    if bodies and stock_name:
+        windows = []
+        for body in bodies:
+            idx = 0
+            while True:
+                pos = body.find(stock_name, idx)
+                if pos == -1:
+                    break
+                start = max(0, pos - 100)
+                end = min(len(body), pos + len(stock_name) + 100)
+                windows.append(body[start:end])
+                idx = pos + 1
+        if windows:
+            counts = _extract_themes_from_text('\n'.join(windows))
+            if counts:
+                return counts.most_common(1)[0][0]
+
+    # 전략 2: 전체 본문에서 추출
+    if bodies:
+        counts = _extract_themes_from_text('\n'.join(bodies))
+        if counts:
+            return counts.most_common(1)[0][0]
+
+    # 전략 3: 제목에서 추출 (fallback)
+    if articles:
+        titles = ' '.join(a.get('title', '') for a in articles)
+        counts = _extract_themes_from_text(titles)
+        if counts:
+            return counts.most_common(1)[0][0]
+
+    return ''
 
 
 # ══════════════════════════════════════

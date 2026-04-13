@@ -236,3 +236,82 @@ def crawl_analyst_reports_for_tickers(tickers):
         _delay()
 
     return report_map
+
+
+# ── 기사 본문 수집 (테마 추출용) ──
+
+def _to_naver_news_url(finance_link):
+    """finance.naver.com 링크를 n.news.naver.com URL로 변환"""
+    m = re.search(r'article_id=(\d+).*?office_id=(\d+)', finance_link)
+    if m:
+        return f'https://n.news.naver.com/mnews/article/{m.group(2)}/{m.group(1)}'
+    return finance_link
+
+
+def fetch_article_body(url):
+    """뉴스 기사 본문 텍스트 가져오기"""
+    resp = _request_with_retry(url, timeout=10)
+    if resp is None:
+        return ''
+
+    soup = BeautifulSoup(resp.text, 'html.parser')
+    body = soup.select_one('#dic_area') or soup.select_one('.newsct_article')
+    if body:
+        return body.get_text(separator='\n', strip=True)
+    return ''
+
+
+def fetch_article_bodies_for_themes(news_map, max_per_stock=2):
+    """테마 추출을 위한 기사 본문 일괄 수집 (URL 중복 제거)
+
+    Args:
+        news_map: {ticker: [article, ...]}
+        max_per_stock: 종목당 최대 기사 수
+
+    Returns:
+        {ticker: [body_text, ...]}
+    """
+    COMP_KEYWORDS = ['관련주', '테마', '종합', '시황', '마감', '상한가', '급등', '강세']
+
+    # Step 1: 종목별 기사 선정 (종합 기사 우선)
+    ticker_urls = {}
+    all_urls = set()
+
+    for ticker, articles in news_map.items():
+        scored = []
+        for a in articles:
+            title = a.get('title', '')
+            comp_score = sum(1 for kw in COMP_KEYWORDS if kw in title)
+            scored.append((comp_score, a))
+        scored.sort(key=lambda x: x[0], reverse=True)
+
+        urls = []
+        for _, a in scored[:max_per_stock]:
+            naver_url = _to_naver_news_url(a.get('link', ''))
+            urls.append(naver_url)
+            all_urls.add(naver_url)
+        ticker_urls[ticker] = urls
+
+    logger.info(f"  기사 본문 수집: {len(all_urls)}개 고유 URL")
+
+    # Step 2: 고유 URL만 fetch
+    body_cache = {}
+    fetched = 0
+    for url in all_urls:
+        try:
+            body = fetch_article_body(url)
+            body_cache[url] = body
+        except Exception:
+            body_cache[url] = ''
+        fetched += 1
+        if fetched % 30 == 0:
+            logger.info(f"  기사 본문 진행: {fetched}/{len(all_urls)}")
+        _delay()
+
+    # Step 3: ticker별 매핑
+    result = {}
+    for ticker, urls in ticker_urls.items():
+        result[ticker] = [body_cache.get(u, '') for u in urls]
+
+    logger.info(f"  기사 본문 수집 완료: {len(body_cache)}개 기사")
+    return result

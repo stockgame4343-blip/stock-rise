@@ -13,6 +13,7 @@ from json_store import (
 from news_crawler import (
     crawl_news_for_tickers, crawl_sector,
     crawl_sector_performance, crawl_analyst_reports_for_tickers,
+    fetch_article_bodies_for_themes,
 )
 from scorer import calculate_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag
 
@@ -212,21 +213,25 @@ def collect_and_save(date_str=None):
     sector_map = collect_sectors(tickers)
 
     # Step 4: 뉴스
-    logger.info("[4/7] 뉴스 수집")
+    logger.info("[4/8] 뉴스 수집")
     news_map = crawl_news_for_tickers(tickers, date_str)
 
-    # Step 5: 업종 등락률 + 증권사 리포트
-    logger.info("[5/7] 업종 등락률 + 증권사 리포트 수집")
+    # Step 5: 기사 본문 수집 (테마 추출용)
+    logger.info("[5/8] 기사 본문 수집 (테마 추출)")
+    article_bodies_map = fetch_article_bodies_for_themes(news_map)
+
+    # Step 6: 업종 등락률 + 증권사 리포트
+    logger.info("[6/8] 업종 등락률 + 증권사 리포트 수집")
     sector_performance = crawl_sector_performance()
     report_map = crawl_analyst_reports_for_tickers(tickers)
 
-    # Step 6: 뉴스 이력 로드 + 갱신
-    logger.info("[6/7] 뉴스 이력 갱신 + 점수 산출")
+    # Step 7: 뉴스 이력 로드 + 갱신
+    logger.info("[7/8] 뉴스 이력 갱신 + 점수 산출")
     news_history = load_news_history()
     update_news_history(date_str, news_map)
 
-    # Step 7: 순위 데이터 조립
-    logger.info("[7/7] 데이터 저장")
+    # Step 8: 순위 데이터 조립
+    logger.info("[8/8] 데이터 저장")
     rankings = []
     for idx, s in enumerate(top_stocks):
         t = s['ticker']
@@ -259,7 +264,7 @@ def collect_and_save(date_str=None):
         )
 
         # 테마 태그 + 상승 이유
-        theme_tag = extract_theme_tag(news_articles)
+        theme_tag = extract_theme_tag(news_articles, article_bodies_map.get(t, []), stock_name=s['name'])
         reason = generate_rise_reason(news_articles, report_map.get(t, []))
 
         rankings.append({
