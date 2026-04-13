@@ -92,9 +92,8 @@ def collect_trading_intensity(tickers):
 
                 vals = df['거래대금'].tolist()
                 today_val = vals[-1]
-                prev_vals = vals[:-1][-3:]
-                prev_avg = sum(prev_vals) / len(prev_vals) if prev_vals else 0
-                intensity_map[t] = calculate_trading_intensity(today_val, prev_avg)
+                prev_val = vals[-2] if len(vals) >= 2 else 0
+                intensity_map[t] = calculate_trading_intensity(today_val, prev_val)
             except Exception:
                 intensity_map[t] = '보통'
 

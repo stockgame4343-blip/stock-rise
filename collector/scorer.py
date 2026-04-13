@@ -135,29 +135,43 @@ def calculate_score(articles, date_str, ticker):
 
 
 def generate_rise_reason(articles):
-    """뉴스 제목 키워드 기반 상승 이유 텍스트 자동 생성"""
+    """뉴스 제목 키워드 기반 상승 이유 텍스트 자동 생성 (1~2줄, 명료하게)"""
     if not articles:
-        return '거래 급증에 따른 상승'
+        return '특별한 뉴스 없이 거래량 증가'
 
     all_titles = ' '.join(a.get('title', '') for a in articles)
-    best_reason = '거래 급증에 따른 상승'
-    best_count = 0
 
+    scored = []
     for keywords, reason in _REASON_MAP:
-        count = _count_keyword_matches(all_titles, keywords)
-        if count > best_count:
-            best_count = count
-            best_reason = reason
+        matched = [kw for kw in keywords if kw in all_titles]
+        if matched:
+            scored.append((len(matched), reason, matched))
 
-    return best_reason
+    if not scored:
+        if len(articles) >= 3:
+            return '다수 뉴스에 따른 시장 관심 증가'
+        return '거래 급증에 따른 상승'
+
+    scored.sort(key=lambda x: x[0], reverse=True)
+    primary = scored[0]
+    reason = primary[1]
+
+    detail_kws = [kw for kw in primary[2] if kw not in ['테마', '관련주', '급등', '상한가']]
+    if detail_kws:
+        reason += ' (' + ', '.join(detail_kws[:3]) + ')'
+
+    if len(scored) >= 2 and scored[1][0] >= 2:
+        reason += ', ' + scored[1][1]
+
+    return reason
 
 
-def calculate_trading_intensity(today_value, prev_3day_avg):
-    """거래 강도 레이블 산출 (3거래일 평균 대비)"""
-    if prev_3day_avg <= 0 or today_value <= 0:
+def calculate_trading_intensity(today_value, prev_day_value):
+    """거래 강도 레이블 산출 (전일 대비)"""
+    if prev_day_value <= 0 or today_value <= 0:
         return '보통'
 
-    ratio_pct = (today_value / prev_3day_avg) * 100
+    ratio_pct = (today_value / prev_day_value) * 100
 
     if ratio_pct >= TRADING_INTENSITY['폭발']:
         return '폭발'

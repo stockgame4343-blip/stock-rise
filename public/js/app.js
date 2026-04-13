@@ -3,6 +3,7 @@
  */
 (function () {
     var DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
+    var RATINGS_KEY = 'stock-ratings';
 
     var state = {
         dates: [],
@@ -12,6 +13,7 @@
         rankings: [],
         sortColumn: null,
         sortDirection: null,
+        watchlistMode: false,
     };
 
     // DOM
@@ -19,13 +21,27 @@
     var $dateBadge = document.getElementById('dateBadge');
     var $datePrev = document.getElementById('datePrev');
     var $dateNext = document.getElementById('dateNext');
-    var $stockCount = document.getElementById('stockCount');
     var $loading = document.getElementById('loading');
     var $message = document.getElementById('message');
     var $newsModal = document.getElementById('newsModal');
     var $newsModalClose = document.getElementById('newsModalClose');
+    var $watchlistBtn = document.getElementById('watchlistBtn');
+    var $rankingBody = document.getElementById('rankingBody');
 
-    // 유틸
+    // ── localStorage 레이팅 ──
+    function getRatings() {
+        try {
+            return JSON.parse(localStorage.getItem(RATINGS_KEY) || '{}');
+        } catch (e) {
+            return {};
+        }
+    }
+
+    function saveRatings(ratings) {
+        localStorage.setItem(RATINGS_KEY, JSON.stringify(ratings));
+    }
+
+    // ── 유틸 ──
     function formatDateKorean(dateStr) {
         if (!dateStr || dateStr.length !== 8) return dateStr || '-';
         var y = parseInt(dateStr.substring(0, 4));
@@ -49,7 +65,7 @@
         return state.latestDate && state.dates[state.dateIndex] !== state.latestDate;
     }
 
-    // 정렬
+    // ── 정렬 ──
     function applySort(rankings) {
         if (!state.sortColumn) return rankings;
         var sorted = rankings.slice();
@@ -67,15 +83,27 @@
         return sorted;
     }
 
+    // ── 렌더 ──
     function renderTable() {
-        var sorted = applySort(state.rankings);
+        var data = state.rankings;
+        var ratings = getRatings();
+
+        // 관심종목 필터
+        if (state.watchlistMode) {
+            data = data.filter(function (r) {
+                var rd = ratings[r.ticker];
+                return rd && rd.stars > 0;
+            });
+        }
+
+        var sorted = applySort(data);
         var past = isPastDate();
         StockTable.setCompareHeader(past);
-        StockTable.render(sorted, past);
+        StockTable.render(sorted, past, ratings);
         StockTable.updateSortIcons(state.sortColumn, state.sortDirection);
     }
 
-    // 데이터 로드
+    // ── 데이터 로드 ──
     function loadRankings() {
         var date = state.dates[state.dateIndex];
         if (!date) return;
@@ -97,8 +125,6 @@
             .then(function (data) {
                 showLoading(false);
                 state.rankings = data.rankings || [];
-
-                $stockCount.textContent = state.rankings.length + '종목';
 
                 if (isPastDate()) {
                     fetchCurrentPrices(state.rankings).then(function (updated) {
@@ -149,7 +175,7 @@
         });
     }
 
-    // 이벤트
+    // ── 이벤트: 날짜 ──
     function onDatePrev() {
         if (state.dateIndex < state.dates.length - 1) {
             state.dateIndex++;
@@ -164,10 +190,18 @@
         }
     }
 
+    function onDateBadgeClick() {
+        if (isPastDate()) {
+            state.dateIndex = 0;
+            loadRankings();
+        }
+    }
+
+    // ── 이벤트: 탭 ──
     function onTabClick(e) {
         var market = e.target.getAttribute('data-market');
         if (!market) return;
-        document.querySelectorAll('.tab').forEach(function (tab) {
+        document.querySelectorAll('.tab[data-market]').forEach(function (tab) {
             tab.classList.remove('active');
         });
         e.target.classList.add('active');
@@ -175,6 +209,18 @@
         loadRankings();
     }
 
+    // ── 이벤트: 관심종목 ──
+    function onWatchlistClick() {
+        state.watchlistMode = !state.watchlistMode;
+        if (state.watchlistMode) {
+            $watchlistBtn.classList.add('active');
+        } else {
+            $watchlistBtn.classList.remove('active');
+        }
+        renderTable();
+    }
+
+    // ── 이벤트: 정렬 ──
     function onSortClick(e) {
         var th = e.target.closest('.sortable');
         if (!th) return;
@@ -195,18 +241,74 @@
         renderTable();
     }
 
-    // 초기화
+    // ── 이벤트 위임: tbody 클릭 (별점, X, 점수) ──
+    function onBodyClick(e) {
+        // 별점 클릭
+        var starEl = e.target.closest('.star');
+        if (starEl) {
+            var starRating = starEl.closest('.star-rating');
+            if (!starRating) return;
+            var ticker = starRating.getAttribute('data-ticker');
+            var starNum = parseInt(starEl.getAttribute('data-star'));
+            if (!ticker || isNaN(starNum)) return;
+
+            var ratings = getRatings();
+            if (!ratings[ticker]) ratings[ticker] = {};
+
+            // 같은 별 다시 클릭하면 해제
+            if (ratings[ticker].stars === starNum) {
+                ratings[ticker].stars = 0;
+            } else {
+                ratings[ticker].stars = starNum;
+            }
+            saveRatings(ratings);
+            renderTable();
+            return;
+        }
+
+        // X 버튼 클릭
+        var excludeBtn = e.target.closest('.exclude-btn');
+        if (excludeBtn) {
+            var ticker = excludeBtn.getAttribute('data-ticker');
+            if (!ticker) return;
+
+            var ratings = getRatings();
+            if (!ratings[ticker]) ratings[ticker] = {};
+            ratings[ticker].excluded = !ratings[ticker].excluded;
+            saveRatings(ratings);
+            renderTable();
+            return;
+        }
+
+        // 호재점수 클릭 → 뉴스 모달
+        var scoreClick = e.target.closest('.score-click');
+        if (scoreClick) {
+            var ticker = scoreClick.getAttribute('data-ticker');
+            if (ticker) {
+                StockTable.openNews(ticker);
+            }
+            return;
+        }
+    }
+
+    // ── 초기화 ──
     function init() {
         $datePrev.addEventListener('click', onDatePrev);
         $dateNext.addEventListener('click', onDateNext);
+        $dateBadge.addEventListener('click', onDateBadgeClick);
 
-        document.querySelectorAll('.tab').forEach(function (tab) {
+        document.querySelectorAll('.tab[data-market]').forEach(function (tab) {
             tab.addEventListener('click', onTabClick);
         });
+
+        $watchlistBtn.addEventListener('click', onWatchlistClick);
 
         document.querySelectorAll('.sortable').forEach(function (th) {
             th.addEventListener('click', onSortClick);
         });
+
+        // tbody 이벤트 위임
+        $rankingBody.addEventListener('click', onBodyClick);
 
         // 뉴스 모달 닫기
         $newsModalClose.addEventListener('click', StockTable.closeNews);

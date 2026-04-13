@@ -44,14 +44,15 @@ var StockTable = (function () {
         return '<span class="intensity-badge intensity-badge--' + cls + '">' + intensity + '</span>';
     }
 
-    function scoreBadge(score, detail) {
+    function scoreBadge(score, detail, ticker) {
         var cls;
         if (score >= 70) cls = 'high';
         else if (score >= 40) cls = 'mid';
         else if (score > 0) cls = 'low';
         else cls = 'none';
 
-        var html = '<span class="score-badge score-badge--' + cls + '">' + score + '</span>';
+        var html = '<div class="score-click" data-ticker="' + ticker + '">';
+        html += '<span class="score-badge score-badge--' + cls + '">' + score + '</span>';
 
         if (detail) {
             var parsed = (typeof detail === 'string') ? JSON.parse(detail) : detail;
@@ -60,15 +61,26 @@ var StockTable = (function () {
                 ' T' + parsed.type + ' D' + parsed.durability +
                 '</div>';
         }
+        html += '</div>';
         return html;
     }
 
-    function newsCell(news, ticker) {
-        if (!news || news.length === 0) {
-            return '<span style="color:var(--text-muted)">-</span>';
+    function starRatingHtml(ticker, ratings) {
+        var rating = ratings[ticker] || {};
+        var stars = rating.stars || 0;
+        var excluded = rating.excluded || false;
+
+        var html = '<div class="cell-name-controls">';
+        html += '<span class="star-rating" data-ticker="' + ticker + '">';
+        for (var i = 1; i <= 5; i++) {
+            html += '<span class="star' + (i <= stars ? ' star--active' : '') +
+                '" data-star="' + i + '">\u2605</span>';
         }
-        return '<button class="news-btn" onclick="StockTable.openNews(\'' + ticker + '\')">' +
-            news.length + '건</button>';
+        html += '</span>';
+        html += '<button class="exclude-btn' + (excluded ? ' exclude-btn--active' : '') +
+            '" data-ticker="' + ticker + '" title="제외">\u2715</button>';
+        html += '</div>';
+        return html;
     }
 
     function openNews(ticker) {
@@ -79,7 +91,15 @@ var StockTable = (function () {
                 break;
             }
         }
-        if (!stock || !stock.news || stock.news.length === 0) return;
+        if (!stock || !stock.news || stock.news.length === 0) {
+            var $modal = document.getElementById('newsModal');
+            var $title = document.getElementById('newsModalTitle');
+            var $body = document.getElementById('newsModalBody');
+            $title.textContent = (stock ? stock.name : ticker) + ' 관련 뉴스';
+            $body.innerHTML = '<div class="news-empty">관련 뉴스가 없습니다</div>';
+            $modal.style.display = 'flex';
+            return;
+        }
 
         var $modal = document.getElementById('newsModal');
         var $title = document.getElementById('newsModalTitle');
@@ -106,37 +126,32 @@ var StockTable = (function () {
         document.getElementById('newsModal').style.display = 'none';
     }
 
-    function render(rankings, isPast) {
+    function render(rankings, isPast, ratings) {
         var tbody = document.getElementById('rankingBody');
         if (!tbody) return;
 
         _currentData = rankings;
+        ratings = ratings || {};
 
         if (!rankings || rankings.length === 0) {
-            tbody.innerHTML = '<tr><td colspan="11" style="text-align:center;padding:40px;color:var(--text-muted);">데이터가 없습니다</td></tr>';
+            tbody.innerHTML = '<tr><td colspan="10" style="text-align:center;padding:40px;color:var(--text-muted);">데이터가 없습니다</td></tr>';
             return;
         }
 
         var html = '';
         rankings.forEach(function (r) {
             var detailUrl = 'https://finance.naver.com/item/main.naver?code=' + r.ticker;
+            var ratingData = ratings[r.ticker] || {};
+            var isExcluded = ratingData.excluded || false;
 
-            html += '<tr>';
+            html += '<tr' + (isExcluded ? ' class="row--excluded"' : '') + '>';
             html += '<td class="cell-rank">' + r.rank + '</td>';
             html += '<td class="cell-name">' + r.name +
-                '<span class="cell-name__market">' + r.market + '</span></td>';
+                '<span class="cell-name__market">' + r.market + '</span>' +
+                starRatingHtml(r.ticker, ratings) + '</td>';
             html += '<td class="cell-price">' + formatNumber(r.close_price) + '</td>';
-            html += '<td class="cell-change">' + formatChange(r.change_amount, r.change_rate) + '</td>';
-            html += '<td class="cell-volume">' + formatTradingValue(r.trading_value) +
-                intensityBadge(r.trading_intensity) + '</td>';
-            html += '<td class="cell-cap">' + formatAmount(r.market_cap) + '</td>';
-            html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
-            html += '<td class="cell-reason">' + (r.rise_reason || '-') + '</td>';
-            html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail) + '</td>';
-            html += '<td style="text-align:center">' + newsCell(r.news, r.ticker) + '</td>';
-            html += '<td style="text-align:center"><a href="' + detailUrl +
-                '" target="_blank" rel="noopener" class="naver-n">N</a></td>';
 
+            // 현재가 비교 (과거일 때만)
             if (isPast && r.current_price != null) {
                 var diff = ((r.current_price - r.close_price) / r.close_price * 100).toFixed(2);
                 var cls = diff > 0 ? 'cell-compare--up' : (diff < 0 ? 'cell-compare--down' : 'cell-compare--neutral');
@@ -144,8 +159,19 @@ var StockTable = (function () {
                 html += '<td class="cell-compare ' + cls + '">' +
                     formatNumber(r.current_price) + '<br>' +
                     sign + diff + '%</td>';
+            } else if (isPast) {
+                html += '<td class="cell-compare cell-compare--neutral">-</td>';
             }
 
+            html += '<td class="cell-change">' + formatChange(r.change_amount, r.change_rate) + '</td>';
+            html += '<td class="cell-volume">' + formatTradingValue(r.trading_value) +
+                intensityBadge(r.trading_intensity) + '</td>';
+            html += '<td class="cell-cap">' + formatAmount(r.market_cap) + '</td>';
+            html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
+            html += '<td class="cell-reason">' + (r.rise_reason || '-') + '</td>';
+            html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
+            html += '<td style="text-align:center"><a href="' + detailUrl +
+                '" target="_blank" rel="noopener" class="naver-n">N</a></td>';
             html += '</tr>';
         });
 
@@ -161,7 +187,13 @@ var StockTable = (function () {
             th.textContent = '현재가 비교';
             th.style.width = '110px';
             th.style.textAlign = 'right';
-            thead.appendChild(th);
+            // .col-price 뒤에 삽입 (현재가와 전일대비 사이)
+            var colPrice = thead.querySelector('.col-price');
+            if (colPrice && colPrice.nextSibling) {
+                thead.insertBefore(th, colPrice.nextSibling);
+            } else {
+                thead.appendChild(th);
+            }
         } else if (!show && existing) {
             existing.remove();
         }

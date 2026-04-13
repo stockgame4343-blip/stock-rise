@@ -46,7 +46,7 @@ def _delay():
     time.sleep(random.uniform(REQUEST_DELAY_MIN, REQUEST_DELAY_MAX))
 
 
-def crawl_news(ticker, max_articles=5):
+def crawl_news(ticker, max_articles=10):
     """단일 종목의 최근 뉴스 크롤링 (제목, 링크, 출처)
     네이버 증권 뉴스는 iframe 안에 있으므로 iframe URL을 직접 조회한다.
     """
