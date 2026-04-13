@@ -1,13 +1,13 @@
 /* ── 리셋 & 다크 테마 ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-    --bg-primary:#0f0f13;--bg-secondary:#1a1a24;--bg-tertiary:#22222e;
-    --bg-hover:#2a2a3a;--text-primary:#e8e8ee;--text-secondary:#9a9ab0;
-    --text-muted:#5a5a70;--border:#2a2a3a;--accent:#6c5ce7;
+    --bg-primary:#191919;--bg-secondary:#232323;--bg-tertiary:#2c2c2c;
+    --bg-hover:#353535;--text-primary:#e8e8e8;--text-secondary:#999;
+    --text-muted:#666;--border:#333;--accent:#5b9df9;
     --rise:#ff4757;--fall:#3742fa;--green:#2ed573;--yellow:#ffa502;
     --orange:#ff6348;--naver-green:#03c75a;
     --intensity-boom:#ff4757;--intensity-surge:#ff6348;
-    --intensity-active:#ffa502;--intensity-normal:#5a5a70;
+    --intensity-active:#ffa502;--intensity-normal:#666;
     --font-mono:'Consolas','Monaco',monospace;
     --font-sans:-apple-system,'Malgun Gothic',sans-serif;
 }
@@ -19,9 +19,9 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 /* ── 날짜 바 ── */
 .date-bar{display:flex;align-items:center;justify-content:center;gap:20px;padding:18px 0;border-bottom:1px solid var(--border)}
 .date-center{display:flex;align-items:center;gap:10px}
-.date-badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:4px;background:var(--accent);color:#fff;font-size:12px;font-weight:700}
-.date-badge--past{background:var(--bg-tertiary);color:var(--text-muted);cursor:pointer}
-.date-badge--past:hover{background:var(--bg-hover)}
+.date-badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:4px;background:transparent;border:1px solid var(--text-secondary);color:var(--text-primary);font-size:12px;font-weight:700}
+.date-badge--past{border-color:var(--text-muted);color:var(--text-muted);cursor:pointer}
+.date-badge--past:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
 .date-text{font-size:17px;font-weight:700;letter-spacing:-0.3px}
 .date-nav{background:var(--bg-tertiary);border:1px solid var(--border);color:var(--text-primary);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:background .15s}
 .date-nav:hover{background:var(--bg-hover)}
@@ -32,9 +32,9 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .tab{padding:8px 20px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
 .tab:hover{background:var(--bg-tertiary);color:var(--text-primary)}
 .tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.tab--watchlist{border-color:var(--yellow);color:var(--yellow)}
-.tab--watchlist:hover{background:rgba(255,165,2,.1)}
-.tab--watchlist.active{background:var(--yellow);border-color:var(--yellow);color:#000}
+.tab.tab--watchlist{border-color:var(--border);color:var(--text-muted)}
+.tab.tab--watchlist:hover{background:var(--bg-tertiary);color:var(--text-secondary)}
+.tab.tab--watchlist.active{background:transparent;border-color:var(--text-primary);color:var(--text-primary)}
 
 /* ── 메시지 ── */
 .message,.loading{text-align:center;padding:40px 24px;color:var(--text-muted);font-size:15px}
