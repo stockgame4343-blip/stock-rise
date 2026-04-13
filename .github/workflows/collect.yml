@@ -4,6 +4,8 @@ on:
   schedule:
     # 매일 15:35 KST = 06:35 UTC (월~금)
     - cron: '35 6 * * 1-5'
+    # 1차 실패 대비 재시도: 16:05 KST
+    - cron: '5 7 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -21,17 +23,42 @@ jobs:
           cache: 'pip'
           cache-dependency-path: collector/requirements.txt
 
+      - name: Check if already collected today
+        id: check
+        run: |
+          TODAY=$(TZ=Asia/Seoul date +%Y%m%d)
+          if [ -f "public/data/${TODAY}.json" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "오늘($TODAY) 데이터 이미 존재 — 스킵"
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Install dependencies
+        if: steps.check.outputs.skip != 'true'
         run: pip install -r collector/requirements.txt
 
-      - name: Run collector
-        working-directory: collector
-        run: python collector.py
+      - name: Run collector (with retry)
+        if: steps.check.outputs.skip != 'true'
+        run: |
+          cd collector
+          for attempt in 1 2 3; do
+            echo "=== 시도 ${attempt}/3 ==="
+            if python collector.py; then
+              echo "수집 성공"
+              exit 0
+            fi
+            echo "실패 — 60초 후 재시도"
+            sleep 60
+          done
+          echo "::error::3회 시도 모두 실패"
+          exit 1
 
       - name: Commit & push data
+        if: steps.check.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/data/
-          git diff --staged --quiet || git commit -m "data: $(date +%Y%m%d) 수집 완료"
+          git diff --staged --quiet || git commit -m "data: $(TZ=Asia/Seoul date +%Y%m%d) 수집 완료"
           git push
