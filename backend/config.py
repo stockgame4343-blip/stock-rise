@@ -1,12 +1,15 @@
-"""설정 상수 (Vercel 배포용 — SQLite/Flask 제거)"""
+"""설정 상수"""
 import os
 
 # 경로
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_DIR = os.environ.get('DATA_DIR', os.path.join(BASE_DIR, 'public', 'data'))
-SECTOR_CACHE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'sector_cache.json')
+DATA_DIR = os.path.join(BASE_DIR, 'data')
+DB_PATH = os.path.join(DATA_DIR, 'stock_rise.db')
+FRONTEND_DIR = os.path.join(BASE_DIR, 'frontend')
 
 # 수집 설정
+COLLECT_HOUR = 15
+COLLECT_MINUTE = 35
 TOP_N = 100
 DATA_RETENTION_DAYS = 90
 
@@ -17,6 +20,11 @@ USER_AGENTS = [
 ]
 REQUEST_DELAY_MIN = 1.0
 REQUEST_DELAY_MAX = 2.5
+
+# 네이버 증권 URL 패턴
+NAVER_FINANCE_ITEM_URL = 'https://finance.naver.com/item/main.naver?code={ticker}'
+NAVER_FINANCE_NEWS_URL = 'https://finance.naver.com/item/news.naver?code={ticker}'
+NAVER_FINANCE_SECTOR_URL = 'https://finance.naver.com/item/main.naver?code={ticker}'
 
 # 거래 강도 기준 (3거래일 평균 대비 %)
 TRADING_INTENSITY = {
@@ -44,3 +52,7 @@ MAJOR_PRESS = [
     '이데일리', '서울경제', '파이낸셜뉴스', '헤럴드경제', '한국투자증권',
     '삼성증권', 'NH투자증권', '키움증권', 'KB증권',
 ]
+
+# Flask
+FLASK_HOST = '0.0.0.0'
+FLASK_PORT = 5000
