@@ -7,15 +7,16 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <!-- 헤더 -->
-    <header class="header">
-        <h1 class="header__title">국내주식 상승 분석</h1>
-        <div class="header__date">
-            <button class="date-nav" id="datePrev">&lt;</button>
-            <span class="date-display" id="dateDisplay">-</span>
-            <button class="date-nav" id="dateNext">&gt;</button>
+    <!-- 날짜 바 -->
+    <div class="date-bar">
+        <button class="date-nav" id="datePrev">&lsaquo;</button>
+        <div class="date-center">
+            <span class="date-badge" id="dateBadge">오늘</span>
+            <span class="date-text" id="dateDisplay">-</span>
+            <span class="date-count" id="stockCount">-</span>
         </div>
-    </header>
+        <button class="date-nav" id="dateNext">&rsaquo;</button>
+    </div>
 
     <!-- 시장 탭 -->
     <nav class="tabs">
@@ -23,12 +24,6 @@
         <button class="tab" data-market="KOSPI">코스피</button>
         <button class="tab" data-market="KOSDAQ">코스닥</button>
     </nav>
-
-    <!-- 상태 바 -->
-    <div class="status-bar">
-        <span class="status-bar__count" id="stockCount">-</span>
-        <span class="status-bar__info" id="statusInfo"></span>
-    </div>
 
     <!-- 로딩 / 에러 -->
     <div class="message" id="message" style="display:none;"></div>
@@ -43,25 +38,50 @@
                     <th class="col-name">종목명</th>
                     <th class="col-price">현재가</th>
                     <th class="col-change">전일대비</th>
-                    <th class="col-volume">거래대금</th>
-                    <th class="col-cap">시가총액</th>
-                    <th class="col-sector">섹터</th>
+                    <th class="col-volume">
+                        거래대금
+                        <span class="th-help">?<span class="tooltip">
+                            <strong>거래 강도 기준</strong><br>
+                            3거래일 평균 거래대금 대비<br><br>
+                            <span class="tooltip-row"><span class="intensity-badge intensity-badge--boom">폭발</span> 500% 이상</span>
+                            <span class="tooltip-row"><span class="intensity-badge intensity-badge--surge">급증</span> 300% 이상</span>
+                            <span class="tooltip-row"><span class="intensity-badge intensity-badge--active">활발</span> 150% 이상</span>
+                            <span class="tooltip-row"><span class="intensity-badge intensity-badge--normal">보통</span> 150% 미만</span>
+                        </span></span>
+                    </th>
+                    <th class="col-cap sortable" data-sort="market_cap">
+                        시가총액 <span class="sort-icon">&#9660;</span>
+                    </th>
+                    <th class="col-sector sortable" data-sort="sector">
+                        섹터 <span class="sort-icon">&#9660;</span>
+                    </th>
                     <th class="col-reason">상승이유</th>
-                    <th class="col-score">호재점수</th>
+                    <th class="col-score">
+                        호재점수
+                        <span class="th-help">?<span class="tooltip tooltip--right">
+                            <strong>호재 점수 기준 (100점)</strong><br><br>
+                            <span class="tooltip-row">뉴스 양 (Buzz) <span class="tooltip-pts">20점</span></span>
+                            <span class="tooltip-row">뉴스 질 (Quality) <span class="tooltip-pts">25점</span></span>
+                            <span class="tooltip-row">호재 유형 (Type) <span class="tooltip-pts">30점</span></span>
+                            <span class="tooltip-row">지속성 (Durability) <span class="tooltip-pts">25점</span></span>
+                        </span></span>
+                    </th>
                     <th class="col-news">뉴스</th>
-                    <th class="col-link">상세</th>
+                    <th class="col-link"></th>
                 </tr>
             </thead>
             <tbody id="rankingBody"></tbody>
         </table>
     </div>
 
-    <!-- 현재가 비교 모달 (과거 데이터 조회 시) -->
-    <div class="modal-overlay" id="priceModal" style="display:none;">
-        <div class="modal">
-            <button class="modal__close" id="modalClose">&times;</button>
-            <h3 class="modal__title" id="modalTitle">-</h3>
-            <div class="modal__body" id="modalBody"></div>
+    <!-- 뉴스 모달 -->
+    <div class="modal-overlay" id="newsModal" style="display:none;">
+        <div class="modal news-modal">
+            <div class="modal__header">
+                <h3 class="modal__title" id="newsModalTitle">관련 뉴스</h3>
+                <button class="modal__close" id="newsModalClose">&times;</button>
+            </div>
+            <div class="modal__body" id="newsModalBody"></div>
         </div>
     </div>
 

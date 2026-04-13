@@ -3,13 +3,13 @@
  */
 var StockTable = (function () {
 
-    /** 숫자를 천단위 콤마 포맷 */
+    var _currentData = [];
+
     function formatNumber(n) {
         if (n == null) return '-';
         return n.toLocaleString('ko-KR');
     }
 
-    /** 금액을 억/조 단위로 변환 */
     function formatAmount(n) {
         if (n == null || n === 0) return '-';
         if (n >= 1e12) return (n / 1e12).toFixed(1) + '조';
@@ -18,14 +18,12 @@ var StockTable = (function () {
         return formatNumber(n);
     }
 
-    /** 거래대금을 백만 단위로 표시 */
     function formatTradingValue(n) {
         if (n == null || n === 0) return '-';
         var millions = Math.round(n / 1e6);
         return formatNumber(millions) + '백만';
     }
 
-    /** 등락률 포맷 (+빨강 / -파랑) */
     function formatChange(amount, rate) {
         var sign = amount >= 0 ? '+' : '';
         var cls = amount >= 0 ? 'cell-change--up' : 'cell-change--down';
@@ -35,19 +33,17 @@ var StockTable = (function () {
             '</span>';
     }
 
-    /** 거래 강도 뱃지 HTML */
     function intensityBadge(intensity) {
         var map = {
-            '\uD3ED\uBC1C': 'boom',    // 폭발
-            '\uAE09\uC99D': 'surge',   // 급증
-            '\uD65C\uBC1C': 'active',  // 활발
-            '\uBCF4\uD1B5': 'normal',  // 보통
+            '\uD3ED\uBC1C': 'boom',
+            '\uAE09\uC99D': 'surge',
+            '\uD65C\uBC1C': 'active',
+            '\uBCF4\uD1B5': 'normal',
         };
         var cls = map[intensity] || 'normal';
         return '<span class="intensity-badge intensity-badge--' + cls + '">' + intensity + '</span>';
     }
 
-    /** 호재 점수 뱃지 HTML */
     function scoreBadge(score, detail) {
         var cls;
         if (score >= 70) cls = 'high';
@@ -67,35 +63,54 @@ var StockTable = (function () {
         return html;
     }
 
-    /** 뉴스 목록 HTML */
     function newsCell(news, ticker) {
         if (!news || news.length === 0) {
             return '<span style="color:var(--text-muted)">-</span>';
         }
-        var id = 'news-' + ticker;
-        var html = '<button class="news-toggle" onclick="StockTable.toggleNews(\'' + id + '\')">' +
+        return '<button class="news-btn" onclick="StockTable.openNews(\'' + ticker + '\')">' +
             news.length + '건</button>';
-        html += '<div class="news-dropdown" id="' + id + '">';
-        news.forEach(function (n) {
-            html += '<div class="news-item">' +
-                '<a href="' + n.link + '" target="_blank" rel="noopener">' + n.title + '</a>' +
-                (n.source ? '<span class="news-item__source">' + n.source + '</span>' : '') +
-                '</div>';
+    }
+
+    function openNews(ticker) {
+        var stock = null;
+        for (var i = 0; i < _currentData.length; i++) {
+            if (_currentData[i].ticker === ticker) {
+                stock = _currentData[i];
+                break;
+            }
+        }
+        if (!stock || !stock.news || stock.news.length === 0) return;
+
+        var $modal = document.getElementById('newsModal');
+        var $title = document.getElementById('newsModalTitle');
+        var $body = document.getElementById('newsModalBody');
+
+        $title.textContent = stock.name + ' (' + stock.ticker + ') 관련 뉴스';
+
+        var html = '';
+        stock.news.forEach(function (n) {
+            html += '<div class="news-item">';
+            html += '<a class="news-item__title" href="' + n.link + '" target="_blank" rel="noopener">' +
+                n.title + '</a>';
+            if (n.source) {
+                html += '<span class="news-item__source">' + n.source + '</span>';
+            }
+            html += '</div>';
         });
-        html += '</div>';
-        return html;
+
+        $body.innerHTML = html;
+        $modal.style.display = 'flex';
     }
 
-    /** 뉴스 드롭다운 토글 */
-    function toggleNews(id) {
-        var el = document.getElementById(id);
-        if (el) el.classList.toggle('open');
+    function closeNews() {
+        document.getElementById('newsModal').style.display = 'none';
     }
 
-    /** 테이블 전체 렌더링 */
     function render(rankings, isPast) {
         var tbody = document.getElementById('rankingBody');
         if (!tbody) return;
+
+        _currentData = rankings;
 
         if (!rankings || rankings.length === 0) {
             tbody.innerHTML = '<tr><td colspan="11" style="text-align:center;padding:40px;color:var(--text-muted);">데이터가 없습니다</td></tr>';
@@ -104,8 +119,7 @@ var StockTable = (function () {
 
         var html = '';
         rankings.forEach(function (r) {
-            var detailUrl = r.detail_link ||
-                'https://finance.naver.com/item/main.naver?code=' + r.ticker;
+            var detailUrl = 'https://finance.naver.com/item/main.naver?code=' + r.ticker;
 
             html += '<tr>';
             html += '<td class="cell-rank">' + r.rank + '</td>';
@@ -121,9 +135,8 @@ var StockTable = (function () {
             html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail) + '</td>';
             html += '<td style="text-align:center">' + newsCell(r.news, r.ticker) + '</td>';
             html += '<td style="text-align:center"><a href="' + detailUrl +
-                '" target="_blank" rel="noopener" class="detail-btn">상세</a></td>';
+                '" target="_blank" rel="noopener" class="naver-n">N</a></td>';
 
-            // 과거 데이터일 때 현재가 비교 컬럼 표시
             if (isPast && r.current_price != null) {
                 var diff = ((r.current_price - r.close_price) / r.close_price * 100).toFixed(2);
                 var cls = diff > 0 ? 'cell-compare--up' : (diff < 0 ? 'cell-compare--down' : 'cell-compare--neutral');
@@ -139,7 +152,6 @@ var StockTable = (function () {
         tbody.innerHTML = html;
     }
 
-    /** 과거 데이터용 비교 컬럼 헤더 추가/제거 */
     function setCompareHeader(show) {
         var thead = document.querySelector('#rankingTable thead tr');
         var existing = thead.querySelector('.col-compare');
@@ -155,10 +167,27 @@ var StockTable = (function () {
         }
     }
 
+    function updateSortIcons(column, direction) {
+        var icons = document.querySelectorAll('.sort-icon');
+        icons.forEach(function (icon) {
+            var th = icon.closest('th');
+            var col = th ? th.getAttribute('data-sort') : null;
+            if (col === column && direction) {
+                icon.classList.add('sort-icon--active');
+                icon.innerHTML = direction === 'asc' ? '&#9650;' : '&#9660;';
+            } else {
+                icon.classList.remove('sort-icon--active');
+                icon.innerHTML = '&#9660;';
+            }
+        });
+    }
+
     return {
         render: render,
-        toggleNews: toggleNews,
+        openNews: openNews,
+        closeNews: closeNews,
         setCompareHeader: setCompareHeader,
+        updateSortIcons: updateSortIcons,
         formatNumber: formatNumber,
         formatAmount: formatAmount,
     };
