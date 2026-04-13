@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>국내주식 상승 분석</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <!-- 헤더 -->
+    <header class="header">
+        <h1 class="header__title">국내주식 상승 분석</h1>
+        <div class="header__date">
+            <button class="date-nav" id="datePrev">&lt;</button>
+            <span class="date-display" id="dateDisplay">-</span>
+            <button class="date-nav" id="dateNext">&gt;</button>
+        </div>
+    </header>
+
+    <!-- 시장 탭 -->
+    <nav class="tabs">
+        <button class="tab active" data-market="ALL">전체</button>
+        <button class="tab" data-market="KOSPI">코스피</button>
+        <button class="tab" data-market="KOSDAQ">코스닥</button>
+    </nav>
+
+    <!-- 상태 바 -->
+    <div class="status-bar">
+        <span class="status-bar__count" id="stockCount">-</span>
+        <span class="status-bar__info" id="statusInfo"></span>
+    </div>
+
+    <!-- 로딩 / 에러 -->
+    <div class="message" id="message" style="display:none;"></div>
+    <div class="loading" id="loading" style="display:none;">데이터 로딩 중...</div>
+
+    <!-- 순위 테이블 -->
+    <div class="table-wrap">
+        <table class="ranking-table" id="rankingTable">
+            <thead>
+                <tr>
+                    <th class="col-rank">#</th>
+                    <th class="col-name">종목명</th>
+                    <th class="col-price">현재가</th>
+                    <th class="col-change">전일대비</th>
+                    <th class="col-volume">거래대금</th>
+                    <th class="col-cap">시가총액</th>
+                    <th class="col-sector">섹터</th>
+                    <th class="col-reason">상승이유</th>
+                    <th class="col-score">호재점수</th>
+                    <th class="col-news">뉴스</th>
+                    <th class="col-link">상세</th>
+                </tr>
+            </thead>
+            <tbody id="rankingBody"></tbody>
+        </table>
+    </div>
+
+    <!-- 현재가 비교 모달 (과거 데이터 조회 시) -->
+    <div class="modal-overlay" id="priceModal" style="display:none;">
+        <div class="modal">
+            <button class="modal__close" id="modalClose">&times;</button>
+            <h3 class="modal__title" id="modalTitle">-</h3>
+            <div class="modal__body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/table.js"></script>
+    <script src="/js/app.js"></script>
+</body>
+</html>
