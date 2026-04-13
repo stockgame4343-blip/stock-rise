@@ -79,6 +79,9 @@ var StockTable = (function () {
         html += '</span>';
         html += '<button class="exclude-btn' + (excluded ? ' exclude-btn--active' : '') +
             '" data-ticker="' + ticker + '" title="제외">\u2715</button>';
+        var hasMemo = rating.memo ? ' memo-btn--has' : '';
+        html += '<button class="memo-btn' + hasMemo +
+            '" data-ticker="' + ticker + '" title="메모">\u270E</button>';
         html += '</div>';
         return html;
     }

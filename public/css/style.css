@@ -104,9 +104,23 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .score-click{cursor:pointer;transition:opacity .15s}
 .score-click:hover{opacity:.7}
 
-/* N 로고 */
-.naver-n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:5px;background:var(--naver-green);color:#fff;font-weight:800;font-size:15px;font-family:Arial,sans-serif;text-decoration:none;transition:opacity .15s}
-.naver-n:hover{opacity:.8}
+/* 메모 버튼 */
+.memo-btn{background:none;border:1px solid var(--border);color:var(--text-muted);width:18px;height:18px;border-radius:3px;cursor:pointer;font-size:10px;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;padding:0}
+.memo-btn:hover{border-color:var(--accent);color:var(--accent)}
+.memo-btn--has{color:var(--accent);border-color:var(--accent)}
+
+/* 메모 모달 */
+.memo-textarea{width:100%;min-height:120px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-family:var(--font-sans);font-size:13px;padding:12px;resize:vertical;line-height:1.6}
+.memo-textarea:focus{outline:none;border-color:var(--accent)}
+.memo-actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+.memo-save{background:var(--accent);color:#fff;border:none;padding:8px 20px;border-radius:6px;cursor:pointer;font-size:13px;font-weight:600;transition:opacity .15s}
+.memo-save:hover{opacity:.85}
+.memo-delete{background:none;color:var(--text-muted);border:1px solid var(--border);padding:8px 16px;border-radius:6px;cursor:pointer;font-size:13px;transition:all .15s}
+.memo-delete:hover{border-color:var(--rise);color:var(--rise)}
+
+/* N 링크 */
+.naver-n{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:5px;background:var(--bg-tertiary);color:var(--text-muted);font-weight:800;font-size:15px;font-family:Arial,sans-serif;text-decoration:none;transition:all .15s}
+.naver-n:hover{background:var(--naver-green);color:#fff}
 
 /* 도움말 + 툴팁 */
 .th-help{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--bg-tertiary);border:1px solid var(--border);color:var(--text-muted);font-size:10px;font-weight:700;cursor:help;position:relative;margin-left:4px;vertical-align:middle}

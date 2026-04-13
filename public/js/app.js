@@ -27,6 +27,13 @@
     var $newsModalClose = document.getElementById('newsModalClose');
     var $watchlistBtn = document.getElementById('watchlistBtn');
     var $rankingBody = document.getElementById('rankingBody');
+    var $memoModal = document.getElementById('memoModal');
+    var $memoModalClose = document.getElementById('memoModalClose');
+    var $memoModalTitle = document.getElementById('memoModalTitle');
+    var $memoTextarea = document.getElementById('memoTextarea');
+    var $memoSave = document.getElementById('memoSave');
+    var $memoDelete = document.getElementById('memoDelete');
+    var _memoTicker = null;
 
     // ── localStorage 레이팅 ──
     function getRatings() {
@@ -280,6 +287,14 @@
             return;
         }
 
+        // 메모 버튼 클릭
+        var memoBtn = e.target.closest('.memo-btn');
+        if (memoBtn) {
+            var ticker = memoBtn.getAttribute('data-ticker');
+            if (ticker) openMemo(ticker);
+            return;
+        }
+
         // 호재점수 클릭 → 뉴스 모달
         var scoreClick = e.target.closest('.score-click');
         if (scoreClick) {
@@ -289,6 +304,48 @@
             }
             return;
         }
+    }
+
+    // ── 메모 모달 ──
+    function openMemo(ticker) {
+        _memoTicker = ticker;
+        var ratings = getRatings();
+        var rd = ratings[ticker] || {};
+        var name = '';
+        for (var i = 0; i < state.rankings.length; i++) {
+            if (state.rankings[i].ticker === ticker) { name = state.rankings[i].name; break; }
+        }
+        $memoModalTitle.textContent = (name || ticker) + ' 메모';
+        $memoTextarea.value = rd.memo || '';
+        $memoModal.style.display = 'flex';
+        $memoTextarea.focus();
+    }
+
+    function closeMemo() {
+        $memoModal.style.display = 'none';
+        _memoTicker = null;
+    }
+
+    function saveMemo() {
+        if (!_memoTicker) return;
+        var ratings = getRatings();
+        if (!ratings[_memoTicker]) ratings[_memoTicker] = {};
+        var text = $memoTextarea.value.trim();
+        ratings[_memoTicker].memo = text || '';
+        saveRatings(ratings);
+        closeMemo();
+        renderTable();
+    }
+
+    function deleteMemo() {
+        if (!_memoTicker) return;
+        var ratings = getRatings();
+        if (ratings[_memoTicker]) {
+            ratings[_memoTicker].memo = '';
+        }
+        saveRatings(ratings);
+        closeMemo();
+        renderTable();
     }
 
     // ── 초기화 ──
@@ -314,6 +371,14 @@
         $newsModalClose.addEventListener('click', StockTable.closeNews);
         $newsModal.addEventListener('click', function (e) {
             if (e.target === $newsModal) StockTable.closeNews();
+        });
+
+        // 메모 모달
+        $memoModalClose.addEventListener('click', closeMemo);
+        $memoSave.addEventListener('click', saveMemo);
+        $memoDelete.addEventListener('click', deleteMemo);
+        $memoModal.addEventListener('click', function (e) {
+            if (e.target === $memoModal) closeMemo();
         });
 
         showLoading(true);
