@@ -14,7 +14,7 @@ from news_crawler import (
     crawl_news_for_tickers, crawl_sector,
     crawl_sector_performance, crawl_analyst_reports_for_tickers,
 )
-from scorer import calculate_score, generate_rise_reason, calculate_trading_intensity
+from scorer import calculate_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag
 
 logging.basicConfig(
     level=logging.INFO,
@@ -258,7 +258,8 @@ def collect_and_save(date_str=None):
             all_news_map=news_map,
         )
 
-        # 상승 이유
+        # 테마 태그 + 상승 이유
+        theme_tag = extract_theme_tag(news_articles)
         reason = generate_rise_reason(news_articles, report_map.get(t, []))
 
         rankings.append({
@@ -274,6 +275,7 @@ def collect_and_save(date_str=None):
             'trading_detail': intensity_detail,
             'market_cap': s['market_cap'],
             'sector': sector_map.get(t, ''),
+            'theme_tag': theme_tag,
             'score': score_result['total'],
             'score_detail': score_result['detail'],
             'rise_reason': reason,

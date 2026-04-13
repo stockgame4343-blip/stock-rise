@@ -173,7 +173,9 @@ var StockTable = (function () {
                 intensityBadge(r.trading_intensity) + '</td>';
             html += '<td class="cell-cap">' + formatAmount(r.market_cap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
-            html += '<td class="cell-reason">' + (r.rise_reason || '-') + '</td>';
+            html += '<td class="cell-reason">' +
+                (r.theme_tag ? '<span class="theme-tag">' + r.theme_tag + '</span>' : '') +
+                (r.rise_reason || '-') + '</td>';
             html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '<td style="text-align:center"><a href="' + detailUrl +
                 '" target="_blank" rel="noopener" class="naver-n">N</a></td>';
