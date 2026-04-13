@@ -44,12 +44,14 @@
                         <th class="col-volume">
                             거래대금
                             <span class="th-help">?<span class="tooltip">
-                                <strong>거래 강도 기준</strong><br>
-                                전일 거래대금 대비<br><br>
-                                <span class="tooltip-row"><span class="intensity-badge intensity-badge--boom">폭발</span> 500% 이상</span>
-                                <span class="tooltip-row"><span class="intensity-badge intensity-badge--surge">급증</span> 300% 이상</span>
-                                <span class="tooltip-row"><span class="intensity-badge intensity-badge--active">활발</span> 150% 이상</span>
+                                <strong>거래 강도 v2</strong><br>
+                                5일 평균 대비 × 수급보정<br><br>
+                                <span class="tooltip-row"><span class="intensity-badge intensity-badge--limit">상한가</span> 가격제한 도달</span>
+                                <span class="tooltip-row"><span class="intensity-badge intensity-badge--boom">폭발</span> 500%+ 이상</span>
+                                <span class="tooltip-row"><span class="intensity-badge intensity-badge--surge">급증</span> 300%+ 이상</span>
+                                <span class="tooltip-row"><span class="intensity-badge intensity-badge--active">활발</span> 150%+ 이상</span>
                                 <span class="tooltip-row"><span class="intensity-badge intensity-badge--normal">보통</span> 150% 미만</span>
+                                <br><span style="color:var(--text-muted)">기관/외인 순매수 시 보정<br>회전율 상위10% 1등급↑</span>
                             </span></span>
                         </th>
                         <th class="col-cap sortable" data-sort="market_cap">
@@ -62,12 +64,14 @@
                         <th class="col-score">
                             호재점수
                             <span class="th-help">?<span class="tooltip tooltip--right">
-                                <strong>호재 점수 기준 (100점)</strong><br><br>
-                                <span class="tooltip-row">뉴스 양 (Buzz) <span class="tooltip-pts">20점</span></span>
-                                <span class="tooltip-row">뉴스 질 (Quality) <span class="tooltip-pts">25점</span></span>
-                                <span class="tooltip-row">호재 유형 (Type) <span class="tooltip-pts">30점</span></span>
-                                <span class="tooltip-row">지속성 (Durability) <span class="tooltip-pts">25점</span></span>
-                                <br><span style="color:var(--text-muted)">점수 클릭 시 관련 뉴스 확인</span>
+                                <strong>호재 점수 v2 (125→100 정규화)</strong><br><br>
+                                <span class="tooltip-row">B 뉴스 양 (중복제거) <span class="tooltip-pts">20점</span></span>
+                                <span class="tooltip-row">Q 뉴스 질 (언론사+수치) <span class="tooltip-pts">25점</span></span>
+                                <span class="tooltip-row">T 호재 유형 (테마연동) <span class="tooltip-pts">30점</span></span>
+                                <span class="tooltip-row">D 지속성 (7일이력) <span class="tooltip-pts">25점</span></span>
+                                <span class="tooltip-row">S 감성 (긍정/부정) <span class="tooltip-pts">10점</span></span>
+                                <span class="tooltip-row">A 증권사 (리포트) <span class="tooltip-pts">15점</span></span>
+                                <br><span style="color:var(--text-muted)">시장컨텍스트 보정 적용<br>점수 클릭 시 관련 뉴스 확인</span>
                             </span></span>
                         </th>
                         <th class="col-link"></th>

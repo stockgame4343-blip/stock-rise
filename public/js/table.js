@@ -35,6 +35,7 @@ var StockTable = (function () {
 
     function intensityBadge(intensity) {
         var map = {
+            '\uC0C1\uD55C\uAC00': 'limit',
             '\uD3ED\uBC1C': 'boom',
             '\uAE09\uC99D': 'surge',
             '\uD65C\uBC1C': 'active',
@@ -56,10 +57,11 @@ var StockTable = (function () {
 
         if (detail) {
             var parsed = (typeof detail === 'string') ? JSON.parse(detail) : detail;
-            html += '<div class="score-detail">' +
-                'B' + parsed.buzz + ' Q' + parsed.quality +
-                ' T' + parsed.type + ' D' + parsed.durability +
-                '</div>';
+            var parts = ['B' + parsed.buzz, 'Q' + parsed.quality,
+                'T' + parsed.type, 'D' + parsed.durability];
+            if (parsed.sentiment != null) parts.push('S' + parsed.sentiment);
+            if (parsed.analyst) parts.push('A' + parsed.analyst);
+            html += '<div class="score-detail">' + parts.join(' ') + '</div>';
         }
         html += '</div>';
         return html;
