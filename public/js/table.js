@@ -29,7 +29,8 @@ var StockTable = (function () {
         var cls = amount >= 0 ? 'cell-change--up' : 'cell-change--down';
         var arrow = amount >= 0 ? '\u25B2' : '\u25BC';
         return '<span class="' + cls + '">' +
-            arrow + sign + formatNumber(amount) + ' (' + sign + rate.toFixed(2) + '%)' +
+            arrow + sign + formatNumber(amount) +
+            '<br><span class="change-rate">(' + sign + rate.toFixed(2) + '%)</span>' +
             '</span>';
     }
 

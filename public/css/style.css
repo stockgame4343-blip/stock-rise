@@ -8,6 +8,7 @@
     --orange:#ff6348;--naver-green:#03c75a;
     --intensity-boom:#ff4757;--intensity-surge:#ff6348;
     --intensity-active:#ffa502;--intensity-normal:#666;
+    --border-subtle:rgba(255,255,255,.06);
     --shadow:0 1px 4px rgba(0,0,0,.3);
     --modal-backdrop:rgba(0,0,0,.6);--modal-shadow:0 16px 48px rgba(0,0,0,.5);
     --font-mono:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,'Noto Sans KR','Malgun Gothic',sans-serif;
@@ -23,6 +24,7 @@
     --orange:#e8590c;--naver-green:#03c75a;
     --intensity-boom:#ff3b30;--intensity-surge:#e8590c;
     --intensity-active:#ff9500;--intensity-normal:#aeaeb2;
+    --border-subtle:rgba(0,0,0,.06);
     --shadow:0 1px 4px rgba(0,0,0,.06);
     --modal-backdrop:rgba(0,0,0,.25);--modal-shadow:0 16px 48px rgba(0,0,0,.12);
 }
@@ -73,35 +75,36 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .table-wrap{overflow-x:auto;margin-top:8px}
 .ranking-table{width:100%;border-collapse:collapse;min-width:1100px}
 .ranking-table thead{position:sticky;top:0;z-index:10}
-.ranking-table th{background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:10px 12px;text-align:left;border-bottom:2px solid var(--border);white-space:nowrap}
-.ranking-table td{padding:12px;border-bottom:1px solid var(--border);vertical-align:middle;font-size:13px}
+.ranking-table th{background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:10px 12px;text-align:left;border-bottom:1px solid var(--border);white-space:nowrap}
+.ranking-table td{padding:12px;border-bottom:1px solid var(--border-subtle);vertical-align:middle;font-size:13px}
 .ranking-table tbody tr{transition:background .1s}
 .ranking-table tbody tr:hover{background:var(--bg-hover)}
 .row--excluded{opacity:.35}
 
 /* 컬럼 */
-.col-rank{width:44px;text-align:center}
-.col-name{min-width:160px}
-.col-price{width:90px;text-align:right;font-family:var(--font-mono)}
-.col-change{width:140px;text-align:right}
-.col-volume{width:140px;text-align:right}
-.col-cap{width:100px;text-align:right}
-.col-sector{width:80px}
-.col-reason{min-width:200px}
+.col-rank{width:36px;text-align:center}
+.col-name{min-width:150px}
+.col-price{width:80px;text-align:right}
+.col-change{width:100px;text-align:right}
+.col-volume{width:100px;text-align:right}
+.col-cap{width:80px;text-align:right}
+.col-sector{width:110px;text-align:left}
+.col-reason{min-width:220px}
 .col-score{width:80px;text-align:center}
 .col-link{width:36px;text-align:center}
 
 /* 셀 */
-.cell-rank{text-align:center;font-weight:700;font-family:var(--font-mono);color:var(--text-muted)}
+.cell-rank{text-align:center;font-weight:700;color:var(--text-muted)}
 .cell-name{font-weight:600}
 .cell-name__market{font-size:11px;color:var(--text-muted);margin-left:6px}
 .cell-name-controls{display:flex;align-items:center;gap:6px;margin-top:3px}
-.cell-price{text-align:right;font-family:var(--font-mono);font-weight:600}
-.cell-change{text-align:right;font-family:var(--font-mono)}
+.cell-price{text-align:right;font-weight:600}
+.cell-change{text-align:right}
 .cell-change--up{color:var(--rise)}
 .cell-change--down{color:var(--fall)}
-.cell-volume{text-align:right;font-family:var(--font-mono)}
-.cell-cap{text-align:right;font-family:var(--font-mono);color:var(--text-secondary)}
+.change-rate{font-size:12px;opacity:.8}
+.cell-volume{text-align:right}
+.cell-cap{text-align:right;color:var(--text-secondary)}
 .cell-sector{font-size:12px;color:var(--text-secondary)}
 .cell-reason{font-size:12px;color:var(--text-primary);line-height:1.5;max-width:260px}
 .theme-tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 6px;border-radius:3px;margin-right:5px;background:rgba(91,157,249,.12);color:var(--accent);white-space:nowrap;cursor:pointer}
@@ -135,7 +138,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .intensity-badge--limit{background:rgba(255,71,87,.25);color:var(--rise);font-weight:700}
 
 /* 호재 점수 뱃지 */
-.score-badge{display:inline-flex;align-items:center;justify-content:center;width:44px;height:28px;border-radius:6px;font-size:13px;font-weight:700;font-family:var(--font-mono)}
+.score-badge{display:inline-flex;align-items:center;justify-content:center;width:44px;height:28px;border-radius:6px;font-size:13px;font-weight:700}
 .score-badge--high{background:rgba(46,213,115,.15);color:var(--green)}
 .score-badge--mid{background:rgba(255,165,2,.15);color:var(--yellow)}
 .score-badge--low{background:rgba(255,99,72,.15);color:var(--orange)}
@@ -169,7 +172,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .th-help .tooltip strong{color:var(--text-primary);font-size:13px}
 .tooltip-row{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:3px 0}
 .tooltip-row .intensity-badge{margin-left:0;min-width:36px;text-align:center}
-.tooltip-pts{font-family:var(--font-mono);font-weight:600;color:var(--accent)}
+.tooltip-pts{font-weight:600;color:var(--accent)}
 .th-help:hover .tooltip{display:block}
 
 /* 정렬 */
@@ -179,7 +182,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .sort-icon--active{color:var(--accent)}
 
 /* 과거 비교 */
-.cell-compare{text-align:right;font-family:var(--font-mono);font-size:12px}
+.cell-compare{text-align:right;font-size:12px}
 .cell-compare--up{color:var(--rise)}
 .cell-compare--down{color:var(--fall)}
 .cell-compare--neutral{color:var(--text-muted)}
