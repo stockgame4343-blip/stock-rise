@@ -170,8 +170,13 @@ var StockTable = (function () {
             html += '<td class="cell-volume">' + formatTradingValue(r.trading_value) + '</td>';
             html += '<td class="cell-cap">' + formatAmount(r.market_cap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
+            var displayTag = (ratingData.customTag != null ? ratingData.customTag : r.theme_tag) || '';
+            var isCustom = ratingData.customTag != null && ratingData.customTag !== r.theme_tag;
             html += '<td class="cell-reason">' +
-                (r.theme_tag ? '<span class="theme-tag">' + r.theme_tag + '</span>' : '') +
+                '<span class="tag-edit' + (displayTag ? ' theme-tag' : ' tag-edit--empty') +
+                (isCustom ? ' theme-tag--custom' : '') +
+                '" data-ticker="' + r.ticker + '">' +
+                (displayTag || '+') + '</span>' +
                 (r.rise_reason || '-') + '</td>';
             html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '<td style="text-align:center"><a href="' + detailUrl +

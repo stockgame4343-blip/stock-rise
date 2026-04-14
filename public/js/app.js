@@ -34,6 +34,14 @@
     var $memoSave = document.getElementById('memoSave');
     var $memoDelete = document.getElementById('memoDelete');
     var _memoTicker = null;
+    var $tagModal = document.getElementById('tagModal');
+    var $tagModalClose = document.getElementById('tagModalClose');
+    var $tagModalTitle = document.getElementById('tagModalTitle');
+    var $tagAutoLabel = document.getElementById('tagAutoLabel');
+    var $tagInput = document.getElementById('tagInput');
+    var $tagSave = document.getElementById('tagSave');
+    var $tagReset = document.getElementById('tagReset');
+    var _tagTicker = null;
 
     // ── localStorage 레이팅 ──
     function getRatings() {
@@ -296,6 +304,14 @@
             return;
         }
 
+        // 태그 편집 클릭
+        var tagEdit = e.target.closest('.tag-edit');
+        if (tagEdit) {
+            var ticker = tagEdit.getAttribute('data-ticker');
+            if (ticker) openTagEdit(ticker);
+            return;
+        }
+
         // 호재점수 클릭 → 뉴스 모달
         var scoreClick = e.target.closest('.score-click');
         if (scoreClick) {
@@ -349,6 +365,52 @@
         renderTable();
     }
 
+    // ── 태그 편집 모달 ──
+    function openTagEdit(ticker) {
+        _tagTicker = ticker;
+        var ratings = getRatings();
+        var rd = ratings[ticker] || {};
+        var stock = null;
+        for (var i = 0; i < state.rankings.length; i++) {
+            if (state.rankings[i].ticker === ticker) { stock = state.rankings[i]; break; }
+        }
+        var name = stock ? stock.name : ticker;
+        var autoTag = stock ? (stock.theme_tag || '') : '';
+
+        $tagModalTitle.textContent = name + ' 테마 태그';
+        $tagAutoLabel.textContent = autoTag ? '자동 추출: ' + autoTag : '자동 추출된 태그 없음';
+        $tagInput.value = rd.customTag != null ? rd.customTag : autoTag;
+        $tagModal.style.display = 'flex';
+        $tagInput.focus();
+        $tagInput.select();
+    }
+
+    function closeTagEdit() {
+        $tagModal.style.display = 'none';
+        _tagTicker = null;
+    }
+
+    function saveTag() {
+        if (!_tagTicker) return;
+        var ratings = getRatings();
+        if (!ratings[_tagTicker]) ratings[_tagTicker] = {};
+        ratings[_tagTicker].customTag = $tagInput.value.trim();
+        saveRatings(ratings);
+        closeTagEdit();
+        renderTable();
+    }
+
+    function resetTag() {
+        if (!_tagTicker) return;
+        var ratings = getRatings();
+        if (ratings[_tagTicker]) {
+            delete ratings[_tagTicker].customTag;
+        }
+        saveRatings(ratings);
+        closeTagEdit();
+        renderTable();
+    }
+
     // ── 초기화 ──
     function init() {
         $datePrev.addEventListener('click', onDatePrev);
@@ -380,6 +442,17 @@
         $memoDelete.addEventListener('click', deleteMemo);
         $memoModal.addEventListener('click', function (e) {
             if (e.target === $memoModal) closeMemo();
+        });
+
+        // 태그 편집 모달
+        $tagModalClose.addEventListener('click', closeTagEdit);
+        $tagSave.addEventListener('click', saveTag);
+        $tagReset.addEventListener('click', resetTag);
+        $tagModal.addEventListener('click', function (e) {
+            if (e.target === $tagModal) closeTagEdit();
+        });
+        $tagInput.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter') saveTag();
         });
 
         showLoading(true);

@@ -10,6 +10,7 @@ from json_store import (
     load_news_history, update_news_history,
     append_backtest_data,
     get_cached_theme_tags, update_theme_cache,
+    load_tag_overrides,
 )
 from news_crawler import (
     crawl_news_for_tickers, crawl_sector,
@@ -217,9 +218,15 @@ def collect_and_save(date_str=None):
     logger.info("[4/8] 뉴스 수집")
     news_map = crawl_news_for_tickers(tickers, date_str)
 
-    # Step 5: 기사 본문 수집 (테마 추출용, 캐시 우선)
+    # Step 5: 기사 본문 수집 (테마 추출용, 오버라이드 > 캐시 > 추출)
     logger.info("[5/8] 기사 본문 수집 (테마 추출)")
-    cached_tags, uncached_tickers = get_cached_theme_tags(tickers, date_str)
+    tag_overrides = load_tag_overrides()
+    override_tickers = set(t for t in tickers if t in tag_overrides)
+    remaining = [t for t in tickers if t not in override_tickers]
+    if override_tickers:
+        logger.info(f"  사용자 오버라이드: {len(override_tickers)}개")
+
+    cached_tags, uncached_tickers = get_cached_theme_tags(remaining, date_str)
     logger.info(f"  테마 캐시 히트: {len(cached_tags)}개, 미스: {len(uncached_tickers)}개")
 
     article_bodies_map = {}
@@ -269,8 +276,10 @@ def collect_and_save(date_str=None):
             turnover_rank_pct=turnover_ranks.get(t, 50),
         )
 
-        # 테마 태그 + 상승 이유
-        if t in cached_tags:
+        # 테마 태그 + 상승 이유 (우선순위: 오버라이드 > 캐시 > 추출)
+        if t in tag_overrides:
+            theme_tag = tag_overrides[t]
+        elif t in cached_tags:
             theme_tag = cached_tags[t]
         else:
             theme_tag = extract_theme_tag(news_articles, article_bodies_map.get(t, []), stock_name=s['name'])

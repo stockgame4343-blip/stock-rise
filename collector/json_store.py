@@ -4,7 +4,7 @@ import os
 import logging
 from datetime import datetime, timedelta
 
-from config import DATA_DIR, DATA_RETENTION_DAYS, SECTOR_CACHE_PATH, NEWS_HISTORY_PATH, NEWS_HISTORY_DAYS, THEME_CACHE_PATH, THEME_CACHE_DAYS
+from config import DATA_DIR, DATA_RETENTION_DAYS, SECTOR_CACHE_PATH, NEWS_HISTORY_PATH, NEWS_HISTORY_DAYS, THEME_CACHE_PATH, THEME_CACHE_DAYS, TAG_OVERRIDES_PATH
 
 logger = logging.getLogger(__name__)
 
@@ -258,3 +258,19 @@ def append_backtest_data(date_str, rankings):
         json.dump(data, f, ensure_ascii=False, indent=2)
 
     logger.info(f"  백테스트 데이터 기록: {len(stocks)}개 종목")
+
+
+# ── 사용자 태그 오버라이드 ──
+
+def load_tag_overrides():
+    """사용자가 수동 지정한 테마 태그 로드
+    Returns:
+        dict: { ticker: tag_string }
+    """
+    if not os.path.exists(TAG_OVERRIDES_PATH):
+        return {}
+    try:
+        with open(TAG_OVERRIDES_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        return {}
