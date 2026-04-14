@@ -202,6 +202,102 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .news-item__source{display:inline-block;font-size:11px;color:var(--text-muted);background:var(--bg-tertiary);padding:2px 8px;border-radius:3px}
 .news-empty{text-align:center;color:var(--text-muted);padding:24px 0}
 
+/* ── 상단 네비게이션 ── */
+.top-bar__nav{display:flex;gap:4px;margin-left:28px}
+.top-bar__link{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;padding:6px 14px;border-radius:6px;transition:color .15s,background .15s}
+.top-bar__link:hover{color:var(--text-primary);background:var(--bg-hover)}
+.top-bar__link--active{color:var(--text-primary);font-weight:700;background:var(--bg-tertiary)}
+
+/* ── 리포트 페이지 ── */
+.report{padding-bottom:40px}
+.report__date-bar{display:flex;align-items:center;justify-content:center;gap:16px;padding:28px 0 8px}
+.report__title{font-size:20px;font-weight:700;letter-spacing:-.3px}
+.report__section{margin-top:36px}
+.report__section-title{font-size:17px;font-weight:700;margin-bottom:4px}
+.report__section-desc{font-size:13px;color:var(--text-muted);margin-bottom:16px}
+.report__empty{font-size:13px;color:var(--text-muted);padding:20px 0}
+
+/* 요약 카드 */
+.report__summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
+.summary-card{background:var(--bg-secondary);border-radius:12px;padding:20px 24px;display:flex;flex-direction:column;gap:6px}
+.summary-card__label{font-size:12px;color:var(--text-muted);font-weight:500}
+.summary-card__value{font-size:22px;font-weight:700}
+.summary-card__value--rise{color:var(--rise)}
+.summary-card__value--hot{color:var(--orange)}
+
+/* 섹터 카드 */
+.sector-cards{display:flex;flex-direction:column;gap:10px}
+.sector-card{background:var(--bg-secondary);border-radius:12px;padding:20px 24px}
+.sector-card__header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.sector-card__rank{font-size:13px;font-weight:800;color:var(--accent);min-width:20px}
+.sector-card__name{font-size:15px;font-weight:700;flex:1}
+.sector-card__count{font-size:12px;color:var(--text-muted);background:var(--bg-tertiary);padding:3px 10px;border-radius:20px}
+.sector-card__stats{display:flex;gap:16px;margin-bottom:12px}
+.sector-card__rate{font-size:13px;font-weight:600;color:var(--rise)}
+.sector-card__volume{font-size:12px;color:var(--text-muted)}
+.sector-card__stocks{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:1px solid var(--border-subtle)}
+.sector-card__stock{display:flex;justify-content:space-between;font-size:13px}
+.sector-card__stock-name{color:var(--text-secondary);font-weight:500}
+.sector-card__stock-rate{color:var(--rise);font-weight:600}
+.sector-card__more{font-size:11px;color:var(--text-muted);margin-top:2px}
+
+/* 테마 클라우드 */
+.theme-cloud{display:flex;flex-wrap:wrap;gap:8px}
+.theme-chip{background:var(--bg-secondary);border-radius:10px;padding:12px 18px;display:flex;flex-direction:column;gap:4px;transition:background .15s}
+.theme-chip:hover{background:var(--bg-hover)}
+.theme-chip--lg .theme-chip__name{font-size:16px;font-weight:700}
+.theme-chip--md .theme-chip__name{font-size:14px;font-weight:600}
+.theme-chip--sm .theme-chip__name{font-size:13px;font-weight:600}
+.theme-chip__name{color:var(--accent)}
+.theme-chip__meta{font-size:11px;color:var(--text-muted)}
+
+/* 주목 종목 카드 */
+.stock-cards{display:flex;flex-direction:column;gap:12px}
+.stock-card{background:var(--bg-secondary);border-radius:12px;padding:20px 24px}
+.stock-card__top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.stock-card__rank{font-size:18px;font-weight:800;color:var(--accent);min-width:24px}
+.stock-card__info{flex:1}
+.stock-card__name{font-size:15px;font-weight:700;display:block}
+.stock-card__market{font-size:12px;color:var(--text-muted)}
+.stock-card__numbers{text-align:right}
+.stock-card__rate{display:block;font-size:16px;font-weight:700;color:var(--rise)}
+.stock-card__price{font-size:12px;color:var(--text-muted)}
+.stock-card__score-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.stock-card__score-label{font-size:12px;color:var(--text-muted);min-width:52px}
+.stock-card__score-bar{flex:1;height:6px;background:var(--bg-tertiary);border-radius:3px;overflow:hidden}
+.stock-card__score-fill{height:100%;border-radius:3px;transition:width .4s ease}
+.stock-card__score-fill--high{background:var(--green)}
+.stock-card__score-fill--mid{background:var(--yellow)}
+.stock-card__score-fill--low{background:var(--text-muted)}
+.stock-card__score-num{min-width:32px;text-align:center}
+.stock-card__reason{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
+.stock-card__reason .theme-tag{margin-right:6px;vertical-align:middle}
+.stock-card__news{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg-tertiary);border-radius:8px;text-decoration:none;margin-bottom:10px;transition:background .15s}
+.stock-card__news:hover{background:var(--bg-hover)}
+.stock-card__news-icon{font-size:14px;flex-shrink:0}
+.stock-card__news-title{font-size:12px;color:var(--text-primary);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.stock-card__news-source{font-size:11px;color:var(--text-muted);flex-shrink:0}
+.stock-card__naver{display:inline-block;font-size:12px;color:var(--naver-green);text-decoration:none;font-weight:500}
+.stock-card__naver:hover{text-decoration:underline}
+
+/* 상승 원인 바 */
+.reason-bars{display:flex;flex-direction:column;gap:10px;background:var(--bg-secondary);border-radius:12px;padding:20px 24px}
+.reason-row{display:flex;align-items:center;gap:12px}
+.reason-row__label{font-size:13px;color:var(--text-primary);min-width:180px;flex-shrink:0;font-weight:500}
+.reason-row__bar-wrap{flex:1;height:8px;background:var(--bg-tertiary);border-radius:4px;overflow:hidden}
+.reason-row__bar{height:100%;background:var(--accent);border-radius:4px;transition:width .5s ease}
+.reason-row__count{font-size:12px;color:var(--text-muted);min-width:36px;text-align:right}
+
+/* 주요 뉴스 리스트 */
+.news-list{display:flex;flex-direction:column;background:var(--bg-secondary);border-radius:12px;overflow:hidden}
+.news-row{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:background .1s}
+.news-row:last-child{border-bottom:none}
+.news-row:hover{background:var(--bg-hover)}
+.news-row__left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.news-row__stock{font-size:12px;font-weight:600;color:var(--accent);min-width:72px;flex-shrink:0}
+.news-row__title{font-size:13px;color:var(--text-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.news-row__source{font-size:11px;color:var(--text-muted);flex-shrink:0;margin-left:12px}
+
 /* ── 푸터 ── */
 .footer{margin-top:auto;padding-top:40px}.footer__wrap{border-top:1px solid var(--border);padding:28px 0 24px;background:var(--bg-secondary)}
 .footer__inner{text-align:center}
@@ -213,6 +309,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .frame{padding:0 12px}
     .top-bar__inner{height:42px}
     .top-bar__updated{display:none}
+    .top-bar__nav{margin-left:16px;gap:2px}
+    .top-bar__link{font-size:12px;padding:5px 10px}
     .toolbar{flex-wrap:wrap;gap:10px;padding:10px 0}
     .toolbar__right{width:100%;justify-content:flex-end}
     .date-text{font-size:13px}
@@ -220,4 +318,12 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .ranking-table td,.ranking-table th{padding:8px 6px;font-size:12px}
     .modal{max-width:95%;max-height:85vh}
     .footer__disclaimer{padding:0 16px}
+    /* 리포트 반응형 */
+    .report__summary{grid-template-columns:repeat(2,1fr)}
+    .report__title{font-size:16px}
+    .reason-row__label{min-width:120px;font-size:12px}
+    .news-row{padding:12px 16px}
+    .news-row__stock{min-width:56px}
+    .sector-card,.stock-card,.reason-bars,.news-list{border-radius:8px}
+    .sector-card,.stock-card{padding:16px}
 }
