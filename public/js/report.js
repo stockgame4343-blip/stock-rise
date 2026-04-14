@@ -432,18 +432,28 @@
             return;
         }
 
+        // 근접: 최근 고점 순 (days asc)
+        nearHighList.sort(function (a, b) {
+            var daysA = a.stock.high_52w_date ? daysSince(a.stock.high_52w_date, currentDate) : 9999;
+            var daysB = b.stock.high_52w_date ? daysSince(b.stock.high_52w_date, currentDate) : 9999;
+            if (daysA !== daysB) return daysA - daysB;
+            return parseFloat(a.gap) - parseFloat(b.gap);
+        });
+
         var html = '<div class="compact-list compact-list--grid">';
 
+        // 돌파 먼저
         highList.forEach(function (item) {
             var s = item.stock;
             var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
             html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
             html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
-            html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '<span class="compact-row__tag--break">52주 최고가 돌파</span>';
+            html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '</a>';
         });
 
+        // 근접: 최근 → 과거 순
         nearHighList.forEach(function (item) {
             var s = item.stock;
             var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
@@ -454,8 +464,8 @@
             }
             html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
             html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
-            html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '<span class="compact-row__tag">' + daysText + '고점 대비 -' + item.gap + '%</span>';
+            html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '</a>';
         });
 
