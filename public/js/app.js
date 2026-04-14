@@ -43,6 +43,7 @@
     var $tagSave = document.getElementById('tagSave');
     var $tagReset = document.getElementById('tagReset');
     var _tagTicker = null;
+    var $lastUpdated = document.getElementById('lastUpdated');
 
     // ── localStorage 레이팅 ──
     function getRatings() {
@@ -142,6 +143,14 @@
             .then(function (data) {
                 showLoading(false);
                 state.rankings = data.rankings || [];
+
+                // 업데이트 시간 표시
+                if (data.collected_at && $lastUpdated) {
+                    var d = new Date(data.collected_at);
+                    var hh = String(d.getHours()).padStart(2, '0');
+                    var mm = String(d.getMinutes()).padStart(2, '0');
+                    $lastUpdated.textContent = '마지막 업데이트 ' + hh + ':' + mm;
+                }
 
                 if (isPastDate()) {
                     fetchCurrentPrices(state.rankings).then(function (updated) {

@@ -26,30 +26,44 @@
     --shadow:0 1px 4px rgba(0,0,0,.06);
     --modal-backdrop:rgba(0,0,0,.25);--modal-shadow:0 16px 48px rgba(0,0,0,.12);
 }
-body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-sans);font-size:14px;line-height:1.5;min-height:100vh}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--font-sans);font-size:14px;line-height:1.5;min-height:100vh;display:flex;flex-direction:column}
 
 /* ── 프레임 ── */
-.frame{max-width:1440px;margin:0 auto;padding:0 40px}
+.frame{max-width:1440px;margin:0 auto;padding:0 40px;width:100%}
 
-/* ── 날짜 바 ── */
-.date-bar{display:flex;align-items:center;justify-content:center;gap:20px;padding:18px 0;border-bottom:1px solid var(--border)}
-.date-center{display:flex;align-items:center;gap:10px}
-.date-badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:4px;background:transparent;border:1px solid var(--text-secondary);color:var(--text-primary);font-size:12px;font-weight:700}
-.date-badge--past{border-color:var(--text-muted);color:var(--text-muted);cursor:pointer}
-.date-badge--past:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
-.date-text{font-size:17px;font-weight:700;letter-spacing:-0.3px}
-.date-nav{background:var(--bg-tertiary);border:1px solid var(--border);color:var(--text-primary);width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:20px;display:flex;align-items:center;justify-content:center;transition:background .15s}
-.date-nav:hover{background:var(--bg-hover)}
+/* ── 상단 타이틀 바 ── */
+.top-bar{background:var(--bg-secondary);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
+.top-bar__inner{display:flex;align-items:center;justify-content:space-between;height:48px}
+.top-bar__logo{font-size:17px;font-weight:800;color:var(--rise);text-decoration:none;letter-spacing:-.3px}
+.top-bar__logo:hover{opacity:.85}
+.top-bar__right{display:flex;align-items:center;gap:16px}
+.top-bar__updated{font-size:12px;color:var(--text-muted)}
 
-/* ── 탭 ── */
-.tabs{display:flex;justify-content:space-between;align-items:center;padding:14px 0;border-bottom:1px solid var(--border)}
-.tabs__left{display:flex;gap:6px}
-.tab{padding:8px 20px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
+/* ── 테마 토글 ── */
+.theme-toggle{background:none;border:none;cursor:pointer;font-size:20px;line-height:1;padding:4px;color:var(--text-secondary);transition:color .2s,transform .2s;display:flex;align-items:center}
+.theme-toggle:hover{color:var(--text-primary);transform:scale(1.15)}
+
+/* ── 툴바 (탭 + 날짜) ── */
+.toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border)}
+.toolbar__left{display:flex;align-items:center;gap:6px}
+.toolbar__right{display:flex;align-items:center;gap:8px}
+.tab{padding:7px 18px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
 .tab:hover{background:var(--bg-tertiary);color:var(--text-primary)}
 .tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.tab.tab--watchlist{border-color:var(--border);color:var(--text-muted)}
+.tab.tab--watchlist{border-color:var(--border);color:var(--text-muted);display:inline-flex;align-items:center;gap:5px;margin-left:6px}
+.tab.tab--watchlist svg{opacity:.6}
 .tab.tab--watchlist:hover{background:var(--bg-tertiary);color:var(--text-secondary)}
-.tab.tab--watchlist.active{background:transparent;border-color:var(--text-primary);color:var(--text-primary)}
+.tab.tab--watchlist:hover svg{opacity:1}
+.tab.tab--watchlist.active{background:var(--yellow);border-color:var(--yellow);color:#1d1d1f}
+.tab.tab--watchlist.active svg{opacity:1}
+
+/* 날짜 */
+.date-text{font-size:15px;font-weight:700;letter-spacing:-.3px;white-space:nowrap}
+.date-badge{display:inline-flex;align-items:center;padding:3px 10px;border-radius:4px;background:transparent;border:1px solid var(--text-secondary);color:var(--text-primary);font-size:11px;font-weight:700}
+.date-badge--past{border-color:var(--text-muted);color:var(--text-muted);cursor:pointer}
+.date-badge--past:hover{border-color:var(--text-secondary);color:var(--text-secondary)}
+.date-nav{background:none;border:1px solid var(--border);color:var(--text-secondary);width:30px;height:30px;border-radius:6px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+.date-nav:hover{background:var(--bg-tertiary);color:var(--text-primary);border-color:var(--text-muted)}
 
 /* ── 메시지 ── */
 .message,.loading{text-align:center;padding:40px 24px;color:var(--text-muted);font-size:15px}
@@ -185,17 +199,22 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .news-item__source{display:inline-block;font-size:11px;color:var(--text-muted);background:var(--bg-tertiary);padding:2px 8px;border-radius:3px}
 .news-empty{text-align:center;color:var(--text-muted);padding:24px 0}
 
-/* ── 테마 토글 ── */
-.theme-toggle{position:fixed;top:18px;right:20px;z-index:600;background:none;border:none;cursor:pointer;font-size:20px;line-height:1;padding:4px;color:var(--text-secondary);transition:color .2s,transform .2s}
-.theme-toggle:hover{color:var(--text-primary);transform:scale(1.15)}
+/* ── 푸터 ── */
+.footer{margin-top:auto;border-top:1px solid var(--border);padding:28px 0 24px;background:var(--bg-secondary)}
+.footer__inner{text-align:center}
+.footer__disclaimer{font-size:11px;color:var(--text-muted);line-height:1.7;max-width:600px;margin:0 auto 8px}
+.footer__copy{font-size:11px;color:var(--text-muted);opacity:.6}
 
 /* ── 반응형 ── */
 @media(max-width:768px){
     .frame{padding:0 12px}
-    .date-bar{padding:14px 0;gap:12px}
-    .date-text{font-size:15px}
-    .tabs{padding:10px 0;flex-wrap:wrap;gap:8px}
+    .top-bar__inner{height:42px}
+    .top-bar__updated{display:none}
+    .toolbar{flex-wrap:wrap;gap:10px;padding:10px 0}
+    .toolbar__right{width:100%;justify-content:flex-end}
+    .date-text{font-size:13px}
     .table-wrap{padding:0}
     .ranking-table td,.ranking-table th{padding:8px 6px;font-size:12px}
     .modal{max-width:95%;max-height:85vh}
+    .footer__disclaimer{padding:0 16px}
 }
