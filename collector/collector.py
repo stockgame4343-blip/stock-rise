@@ -43,7 +43,7 @@ def _parse_raw(value):
 
 def collect_naver_rising_stocks():
     """네이버 증권 API에서 코스피+코스닥 상승 종목을 가져온다."""
-    logger.info("[1/7] 네이버 증권 상승 종목 수집")
+    logger.info("[1/9] 네이버 증권 상승 종목 수집")
     all_stocks = []
 
     for market in ['KOSPI', 'KOSDAQ']:
@@ -77,7 +77,7 @@ def collect_naver_rising_stocks():
 
 def collect_trading_data(tickers):
     """5일 거래대금 평균 + 기관/외인 수급 + 회전율 산출"""
-    logger.info("[2/7] 거래 강도 데이터 수집 (5일평균 + 수급)")
+    logger.info("[2/9] 거래 강도 데이터 수집 (5일평균 + 수급)")
 
     trading_data = {}
 
@@ -178,7 +178,7 @@ def calculate_turnover_ranks(top_stocks, trading_data):
 
 def collect_sectors(tickers):
     """섹터 정보 (캐시 우선)"""
-    logger.info("[3/7] 섹터 정보 수집")
+    logger.info("[3/9] 섹터 정보 수집")
     cached = load_sector_cache()
     missing = [t for t in tickers if t not in cached]
 
@@ -190,6 +190,39 @@ def collect_sectors(tickers):
         save_sector_cache(cached)
 
     return cached
+
+
+def collect_52w_highs(tickers):
+    """52주 최고가 수집"""
+    import time
+    logger.info("[4/9] 52주 최고가 수집")
+    high_52w_map = {}
+
+    for idx, t in enumerate(tickers):
+        try:
+            url = f'https://m.stock.naver.com/api/stock/{t}/integration'
+            resp = requests.get(url, headers=HEADERS, timeout=10)
+            resp.raise_for_status()
+            data = resp.json()
+
+            high_price = 0
+            for item in data.get('totalInfos', []):
+                if item.get('code') == 'highPriceOf52Weeks':
+                    raw = item.get('value', '0')
+                    high_price = int(str(raw).replace(',', ''))
+                    break
+
+            high_52w_map[t] = high_price
+        except Exception:
+            high_52w_map[t] = 0
+
+        if (idx + 1) % 20 == 0:
+            logger.info(f"  52주 최고가 진행: {idx + 1}/{len(tickers)}")
+
+        time.sleep(0.05)
+
+    logger.info(f"  52주 최고가 수집 완료: {len(high_52w_map)}개")
+    return high_52w_map
 
 
 def collect_and_save(date_str=None, mode='closing'):
@@ -216,12 +249,15 @@ def collect_and_save(date_str=None, mode='closing'):
     # Step 3: 섹터
     sector_map = collect_sectors(tickers)
 
-    # Step 4: 뉴스
-    logger.info("[4/8] 뉴스 수집")
+    # Step 4: 52주 최고가
+    high_52w_map = collect_52w_highs(tickers)
+
+    # Step 5: 뉴스
+    logger.info("[5/9] 뉴스 수집")
     news_map = crawl_news_for_tickers(tickers, date_str)
 
-    # Step 5: 기사 본문 수집 (테마 추출용, 오버라이드 > 캐시 > 추출)
-    logger.info("[5/8] 기사 본문 수집 (테마 추출)")
+    # Step 6: 기사 본문 수집 (테마 추출용, 오버라이드 > 캐시 > 추출)
+    logger.info("[6/9] 기사 본문 수집 (테마 추출)")
     tag_overrides = load_tag_overrides()
     override_tickers = set(t for t in tickers if t in tag_overrides)
     remaining = [t for t in tickers if t not in override_tickers]
@@ -236,18 +272,18 @@ def collect_and_save(date_str=None, mode='closing'):
         uncached_news = {t: news_map.get(t, []) for t in uncached_tickers}
         article_bodies_map = fetch_article_bodies_for_themes(uncached_news)
 
-    # Step 6: 업종 등락률 + 증권사 리포트
-    logger.info("[6/8] 업종 등락률 + 증권사 리포트 수집")
+    # Step 7: 업종 등락률 + 증권사 리포트
+    logger.info("[7/9] 업종 등락률 + 증권사 리포트 수집")
     sector_performance = crawl_sector_performance()
     report_map = crawl_analyst_reports_for_tickers(tickers)
 
-    # Step 7: 뉴스 이력 로드 + 갱신
-    logger.info("[7/8] 뉴스 이력 갱신 + 점수 산출")
+    # Step 8: 뉴스 이력 로드 + 갱신
+    logger.info("[8/9] 뉴스 이력 갱신 + 점수 산출")
     news_history = load_news_history()
     update_news_history(date_str, news_map)
 
-    # Step 8: 순위 데이터 조립
-    logger.info("[8/8] 데이터 저장")
+    # Step 9: 순위 데이터 조립
+    logger.info("[9/9] 데이터 저장")
     rankings = []
     new_theme_tags = {}
     for idx, s in enumerate(top_stocks):
@@ -299,6 +335,7 @@ def collect_and_save(date_str=None, mode='closing'):
             'trading_value': s['trading_value'],
             'market_cap': s['market_cap'],
             'sector': sector_map.get(t, ''),
+            'high_52w': high_52w_map.get(t, 0),
             'theme_tag': theme_tag,
             'score': score_result['total'],
             'score_detail': score_result['detail'],

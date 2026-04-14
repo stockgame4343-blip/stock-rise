@@ -4,14 +4,14 @@
 (function () {
     var DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
     var THEME_KEY = 'theme';
-    var NEWS_INITIAL = 10;
-    var NEWS_MORE = 30;
+    var STOCK_INITIAL = 5;
+    var STOCK_MORE = 15;
 
     var state = {
         dates: [],
         dateIndex: 0,
-        allNews: [],
-        newsShown: NEWS_INITIAL,
+        allTopStocks: [],
+        stocksShown: STOCK_INITIAL,
     };
 
     // DOM
@@ -22,7 +22,7 @@
     var $datePrev = document.getElementById('datePrev');
     var $dateNext = document.getElementById('dateNext');
     var $lastUpdated = document.getElementById('lastUpdated');
-    var $newsMoreBtn = document.getElementById('newsMoreBtn');
+    var $stockMoreBtn = document.getElementById('stockMoreBtn');
 
     // ── 유틸 ──
     function formatDateKorean(ds) {
@@ -141,7 +141,7 @@
             .sort(function (a, b) { return b.stocks.length - a.stocks.length; })
             .slice(0, 5);
 
-        // 3) 테마 분석 — 카드형 TOP 5
+        // 3) 테마 분석
         var themeMap = {};
         rankings.forEach(function (r) {
             if (!r.theme_tag) return;
@@ -164,30 +164,120 @@
             .sort(function (a, b) { return b.count - a.count; })
             .slice(0, 5);
 
-        // 4) 주목 종목 (점수 TOP 5)
+        // 4) 주목 종목 (점수 TOP 15)
         result.topStocks = rankings.slice()
             .sort(function (a, b) { return b.score - a.score; })
-            .slice(0, 5);
+            .slice(0, STOCK_MORE);
 
-        // 5) 주요 뉴스 (점수 상위 30종목에서 수집)
-        var topForNews = rankings.slice()
-            .sort(function (a, b) { return b.score - a.score; })
-            .slice(0, NEWS_MORE);
-        var newsList = [];
-        topForNews.forEach(function (r) {
-            if (r.news && r.news.length > 0) {
-                var good = filterGoodNews(r.news);
-                var best = good.length > 0 ? good[0] : r.news[0];
-                newsList.push({
-                    stock: r.name, ticker: r.ticker,
-                    title: best.title, link: best.link, source: best.source,
-                    score: r.score,
-                });
+        // 5) 52주 신고가 / 근접
+        var highList = [];
+        var nearHighList = [];
+        rankings.forEach(function (r) {
+            var h = r.high_52w || 0;
+            if (h <= 0) return;
+            var ratio = r.close_price / h;
+            if (ratio >= 1.0) {
+                highList.push({ stock: r, ratio: ratio });
+            } else if (ratio >= 0.9) {
+                nearHighList.push({ stock: r, ratio: ratio, gap: ((1 - ratio) * 100).toFixed(1) });
             }
         });
-        result.news = newsList;
+        highList.sort(function (a, b) { return b.stock.change_rate - a.stock.change_rate; });
+        nearHighList.sort(function (a, b) { return a.gap - b.gap; });
+        result.highList = highList;
+        result.nearHighList = nearHighList;
 
         return result;
+    }
+
+    // ── 급등 후 조정 분석 (과거 데이터 비교) ──
+    function analyzePullbacks(currentDate, allDates) {
+        // 과거 30일 데이터에서 20%+ 급등 또는 신고가 돌파 종목 찾기
+        var pastDates = allDates.filter(function (d) { return d < currentDate; }).slice(0, 30);
+        if (pastDates.length === 0) return Promise.resolve([]);
+
+        var peakStocks = {}; // ticker → { name, peakPrice, peakDate, reason }
+
+        var promises = pastDates.map(function (date) {
+            return StockAPI.getRankings(date, 'ALL')
+                .then(function (data) {
+                    (data.rankings || []).forEach(function (r) {
+                        var dominated = r.change_rate >= 20;
+                        var hitHigh = r.high_52w > 0 && r.close_price >= r.high_52w;
+                        if (!dominated && !hitHigh) return;
+
+                        var existing = peakStocks[r.ticker];
+                        if (!existing || r.close_price > existing.peakPrice) {
+                            peakStocks[r.ticker] = {
+                                name: r.name,
+                                market: r.market,
+                                sector: r.sector,
+                                peakPrice: r.close_price,
+                                peakDate: date,
+                                reason: dominated ? '+' + r.change_rate.toFixed(1) + '% 급등' : '52주 신고가',
+                            };
+                        }
+                    });
+                })
+                .catch(function () {});
+        });
+
+        return Promise.all(promises).then(function () {
+            // 현재가 조회 (배치)
+            var tickers = Object.keys(peakStocks);
+            if (tickers.length === 0) return [];
+
+            var pricePromises = tickers.map(function (ticker) {
+                return StockAPI.getCurrentPrice(ticker)
+                    .then(function (data) {
+                        return { ticker: ticker, price: data.price };
+                    })
+                    .catch(function () {
+                        return { ticker: ticker, price: null };
+                    });
+            });
+
+            return batchProcess(pricePromises, 5).then(function (prices) {
+                var pullbacks = [];
+                prices.forEach(function (p) {
+                    if (!p.price) return;
+                    var peak = peakStocks[p.ticker];
+                    var dropPct = ((peak.peakPrice - p.price) / peak.peakPrice * 100);
+                    if (dropPct >= 25) {
+                        pullbacks.push({
+                            ticker: p.ticker,
+                            name: peak.name,
+                            market: peak.market,
+                            sector: peak.sector,
+                            peakPrice: peak.peakPrice,
+                            peakDate: peak.peakDate,
+                            currentPrice: p.price,
+                            dropPct: dropPct,
+                            reason: peak.reason,
+                        });
+                    }
+                });
+                pullbacks.sort(function (a, b) { return b.dropPct - a.dropPct; });
+                return pullbacks;
+            });
+        });
+    }
+
+    function batchProcess(promises, batchSize) {
+        var results = [];
+        var batches = [];
+        for (var i = 0; i < promises.length; i += batchSize) {
+            batches.push(promises.slice(i, i + batchSize));
+        }
+        var chain = Promise.resolve();
+        batches.forEach(function (batch) {
+            chain = chain.then(function () {
+                return Promise.all(batch).then(function (batchResults) {
+                    results = results.concat(batchResults);
+                });
+            });
+        });
+        return chain.then(function () { return results; });
     }
 
     // ── 렌더링 ──
@@ -231,30 +321,23 @@
     function renderSectors(sectors) {
         renderSectorCard(sectors, document.getElementById('sectorCards'));
     }
-
     function renderThemes(themes) {
-        var container = document.getElementById('themeCards');
-        if (themes.length === 0) {
-            container.innerHTML = '<p class="report__empty">테마 태그가 없습니다</p>';
-            return;
-        }
-        renderSectorCard(themes, container);
+        var c = document.getElementById('themeCards');
+        if (themes.length === 0) { c.innerHTML = '<p class="report__empty">테마 태그가 없습니다</p>'; return; }
+        renderSectorCard(themes, c);
     }
 
-    function renderTopStocks(stocks) {
+    function renderTopStocks(stocks, limit) {
+        var show = stocks.slice(0, limit);
         var container = document.getElementById('stockCards');
         var html = '';
-        stocks.forEach(function (s, i) {
+        show.forEach(function (s, i) {
             var naverUrl = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
             var detail = s.score_detail || {};
-            var bz = detail.buzz || 0;
-            var qu = detail.quality || 0;
-            var ty = detail.type || 0;
-            var tv = detail.turnover || 0;
+            var bz = detail.buzz || 0, qu = detail.quality || 0;
+            var ty = detail.type || 0, tv = detail.turnover || 0;
 
             html += '<div class="stock-card">';
-
-            // 헤더
             html += '<div class="stock-card__top">';
             html += '<span class="stock-card__rank">' + (i + 1) + '</span>';
             html += '<div class="stock-card__info">';
@@ -267,7 +350,6 @@
             html += '</div>';
             html += '</div>';
 
-            // 테마 + 상승 이유
             if (s.theme_tag || s.rise_reason) {
                 html += '<div class="stock-card__reason">';
                 if (s.theme_tag) html += '<span class="theme-tag">' + s.theme_tag + '</span>';
@@ -282,54 +364,17 @@
             html += '<span class="score-analysis__title">호재점수 분석</span>';
             html += '<span class="score-badge score-badge--' + cls + '">' + s.score + '</span>';
             html += '</div>';
-
-            // 4개 항목
             html += '<div class="score-analysis__grid">';
-
-            html += '<div class="score-analysis__item">';
-            html += '<div class="score-analysis__item-header">';
-            html += '<span class="score-analysis__item-label">뉴스 양</span>';
-            html += '<span class="score-analysis__item-score">' + bz + '<span class="score-analysis__item-max">/20</span></span>';
-            html += '</div>';
-            html += '<div class="score-analysis__bar"><div class="score-analysis__fill" style="width:' + (bz / 20 * 100) + '%"></div></div>';
-            html += '<span class="score-analysis__desc">' + buzzLevel(bz) + ' — 중복 제거 후 관련 뉴스 건수</span>';
-            html += '</div>';
-
-            html += '<div class="score-analysis__item">';
-            html += '<div class="score-analysis__item-header">';
-            html += '<span class="score-analysis__item-label">뉴스 질</span>';
-            html += '<span class="score-analysis__item-score">' + qu + '<span class="score-analysis__item-max">/25</span></span>';
-            html += '</div>';
-            html += '<div class="score-analysis__bar"><div class="score-analysis__fill" style="width:' + (qu / 25 * 100) + '%"></div></div>';
-            html += '<span class="score-analysis__desc">' + qualityLevel(qu) + ' — 주요 언론사, 수치 포함 여부</span>';
-            html += '</div>';
-
-            html += '<div class="score-analysis__item">';
-            html += '<div class="score-analysis__item-header">';
-            html += '<span class="score-analysis__item-label">호재 강도</span>';
-            html += '<span class="score-analysis__item-score">' + ty + '<span class="score-analysis__item-max">/30</span></span>';
-            html += '</div>';
-            html += '<div class="score-analysis__bar"><div class="score-analysis__fill" style="width:' + (ty / 30 * 100) + '%"></div></div>';
-            html += '<span class="score-analysis__desc">' + typeLevel(ty) + ' — 테마 연동, 호재 유형 분석</span>';
-            html += '</div>';
-
-            html += '<div class="score-analysis__item">';
-            html += '<div class="score-analysis__item-header">';
-            html += '<span class="score-analysis__item-label">거래량 강도</span>';
-            html += '<span class="score-analysis__item-score">' + tv + '<span class="score-analysis__item-max">/25</span></span>';
-            html += '</div>';
-            html += '<div class="score-analysis__bar"><div class="score-analysis__fill" style="width:' + (tv / 25 * 100) + '%"></div></div>';
-            html += '<span class="score-analysis__desc">' + turnoverLevel(tv) + ' — 시총 대비 거래대금 비율</span>';
-            html += '</div>';
-
-            html += '</div>'; // grid
-            html += '</div>'; // score-analysis
+            html += scoreItem('뉴스 양', bz, 20, buzzLevel(bz), '중복 제거 후 관련 뉴스 건수');
+            html += scoreItem('뉴스 질', qu, 25, qualityLevel(qu), '주요 언론사, 수치 포함 여부');
+            html += scoreItem('호재 강도', ty, 30, typeLevel(ty), '테마 연동, 호재 유형 분석');
+            html += scoreItem('거래량 강도', tv, 25, turnoverLevel(tv), '시총 대비 거래대금 비율');
+            html += '</div></div>';
 
             // 뉴스 3건
             if (s.news && s.news.length > 0) {
                 var goodNews = filterGoodNews(s.news);
                 var showNews = (goodNews.length > 0 ? goodNews : s.news).slice(0, 3);
-
                 html += '<div class="stock-card__news-list">';
                 showNews.forEach(function (n) {
                     html += '<a class="stock-card__news" href="' + n.link + '" target="_blank" rel="noopener">';
@@ -338,8 +383,6 @@
                     html += '</a>';
                 });
                 html += '</div>';
-
-                // 뉴스 더보기
                 var newsUrl = 'https://finance.naver.com/item/news.naver?code=' + s.ticker;
                 html += '<div class="stock-card__links">';
                 html += '<a class="stock-card__link" href="' + newsUrl + '" target="_blank" rel="noopener">뉴스 더보기</a>';
@@ -350,39 +393,95 @@
                 html += '<a class="stock-card__link stock-card__link--naver" href="' + naverUrl + '" target="_blank" rel="noopener">네이버 금융에서 보기</a>';
                 html += '</div>';
             }
-
             html += '</div>';
         });
+        container.innerHTML = html;
+
+        if (stocks.length > limit) {
+            $stockMoreBtn.style.display = 'block';
+            $stockMoreBtn.textContent = '더보기 (' + (stocks.length - limit) + '종목)';
+        } else {
+            $stockMoreBtn.style.display = 'none';
+        }
+    }
+
+    function scoreItem(label, val, max, level, desc) {
+        var pct = Math.round(val / max * 100);
+        return '<div class="score-analysis__item">' +
+            '<div class="score-analysis__item-header">' +
+            '<span class="score-analysis__item-label">' + label + '</span>' +
+            '<span class="score-analysis__item-score">' + val + '<span class="score-analysis__item-max">/' + max + '</span></span>' +
+            '</div>' +
+            '<div class="score-analysis__bar"><div class="score-analysis__fill" style="width:' + pct + '%"></div></div>' +
+            '<span class="score-analysis__desc">' + level + ' — ' + desc + '</span>' +
+            '</div>';
+    }
+
+    // ── 52주 신고가 / 근접 렌더링 ──
+    function renderHighList(items) {
+        var container = document.getElementById('highList');
+        if (items.length === 0) {
+            container.innerHTML = '<div class="compact-list"><p class="report__empty">52주 신고가 데이터가 아직 수집되지 않았습니다. 다음 수집 후 표시됩니다.</p></div>';
+            return;
+        }
+        var html = '<div class="compact-list">';
+        items.forEach(function (item) {
+            var s = item.stock;
+            var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
+            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
+            html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
+            html += '<span class="compact-row__price">' + formatNumber(s.close_price) + '원</span>';
+            html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
+            html += '<span class="compact-row__tag">52주 최고 ' + formatNumber(s.high_52w) + '</span>';
+            html += '</a>';
+        });
+        html += '</div>';
         container.innerHTML = html;
     }
 
-    function renderNews(newsList, limit) {
-        var container = document.getElementById('newsList');
-        if (newsList.length === 0) {
-            container.innerHTML = '<p class="report__empty">뉴스가 없습니다</p>';
-            $newsMoreBtn.style.display = 'none';
+    function renderNearHighList(items) {
+        var container = document.getElementById('nearHighList');
+        if (items.length === 0) {
+            container.innerHTML = '<div class="compact-list"><p class="report__empty">52주 신고가 데이터가 아직 수집되지 않았습니다. 다음 수집 후 표시됩니다.</p></div>';
             return;
         }
-        var show = newsList.slice(0, limit);
-        var html = '';
-        show.forEach(function (n) {
-            html += '<a class="news-row" href="' + n.link + '" target="_blank" rel="noopener">';
-            html += '<div class="news-row__left">';
-            html += '<span class="news-row__stock">' + n.stock + '</span>';
-            html += '<span class="news-row__title">' + n.title + '</span>';
-            html += '</div>';
-            html += '<span class="news-row__source">' + (n.source || '') + '</span>';
+        var html = '<div class="compact-list">';
+        items.forEach(function (item) {
+            var s = item.stock;
+            var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
+            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
+            html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
+            html += '<span class="compact-row__price">' + formatNumber(s.close_price) + '원</span>';
+            html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
+            html += '<span class="compact-row__tag">고점 대비 -' + item.gap + '%</span>';
             html += '</a>';
         });
+        html += '</div>';
         container.innerHTML = html;
+    }
 
-        // 더보기 버튼
-        if (newsList.length > limit) {
-            $newsMoreBtn.style.display = 'block';
-            $newsMoreBtn.textContent = '더보기 (' + (newsList.length - limit) + '건)';
-        } else {
-            $newsMoreBtn.style.display = 'none';
+    function renderPullbacks(pullbacks) {
+        var container = document.getElementById('pullbackList');
+        if (pullbacks.length === 0) {
+            container.innerHTML = '<div class="compact-list"><p class="report__empty">조건에 해당하는 종목이 없습니다</p></div>';
+            return;
         }
+        var html = '<div class="compact-list">';
+        pullbacks.forEach(function (p) {
+            var url = 'https://finance.naver.com/item/main.naver?code=' + p.ticker;
+            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
+            html += '<span class="compact-row__name">' + p.name + '<span class="compact-row__market">' + p.market + '</span></span>';
+            html += '<span class="compact-row__detail">';
+            html += '<span class="compact-row__peak">고점 ' + formatNumber(p.peakPrice) + '</span>';
+            html += '<span class="compact-row__arrow">&rarr;</span>';
+            html += '<span class="compact-row__current">현재 ' + formatNumber(p.currentPrice) + '</span>';
+            html += '</span>';
+            html += '<span class="compact-row__rate compact-row__rate--down">-' + p.dropPct.toFixed(1) + '%</span>';
+            html += '<span class="compact-row__tag">' + p.reason + ' (' + formatDateKorean(p.peakDate) + ')</span>';
+            html += '</a>';
+        });
+        html += '</div>';
+        container.innerHTML = html;
     }
 
     // ── 데이터 로드 ──
@@ -414,14 +513,21 @@
                 }
 
                 var analysis = analyzeData(data.rankings);
-                state.allNews = analysis.news;
-                state.newsShown = NEWS_INITIAL;
+                state.allTopStocks = analysis.topStocks;
+                state.stocksShown = STOCK_INITIAL;
 
                 renderSummary(analysis.summary);
                 renderSectors(analysis.sectors);
                 renderThemes(analysis.themes);
-                renderTopStocks(analysis.topStocks);
-                renderNews(analysis.news, NEWS_INITIAL);
+                renderTopStocks(analysis.topStocks, STOCK_INITIAL);
+                renderHighList(analysis.highList);
+                renderNearHighList(analysis.nearHighList);
+
+                // 급등 후 조정 (비동기)
+                document.getElementById('pullbackList').innerHTML = '<p class="report__empty" style="padding:16px">조정 종목 분석 중...</p>';
+                analyzePullbacks(date, state.dates).then(function (pullbacks) {
+                    renderPullbacks(pullbacks);
+                });
             })
             .catch(function () {
                 showLoading(false);
@@ -458,9 +564,9 @@
             loadReport();
         }
     });
-    $newsMoreBtn.addEventListener('click', function () {
-        state.newsShown = state.allNews.length;
-        renderNews(state.allNews, state.newsShown);
+    $stockMoreBtn.addEventListener('click', function () {
+        state.stocksShown = STOCK_MORE;
+        renderTopStocks(state.allTopStocks, STOCK_MORE);
     });
 
     init();
