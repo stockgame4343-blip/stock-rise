@@ -83,19 +83,19 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 
 /* 컬럼 */
 .col-rank{width:36px;text-align:center}
-.col-name{min-width:150px}
+.col-name{min-width:150px;text-align:left}
 .col-price{width:80px;text-align:right}
 .col-change{width:100px;text-align:right}
 .col-volume{width:100px;text-align:right}
 .col-cap{width:80px;text-align:right}
 .col-sector{width:110px;text-align:left}
-.col-reason{min-width:220px}
+.col-reason{min-width:220px;text-align:left}
 .col-score{width:80px;text-align:center}
 .col-link{width:36px;text-align:center}
 
 /* 셀 */
 .cell-rank{text-align:center;font-weight:700;color:var(--text-muted)}
-.cell-name{font-weight:600}
+.cell-name{font-weight:600;text-align:left}
 .cell-name__market{font-size:11px;color:var(--text-muted);margin-left:6px}
 .cell-name-controls{display:flex;align-items:center;gap:6px;margin-top:3px}
 .cell-price{text-align:right;font-weight:600}
@@ -106,7 +106,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .cell-volume{text-align:right}
 .cell-cap{text-align:right;color:var(--text-secondary)}
 .cell-sector{font-size:12px;color:var(--text-secondary)}
-.cell-reason{font-size:12px;color:var(--text-primary);line-height:1.5;max-width:260px}
+.cell-reason{font-size:12px;color:var(--text-primary);line-height:1.5;max-width:260px;text-align:left}
 .theme-tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 6px;border-radius:3px;margin-right:5px;background:rgba(91,157,249,.12);color:var(--accent);white-space:nowrap;cursor:pointer}
 .theme-tag:hover{background:rgba(91,157,249,.25)}
 .theme-tag--custom{background:rgba(46,213,115,.15);color:var(--green)}
