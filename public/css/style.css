@@ -215,7 +215,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .report__section{margin-top:36px}
 .report__section-title{font-size:17px;font-weight:700;margin-bottom:4px}
 .report__section-desc{font-size:13px;color:var(--text-muted);margin-bottom:16px}
-.report__empty{font-size:13px;color:var(--text-muted);padding:20px 0}
+.report__empty{font-size:13px;color:var(--text-muted);padding:20px 24px}
 
 /* 요약 카드 */
 .report__summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
@@ -226,18 +226,18 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .summary-card__value--hot{color:var(--orange)}
 
 /* 섹터 카드 */
-.sector-cards{display:flex;flex-direction:column;gap:10px}
-.sector-card{background:var(--bg-secondary);border-radius:12px;padding:20px 24px}
+.sector-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:10px}
+.sector-card{background:var(--bg-secondary);border-radius:12px;padding:16px 18px}
 .sector-card__header{display:flex;align-items:center;gap:10px;margin-bottom:10px}
 .sector-card__rank{font-size:13px;font-weight:800;color:var(--accent);min-width:20px}
-.sector-card__name{font-size:15px;font-weight:700;flex:1}
+.sector-card__name{font-size:14px;font-weight:700;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sector-card__count{font-size:12px;color:var(--text-muted);background:var(--bg-tertiary);padding:3px 10px;border-radius:20px}
 .sector-card__stats{display:flex;gap:16px;margin-bottom:12px}
 .sector-card__rate{font-size:13px;font-weight:600;color:var(--rise)}
 .sector-card__volume{font-size:12px;color:var(--text-muted)}
 .sector-card__stocks{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:1px solid var(--border-subtle)}
 .sector-card__stock{display:flex;justify-content:space-between;font-size:13px}
-.sector-card__stock-name{color:var(--text-secondary);font-weight:500}
+.sector-card__stock-name{color:var(--text-secondary);font-weight:500;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sector-card__stock-rate{color:var(--rise);font-weight:600}
 .sector-card__more{font-size:11px;color:var(--text-muted);margin-top:2px}
 
@@ -252,7 +252,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .theme-chip__meta{font-size:11px;color:var(--text-muted)}
 
 /* 주목 종목 카드 */
-.stock-cards{display:flex;flex-direction:column;gap:12px}
+.stock-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
 .stock-card{background:var(--bg-secondary);border-radius:12px;padding:20px 24px}
 .stock-card__top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
 .stock-card__rank{font-size:18px;font-weight:800;color:var(--accent);min-width:24px}
@@ -309,6 +309,9 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .compact-row__peak{color:var(--text-muted)}
 .compact-row__arrow{color:var(--text-muted);font-size:10px}
 .compact-row__current{font-weight:600;color:var(--text-primary)}
+.compact-list--grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border-subtle)}
+.compact-list--grid .compact-row{background:var(--bg-secondary);border-bottom:none;padding:12px 18px}
+.compact-row__tag--break{font-size:11px;font-weight:600;color:var(--rise);margin-left:auto;background:rgba(255,71,87,.1);padding:2px 8px;border-radius:4px}
 
 /* 더보기 버튼 */
 .report__more-btn{display:block;width:100%;padding:14px;margin-top:8px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;transition:background .15s,color .15s}
@@ -352,4 +355,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .news-row__stock{min-width:56px}
     .sector-card,.stock-card,.reason-bars,.news-list{border-radius:8px}
     .sector-card,.stock-card{padding:16px}
+    .sector-cards{grid-template-columns:repeat(2,1fr)}
+    .stock-cards{grid-template-columns:1fr}
+    .compact-list--grid{grid-template-columns:1fr}
 }

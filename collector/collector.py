@@ -193,28 +193,32 @@ def collect_sectors(tickers):
 
 
 def collect_52w_highs(tickers):
-    """52주 최고가 수집"""
+    """52주 최고가 및 달성일 수집 (차트 API)"""
     import time
+    from datetime import timedelta
     logger.info("[4/9] 52주 최고가 수집")
+
+    end_date = datetime.now().strftime('%Y%m%d')
+    start_date = (datetime.now() - timedelta(days=365)).strftime('%Y%m%d')
     high_52w_map = {}
 
     for idx, t in enumerate(tickers):
         try:
-            url = f'https://m.stock.naver.com/api/stock/{t}/integration'
+            url = f'https://api.stock.naver.com/chart/domestic/item/{t}/day?startDateTime={start_date}&endDateTime={end_date}'
             resp = requests.get(url, headers=HEADERS, timeout=10)
             resp.raise_for_status()
             data = resp.json()
 
-            high_price = 0
-            for item in data.get('totalInfos', []):
-                if item.get('code') == 'highPriceOf52Weeks':
-                    raw = item.get('value', '0')
-                    high_price = int(str(raw).replace(',', ''))
-                    break
-
-            high_52w_map[t] = high_price
+            if data:
+                max_entry = max(data, key=lambda x: x.get('highPrice', 0))
+                high_52w_map[t] = {
+                    'price': int(max_entry.get('highPrice', 0)),
+                    'date': max_entry.get('localDate', ''),
+                }
+            else:
+                high_52w_map[t] = {'price': 0, 'date': ''}
         except Exception:
-            high_52w_map[t] = 0
+            high_52w_map[t] = {'price': 0, 'date': ''}
 
         if (idx + 1) % 20 == 0:
             logger.info(f"  52주 최고가 진행: {idx + 1}/{len(tickers)}")
@@ -335,7 +339,8 @@ def collect_and_save(date_str=None, mode='closing'):
             'trading_value': s['trading_value'],
             'market_cap': s['market_cap'],
             'sector': sector_map.get(t, ''),
-            'high_52w': high_52w_map.get(t, 0),
+            'high_52w': high_52w_map.get(t, {}).get('price', 0),
+            'high_52w_date': high_52w_map.get(t, {}).get('date', ''),
             'theme_tag': theme_tag,
             'score': score_result['total'],
             'score_detail': score_result['detail'],

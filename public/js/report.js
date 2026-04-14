@@ -45,6 +45,13 @@
         return formatNumber(n);
     }
 
+    function daysSince(dateStr, currentDate) {
+        if (!dateStr || dateStr.length < 8) return -1;
+        var y1 = +currentDate.substring(0,4), m1 = +currentDate.substring(4,6)-1, d1 = +currentDate.substring(6,8);
+        var y2 = +dateStr.substring(0,4), m2 = +dateStr.substring(4,6)-1, d2 = +dateStr.substring(6,8);
+        return Math.round((new Date(y1,m1,d1) - new Date(y2,m2,d2)) / 86400000);
+    }
+
     function showLoading(v) {
         $loading.style.display = v ? 'block' : 'none';
         $content.style.display = v ? 'none' : 'block';
@@ -417,45 +424,41 @@
             '</div>';
     }
 
-    // ── 52주 신고가 / 근접 렌더링 ──
-    function renderHighList(items) {
+    // ── 52주 신고가 렌더링 (돌파 + 근접 통합, 2칼럼) ──
+    function renderHighSection(highList, nearHighList, currentDate) {
         var container = document.getElementById('highList');
-        if (items.length === 0) {
-            container.innerHTML = '<div class="compact-list"><p class="report__empty">52주 신고가 데이터가 아직 수집되지 않았습니다. 다음 수집 후 표시됩니다.</p></div>';
+        if (highList.length === 0 && nearHighList.length === 0) {
+            container.innerHTML = '<div class="compact-list"><p class="report__empty">52주 신고가 데이터가 아직 수집되지 않았습니다.</p></div>';
             return;
         }
-        var html = '<div class="compact-list">';
-        items.forEach(function (item) {
-            var s = item.stock;
-            var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
-            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
-            html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
-            html += '<span class="compact-row__price">' + formatNumber(s.close_price) + '원</span>';
-            html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
-            html += '<span class="compact-row__tag">52주 최고 ' + formatNumber(s.high_52w) + '</span>';
-            html += '</a>';
-        });
-        html += '</div>';
-        container.innerHTML = html;
-    }
 
-    function renderNearHighList(items) {
-        var container = document.getElementById('nearHighList');
-        if (items.length === 0) {
-            container.innerHTML = '<div class="compact-list"><p class="report__empty">52주 신고가 데이터가 아직 수집되지 않았습니다. 다음 수집 후 표시됩니다.</p></div>';
-            return;
-        }
-        var html = '<div class="compact-list">';
-        items.forEach(function (item) {
+        var html = '<div class="compact-list compact-list--grid">';
+
+        highList.forEach(function (item) {
             var s = item.stock;
             var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
             html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
             html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
-            html += '<span class="compact-row__price">' + formatNumber(s.close_price) + '원</span>';
             html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
-            html += '<span class="compact-row__tag">고점 대비 -' + item.gap + '%</span>';
+            html += '<span class="compact-row__tag--break">52주 최고가 돌파</span>';
             html += '</a>';
         });
+
+        nearHighList.forEach(function (item) {
+            var s = item.stock;
+            var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
+            var daysText = '';
+            if (s.high_52w_date) {
+                var days = daysSince(s.high_52w_date, currentDate);
+                if (days >= 0) daysText = days + '일 전 ';
+            }
+            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
+            html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
+            html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
+            html += '<span class="compact-row__tag">' + daysText + '고점 대비 -' + item.gap + '%</span>';
+            html += '</a>';
+        });
+
         html += '</div>';
         container.innerHTML = html;
     }
@@ -520,8 +523,7 @@
                 renderSectors(analysis.sectors);
                 renderThemes(analysis.themes);
                 renderTopStocks(analysis.topStocks, STOCK_INITIAL);
-                renderHighList(analysis.highList);
-                renderNearHighList(analysis.nearHighList);
+                renderHighSection(analysis.highList, analysis.nearHighList, date);
 
                 // 급등 후 조정 (비동기)
                 document.getElementById('pullbackList').innerHTML = '<p class="report__empty" style="padding:16px">조정 종목 분석 중...</p>';
