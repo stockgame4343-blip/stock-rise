@@ -1,6 +1,6 @@
 {
   "date": "20260414",
-  "collected_at": "2026-04-14T17:40:13",
+  "collected_at": "2026-04-14T19:02:29",
   "mode": "closing",
   "is_final": true,
   "count": 100,
@@ -17,6 +17,7 @@
       "trading_value": 6908000000,
       "market_cap": 46900000000,
       "sector": "디스플레이장비및부품",
+      "high_52w": 975,
       "theme_tag": "",
       "score": 47,
       "score_detail": {
@@ -65,6 +66,7 @@
       "trading_value": 11188000000,
       "market_cap": 38400000000,
       "sector": "전자장비와기기",
+      "high_52w": 3596,
       "theme_tag": "",
       "score": 52,
       "score_detail": {
@@ -138,6 +140,7 @@
       "trading_value": 232285000000,
       "market_cap": 290900000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 20550,
       "theme_tag": "AI",
       "score": 81,
       "score_detail": {
@@ -148,6 +151,11 @@
       },
       "rise_reason": "신규 수주/계약 체결 (계약, 공급), AI/반도체 테마 수혜",
       "news": [
+        {
+          "title": "'코스피 7500' 가나…\"증시 여전히 저평가\" 깜짝 전망의 이유",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274889&office_id=015&code=432720&page=&sm=",
+          "source": "한국경제"
+        },
         {
           "title": "코스피 장중 6000 재돌파…반도체, 금융주가 강세 이끌었다 [매경 자...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665891&office_id=009&code=432720&page=&sm=",
@@ -192,11 +200,6 @@
           "title": "[이 시각 시황] 통신장비주, 젠슨 황 픽 '광반도체' 기대감에 '쑥'",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000500112&office_id=374&code=432720&page=&sm=",
           "source": "SBS Biz"
-        },
-        {
-          "title": "기업공시 [3월 18일]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004600757&office_id=011&code=432720&page=&sm=",
-          "source": "서울경제"
         }
       ]
     },
@@ -211,6 +214,7 @@
       "trading_value": 19760000000,
       "market_cap": 144600000000,
       "sector": "전자제품",
+      "high_52w": 8120,
       "theme_tag": "",
       "score": 56,
       "score_detail": {
@@ -284,6 +288,7 @@
       "trading_value": 38527000000,
       "market_cap": 73400000000,
       "sector": "통신장비",
+      "high_52w": 6440,
       "theme_tag": "연료전지",
       "score": 82,
       "score_detail": {
@@ -357,6 +362,7 @@
       "trading_value": 10629000000,
       "market_cap": 47700000000,
       "sector": "건축제품",
+      "high_52w": 7320,
       "theme_tag": "이전",
       "score": 74,
       "score_detail": {
@@ -410,16 +416,22 @@
       "trading_value": 75810000000,
       "market_cap": 146700000000,
       "sector": "전자장비와기기",
+      "high_52w": 18220,
       "theme_tag": "연료전지",
-      "score": 70,
+      "score": 71,
       "score_detail": {
         "buzz": 20,
-        "quality": 10,
+        "quality": 11,
         "type": 15,
         "turnover": 25
       },
       "rise_reason": "AI/반도체 테마 수혜 (AI, 반도체)",
       "news": [
+        {
+          "title": "젠슨 황이 띄운 광통신… 600% 폭등 속 적자 기업도 수두룩",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001156834&office_id=366&code=072950&page=&sm=",
+          "source": "조선비즈"
+        },
         {
           "title": "코스피 장중 6000 재돌파…반도체, 금융주가 강세 이끌었다 [매경 자...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665891&office_id=009&code=072950&page=&sm=",
@@ -464,11 +476,6 @@
           "title": "코트라, 두바이 GITEX에 한국관 개관…韓기업 100개사 참여",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005663692&office_id=277&code=072950&page=&sm=",
           "source": "아시아경제"
-        },
-        {
-          "title": "[6월 25일 공시] 스맥 최대주주 변경",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005514706&office_id=009&code=072950&page=&sm=",
-          "source": "매일경제"
         }
       ]
     },
@@ -483,6 +490,7 @@
       "trading_value": 1254000000,
       "market_cap": 52500000000,
       "sector": "전자장비와기기",
+      "high_52w": 755,
       "theme_tag": "",
       "score": 70,
       "score_detail": {
@@ -534,14 +542,14 @@
           "source": "한국경제"
         },
         {
-          "title": "밸류업 지수 사상 최고치 기록…코스피 상승률 상회",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005486811&office_id=014&code=027040&page=&sm=",
-          "source": "파이낸셜뉴스"
-        },
-        {
           "title": "코스닥까지 번진 ‘밸류업 공시’ 열풍…밸류업 지수 사상 최고",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000103868&office_id=024&code=027040&page=&sm=",
           "source": "매경이코노미"
+        },
+        {
+          "title": "밸류업 지수 사상 최고치 기록…코스피 상승률 상회",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005486811&office_id=014&code=027040&page=&sm=",
+          "source": "파이낸셜뉴스"
         }
       ]
     },
@@ -556,6 +564,7 @@
       "trading_value": 1137000000,
       "market_cap": 51800000000,
       "sector": "식품과기본식료품소매",
+      "high_52w": 7000,
       "theme_tag": "통신장비",
       "score": 68,
       "score_detail": {
@@ -629,6 +638,7 @@
       "trading_value": 343166000000,
       "market_cap": 1372600000000,
       "sector": "창업투자",
+      "high_52w": 11330,
       "theme_tag": "우주항공",
       "score": 51,
       "score_detail": {
@@ -665,6 +675,11 @@
           "source": "서울경제"
         },
         {
+          "title": "[서울데이터랩]금일 코스닥 거래량 1위 빛과전자 거래대금 2212억 돌...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635142&office_id=081&code=027360&page=&sm=",
+          "source": "서울신문"
+        },
+        {
           "title": "[특징주]미래에셋벤처·아주IB, 스페이스X 6월 IPO임박설에 상한가",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001138893&office_id=417&code=027360&page=&sm=",
           "source": "동행미디어 시대"
@@ -673,11 +688,6 @@
           "title": "스페이스X 상장 기대에 미래에셋벤처 상한가[핫종목]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0008888054&office_id=421&code=027360&page=&sm=",
           "source": "뉴스1"
-        },
-        {
-          "title": "[서울데이터랩]금일 코스닥 거래량 1위 빛과전자 거래대금 2212억 돌...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635142&office_id=081&code=027360&page=&sm=",
-          "source": "서울신문"
         },
         {
           "title": "'스페이스X' 상장 기대감에 우주항공株 '들썩'…개미들도 수혜주 찾아....",
@@ -702,6 +712,7 @@
       "trading_value": 19181000000,
       "market_cap": 122000000000,
       "sector": "해운사",
+      "high_52w": 2310,
       "theme_tag": "연료전지",
       "score": 68,
       "score_detail": {
@@ -775,6 +786,7 @@
       "trading_value": 3319000000,
       "market_cap": 51100000000,
       "sector": "소프트웨어",
+      "high_52w": 7790,
       "theme_tag": "양자",
       "score": 62,
       "score_detail": {
@@ -801,13 +813,13 @@
           "source": "서울신문"
         },
         {
-          "title": "뉴시스와 인터뷰하는 이주도 한싹 대표이사",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013803698&office_id=003&code=430690&page=&sm=",
+          "title": "포즈 취하는 이주도 한싹 대표이사",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013803700&office_id=003&code=430690&page=&sm=",
           "source": "뉴시스"
         },
         {
-          "title": "포즈 취하는 이주도 한싹 대표이사",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013803700&office_id=003&code=430690&page=&sm=",
+          "title": "뉴시스와 인터뷰하는 이주도 한싹 대표이사",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013803698&office_id=003&code=430690&page=&sm=",
           "source": "뉴시스"
         },
         {
@@ -848,6 +860,7 @@
       "trading_value": 2655000000,
       "market_cap": 51400000000,
       "sector": "IT서비스",
+      "high_52w": 15896,
       "theme_tag": "",
       "score": 74,
       "score_detail": {
@@ -921,6 +934,7 @@
       "trading_value": 26860000000,
       "market_cap": 54100000000,
       "sector": "IT서비스",
+      "high_52w": 1407,
       "theme_tag": "",
       "score": 73,
       "score_detail": {
@@ -994,6 +1008,7 @@
       "trading_value": 45832000000,
       "market_cap": 303500000000,
       "sector": "건축자재",
+      "high_52w": 15560,
       "theme_tag": "",
       "score": 72,
       "score_detail": {
@@ -1005,6 +1020,11 @@
       "rise_reason": "신규 수주/계약 체결 (공급)",
       "news": [
         {
+          "title": "[서울데이터랩]주성코퍼레이션 29.92% 상한가 금일 증시 상승률 1위...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635248&office_id=081&code=004980&page=&sm=",
+          "source": "서울신문"
+        },
+        {
           "title": "코스피 6000 터치, 종전협상 기대에 증권가 \"7500 가시권\"",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000046248&office_id=648&code=004980&page=&sm=",
           "source": "비즈워치"
@@ -1012,11 +1032,6 @@
         {
           "title": "[서울데이터랩]4월 14일 코스피 주요 종목 마감시황",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635246&office_id=081&code=004980&page=&sm=",
-          "source": "서울신문"
-        },
-        {
-          "title": "[서울데이터랩]주성코퍼레이션 29.92% 상한가 금일 증시 상승률 1위...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635248&office_id=081&code=004980&page=&sm=",
           "source": "서울신문"
         },
         {
@@ -1067,6 +1082,7 @@
       "trading_value": 69385000000,
       "market_cap": 285100000000,
       "sector": "소프트웨어",
+      "high_52w": 10880,
       "theme_tag": "방산",
       "score": 60,
       "score_detail": {
@@ -1140,16 +1156,22 @@
       "trading_value": 232065000000,
       "market_cap": 2066500000000,
       "sector": "창업투자",
+      "high_52w": 38900,
       "theme_tag": "HBM",
-      "score": 81,
+      "score": 80,
       "score_detail": {
         "buzz": 20,
-        "quality": 11,
+        "quality": 10,
         "type": 30,
         "turnover": 20
       },
-      "rise_reason": "실적 호조 기대감 (흑자, 영업이익, 매출), 기관/외국인 수급 유입",
+      "rise_reason": "기관/외국인 수급 유입 (외국인, 기관, 매수)",
       "news": [
+        {
+          "title": "'코스피 7500' 가나…\"증시 여전히 저평가\" 깜짝 전망의 이유",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274889&office_id=015&code=100790&page=&sm=",
+          "source": "한국경제"
+        },
         {
           "title": "코스피 장중 6000 재돌파…반도체, 금융주가 강세 이끌었다 [매경 자...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665891&office_id=009&code=100790&page=&sm=",
@@ -1194,11 +1216,6 @@
           "title": "공유오피스 ‘스파크플러스’, 지난해 영업이익 102억원...3년 연속 ...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001248874&office_id=215&code=100790&page=&sm=",
           "source": "한국경제TV"
-        },
-        {
-          "title": "\"3년 연속 흑자\"…스파크플러스, 작년 매출 766억·영업익 102억",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005343407&office_id=008&code=100790&page=&sm=",
-          "source": "머니투데이"
         }
       ]
     },
@@ -1213,6 +1230,7 @@
       "trading_value": 252207000000,
       "market_cap": 623700000000,
       "sector": "통신장비",
+      "high_52w": 6390,
       "theme_tag": "연료전지",
       "score": 65,
       "score_detail": {
@@ -1281,6 +1299,7 @@
       "trading_value": 17318000000,
       "market_cap": 204300000000,
       "sector": "생물공학",
+      "high_52w": 6480,
       "theme_tag": "",
       "score": 79,
       "score_detail": {
@@ -1354,6 +1373,7 @@
       "trading_value": 5744000000,
       "market_cap": 30100000000,
       "sector": "창업투자",
+      "high_52w": 946,
       "theme_tag": "",
       "score": 65,
       "score_detail": {
@@ -1427,6 +1447,7 @@
       "trading_value": 8154000000,
       "market_cap": 10100000000,
       "sector": "건축자재",
+      "high_52w": 24800,
       "theme_tag": "이재명",
       "score": 65,
       "score_detail": {
@@ -1500,6 +1521,7 @@
       "trading_value": 14365000000,
       "market_cap": 53400000000,
       "sector": "제약",
+      "high_52w": 4405,
       "theme_tag": "",
       "score": 48,
       "score_detail": {
@@ -1573,6 +1595,7 @@
       "trading_value": 102050000000,
       "market_cap": 560900000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 25000,
       "theme_tag": "항공",
       "score": 66,
       "score_detail": {
@@ -1646,6 +1669,7 @@
       "trading_value": 1992000000,
       "market_cap": 43100000000,
       "sector": "레저용장비와제품",
+      "high_52w": 3615,
       "theme_tag": "가상자산",
       "score": 68,
       "score_detail": {
@@ -1704,6 +1728,7 @@
       "trading_value": 19241000000,
       "market_cap": 244800000000,
       "sector": "전자장비와기기",
+      "high_52w": 9710,
       "theme_tag": "",
       "score": 80,
       "score_detail": {
@@ -1730,13 +1755,13 @@
           "source": "서울경제"
         },
         {
-          "title": "안정적 실적 바탕... 성장동력 3대장 성장 ‘쑥쑥’[와이투솔루션 대....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006242193&office_id=018&code=011690&page=&sm=",
+          "title": "대주주 믿고 맡긴 강석환·오종민·김만구 ‘드림팀’... 중흥기 연다.....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006242192&office_id=018&code=011690&page=&sm=",
           "source": "이데일리"
         },
         {
-          "title": "대주주 믿고 맡긴 강석환·오종민·김만구 ‘드림팀’... 중흥기 연다.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006242192&office_id=018&code=011690&page=&sm=",
+          "title": "안정적 실적 바탕... 성장동력 3대장 성장 ‘쑥쑥’[와이투솔루션 대....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006242193&office_id=018&code=011690&page=&sm=",
           "source": "이데일리"
         },
         {
@@ -1777,6 +1802,7 @@
       "trading_value": 248735000000,
       "market_cap": 216100000000,
       "sector": "전기제품",
+      "high_52w": 9100,
       "theme_tag": "2차전지",
       "score": 79,
       "score_detail": {
@@ -1850,6 +1876,7 @@
       "trading_value": 49933000000,
       "market_cap": 478500000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 24250,
       "theme_tag": "CXL",
       "score": 77,
       "score_detail": {
@@ -1923,6 +1950,7 @@
       "trading_value": 73672000000,
       "market_cap": 395900000000,
       "sector": "통신장비",
+      "high_52w": 64900,
       "theme_tag": "지목하면",
       "score": 66,
       "score_detail": {
@@ -1996,6 +2024,7 @@
       "trading_value": 36252000000,
       "market_cap": 404700000000,
       "sector": "기계",
+      "high_52w": 86000,
       "theme_tag": "",
       "score": 56,
       "score_detail": {
@@ -2069,6 +2098,7 @@
       "trading_value": 7520000000,
       "market_cap": 93500000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 755,
       "theme_tag": "",
       "score": 47,
       "score_detail": {
@@ -2142,16 +2172,22 @@
       "trading_value": 499901000000,
       "market_cap": 519800000000,
       "sector": "컴퓨터와주변기기",
+      "high_52w": 12850,
       "theme_tag": "광통신",
-      "score": 49,
+      "score": 54,
       "score_detail": {
-        "buzz": 17,
-        "quality": 7,
+        "buzz": 20,
+        "quality": 9,
         "type": 10,
         "turnover": 15
       },
       "rise_reason": "테마/시장 이슈 부각",
       "news": [
+        {
+          "title": "젠슨 황이 띄운 광통신… 600% 폭등 속 적자 기업도 수두룩",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001156834&office_id=366&code=046970&page=&sm=",
+          "source": "조선비즈"
+        },
         {
           "title": "[서울데이터랩]마감 직후 인기 검색 종목 20選",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635247&office_id=081&code=046970&page=&sm=",
@@ -2196,11 +2232,6 @@
           "title": "[서울데이터랩]금일 코스닥 거래량 1위 대한광통신 거래대금 966억 돌...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003631806&office_id=081&code=046970&page=&sm=",
           "source": "서울신문"
-        },
-        {
-          "title": "[서울데이터랩]금일 코스닥 거래량 1위 대한광통신 거래대금 무려 315...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003631384&office_id=081&code=046970&page=&sm=",
-          "source": "서울신문"
         }
       ]
     },
@@ -2215,20 +2246,26 @@
       "trading_value": 58660000000,
       "market_cap": 269300000000,
       "sector": "건설",
+      "high_52w": 33300,
       "theme_tag": "",
-      "score": 72,
+      "score": 71,
       "score_detail": {
         "buzz": 20,
-        "quality": 7,
+        "quality": 6,
         "type": 30,
         "turnover": 15
       },
       "rise_reason": "실적 호조 기대감 (실적)",
       "news": [
         {
-          "title": "[서울데이터랩]주성코퍼레이션 29.92% 상한가 금일 증시 상승률 1위...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635248&office_id=081&code=013580&page=&sm=",
-          "source": "서울신문"
+          "title": "계룡건설, '엘리프 세종 스마트시티' 맞춤형 인테리어 컨설팅 도입",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013887394&office_id=003&code=013580&page=&sm=",
+          "source": "뉴시스"
+        },
+        {
+          "title": "코스피 6000 터치, 종전협상 기대에 증권가 \"7500 가시권\"",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000046248&office_id=648&code=013580&page=&sm=",
+          "source": "비즈워치"
         },
         {
           "title": "[서울데이터랩]4월 14일 코스피 주요 종목 마감시황",
@@ -2236,9 +2273,9 @@
           "source": "서울신문"
         },
         {
-          "title": "코스피 6000 터치, 종전협상 기대에 증권가 \"7500 가시권\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000046248&office_id=648&code=013580&page=&sm=",
-          "source": "비즈워치"
+          "title": "[서울데이터랩]주성코퍼레이션 29.92% 상한가 금일 증시 상승률 1위...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635248&office_id=081&code=013580&page=&sm=",
+          "source": "서울신문"
         },
         {
           "title": "대전 건설시장, 지역업체 참여 늘었지만…\"주도권은 여전히 외지에\"",
@@ -2269,11 +2306,6 @@
           "title": "남광토건 정비사업 실적 인정…LH, 양주·회천 사업 재개",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001137834&office_id=417&code=013580&page=&sm=",
           "source": "동행미디어 시대"
-        },
-        {
-          "title": "이란전에 울고 웃고…건설주 오늘은 '강세'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005339411&office_id=008&code=013580&page=&sm=",
-          "source": "머니투데이"
         }
       ]
     },
@@ -2288,6 +2320,7 @@
       "trading_value": 1299000000,
       "market_cap": 16300000000,
       "sector": "건강관리장비와용품",
+      "high_52w": 2915,
       "theme_tag": "",
       "score": 68,
       "score_detail": {
@@ -2361,6 +2394,7 @@
       "trading_value": 6591000000,
       "market_cap": 43600000000,
       "sector": "핸드셋",
+      "high_52w": 1677,
       "theme_tag": "",
       "score": 59,
       "score_detail": {
@@ -2434,6 +2468,7 @@
       "trading_value": 19068000000,
       "market_cap": 48900000000,
       "sector": "소프트웨어",
+      "high_52w": 5610,
       "theme_tag": "양자",
       "score": 67,
       "score_detail": {
@@ -2507,6 +2542,7 @@
       "trading_value": 21030000000,
       "market_cap": 151200000000,
       "sector": "전자장비와기기",
+      "high_52w": 3155,
       "theme_tag": "우주항공",
       "score": 44,
       "score_detail": {
@@ -2580,6 +2616,7 @@
       "trading_value": 2906000000,
       "market_cap": 57500000000,
       "sector": "IT서비스",
+      "high_52w": 3900,
       "theme_tag": "HBM",
       "score": 71,
       "score_detail": {
@@ -2653,6 +2690,7 @@
       "trading_value": 31928000000,
       "market_cap": 103100000000,
       "sector": "자동차부품",
+      "high_52w": 18180,
       "theme_tag": "대표",
       "score": 79,
       "score_detail": {
@@ -2721,6 +2759,7 @@
       "trading_value": 752000000,
       "market_cap": 50700000000,
       "sector": "IT서비스",
+      "high_52w": 19060,
       "theme_tag": "",
       "score": 65,
       "score_detail": {
@@ -2794,6 +2833,7 @@
       "trading_value": 199732000000,
       "market_cap": 2330000000000,
       "sector": "우주항공과국방",
+      "high_52w": 57300,
       "theme_tag": "스페이스X",
       "score": 44,
       "score_detail": {
@@ -2867,6 +2907,7 @@
       "trading_value": 12924000000,
       "market_cap": 286400000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 34500,
       "theme_tag": "창투사",
       "score": 77,
       "score_detail": {
@@ -2940,6 +2981,7 @@
       "trading_value": 139967000000,
       "market_cap": 2849000000000,
       "sector": "전기제품",
+      "high_52w": 49400,
       "theme_tag": "검색",
       "score": 69,
       "score_detail": {
@@ -3013,6 +3055,7 @@
       "trading_value": 37617000000,
       "market_cap": 63000000000,
       "sector": "건축자재",
+      "high_52w": 7630,
       "theme_tag": "시멘트",
       "score": 71,
       "score_detail": {
@@ -3086,6 +3129,7 @@
       "trading_value": 100282000000,
       "market_cap": 286600000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 17620,
       "theme_tag": "",
       "score": 76,
       "score_detail": {
@@ -3159,6 +3203,7 @@
       "trading_value": 1070000000,
       "market_cap": 59800000000,
       "sector": "기계",
+      "high_52w": 3700,
       "theme_tag": "다양",
       "score": 71,
       "score_detail": {
@@ -3232,6 +3277,7 @@
       "trading_value": 1933000000,
       "market_cap": 30900000000,
       "sector": "자동차부품",
+      "high_52w": 744,
       "theme_tag": "",
       "score": 83,
       "score_detail": {
@@ -3305,6 +3351,7 @@
       "trading_value": 60607000000,
       "market_cap": 926000000000,
       "sector": "전기장비",
+      "high_52w": 160000,
       "theme_tag": "신재생에너지",
       "score": 71,
       "score_detail": {
@@ -3378,6 +3425,7 @@
       "trading_value": 37766000000,
       "market_cap": 338200000000,
       "sector": "통신장비",
+      "high_52w": 21550,
       "theme_tag": "방위산업",
       "score": 77,
       "score_detail": {
@@ -3451,6 +3499,7 @@
       "trading_value": 47846000000,
       "market_cap": 796100000000,
       "sector": "기계",
+      "high_52w": 139000,
       "theme_tag": "",
       "score": 59,
       "score_detail": {
@@ -3524,6 +3573,7 @@
       "trading_value": 19823000000,
       "market_cap": 323400000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 41800,
       "theme_tag": "창투사",
       "score": 78,
       "score_detail": {
@@ -3534,6 +3584,11 @@
       },
       "rise_reason": "실적 호조 기대감 (실적, 영업이익), 기관/외국인 수급 유입",
       "news": [
+        {
+          "title": "'코스피 7500' 가나…\"증시 여전히 저평가\" 깜짝 전망의 이유",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274889&office_id=015&code=272110&page=&sm=",
+          "source": "한국경제"
+        },
         {
           "title": "코스피 장중 6000 재돌파…반도체, 금융주가 강세 이끌었다 [매경 자...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665891&office_id=009&code=272110&page=&sm=",
@@ -3578,11 +3633,6 @@
           "title": "울산 온산산단에 초고순도 PM 생산공장 신설…2027년 5월 준공",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0008830562&office_id=421&code=272110&page=&sm=",
           "source": "뉴스1"
-        },
-        {
-          "title": "울산 온산국가산단에 대규모 반도체 세정제 생산공장 신설 추진",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0015962543&office_id=001&code=272110&page=&sm=",
-          "source": "연합뉴스"
         }
       ]
     },
@@ -3597,6 +3647,7 @@
       "trading_value": 46114000000,
       "market_cap": 864800000000,
       "sector": "우주항공과국방",
+      "high_52w": 104800,
       "theme_tag": "광통신",
       "score": 76,
       "score_detail": {
@@ -3670,6 +3721,7 @@
       "trading_value": 95855000000,
       "market_cap": 328000000000,
       "sector": "IT서비스",
+      "high_52w": 77000,
       "theme_tag": "",
       "score": 55,
       "score_detail": {
@@ -3743,6 +3795,7 @@
       "trading_value": 17807000000,
       "market_cap": 59700000000,
       "sector": "IT서비스",
+      "high_52w": 11100,
       "theme_tag": "",
       "score": 55,
       "score_detail": {
@@ -3789,14 +3842,14 @@
           "source": "조선비즈"
         },
         {
-          "title": "김유원·정세주, '은탑산업훈장' 수훈…SW 산업 발전 주역",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000448976&office_id=629&code=465480&page=&sm=",
-          "source": "더팩트"
-        },
-        {
           "title": "김유원 네이버클라우드 대표·정세주 눔 의장, 은탑산업훈장",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0015772237&office_id=001&code=465480&page=&sm=",
           "source": "연합뉴스"
+        },
+        {
+          "title": "김유원·정세주, '은탑산업훈장' 수훈…SW 산업 발전 주역",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000448976&office_id=629&code=465480&page=&sm=",
+          "source": "더팩트"
         },
         {
           "title": "AI 패권 경쟁 속 ‘SW 산업인의 날’…정부 “AI 3대 강국 향한 ...",
@@ -3816,6 +3869,7 @@
       "trading_value": 105950000000,
       "market_cap": 235200000000,
       "sector": "전자장비와기기",
+      "high_52w": 7950,
       "theme_tag": "",
       "score": 54,
       "score_detail": {
@@ -3889,6 +3943,7 @@
       "trading_value": 17394000000,
       "market_cap": 64900000000,
       "sector": "핸드셋",
+      "high_52w": 4084,
       "theme_tag": "",
       "score": 68,
       "score_detail": {
@@ -3962,6 +4017,7 @@
       "trading_value": 107139000000,
       "market_cap": 2398200000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 50600,
       "theme_tag": "",
       "score": 70,
       "score_detail": {
@@ -4035,6 +4091,7 @@
       "trading_value": 8285000000,
       "market_cap": 195600000000,
       "sector": "IT서비스",
+      "high_52w": 40000,
       "theme_tag": "",
       "score": 59,
       "score_detail": {
@@ -4108,6 +4165,7 @@
       "trading_value": 53662000000,
       "market_cap": 408200000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 36000,
       "theme_tag": "AI",
       "score": 68,
       "score_detail": {
@@ -4181,6 +4239,7 @@
       "trading_value": 80367000000,
       "market_cap": 58900000000,
       "sector": "철강",
+      "high_52w": 3265,
       "theme_tag": "철강",
       "score": 64,
       "score_detail": {
@@ -4254,6 +4313,7 @@
       "trading_value": 19712000000,
       "market_cap": 152600000000,
       "sector": "전자장비와기기",
+      "high_52w": 7150,
       "theme_tag": "",
       "score": 75,
       "score_detail": {
@@ -4322,6 +4382,7 @@
       "trading_value": 116792000000,
       "market_cap": 104600000000,
       "sector": "화학",
+      "high_52w": 13100,
       "theme_tag": "",
       "score": 61,
       "score_detail": {
@@ -4395,16 +4456,22 @@
       "trading_value": 78287000000,
       "market_cap": 2136900000000,
       "sector": "전자장비와기기",
+      "high_52w": 92400,
       "theme_tag": "",
-      "score": 69,
+      "score": 68,
       "score_detail": {
         "buzz": 20,
-        "quality": 14,
+        "quality": 13,
         "type": 25,
         "turnover": 10
       },
       "rise_reason": "신규 수주/계약 체결 (수주)",
       "news": [
+        {
+          "title": "저평가·방어주로 투자 중심잡은 국민연금…코스닥선 소부장 줍줍",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004610685&office_id=011&code=007810&page=&sm=",
+          "source": "서울경제"
+        },
         {
           "title": "[서울데이터랩]주성코퍼레이션 29.92% 상한가 금일 증시 상승률 1위...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635248&office_id=081&code=007810&page=&sm=",
@@ -4449,11 +4516,6 @@
           "title": "신성이엔지, 122억 규모 클린룸 구축공사 수주",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002621612&office_id=016&code=007810&page=&sm=",
           "source": "헤럴드경제"
-        },
-        {
-          "title": "[스타워즈] KB證 금메달, 한양디지텍·에치에프알로 수익률 20% 돌파",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005268399&office_id=015&code=007810&page=&sm=",
-          "source": "한국경제"
         }
       ]
     },
@@ -4468,6 +4530,7 @@
       "trading_value": 22791000000,
       "market_cap": 312000000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 38000,
       "theme_tag": "",
       "score": 73,
       "score_detail": {
@@ -4541,6 +4604,7 @@
       "trading_value": 3255000000,
       "market_cap": 392600000000,
       "sector": "생물공학",
+      "high_52w": 44000,
       "theme_tag": "바이오",
       "score": 74,
       "score_detail": {
@@ -4614,6 +4678,7 @@
       "trading_value": 5043000000,
       "market_cap": 179300000000,
       "sector": "핸드셋",
+      "high_52w": 32700,
       "theme_tag": "",
       "score": 77,
       "score_detail": {
@@ -4687,18 +4752,24 @@
       "trading_value": 4763000000,
       "market_cap": 662500000000,
       "sector": "제약",
+      "high_52w": 74900,
       "theme_tag": "",
-      "score": 66,
+      "score": 67,
       "score_detail": {
         "buzz": 20,
-        "quality": 11,
+        "quality": 12,
         "type": 25,
         "turnover": 10
       },
-      "rise_reason": "신약/임상 관련 호재 (신약, 임상, 승인)",
+      "rise_reason": "신약/임상 관련 호재 (신약, 임상)",
       "news": [
         {
-          "title": "[단독] 삼성바이오에피스, ‘1호 신약’ 1상 개시… 신약 개발 기업 ...",
+          "title": "삼성, 신수종 사업 발표 15년만에 결실…시밀러 넘어 블록버스터 키운....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004610673&office_id=011&code=287840&page=&sm=",
+          "source": "서울경제"
+        },
+        {
+          "title": "[단독] 삼성바이오에피스, ‘1호 신약’ 1상 개시… 신약 개발 기업...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004610527&office_id=011&code=287840&page=&sm=",
           "source": "서울경제"
         },
@@ -4741,11 +4812,6 @@
           "title": "대덕특구 연구소기업 한다랩, AI 자동화 기술로 美 나스닥 진출",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0013743264&office_id=003&code=287840&page=&sm=",
           "source": "뉴시스"
-        },
-        {
-          "title": "연구개발특구, 7000억 기술이전·FDA 승인까지…딥테크 사업화 성과 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005708699&office_id=277&code=287840&page=&sm=",
-          "source": "아시아경제"
         }
       ]
     },
@@ -4760,16 +4826,22 @@
       "trading_value": 14981000000,
       "market_cap": 1484400000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 137200,
       "theme_tag": "발전",
-      "score": 65,
+      "score": 64,
       "score_detail": {
         "buzz": 20,
-        "quality": 14,
+        "quality": 13,
         "type": 21,
         "turnover": 10
       },
       "rise_reason": "AI/반도체 테마 수혜 (반도체)",
       "news": [
+        {
+          "title": "'코스피 7500' 가나…\"증시 여전히 저평가\" 깜짝 전망의 이유",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274889&office_id=015&code=131290&page=&sm=",
+          "source": "한국경제"
+        },
         {
           "title": "[유상증자 모니터] 메가터치, 대만기업 조달 참여…2대주주·이사회 진....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000082369&office_id=293&code=131290&page=&sm=",
@@ -4814,11 +4886,6 @@
           "title": "대구, 반도체 소부장 거점으로 떠오른다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005598489&office_id=009&code=131290&page=&sm=",
           "source": "매일경제"
-        },
-        {
-          "title": "엘디티, 40억원 규모 유상증자 결정",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006169481&office_id=018&code=131290&page=&sm=",
-          "source": "이데일리"
         }
       ]
     },
@@ -4833,6 +4900,7 @@
       "trading_value": 86504000000,
       "market_cap": 245500000000,
       "sector": "통신장비",
+      "high_52w": 22200,
       "theme_tag": "우주항공산업",
       "score": 64,
       "score_detail": {
@@ -4906,6 +4974,7 @@
       "trading_value": 95879000000,
       "market_cap": 186100000000,
       "sector": "IT서비스",
+      "high_52w": 47750,
       "theme_tag": "",
       "score": 38,
       "score_detail": {
@@ -4979,6 +5048,7 @@
       "trading_value": 16101000000,
       "market_cap": 552800000000,
       "sector": "자동차부품",
+      "high_52w": 178400,
       "theme_tag": "",
       "score": 52,
       "score_detail": {
@@ -5052,16 +5122,22 @@
       "trading_value": 23215000000,
       "market_cap": 548100000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 19340,
       "theme_tag": "",
-      "score": 73,
+      "score": 63,
       "score_detail": {
         "buzz": 20,
-        "quality": 13,
-        "type": 30,
+        "quality": 12,
+        "type": 21,
         "turnover": 10
       },
       "rise_reason": "M&A 관련 이슈 (인수, M&A)",
       "news": [
+        {
+          "title": "'코스피 7500' 가나…\"증시 여전히 저평가\" 깜짝 전망의 이유",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274889&office_id=015&code=114810&page=&sm=",
+          "source": "한국경제"
+        },
         {
           "title": "[분석] 한솔테크닉스, 반도체 소부장 승부수…대규모 증자·M&A로 체질...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002381260&office_id=123&code=114810&page=&sm=",
@@ -5106,11 +5182,6 @@
           "title": "반도체의 봄… SK하이닉스도 높아진 기대감",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005341174&office_id=008&code=114810&page=&sm=",
           "source": "머니투데이"
-        },
-        {
-          "title": "삼전 이어 SK하닉도 실적 대박?...\"160만원 간다\" 기대치 높아...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005341044&office_id=008&code=114810&page=&sm=",
-          "source": "머니투데이"
         }
       ]
     },
@@ -5125,6 +5196,7 @@
       "trading_value": 66763000000,
       "market_cap": 1890200000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 117500,
       "theme_tag": "반도체",
       "score": 72,
       "score_detail": {
@@ -5198,6 +5270,7 @@
       "trading_value": 7101000000,
       "market_cap": 243000000000,
       "sector": "기계",
+      "high_52w": 14650,
       "theme_tag": "",
       "score": 53,
       "score_detail": {
@@ -5271,6 +5344,7 @@
       "trading_value": 7389000000,
       "market_cap": 121500000000,
       "sector": "전자장비와기기",
+      "high_52w": 5100,
       "theme_tag": "",
       "score": 73,
       "score_detail": {
@@ -5344,6 +5418,7 @@
       "trading_value": 41104000000,
       "market_cap": 328000000000,
       "sector": "우주항공과국방",
+      "high_52w": 31300,
       "theme_tag": "광통신",
       "score": 60,
       "score_detail": {
@@ -5417,6 +5492,7 @@
       "trading_value": 14824000000,
       "market_cap": 32100000000,
       "sector": "섬유,의류,신발,호화품",
+      "high_52w": 1450,
       "theme_tag": "",
       "score": 41,
       "score_detail": {
@@ -5490,6 +5566,7 @@
       "trading_value": 53450000000,
       "market_cap": 206500000000,
       "sector": "기계",
+      "high_52w": 27200,
       "theme_tag": "",
       "score": 65,
       "score_detail": {
@@ -5563,65 +5640,66 @@
       "trading_value": 714772000000,
       "market_cap": 40204900000000,
       "sector": "증권",
+      "high_52w": 76966,
       "theme_tag": "증권",
-      "score": 64,
+      "score": 72,
       "score_detail": {
         "buzz": 20,
-        "quality": 9,
+        "quality": 17,
         "type": 30,
         "turnover": 5
       },
       "rise_reason": "실적 호조 기대감 (실적)",
       "news": [
         {
+          "title": "공매도 잔고 또 최고치 경신…한미반도체·현대차 등 많아",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000855023&office_id=422&code=006800&page=&sm=",
+          "source": "연합뉴스TV"
+        },
+        {
+          "title": "‘육천피’ 고지 회복 앞둔 코스피… 향방 가를 핵심은 ‘실적’",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001156859&office_id=366&code=006800&page=&sm=",
+          "source": "조선비즈"
+        },
+        {
+          "title": "\" 삼전닉스 분기이익 100조\"…코스피 장중 6000 돌파",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665955&office_id=009&code=006800&page=&sm=",
+          "source": "매일경제"
+        },
+        {
+          "title": "[단독] 진격의 미래에셋 … 日·호주 진출한다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665952&office_id=009&code=006800&page=&sm=",
+          "source": "매일경제"
+        },
+        {
+          "title": "[단독] 미래에셋 해외수익 2년새 10배 …\"이젠 日 개미·호주 연금...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665900&office_id=009&code=006800&page=&sm=",
+          "source": "매일경제"
+        },
+        {
+          "title": "종전 기대에 실적 모멘텀까지…코스피, 전쟁 후 첫 6000선 터치",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004610668&office_id=011&code=006800&page=&sm=",
+          "source": "서울경제"
+        },
+        {
+          "title": "'코스피 7500' 가나…\"증시 여전히 저평가\" 깜짝 전망의 이유",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274889&office_id=015&code=006800&page=&sm=",
+          "source": "한국경제"
+        },
+        {
+          "title": "ETF 등 공격투자…은행·증권사로 퇴직연금 대이동",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274877&office_id=015&code=006800&page=&sm=",
+          "source": "한국경제"
+        },
+        {
           "title": "코스피 장중 6000 재돌파…반도체, 금융주가 강세 이끌었다 [매경 자...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665891&office_id=009&code=006800&page=&sm=",
           "source": "매일경제"
         },
         {
-          "title": "4월 5.3조 싹쓸이한 외국인, 최애 종목 보니…\"실적 탄탄, 계속 살...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005344118&office_id=008&code=006800&page=&sm=",
-          "source": "머니투데이"
-        },
-        {
-          "title": "전쟁에도 코스피 6000 재돌파···SK하이닉스 한달 반만에 ‘역대 최...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003439822&office_id=032&code=006800&page=&sm=",
-          "source": "경향신문"
-        },
-        {
-          "title": "SK하닉 '신고가' 썼는데…'상위 1%' 초고수들 팔아치운 이유 [마켓...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274843&office_id=015&code=006800&page=&sm=",
-          "source": "한국경제"
-        },
-        {
-          "title": "[서울데이터랩]주성코퍼레이션 29.92% 상한가 금일 증시 상승률 1위...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635248&office_id=081&code=006800&page=&sm=",
-          "source": "서울신문"
-        },
-        {
-          "title": "[서울데이터랩]마감 직후 인기 검색 종목 20選",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635247&office_id=081&code=006800&page=&sm=",
-          "source": "서울신문"
-        },
-        {
-          "title": "코스피 6000 터치, 종전협상 기대에 증권가 \"7500 가시권\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000046248&office_id=648&code=006800&page=&sm=",
-          "source": "비즈워치"
-        },
-        {
-          "title": "이란 사태 출구 가시화에 투심 부활…미래에셋 10.87%, 증권주 강세...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008889363&office_id=421&code=006800&page=&sm=",
-          "source": "뉴스1"
-        },
-        {
-          "title": "종전 기대감에 코스피 2.7% 올라… SK하이닉스 최고가 경신",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000135718&office_id=310&code=006800&page=&sm=",
-          "source": "여성신문"
-        },
-        {
-          "title": "[애프터마켓 브리핑] 코스피, 30거래일만에 장중 6000 재돌파",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000504360&office_id=374&code=006800&page=&sm=",
-          "source": "SBS Biz"
+          "title": "코스피 6000 재돌파…증권 대장주 미래에셋 11% 강세 [매경 자이...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665688&office_id=009&code=006800&page=&sm=",
+          "source": "매일경제"
         }
       ]
     },
@@ -5636,16 +5714,22 @@
       "trading_value": 31198000000,
       "market_cap": 142100000000,
       "sector": "창업투자",
+      "high_52w": 9830,
       "theme_tag": "",
-      "score": 58,
+      "score": 57,
       "score_detail": {
         "buzz": 20,
-        "quality": 18,
+        "quality": 17,
         "type": 15,
         "turnover": 5
       },
       "rise_reason": "AI/반도체 테마 수혜 (AI, 반도체)",
       "news": [
+        {
+          "title": "AI 기술기업 ‘노타’도 발굴…10년간 벤처 1000곳에 성장 마중물",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004610645&office_id=011&code=307930&page=&sm=",
+          "source": "서울경제"
+        },
         {
           "title": "우주 스타트업 ‘인터그래비티’ 80억원 투자 유치...2027년 궤도수...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665063&office_id=009&code=307930&page=&sm=",
@@ -5690,11 +5774,6 @@
           "title": "모빌린트, 시리즈 C서 700억 규모 투자 유치…\"글로벌 입지 확대 추...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002222996&office_id=138&code=307930&page=&sm=",
           "source": "디지털데일리"
-        },
-        {
-          "title": "AI반도체 모빌린트, 700억 투자유치…\"풀스택 경쟁력 강화\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005338557&office_id=008&code=307930&page=&sm=",
-          "source": "머니투데이"
         }
       ]
     },
@@ -5709,6 +5788,7 @@
       "trading_value": 150117000000,
       "market_cap": 3773100000000,
       "sector": "전기제품",
+      "high_52w": 59600,
       "theme_tag": "광통신",
       "score": 64,
       "score_detail": {
@@ -5782,6 +5862,7 @@
       "trading_value": 11311000000,
       "market_cap": 182800000000,
       "sector": "",
+      "high_52w": 21280,
       "theme_tag": "",
       "score": 45,
       "score_detail": {
@@ -5855,6 +5936,7 @@
       "trading_value": 2877000000,
       "market_cap": 62300000000,
       "sector": "",
+      "high_52w": 21275,
       "theme_tag": "",
       "score": 46,
       "score_detail": {
@@ -5928,6 +6010,7 @@
       "trading_value": 485000000,
       "market_cap": 39800000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 4792,
       "theme_tag": "",
       "score": 40,
       "score_detail": {
@@ -6001,6 +6084,7 @@
       "trading_value": 32551000000,
       "market_cap": 414800000000,
       "sector": "디스플레이장비및부품",
+      "high_52w": 7120,
       "theme_tag": "",
       "score": 66,
       "score_detail": {
@@ -6074,6 +6158,7 @@
       "trading_value": 12526000000,
       "market_cap": 468200000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 19780,
       "theme_tag": "AI",
       "score": 62,
       "score_detail": {
@@ -6147,6 +6232,7 @@
       "trading_value": 1652000000,
       "market_cap": 45500000000,
       "sector": "소프트웨어",
+      "high_52w": 2230,
       "theme_tag": "",
       "score": 59,
       "score_detail": {
@@ -6220,6 +6306,7 @@
       "trading_value": 43751000000,
       "market_cap": 1105300000000,
       "sector": "비철금속",
+      "high_52w": 117200,
       "theme_tag": "광통신",
       "score": 32,
       "score_detail": {
@@ -6293,6 +6380,7 @@
       "trading_value": 697000000,
       "market_cap": 7300000000,
       "sector": "",
+      "high_52w": 21250,
       "theme_tag": "",
       "score": 45,
       "score_detail": {
@@ -6361,18 +6449,34 @@
       "trading_value": 408081000000,
       "market_cap": 84535800000000,
       "sector": "복합기업",
+      "high_52w": 688000,
       "theme_tag": "밸류체",
-      "score": 53,
+      "score": 55,
       "score_detail": {
         "buzz": 20,
-        "quality": 7,
+        "quality": 9,
         "type": 21,
         "turnover": 5
       },
       "rise_reason": "테마/시장 이슈 부각",
       "news": [
         {
-          "title": "다시 6000 찍은 코스피…반도체에 외국인이 돌아왔다",
+          "title": "서서히 돌아오는 외국인…코스피, 2.74% 오른 5967.75에 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000096346&office_id=243&code=402340&page=&sm=",
+          "source": "이코노미스트"
+        },
+        {
+          "title": "\" 삼전닉스 분기이익 100조\"…코스피 장중 6000 돌파",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665955&office_id=009&code=402340&page=&sm=",
+          "source": "매일경제"
+        },
+        {
+          "title": "상장도 안 했는데 \"스페이스X 편입\"…'뻥튀기' 우주 ETF 주의보",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003516168&office_id=025&code=402340&page=&sm=",
+          "source": "중앙일보"
+        },
+        {
+          "title": "다시 6000 찍은 코스피… 반도체에 외국인이 돌아왔다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003021652&office_id=029&code=402340&page=&sm=",
           "source": "디지털타임스"
         },
@@ -6392,34 +6496,19 @@
           "source": "서울신문"
         },
         {
-          "title": "코스피 6000 터치, 종전협상 기대에 증권가 \"7500 가시권\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000046248&office_id=648&code=402340&page=&sm=",
-          "source": "비즈워치"
-        },
-        {
           "title": "[서울데이터랩]4월 14일 코스피 주요 종목 마감시황",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635246&office_id=081&code=402340&page=&sm=",
           "source": "서울신문"
         },
         {
+          "title": "코스피 6000 터치, 종전협상 기대에 증권가 \"7500 가시권\"",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000046248&office_id=648&code=402340&page=&sm=",
+          "source": "비즈워치"
+        },
+        {
           "title": "‘중동 협상’ 기대에 코스피 2.74% 급등…SK하이닉스 장중 112만...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002224462&office_id=138&code=402340&page=&sm=",
           "source": "디지털데일리"
-        },
-        {
-          "title": "종전 기대감에 코스피 2.7% 올라… SK하이닉스 최고가 경신",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000135718&office_id=310&code=402340&page=&sm=",
-          "source": "여성신문"
-        },
-        {
-          "title": "코스피, 협상 기대감에 장중 '6천피' 재돌파…5,960선 마감",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001348463&office_id=055&code=402340&page=&sm=",
-          "source": "SBS"
-        },
-        {
-          "title": "코스피, 협상 기대감에 장중 '6천피' 재돌파…5,960선 마감(종합...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016021216&office_id=001&code=402340&page=&sm=",
-          "source": "연합뉴스"
         }
       ]
     },
@@ -6434,6 +6523,7 @@
       "trading_value": 146109000000,
       "market_cap": 834900000000,
       "sector": "조선",
+      "high_52w": 38700,
       "theme_tag": "광통신",
       "score": 45,
       "score_detail": {
@@ -6455,13 +6545,13 @@
           "source": "서울신문"
         },
         {
-          "title": "[서울데이터랩]‘주성코퍼레이션’ 24.58% 폭등…실시간 상승률 1위",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635042&office_id=081&code=217590&page=&sm=",
+          "title": "[서울데이터랩]개장 직후 인기 검색 종목 20選",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635044&office_id=081&code=217590&page=&sm=",
           "source": "서울신문"
         },
         {
-          "title": "[서울데이터랩]개장 직후 인기 검색 종목 20選",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635044&office_id=081&code=217590&page=&sm=",
+          "title": "[서울데이터랩]‘주성코퍼레이션’ 24.58% 폭등…실시간 상승률 1위",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003635042&office_id=081&code=217590&page=&sm=",
           "source": "서울신문"
         },
         {
@@ -6507,6 +6597,7 @@
       "trading_value": 26603000000,
       "market_cap": 716400000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 61500,
       "theme_tag": "",
       "score": 61,
       "score_detail": {
@@ -6580,6 +6671,7 @@
       "trading_value": 15388000000,
       "market_cap": 398700000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 34500,
       "theme_tag": "",
       "score": 57,
       "score_detail": {
@@ -6653,6 +6745,7 @@
       "trading_value": 1885000000,
       "market_cap": 75900000000,
       "sector": "",
+      "high_52w": 21225,
       "theme_tag": "",
       "score": 40,
       "score_detail": {
@@ -6696,6 +6789,7 @@
       "trading_value": 5885000000,
       "market_cap": 78800000000,
       "sector": "",
+      "high_52w": 11255,
       "theme_tag": "",
       "score": 5,
       "score_detail": {
@@ -6718,6 +6812,7 @@
       "trading_value": 4487000000,
       "market_cap": 88300000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 1588,
       "theme_tag": "158",
       "score": 69,
       "score_detail": {
@@ -6791,6 +6886,7 @@
       "trading_value": 8330000000,
       "market_cap": 365700000000,
       "sector": "방송과엔터테인먼트",
+      "high_52w": 99400,
       "theme_tag": "이용자들",
       "score": 25,
       "score_detail": {
@@ -6864,6 +6960,7 @@
       "trading_value": 7392000000,
       "market_cap": 170900000000,
       "sector": "기계",
+      "high_52w": 15560,
       "theme_tag": "계속해",
       "score": 70,
       "score_detail": {
@@ -6937,6 +7034,7 @@
       "trading_value": 18140000000,
       "market_cap": 335300000000,
       "sector": "반도체와반도체장비",
+      "high_52w": 38200,
       "theme_tag": "",
       "score": 66,
       "score_detail": {
@@ -7010,6 +7108,7 @@
       "trading_value": 7529000000,
       "market_cap": 139800000000,
       "sector": "디스플레이장비및부품",
+      "high_52w": 12070,
       "theme_tag": "",
       "score": 66,
       "score_detail": {
@@ -7083,6 +7182,7 @@
       "trading_value": 39979000000,
       "market_cap": 733700000000,
       "sector": "IT서비스",
+      "high_52w": 25500,
       "theme_tag": "통신장비",
       "score": 61,
       "score_detail": {
