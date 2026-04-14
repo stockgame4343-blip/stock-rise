@@ -106,14 +106,16 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .mini-star{font-size:11px;color:var(--yellow);font-weight:700;white-space:nowrap}
 .mini-exclude{font-size:10px;color:var(--rise);font-weight:700}
 .mini-memo{font-size:11px;color:var(--accent)}
-.float-controls{position:absolute;left:0;top:calc(100% + 4px);z-index:20;display:flex;align-items:center;gap:6px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap}
+.float-controls{position:absolute;left:0;top:calc(100% + 2px);z-index:20;display:flex;align-items:center;gap:6px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .15s .12s;white-space:nowrap}
+/* 투명 브릿지: 트리거→패널 사이 gap을 메워서 호버 유지 */
+.float-controls::before{content:'';position:absolute;left:-12px;right:-12px;top:-10px;height:10px}
 /* 호버 트리거: 종목명 영역 (각 컨텍스트별 부모) */
 .ctrl-wrap:hover .float-controls,
 .cell-name__wrap:hover .float-controls,
 .sector-card__stock:hover .float-controls,
 .stock-card__top:hover .float-controls,
 .compact-row:hover .float-controls,
-.float-controls:hover{opacity:1;pointer-events:auto}
+.float-controls:hover{opacity:1;pointer-events:auto;transition-delay:0s}
 .cell-price{text-align:right;font-weight:600}
 .cell-change{text-align:right}
 .cell-change--up{color:var(--rise)}
@@ -318,6 +320,15 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .compact-list>.compact-row:first-child{border-radius:12px 12px 0 0}
 .compact-list>.compact-row:last-child{border-radius:0 0 12px 12px}
 .compact-list>.compact-row:only-child{border-radius:12px}
+/* grid 2열 모서리 라운딩 */
+.compact-list--grid>.compact-row:first-child{border-radius:12px 0 0 0}
+.compact-list--grid>.compact-row:nth-child(2){border-radius:0 12px 0 0}
+.compact-list--grid>.compact-row:nth-last-child(2):nth-child(odd){border-radius:0 0 0 12px}
+.compact-list--grid>.compact-row:last-child{border-radius:0 0 12px 0}
+.compact-list--grid>.compact-row:last-child:nth-child(odd){border-radius:0 0 0 12px}
+.compact-list--grid>.compact-row:only-child{border-radius:12px}
+.compact-list--grid>.compact-row:first-child:nth-last-child(2){border-radius:12px 0 0 12px}
+.compact-list--grid>.compact-row:nth-child(2):last-child{border-radius:0 12px 12px 0}
 .compact-row{display:flex;align-items:center;gap:12px;padding:13px 24px;text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:background .1s;flex-wrap:wrap}
 .compact-row:last-child{border-bottom:none}
 .compact-row:hover{background:var(--bg-hover)}
