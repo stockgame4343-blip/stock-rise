@@ -29,7 +29,12 @@ var StockAPI = (function () {
                     });
                 }
 
-                return { rankings: rankings, collected_at: data.collected_at || '' };
+                return {
+                    rankings: rankings,
+                    collected_at: data.collected_at || '',
+                    is_final: data.is_final || false,
+                    mode: data.mode || 'closing',
+                };
             });
     }
 

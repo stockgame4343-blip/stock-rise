@@ -192,8 +192,10 @@ def collect_sectors(tickers):
     return cached
 
 
-def collect_and_save(date_str=None):
-    """전체 수집 파이프라인 v2"""
+def collect_and_save(date_str=None, mode='closing'):
+    """전체 수집 파이프라인 v2
+    mode: 'closing' = 장마감 최종 수집, 'intraday' = 장중 실시간
+    """
     if date_str is None:
         date_str = datetime.now().strftime('%Y%m%d')
 
@@ -312,6 +314,8 @@ def collect_and_save(date_str=None):
     daily_data = {
         'date': date_str,
         'collected_at': datetime.now().isoformat(timespec='seconds'),
+        'mode': mode,
+        'is_final': mode == 'closing',
         'count': len(rankings),
         'version': 2,
         'rankings': rankings,
@@ -329,4 +333,9 @@ def collect_and_save(date_str=None):
 
 
 if __name__ == '__main__':
-    collect_and_save()
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--mode', default='closing', choices=['closing', 'intraday'])
+    parser.add_argument('--date', default=None)
+    args = parser.parse_args()
+    collect_and_save(date_str=args.date, mode=args.mode)
