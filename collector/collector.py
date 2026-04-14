@@ -230,23 +230,6 @@ def collect_52w_highs(tickers):
     return high_52w_map
 
 
-_SECTOR_SHORT = {
-    '전자장비와기기': '전자장비', '우주항공과국방': '방산', '반도체와반도체장비': '반도체',
-    '소프트웨어': 'SW', '기술하드웨어와장비': 'IT하드웨어', '디스플레이장비및부품': '디스플레이',
-    '해운사': '해운', '에너지장비및서비스': '에너지', '전기장비': '전기',
-    '식품과기본식료품소매': '유통', '생물공학': '바이오', '미디어와엔터테인먼트': '엔터',
-    'IT서비스': 'IT', '건축자재': '건자재', '건축제품': '건설', '전자제품': '전자',
-    '창업투자': 'VC', '자동차부품': '자동차', '섬유와의류': '섬유',
-}
-
-
-def _sector_to_tag(sector):
-    """긴 섹터명을 짧은 태그로 변환"""
-    if not sector:
-        return ''
-    return _SECTOR_SHORT.get(sector, sector)
-
-
 def collect_and_save(date_str=None, mode='closing'):
     """전체 수집 파이프라인 v2
     mode: 'closing' = 장마감 최종 수집, 'intraday' = 장중 실시간
@@ -359,9 +342,6 @@ def collect_and_save(date_str=None, mode='closing'):
                 generate_rise_reason(news_articles, report_map.get(t, []),
                                      theme_tag='', stock_name=s['name'])
             )
-        # Fallback 3: 섹터명을 태그로 사용
-        if not theme_tag:
-            theme_tag = _sector_to_tag(sector_map.get(t, ''))
 
         # 상승 이유 (우선순위: Toss AI > 뉴스 키워드 분석)
         if t in toss_reasons:

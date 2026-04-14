@@ -47,6 +47,29 @@ def _delay():
 
 # ── 뉴스 크롤링 ──
 
+# 스팸/노이즈 뉴스 필터
+_SPAM_TITLE_PREFIXES = (
+    '[서울데이터랩]', '서울데이터랩', '[데이터랩]',
+    '오늘의 메모[', '오늘의메모[',
+)
+_SPAM_TITLE_KEYWORDS = (
+    '서울데이터랩', '증시 상승률', '증시 하락률',
+    '상승률 TOP', '하락률 TOP', '거래량 TOP',
+)
+_SPAM_SOURCES = {'서울신문'}
+
+
+def _is_spam_article(title, source):
+    """스팸/자동생성 뉴스 필터링"""
+    for prefix in _SPAM_TITLE_PREFIXES:
+        if title.startswith(prefix):
+            return True
+    for kw in _SPAM_TITLE_KEYWORDS:
+        if kw in title:
+            return True
+    return False
+
+
 def crawl_news(ticker, max_articles=10):
     """단일 종목의 최근 뉴스 크롤링 (제목, 링크, 출처)"""
     url = NAVER_NEWS_IFRAME_URL.format(ticker=ticker)
@@ -72,10 +95,15 @@ def crawl_news(ticker, max_articles=10):
                 continue
             seen_titles.add(title)
 
+            source = source_tag.get_text(strip=True) if source_tag else ''
+
+            # 스팸 필터링
+            if _is_spam_article(title, source):
+                continue
+
             link = title_tag.get('href', '')
             if link and not link.startswith('http'):
                 link = 'https://finance.naver.com' + link
-            source = source_tag.get_text(strip=True) if source_tag else ''
 
             articles.append({
                 'title': title,

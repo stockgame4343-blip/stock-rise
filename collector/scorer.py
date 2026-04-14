@@ -77,20 +77,31 @@ _ACTION_TABLE = [
     ('상장',       '상장 이슈',       5),
     ('분할',       '기업 분할 이슈',   5),
     ('협력',       '사업 협력 기대',   4),
+    ('유상증자',   '유상증자 이슈',   5),
+    ('무상감자',   '무상감자 이슈',   5),
+    ('감자',       '자본 구조 변경',   4),
+    ('전환사채',   '전환사채 이슈',   4),
+    ('CB',         '전환사채 이슈',   4),
     # 정책/규제
     ('국책',       '국책사업 수혜',   6),
     ('보조금',     '정부 보조금 수혜', 6),
+    ('관세',       '관세 정책 수혜',   6),
+    ('트럼프',     '정책 수혜 기대',   5),
     ('정부',       '정부 정책 수혜',   4),
     ('정책',       '정책 수혜 기대',   4),
+    ('규제',       '규제 완화 기대',   4),
     # 수급
     ('외국인',     '외국인 매수세',   3),
     ('기관',       '기관 매수세',     3),
     ('순매수',     '수급 유입',       3),
+    ('공매도',     '공매도 이슈',     3),
     # 시장/테마 일반
     ('강세',       '테마 강세',       2),
     ('급등',       '급등세',         2),
     ('관련주',     '테마 부각',       2),
     ('상한가',     '상한가 기록',     2),
+    ('대장주',     '대장주 부각',     3),
+    ('수혜주',     '수혜 기대',       3),
 ]
 
 
@@ -476,6 +487,14 @@ _THEME_PATTERNS = [
     re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*대표주'),
     re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*열풍'),
     re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*산업(?:이|은|도)?\s*(?:강세|급등|상승|성장|확대|호조)'),
+    # 株(주) 표기 패턴
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})株\s*(?:강세|급등|상승|상한가|폭등|일제히)'),
+    # "OOO 분야/시장/부문" 패턴
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*(?:분야|부문)(?:이|에)?\s*(?:강세|급등|상승|호조|성장)'),
+    # "OOO 수요/수출 증가" 패턴 → OOO가 테마
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*(?:수요|수출|수입)(?:이|가)?\s*(?:증가|급증|확대|호조)'),
+    # 따옴표/큰따옴표 안의 테마
+    re.compile(r'[\'"\u2018\u2019\u201C\u201D]([가-힣A-Za-z0-9/]{2,8})[\'"\u2018\u2019\u201C\u201D]?\s*(?:관련|테마|수혜|대장)'),
 ]
 
 _THEME_NOISE = {
@@ -547,6 +566,13 @@ def extract_theme_tag(articles, article_bodies=None, stock_name=''):
     """
     bodies = [b for b in (article_bodies or []) if b]
 
+    def _pick_best(counts):
+        """Counter에서 _BAD_THEME_TAGS가 아닌 최다 태그 반환"""
+        for tag, _ in counts.most_common(5):
+            if _is_valid_theme_tag(tag):
+                return tag
+        return ''
+
     # 전략 1: 종목명 근처 200자 윈도우에서 추출 (가장 정확)
     if bodies and stock_name:
         windows = []
@@ -562,21 +588,24 @@ def extract_theme_tag(articles, article_bodies=None, stock_name=''):
                 idx = pos + 1
         if windows:
             counts = _extract_themes_from_text('\n'.join(windows))
-            if counts:
-                return counts.most_common(1)[0][0]
+            result = _pick_best(counts)
+            if result:
+                return result
 
     # 전략 2: 전체 본문에서 추출
     if bodies:
         counts = _extract_themes_from_text('\n'.join(bodies))
-        if counts:
-            return counts.most_common(1)[0][0]
+        result = _pick_best(counts)
+        if result:
+            return result
 
     # 전략 3: 제목에서 추출 (fallback)
     if articles:
         titles = ' '.join(a.get('title', '') for a in articles)
         counts = _extract_themes_from_text(titles)
-        if counts:
-            return counts.most_common(1)[0][0]
+        result = _pick_best(counts)
+        if result:
+            return result
 
     return ''
 
@@ -732,10 +761,15 @@ def generate_rise_reason(articles, analyst_reports=None, theme_tag='', stock_nam
         if buy_reports:
             return '증권사 매수 의견'
 
-    # ── Fallback ──
-    if articles and len(articles) >= 3:
-        return '시장 관심 증가'
+    # ── Priority 5: 뉴스 제목에서 주제어만이라도 추출 ──
+    if subject:
+        return f'{subject} 이슈'
 
+    # ── Priority 6: 약한 액션이라도 사용 ──
+    if action_text:
+        return action_text
+
+    # ── Fallback ──
     return '거래 급증'
 
 
