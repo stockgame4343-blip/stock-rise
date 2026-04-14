@@ -73,7 +73,7 @@ var StockTable = (function () {
         var hasMemo = rating.memo ? true : false;
         var hasAny = stars > 0 || excluded || hasMemo;
 
-        var html = '';
+        var html = '<span class="ctrl-wrap">';
 
         // 미니 인디케이터 (활성 상태만 종목명 옆에 표시)
         if (hasAny) {
@@ -97,6 +97,7 @@ var StockTable = (function () {
         html += '<button class="memo-btn' + (hasMemo ? ' memo-btn--has' : '') +
             '" data-ticker="' + ticker + '" title="메모">\u270E</button>';
         html += '</div>';
+        html += '</span>';
 
         return html;
     }

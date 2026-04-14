@@ -95,20 +95,19 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 
 /* 셀 */
 .cell-rank{text-align:center;font-weight:700;color:var(--text-muted)}
-.cell-name{font-weight:600;text-align:left;position:relative}
+.cell-name{font-weight:600;text-align:left}
 .cell-name__wrap{display:flex;align-items:center;gap:6px}
 .cell-name__text{white-space:nowrap}
 .cell-name__market{font-size:11px;color:var(--text-muted);margin-left:6px}
 
-/* 미니 인디케이터 (활성 상태 뱃지) */
-.mini-indicators{display:inline-flex;align-items:center;gap:4px;flex-shrink:0}
+/* 컨트롤 래퍼 (공통 — 대시보드/리포트/섹터/52주 모두 사용) */
+.ctrl-wrap{position:relative;display:inline-flex;align-items:center;gap:4px;margin-left:4px;vertical-align:middle;flex-shrink:0}
+.mini-indicators{display:inline-flex;align-items:center;gap:4px}
 .mini-star{font-size:11px;color:var(--yellow);font-weight:700;white-space:nowrap}
 .mini-exclude{font-size:10px;color:var(--rise);font-weight:700}
 .mini-memo{font-size:11px;color:var(--accent)}
-
-/* 플로팅 컨트롤 패널 */
-.float-controls{position:absolute;left:0;top:100%;z-index:20;display:flex;align-items:center;gap:6px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap}
-.cell-name:hover .float-controls{opacity:1;pointer-events:auto}
+.float-controls{position:absolute;left:0;top:calc(100% + 4px);z-index:20;display:flex;align-items:center;gap:6px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap}
+.ctrl-wrap:hover .float-controls{opacity:1;pointer-events:auto}
 .cell-price{text-align:right;font-weight:600}
 .cell-change{text-align:right}
 .cell-change--up{color:var(--rise)}
@@ -163,10 +162,9 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .memo-btn:hover{border-color:var(--accent);color:var(--accent)}
 .memo-btn--has{color:var(--accent);border-color:var(--accent)}
 
-/* 리포트 카드 플로팅 컨트롤 */
-.stock-card__controls{position:relative;display:inline-flex;align-items:center;gap:4px;margin-left:8px}
-.stock-card__controls .float-controls{position:absolute;left:0;top:100%;z-index:20;display:flex;align-items:center;gap:6px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap}
-.stock-card__controls:hover .float-controls{opacity:1;pointer-events:auto}
+/* compact-row 내 컨트롤 오버플로 허용 */
+.compact-row__name{overflow:visible}
+.sector-card__stock-name{overflow:visible}
 
 /* 메모 모달 */
 .memo-textarea{width:100%;min-height:120px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-family:var(--font-sans);font-size:13px;padding:12px;resize:vertical;line-height:1.6}
@@ -253,7 +251,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .sector-card__volume{font-size:12px;color:var(--text-muted)}
 .sector-card__stocks{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:1px solid var(--border-subtle)}
 .sector-card__stock{display:flex;justify-content:space-between;font-size:13px}
-.sector-card__stock-name{color:var(--text-secondary);font-weight:500;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sector-card__stock-name{color:var(--text-secondary);font-weight:500;flex:1;min-width:0;overflow:visible;white-space:nowrap}
 .sector-card__stock-rate{color:var(--text-primary);font-weight:600}
 .sector-card__more{font-size:11px;color:var(--text-muted);margin-top:2px}
 
@@ -310,7 +308,10 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .stock-card__link--naver{color:var(--naver-green)}
 
 /* 52주 신고가/근접/조정 목록 */
-.compact-list{background:var(--bg-secondary);border-radius:12px;overflow:hidden}
+.compact-list{background:var(--bg-secondary);border-radius:12px;overflow:visible}
+.compact-list>.compact-row:first-child{border-radius:12px 12px 0 0}
+.compact-list>.compact-row:last-child{border-radius:0 0 12px 12px}
+.compact-list>.compact-row:only-child{border-radius:12px}
 .compact-row{display:flex;align-items:center;gap:12px;padding:13px 24px;text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:background .1s;flex-wrap:wrap}
 .compact-row:last-child{border-bottom:none}
 .compact-row:hover{background:var(--bg-hover)}

@@ -11,6 +11,7 @@
     var state = {
         dates: [],
         dateIndex: 0,
+        allRankings: [],
         allTopStocks: [],
         stocksShown: STOCK_INITIAL,
     };
@@ -76,15 +77,14 @@
     function saveRatings(r) {
         localStorage.setItem(RATINGS_KEY, JSON.stringify(r));
     }
-    function stockControlsHtml(ticker, ratings) {
+    function controlsHtml(ticker, ratings) {
         var rd = ratings[ticker] || {};
         var stars = rd.stars || 0;
         var excluded = rd.excluded || false;
         var hasMemo = rd.memo ? true : false;
         var hasAny = stars > 0 || excluded || hasMemo;
 
-        var html = '<span class="stock-card__controls">';
-        // 미니 인디케이터
+        var html = '<span class="ctrl-wrap">';
         if (hasAny) {
             html += '<span class="mini-indicators">';
             if (stars > 0) html += '<span class="mini-star">\u2605' + stars + '</span>';
@@ -92,7 +92,6 @@
             if (hasMemo) html += '<span class="mini-memo">\u270E</span>';
             html += '</span>';
         }
-        // 플로팅 패널
         html += '<div class="float-controls" data-ticker="' + ticker + '">';
         html += '<span class="star-rating" data-ticker="' + ticker + '">';
         for (var i = 1; i <= 5; i++) {
@@ -101,9 +100,40 @@
         html += '</span>';
         html += '<button class="exclude-btn' + (excluded ? ' exclude-btn--active' : '') + '" data-ticker="' + ticker + '" title="\uC81C\uC678">\u2715</button>';
         html += '<button class="memo-btn' + (hasMemo ? ' memo-btn--has' : '') + '" data-ticker="' + ticker + '" title="\uBA54\uBAA8">\u270E</button>';
-        html += '</div>';
-        html += '</span>';
+        html += '</div></span>';
         return html;
+    }
+
+    function refreshControlsUI(ticker) {
+        var ratings = getRatings();
+        var rd = ratings[ticker] || {};
+        var stars = rd.stars || 0;
+        var excluded = !!rd.excluded;
+        var hasMemo = !!rd.memo;
+        var hasAny = stars > 0 || excluded || hasMemo;
+
+        document.querySelectorAll('.float-controls[data-ticker="' + ticker + '"]').forEach(function (fc) {
+            fc.querySelectorAll('.star').forEach(function (s, i) {
+                s.classList.toggle('star--active', i < stars);
+            });
+            var ex = fc.querySelector('.exclude-btn');
+            if (ex) ex.classList.toggle('exclude-btn--active', excluded);
+            var memo = fc.querySelector('.memo-btn');
+            if (memo) memo.classList.toggle('memo-btn--has', hasMemo);
+
+            var wrap = fc.closest('.ctrl-wrap');
+            if (!wrap) return;
+            var oldMini = wrap.querySelector('.mini-indicators');
+            if (oldMini) oldMini.remove();
+            if (hasAny) {
+                var m = '<span class="mini-indicators">';
+                if (stars > 0) m += '<span class="mini-star">\u2605' + stars + '</span>';
+                if (excluded) m += '<span class="mini-exclude">\u2715</span>';
+                if (hasMemo) m += '<span class="mini-memo">\u270E</span>';
+                m += '</span>';
+                fc.insertAdjacentHTML('beforebegin', m);
+            }
+        });
     }
 
     // 점수 레벨 텍스트
@@ -334,7 +364,8 @@
         document.getElementById('sumVolume').textContent = formatAmount(summary.totalVolume);
     }
 
-    function renderSectorCard(items, container) {
+    function renderSectorCard(items, container, ratings) {
+        ratings = ratings || getRatings();
         var html = '';
         items.forEach(function (sec, i) {
             var topStocks = sec.stocks.slice(0, 3);
@@ -351,7 +382,7 @@
             html += '<div class="sector-card__stocks">';
             topStocks.forEach(function (s) {
                 html += '<div class="sector-card__stock">';
-                html += '<span class="sector-card__stock-name">' + s.name + '</span>';
+                html += '<span class="sector-card__stock-name">' + s.name + controlsHtml(s.ticker, ratings) + '</span>';
                 html += '<span class="sector-card__stock-rate">+' + s.change_rate.toFixed(2) + '%</span>';
                 html += '</div>';
             });
@@ -364,13 +395,10 @@
         container.innerHTML = html;
     }
 
-    function renderSectors(sectors) {
-        renderSectorCard(sectors, document.getElementById('sectorCards'));
-    }
-    function renderThemes(themes) {
+    function renderThemes(themes, ratings) {
         var c = document.getElementById('themeCards');
         if (themes.length === 0) { c.innerHTML = '<p class="report__empty">테마 태그가 없습니다</p>'; return; }
-        renderSectorCard(themes, c);
+        renderSectorCard(themes, c, ratings);
     }
 
     function renderTopStocks(stocks, limit, ratings) {
@@ -388,7 +416,7 @@
             html += '<div class="stock-card__top">';
             html += '<span class="stock-card__rank">' + (i + 1) + '</span>';
             html += '<div class="stock-card__info">';
-            html += '<span class="stock-card__name">' + s.name + stockControlsHtml(s.ticker, ratings) + '</span>';
+            html += '<span class="stock-card__name">' + s.name + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="stock-card__market">' + s.market + ' &middot; ' + (s.sector || '-') + '</span>';
             html += '</div>';
             html += '<div class="stock-card__numbers">';
@@ -468,7 +496,8 @@
     }
 
     // ── 52주 신고가 렌더링 (돌파 + 근접 통합, 2칼럼) ──
-    function renderHighSection(highList, nearHighList, currentDate) {
+    function renderHighSection(highList, nearHighList, currentDate, ratings) {
+        ratings = ratings || getRatings();
         var container = document.getElementById('highList');
         if (highList.length === 0 && nearHighList.length === 0) {
             container.innerHTML = '<div class="compact-list"><p class="report__empty">52주 신고가 데이터가 아직 수집되지 않았습니다.</p></div>';
@@ -490,7 +519,7 @@
             var s = item.stock;
             var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
             html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
-            html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
+            html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="compact-row__tag--break">52주 최고가 돌파</span>';
             html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '</a>';
@@ -506,7 +535,7 @@
                 if (days >= 0) daysText = days + '일 전 ';
             }
             html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
-            html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
+            html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="compact-row__tag">' + daysText + '고점 대비 -' + item.gap + '%</span>';
             html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '</a>';
@@ -516,7 +545,8 @@
         container.innerHTML = html;
     }
 
-    function renderPullbacks(pullbacks) {
+    function renderPullbacks(pullbacks, ratings) {
+        ratings = ratings || getRatings();
         var container = document.getElementById('pullbackList');
         if (pullbacks.length === 0) {
             container.innerHTML = '<div class="compact-list"><p class="report__empty">조건에 해당하는 종목이 없습니다</p></div>';
@@ -526,7 +556,7 @@
         pullbacks.forEach(function (p) {
             var url = 'https://finance.naver.com/item/main.naver?code=' + p.ticker;
             html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
-            html += '<span class="compact-row__name">' + p.name + '<span class="compact-row__market">' + p.market + '</span></span>';
+            html += '<span class="compact-row__name">' + p.name + '<span class="compact-row__market">' + p.market + '</span>' + controlsHtml(p.ticker, ratings) + '</span>';
             html += '<span class="compact-row__detail">';
             html += '<span class="compact-row__peak">고점 ' + formatNumber(p.peakPrice) + '</span>';
             html += '<span class="compact-row__arrow">&rarr;</span>';
@@ -569,19 +599,21 @@
                 }
 
                 var analysis = analyzeData(data.rankings);
+                state.allRankings = data.rankings;
                 state.allTopStocks = analysis.topStocks;
                 state.stocksShown = STOCK_INITIAL;
+                var ratings = getRatings();
 
                 renderSummary(analysis.summary);
-                renderSectors(analysis.sectors);
-                renderThemes(analysis.themes);
-                renderTopStocks(analysis.topStocks, STOCK_INITIAL);
-                renderHighSection(analysis.highList, analysis.nearHighList, date);
+                renderSectorCard(analysis.sectors, document.getElementById('sectorCards'), ratings);
+                renderThemes(analysis.themes, ratings);
+                renderTopStocks(analysis.topStocks, STOCK_INITIAL, ratings);
+                renderHighSection(analysis.highList, analysis.nearHighList, date, ratings);
 
                 // 급등 후 조정 (비동기)
                 document.getElementById('pullbackList').innerHTML = '<p class="report__empty" style="padding:16px">조정 종목 분석 중...</p>';
                 analyzePullbacks(date, state.dates).then(function (pullbacks) {
-                    renderPullbacks(pullbacks);
+                    renderPullbacks(pullbacks, getRatings());
                 });
             })
             .catch(function () {
@@ -605,8 +637,8 @@
         var ratings = getRatings();
         var rd = ratings[ticker] || {};
         var name = '';
-        for (var i = 0; i < state.allTopStocks.length; i++) {
-            if (state.allTopStocks[i].ticker === ticker) { name = state.allTopStocks[i].name; break; }
+        for (var i = 0; i < state.allRankings.length; i++) {
+            if (state.allRankings[i].ticker === ticker) { name = state.allRankings[i].name; break; }
         }
         $memoModalTitle.textContent = (name || ticker) + ' 메모';
         $memoTextarea.value = rd.memo || '';
@@ -624,7 +656,7 @@
         ratings[_memoTicker].memo = $memoTextarea.value.trim();
         saveRatings(ratings);
         closeMemo();
-        renderTopStocks(state.allTopStocks, state.stocksShown);
+        refreshControlsUI(_memoTicker);
     }
     function deleteMemo() {
         if (!_memoTicker) return;
@@ -632,13 +664,15 @@
         if (ratings[_memoTicker]) ratings[_memoTicker].memo = '';
         saveRatings(ratings);
         closeMemo();
-        renderTopStocks(state.allTopStocks, state.stocksShown);
+        refreshControlsUI(_memoTicker);
     }
 
-    // ── 카드 이벤트 위임 (별점, X, 메모) ──
-    document.getElementById('stockCards').addEventListener('click', function (e) {
+    // ── 이벤트 위임 (별점, X, 메모) — 리포트 전체 영역 ──
+    document.getElementById('reportContent').addEventListener('click', function (e) {
         var starEl = e.target.closest('.star');
         if (starEl) {
+            e.preventDefault();
+            e.stopPropagation();
             var sr = starEl.closest('.star-rating');
             if (!sr) return;
             var ticker = sr.getAttribute('data-ticker');
@@ -648,22 +682,26 @@
             if (!ratings[ticker]) ratings[ticker] = {};
             ratings[ticker].stars = ratings[ticker].stars === starNum ? 0 : starNum;
             saveRatings(ratings);
-            renderTopStocks(state.allTopStocks, state.stocksShown);
+            refreshControlsUI(ticker);
             return;
         }
         var exBtn = e.target.closest('.exclude-btn');
         if (exBtn) {
+            e.preventDefault();
+            e.stopPropagation();
             var ticker = exBtn.getAttribute('data-ticker');
             if (!ticker) return;
             var ratings = getRatings();
             if (!ratings[ticker]) ratings[ticker] = {};
             ratings[ticker].excluded = !ratings[ticker].excluded;
             saveRatings(ratings);
-            renderTopStocks(state.allTopStocks, state.stocksShown);
+            refreshControlsUI(ticker);
             return;
         }
         var memoBtn = e.target.closest('.memo-btn');
         if (memoBtn) {
+            e.preventDefault();
+            e.stopPropagation();
             var ticker = memoBtn.getAttribute('data-ticker');
             if (ticker) openMemo(ticker);
             return;
@@ -708,7 +746,7 @@
     });
     $stockMoreBtn.addEventListener('click', function () {
         state.stocksShown = STOCK_MORE;
-        renderTopStocks(state.allTopStocks, STOCK_MORE);
+        renderTopStocks(state.allTopStocks, STOCK_MORE, getRatings());
     });
 
     init();
