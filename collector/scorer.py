@@ -23,19 +23,74 @@ from config import (
 
 logger = logging.getLogger(__name__)
 
-# 상승 이유 텍스트 매핑
-_REASON_MAP = [
-    (['실적', '흑자', '흑자전환', '영업이익', '매출', '순이익'], '실적 호조 기대감'),
-    (['수주', '계약', '납품', '공급'], '신규 수주/계약 체결'),
-    (['신약', '임상', '승인', 'FDA', '허가'], '신약/임상 관련 호재'),
-    (['AI', '반도체', 'HBM', 'GPU', 'NPU'], 'AI/반도체 테마 수혜'),
-    (['2차전지', '배터리', '양극재', '음극재', '전해질'], '2차전지/배터리 테마'),
-    (['로봇', '자율주행', '드론', '모빌리티'], '로봇/자율주행 테마'),
-    (['정책', '규제', '정부', '법안', '국책'], '정부 정책/규제 수혜'),
-    (['배당', '자사주', '주주환원', '소각'], '주주환원 정책 기대'),
-    (['인수', '합병', 'M&A', '지분'], 'M&A 관련 이슈'),
-    (['테마', '관련주', '급등', '상한가'], '테마/시장 이슈 부각'),
-    (['외국인', '기관', '매수', '순매수'], '기관/외국인 수급 유입'),
+# ── Toss 스타일 상승 이유 생성 ──
+# 뉴스 제목에서 액션 키워드를 추출하여 "{주제} {액션}" 패턴으로 결합
+# 예: "반도체 투자 확대", "광통신 테마 강세", "신약 승인 기대"
+
+# (키워드, 액션 텍스트, 우선도) — 우선도가 높을수록 먼저 선택
+_ACTION_TABLE = [
+    # 실적/재무
+    ('흑자전환',   '흑자 전환',       8),
+    ('어닝서프라이즈', '실적 서프라이즈', 8),
+    ('흑자',       '흑자 전환 기대',   7),
+    ('영업이익',   '실적 호조',       7),
+    ('순이익',     '실적 개선',       6),
+    ('매출',       '매출 성장 기대',   5),
+    ('실적',       '실적 개선 기대',   5),
+    # 수주/계약
+    ('수주',       '수주 확대',       7),
+    ('납품',       '납품 계약 체결',   7),
+    ('공급 계약',  '공급 계약 체결',   8),
+    ('계약 체결',  '계약 체결',       7),
+    ('계약',       '신규 계약 기대',   5),
+    ('공급',       '공급 확대',       4),
+    # 바이오/신약
+    ('FDA',        'FDA 승인 기대',   8),
+    ('허가',       '허가 기대',       7),
+    ('임상 3상',   '임상 3상 진입',   8),
+    ('임상',       '임상 진전',       6),
+    ('신약',       '신약 모멘텀',     6),
+    ('승인',       '승인 기대',       6),
+    # 투자/사업
+    ('설비 투자',  '설비 투자 확대',   7),
+    ('투자 확대',  '투자 확대',       7),
+    ('증설',       '생산 증설',       7),
+    ('양산',       '양산 본격화',     7),
+    ('착공',       '착공 기대',       6),
+    ('수출',       '수출 확대 기대',   6),
+    ('진출',       '해외 진출 기대',   5),
+    ('투자',       '투자 기대',       3),
+    # 기업 이벤트
+    ('인수',       '인수 기대감',     6),
+    ('합병',       '합병 기대감',     6),
+    ('M&A',        'M&A 기대감',     6),
+    ('MOU',        'MOU 체결',       6),
+    ('대표이사',   '경영진 교체',     5),
+    ('특허',       '특허 취득',       6),
+    ('기술이전',   '기술이전 기대',   7),
+    ('라이선스',   '라이선스 계약',   6),
+    ('지분',       '지분 투자 이슈',   5),
+    ('자사주',     '자사주 매입',     6),
+    ('소각',       '자사주 소각',     7),
+    ('배당',       '배당 기대',       5),
+    ('주주환원',   '주주환원 정책',   6),
+    ('상장',       '상장 이슈',       5),
+    ('분할',       '기업 분할 이슈',   5),
+    ('협력',       '사업 협력 기대',   4),
+    # 정책/규제
+    ('국책',       '국책사업 수혜',   6),
+    ('보조금',     '정부 보조금 수혜', 6),
+    ('정부',       '정부 정책 수혜',   4),
+    ('정책',       '정책 수혜 기대',   4),
+    # 수급
+    ('외국인',     '외국인 매수세',   3),
+    ('기관',       '기관 매수세',     3),
+    ('순매수',     '수급 유입',       3),
+    # 시장/테마 일반
+    ('강세',       '테마 강세',       2),
+    ('급등',       '급등세',         2),
+    ('관련주',     '테마 부각',       2),
+    ('상한가',     '상한가 기록',     2),
 ]
 
 
@@ -415,6 +470,12 @@ _THEME_PATTERNS = [
     re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*대장주'),
     re.compile(r'([가-힣A-Za-z0-9/]{2,10})주(?:가|는|도|의)?\s*(?:강세|급등|상한가|상승|올라|치솟|폭등)'),
     re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*(?:업종|종목|섹터)(?:은|이|도|의)?\s*(?:\d|강세|급등|상승|상한가|올라|폭등)'),
+    # 추가 패턴
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*관련\s*종목'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*핵심주'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*대표주'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*열풍'),
+    re.compile(r'([가-힣A-Za-z0-9/]{2,10})\s*산업(?:이|은|도)?\s*(?:강세|급등|상승|성장|확대|호조)'),
 ]
 
 _THEME_NOISE = {
@@ -431,6 +492,13 @@ _THEME_NOISE = {
     '주도', '주목', '성장', '확대', '강화', '촉진',
     '중동', '미국', '중국', '유럽', '일본', '북한',
     '스테이블코', '스테이블코인',
+    # 추가 노이즈
+    '서울', '한국', '아시아', '세계', '테마', '섹터', '업종',
+    '속보', '단독', '기사', '보도', '뉴스',
+    '실시간', '오전장', '오후장', '마감',
+    '하반기', '상반기', '분기', '연간',
+    '대규모', '소규모', '초대형', '중대형',
+    '소식통', '관계자', '전문가', '애널리스트',
 }
 
 
@@ -517,50 +585,158 @@ def extract_theme_tag(articles, article_bodies=None, stock_name=''):
 # 상승 이유 텍스트 생성
 # ══════════════════════════════════════
 
-def generate_rise_reason(articles, analyst_reports=None):
-    """뉴스 키워드 + 증권사 리포트 기반 상승 이유 텍스트"""
-    parts = []
+def _find_best_action(titles_text):
+    """뉴스 제목 텍스트에서 가장 구체적인 액션 키워드를 찾는다.
 
+    Returns:
+        tuple: (action_text, priority) or (None, 0)
+    """
+    best = (None, 0)
+    for keyword, action, priority in _ACTION_TABLE:
+        if keyword in titles_text and priority > best[1]:
+            best = (action, priority)
+    return best
+
+
+# 의미 없는 theme_tag 필터 (테마 추출 오류로 잡힌 일반어)
+_BAD_THEME_TAGS = {
+    '이전', '이후', '관련', '전체', '국내', '해당', '특정', '일부',
+    '다수', '대형', '소형', '시장', '증시', '종합', '기타', '상승',
+    '하락', '오늘', '어제', '지금', '우리', '이번', '최근', '주요',
+    '거래', '투자', '매수', '매도', '전망', '기대', '불안', '전일',
+    '금일', '장중', '오전', '오후', '마감', '속보', '단독', '경제',
+    '지목하면', '중심으로', '포함한', '제외한', '동시에',
+    '대표', '사장', '회장', '부사장', '이사', '선임', '신임',
+    '상장폐지', '거래정지', '관리종목',
+    '정치', '검색', '다양', '밸류', '계속', '이용', '정보', '결과',
+    '이용자', '활용', '방법', '성과', '현재', '상태', '변화', '수준',
+    '현황', '분위기', '소식', '자체', '문제', '경우', '내용', '부분',
+    '사업', '상품', '사실', '과정', '조건', '상황', '수요', '쪽',
+}
+
+
+def _is_valid_theme_tag(tag):
+    """theme_tag가 상승 이유에 쓸 만한지 판별"""
+    if not tag or len(tag) < 2:
+        return False
+    if tag in _BAD_THEME_TAGS:
+        return False
+    # 순수 숫자만인 경우 제외
+    if tag.isdigit():
+        return False
+    # 용언/형용사 어미로 끝나면 제외 (동사형 잘못 추출)
+    bad_suffixes = ('하면', '하는', '되는', '있는', '없는', '들이', '자들', '에서',
+                    '해서', '에게', '까지', '에도', '지만', '속해', '해')
+    if any(tag.endswith(s) for s in bad_suffixes):
+        return False
+    # 잘못 추출되기 쉬운 접미어
+    bad_prefixes = ('계속', '밸류체', '정치인')
+    if tag in bad_prefixes:
+        return False
+    return True
+
+
+def extract_theme_from_reason(reason_text):
+    """상승 이유 텍스트에서 테마 키워드 추출 (fallback)
+
+    Toss AI 상승이유나 generate_rise_reason 결과에서 핵심 테마만 추출.
+    예: '반도체 투자 확대' → '반도체'
+        '원전 수주 확대' → '원전'
+        '광통신 테마 강세' → '광통신'
+        '실적 호조' → '' (테마 아닌 일반 사유)
+    """
+    if not reason_text:
+        return ''
+
+    _ACTION_WORDS = {
+        '투자', '확대', '수주', '수출', '강세', '급등', '호조', '개선', '전환',
+        '성장', '증설', '본격화', '모멘텀', '부각', '수혜', '급증', '유입',
+        '기대', '돌파', '체결', '진입', '진전', '취득', '매입', '소각', '기록',
+        '급등세', '교체', '이슈', '테마', '관련', '시장', '관심', '증가',
+        '거래', '증권사', '매수', '의견', '정책', '정부', '보조금',
+        '외국인', '기관', '순매수', '매수세', '수급', '상한가',
+        '설비', '생산', '해외', '진출', '착공', '납품', '공급', '계약', '신규',
+        '실적', '서프라이즈', '영업이익', '순이익', '매출',
+        '인수', '합병', '기대감', '경영진', '특허', '지분',
+        '자사주', '배당', '주주환원', '상장', '분할', '협력', '사업',
+        '허가', '임상', '승인', '양산',
+    }
+
+    words = reason_text.split()
+    for w in words:
+        if w not in _ACTION_WORDS and _is_valid_theme_tag(w):
+            return w
+    return ''
+
+
+def _extract_subject_from_titles(articles, stock_name=''):
+    """뉴스 제목에서 핵심 주제어를 추출한다.
+    종목명/일반어를 제외한 2~6자 고유명사를 찾는다.
+    """
+    import re as _re
+
+    # "OOO 관련주", "OOO 테마" 패턴에서 OOO 추출
+    all_titles = ' '.join(a.get('title', '') for a in articles)
+    subject_pattern = _re.compile(r'([가-힣A-Za-z0-9]{2,8})\s*(?:관련주|테마주|테마|수혜주|대장주)')
+    for m in subject_pattern.finditer(all_titles):
+        candidate = m.group(1).strip()
+        # _BAD_THEME_TAGS와 동일한 필터 적용
+        if _is_valid_theme_tag(candidate) and candidate != stock_name:
+            return candidate
+
+    return ''
+
+
+def generate_rise_reason(articles, analyst_reports=None, theme_tag='', stock_name=''):
+    """Toss 스타일 간결한 상승 이유 생성
+
+    출력 예시:
+    - "반도체 투자 확대"
+    - "광통신 테마 강세"
+    - "신약 FDA 승인 기대"
+    - "실적 개선 기대"
+    - "자사주 소각"
+    """
+    all_titles = ''
     if articles:
         all_titles = ' '.join(a.get('title', '') for a in articles)
 
-        scored = []
-        for keywords, reason in _REASON_MAP:
-            matched = [kw for kw in keywords if kw in all_titles]
-            if matched:
-                scored.append((len(matched), reason, matched))
+    action_text, action_priority = _find_best_action(all_titles)
 
-        if scored:
-            scored.sort(key=lambda x: x[0], reverse=True)
-            primary = scored[0]
-            reason = primary[1]
+    # ── Priority 1: theme_tag + 구체적 액션 ──
+    valid_tag = _is_valid_theme_tag(theme_tag)
+    if valid_tag:
+        if action_text and action_priority >= 4:
+            # 테마와 액션이 겹치면 액션만 사용
+            if theme_tag in action_text:
+                return action_text
+            return f'{theme_tag} {action_text}'
+        # 액션이 약하면 "테마 강세"
+        return f'{theme_tag} 테마 강세'
 
-            detail_kws = [kw for kw in primary[2]
-                          if kw not in ['테마', '관련주', '급등', '상한가']]
-            if detail_kws:
-                reason += ' (' + ', '.join(detail_kws[:3]) + ')'
+    # ── Priority 2: 뉴스 제목에서 주제어 추출 + 액션 ──
+    subject = _extract_subject_from_titles(articles, stock_name) if articles else ''
+    if subject and action_text and action_priority >= 4:
+        if subject in action_text:
+            return action_text
+        return f'{subject} {action_text}'
 
-            parts.append(reason)
+    # ── Priority 3: 액션만 사용 ──
+    if action_text and action_priority >= 3:
+        return action_text
 
-            if len(scored) >= 2 and scored[1][0] >= 2:
-                parts.append(scored[1][1])
-
-    # 증권사 리포트 언급
+    # ── Priority 4: 증권사 리포트 ──
     if analyst_reports:
         buy_reports = [r for r in analyst_reports[:3]
                        if any(w in r.get('opinion', '') for w in ['매수', 'BUY', '비중확대'])]
         if buy_reports:
-            brokers = [r['broker'] for r in buy_reports[:2] if r.get('broker')]
-            if brokers:
-                parts.append(', '.join(brokers) + ' 매수 의견')
+            return '증권사 매수 의견'
 
-    if parts:
-        return ', '.join(parts[:3])
-
+    # ── Fallback ──
     if articles and len(articles) >= 3:
-        return '다수 뉴스에 따른 시장 관심 증가'
+        return '시장 관심 증가'
 
-    return '거래 급증에 따른 상승'
+    return '거래 급증'
 
 
 # ══════════════════════════════════════

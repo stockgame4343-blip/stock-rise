@@ -119,15 +119,16 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .tag-input:focus{outline:none;border-color:var(--accent)}
 
 /* 별점 */
-.star-rating{display:inline-flex;gap:1px}
+.star-rating{display:inline-flex;gap:1px;opacity:0;pointer-events:none;transition:opacity .15s}
+.star-rating--has{opacity:1;pointer-events:auto}
 .star{color:var(--text-muted);cursor:pointer;font-size:13px;line-height:1;transition:color .1s}
 .star--active{color:var(--yellow)}
 .star:hover{color:var(--yellow)}
 
 /* X 버튼 */
-.exclude-btn{background:none;border:1px solid var(--border);color:var(--text-muted);width:18px;height:18px;border-radius:3px;cursor:pointer;font-size:10px;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;padding:0}
+.exclude-btn{background:none;border:1px solid var(--border);color:var(--text-muted);width:18px;height:18px;border-radius:3px;cursor:pointer;font-size:10px;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;padding:0;opacity:0;pointer-events:none}
 .exclude-btn:hover{border-color:var(--rise);color:var(--rise)}
-.exclude-btn--active{background:var(--rise);border-color:var(--rise);color:#fff}
+.exclude-btn--active{background:var(--rise);border-color:var(--rise);color:#fff;opacity:1;pointer-events:auto}
 
 /* 거래 강도 뱃지 */
 .intensity-badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 6px;border-radius:4px;margin-left:6px}
@@ -148,9 +149,20 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .score-click:hover{opacity:.7}
 
 /* 메모 버튼 */
-.memo-btn{background:none;border:1px solid var(--border);color:var(--text-muted);width:18px;height:18px;border-radius:3px;cursor:pointer;font-size:10px;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;padding:0}
+.memo-btn{background:none;border:1px solid var(--border);color:var(--text-muted);width:18px;height:18px;border-radius:3px;cursor:pointer;font-size:10px;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;padding:0;opacity:0;pointer-events:none}
 .memo-btn:hover{border-color:var(--accent);color:var(--accent)}
-.memo-btn--has{color:var(--accent);border-color:var(--accent)}
+.memo-btn--has{color:var(--accent);border-color:var(--accent);opacity:1;pointer-events:auto}
+
+/* 호버 시 컨트롤 표시 (대시보드 테이블) */
+.ranking-table tbody tr:hover .star-rating,
+.ranking-table tbody tr:hover .exclude-btn,
+.ranking-table tbody tr:hover .memo-btn{opacity:1;pointer-events:auto}
+
+/* 호버 시 컨트롤 표시 (리포트 카드) */
+.stock-card__controls{display:flex;align-items:center;gap:6px;margin-top:4px}
+.stock-card:hover .star-rating,
+.stock-card:hover .exclude-btn,
+.stock-card:hover .memo-btn{opacity:1;pointer-events:auto}
 
 /* 메모 모달 */
 .memo-textarea{width:100%;min-height:120px;background:var(--bg-tertiary);border:1px solid var(--border);border-radius:8px;color:var(--text-primary);font-family:var(--font-sans);font-size:13px;padding:12px;resize:vertical;line-height:1.6}

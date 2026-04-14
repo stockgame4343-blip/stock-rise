@@ -72,7 +72,7 @@ var StockTable = (function () {
         var excluded = rating.excluded || false;
 
         var html = '<div class="cell-name-controls">';
-        html += '<span class="star-rating" data-ticker="' + ticker + '">';
+        html += '<span class="star-rating' + (stars > 0 ? ' star-rating--has' : '') + '" data-ticker="' + ticker + '">';
         for (var i = 1; i <= 5; i++) {
             html += '<span class="star' + (i <= stars ? ' star--active' : '') +
                 '" data-star="' + i + '">\u2605</span>';
@@ -173,12 +173,15 @@ var StockTable = (function () {
             html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
             var displayTag = (ratingData.customTag != null ? ratingData.customTag : r.theme_tag) || '';
             var isCustom = ratingData.customTag != null && ratingData.customTag !== r.theme_tag;
+            var reason = r.rise_reason || '-';
+            // theme_tag가 rise_reason에 이미 포함되면 태그 뱃지 숨김 (중복 방지)
+            var showTag = displayTag && reason.indexOf(displayTag) === -1;
             html += '<td class="cell-reason">' +
-                '<span class="tag-edit' + (displayTag ? ' theme-tag' : ' tag-edit--empty') +
+                '<span class="tag-edit' + (showTag ? ' theme-tag' : ' tag-edit--empty') +
                 (isCustom ? ' theme-tag--custom' : '') +
                 '" data-ticker="' + r.ticker + '">' +
-                (displayTag || '+') + '</span>' +
-                (r.rise_reason || '-') + '</td>';
+                (showTag ? displayTag : '+') + '</span>' +
+                reason + '</td>';
             html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '<td style="text-align:center"><a href="' + detailUrl +
                 '" target="_blank" rel="noopener" class="naver-n">N</a></td>';

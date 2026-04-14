@@ -98,7 +98,9 @@ jobs:
 
       - name: Install dependencies
         if: steps.mode.outputs.skip != 'true'
-        run: pip install -r collector/requirements.txt
+        run: |
+          pip install -r collector/requirements.txt
+          playwright install chromium --with-deps
 
       - name: Run collector
         if: steps.mode.outputs.skip != 'true'

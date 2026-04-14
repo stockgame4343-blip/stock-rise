@@ -4,6 +4,7 @@
 (function () {
     var DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
     var THEME_KEY = 'theme';
+    var RATINGS_KEY = 'stock-ratings';
     var STOCK_INITIAL = 5;
     var STOCK_MORE = 15;
 
@@ -65,6 +66,31 @@
         return newsList.filter(function (n) {
             return n.title.indexOf('서울데이터랩') === -1;
         });
+    }
+
+    // ── localStorage 레이팅 ──
+    function getRatings() {
+        try { return JSON.parse(localStorage.getItem(RATINGS_KEY) || '{}'); }
+        catch (e) { return {}; }
+    }
+    function saveRatings(r) {
+        localStorage.setItem(RATINGS_KEY, JSON.stringify(r));
+    }
+    function stockControlsHtml(ticker, ratings) {
+        var rd = ratings[ticker] || {};
+        var stars = rd.stars || 0;
+        var excluded = rd.excluded || false;
+        var hasMemo = rd.memo ? ' memo-btn--has' : '';
+        var html = '<div class="stock-card__controls">';
+        html += '<span class="star-rating' + (stars > 0 ? ' star-rating--has' : '') + '" data-ticker="' + ticker + '">';
+        for (var i = 1; i <= 5; i++) {
+            html += '<span class="star' + (i <= stars ? ' star--active' : '') + '" data-star="' + i + '">\u2605</span>';
+        }
+        html += '</span>';
+        html += '<button class="exclude-btn' + (excluded ? ' exclude-btn--active' : '') + '" data-ticker="' + ticker + '" title="\uC81C\uC678">\u2715</button>';
+        html += '<button class="memo-btn' + hasMemo + '" data-ticker="' + ticker + '" title="\uBA54\uBAA8">\u270E</button>';
+        html += '</div>';
+        return html;
     }
 
     // 점수 레벨 텍스트
@@ -334,7 +360,8 @@
         renderSectorCard(themes, c);
     }
 
-    function renderTopStocks(stocks, limit) {
+    function renderTopStocks(stocks, limit, ratings) {
+        ratings = ratings || getRatings();
         var show = stocks.slice(0, limit);
         var container = document.getElementById('stockCards');
         var html = '';
@@ -350,6 +377,7 @@
             html += '<div class="stock-card__info">';
             html += '<span class="stock-card__name">' + s.name + '</span>';
             html += '<span class="stock-card__market">' + s.market + ' &middot; ' + (s.sector || '-') + '</span>';
+            html += stockControlsHtml(s.ticker, ratings);
             html += '</div>';
             html += '<div class="stock-card__numbers">';
             html += '<span class="stock-card__rate">+' + s.change_rate.toFixed(2) + '%</span>';
@@ -357,10 +385,13 @@
             html += '</div>';
             html += '</div>';
 
-            if (s.theme_tag || s.rise_reason) {
+            if (s.rise_reason) {
+                var reason = s.rise_reason;
+                // theme_tag가 rise_reason에 포함되지 않은 경우에만 태그 표시
+                var showTag = s.theme_tag && reason.indexOf(s.theme_tag) === -1;
                 html += '<div class="stock-card__reason">';
-                if (s.theme_tag) html += '<span class="theme-tag">' + s.theme_tag + '</span>';
-                html += '<span>' + (s.rise_reason || '') + '</span>';
+                if (showTag) html += '<span class="theme-tag">' + s.theme_tag + '</span>';
+                html += '<span>' + reason + '</span>';
                 html += '</div>';
             }
 
@@ -546,6 +577,93 @@
                 showMessage('데이터를 불러올 수 없습니다.');
                 $content.style.display = 'none';
             });
+    }
+
+    // ── 메모 모달 (리포트) ──
+    var $memoModal = document.getElementById('memoModal');
+    var $memoModalClose = document.getElementById('memoModalClose');
+    var $memoModalTitle = document.getElementById('memoModalTitle');
+    var $memoTextarea = document.getElementById('memoTextarea');
+    var $memoSave = document.getElementById('memoSave');
+    var $memoDelete = document.getElementById('memoDelete');
+    var _memoTicker = null;
+
+    function openMemo(ticker) {
+        _memoTicker = ticker;
+        var ratings = getRatings();
+        var rd = ratings[ticker] || {};
+        var name = '';
+        for (var i = 0; i < state.allTopStocks.length; i++) {
+            if (state.allTopStocks[i].ticker === ticker) { name = state.allTopStocks[i].name; break; }
+        }
+        $memoModalTitle.textContent = (name || ticker) + ' 메모';
+        $memoTextarea.value = rd.memo || '';
+        $memoModal.style.display = 'flex';
+        $memoTextarea.focus();
+    }
+    function closeMemo() {
+        $memoModal.style.display = 'none';
+        _memoTicker = null;
+    }
+    function saveMemo() {
+        if (!_memoTicker) return;
+        var ratings = getRatings();
+        if (!ratings[_memoTicker]) ratings[_memoTicker] = {};
+        ratings[_memoTicker].memo = $memoTextarea.value.trim();
+        saveRatings(ratings);
+        closeMemo();
+        renderTopStocks(state.allTopStocks, state.stocksShown);
+    }
+    function deleteMemo() {
+        if (!_memoTicker) return;
+        var ratings = getRatings();
+        if (ratings[_memoTicker]) ratings[_memoTicker].memo = '';
+        saveRatings(ratings);
+        closeMemo();
+        renderTopStocks(state.allTopStocks, state.stocksShown);
+    }
+
+    // ── 카드 이벤트 위임 (별점, X, 메모) ──
+    document.getElementById('stockCards').addEventListener('click', function (e) {
+        var starEl = e.target.closest('.star');
+        if (starEl) {
+            var sr = starEl.closest('.star-rating');
+            if (!sr) return;
+            var ticker = sr.getAttribute('data-ticker');
+            var starNum = parseInt(starEl.getAttribute('data-star'));
+            if (!ticker || isNaN(starNum)) return;
+            var ratings = getRatings();
+            if (!ratings[ticker]) ratings[ticker] = {};
+            ratings[ticker].stars = ratings[ticker].stars === starNum ? 0 : starNum;
+            saveRatings(ratings);
+            renderTopStocks(state.allTopStocks, state.stocksShown);
+            return;
+        }
+        var exBtn = e.target.closest('.exclude-btn');
+        if (exBtn) {
+            var ticker = exBtn.getAttribute('data-ticker');
+            if (!ticker) return;
+            var ratings = getRatings();
+            if (!ratings[ticker]) ratings[ticker] = {};
+            ratings[ticker].excluded = !ratings[ticker].excluded;
+            saveRatings(ratings);
+            renderTopStocks(state.allTopStocks, state.stocksShown);
+            return;
+        }
+        var memoBtn = e.target.closest('.memo-btn');
+        if (memoBtn) {
+            var ticker = memoBtn.getAttribute('data-ticker');
+            if (ticker) openMemo(ticker);
+            return;
+        }
+    });
+
+    // 메모 모달 이벤트
+    if ($memoModal) {
+        $memoModalClose.addEventListener('click', closeMemo);
+        $memoSave.addEventListener('click', saveMemo);
+        $memoDelete.addEventListener('click', deleteMemo);
+        $memoModal.addEventListener('click', function (e) { if (e.target === $memoModal) closeMemo(); });
     }
 
     // ── 초기화 ──

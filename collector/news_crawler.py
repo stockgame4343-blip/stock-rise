@@ -315,3 +315,53 @@ def fetch_article_bodies_for_themes(news_map, max_per_stock=2):
 
     logger.info(f"  기사 본문 수집 완료: {len(body_cache)}개 기사")
     return result
+
+
+# ── 토스증권 AI 시그널 수집 ──
+
+def crawl_toss_ai_signals():
+    """토스증권 AI 상승 이유 수집 (Playwright)
+
+    tossinvest.com 메인 페이지에서 ai-signals POST 응답을 캡처하여
+    국내주식의 AI 생성 상승 이유를 추출한다.
+
+    Returns:
+        dict: {ticker: reason} 예: {'005930': '실적 모멘텀 부각', '000660': '반도체 업황 개선'}
+    """
+    try:
+        from playwright.sync_api import sync_playwright
+    except ImportError:
+        logger.warning("  playwright 미설치 → Toss AI 시그널 건너뜀")
+        return {}
+
+    domestic_signals = {}
+
+    try:
+        with sync_playwright() as p:
+            browser = p.chromium.launch(headless=True)
+            page = browser.new_page()
+
+            def on_response(response):
+                url = response.url
+                if 'ai-signals' in url and response.status == 200 and 'detail' not in url:
+                    try:
+                        data = response.json()
+                        for sig in data.get('result', {}).get('signals', []):
+                            code = sig.get('productCode', '')
+                            reason = sig.get('reasoningDescription', '')
+                            # 국내주식: A + 6자리 숫자
+                            if code.startswith('A') and len(code) == 7 and code[1:].isdigit():
+                                domestic_signals[code[1:]] = reason
+                    except Exception:
+                        pass
+
+            page.on('response', on_response)
+            page.goto('https://tossinvest.com/', timeout=30000)
+            page.wait_for_timeout(8000)
+            browser.close()
+
+    except Exception as e:
+        logger.warning(f"  Toss AI 시그널 수집 실패: {e}")
+
+    logger.info(f"  Toss AI 시그널: {len(domestic_signals)}개 국내 종목")
+    return domestic_signals

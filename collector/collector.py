@@ -16,8 +16,9 @@ from news_crawler import (
     crawl_news_for_tickers, crawl_sector,
     crawl_sector_performance, crawl_analyst_reports_for_tickers,
     fetch_article_bodies_for_themes,
+    crawl_toss_ai_signals,
 )
-from scorer import calculate_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag
+from scorer import calculate_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason
 
 logging.basicConfig(
     level=logging.INFO,
@@ -277,17 +278,21 @@ def collect_and_save(date_str=None, mode='closing'):
         article_bodies_map = fetch_article_bodies_for_themes(uncached_news)
 
     # Step 7: 업종 등락률 + 증권사 리포트
-    logger.info("[7/9] 업종 등락률 + 증권사 리포트 수집")
+    logger.info("[7/10] 업종 등락률 + 증권사 리포트 수집")
     sector_performance = crawl_sector_performance()
     report_map = crawl_analyst_reports_for_tickers(tickers)
 
-    # Step 8: 뉴스 이력 로드 + 갱신
-    logger.info("[8/9] 뉴스 이력 갱신 + 점수 산출")
+    # Step 8: 토스증권 AI 시그널 (1순위 상승 이유)
+    logger.info("[8/10] 토스증권 AI 시그널 수집")
+    toss_reasons = crawl_toss_ai_signals()
+
+    # Step 9: 뉴스 이력 로드 + 갱신
+    logger.info("[9/10] 뉴스 이력 갱신 + 점수 산출")
     news_history = load_news_history()
     update_news_history(date_str, news_map)
 
-    # Step 9: 순위 데이터 조립
-    logger.info("[9/9] 데이터 저장")
+    # Step 10: 순위 데이터 조립
+    logger.info("[10/10] 데이터 저장")
     rankings = []
     new_theme_tags = {}
     for idx, s in enumerate(top_stocks):
@@ -326,7 +331,18 @@ def collect_and_save(date_str=None, mode='closing'):
         else:
             theme_tag = extract_theme_tag(news_articles, article_bodies_map.get(t, []), stock_name=s['name'])
             new_theme_tags[t] = theme_tag
-        reason = generate_rise_reason(news_articles, report_map.get(t, []))
+        # Fallback: 테마 태그 비어 있으면 Toss 상승이유에서 추출
+        if not theme_tag and t in toss_reasons:
+            theme_tag = extract_theme_from_reason(toss_reasons[t])
+            if theme_tag:
+                new_theme_tags[t] = theme_tag
+
+        # 상승 이유 (우선순위: Toss AI > 뉴스 키워드 분석)
+        if t in toss_reasons:
+            reason = toss_reasons[t]
+        else:
+            reason = generate_rise_reason(news_articles, report_map.get(t, []),
+                                          theme_tag=theme_tag, stock_name=s['name'])
 
         rankings.append({
             'rank': idx + 1,
