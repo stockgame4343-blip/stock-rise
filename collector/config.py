@@ -7,6 +7,8 @@ DATA_DIR = os.environ.get('DATA_DIR', os.path.join(BASE_DIR, 'public', 'data'))
 COLLECTOR_DIR = os.path.dirname(os.path.abspath(__file__))
 SECTOR_CACHE_PATH = os.path.join(COLLECTOR_DIR, 'sector_cache.json')
 NEWS_HISTORY_PATH = os.path.join(COLLECTOR_DIR, 'news_history.json')
+THEME_CACHE_PATH = os.path.join(COLLECTOR_DIR, 'theme_cache.json')
+THEME_CACHE_DAYS = 30  # 테마 태그 캐시 유효기간 (일)
 
 # 수집 설정
 TOP_N = 100

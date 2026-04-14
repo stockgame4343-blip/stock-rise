@@ -58,9 +58,7 @@ var StockTable = (function () {
         if (detail) {
             var parsed = (typeof detail === 'string') ? JSON.parse(detail) : detail;
             var parts = ['B' + parsed.buzz, 'Q' + parsed.quality,
-                'T' + parsed.type, 'D' + parsed.durability];
-            if (parsed.sentiment != null) parts.push('S' + parsed.sentiment);
-            if (parsed.analyst) parts.push('A' + parsed.analyst);
+                'T' + parsed.type, 'TV' + (parsed.turnover != null ? parsed.turnover : 0)];
             html += '<div class="score-detail">' + parts.join(' ') + '</div>';
         }
         html += '</div>';
@@ -169,8 +167,7 @@ var StockTable = (function () {
             }
 
             html += '<td class="cell-change">' + formatChange(r.change_amount, r.change_rate) + '</td>';
-            html += '<td class="cell-volume">' + formatTradingValue(r.trading_value) +
-                intensityBadge(r.trading_intensity) + '</td>';
+            html += '<td class="cell-volume">' + formatTradingValue(r.trading_value) + '</td>';
             html += '<td class="cell-cap">' + formatAmount(r.market_cap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
             html += '<td class="cell-reason">' +

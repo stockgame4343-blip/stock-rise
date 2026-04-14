@@ -77,15 +77,16 @@
         if (!state.sortColumn) return rankings;
         var sorted = rankings.slice();
         sorted.sort(function (a, b) {
-            if (state.sortColumn === 'market_cap') {
-                var diff = (a.market_cap || 0) - (b.market_cap || 0);
-                return state.sortDirection === 'asc' ? diff : -diff;
+            var col = state.sortColumn;
+            var diff = 0;
+            if (col === 'market_cap' || col === 'trading_value') {
+                diff = (a[col] || 0) - (b[col] || 0);
+            } else if (col === 'sector') {
+                diff = (a.sector || '').localeCompare(b.sector || '', 'ko');
+            } else if (col === 'theme_tag') {
+                diff = (a.theme_tag || '').localeCompare(b.theme_tag || '', 'ko');
             }
-            if (state.sortColumn === 'sector') {
-                var cmp = (a.sector || '').localeCompare(b.sector || '', 'ko');
-                return state.sortDirection === 'asc' ? cmp : -cmp;
-            }
-            return 0;
+            return state.sortDirection === 'asc' ? diff : -diff;
         });
         return sorted;
     }

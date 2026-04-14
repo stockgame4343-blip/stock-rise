@@ -4,7 +4,7 @@ import os
 import logging
 from datetime import datetime, timedelta
 
-from config import DATA_DIR, DATA_RETENTION_DAYS, SECTOR_CACHE_PATH, NEWS_HISTORY_PATH, NEWS_HISTORY_DAYS
+from config import DATA_DIR, DATA_RETENTION_DAYS, SECTOR_CACHE_PATH, NEWS_HISTORY_PATH, NEWS_HISTORY_DAYS, THEME_CACHE_PATH, THEME_CACHE_DAYS
 
 logger = logging.getLogger(__name__)
 
@@ -82,6 +82,59 @@ def load_sector_cache():
 def save_sector_cache(sector_map):
     with open(SECTOR_CACHE_PATH, 'w', encoding='utf-8') as f:
         json.dump(sector_map, f, ensure_ascii=False, indent=2)
+
+
+# ── 테마 태그 캐시 ──
+
+def load_theme_cache():
+    """테마 태그 캐시 로드
+    Returns:
+        dict: { ticker: { 'tag': str, 'date': 'YYYYMMDD' } }
+    """
+    if not os.path.exists(THEME_CACHE_PATH):
+        return {}
+    try:
+        with open(THEME_CACHE_PATH, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    except (json.JSONDecodeError, IOError):
+        return {}
+
+
+def save_theme_cache(cache):
+    with open(THEME_CACHE_PATH, 'w', encoding='utf-8') as f:
+        json.dump(cache, f, ensure_ascii=False, indent=2)
+
+
+def get_cached_theme_tags(tickers, date_str):
+    """캐시에서 유효한 테마 태그 조회, 미스 목록 반환
+
+    Returns:
+        tuple: (cached_tags: dict, uncached_tickers: list)
+    """
+    cache = load_theme_cache()
+    cutoff = (datetime.now() - timedelta(days=THEME_CACHE_DAYS)).strftime('%Y%m%d')
+
+    cached_tags = {}
+    uncached = []
+
+    for t in tickers:
+        entry = cache.get(t)
+        if entry and entry.get('tag') and entry.get('date', '') >= cutoff:
+            cached_tags[t] = entry['tag']
+        else:
+            uncached.append(t)
+
+    return cached_tags, uncached
+
+
+def update_theme_cache(date_str, tag_map):
+    """새로 추출한 테마 태그를 캐시에 저장"""
+    cache = load_theme_cache()
+    for ticker, tag in tag_map.items():
+        if tag:
+            cache[ticker] = {'tag': tag, 'date': date_str}
+    save_theme_cache(cache)
+    logger.info(f"  테마 캐시 갱신: {len(tag_map)}개 종목")
 
 
 # ── 뉴스 이력 (7일 지속성 판단용) ──

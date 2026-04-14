@@ -316,34 +316,38 @@ def _score_analyst(reports, close_price):
     return min(score, 15)
 
 
+def _score_turnover(turnover_rank_pct):
+    """시총 대비 거래대금 (Turnover) — 25점 만점
+    상위 종목 내 상대 비교 (백분위 기반)
+    """
+    if turnover_rank_pct <= 10:
+        return 25
+    elif turnover_rank_pct <= 25:
+        return 20
+    elif turnover_rank_pct <= 50:
+        return 15
+    elif turnover_rank_pct <= 75:
+        return 10
+    else:
+        return 5
+
+
 def calculate_score(articles, date_str, ticker, close_price=0,
-                    sector_performance=None, news_history=None,
-                    analyst_reports=None, all_news_map=None):
-    """호재 점수 종합 산출 v2 (110점 → 100점 정규화)
+                    sector_performance=None, turnover_rank_pct=50):
+    """호재 점수 종합 산출 v3
+    B(20) + Q(25) + T(30) + TV(25) = 100점
 
     Returns:
         dict: {'total': int, 'detail': {...}}
     """
-    # 중복 제거
     deduped = deduplicate_news(articles)
 
     buzz = _score_buzz(deduped)
     quality = _score_quality(deduped)
     type_score = _score_type(deduped, sector_performance)
-    durability = _score_durability(deduped, ticker, news_history)
-    sentiment = _score_sentiment(deduped)
-    analyst = _score_analyst(analyst_reports or [], close_price)
+    turnover = _score_turnover(turnover_rank_pct)
 
-    # 시장 컨텍스트 보정
-    context_multiplier = _market_context_multiplier(
-        deduped, ticker, all_news_map
-    )
-
-    raw_total = buzz + quality + type_score + durability + sentiment + analyst
-    adjusted = round(raw_total * context_multiplier)
-
-    # 125점 만점 → 100점 정규화
-    total = min(round(adjusted * 100 / 125), 100)
+    total = min(buzz + quality + type_score + turnover, 100)
 
     return {
         'total': total,
@@ -351,10 +355,7 @@ def calculate_score(articles, date_str, ticker, close_price=0,
             'buzz': buzz,
             'quality': quality,
             'type': type_score,
-            'durability': durability,
-            'sentiment': sentiment,
-            'analyst': analyst,
-            'context': round(context_multiplier, 2),
+            'turnover': turnover,
         }
     }
 

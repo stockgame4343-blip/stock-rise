@@ -9,6 +9,7 @@ from json_store import (
     load_sector_cache, save_sector_cache,
     load_news_history, update_news_history,
     append_backtest_data,
+    get_cached_theme_tags, update_theme_cache,
 )
 from news_crawler import (
     crawl_news_for_tickers, crawl_sector,
@@ -216,9 +217,15 @@ def collect_and_save(date_str=None):
     logger.info("[4/8] 뉴스 수집")
     news_map = crawl_news_for_tickers(tickers, date_str)
 
-    # Step 5: 기사 본문 수집 (테마 추출용)
+    # Step 5: 기사 본문 수집 (테마 추출용, 캐시 우선)
     logger.info("[5/8] 기사 본문 수집 (테마 추출)")
-    article_bodies_map = fetch_article_bodies_for_themes(news_map)
+    cached_tags, uncached_tickers = get_cached_theme_tags(tickers, date_str)
+    logger.info(f"  테마 캐시 히트: {len(cached_tags)}개, 미스: {len(uncached_tickers)}개")
+
+    article_bodies_map = {}
+    if uncached_tickers:
+        uncached_news = {t: news_map.get(t, []) for t in uncached_tickers}
+        article_bodies_map = fetch_article_bodies_for_themes(uncached_news)
 
     # Step 6: 업종 등락률 + 증권사 리포트
     logger.info("[6/8] 업종 등락률 + 증권사 리포트 수집")
@@ -233,6 +240,7 @@ def collect_and_save(date_str=None):
     # Step 8: 순위 데이터 조립
     logger.info("[8/8] 데이터 저장")
     rankings = []
+    new_theme_tags = {}
     for idx, s in enumerate(top_stocks):
         t = s['ticker']
         news_articles = news_map.get(t, [])
@@ -251,20 +259,22 @@ def collect_and_save(date_str=None):
         if td.get('is_limit_up'):
             intensity_label = '상한가'
 
-        # 호재 점수 v2
+        # 호재 점수 v3
         score_result = calculate_score(
             articles=news_articles,
             date_str=date_str,
             ticker=t,
             close_price=s['close_price'],
             sector_performance=sector_performance,
-            news_history=news_history,
-            analyst_reports=report_map.get(t, []),
-            all_news_map=news_map,
+            turnover_rank_pct=turnover_ranks.get(t, 50),
         )
 
         # 테마 태그 + 상승 이유
-        theme_tag = extract_theme_tag(news_articles, article_bodies_map.get(t, []), stock_name=s['name'])
+        if t in cached_tags:
+            theme_tag = cached_tags[t]
+        else:
+            theme_tag = extract_theme_tag(news_articles, article_bodies_map.get(t, []), stock_name=s['name'])
+            new_theme_tags[t] = theme_tag
         reason = generate_rise_reason(news_articles, report_map.get(t, []))
 
         rankings.append({
@@ -276,8 +286,6 @@ def collect_and_save(date_str=None):
             'change_amount': s['change_amount'],
             'change_rate': s['change_rate'],
             'trading_value': s['trading_value'],
-            'trading_intensity': intensity_label,
-            'trading_detail': intensity_detail,
             'market_cap': s['market_cap'],
             'sector': sector_map.get(t, ''),
             'theme_tag': theme_tag,
@@ -286,6 +294,10 @@ def collect_and_save(date_str=None):
             'rise_reason': reason,
             'news': news_articles,
         })
+
+    # 테마 캐시 갱신
+    if new_theme_tags:
+        update_theme_cache(date_str, new_theme_tags)
 
     # JSON 저장
     daily_data = {
