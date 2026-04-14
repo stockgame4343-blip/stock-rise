@@ -2,28 +2,30 @@ name: 주식 데이터 수집
 
 on:
   schedule:
-    # ── 장중 실시간 (1시간 간격, 월~금) ──
-    # 09:15 KST = 00:15 UTC
-    - cron: '15 0 * * 1-5'
-    # 10:00 KST = 01:00 UTC
-    - cron: '0 1 * * 1-5'
-    # 11:00 KST = 02:00 UTC
-    - cron: '0 2 * * 1-5'
-    # 12:00 KST = 03:00 UTC
-    - cron: '0 3 * * 1-5'
-    # 13:00 KST = 04:00 UTC
-    - cron: '0 4 * * 1-5'
-    # 14:00 KST = 05:00 UTC
-    - cron: '0 5 * * 1-5'
+    # ── 장중 (1시간 간격, 월~금) ──
+    # 09:05 KST = 00:05 UTC
+    - cron: '5 0 * * 1-5'
+    # 10:05 KST = 01:05 UTC
+    - cron: '5 1 * * 1-5'
+    # 11:05 KST = 02:05 UTC
+    - cron: '5 2 * * 1-5'
+    # 12:05 KST = 03:05 UTC
+    - cron: '5 3 * * 1-5'
+    # 13:05 KST = 04:05 UTC
+    - cron: '5 4 * * 1-5'
+    # 14:05 KST = 05:05 UTC
+    - cron: '5 5 * * 1-5'
+    # 15:05 KST = 06:05 UTC
+    - cron: '5 6 * * 1-5'
 
-    # ── 장마감 최종 수집 (16:00 KST = 07:00 UTC) ──
-    # 장 마감 15:30 → 네이버 데이터 확정 ~15:40 → cron 지연 감안 16:00
-    - cron: '0 7 * * 1-5'
+    # ── 장마감 최종 수집 (15:35 KST = 06:35 UTC) ──
+    - cron: '35 6 * * 1-5'
 
-    # ── 실패 시 재시도 (10분 간격, ~16:30 KST) ──
-    - cron: '10 7 * * 1-5'
-    - cron: '20 7 * * 1-5'
-    - cron: '30 7 * * 1-5'
+    # ── 실패 시 재시도 ──
+    # 15:45 KST = 06:45 UTC
+    - cron: '45 6 * * 1-5'
+    # 15:55 KST = 06:55 UTC
+    - cron: '55 6 * * 1-5'
 
   workflow_dispatch:
     inputs:
@@ -130,4 +132,5 @@ jobs:
             MSG="data: ${TODAY} $(date +%H:%M) 장중 업데이트"
           fi
           git diff --staged --quiet || git commit -m "$MSG"
+          git pull --rebase origin master
           git push
