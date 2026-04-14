@@ -89,7 +89,7 @@
         sorted.sort(function (a, b) {
             var col = state.sortColumn;
             var diff = 0;
-            if (col === 'market_cap' || col === 'trading_value') {
+            if (col === 'market_cap' || col === 'trading_value' || col === 'change_rate') {
                 diff = (a[col] || 0) - (b[col] || 0);
             } else if (col === 'sector') {
                 diff = (a.sector || '').localeCompare(b.sector || '', 'ko');
