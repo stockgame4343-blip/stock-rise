@@ -107,7 +107,13 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .mini-exclude{font-size:10px;color:var(--rise);font-weight:700}
 .mini-memo{font-size:11px;color:var(--accent)}
 .float-controls{position:absolute;left:0;top:calc(100% + 4px);z-index:20;display:flex;align-items:center;gap:6px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .15s;white-space:nowrap}
-.ctrl-wrap:hover .float-controls{opacity:1;pointer-events:auto}
+/* 호버 트리거: 종목명 영역 (각 컨텍스트별 부모) */
+.ctrl-wrap:hover .float-controls,
+.cell-name__wrap:hover .float-controls,
+.sector-card__stock:hover .float-controls,
+.stock-card__top:hover .float-controls,
+.compact-row:hover .float-controls,
+.float-controls:hover{opacity:1;pointer-events:auto}
 .cell-price{text-align:right;font-weight:600}
 .cell-change{text-align:right}
 .cell-change--up{color:var(--rise)}
