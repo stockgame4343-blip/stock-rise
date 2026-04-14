@@ -262,31 +262,40 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .stock-card__numbers{text-align:right}
 .stock-card__rate{display:block;font-size:16px;font-weight:700;color:var(--rise)}
 .stock-card__price{font-size:12px;color:var(--text-muted)}
-.stock-card__score-row{display:flex;align-items:center;gap:10px;margin-bottom:12px}
-.stock-card__score-label{font-size:12px;color:var(--text-muted);min-width:52px}
-.stock-card__score-bar{flex:1;height:6px;background:var(--bg-tertiary);border-radius:3px;overflow:hidden}
-.stock-card__score-fill{height:100%;border-radius:3px;transition:width .4s ease}
-.stock-card__score-fill--high{background:var(--green)}
-.stock-card__score-fill--mid{background:var(--yellow)}
-.stock-card__score-fill--low{background:var(--text-muted)}
-.stock-card__score-num{min-width:32px;text-align:center}
-.stock-card__reason{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:10px}
+.stock-card__reason{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:14px}
 .stock-card__reason .theme-tag{margin-right:6px;vertical-align:middle}
-.stock-card__news{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg-tertiary);border-radius:8px;text-decoration:none;margin-bottom:10px;transition:background .15s}
+
+/* 호재점수 상세 분석 */
+.score-analysis{background:var(--bg-tertiary);border-radius:10px;padding:16px 20px;margin-bottom:14px}
+.score-analysis__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.score-analysis__title{font-size:13px;font-weight:700;color:var(--text-primary)}
+.score-analysis__grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.score-analysis__item{display:flex;flex-direction:column;gap:5px}
+.score-analysis__item-header{display:flex;justify-content:space-between;align-items:baseline}
+.score-analysis__item-label{font-size:12px;font-weight:600;color:var(--text-secondary)}
+.score-analysis__item-score{font-size:13px;font-weight:700;color:var(--text-primary)}
+.score-analysis__item-max{font-size:11px;font-weight:400;color:var(--text-muted)}
+.score-analysis__bar{height:4px;background:var(--bg-hover);border-radius:2px;overflow:hidden}
+.score-analysis__fill{height:100%;background:var(--accent);border-radius:2px;transition:width .4s ease}
+.score-analysis__desc{font-size:11px;color:var(--text-muted);line-height:1.4}
+
+/* 종목 뉴스 리스트 */
+.stock-card__news-list{display:flex;flex-direction:column;gap:0;margin-bottom:12px;border-radius:8px;overflow:hidden}
+.stock-card__news{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--bg-tertiary);text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:background .15s}
+.stock-card__news:last-child{border-bottom:none}
 .stock-card__news:hover{background:var(--bg-hover)}
-.stock-card__news-icon{font-size:14px;flex-shrink:0}
 .stock-card__news-title{font-size:12px;color:var(--text-primary);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .stock-card__news-source{font-size:11px;color:var(--text-muted);flex-shrink:0}
-.stock-card__naver{display:inline-block;font-size:12px;color:var(--naver-green);text-decoration:none;font-weight:500}
-.stock-card__naver:hover{text-decoration:underline}
 
-/* 상승 원인 바 */
-.reason-bars{display:flex;flex-direction:column;gap:10px;background:var(--bg-secondary);border-radius:12px;padding:20px 24px}
-.reason-row{display:flex;align-items:center;gap:12px}
-.reason-row__label{font-size:13px;color:var(--text-primary);min-width:180px;flex-shrink:0;font-weight:500}
-.reason-row__bar-wrap{flex:1;height:8px;background:var(--bg-tertiary);border-radius:4px;overflow:hidden}
-.reason-row__bar{height:100%;background:var(--accent);border-radius:4px;transition:width .5s ease}
-.reason-row__count{font-size:12px;color:var(--text-muted);min-width:36px;text-align:right}
+/* 종목 카드 하단 링크 */
+.stock-card__links{display:flex;gap:16px;align-items:center}
+.stock-card__link{font-size:12px;color:var(--accent);text-decoration:none;font-weight:500}
+.stock-card__link:hover{text-decoration:underline}
+.stock-card__link--naver{color:var(--naver-green)}
+
+/* 더보기 버튼 */
+.report__more-btn{display:block;width:100%;padding:14px;margin-top:8px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;transition:background .15s,color .15s}
+.report__more-btn:hover{background:var(--bg-hover);color:var(--text-primary)}
 
 /* 주요 뉴스 리스트 */
 .news-list{display:flex;flex-direction:column;background:var(--bg-secondary);border-radius:12px;overflow:hidden}
