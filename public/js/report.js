@@ -80,16 +80,29 @@
         var rd = ratings[ticker] || {};
         var stars = rd.stars || 0;
         var excluded = rd.excluded || false;
-        var hasMemo = rd.memo ? ' memo-btn--has' : '';
-        var html = '<div class="stock-card__controls">';
-        html += '<span class="star-rating' + (stars > 0 ? ' star-rating--has' : '') + '" data-ticker="' + ticker + '">';
+        var hasMemo = rd.memo ? true : false;
+        var hasAny = stars > 0 || excluded || hasMemo;
+
+        var html = '<span class="stock-card__controls">';
+        // 미니 인디케이터
+        if (hasAny) {
+            html += '<span class="mini-indicators">';
+            if (stars > 0) html += '<span class="mini-star">\u2605' + stars + '</span>';
+            if (excluded) html += '<span class="mini-exclude">\u2715</span>';
+            if (hasMemo) html += '<span class="mini-memo">\u270E</span>';
+            html += '</span>';
+        }
+        // 플로팅 패널
+        html += '<div class="float-controls" data-ticker="' + ticker + '">';
+        html += '<span class="star-rating" data-ticker="' + ticker + '">';
         for (var i = 1; i <= 5; i++) {
             html += '<span class="star' + (i <= stars ? ' star--active' : '') + '" data-star="' + i + '">\u2605</span>';
         }
         html += '</span>';
         html += '<button class="exclude-btn' + (excluded ? ' exclude-btn--active' : '') + '" data-ticker="' + ticker + '" title="\uC81C\uC678">\u2715</button>';
-        html += '<button class="memo-btn' + hasMemo + '" data-ticker="' + ticker + '" title="\uBA54\uBAA8">\u270E</button>';
+        html += '<button class="memo-btn' + (hasMemo ? ' memo-btn--has' : '') + '" data-ticker="' + ticker + '" title="\uBA54\uBAA8">\u270E</button>';
         html += '</div>';
+        html += '</span>';
         return html;
     }
 
@@ -375,9 +388,8 @@
             html += '<div class="stock-card__top">';
             html += '<span class="stock-card__rank">' + (i + 1) + '</span>';
             html += '<div class="stock-card__info">';
-            html += '<span class="stock-card__name">' + s.name + '</span>';
+            html += '<span class="stock-card__name">' + s.name + stockControlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="stock-card__market">' + s.market + ' &middot; ' + (s.sector || '-') + '</span>';
-            html += stockControlsHtml(s.ticker, ratings);
             html += '</div>';
             html += '<div class="stock-card__numbers">';
             html += '<span class="stock-card__rate">+' + s.change_rate.toFixed(2) + '%</span>';

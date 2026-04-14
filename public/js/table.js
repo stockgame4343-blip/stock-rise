@@ -70,9 +70,23 @@ var StockTable = (function () {
         var rating = ratings[ticker] || {};
         var stars = rating.stars || 0;
         var excluded = rating.excluded || false;
+        var hasMemo = rating.memo ? true : false;
+        var hasAny = stars > 0 || excluded || hasMemo;
 
-        var html = '<div class="cell-name-controls">';
-        html += '<span class="star-rating' + (stars > 0 ? ' star-rating--has' : '') + '" data-ticker="' + ticker + '">';
+        var html = '';
+
+        // 미니 인디케이터 (활성 상태만 종목명 옆에 표시)
+        if (hasAny) {
+            html += '<span class="mini-indicators">';
+            if (stars > 0) html += '<span class="mini-star">\u2605' + stars + '</span>';
+            if (excluded) html += '<span class="mini-exclude">\u2715</span>';
+            if (hasMemo) html += '<span class="mini-memo">\u270E</span>';
+            html += '</span>';
+        }
+
+        // 플로팅 컨트롤 패널 (호버 시 표시)
+        html += '<div class="float-controls" data-ticker="' + ticker + '">';
+        html += '<span class="star-rating" data-ticker="' + ticker + '">';
         for (var i = 1; i <= 5; i++) {
             html += '<span class="star' + (i <= stars ? ' star--active' : '') +
                 '" data-star="' + i + '">\u2605</span>';
@@ -80,10 +94,10 @@ var StockTable = (function () {
         html += '</span>';
         html += '<button class="exclude-btn' + (excluded ? ' exclude-btn--active' : '') +
             '" data-ticker="' + ticker + '" title="제외">\u2715</button>';
-        var hasMemo = rating.memo ? ' memo-btn--has' : '';
-        html += '<button class="memo-btn' + hasMemo +
+        html += '<button class="memo-btn' + (hasMemo ? ' memo-btn--has' : '') +
             '" data-ticker="' + ticker + '" title="메모">\u270E</button>';
         html += '</div>';
+
         return html;
     }
 
@@ -150,9 +164,11 @@ var StockTable = (function () {
 
             html += '<tr' + (isExcluded ? ' class="row--excluded"' : '') + '>';
             html += '<td class="cell-rank">' + r.rank + '</td>';
-            html += '<td class="cell-name">' + r.name +
-                '<span class="cell-name__market">' + r.market + '</span>' +
-                starRatingHtml(r.ticker, ratings) + '</td>';
+            html += '<td class="cell-name"><div class="cell-name__wrap">' +
+                '<span class="cell-name__text">' + r.name +
+                '<span class="cell-name__market">' + r.market + '</span></span>' +
+                starRatingHtml(r.ticker, ratings) +
+                '</div></td>';
             html += '<td class="cell-price">' + formatNumber(r.close_price) + '</td>';
 
             // 현재가 비교 (과거일 때만)
