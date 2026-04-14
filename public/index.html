@@ -20,7 +20,7 @@
         <div class="top-bar__inner frame">
             <a class="top-bar__logo" href="/">StockRise</a>
             <div class="top-bar__right">
-                <span class="top-bar__updated" id="lastUpdated">마감 시황 · 분석 대시보드</span>
+                <span class="top-bar__updated" id="lastUpdated"></span>
                 <button class="theme-toggle" id="themeToggle" title="다크/라이트 모드 전환">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
                 </button>
@@ -97,15 +97,17 @@
     </div>
 
     <!-- ── 푸터 ── -->
-    <footer class="footer">
-        <div class="frame footer__inner">
-            <p class="footer__disclaimer">
-                본 사이트의 정보는 투자 권유가 아니며, 참고 목적으로만 제공됩니다.
-                투자 판단에 따른 손실은 본인에게 귀속되며, 데이터의 정확성을 보장하지 않습니다.
-            </p>
-            <p class="footer__copy">&copy; 2026 StockRise. 네이버 금융 데이터 기반.</p>
-        </div>
-    </footer>
+    <div class="footer">
+        <footer class="footer__wrap">
+            <div class="frame footer__inner">
+                <p class="footer__disclaimer">
+                    본 사이트의 정보는 투자 권유가 아니며, 참고 목적으로만 제공됩니다.
+                    투자 판단에 따른 손실은 본인에게 귀속되며, 데이터의 정확성을 보장하지 않습니다.
+                </p>
+                <p class="footer__copy">&copy; 2026 StockRise. 네이버 금융 데이터 기반.</p>
+            </div>
+        </footer>
+    </div>
 
     <!-- 뉴스 모달 -->
     <div class="modal-overlay" id="newsModal" style="display:none;">

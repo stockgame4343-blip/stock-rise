@@ -33,7 +33,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 
 /* ── 상단 타이틀 바 ── */
 .top-bar{background:var(--bg-secondary);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.top-bar__inner{display:flex;align-items:center;justify-content:space-between;height:48px}
+.top-bar__inner{display:flex;align-items:center;justify-content:space-between;height:58px}
 .top-bar__logo{font-size:17px;font-weight:800;color:var(--rise);text-decoration:none;letter-spacing:-.3px}
 .top-bar__logo:hover{opacity:.85}
 .top-bar__right{display:flex;align-items:center;gap:16px}
@@ -44,7 +44,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .theme-toggle:hover{color:var(--text-primary);transform:scale(1.15)}
 
 /* ── 툴바 (탭 + 날짜) ── */
-.toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--border)}
+.toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
 .toolbar__left{display:flex;align-items:center;gap:6px}
 .toolbar__right{display:flex;align-items:center;gap:8px}
 .tab{padding:7px 18px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
@@ -200,7 +200,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .news-empty{text-align:center;color:var(--text-muted);padding:24px 0}
 
 /* ── 푸터 ── */
-.footer{margin-top:auto;border-top:1px solid var(--border);padding:28px 0 24px;background:var(--bg-secondary)}
+.footer{margin-top:auto;padding-top:40px}.footer__wrap{border-top:1px solid var(--border);padding:28px 0 24px;background:var(--bg-secondary)}
 .footer__inner{text-align:center}
 .footer__disclaimer{font-size:11px;color:var(--text-muted);line-height:1.7;max-width:600px;margin:0 auto 8px}
 .footer__copy{font-size:11px;color:var(--text-muted);opacity:.6}

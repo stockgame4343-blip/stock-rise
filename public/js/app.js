@@ -147,9 +147,11 @@
                 // 업데이트 시간 표시
                 if (data.collected_at && $lastUpdated) {
                     var d = new Date(data.collected_at);
+                    var mon = d.getMonth() + 1;
+                    var day = d.getDate();
                     var hh = String(d.getHours()).padStart(2, '0');
                     var mm = String(d.getMinutes()).padStart(2, '0');
-                    $lastUpdated.textContent = '마지막 업데이트 ' + hh + ':' + mm;
+                    $lastUpdated.textContent = mon + '/' + day + ' ' + hh + ':' + mm + ' 업데이트';
                 }
 
                 if (isPastDate()) {
