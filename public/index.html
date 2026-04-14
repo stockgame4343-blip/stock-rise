@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+    <!-- 테마 토글 (페이지 깜빡임 방지: 인라인 스크립트로 즉시 적용) -->
+    <script>
+    (function(){
+        var t = localStorage.getItem('theme') || 'dark';
+        if (t === 'light') document.documentElement.setAttribute('data-theme','light');
+    })();
+    </script>
+    <button class="theme-toggle" id="themeToggle" title="다크/라이트 모드 전환">&#9790;</button>
     <div class="frame">
         <!-- 날짜 바 -->
         <div class="date-bar">

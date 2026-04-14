@@ -4,6 +4,7 @@
 (function () {
     var DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
     var RATINGS_KEY = 'stock-ratings';
+    var THEME_KEY = 'theme';
 
     var state = {
         dates: [],
@@ -411,8 +412,33 @@
         renderTable();
     }
 
+    // ── 테마 토글 ──
+    var $themeToggle = document.getElementById('themeToggle');
+
+    function applyThemeIcon() {
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        $themeToggle.innerHTML = isLight ? '&#9728;' : '&#9790;';
+        $themeToggle.title = isLight ? '다크 모드로 전환' : '라이트 모드로 전환';
+    }
+
+    function toggleTheme() {
+        var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+        if (isLight) {
+            document.documentElement.removeAttribute('data-theme');
+            localStorage.setItem(THEME_KEY, 'dark');
+        } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem(THEME_KEY, 'light');
+        }
+        applyThemeIcon();
+    }
+
+    applyThemeIcon();
+
     // ── 초기화 ──
     function init() {
+        $themeToggle.addEventListener('click', toggleTheme);
+
         $datePrev.addEventListener('click', onDatePrev);
         $dateNext.addEventListener('click', onDateNext);
         $dateBadge.addEventListener('click', onDateBadgeClick);
