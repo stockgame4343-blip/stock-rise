@@ -1,5 +1,5 @@
 /* ── 리셋 & 다크 테마 (기본) ── */
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;font-family:inherit}
 :root{
     --bg-primary:#191919;--bg-secondary:#232323;--bg-tertiary:#2c2c2c;
     --bg-hover:#353535;--text-primary:#e8e8e8;--text-secondary:#999;
