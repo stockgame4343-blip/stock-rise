@@ -230,7 +230,7 @@
             $dateBadge.textContent = '오늘';
             $dateBadge.className = 'date-badge';
         } else {
-            $dateBadge.textContent = '오늘로';
+            $dateBadge.textContent = '과거';
             $dateBadge.className = 'date-badge date-badge--past';
         }
     }
@@ -238,7 +238,7 @@
     // ── SVG 차트 빌더 ──
     function buildLineChart(values, labels, type) {
         if (!values || values.length < 2) return '';
-        var w = 520, h = 160, padL = 48, padR = 12, padT = 12, padB = 24;
+        var w = 520, h = 160, padL = 50, padR = 28, padT = 16, padB = 28;
         var min = Math.min.apply(null, values);
         var max = Math.max.apply(null, values);
         var range = max - min || 1;
@@ -257,6 +257,7 @@
             var label;
             if (type === 'totalVolume') label = formatAmount(gv);
             else if (type === 'avgRate') label = gv.toFixed(1) + '%';
+            else if (type === 'rank') label = String(Math.round(-gv)) + '위';
             else label = String(Math.round(gv));
             svg += '<line x1="' + padL + '" y1="' + gy.toFixed(1) + '" x2="' + (w - padR) + '" y2="' + gy.toFixed(1) + '" stroke="var(--border)" stroke-dasharray="3,3"/>';
             svg += '<text x="' + (padL - 4) + '" y="' + (gy + 4).toFixed(1) + '" text-anchor="end" fill="var(--text-muted)" font-size="10">' + label + '</text>';
@@ -304,6 +305,29 @@
     }
 
     // ── 섹터/테마 상세 팝업 ──
+    function getSectorRankHistory(name, type) {
+        var history = state.summaryHistory;
+        if (!history || history.length === 0) return { rank: '-', delta: '', history: [] };
+        var field = type === 'theme' ? 'topThemes' : 'topSectors';
+        var currentDate = state.dates[state.dateIndex];
+        var rank = '-', delta = '', rankHist = [];
+        for (var i = 0; i < history.length; i++) {
+            var list = history[i].topSectors ? history[i][field] : [];
+            var idx = list ? list.indexOf(name) : -1;
+            rankHist.push({ date: history[i].date, rank: idx >= 0 ? idx + 1 : null });
+            if (history[i].date === currentDate && idx >= 0) rank = idx + 1;
+        }
+        // 전일 대비 변동
+        if (rankHist.length >= 2 && rankHist[0].rank != null && rankHist[1].rank != null) {
+            var diff = rankHist[1].rank - rankHist[0].rank;
+            if (diff > 0) delta = '<span class="rank-delta rank-delta--up">\u25B2' + diff + '</span>';
+            else if (diff < 0) delta = '<span class="rank-delta rank-delta--down">\u25BC' + Math.abs(diff) + '</span>';
+        } else if (rankHist.length >= 2 && rankHist[0].rank != null && rankHist[1].rank == null) {
+            delta = '<span class="rank-delta rank-delta--new">NEW</span>';
+        }
+        return { rank: rank, delta: delta, history: rankHist };
+    }
+
     function openSectorDetail(name, type) {
         var list = type === 'theme'
             ? (state.analysis ? state.analysis.allThemes : [])
@@ -314,18 +338,38 @@
         }
         if (!item) return;
         var ratings = getRatings();
+        var rankInfo = getSectorRankHistory(name, type);
+
         var html = '<div class="detail-stats">';
         html += '<div class="detail-stat"><span class="detail-stat__label">종목 수</span><span class="detail-stat__value">' + item.stocks.length + '개</span></div>';
         html += '<div class="detail-stat"><span class="detail-stat__label">평균 상승률</span><span class="detail-stat__value detail-stat__value--rise">+' + item.avgRate.toFixed(2) + '%</span></div>';
         html += '<div class="detail-stat"><span class="detail-stat__label">총 거래대금</span><span class="detail-stat__value">' + formatAmount(item.totalVolume) + '</span></div>';
         html += '</div>';
+
+        // 순위 정보
+        if (rankInfo.rank !== '-') {
+            html += '<div class="detail-rank-info">';
+            html += '<span class="detail-rank-badge">' + rankInfo.rank + '위</span> ' + rankInfo.delta;
+            // 순위 이력 미니 그래프
+            var validHist = rankInfo.history.filter(function (h) { return h.rank != null; }).reverse();
+            if (validHist.length >= 2) {
+                var ranks = validHist.map(function (h) { return h.rank; });
+                var labels = validHist.map(function (h) { return h.date; });
+                // 순위는 낮을수록 좋으므로 반전
+                var inverted = ranks.map(function (r) { return -r; });
+                html += buildLineChart(inverted, labels, 'rank');
+            }
+            html += '</div>';
+        }
+
+        // 종목 리스트 (호버 컨트롤 + 네이버 링크)
         html += '<div class="detail-stocks">';
         item.stocks.forEach(function (s, idx) {
             var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
             var scoreCls = s.score >= 70 ? 'high' : (s.score >= 40 ? 'mid' : 'low');
             html += '<a class="detail-stock" href="' + url + '" target="_blank" rel="noopener">';
             html += '<span class="detail-stock__rank">' + (idx + 1) + '</span>';
-            html += '<span class="detail-stock__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span></span>';
+            html += '<span class="detail-stock__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="detail-stock__rate">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '<span class="score-badge score-badge--' + scoreCls + '" style="font-size:11px;width:32px;height:22px">' + s.score + '</span>';
             html += '</a>';
@@ -663,19 +707,25 @@
             html += '</div>';
         });
         container.innerHTML = html;
-        // 전체보기 버튼 (기존 제거 후 재생성)
+        // 전체보기 버튼 → 섹션 타이틀 우측
         var parent = container.parentElement;
-        var oldBtn = parent.querySelector('.report__more-btn');
+        var oldBtn = parent.querySelector('.section-viewall');
         if (oldBtn) oldBtn.remove();
         var allList = cardType === 'theme'
             ? (state.analysis ? state.analysis.allThemes : [])
             : (state.analysis ? state.analysis.allSectors : []);
         if (allList.length > items.length) {
-            var btn = document.createElement('button');
-            btn.className = 'report__more-btn';
-            btn.textContent = '전체보기 (' + allList.length + '개)';
-            btn.setAttribute('data-all-type', cardType);
-            parent.appendChild(btn);
+            var titleEl = parent.querySelector('.report__section-title');
+            if (titleEl) {
+                titleEl.style.display = 'flex';
+                titleEl.style.alignItems = 'center';
+                titleEl.style.justifyContent = 'space-between';
+                var btn = document.createElement('button');
+                btn.className = 'section-viewall';
+                btn.textContent = '전체보기 ' + allList.length + '개 ›';
+                btn.setAttribute('data-all-type', cardType);
+                titleEl.appendChild(btn);
+            }
         }
     }
 

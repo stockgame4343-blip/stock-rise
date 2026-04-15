@@ -180,7 +180,6 @@ var StockTable = (function () {
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
                 '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link">' + r.name + '</a>' +
                 '<span class="cell-name__market">' + r.market + '</span>' +
-                '<button class="news-btn" data-ticker="' + r.ticker + '" title="뉴스">&#128240;</button>' +
                 starRatingHtml(r.ticker, ratings) +
                 '</div></td>';
             html += '<td class="cell-price">' + formatNumber(r.close_price) + '</td>';
@@ -210,7 +209,9 @@ var StockTable = (function () {
                 '" data-ticker="' + r.ticker + '">' +
                 (displayTag || '+') + '</span>' +
                 reason + '</td>';
-            html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
+            html += '<td class="cell-score-wrap">' +
+                '<button class="news-btn" data-ticker="' + r.ticker + '" title="뉴스">&#128240;</button>' +
+                scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '</tr>';
         });
 

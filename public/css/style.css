@@ -188,8 +188,10 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .cell-name__link{color:var(--text-primary);text-decoration:none;font-weight:600}
 .cell-name__link:hover{color:var(--accent);text-decoration:underline}
 /* 뉴스 버튼 */
-.news-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:0 2px;opacity:.5;transition:opacity .15s;vertical-align:middle;margin-left:3px}
+.news-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:0 2px;opacity:.4;transition:opacity .15s;vertical-align:middle}
 .news-btn:hover{opacity:1}
+/* 점수 셀 레이아웃 */
+.cell-score-wrap{text-align:center;white-space:nowrap}
 /* 뉴스 날짜 */
 .news-item__meta{display:flex;gap:8px;align-items:center;margin-top:2px}
 .news-item__date{font-size:11px;color:var(--text-muted)}
@@ -231,6 +233,24 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .news-item__source{display:inline-block;font-size:11px;color:var(--text-muted);background:var(--bg-tertiary);padding:2px 8px;border-radius:3px}
 .news-empty{text-align:center;color:var(--text-muted);padding:24px 0}
 
+/* ── 대장점수 상세 팝업 ── */
+.score-popup__header{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.score-popup__name{font-size:15px;font-weight:700;display:block}
+.score-popup__meta{font-size:12px;color:var(--text-muted)}
+.score-popup__row{margin-bottom:12px}
+.score-popup__row-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.score-popup__row-label{font-size:13px;font-weight:600;color:var(--text-secondary)}
+.score-popup__row-score{font-size:14px;font-weight:700;color:var(--text-primary)}
+.score-popup__row-desc{font-size:11px;color:var(--text-muted);margin-top:3px;line-height:1.4}
+.score-popup__row-desc strong{color:var(--text-secondary)}
+.score-popup__theme{margin-top:14px;padding-top:12px;border-top:1px solid var(--border);display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.score-popup__news{margin-top:14px;padding-top:12px;border-top:1px solid var(--border)}
+.score-popup__news-item{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;text-decoration:none;border-bottom:1px solid var(--border-subtle)}
+.score-popup__news-item:last-child{border-bottom:none}
+.score-popup__news-item:hover .score-popup__news-title{color:var(--accent)}
+.score-popup__news-title{font-size:12px;color:var(--text-primary);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.score-popup__news-date{font-size:11px;color:var(--text-muted);flex-shrink:0}
+
 /* ── 상단 네비게이션 ── */
 .top-bar__nav{display:flex;gap:4px;margin-left:28px}
 .top-bar__link{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;padding:6px 14px;border-radius:6px;transition:color .15s,background .15s}
@@ -271,6 +291,14 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 /* Stat card layout adjustment for sparkline */
 .summary-card{position:relative}
 .summary-card .sparkline-wrap{position:absolute;right:16px;bottom:16px}
+
+/* 전체보기 버튼 (섹션 타이틀 우측) */
+.section-viewall{background:none;border:none;cursor:pointer;font-size:12px;font-weight:500;color:var(--text-muted);padding:4px 8px;border-radius:4px;transition:color .15s,background .15s}
+.section-viewall:hover{color:var(--accent);background:var(--bg-tertiary)}
+
+/* 상세 팝업 순위 정보 */
+.detail-rank-info{margin-bottom:14px;padding:10px 14px;background:var(--bg-tertiary);border-radius:8px}
+.detail-rank-badge{font-size:16px;font-weight:800;color:var(--accent)}
 
 /* Rank delta badge (sector/theme) */
 .rank-delta{font-size:11px;font-weight:600;margin-left:4px;vertical-align:middle}
