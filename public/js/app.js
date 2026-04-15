@@ -45,7 +45,9 @@
     var _tagTicker = null;
     var $lastUpdated = document.getElementById('lastUpdated');
 
-    // ── localStorage 레이팅 ──
+    // ── localStorage 레이팅 + 서버 동기화 ──
+    var _syncTimer = null;
+
     function getRatings() {
         try {
             return JSON.parse(localStorage.getItem(RATINGS_KEY) || '{}');
@@ -56,6 +58,33 @@
 
     function saveRatings(ratings) {
         localStorage.setItem(RATINGS_KEY, JSON.stringify(ratings));
+        // 3초 디바운스 후 서버 동기화
+        if (_syncTimer) clearTimeout(_syncTimer);
+        _syncTimer = setTimeout(syncToServer, 3000);
+    }
+
+    function syncToServer() {
+        var ratings = getRatings();
+        fetch('/api/sync-ratings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(ratings),
+        }).catch(function () {});
+    }
+
+    function loadFromServer() {
+        // localStorage가 비어있으면 서버에서 불러오기
+        var local = getRatings();
+        if (Object.keys(local).length > 0) return;
+        fetch('/api/sync-ratings')
+            .then(function (r) { return r.json(); })
+            .then(function (server) {
+                if (server && Object.keys(server).length > 0) {
+                    localStorage.setItem(RATINGS_KEY, JSON.stringify(server));
+                    renderTable();
+                }
+            })
+            .catch(function () {});
     }
 
     // ── 유틸 ──
@@ -525,6 +554,7 @@
         });
 
         showLoading(true);
+        loadFromServer();
 
         StockAPI.getDates()
             .then(function (dates) {
