@@ -2,30 +2,18 @@ name: 주식 데이터 수집
 
 on:
   schedule:
-    # ── 장중 (1시간 간격, 월~금) ──
-    # 09:05 KST = 00:05 UTC
-    - cron: '5 0 * * 1-5'
-    # 10:05 KST = 01:05 UTC
-    - cron: '5 1 * * 1-5'
-    # 11:05 KST = 02:05 UTC
-    - cron: '5 2 * * 1-5'
-    # 12:05 KST = 03:05 UTC
-    - cron: '5 3 * * 1-5'
-    # 13:05 KST = 04:05 UTC
-    - cron: '5 4 * * 1-5'
-    # 14:05 KST = 05:05 UTC
-    - cron: '5 5 * * 1-5'
-    # 15:05 KST = 06:05 UTC
-    - cron: '5 6 * * 1-5'
+    # 장중 업데이트 (2시간 간격, 월~금)
+    # 09:30 KST = 00:30 UTC
+    - cron: '30 0 * * 1-5'
+    # 11:30 KST = 02:30 UTC
+    - cron: '30 2 * * 1-5'
+    # 13:30 KST = 04:30 UTC
+    - cron: '30 4 * * 1-5'
 
-    # ── 장마감 최종 수집 (15:35 KST = 06:35 UTC) ──
+    # 장마감 최종 수집 (15:35 KST = 06:35 UTC)
     - cron: '35 6 * * 1-5'
-
-    # ── 실패 시 재시도 ──
-    # 15:45 KST = 06:45 UTC
-    - cron: '45 6 * * 1-5'
-    # 15:55 KST = 06:55 UTC
-    - cron: '55 6 * * 1-5'
+    # 실패 시 재시도 (16:05 KST = 07:05 UTC)
+    - cron: '5 7 * * 1-5'
 
   workflow_dispatch:
     inputs:
@@ -33,6 +21,9 @@ on:
         description: '수집 모드 (intraday / closing)'
         required: false
         default: 'closing'
+
+  repository_dispatch:
+    types: [collect]
 
 env:
   TZ: Asia/Seoul
@@ -53,20 +44,39 @@ jobs:
           HOUR=$(date +%H)
           MINUTE=$(date +%M)
           NOW_MIN=$((HOUR * 60 + MINUTE))
+          DOW=$(date +%u)  # 1=Mon, 7=Sun
           echo "today=$TODAY" >> $GITHUB_OUTPUT
           echo "hour=$HOUR" >> $GITHUB_OUTPUT
 
-          # 수동 실행 시 입력값 사용
-          if [ -n "${{ inputs.mode }}" ]; then
+          # 주말 스킵 (schedule 이벤트만)
+          if [ "${{ github.event_name }}" = "schedule" ] && [ $DOW -ge 6 ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "mode=intraday" >> $GITHUB_OUTPUT
+            echo "주말 — 스킵"
+            exit 0
+          fi
+
+          # 수동/외부 트리거 시 입력값 또는 시간 기반 모드 결정
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.mode }}" ]; then
             echo "mode=${{ inputs.mode }}" >> $GITHUB_OUTPUT
             echo "skip=false" >> $GITHUB_OUTPUT
             exit 0
           fi
 
+          # repository_dispatch는 payload에서 모드 읽기, 없으면 시간 기반
+          if [ "${{ github.event_name }}" = "repository_dispatch" ]; then
+            DISPATCH_MODE="${{ github.event.client_payload.mode }}"
+            if [ -n "$DISPATCH_MODE" ]; then
+              echo "mode=$DISPATCH_MODE" >> $GITHUB_OUTPUT
+              echo "skip=false" >> $GITHUB_OUTPUT
+              exit 0
+            fi
+          fi
+
           # 15:30 이후 = 장마감 모드
           if [ $NOW_MIN -ge 930 ]; then
             MODE="closing"
-            # 이미 장마감 최종 데이터가 있으면 스킵 (재시도 방지)
+            # 이미 장마감 최종 데이터가 있으면 스킵
             if [ -f "public/data/${TODAY}.json" ]; then
               IS_FINAL=$(python3 -c "
           import json
