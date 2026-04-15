@@ -115,6 +115,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .sector-card__stock:hover .float-controls,
 .stock-card__top:hover .float-controls,
 .compact-row:hover .float-controls,
+.detail-stock:hover .float-controls,
 .float-controls:hover{opacity:1;pointer-events:auto;transition-delay:0s}
 .cell-price{text-align:right;font-weight:600}
 .cell-change{text-align:right}
@@ -457,13 +458,13 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .detail-stat--click:hover{background:var(--bg-hover)}
 .detail-stat--active{background:var(--bg-tertiary);border:1px solid var(--accent)}
 .detail-stats--clickable{gap:8px}
-.detail-chart-area{margin-bottom:12px;min-height:40px}
+.detail-chart-area{margin-bottom:12px;min-height:40px;background:var(--bg-tertiary);border-radius:10px;padding:12px 8px;overflow:visible}
 .detail-stocks{display:flex;flex-direction:column}
 .detail-stock{display:flex;align-items:center;gap:10px;padding:10px 8px;text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:background .1s}
 .detail-stock:last-child{border-bottom:none}
 .detail-stock:hover{background:var(--bg-hover)}
 .detail-stock__rank{font-size:12px;font-weight:700;color:var(--accent);min-width:20px}
-.detail-stock__name{font-size:13px;font-weight:600;color:var(--text-primary);flex:1}
+.detail-stock__name{font-size:13px;font-weight:600;color:var(--text-primary);flex:1;overflow:visible}
 .detail-stock__rate{font-size:13px;font-weight:700;color:var(--rise);min-width:60px;text-align:right}
 .detail-history{margin-top:4px}
 .detail-history__row{display:flex;justify-content:space-between;padding:8px 4px;border-bottom:1px solid var(--border-subtle);font-size:13px}

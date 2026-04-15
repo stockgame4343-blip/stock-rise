@@ -357,12 +357,18 @@
         var rankInfo = getSectorRankHistory(name, type);
 
         // 클릭 가능한 stat 카드
+        var rankText = rankInfo.rank !== '-' ? rankInfo.rank + '위' : '-';
+        var deltaHtml = rankInfo.delta ? ' ' + rankInfo.delta : '';
         var html = '<div class="detail-stats detail-stats--clickable">';
-        // 현재 순위
+        // 종목 수
+        html += '<div class="detail-stat">';
+        html += '<span class="detail-stat__label">종목 수</span>';
+        html += '<span class="detail-stat__value">' + item.stocks.length + '개</span>';
+        html += '</div>';
+        // 현재 순위 + 변동 옆에
         html += '<div class="detail-stat detail-stat--click" data-chart="rank" data-name="' + name + '" data-type="' + type + '">';
         html += '<span class="detail-stat__label">현재 순위</span>';
-        html += '<span class="detail-stat__value">' + (rankInfo.rank !== '-' ? rankInfo.rank + '위' : '-') + '</span>';
-        if (rankInfo.delta) html += '<span class="detail-stat__delta">' + rankInfo.delta + '</span>';
+        html += '<span class="detail-stat__value">' + rankText + deltaHtml + '</span>';
         html += '</div>';
         // 평균 상승률
         html += '<div class="detail-stat detail-stat--click" data-chart="avgRate" data-name="' + name + '" data-type="' + type + '">';
