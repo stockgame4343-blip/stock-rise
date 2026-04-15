@@ -58,8 +58,15 @@ var StockTable = (function () {
 
         if (detail) {
             var parsed = (typeof detail === 'string') ? JSON.parse(detail) : detail;
-            var parts = ['B' + parsed.buzz, 'Q' + parsed.quality,
-                'T' + parsed.type, 'TV' + (parsed.turnover != null ? parsed.turnover : 0)];
+            var parts;
+            if (parsed.ti != null) {
+                // 대장점수 (v3)
+                parts = ['TP' + parsed.tp, 'TL' + parsed.tl, 'TI' + parsed.ti];
+            } else {
+                // 레거시 호재점수
+                parts = ['B' + parsed.buzz, 'Q' + parsed.quality,
+                    'T' + parsed.type, 'TV' + (parsed.turnover != null ? parsed.turnover : 0)];
+            }
             html += '<div class="score-detail">' + parts.join(' ') + '</div>';
         }
         html += '</div>';

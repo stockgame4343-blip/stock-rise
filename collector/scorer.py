@@ -1,24 +1,21 @@
-"""호재 점수 산출 v2, 거래 강도 레이블, 상승 이유 텍스트 생성
+"""대장점수 산출, 거래 강도 레이블, 상승 이유 텍스트 생성
 
-v2 개선사항:
-- 뉴스 중복 제거 (자카드 유사도)
-- 금융 감성분석 (사전 기반)
-- 동적 키워드 가중치 (업종 등락률 연동)
-- 7일 뉴스 이력 기반 지속성 판단
-- 시장 컨텍스트 (전체 테마 vs 개별 호재)
-- 증권사 리포트 반영
-- 거래 강도: 5일 평균 + 수급 보정 + 회전율
+대장점수 = 테마강도(35) + 대장성(45) + 거래강도(20) = 100점
+- 테마강도: 이 테마가 현재 장에서 얼마나 강한지
+- 대장성: 테마 내에서 이 종목이 얼마나 리더인지 (오를때 가장 많이, 내릴때 가장 적게)
+- 거래강도: 개별 종목의 거래 활력 (보조 지표)
 """
 import re
 import logging
 
 from config import (
-    FAVOR_TYPE_SCORES, MAJOR_PRESS, TRADING_INTENSITY,
+    MAJOR_PRESS, TRADING_INTENSITY,
     SUPPLY_DEMAND_MULTIPLIER, TURNOVER_BONUS_PERCENTILE,
-    SENTIMENT_POSITIVE, SENTIMENT_NEGATIVE, NEWS_DEDUP_THRESHOLD,
-    KEYWORD_THEME_MAP,
-    MARKET_THEME_MIN_STOCKS, MARKET_THEME_DISCOUNT, UNIQUE_THEME_BONUS,
-    THEME_BOOST_HOT, THEME_BOOST_WARM, THEME_BOOST_COLD,
+    NEWS_DEDUP_THRESHOLD,
+    VOLUME_RATIO_THRESHOLDS, TURNOVER_THRESHOLDS, MCAP_TURNOVER_MULT,
+    SUPPLY_BONUS, THEME_MOMENTUM_THRESHOLDS, THEME_PERSIST_THRESHOLDS,
+    THEME_BREADTH_THRESHOLDS, LEADER_HITRATE_THRESHOLDS, LEADER_HITRATE_FIRST,
+    NO_TAG_TP_DEFAULT, NO_TAG_TL_DEFAULT,
 )
 
 logger = logging.getLogger(__name__)
@@ -143,330 +140,212 @@ def deduplicate_news(articles):
 
 
 # ══════════════════════════════════════
-# 호재 점수 v2
+# 대장점수 — 테마강도(35) + 대장성(45) + 거래강도(20) = 100
 # ══════════════════════════════════════
 
-def _score_buzz(articles):
-    """뉴스 양 (Buzz) — 20점 만점 (중복 제거 후)"""
-    n = len(articles)
-    if n == 0:
-        return 0
-    elif n <= 2:
-        return 8
-    elif n <= 4:
-        return 13
-    elif n <= 6:
-        return 17
-    else:
-        return 20
+def _apply_thresholds(value, thresholds):
+    """값에 대해 내림차순 임계값 테이블을 적용하여 점수 반환"""
+    for threshold, score in thresholds:
+        if value >= threshold:
+            return score
+    return 0
 
 
-def _score_quality(articles):
-    """뉴스 질 (Quality) — 25점 만점"""
-    if not articles:
-        return 0
+def _score_tp(theme_group, theme_tag, history_data=None):
+    """테마강도 (Theme Power) — 35점 만점
 
-    major_count = sum(
-        1 for a in articles
-        if any(press in a.get('source', '') for press in MAJOR_PRESS)
-    )
-    major_ratio = major_count / len(articles)
-    source_score = round(major_ratio * 15)
+    이 테마가 현재 장에서 얼마나 강한지.
+    같은 테마의 모든 종목이 동일한 tp를 받음.
 
-    numeric_pattern = re.compile(r'\d+[\.\d]*\s*(억|조|%|만|원|달러|건)')
-    numeric_count = sum(
-        1 for a in articles
-        if numeric_pattern.search(a.get('title', ''))
-    )
-    numeric_ratio = numeric_count / len(articles)
-    numeric_score = round(numeric_ratio * 10)
-
-    return min(source_score + numeric_score, 25)
-
-
-def _score_type(articles, sector_performance=None):
-    """호재 유형 (Type) — 30점 만점, 동적 테마 가중치 적용"""
-    if not articles:
-        return 0
-
-    all_titles = ' '.join(a.get('title', '') for a in articles)
-
-    max_score = 0
-    matched_theme = None
-
-    for keyword, score in FAVOR_TYPE_SCORES.items():
-        if keyword in all_titles:
-            if score > max_score:
-                max_score = score
-                matched_theme = KEYWORD_THEME_MAP.get(keyword)
-
-    # 동적 테마 가중치: 업종 등락률 연동
-    if max_score > 0 and matched_theme and sector_performance:
-        theme_boost = _get_theme_boost(matched_theme, sector_performance)
-        max_score = min(round(max_score * theme_boost), 30)
-
-    return max_score
-
-
-def _get_theme_boost(theme, sector_performance):
-    """업종 등락률 기반 테마 보정계수"""
-    if not sector_performance:
-        return 1.0
-
-    rates = sorted(sector_performance.values(), reverse=True)
-    if not rates:
-        return 1.0
-
-    # 테마에 해당하는 업종 찾기
-    theme_rate = None
-    for sector_name, rate in sector_performance.items():
-        if theme in sector_name or sector_name in theme:
-            theme_rate = rate
-            break
-
-    if theme_rate is None:
-        return 1.0
-
-    # 상위/중위/하위 판단
-    top_third = len(rates) // 3
-    if theme_rate >= rates[min(top_third, len(rates) - 1)]:
-        return THEME_BOOST_HOT
-    elif theme_rate >= rates[min(top_third * 2, len(rates) - 1)]:
-        return THEME_BOOST_WARM
-    else:
-        return THEME_BOOST_COLD
-
-
-def _score_durability(articles, ticker, news_history=None):
-    """지속성 (Durability) — 25점 만점
-    7일 뉴스 이력과 비교하여 지속적 관심 vs 일회성 판단
+    Sub-A: 테마 모멘텀 (0-20) — 그룹 평균 등락률
+    Sub-B: 테마 지속일 (0-10) — 최근 N일 중 출현 횟수
+    Sub-C: 테마 규모  (0-5)  — 오늘 Top100 내 종목 수
     """
-    if not articles:
-        return 0
+    if not theme_group or not theme_tag:
+        return NO_TAG_TP_DEFAULT
 
-    today_count = len(articles)
+    # Sub-A: 모멘텀 — 그룹 평균 change_rate
+    avg_rate = sum(s.get('change_rate', 0) for s in theme_group) / len(theme_group)
+    momentum = _apply_thresholds(avg_rate, THEME_MOMENTUM_THRESHOLDS)
 
-    if not news_history or ticker not in news_history:
-        # 이력 없으면 기존 로직
-        if today_count >= 5:
-            return 20
-        elif today_count >= 3:
-            return 12
-        elif today_count >= 1:
-            return 5
-        return 0
+    # Sub-B: 지속일 — 최근 5일 중 이 theme_tag가 몇 일 출현
+    persist_days = 0
+    if history_data:
+        for day_data in history_data:
+            rankings = day_data.get('rankings', [])
+            if any(r.get('theme_tag') == theme_tag for r in rankings):
+                persist_days += 1
+    # 오늘 포함하면 +1이지만, 오늘은 이미 존재하므로 history만 카운트 후 +1
+    persist_days += 1  # 오늘
+    persist = _apply_thresholds(persist_days, THEME_PERSIST_THRESHOLDS)
 
-    history = news_history[ticker]
-    past_counts = [day.get('count', 0) for day in history]
+    # Sub-C: 규모 — 종목 수
+    breadth = _apply_thresholds(len(theme_group), THEME_BREADTH_THRESHOLDS)
 
-    if not past_counts:
-        if today_count >= 5:
-            return 20
-        elif today_count >= 3:
-            return 12
-        return 5
-
-    avg_past = sum(past_counts) / len(past_counts)
-    consecutive_days = sum(1 for c in past_counts if c > 0)
-
-    score = 0
-
-    # 기본 점수 (오늘 뉴스 수)
-    if today_count >= 5:
-        score += 10
-    elif today_count >= 3:
-        score += 7
-    else:
-        score += 3
-
-    # 연속성 보너스 (최근 7일 중 뉴스가 있었던 날)
-    if consecutive_days >= 5:
-        score += 10  # 5일 이상 지속 관심
-    elif consecutive_days >= 3:
-        score += 7   # 3일 이상
-    elif consecutive_days >= 1:
-        score += 3   # 간헐적
-
-    # 증가 추세 보너스
-    if avg_past > 0 and today_count > avg_past * 1.5:
-        score += 5   # 관심 급증
-
-    return min(score, 25)
+    return min(momentum + persist + breadth, 35)
 
 
-def _score_sentiment(articles):
-    """감성 분석 (Sentiment) — 10점 만점
-    금융 사전 기반 긍정/부정 비율
+def _score_tl(stock, theme_group, history_data=None):
+    """대장성 (Theme Leadership) — 45점 만점
+
+    테마 내에서 이 종목이 얼마나 리더인지.
+    오를때 가장 많이/빠르게, 내릴때 가장 적게.
+
+    Sub-A: 등락률 리더십 (0-15) — 그룹 내 change_rate 순위
+    Sub-B: 거래대금 집중  (0-15) — 그룹 내 TV 점유율 (상한가 보정)
+    Sub-C: 연속 출현     (0-15) — 하락 방어력 프록시
     """
-    if not articles:
-        return 5  # 중립
+    theme_tag = stock.get('theme_tag', '')
+    if not theme_group or not theme_tag:
+        return NO_TAG_TL_DEFAULT
 
-    pos_count = 0
-    neg_count = 0
+    ticker = stock['ticker']
+    is_limit_up = stock.get('is_limit_up', False) or stock.get('change_rate', 0) >= 29.5
 
-    for a in articles:
-        title = a.get('title', '')
-        for word in SENTIMENT_POSITIVE:
-            if word in title:
-                pos_count += 1
-                break
-        for word in SENTIMENT_NEGATIVE:
-            if word in title:
-                neg_count += 1
+    # ── Sub-A: 등락률 순위 (0-15) ──
+    rates = sorted([s.get('change_rate', 0) for s in theme_group], reverse=True)
+    my_rate = stock.get('change_rate', 0)
+
+    # 상한가 종목은 최소 2위 보장
+    if is_limit_up:
+        rank = max(1, min(2, rates.index(my_rate) + 1 if my_rate in rates else len(rates)))
+    else:
+        rank = 1
+        for r in rates:
+            if r > my_rate:
+                rank += 1
+            else:
                 break
 
-    total = pos_count + neg_count
-    if total == 0:
-        return 5  # 중립
+    rank_scores = {1: 15, 2: 11, 3: 8}
+    change_rank = rank_scores.get(rank, 4)
 
-    pos_ratio = pos_count / total
-
-    if pos_ratio >= 0.8:
-        return 10
-    elif pos_ratio >= 0.6:
-        return 8
-    elif pos_ratio >= 0.4:
-        return 5  # 혼재
-    elif pos_ratio >= 0.2:
-        return 2
+    # ── Sub-B: 거래대금 집중도 (0-15) ──
+    if is_limit_up:
+        # 상한가 보정: 매수세 과잉으로 거래 중단 → 자동 최고점
+        tv_share_score = 15
     else:
-        return 0  # 대부분 부정
+        total_tv = sum(s.get('trading_value', 0) for s in theme_group)
+        my_tv = stock.get('trading_value', 0)
+        if total_tv > 0:
+            share = my_tv / total_tv
+        else:
+            share = 0
+
+        if share >= 0.5:
+            tv_share_score = 15
+        elif share >= 0.3:
+            tv_share_score = 12
+        elif share >= 0.15:
+            tv_share_score = 8
+        else:
+            tv_share_score = 4
+
+    # ── Sub-C: 연속 출현 (0-15) — 하락 방어력 프록시 ──
+    if not history_data:
+        persistence = LEADER_HITRATE_FIRST  # 히스토리 없으면 첫 출현 취급
+    else:
+        theme_days = 0
+        stock_days = 0
+        for day_data in history_data:
+            rankings = day_data.get('rankings', [])
+            day_has_theme = any(r.get('theme_tag') == theme_tag for r in rankings)
+            if day_has_theme:
+                theme_days += 1
+                if any(r.get('ticker') == ticker and r.get('theme_tag') == theme_tag for r in rankings):
+                    stock_days += 1
+
+        if theme_days == 0:
+            persistence = LEADER_HITRATE_FIRST  # 새 테마
+        else:
+            hit_rate = stock_days / theme_days
+            persistence = _apply_thresholds(hit_rate, LEADER_HITRATE_THRESHOLDS)
+            if persistence == 0:
+                persistence = LEADER_HITRATE_FIRST
+
+    return min(change_rank + tv_share_score + persistence, 45)
 
 
-def _score_analyst(reports, close_price):
-    """증권사 리포트 점수 — 15점 만점
-    목표가 괴리율 + 투자의견 기반
+def _score_ti(stock, td):
+    """거래강도 (Trading Intensity) — 20점 만점
+
+    개별 종목의 거래 활력. 보조 지표.
+
+    Sub-A: 5일평균 대비 (0-12)
+    Sub-B: 시총보정 회전율 (0-5)
+    Sub-C: 수급 보정 (0-3)
     """
-    if not reports or close_price <= 0:
-        return 0
+    today_value = td.get('today_value', 0)
+    avg_5day = td.get('avg_5day', 0)
+    inst_net = td.get('inst_net', 0)
+    foreign_net = td.get('foreign_net', 0)
+    market_cap = stock.get('market_cap', 0)
+    trading_value = stock.get('trading_value', 0)
 
-    score = 0
+    # Sub-A: 5일평균 대비 비율
+    if avg_5day > 0 and today_value > 0:
+        ratio = today_value / avg_5day
+        vol_ratio = _apply_thresholds(ratio, VOLUME_RATIO_THRESHOLDS)
+    else:
+        vol_ratio = 6  # 중립
 
-    # 최근 리포트의 투자의견
-    opinion_scores = {'매수': 5, '적극매수': 5, 'BUY': 5, 'Strong Buy': 5,
-                      '비중확대': 4, 'Overweight': 4,
-                      '중립': 2, 'Neutral': 2, 'Hold': 2, '시장수익률': 2,
-                      '비중축소': 0, '매도': 0, 'Sell': 0, 'Underweight': 0}
-
-    best_opinion = 0
-    target_prices = []
-
-    for r in reports[:3]:  # 최근 3개만
-        opinion = r.get('opinion', '')
-        for key, val in opinion_scores.items():
-            if key in opinion:
-                best_opinion = max(best_opinion, val)
+    # Sub-B: 시총보정 회전율
+    if market_cap > 0 and trading_value > 0:
+        raw_turnover = trading_value / market_cap * 100
+        # 시총 보정: 대형주 동일 회전율이 더 의미있음
+        mult = 1.0
+        for mcap_threshold, m in MCAP_TURNOVER_MULT:
+            if market_cap >= mcap_threshold:
+                mult = m
                 break
-
-        tp = r.get('target_price', 0)
-        if tp > 0:
-            target_prices.append(tp)
-
-    score += best_opinion
-
-    # 목표가 괴리율 (현재가 대비 상승 여력)
-    if target_prices:
-        avg_target = sum(target_prices) / len(target_prices)
-        upside = ((avg_target - close_price) / close_price) * 100
-
-        if upside >= 50:
-            score += 10
-        elif upside >= 30:
-            score += 8
-        elif upside >= 15:
-            score += 5
-        elif upside >= 0:
-            score += 2
-        # 목표가 < 현재가이면 0점
-
-    return min(score, 15)
-
-
-def _score_turnover(turnover_rank_pct):
-    """시총 대비 거래대금 (Turnover) — 25점 만점
-    상위 종목 내 상대 비교 (백분위 기반)
-    """
-    if turnover_rank_pct <= 10:
-        return 25
-    elif turnover_rank_pct <= 25:
-        return 20
-    elif turnover_rank_pct <= 50:
-        return 15
-    elif turnover_rank_pct <= 75:
-        return 10
+        adjusted = raw_turnover * mult
+        turnover = _apply_thresholds(adjusted, TURNOVER_THRESHOLDS)
     else:
-        return 5
+        turnover = 1
+
+    # Sub-C: 수급 보정
+    if inst_net > 0 and foreign_net > 0:
+        supply = SUPPLY_BONUS['both']
+    elif inst_net > 0:
+        supply = SUPPLY_BONUS['institution']
+    elif foreign_net > 0:
+        supply = SUPPLY_BONUS['foreign']
+    else:
+        supply = SUPPLY_BONUS['none']
+
+    return min(vol_ratio + turnover + supply, 20)
 
 
-def calculate_score(articles, date_str, ticker, close_price=0,
-                    sector_performance=None, turnover_rank_pct=50):
-    """호재 점수 종합 산출 v3
-    B(20) + Q(25) + T(30) + TV(25) = 100점
+def calculate_daejang_score(stock, theme_group, td, history_data=None):
+    """대장점수 종합 산출
+    테마강도(35) + 대장성(45) + 거래강도(20) = 100점
+
+    Args:
+        stock: dict — {ticker, name, change_rate, trading_value, market_cap,
+                        theme_tag, is_limit_up, ...}
+        theme_group: list[dict] — 같은 theme_tag 종목들 (빈 리스트=태그 없음)
+        td: dict — {today_value, avg_5day, inst_net, foreign_net}
+        history_data: list[dict] — 최근 N일 일별 데이터 [{date, rankings:[...]}]
 
     Returns:
-        dict: {'total': int, 'detail': {...}}
+        dict: {'total': int, 'detail': {'tp': int, 'tl': int, 'ti': int}}
     """
-    deduped = deduplicate_news(articles)
+    theme_tag = stock.get('theme_tag', '')
 
-    buzz = _score_buzz(deduped)
-    quality = _score_quality(deduped)
-    type_score = _score_type(deduped, sector_performance)
-    turnover = _score_turnover(turnover_rank_pct)
+    tp = _score_tp(theme_group, theme_tag, history_data)
+    tl = _score_tl(stock, theme_group, history_data)
+    ti = _score_ti(stock, td)
 
-    total = min(buzz + quality + type_score + turnover, 100)
+    total = min(tp + tl + ti, 100)
 
     return {
         'total': total,
         'detail': {
-            'buzz': buzz,
-            'quality': quality,
-            'type': type_score,
-            'turnover': turnover,
+            'tp': tp,
+            'tl': tl,
+            'ti': ti,
         }
     }
-
-
-def _market_context_multiplier(articles, ticker, all_news_map):
-    """시장 컨텍스트 보정계수
-    같은 테마 뉴스가 많은 종목에 걸쳐 있으면 시장 전체 테마 → 할인
-    개별 종목에만 집중되면 → 보너스
-    """
-    if not articles or not all_news_map:
-        return 1.0
-
-    # 이 종목의 주요 키워드 추출
-    all_titles = ' '.join(a.get('title', '') for a in articles)
-    my_themes = set()
-    for keyword, theme in KEYWORD_THEME_MAP.items():
-        if keyword in all_titles:
-            my_themes.add(theme)
-
-    if not my_themes:
-        return 1.0
-
-    # 동일 테마를 가진 다른 종목 수 카운트
-    theme_stock_count = {}
-    for theme in my_themes:
-        count = 0
-        for other_ticker, other_articles in all_news_map.items():
-            if other_ticker == ticker:
-                continue
-            other_titles = ' '.join(a.get('title', '') for a in other_articles)
-            for keyword, t in KEYWORD_THEME_MAP.items():
-                if t == theme and keyword in other_titles:
-                    count += 1
-                    break
-        theme_stock_count[theme] = count
-
-    # 가장 많이 공유된 테마 기준으로 판단
-    max_shared = max(theme_stock_count.values()) if theme_stock_count else 0
-
-    if max_shared >= MARKET_THEME_MIN_STOCKS:
-        return MARKET_THEME_DISCOUNT  # 시장 전체 테마 → 할인
-    elif max_shared <= 2:
-        return UNIQUE_THEME_BONUS     # 개별 종목 호재 → 보너스
-    else:
-        return 1.0
 
 
 # ══════════════════════════════════════

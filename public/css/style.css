@@ -311,7 +311,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .stock-card__reason{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:14px}
 .stock-card__reason .theme-tag{margin-right:6px;vertical-align:middle}
 
-/* 호재점수 상세 분석 */
+/* 대장점수 상세 분석 */
 .score-analysis{background:var(--bg-tertiary);border-radius:10px;padding:16px 20px;margin-bottom:14px}
 .score-analysis__header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
 .score-analysis__title{font-size:13px;font-weight:700;color:var(--text-primary)}

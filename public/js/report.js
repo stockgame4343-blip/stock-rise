@@ -165,6 +165,28 @@
         if (v >= 6) return '보통';
         return '평이';
     }
+    // 대장점수 v3 레벨
+    function tpLevel(v) {
+        if (v >= 28) return '최강 테마';
+        if (v >= 20) return '강한 테마';
+        if (v >= 12) return '보통 테마';
+        if (v >= 5) return '약한 테마';
+        return '테마 미확인';
+    }
+    function tlLevel(v) {
+        if (v >= 35) return '확실한 대장';
+        if (v >= 25) return '유력 대장';
+        if (v >= 15) return '중위권';
+        if (v >= 8) return '추종주';
+        return '미확인';
+    }
+    function tiLevel(v) {
+        if (v >= 16) return '폭발적';
+        if (v >= 12) return '매우 활발';
+        if (v >= 8) return '활발';
+        if (v >= 4) return '보통';
+        return '평이';
+    }
 
     // ── 테마 토글 (공통) ──
     var $themeToggle = document.getElementById('themeToggle');
@@ -514,8 +536,10 @@
         show.forEach(function (s, i) {
             var naverUrl = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
             var detail = s.score_detail || {};
+            var isV3 = detail.ti != null;
             var bz = detail.buzz || 0, qu = detail.quality || 0;
             var ty = detail.type || 0, tv = detail.turnover || 0;
+            var tp = detail.tp || 0, tl = detail.tl || 0, ti = detail.ti || 0;
 
             html += '<div class="stock-card">';
             html += '<div class="stock-card__top">';
@@ -540,18 +564,24 @@
                 html += '</div>';
             }
 
-            // 호재점수 상세 분석
+            // 점수 상세 분석
             var cls = s.score >= 70 ? 'high' : (s.score >= 40 ? 'mid' : 'low');
             html += '<div class="score-analysis">';
             html += '<div class="score-analysis__header">';
-            html += '<span class="score-analysis__title">호재점수 분석</span>';
+            html += '<span class="score-analysis__title">대장점수 분석</span>';
             html += '<span class="score-badge score-badge--' + cls + '">' + s.score + '</span>';
             html += '</div>';
             html += '<div class="score-analysis__grid">';
-            html += scoreItem('뉴스 양', bz, 20, buzzLevel(bz), '중복 제거 후 관련 뉴스 건수');
-            html += scoreItem('뉴스 질', qu, 25, qualityLevel(qu), '주요 언론사, 수치 포함 여부');
-            html += scoreItem('호재 강도', ty, 30, typeLevel(ty), '테마 연동, 호재 유형 분석');
-            html += scoreItem('거래량 강도', tv, 25, turnoverLevel(tv), '시총 대비 거래대금 비율');
+            if (isV3) {
+                html += scoreItem('테마강도', tp, 35, tpLevel(tp), '테마 모멘텀 + 지속일 + 규모');
+                html += scoreItem('대장성', tl, 45, tlLevel(tl), '등락리더십 + 거래집중 + 연속출현');
+                html += scoreItem('거래강도', ti, 20, tiLevel(ti), '5일대비 + 회전율 + 수급');
+            } else {
+                html += scoreItem('뉴스 양', bz, 20, buzzLevel(bz), '중복 제거 후 관련 뉴스 건수');
+                html += scoreItem('뉴스 질', qu, 25, qualityLevel(qu), '주요 언론사, 수치 포함 여부');
+                html += scoreItem('호재 강도', ty, 30, typeLevel(ty), '테마 연동, 호재 유형 분석');
+                html += scoreItem('거래량 강도', tv, 25, turnoverLevel(tv), '시총 대비 거래대금 비율');
+            }
             html += '</div></div>';
 
             // 뉴스 3건

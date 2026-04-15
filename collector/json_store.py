@@ -216,7 +216,7 @@ def load_backtest_data():
 def append_backtest_data(date_str, rankings):
     """백테스트용 데이터 기록 (점수 vs 이후 등락률 비교용)
 
-    매일 수집 시 호재점수를 기록하고, 다음 수집 시 전일 종가 변화를 역으로 기록.
+    매일 수집 시 대장점수를 기록하고, 다음 수집 시 전일 종가 변화를 역으로 기록.
     """
     data = load_backtest_data()
 

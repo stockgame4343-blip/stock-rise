@@ -1,11 +1,11 @@
-"""데이터 수집 파이프라인 v2 — 고도화된 거래강도 + 호재점수"""
+"""데이터 수집 파이프라인 v3 — 대장점수 (테마 내 리더십 기반)"""
 import logging
 import requests
-from datetime import datetime
+from datetime import datetime, timedelta
 
-from config import TOP_N, USER_AGENTS
+from config import TOP_N, USER_AGENTS, LEADER_HISTORY_DAYS
 from json_store import (
-    save_daily_data, update_dates_index, cleanup_old_data,
+    save_daily_data, load_daily_data, update_dates_index, cleanup_old_data,
     update_summary_index,
     load_sector_cache, save_sector_cache,
     load_news_history, update_news_history,
@@ -19,7 +19,7 @@ from news_crawler import (
     fetch_article_bodies_for_themes,
     crawl_toss_ai_signals,
 )
-from scorer import calculate_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason, load_user_bad_tags
+from scorer import calculate_daejang_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason, load_user_bad_tags
 
 logging.basicConfig(
     level=logging.INFO,
@@ -300,20 +300,31 @@ def collect_and_save(date_str=None, mode='closing'):
     toss_reasons = crawl_toss_ai_signals()
 
     # Step 9: 뉴스 이력 로드 + 갱신
-    logger.info("[9/10] 뉴스 이력 갱신 + 점수 산출")
+    logger.info("[9/10] 뉴스 이력 갱신")
     news_history = load_news_history()
     update_news_history(date_str, news_map)
 
-    # Step 10: 순위 데이터 조립
-    logger.info("[10/10] 데이터 저장")
-    rankings = []
+    # Step 10: 대장점수용 히스토리 로드 + 2-pass 구조
+    logger.info("[10/11] 대장점수 산출 (2-pass)")
+
+    # 최근 N일 데이터 로드 (연속출현 계산용)
+    history_data = []
+    for i in range(1, LEADER_HISTORY_DAYS + 1):
+        prev_date = (datetime.now() - timedelta(days=i)).strftime('%Y%m%d')
+        prev = load_daily_data(prev_date)
+        if prev:
+            history_data.append(prev)
+    logger.info(f"  히스토리 로드: {len(history_data)}일")
+
+    # ── Pass 1: 테마 태그 확정 + 기본 데이터 조립 ──
+    resolved_stocks = []
     new_theme_tags = {}
     for idx, s in enumerate(top_stocks):
         t = s['ticker']
         news_articles = news_map.get(t, [])
-
-        # 거래 강도 v2
         td = trading_data.get(t, _default_trading_data())
+
+        # 거래 강도 레이블 (표시용)
         intensity_label, intensity_detail = calculate_trading_intensity(
             today_value=td['today_value'],
             avg_5day_value=td['avg_5day'],
@@ -321,22 +332,10 @@ def collect_and_save(date_str=None, mode='closing'):
             foreign_net=td['foreign_net'],
             turnover_rank_pct=turnover_ranks.get(t, 50),
         )
-
-        # 상한가 종목 별도 플래그
         if td.get('is_limit_up'):
             intensity_label = '상한가'
 
-        # 호재 점수 v3
-        score_result = calculate_score(
-            articles=news_articles,
-            date_str=date_str,
-            ticker=t,
-            close_price=s['close_price'],
-            sector_performance=sector_performance,
-            turnover_rank_pct=turnover_ranks.get(t, 50),
-        )
-
-        # 테마 태그 + 상승 이유 (우선순위: 오버라이드 > 캐시 > 추출)
+        # 테마 태그 (우선순위: 오버라이드 > 캐시 > 추출)
         if t in tag_overrides:
             theme_tag = tag_overrides[t]
         elif t in cached_tags:
@@ -363,8 +362,8 @@ def collect_and_save(date_str=None, mode='closing'):
             reason = generate_rise_reason(news_articles, report_map.get(t, []),
                                           theme_tag=theme_tag, stock_name=s['name'])
 
-        rankings.append({
-            'rank': idx + 1,
+        resolved_stocks.append({
+            'idx': idx,
             'ticker': t,
             'name': s['name'],
             'market': s['market'],
@@ -377,10 +376,58 @@ def collect_and_save(date_str=None, mode='closing'):
             'high_52w': high_52w_map.get(t, {}).get('price', 0),
             'high_52w_date': high_52w_map.get(t, {}).get('date', ''),
             'theme_tag': theme_tag,
+            'is_limit_up': td.get('is_limit_up', False),
+            'intensity_label': intensity_label,
+            'reason': reason,
+            'news': news_articles,
+            'td': td,
+        })
+
+    # ── 테마 그룹 빌드 ──
+    theme_groups = {}
+    for rs in resolved_stocks:
+        tag = rs.get('theme_tag', '')
+        if tag:
+            theme_groups.setdefault(tag, []).append(rs)
+
+    logger.info(f"  테마 그룹: {len(theme_groups)}개 테마")
+
+    # ── Pass 2: 대장점수 산출 + 최종 rankings 조립 ──
+    logger.info("[11/11] 데이터 저장")
+    rankings = []
+    for rs in resolved_stocks:
+        tag = rs.get('theme_tag', '')
+        group = theme_groups.get(tag, [])
+        td = rs['td']
+
+        score_result = calculate_daejang_score(
+            stock=rs,
+            theme_group=group,
+            td=td,
+            history_data=history_data,
+        )
+
+        rankings.append({
+            'rank': rs['idx'] + 1,
+            'ticker': rs['ticker'],
+            'name': rs['name'],
+            'market': rs['market'],
+            'close_price': rs['close_price'],
+            'change_amount': rs['change_amount'],
+            'change_rate': rs['change_rate'],
+            'trading_value': rs['trading_value'],
+            'market_cap': rs['market_cap'],
+            'sector': rs['sector'],
+            'high_52w': rs['high_52w'],
+            'high_52w_date': rs['high_52w_date'],
+            'theme_tag': tag,
+            'avg_5day': td.get('avg_5day', 0),
+            'inst_net': td.get('inst_net', 0),
+            'foreign_net': td.get('foreign_net', 0),
             'score': score_result['total'],
             'score_detail': score_result['detail'],
-            'rise_reason': reason,
-            'news': news_articles,
+            'rise_reason': rs['reason'],
+            'news': rs['news'],
         })
 
     # 테마 캐시 갱신
@@ -394,7 +441,7 @@ def collect_and_save(date_str=None, mode='closing'):
         'mode': mode,
         'is_final': mode == 'closing',
         'count': len(rankings),
-        'version': 2,
+        'version': 3,
         'rankings': rankings,
     }
 
@@ -406,7 +453,7 @@ def collect_and_save(date_str=None, mode='closing'):
     # 백테스트 데이터 기록
     append_backtest_data(date_str, rankings)
 
-    logger.info(f"===== 수집 완료 v2: {len(rankings)}개 종목 저장 =====")
+    logger.info(f"===== 수집 완료 v3: {len(rankings)}개 종목 (대장점수) =====")
     return True
 
 
