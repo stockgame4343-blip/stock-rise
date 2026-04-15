@@ -42,6 +42,7 @@
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
             </button>
             <h1 class="report__title" id="reportTitle">데일리 리포트</h1>
+            <span class="date-badge" id="dateBadge">오늘</span>
             <button class="date-nav" id="dateNext">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
             </button>
@@ -91,12 +92,12 @@
                 <div class="sector-cards" id="themeCards"></div>
             </section>
 
-            <!-- ── 주목 종목 ── -->
+            <!-- ── 오늘의 추천 픽 ── -->
             <section class="report__section">
-                <h2 class="report__section-title">주목 종목</h2>
-                <p class="report__section-desc">대장점수 기준 상위 종목</p>
-                <div class="stock-cards" id="stockCards"></div>
-                <button class="report__more-btn" id="stockMoreBtn" style="display:none;">더보기</button>
+                <h2 class="report__section-title">오늘의 추천 픽</h2>
+                <p class="report__section-desc">대장점수 + 테마파워 기준 매수 추천 2종목</p>
+                <div class="pick-cards" id="pickCards"></div>
+                <p class="report__disclaimer" style="font-size:11px;color:var(--text-muted);margin-top:8px;">* 투자 참고용이며, 손실에 대한 책임은 투자자 본인에게 있습니다.</p>
             </section>
 
             <!-- ── 52주 신고가 ── -->
@@ -112,6 +113,17 @@
                 <p class="report__section-desc">과거 20%이상 급등 또는 52주 신고가 돌파 후 고점 대비 25% 이상 하락한 종목</p>
                 <div id="pullbackList"></div>
             </section>
+        </div>
+    </div>
+
+    <!-- 상세 팝업 모달 (섹터/테마/서머리 차트) -->
+    <div class="modal-overlay" id="detailModal" style="display:none;">
+        <div class="modal" style="max-width:600px;">
+            <div class="modal__header">
+                <h3 class="modal__title" id="detailModalTitle">상세</h3>
+                <button class="modal__close" id="detailModalClose">&times;</button>
+            </div>
+            <div class="modal__body" id="detailModalBody"></div>
         </div>
     </div>
 

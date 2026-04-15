@@ -260,7 +260,8 @@ def collect_and_save(date_str=None, mode='closing'):
 
     # Step 5: 뉴스
     logger.info("[5/9] 뉴스 수집")
-    news_map = crawl_news_for_tickers(tickers, date_str)
+    stock_names = {s['ticker']: s['name'] for s in top_stocks}
+    news_map = crawl_news_for_tickers(tickers, date_str, stock_names=stock_names)
 
     # Step 6: 기사 본문 수집 (테마 추출용, 오버라이드 > 캐시 > 추출)
     logger.info("[6/9] 기사 본문 수집 (테마 추출)")

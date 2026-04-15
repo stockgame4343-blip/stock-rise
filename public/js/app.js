@@ -352,13 +352,19 @@
             return;
         }
 
+        // 뉴스 버튼 클릭 → 뉴스 모달
+        var newsBtn = e.target.closest('.news-btn');
+        if (newsBtn) {
+            var ticker = newsBtn.getAttribute('data-ticker');
+            if (ticker) StockTable.openNews(ticker);
+            return;
+        }
+
         // 대장점수 클릭 → 뉴스 모달
         var scoreClick = e.target.closest('.score-click');
         if (scoreClick) {
             var ticker = scoreClick.getAttribute('data-ticker');
-            if (ticker) {
-                StockTable.openNews(ticker);
-            }
+            if (ticker) StockTable.openNews(ticker);
             return;
         }
     }

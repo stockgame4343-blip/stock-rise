@@ -138,9 +138,14 @@ var StockTable = (function () {
             html += '<div class="news-item">';
             html += '<a class="news-item__title" href="' + n.link + '" target="_blank" rel="noopener">' +
                 n.title + '</a>';
+            html += '<span class="news-item__meta">';
             if (n.source) {
                 html += '<span class="news-item__source">' + n.source + '</span>';
             }
+            if (n.date) {
+                html += '<span class="news-item__date">' + n.date + '</span>';
+            }
+            html += '</span>';
             html += '</div>';
         });
 
@@ -173,8 +178,9 @@ var StockTable = (function () {
             html += '<tr' + (isExcluded ? ' class="row--excluded"' : '') + '>';
             html += '<td class="cell-rank">' + r.rank + '</td>';
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
-                '<span class="cell-name__text">' + r.name +
-                '<span class="cell-name__market">' + r.market + '</span></span>' +
+                '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link">' + r.name + '</a>' +
+                '<span class="cell-name__market">' + r.market + '</span>' +
+                '<button class="news-btn" data-ticker="' + r.ticker + '" title="뉴스">&#128240;</button>' +
                 starRatingHtml(r.ticker, ratings) +
                 '</div></td>';
             html += '<td class="cell-price">' + formatNumber(r.close_price) + '</td>';
@@ -205,8 +211,6 @@ var StockTable = (function () {
                 (displayTag || '+') + '</span>' +
                 reason + '</td>';
             html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
-            html += '<td style="text-align:center"><a href="' + detailUrl +
-                '" target="_blank" rel="noopener" class="naver-n">N</a></td>';
             html += '</tr>';
         });
 

@@ -67,27 +67,49 @@ def _is_spam_article(title, source):
     for kw in _SPAM_TITLE_KEYWORDS:
         if kw in title:
             return True
+    if source in _SPAM_SOURCES:
+        return True
     return False
 
 
-def crawl_news(ticker, max_articles=10):
-    """단일 종목의 최근 뉴스 크롤링 (제목, 링크, 출처)"""
+def _article_priority(title, stock_name=''):
+    """기사 우선순위 점수 (높을수록 좋은 기사)
+    [특징주], 종목명 포함 기사를 우선 수집
+    """
+    score = 0
+    if stock_name and stock_name in title:
+        score += 10  # 종목명 직접 언급
+    if '[특징주]' in title or '특징주' in title:
+        score += 5  # 특징주 태깅 기사
+    if title.startswith('[') and ']' in title[:15]:
+        score += 1  # 태그 있는 기사 (보통 더 정제됨)
+    return score
+
+
+def crawl_news(ticker, max_articles=10, stock_name='', date_str=''):
+    """단일 종목의 최근 뉴스 크롤링 (제목, 링크, 출처, 날짜)
+
+    Args:
+        ticker: 종목코드
+        max_articles: 최대 기사 수
+        stock_name: 종목명 (우선순위 정렬용)
+        date_str: 수집일 YYYYMMDD (기사에 기록)
+    """
     url = NAVER_NEWS_IFRAME_URL.format(ticker=ticker)
     resp = _request_with_retry(url)
     if resp is None:
         return []
 
     soup = BeautifulSoup(resp.text, 'html.parser')
-    articles = []
+    candidates = []
     seen_titles = set()
 
+    # 날짜 추출 시도 (Naver Finance는 td.date에 YYYY.MM.DD 형식)
     rows = soup.select('table.type5 tr')
     for row in rows:
-        if len(articles) >= max_articles:
-            break
-
         title_tag = row.select_one('td.title a')
         source_tag = row.select_one('td.info')
+        date_tag = row.select_one('td.date')
 
         if title_tag:
             title = title_tag.get_text(strip=True)
@@ -105,23 +127,52 @@ def crawl_news(ticker, max_articles=10):
             if link and not link.startswith('http'):
                 link = 'https://finance.naver.com' + link
 
-            articles.append({
+            # 날짜 추출
+            article_date = ''
+            if date_tag:
+                raw_date = date_tag.get_text(strip=True)
+                # "2026.04.15 09:30" → "2026.04.15"
+                article_date = raw_date[:10] if len(raw_date) >= 10 else raw_date
+
+            candidates.append({
                 'title': title,
                 'link': link,
                 'source': source,
+                'date': article_date or date_str,
+                '_priority': _article_priority(title, stock_name),
             })
+
+    # 우선순위 정렬: [특징주]+종목명 포함 기사를 상위로
+    candidates.sort(key=lambda a: a['_priority'], reverse=True)
+
+    # 상위 max_articles개만 선택, _priority 필드 제거
+    articles = []
+    for a in candidates[:max_articles]:
+        articles.append({
+            'title': a['title'],
+            'link': a['link'],
+            'source': a['source'],
+            'date': a['date'],
+        })
 
     return articles
 
 
-def crawl_news_for_tickers(tickers, date_str):
-    """복수 종목의 뉴스를 일괄 크롤링"""
+def crawl_news_for_tickers(tickers, date_str, stock_names=None):
+    """복수 종목의 뉴스를 일괄 크롤링
+
+    Args:
+        tickers: 종목코드 리스트
+        date_str: 수집일 YYYYMMDD
+        stock_names: {ticker: name} 딕셔너리 (우선순위 정렬용)
+    """
     news_map = {}
     total = len(tickers)
+    names = stock_names or {}
 
     for idx, ticker in enumerate(tickers):
         try:
-            articles = crawl_news(ticker)
+            articles = crawl_news(ticker, stock_name=names.get(ticker, ''), date_str=date_str)
             news_map[ticker] = articles
             if (idx + 1) % 20 == 0:
                 logger.info(f"  뉴스 수집 진행: {idx + 1}/{total}")
