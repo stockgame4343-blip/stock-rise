@@ -929,7 +929,6 @@
                 renderSummary(analysis.summary, state.summaryHistory, date);
                 renderSectorCard(analysis.sectors, document.getElementById('sectorCards'), ratings, state.summaryHistory, date);
                 renderThemes(analysis.themes, ratings, state.summaryHistory, date);
-                renderPickCards(data.rankings);
                 renderHighSection(analysis.highList, analysis.nearHighList, date, ratings);
 
                 // 급등 후 조정 (비동기)
