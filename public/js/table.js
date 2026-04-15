@@ -191,13 +191,11 @@ var StockTable = (function () {
             var displayTag = (ratingData.customTag != null ? ratingData.customTag : r.theme_tag) || '';
             var isCustom = ratingData.customTag != null && ratingData.customTag !== r.theme_tag;
             var reason = r.rise_reason || '-';
-            // theme_tag가 rise_reason에 이미 포함되면 태그 뱃지 숨김 (중복 방지)
-            var showTag = displayTag && reason.indexOf(displayTag) === -1;
             html += '<td class="cell-reason">' +
-                '<span class="tag-edit' + (showTag ? ' theme-tag' : ' tag-edit--empty') +
+                '<span class="tag-edit' + (displayTag ? ' theme-tag' : ' tag-edit--empty') +
                 (isCustom ? ' theme-tag--custom' : '') +
                 '" data-ticker="' + r.ticker + '">' +
-                (showTag ? displayTag : '+') + '</span>' +
+                (displayTag || '+') + '</span>' +
                 reason + '</td>';
             html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '<td style="text-align:center"><a href="' + detailUrl +
