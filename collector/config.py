@@ -10,6 +10,7 @@ NEWS_HISTORY_PATH = os.path.join(COLLECTOR_DIR, 'news_history.json')
 THEME_CACHE_PATH = os.path.join(COLLECTOR_DIR, 'theme_cache.json')
 THEME_CACHE_DAYS = 30  # 테마 태그 캐시 유효기간 (일)
 TAG_OVERRIDES_PATH = os.path.join(COLLECTOR_DIR, 'tag_overrides.json')
+TAG_FEEDBACK_PATH = os.path.join(COLLECTOR_DIR, 'tag_feedback.json')
 
 # 수집 설정
 TOP_N = 100

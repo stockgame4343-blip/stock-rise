@@ -4,7 +4,7 @@ import os
 import logging
 from datetime import datetime, timedelta
 
-from config import DATA_DIR, DATA_RETENTION_DAYS, SECTOR_CACHE_PATH, NEWS_HISTORY_PATH, NEWS_HISTORY_DAYS, THEME_CACHE_PATH, THEME_CACHE_DAYS, TAG_OVERRIDES_PATH
+from config import DATA_DIR, DATA_RETENTION_DAYS, SECTOR_CACHE_PATH, NEWS_HISTORY_PATH, NEWS_HISTORY_DAYS, THEME_CACHE_PATH, THEME_CACHE_DAYS, TAG_OVERRIDES_PATH, TAG_FEEDBACK_PATH
 
 logger = logging.getLogger(__name__)
 
@@ -274,3 +274,35 @@ def load_tag_overrides():
             return json.load(f)
     except (json.JSONDecodeError, IOError):
         return {}
+
+
+# ── 태그 피드백 (사용자 학습) ──
+
+def load_tag_feedback():
+    """사용자 태그 피드백 로드 (수동 수정/삭제 이력)
+
+    Returns:
+        dict: {
+            'overrides': { ticker: tag },   # 수동 수정한 태그
+            'bad_tags': ['잘못된태그', ...], # 삭제된 태그 (다시 생성 방지)
+        }
+    """
+    if not os.path.exists(TAG_FEEDBACK_PATH):
+        return {'overrides': {}, 'bad_tags': []}
+    try:
+        with open(TAG_FEEDBACK_PATH, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        # 구조 보장
+        if 'overrides' not in data:
+            data['overrides'] = {}
+        if 'bad_tags' not in data:
+            data['bad_tags'] = []
+        return data
+    except (json.JSONDecodeError, IOError):
+        return {'overrides': {}, 'bad_tags': []}
+
+
+def save_tag_feedback(feedback):
+    """태그 피드백 저장"""
+    with open(TAG_FEEDBACK_PATH, 'w', encoding='utf-8') as f:
+        json.dump(feedback, f, ensure_ascii=False, indent=2)

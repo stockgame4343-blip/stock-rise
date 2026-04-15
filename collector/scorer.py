@@ -643,12 +643,23 @@ _BAD_THEME_TAGS = {
     '사업', '상품', '사실', '과정', '조건', '상황', '수요', '쪽',
 }
 
+# 사용자가 삭제한 태그 (런타임에 추가됨)
+_USER_BAD_TAGS = set()
+
+
+def load_user_bad_tags(bad_tags_list):
+    """사용자 피드백에서 학습한 잘못된 태그를 로드"""
+    global _USER_BAD_TAGS
+    _USER_BAD_TAGS = set(bad_tags_list)
+    if _USER_BAD_TAGS:
+        logger.info(f"  사용자 bad_tags 로드: {len(_USER_BAD_TAGS)}개")
+
 
 def _is_valid_theme_tag(tag):
     """theme_tag가 상승 이유에 쓸 만한지 판별"""
     if not tag or len(tag) < 2:
         return False
-    if tag in _BAD_THEME_TAGS:
+    if tag in _BAD_THEME_TAGS or tag in _USER_BAD_TAGS:
         return False
     # 순수 숫자만인 경우 제외
     if tag.isdigit():

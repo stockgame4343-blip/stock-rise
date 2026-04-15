@@ -10,7 +10,7 @@ from json_store import (
     load_news_history, update_news_history,
     append_backtest_data,
     get_cached_theme_tags, update_theme_cache,
-    load_tag_overrides,
+    load_tag_overrides, load_tag_feedback,
 )
 from news_crawler import (
     crawl_news_for_tickers, crawl_sector,
@@ -18,7 +18,7 @@ from news_crawler import (
     fetch_article_bodies_for_themes,
     crawl_toss_ai_signals,
 )
-from scorer import calculate_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason
+from scorer import calculate_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason, load_user_bad_tags
 
 logging.basicConfig(
     level=logging.INFO,
@@ -263,11 +263,23 @@ def collect_and_save(date_str=None, mode='closing'):
 
     # Step 6: 기사 본문 수집 (테마 추출용, 오버라이드 > 캐시 > 추출)
     logger.info("[6/9] 기사 본문 수집 (테마 추출)")
+
+    # 사용자 피드백 로드 (수동 수정 + 잘못된 태그 학습)
+    feedback = load_tag_feedback()
+    user_overrides = feedback.get('overrides', {})
+    user_bad_tags = feedback.get('bad_tags', [])
+    load_user_bad_tags(user_bad_tags)  # scorer에 반영
+
+    # tag_overrides.json (레거시) + 피드백 오버라이드 병합
     tag_overrides = load_tag_overrides()
+    tag_overrides.update(user_overrides)  # 피드백이 우선
+
     override_tickers = set(t for t in tickers if t in tag_overrides)
     remaining = [t for t in tickers if t not in override_tickers]
     if override_tickers:
         logger.info(f"  사용자 오버라이드: {len(override_tickers)}개")
+    if user_bad_tags:
+        logger.info(f"  학습된 bad_tags: {len(user_bad_tags)}개")
 
     cached_tags, uncached_tickers = get_cached_theme_tags(remaining, date_str)
     logger.info(f"  테마 캐시 히트: {len(cached_tags)}개, 미스: {len(uncached_tickers)}개")

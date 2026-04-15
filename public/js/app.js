@@ -401,11 +401,40 @@
         _tagTicker = null;
     }
 
+    function sendTagFeedback(action, ticker, tag, originalTag) {
+        var body = { action: action, ticker: ticker };
+        if (tag) body.tag = tag;
+        if (originalTag) body.original_tag = originalTag;
+        fetch('/api/tag-feedback', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(body),
+        }).catch(function () { /* 실패해도 localStorage는 이미 저장됨 */ });
+    }
+
     function saveTag() {
         if (!_tagTicker) return;
         var ratings = getRatings();
         if (!ratings[_tagTicker]) ratings[_tagTicker] = {};
-        ratings[_tagTicker].customTag = $tagInput.value.trim();
+        var newTag = $tagInput.value.trim();
+        var stock = null;
+        for (var i = 0; i < state.rankings.length; i++) {
+            if (state.rankings[i].ticker === _tagTicker) { stock = state.rankings[i]; break; }
+        }
+        var autoTag = stock ? (stock.theme_tag || '') : '';
+
+        if (newTag) {
+            ratings[_tagTicker].customTag = newTag;
+            // 수동 수정 → 수집기 학습
+            sendTagFeedback('edit', _tagTicker, newTag);
+        } else {
+            // 빈 값 저장 = 태그 삭제
+            ratings[_tagTicker].customTag = '';
+            // 자동 태그가 있었으면 bad_tag로 학습
+            if (autoTag) {
+                sendTagFeedback('delete', _tagTicker, '', autoTag);
+            }
+        }
         saveRatings(ratings);
         closeTagEdit();
         renderTable();
@@ -417,6 +446,8 @@
         if (ratings[_tagTicker]) {
             delete ratings[_tagTicker].customTag;
         }
+        // 자동 태그로 복원
+        sendTagFeedback('reset', _tagTicker);
         saveRatings(ratings);
         closeTagEdit();
         renderTable();
