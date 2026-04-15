@@ -392,12 +392,12 @@
         item.stocks.forEach(function (s, idx) {
             var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
             var scoreCls = s.score >= 70 ? 'high' : (s.score >= 40 ? 'mid' : 'low');
-            html += '<a class="detail-stock" href="' + url + '" target="_blank" rel="noopener">';
+            html += '<div class="detail-stock" data-url="' + url + '">';
             html += '<span class="detail-stock__rank">' + (idx + 1) + '</span>';
-            html += '<span class="detail-stock__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
+            html += '<span class="detail-stock__name"><a href="' + url + '" target="_blank" rel="noopener">' + s.name + '</a><span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="detail-stock__rate">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '<span class="score-badge score-badge--' + scoreCls + '" style="font-size:11px;width:32px;height:22px">' + s.score + '</span>';
-            html += '</a>';
+            html += '</div>';
         });
         html += '</div>';
         openDetailModal(name + (type === 'theme' ? ' 테마' : ' 섹터') + ' 상세', html);
@@ -406,7 +406,7 @@
     function buildRankChartHtml(name, type) {
         var histData = getSectorHistoryData(name, type);
         var valid = histData.filter(function (h) { return h.rank != null; }).reverse();
-        if (valid.length < 2) return '<p class="report__empty" style="padding:8px 0">순위 히스토리 데이터 부족</p>';
+        if (valid.length < 2) return '<p class="report__empty" style="padding:8px 12px">순위 히스토리 데이터 부족</p>';
         var ranks = valid.map(function (h) { return h.rank; });
         var labels = valid.map(function (h) { return h.date; });
         var inverted = ranks.map(function (r) { return -r; });
@@ -429,7 +429,7 @@
             // 대신 전체 시장의 해당 지표 추이를 보여줌
             var history = state.summaryHistory;
             if (!history || history.length < 2) {
-                area.innerHTML = '<p class="report__empty" style="padding:8px 0">히스토리 데이터 부족</p>';
+                area.innerHTML = '<p class="report__empty" style="padding:8px 12px">히스토리 데이터 부족</p>';
                 return;
             }
             var recent = history.slice(0, 30).reverse();
@@ -1208,6 +1208,17 @@
 
     // 섹터/테마 카드 클릭 → 상세 팝업
     document.addEventListener('click', function (e) {
+        // float-controls 내부 클릭은 무시 (별점/메모/제외 처리는 별도 핸들러)
+        if (e.target.closest('.float-controls')) return;
+
+        // detail-stock 행 클릭 → 네이버 이동 (이름 <a> 클릭은 자체 처리)
+        var stockRow = e.target.closest('.detail-stock');
+        if (stockRow && !e.target.closest('a')) {
+            var url = stockRow.getAttribute('data-url');
+            if (url) window.open(url, '_blank', 'noopener');
+            return;
+        }
+
         // 상세 팝업 내 stat 클릭 → 차트 전환
         var statClick = e.target.closest('.detail-stat--click');
         if (statClick) {
