@@ -292,9 +292,11 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .summary-card{position:relative}
 .summary-card .sparkline-wrap{position:absolute;right:16px;bottom:16px}
 
-/* 전체보기 버튼 (카드 아래) */
-.section-viewall{display:block;width:100%;margin-top:8px;padding:12px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;color:var(--text-muted);font-size:13px;font-weight:500;cursor:pointer;text-align:center;transition:background .15s,color .15s}
-.section-viewall:hover{background:var(--bg-hover);color:var(--text-primary)}
+/* 전체보기 카드 (그리드 안) */
+.sector-card--viewall{display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border:1px dashed var(--border);transition:background .15s,border-color .15s}
+.sector-card--viewall:hover{background:var(--bg-hover);border-color:var(--text-muted)}
+.sector-card--viewall__text{font-size:14px;font-weight:700;color:var(--text-secondary)}
+.sector-card--viewall__sub{font-size:12px;color:var(--text-muted);margin-top:4px}
 
 /* 상세 팝업 순위 정보 */
 .detail-rank-info{margin-bottom:14px;padding:10px 14px;background:var(--bg-tertiary);border-radius:8px}

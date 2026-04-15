@@ -768,21 +768,17 @@
             html += '</div>';
             html += '</div>';
         });
-        container.innerHTML = html;
-        // 전체보기 버튼 → 카드 아래
-        var parent = container.parentElement;
-        var oldBtn = parent.querySelector('.section-viewall');
-        if (oldBtn) oldBtn.remove();
+        // 전체보기 카드 (그리드 안에 6번째 카드로)
         var allList = cardType === 'theme'
             ? (state.analysis ? state.analysis.allThemes : [])
             : (state.analysis ? state.analysis.allSectors : []);
         if (allList.length > items.length) {
-            var btn = document.createElement('button');
-            btn.className = 'section-viewall';
-            btn.textContent = '전체보기 ›';
-            btn.setAttribute('data-all-type', cardType);
-            container.after(btn);
+            html += '<div class="sector-card sector-card--viewall" data-all-type="' + cardType + '">';
+            html += '<span class="sector-card--viewall__text">전체보기</span>';
+            html += '<span class="sector-card--viewall__sub">' + allList.length + '개 ' + (cardType === 'theme' ? '테마' : '섹터') + ' ›</span>';
+            html += '</div>';
         }
+        container.innerHTML = html;
     }
 
     function renderThemes(themes, ratings, history, currentDate) {
