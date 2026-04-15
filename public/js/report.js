@@ -238,7 +238,7 @@
     // ── SVG 차트 빌더 ──
     function buildLineChart(values, labels, type) {
         if (!values || values.length < 2) return '';
-        var w = 520, h = 160, padL = 50, padR = 28, padT = 16, padB = 28;
+        var w = 540, h = 160, padL = 52, padR = 40, padT = 20, padB = 32;
         var min = Math.min.apply(null, values);
         var max = Math.max.apply(null, values);
         var range = max - min || 1;
@@ -328,6 +328,22 @@
         return { rank: rank, delta: delta, history: rankHist };
     }
 
+    // 섹터/테마 히스토리 데이터 수집 (각 날짜별 avgRate, volume, rank)
+    function getSectorHistoryData(name, type) {
+        var history = state.summaryHistory;
+        if (!history || history.length === 0) return [];
+        var result = [];
+        var field = type === 'theme' ? 'topThemes' : 'topSectors';
+        // 각 날짜의 실제 데이터를 가져오려면 해당 날짜의 rankings를 로드해야 하지만
+        // 현재 분석 데이터에서만 가능. 순위 이력만 summary에서 추출.
+        history.forEach(function (h) {
+            var list = h[field] || [];
+            var idx = list.indexOf(name);
+            result.push({ date: h.date, rank: idx >= 0 ? idx + 1 : null });
+        });
+        return result;
+    }
+
     function openSectorDetail(name, type) {
         var list = type === 'theme'
             ? (state.analysis ? state.analysis.allThemes : [])
@@ -340,27 +356,30 @@
         var ratings = getRatings();
         var rankInfo = getSectorRankHistory(name, type);
 
-        var html = '<div class="detail-stats">';
-        html += '<div class="detail-stat"><span class="detail-stat__label">종목 수</span><span class="detail-stat__value">' + item.stocks.length + '개</span></div>';
-        html += '<div class="detail-stat"><span class="detail-stat__label">평균 상승률</span><span class="detail-stat__value detail-stat__value--rise">+' + item.avgRate.toFixed(2) + '%</span></div>';
-        html += '<div class="detail-stat"><span class="detail-stat__label">총 거래대금</span><span class="detail-stat__value">' + formatAmount(item.totalVolume) + '</span></div>';
+        // 클릭 가능한 stat 카드
+        var html = '<div class="detail-stats detail-stats--clickable">';
+        // 현재 순위
+        html += '<div class="detail-stat detail-stat--click" data-chart="rank" data-name="' + name + '" data-type="' + type + '">';
+        html += '<span class="detail-stat__label">현재 순위</span>';
+        html += '<span class="detail-stat__value">' + (rankInfo.rank !== '-' ? rankInfo.rank + '위' : '-') + '</span>';
+        if (rankInfo.delta) html += '<span class="detail-stat__delta">' + rankInfo.delta + '</span>';
+        html += '</div>';
+        // 평균 상승률
+        html += '<div class="detail-stat detail-stat--click" data-chart="avgRate" data-name="' + name + '" data-type="' + type + '">';
+        html += '<span class="detail-stat__label">평균 상승률</span>';
+        html += '<span class="detail-stat__value detail-stat__value--rise">+' + item.avgRate.toFixed(2) + '%</span>';
+        html += '</div>';
+        // 총 거래대금
+        html += '<div class="detail-stat detail-stat--click" data-chart="volume" data-name="' + name + '" data-type="' + type + '">';
+        html += '<span class="detail-stat__label">총 거래대금</span>';
+        html += '<span class="detail-stat__value">' + formatAmount(item.totalVolume) + '</span>';
+        html += '</div>';
         html += '</div>';
 
-        // 순위 정보
-        if (rankInfo.rank !== '-') {
-            html += '<div class="detail-rank-info">';
-            html += '<span class="detail-rank-badge">' + rankInfo.rank + '위</span> ' + rankInfo.delta;
-            // 순위 이력 미니 그래프
-            var validHist = rankInfo.history.filter(function (h) { return h.rank != null; }).reverse();
-            if (validHist.length >= 2) {
-                var ranks = validHist.map(function (h) { return h.rank; });
-                var labels = validHist.map(function (h) { return h.date; });
-                // 순위는 낮을수록 좋으므로 반전
-                var inverted = ranks.map(function (r) { return -r; });
-                html += buildLineChart(inverted, labels, 'rank');
-            }
-            html += '</div>';
-        }
+        // 차트 영역 (기본: 순위 차트 표시)
+        html += '<div class="detail-chart-area" id="detailChartArea">';
+        html += buildRankChartHtml(name, type);
+        html += '</div>';
 
         // 종목 리스트 (호버 컨트롤 + 네이버 링크)
         html += '<div class="detail-stocks">';
@@ -376,6 +395,49 @@
         });
         html += '</div>';
         openDetailModal(name + (type === 'theme' ? ' 테마' : ' 섹터') + ' 상세', html);
+    }
+
+    function buildRankChartHtml(name, type) {
+        var histData = getSectorHistoryData(name, type);
+        var valid = histData.filter(function (h) { return h.rank != null; }).reverse();
+        if (valid.length < 2) return '<p class="report__empty" style="padding:8px 0">순위 히스토리 데이터 부족</p>';
+        var ranks = valid.map(function (h) { return h.rank; });
+        var labels = valid.map(function (h) { return h.date; });
+        var inverted = ranks.map(function (r) { return -r; });
+        return buildLineChart(inverted, labels, 'rank');
+    }
+
+    // 섹터/테마 상세 팝업 내 stat 클릭 → 차트 전환
+    function onDetailStatClick(chartType, name, type) {
+        var area = document.getElementById('detailChartArea');
+        if (!area) return;
+        // 활성 탭 표시
+        document.querySelectorAll('.detail-stat--click').forEach(function (el) {
+            el.classList.toggle('detail-stat--active', el.getAttribute('data-chart') === chartType);
+        });
+        if (chartType === 'rank') {
+            area.innerHTML = buildRankChartHtml(name, type);
+        } else {
+            // avgRate, volume — 현재 데이터에선 일별 이 섹터/테마의 값을 직접 알 수 없음
+            // summary.json에서 전체 시장의 avgRate/volume만 있음
+            // 대신 전체 시장의 해당 지표 추이를 보여줌
+            var history = state.summaryHistory;
+            if (!history || history.length < 2) {
+                area.innerHTML = '<p class="report__empty" style="padding:8px 0">히스토리 데이터 부족</p>';
+                return;
+            }
+            var recent = history.slice(0, 30).reverse();
+            var values, mapType;
+            if (chartType === 'avgRate') {
+                values = recent.map(function (h) { return h.avgRate || 0; });
+                mapType = 'avgRate';
+            } else {
+                values = recent.map(function (h) { return h.totalVolume || 0; });
+                mapType = 'totalVolume';
+            }
+            var labels = recent.map(function (h) { return h.date; });
+            area.innerHTML = buildLineChart(values, labels, mapType);
+        }
     }
 
     // ── 전체보기 팝업 ──
@@ -707,7 +769,7 @@
             html += '</div>';
         });
         container.innerHTML = html;
-        // 전체보기 버튼 → 섹션 타이틀 우측
+        // 전체보기 버튼 → 카드 아래
         var parent = container.parentElement;
         var oldBtn = parent.querySelector('.section-viewall');
         if (oldBtn) oldBtn.remove();
@@ -715,17 +777,11 @@
             ? (state.analysis ? state.analysis.allThemes : [])
             : (state.analysis ? state.analysis.allSectors : []);
         if (allList.length > items.length) {
-            var titleEl = parent.querySelector('.report__section-title');
-            if (titleEl) {
-                titleEl.style.display = 'flex';
-                titleEl.style.alignItems = 'center';
-                titleEl.style.justifyContent = 'space-between';
-                var btn = document.createElement('button');
-                btn.className = 'section-viewall';
-                btn.textContent = '전체보기 ' + allList.length + '개 ›';
-                btn.setAttribute('data-all-type', cardType);
-                titleEl.appendChild(btn);
-            }
+            var btn = document.createElement('button');
+            btn.className = 'section-viewall';
+            btn.textContent = '전체보기 ›';
+            btn.setAttribute('data-all-type', cardType);
+            container.after(btn);
         }
     }
 
@@ -1143,6 +1199,15 @@
 
     // 섹터/테마 카드 클릭 → 상세 팝업
     document.addEventListener('click', function (e) {
+        // 상세 팝업 내 stat 클릭 → 차트 전환
+        var statClick = e.target.closest('.detail-stat--click');
+        if (statClick) {
+            var ct = statClick.getAttribute('data-chart');
+            var nm = statClick.getAttribute('data-name');
+            var tp = statClick.getAttribute('data-type');
+            if (ct && nm) onDetailStatClick(ct, nm, tp);
+            return;
+        }
         var card = e.target.closest('.sector-card--clickable');
         if (card) {
             var name = card.getAttribute('data-card-name');

@@ -209,9 +209,7 @@ var StockTable = (function () {
                 '" data-ticker="' + r.ticker + '">' +
                 (displayTag || '+') + '</span>' +
                 reason + '</td>';
-            html += '<td class="cell-score-wrap">' +
-                '<button class="news-btn" data-ticker="' + r.ticker + '" title="뉴스">&#128240;</button>' +
-                scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
+            html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '</tr>';
         });
 

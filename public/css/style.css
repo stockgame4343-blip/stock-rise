@@ -275,7 +275,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .summary-card__value--hot{color:var(--text-primary)}
 
 /* Sparkline */
-.sparkline{width:64px;height:28px}
+.sparkline{width:64px;height:28px;overflow:visible}
 .sparkline__line{fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
 .sparkline__line--up{stroke:var(--rise)}
 .sparkline__line--down{stroke:#4a90d9}
@@ -292,9 +292,9 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .summary-card{position:relative}
 .summary-card .sparkline-wrap{position:absolute;right:16px;bottom:16px}
 
-/* 전체보기 버튼 (섹션 타이틀 우측) */
-.section-viewall{background:none;border:none;cursor:pointer;font-size:12px;font-weight:500;color:var(--text-muted);padding:4px 8px;border-radius:4px;transition:color .15s,background .15s}
-.section-viewall:hover{color:var(--accent);background:var(--bg-tertiary)}
+/* 전체보기 버튼 (카드 아래) */
+.section-viewall{display:block;width:100%;margin-top:8px;padding:12px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;color:var(--text-muted);font-size:13px;font-weight:500;cursor:pointer;text-align:center;transition:background .15s,color .15s}
+.section-viewall:hover{background:var(--bg-hover);color:var(--text-primary)}
 
 /* 상세 팝업 순위 정보 */
 .detail-rank-info{margin-bottom:14px;padding:10px 14px;background:var(--bg-tertiary);border-radius:8px}
@@ -444,12 +444,18 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .pick-card__score-val{font-size:11px;color:var(--text-secondary);min-width:36px;text-align:right}
 
 /* ── 상세 모달 차트 ── */
-.detail-chart{width:100%;height:auto;margin-bottom:16px}
+.detail-chart{width:100%;height:auto;margin-bottom:16px;overflow:visible;display:block}
 .detail-stats{display:flex;gap:16px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
 .detail-stat{display:flex;flex-direction:column;gap:2px;flex:1}
 .detail-stat__label{font-size:11px;color:var(--text-muted)}
 .detail-stat__value{font-size:16px;font-weight:700}
 .detail-stat__value--rise{color:var(--rise)}
+.detail-stat__delta{display:block;margin-top:2px}
+.detail-stat--click{cursor:pointer;padding:8px 12px;border-radius:8px;transition:background .15s}
+.detail-stat--click:hover{background:var(--bg-hover)}
+.detail-stat--active{background:var(--bg-tertiary);border:1px solid var(--accent)}
+.detail-stats--clickable{gap:8px}
+.detail-chart-area{margin-bottom:12px;min-height:40px}
 .detail-stocks{display:flex;flex-direction:column}
 .detail-stock{display:flex;align-items:center;gap:10px;padding:10px 8px;text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:background .1s}
 .detail-stock:last-child{border-bottom:none}
