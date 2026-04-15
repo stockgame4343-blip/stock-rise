@@ -14,6 +14,7 @@
         allRankings: [],
         allTopStocks: [],
         stocksShown: STOCK_INITIAL,
+        summaryHistory: [],
     };
 
     // DOM
@@ -357,22 +358,126 @@
     }
 
     // ── 렌더링 ──
-    function renderSummary(summary) {
+    function renderSummary(summary, history, currentDate) {
         document.getElementById('sumCount').textContent = summary.count + '개';
         document.getElementById('sumAvgRate').textContent = '+' + summary.avgRate.toFixed(2) + '%';
         document.getElementById('sumLimit').textContent = summary.limitUp + '종목';
         document.getElementById('sumVolume').textContent = formatAmount(summary.totalVolume);
+
+        // Find previous day's data from history
+        var prev = null;
+        if (history && history.length > 0) {
+            for (var i = 0; i < history.length; i++) {
+                if (history[i].date === currentDate) {
+                    if (i + 1 < history.length) prev = history[i + 1];
+                    break;
+                }
+            }
+        }
+
+        // Delta badges
+        renderDelta('sumAvgRate', summary.avgRate, prev ? prev.avgRate : null, '%p', true);
+        renderDelta('sumLimit', summary.limitUp, prev ? prev.limitUp : null, '개');
+        renderDelta('sumVolume', summary.totalVolume, prev ? prev.totalVolume : null, null, false, true);
+
+        // Sparklines
+        if (history && history.length >= 2) {
+            var recent = history.slice(0, 30).reverse();
+            renderSparkline('sparkAvgRate', recent.map(function(h) { return h.avgRate; }));
+            renderSparkline('sparkLimit', recent.map(function(h) { return h.limitUp; }));
+            renderSparkline('sparkVolume', recent.map(function(h) { return h.totalVolume; }));
+        }
     }
 
-    function renderSectorCard(items, container, ratings) {
+    function renderDelta(parentId, current, prev, unit, isPercent, isAmount) {
+        var container = document.getElementById(parentId);
+        if (!container) return;
+        var old = container.parentElement.querySelector('.stat-delta');
+        if (old) old.remove();
+
+        if (prev == null) return;
+        var diff = current - prev;
+        var diffText;
+        if (isAmount) {
+            diffText = formatAmount(Math.abs(diff));
+            if (diff > 0) diffText = '+' + diffText;
+            else if (diff < 0) diffText = '-' + diffText;
+            else diffText = '-';
+        } else if (isPercent) {
+            diffText = (diff >= 0 ? '+' : '') + diff.toFixed(2) + (unit || '');
+        } else {
+            diffText = (diff >= 0 ? '+' : '') + diff + (unit || '');
+        }
+
+        var cls = diff > 0 ? 'stat-delta--up' : (diff < 0 ? 'stat-delta--down' : 'stat-delta--neutral');
+        var el = document.createElement('span');
+        el.className = 'stat-delta ' + cls;
+        el.textContent = diffText;
+        container.parentElement.appendChild(el);
+    }
+
+    function renderSparkline(containerId, values) {
+        var container = document.getElementById(containerId);
+        if (!container || values.length < 2) {
+            if (container) container.innerHTML = '';
+            return;
+        }
+
+        var w = 64, h = 28;
+        var min = Math.min.apply(null, values);
+        var max = Math.max.apply(null, values);
+        var range = max - min || 1;
+
+        var points = values.map(function(v, i) {
+            var x = (i / (values.length - 1)) * w;
+            var y = h - 2 - ((v - min) / range) * (h - 4);
+            return x.toFixed(1) + ',' + y.toFixed(1);
+        }).join(' ');
+
+        var lastX = w;
+        var lastY = h - 2 - ((values[values.length - 1] - min) / range) * (h - 4);
+        var trend = values[values.length - 1] >= values[0] ? 'up' : 'down';
+
+        container.innerHTML = '<svg class="sparkline" viewBox="0 0 ' + w + ' ' + h + '">' +
+            '<polyline class="sparkline__line sparkline__line--' + trend + '" points="' + points + '"/>' +
+            '<circle class="sparkline__dot sparkline__dot--' + trend + '" cx="' + lastX.toFixed(1) + '" cy="' + lastY.toFixed(1) + '" r="2"/>' +
+            '</svg>';
+    }
+
+    function getRankDelta(name, currentRank, history, currentDate, field) {
+        if (!history || history.length < 2) return '';
+        var prevEntry = null;
+        for (var i = 0; i < history.length; i++) {
+            if (history[i].date === currentDate) {
+                if (i + 1 < history.length) prevEntry = history[i + 1];
+                break;
+            }
+        }
+        if (!prevEntry) return '';
+
+        var prevList = prevEntry[field] || [];
+        var prevIdx = -1;
+        for (var j = 0; j < prevList.length; j++) {
+            if (prevList[j] === name) { prevIdx = j; break; }
+        }
+        if (prevIdx === -1) return ' <span class="rank-delta rank-delta--new">NEW</span>';
+        var diff = prevIdx - currentRank;
+        if (diff > 0) return ' <span class="rank-delta rank-delta--up">\u25B2' + diff + '</span>';
+        if (diff < 0) return ' <span class="rank-delta rank-delta--down">\u25BC' + Math.abs(diff) + '</span>';
+        return '';
+    }
+
+    function renderSectorCard(items, container, ratings, history, currentDate, historyField) {
         ratings = ratings || getRatings();
+        var rankField = historyField || 'topSectors';
         var html = '';
         items.forEach(function (sec, i) {
             var topStocks = sec.stocks.slice(0, 3);
+            var delta = getRankDelta(sec.name, i, history, currentDate, rankField);
             html += '<div class="sector-card">';
             html += '<div class="sector-card__header">';
             html += '<span class="sector-card__rank">' + (i + 1) + '</span>';
-            html += '<span class="sector-card__name">' + sec.name + '</span>';
+            html += '<span class="sector-card__name">' + sec.name + delta + '</span>';
             html += '<span class="sector-card__count">' + sec.stocks.length + '종목</span>';
             html += '</div>';
             html += '<div class="sector-card__stats">';
@@ -395,10 +500,10 @@
         container.innerHTML = html;
     }
 
-    function renderThemes(themes, ratings) {
+    function renderThemes(themes, ratings, history, currentDate) {
         var c = document.getElementById('themeCards');
         if (themes.length === 0) { c.innerHTML = '<p class="report__empty">테마 태그가 없습니다</p>'; return; }
-        renderSectorCard(themes, c, ratings);
+        renderSectorCard(themes, c, ratings, history, currentDate, 'topThemes');
     }
 
     function renderTopStocks(stocks, limit, ratings) {
@@ -581,8 +686,17 @@
         $dateNext.disabled = state.dateIndex <= 0;
         $datePrev.disabled = state.dateIndex >= state.dates.length - 1;
 
-        StockAPI.getRankings(date, 'ALL')
-            .then(function (data) {
+        // Fetch summary history (non-blocking)
+        var summaryPromise = fetch('/data/summary.json')
+            .then(function (res) { return res.ok ? res.json() : []; })
+            .catch(function () { return []; });
+
+        Promise.all([StockAPI.getRankings(date, 'ALL'), summaryPromise])
+            .then(function (results) {
+                var data = results[0];
+                var history = results[1];
+                state.summaryHistory = history || [];
+
                 showLoading(false);
                 if (!data.rankings || data.rankings.length === 0) {
                     showMessage('해당 날짜의 데이터가 없습니다.');
@@ -604,9 +718,9 @@
                 state.stocksShown = STOCK_INITIAL;
                 var ratings = getRatings();
 
-                renderSummary(analysis.summary);
-                renderSectorCard(analysis.sectors, document.getElementById('sectorCards'), ratings);
-                renderThemes(analysis.themes, ratings);
+                renderSummary(analysis.summary, state.summaryHistory, date);
+                renderSectorCard(analysis.sectors, document.getElementById('sectorCards'), ratings, state.summaryHistory, date);
+                renderThemes(analysis.themes, ratings, state.summaryHistory, date);
                 renderTopStocks(analysis.topStocks, STOCK_INITIAL, ratings);
                 renderHighSection(analysis.highList, analysis.nearHighList, date, ratings);
 

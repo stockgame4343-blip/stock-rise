@@ -306,3 +306,72 @@ def save_tag_feedback(feedback):
     """태그 피드백 저장"""
     with open(TAG_FEEDBACK_PATH, 'w', encoding='utf-8') as f:
         json.dump(feedback, f, ensure_ascii=False, indent=2)
+
+
+# ── 요약 인덱스 ──
+
+def update_summary_index():
+    """public/data/summary.json 갱신 — 모든 날짜별 JSON에서 요약 통계 추출"""
+    _ensure_data_dir()
+
+    skip = {'dates.json', 'summary.json'}
+    date_files = []
+    for fname in os.listdir(DATA_DIR):
+        if fname.endswith('.json') and fname not in skip and len(fname) == 13:
+            date_files.append(fname.replace('.json', ''))
+
+    date_files.sort(reverse=True)
+    date_files = date_files[:90]
+
+    summary_list = []
+    for date_str in date_files:
+        data = load_daily_data(date_str)
+        if not data:
+            continue
+        rankings = data.get('rankings', [])
+        if not rankings:
+            continue
+
+        count = len(rankings)
+        avg_rate = sum(r.get('change_rate', 0) for r in rankings) / count if count else 0
+        limit_up = sum(1 for r in rankings if r.get('change_rate', 0) >= 29.9)
+        total_volume = sum(r.get('trading_value', 0) for r in rankings)
+
+        # topSectors: 종목 수 기준 상위 10개 섹터명
+        sector_counts = {}
+        for r in rankings:
+            sec = r.get('sector', '')
+            if sec:
+                sector_counts[sec] = sector_counts.get(sec, 0) + 1
+        top_sectors = sorted(sector_counts.keys(), key=lambda s: sector_counts[s], reverse=True)[:10]
+
+        # topThemes: 테마 태그 빈도 상위 10개
+        theme_counts = {}
+        for r in rankings:
+            tag = r.get('theme_tag', '')
+            if not tag:
+                continue
+            for t in tag.replace('/', ',').split(','):
+                t = t.strip()
+                if t:
+                    theme_counts[t] = theme_counts.get(t, 0) + 1
+        top_themes = sorted(theme_counts.keys(), key=lambda t: theme_counts[t], reverse=True)[:10]
+
+        summary_list.append({
+            'date': date_str,
+            'count': count,
+            'avgRate': round(avg_rate, 2),
+            'limitUp': limit_up,
+            'totalVolume': total_volume,
+            'topSectors': top_sectors,
+            'topThemes': top_themes,
+        })
+
+    path = os.path.join(DATA_DIR, 'summary.json')
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(summary_list, f, ensure_ascii=False, indent=2)
+    logger.info(f"  summary.json 갱신: {len(summary_list)}개 날짜")
+
+
+if __name__ == '__main__':
+    update_summary_index()

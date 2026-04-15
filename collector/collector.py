@@ -6,6 +6,7 @@ from datetime import datetime
 from config import TOP_N, USER_AGENTS
 from json_store import (
     save_daily_data, update_dates_index, cleanup_old_data,
+    update_summary_index,
     load_sector_cache, save_sector_cache,
     load_news_history, update_news_history,
     append_backtest_data,
@@ -399,6 +400,7 @@ def collect_and_save(date_str=None, mode='closing'):
 
     save_daily_data(date_str, daily_data)
     update_dates_index()
+    update_summary_index()
     cleanup_old_data()
 
     # 백테스트 데이터 기록
