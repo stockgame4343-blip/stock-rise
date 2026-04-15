@@ -1208,7 +1208,43 @@
 
     // 섹터/테마 카드 클릭 → 상세 팝업
     document.addEventListener('click', function (e) {
-        // float-controls 내부 클릭은 무시 (별점/메모/제외 처리는 별도 핸들러)
+        // 별점/제외/메모 (모달 포함 전역 처리)
+        var starEl = e.target.closest('.star');
+        if (starEl) {
+            e.preventDefault(); e.stopPropagation();
+            var sr = starEl.closest('.star-rating');
+            if (!sr) return;
+            var ticker = sr.getAttribute('data-ticker');
+            var starNum = parseInt(starEl.getAttribute('data-star'));
+            if (!ticker || isNaN(starNum)) return;
+            var ratings = getRatings();
+            if (!ratings[ticker]) ratings[ticker] = {};
+            ratings[ticker].stars = ratings[ticker].stars === starNum ? 0 : starNum;
+            saveRatings(ratings);
+            refreshControlsUI(ticker);
+            return;
+        }
+        var exBtn = e.target.closest('.exclude-btn');
+        if (exBtn) {
+            e.preventDefault(); e.stopPropagation();
+            var ticker = exBtn.getAttribute('data-ticker');
+            if (!ticker) return;
+            var ratings = getRatings();
+            if (!ratings[ticker]) ratings[ticker] = {};
+            ratings[ticker].excluded = !ratings[ticker].excluded;
+            saveRatings(ratings);
+            refreshControlsUI(ticker);
+            return;
+        }
+        var memoBtn = e.target.closest('.memo-btn');
+        if (memoBtn) {
+            e.preventDefault(); e.stopPropagation();
+            var ticker = memoBtn.getAttribute('data-ticker');
+            if (ticker) openMemo(ticker);
+            return;
+        }
+
+        // float-controls 나머지 영역 클릭은 무시
         if (e.target.closest('.float-controls')) return;
 
         // detail-stock 행 클릭 → 네이버 이동 (이름 <a> 클릭은 자체 처리)
