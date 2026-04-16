@@ -135,7 +135,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add public/data/ collector/theme_cache.json collector/news_history.json collector/backtest.json collector/sector_cache.json
+          git add public/data/ collector/theme_cache.json collector/news_history.json collector/backtest.json collector/sector_cache.json collector/naver_mapping.json
           MODE="${{ steps.mode.outputs.mode }}"
           TODAY=$(date +%Y%m%d)
           if [ "$MODE" = "closing" ]; then
