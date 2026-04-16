@@ -1,20 +1,7 @@
 name: 주식 데이터 수집
 
 on:
-  schedule:
-    # 장중 업데이트 (2시간 간격, 월~금)
-    # 09:30 KST = 00:30 UTC
-    - cron: '30 0 * * 1-5'
-    # 11:30 KST = 02:30 UTC
-    - cron: '30 2 * * 1-5'
-    # 13:30 KST = 04:30 UTC
-    - cron: '30 4 * * 1-5'
-
-    # 장마감 최종 수집 (15:35 KST = 06:35 UTC)
-    - cron: '35 6 * * 1-5'
-    # 실패 시 재시도 (16:05 KST = 07:05 UTC)
-    - cron: '5 7 * * 1-5'
-
+  # schedule 제거 — 외부 cron (cron-job.org → Vercel API → repository_dispatch)으로 대체
   workflow_dispatch:
     inputs:
       mode:
