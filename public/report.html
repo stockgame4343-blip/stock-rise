@@ -86,15 +86,27 @@
 
             <!-- ── 주도 섹터 ── -->
             <section class="report__section">
-                <h2 class="report__section-title">주도 섹터</h2>
-                <p class="report__section-desc">상승 종목이 집중된 섹터 TOP 5</p>
+                <div class="report__section-header">
+                    <h2 class="report__section-title">주도 섹터</h2>
+                    <span class="section-viewall" data-all-type="sector">전체보기 ›</span>
+                </div>
+                <div class="report__section-desc">
+                    <span>상승 종목이 집중된 섹터</span>
+                    <span class="section-pager" id="sectorPager"></span>
+                </div>
                 <div class="sector-cards" id="sectorCards"></div>
             </section>
 
             <!-- ── 핫 테마 ── -->
             <section class="report__section">
-                <h2 class="report__section-title">핫 테마</h2>
-                <p class="report__section-desc">오늘 시장을 이끈 테마 TOP 5</p>
+                <div class="report__section-header">
+                    <h2 class="report__section-title">핫 테마</h2>
+                    <span class="section-viewall" data-all-type="theme">전체보기 ›</span>
+                </div>
+                <div class="report__section-desc">
+                    <span>오늘 시장을 이끈 테마</span>
+                    <span class="section-pager" id="themePager"></span>
+                </div>
                 <div class="sector-cards" id="themeCards"></div>
             </section>
 

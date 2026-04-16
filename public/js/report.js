@@ -754,17 +754,23 @@
         return '';
     }
 
-    function renderSectorCard(items, container, ratings, history, currentDate, historyField) {
+    var PAGE_SIZE = 5;
+    var sectorPage = 0;
+    var themePage = 0;
+
+    function renderSectorCard(items, container, ratings, history, currentDate, historyField, startIdx) {
         ratings = ratings || getRatings();
         var rankField = historyField || 'topSectors';
         var cardType = rankField === 'topThemes' ? 'theme' : 'sector';
+        startIdx = startIdx || 0;
         var html = '';
         items.forEach(function (sec, i) {
+            var globalIdx = startIdx + i;
             var topStocks = sec.stocks.slice(0, 3);
-            var delta = getRankDelta(sec.name, i, history, currentDate, rankField);
+            var delta = getRankDelta(sec.name, globalIdx, history, currentDate, rankField);
             html += '<div class="sector-card sector-card--clickable" data-card-name="' + sec.name + '" data-card-type="' + cardType + '">';
             html += '<div class="sector-card__header">';
-            html += '<span class="sector-card__rank">' + (i + 1) + '</span>';
+            html += '<span class="sector-card__rank">' + (globalIdx + 1) + '</span>';
             var displayName = cardType === 'theme' ? shortenTheme(sec.name, 14) : sec.name;
             html += '<span class="sector-card__name">' + displayName + delta + '</span>';
             html += '<span class="sector-card__count">' + sec.stocks.length + '종목</span>';
@@ -787,30 +793,45 @@
             html += '</div>';
         });
         container.innerHTML = html;
-        // 전체보기 링크 → 섹션 설명 우측
-        var parent = container.parentElement;
-        var oldLink = parent.querySelector('.section-viewall');
-        if (oldLink) oldLink.remove();
-        var allList = cardType === 'theme'
-            ? (state.analysis ? state.analysis.allThemes : [])
-            : (state.analysis ? state.analysis.allSectors : []);
-        if (allList.length > items.length) {
-            var descEl = parent.querySelector('.report__section-desc');
-            if (descEl) {
-                var link = document.createElement('span');
-                link.className = 'section-viewall';
-                link.textContent = '전체보기 ›';
-                link.setAttribute('data-all-type', cardType);
-                descEl.appendChild(link);
-            }
-        }
     }
 
-    function renderThemes(themes, ratings, history, currentDate) {
-        var c = document.getElementById('themeCards');
-        if (themes.length === 0) { c.innerHTML = '<p class="report__empty">테마 태그가 없습니다</p>'; return; }
-        renderSectorCard(themes, c, ratings, history, currentDate, 'topThemes');
+    function renderPager(pagerId, allItems, currentPage, onPageChange) {
+        var pager = document.getElementById(pagerId);
+        if (!pager) return;
+        var totalPages = Math.ceil(allItems.length / PAGE_SIZE);
+        if (totalPages <= 1) { pager.innerHTML = ''; return; }
+        pager.innerHTML =
+            '<button class="section-pager__btn" data-dir="prev" ' + (currentPage <= 0 ? 'disabled' : '') + '>‹</button>' +
+            '<span class="section-pager__text">' + (currentPage + 1) + '/' + totalPages + '</span>' +
+            '<button class="section-pager__btn" data-dir="next" ' + (currentPage >= totalPages - 1 ? 'disabled' : '') + '>›</button>';
+        pager.onclick = function (e) {
+            var btn = e.target.closest('.section-pager__btn');
+            if (!btn || btn.disabled) return;
+            var dir = btn.getAttribute('data-dir');
+            var newPage = dir === 'prev' ? currentPage - 1 : currentPage + 1;
+            if (newPage >= 0 && newPage < totalPages) onPageChange(newPage);
+        };
     }
+
+    function renderSectorPage(page) {
+        sectorPage = page;
+        var all = state.analysis ? state.analysis.allSectors : [];
+        var slice = all.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+        var ratings = getRatings();
+        renderSectorCard(slice, document.getElementById('sectorCards'), ratings, state.summaryHistory, state.dates[state.dateIndex], 'topSectors', page * PAGE_SIZE);
+        renderPager('sectorPager', all, page, renderSectorPage);
+    }
+
+    function renderThemePage(page) {
+        themePage = page;
+        var all = state.analysis ? state.analysis.allThemes : [];
+        var slice = all.slice(page * PAGE_SIZE, (page + 1) * PAGE_SIZE);
+        var ratings = getRatings();
+        renderSectorCard(slice, document.getElementById('themeCards'), ratings, state.summaryHistory, state.dates[state.dateIndex], 'topThemes', page * PAGE_SIZE);
+        renderPager('themePager', all, page, renderThemePage);
+    }
+
+    // renderThemes는 renderThemePage로 대체됨
 
     function renderPickCards(rankings) {
         var container = document.getElementById('pickCards');
@@ -1054,8 +1075,10 @@
 
                 updateDateBadge();
                 renderSummary(analysis.summary, state.summaryHistory, date);
-                renderSectorCard(analysis.sectors, document.getElementById('sectorCards'), ratings, state.summaryHistory, date);
-                renderThemes(analysis.themes, ratings, state.summaryHistory, date);
+                sectorPage = 0;
+                themePage = 0;
+                renderSectorPage(0);
+                renderThemePage(0);
                 renderHighSection(analysis.highList, analysis.nearHighList, date, ratings);
 
                 // 급등 후 조정 (비동기)
