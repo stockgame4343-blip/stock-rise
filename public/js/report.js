@@ -403,7 +403,7 @@
         // 네이버 테마 링크 (테마일 때만)
         if (type === 'theme' && item.themeNo) {
             html += '<div class="detail-naver-link">';
-            html += '<a href="https://m.stock.naver.com/domestic/stock/theme/THEMEALL/' + item.themeNo + '" target="_blank" rel="noopener" class="detail-naver-btn">';
+            html += '<a href="https://stock.naver.com/market/stock/kr/theme/' + item.themeNo + '" target="_blank" rel="noopener" class="detail-naver-btn">';
             html += '<span class="detail-naver-btn__icon">N</span>';
             html += '네이버에서 전체 종목 보기';
             html += '</a>';
@@ -784,8 +784,10 @@
             html += '<div class="sector-card__header">';
             html += '<span class="sector-card__rank">' + (globalIdx + 1) + '</span>';
             var displayName = cardType === 'theme' ? shortenTheme(sec.name, 14) : sec.name;
+            html += '<span class="sector-card__name-wrap">';
             html += '<span class="sector-card__name" title="' + sec.name + '">' + displayName + '</span>';
             if (delta) html += delta;
+            html += '</span>';
             html += '<span class="sector-card__count">' + sec.stocks.length + '종목</span>';
             html += '</div>';
             html += '<div class="sector-card__stats">';
