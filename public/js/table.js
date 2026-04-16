@@ -5,11 +5,13 @@ var StockTable = (function () {
 
     var _currentData = [];
 
-    function shortenTheme(name) {
+    function shortenTheme(name, maxLen) {
         if (!name) return name;
+        maxLen = maxLen || 12;
         var short = name.replace(/\(.*?\)/g, '').trim();
-        if (short.indexOf('/') !== -1) short = short.split('/')[0].trim();
-        return short || name;
+        if (!short) return name;
+        if (short.length > maxLen) short = short.substring(0, maxLen) + '…';
+        return short;
     }
 
     function formatNumber(n) {

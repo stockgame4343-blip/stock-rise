@@ -14,15 +14,17 @@
         summaryHistory: [],
     };
 
-    // 네이버 테마명 줄임 처리 — 괄호/슬래시 정리
-    function shortenTheme(name) {
+    // 네이버 테마명 표시용 줄임 — 괄호 제거 + 길면 말줄임
+    function shortenTheme(name, maxLen) {
         if (!name) return name;
+        maxLen = maxLen || 12;
         // 괄호 내용 제거: "우주항공산업(누리호/인공위성 등)" → "우주항공산업"
         var short = name.replace(/\(.*?\)/g, '').trim();
-        // 슬래시: 앞쪽만 사용: "양자암호/양자컴퓨팅" → "양자암호"
-        if (short.indexOf('/') !== -1) short = short.split('/')[0].trim();
         // 빈 문자열 방지
-        return short || name;
+        if (!short) return name;
+        // 길면 말줄임
+        if (short.length > maxLen) short = short.substring(0, maxLen) + '…';
+        return short;
     }
 
     // DOM
@@ -510,11 +512,11 @@
             .sort(function (a, b) { return b.stocks.length - a.stocks.length; });
         result.sectors = result.allSectors.slice(0, 5);
 
-        // 3) 테마 분석 (theme_tag 그대로 1개 그룹, 분할 안 함)
+        // 3) 테마 분석 (theme_tag 원본으로 그룹핑, 표시만 줄임)
         var themeMap = {};
         rankings.forEach(function (r) {
             if (!r.theme_tag) return;
-            var tag = shortenTheme(r.theme_tag);
+            var tag = r.theme_tag;
             if (!themeMap[tag]) themeMap[tag] = { name: tag, count: 0, totalRate: 0, totalVolume: 0, stocks: [] };
             themeMap[tag].count++;
             themeMap[tag].totalRate += r.change_rate;
@@ -763,7 +765,8 @@
             html += '<div class="sector-card sector-card--clickable" data-card-name="' + sec.name + '" data-card-type="' + cardType + '">';
             html += '<div class="sector-card__header">';
             html += '<span class="sector-card__rank">' + (i + 1) + '</span>';
-            html += '<span class="sector-card__name">' + sec.name + delta + '</span>';
+            var displayName = cardType === 'theme' ? shortenTheme(sec.name, 14) : sec.name;
+            html += '<span class="sector-card__name">' + displayName + delta + '</span>';
             html += '<span class="sector-card__count">' + sec.stocks.length + '종목</span>';
             html += '</div>';
             html += '<div class="sector-card__stats">';
