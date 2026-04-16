@@ -58,9 +58,12 @@ def migrate_day(date_str, mapping, theme_rates, history_data=None):
             no_tag_after += 1
 
         # 네이버 업종 매핑
-        ind = resolve_industry(t, mapping)
-        if ind:
-            r['sector'] = ind
+        ind_data = mapping.get('industries', {}).get(t, {})
+        if ind_data.get('name'):
+            r['sector'] = ind_data['name']
+            r['industry_no'] = ind_data.get('no')
+        else:
+            r['industry_no'] = None
 
     # Pass 2: 테마 그룹 재빌드 + 점수 재계산
     theme_groups = {}

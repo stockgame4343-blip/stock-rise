@@ -400,10 +400,12 @@
         html += buildRankChartHtml(name, type);
         html += '</div>';
 
-        // 네이버 테마 링크 (테마일 때만)
-        if (type === 'theme' && item.themeNo) {
+        // 네이버 링크 (테마 또는 섹터)
+        var naverNo = type === 'theme' ? item.themeNo : item.industryNo;
+        var naverType = type === 'theme' ? 'theme' : 'upjong';
+        if (naverNo) {
             html += '<div class="detail-naver-link">';
-            html += '<a href="https://stock.naver.com/market/stock/kr/theme/' + item.themeNo + '" target="_blank" rel="noopener" class="detail-naver-btn">';
+            html += '<a href="https://finance.naver.com/sise/sise_group_detail.naver?type=' + naverType + '&no=' + naverNo + '" target="_blank" rel="noopener" class="detail-naver-btn">';
             html += '<span class="detail-naver-btn__icon">N</span>';
             html += '네이버에서 전체 종목 보기';
             html += '</a>';
@@ -508,10 +510,11 @@
         var sectorMap = {};
         rankings.forEach(function (r) {
             var sec = r.sector || '기타';
-            if (!sectorMap[sec]) sectorMap[sec] = { name: sec, stocks: [], totalRate: 0, totalVolume: 0 };
+            if (!sectorMap[sec]) sectorMap[sec] = { name: sec, stocks: [], totalRate: 0, totalVolume: 0, industryNo: null };
             sectorMap[sec].stocks.push(r);
             sectorMap[sec].totalRate += r.change_rate;
             sectorMap[sec].totalVolume += (r.trading_value || 0);
+            if (!sectorMap[sec].industryNo && r.industry_no) sectorMap[sec].industryNo = r.industry_no;
         });
         result.allSectors = Object.values(sectorMap)
             .filter(function (s) { return s.stocks.length >= 2; })

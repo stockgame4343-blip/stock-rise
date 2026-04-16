@@ -260,11 +260,13 @@ def collect_and_save(date_str=None, mode='closing'):
 
     # 업종: 매핑 우선, 미스 시 기존 섹터 캐시 fallback
     sector_map = {}
+    industry_no_map = {}  # ticker → 업종 번호
     unmapped_sector = []
     for t in tickers:
-        ind = resolve_industry(t, naver_map)
-        if ind:
-            sector_map[t] = ind
+        ind_data = naver_map.get('industries', {}).get(t, {})
+        if ind_data.get('name'):
+            sector_map[t] = ind_data['name']
+            industry_no_map[t] = ind_data.get('no')
         else:
             unmapped_sector.append(t)
     if unmapped_sector:
@@ -413,6 +415,7 @@ def collect_and_save(date_str=None, mode='closing'):
             'trading_value': s['trading_value'],
             'market_cap': s['market_cap'],
             'sector': sector_map.get(t, ''),
+            'industry_no': industry_no_map.get(t),
             'high_52w': high_52w_map.get(t, {}).get('price', 0),
             'high_52w_date': high_52w_map.get(t, {}).get('date', ''),
             'theme_tag': theme_tag,
@@ -462,6 +465,7 @@ def collect_and_save(date_str=None, mode='closing'):
             'trading_value': rs['trading_value'],
             'market_cap': rs['market_cap'],
             'sector': rs['sector'],
+            'industry_no': rs.get('industry_no'),
             'high_52w': rs['high_52w'],
             'high_52w_date': rs['high_52w_date'],
             'theme_tag': tag,
