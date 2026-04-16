@@ -1,4 +1,4 @@
-"""데이터 수집 파이프라인 v3 — 대장점수 (테마 내 리더십 기반)"""
+"""데이터 수집 파이프라인 v4 — 네이버 테마/업종 매핑 기반 대장점수"""
 import logging
 import requests
 from datetime import datetime, timedelta
@@ -20,6 +20,7 @@ from news_crawler import (
     crawl_toss_ai_signals,
 )
 from scorer import calculate_daejang_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason, load_user_bad_tags
+from naver_mapping import load_mapping, resolve_themes, resolve_industry, get_theme_rates
 
 logging.basicConfig(
     level=logging.INFO,
@@ -232,13 +233,13 @@ def collect_52w_highs(tickers):
 
 
 def collect_and_save(date_str=None, mode='closing'):
-    """전체 수집 파이프라인 v2
+    """전체 수집 파이프라인 v4 — 네이버 매핑 기반
     mode: 'closing' = 장마감 최종 수집, 'intraday' = 장중 실시간
     """
     if date_str is None:
         date_str = datetime.now().strftime('%Y%m%d')
 
-    logger.info(f"===== 수집 시작 v2: {date_str} =====")
+    logger.info(f"===== 수집 시작 v4: {date_str} =====")
 
     # Step 1: 네이버 상승 종목
     top_stocks = collect_naver_rising_stocks()
@@ -252,8 +253,24 @@ def collect_and_save(date_str=None, mode='closing'):
     trading_data = collect_trading_data(tickers)
     turnover_ranks = calculate_turnover_ranks(top_stocks, trading_data)
 
-    # Step 3: 섹터
-    sector_map = collect_sectors(tickers)
+    # Step 3: 네이버 매핑 로드 + 섹터/테마 (매핑 우선, 미스 시 기존 크롤링 fallback)
+    logger.info("[3/11] 네이버 테마/업종 매핑 로드")
+    naver_map = load_mapping(date_str)
+    theme_rates = get_theme_rates()  # 당일 실시간 테마 등락률
+
+    # 업종: 매핑 우선, 미스 시 기존 섹터 캐시 fallback
+    sector_map = {}
+    unmapped_sector = []
+    for t in tickers:
+        ind = resolve_industry(t, naver_map)
+        if ind:
+            sector_map[t] = ind
+        else:
+            unmapped_sector.append(t)
+    if unmapped_sector:
+        logger.info(f"  업종 매핑 미스: {len(unmapped_sector)}개 → 기존 크롤링 fallback")
+        fallback_sectors = collect_sectors(unmapped_sector)
+        sector_map.update(fallback_sectors)
 
     # Step 4: 52주 최고가
     high_52w_map = collect_52w_highs(tickers)
@@ -320,6 +337,8 @@ def collect_and_save(date_str=None, mode='closing'):
     # ── Pass 1: 테마 태그 확정 + 기본 데이터 조립 ──
     resolved_stocks = []
     new_theme_tags = {}
+    mapping_hit = 0
+    mapping_miss = 0
     for idx, s in enumerate(top_stocks):
         t = s['ticker']
         news_articles = news_map.get(t, [])
@@ -336,25 +355,42 @@ def collect_and_save(date_str=None, mode='closing'):
         if td.get('is_limit_up'):
             intensity_label = '상한가'
 
-        # 테마 태그 (우선순위: 오버라이드 > 캐시 > 추출)
+        # ── 테마 태그: 네이버 매핑 우선 ──
+        # 1순위: 사용자 오버라이드
+        # 2순위: 네이버 매핑 (당일 등락률 높은 테마가 primary)
+        # 3순위: 기존 뉴스 추출 fallback
+        theme_tag = ''
+        theme_tags = []  # [primary, secondary, ...]
+
         if t in tag_overrides:
             theme_tag = tag_overrides[t]
-        elif t in cached_tags:
-            theme_tag = cached_tags[t]
+            theme_tags = [theme_tag]
         else:
-            theme_tag = extract_theme_tag(news_articles, article_bodies_map.get(t, []), stock_name=s['name'])
-            new_theme_tags[t] = theme_tag
-        # Fallback 1: Toss 상승이유에서 추출
-        if not theme_tag and t in toss_reasons:
-            theme_tag = extract_theme_from_reason(toss_reasons[t])
-            if theme_tag:
-                new_theme_tags[t] = theme_tag
-        # Fallback 2: 상승이유에서 추출
-        if not theme_tag:
-            theme_tag = extract_theme_from_reason(
-                generate_rise_reason(news_articles, report_map.get(t, []),
-                                     theme_tag='', stock_name=s['name'])
-            )
+            # 네이버 매핑 조회
+            resolved = resolve_themes(t, naver_map, theme_rates)
+            if resolved:
+                mapping_hit += 1
+                theme_tags = [r['name'] for r in resolved[:2]]  # 최대 2개
+                theme_tag = theme_tags[0]  # primary
+            else:
+                mapping_miss += 1
+                # fallback: 기존 방식 (캐시 > 뉴스 추출 > Toss)
+                if t in cached_tags:
+                    theme_tag = cached_tags[t]
+                else:
+                    theme_tag = extract_theme_tag(news_articles, article_bodies_map.get(t, []), stock_name=s['name'])
+                    new_theme_tags[t] = theme_tag
+                if not theme_tag and t in toss_reasons:
+                    theme_tag = extract_theme_from_reason(toss_reasons[t])
+                    if theme_tag:
+                        new_theme_tags[t] = theme_tag
+                if not theme_tag:
+                    theme_tag = extract_theme_from_reason(
+                        generate_rise_reason(news_articles, report_map.get(t, []),
+                                             theme_tag='', stock_name=s['name'])
+                    )
+                if theme_tag:
+                    theme_tags = [theme_tag]
 
         # 상승 이유 (우선순위: Toss AI > 뉴스 키워드 분석)
         if t in toss_reasons:
@@ -377,6 +413,7 @@ def collect_and_save(date_str=None, mode='closing'):
             'high_52w': high_52w_map.get(t, {}).get('price', 0),
             'high_52w_date': high_52w_map.get(t, {}).get('date', ''),
             'theme_tag': theme_tag,
+            'theme_tags': theme_tags,
             'is_limit_up': td.get('is_limit_up', False),
             'intensity_label': intensity_label,
             'reason': reason,
@@ -384,7 +421,9 @@ def collect_and_save(date_str=None, mode='closing'):
             'td': td,
         })
 
-    # ── 테마 그룹 빌드 ──
+    logger.info(f"  매핑 히트: {mapping_hit}, 미스: {mapping_miss}")
+
+    # ── 테마 그룹 빌드 (primary tag 기준) ──
     theme_groups = {}
     for rs in resolved_stocks:
         tag = rs.get('theme_tag', '')
@@ -422,6 +461,7 @@ def collect_and_save(date_str=None, mode='closing'):
             'high_52w': rs['high_52w'],
             'high_52w_date': rs['high_52w_date'],
             'theme_tag': tag,
+            'theme_tags': rs.get('theme_tags', [tag] if tag else []),
             'avg_5day': td.get('avg_5day', 0),
             'inst_net': td.get('inst_net', 0),
             'foreign_net': td.get('foreign_net', 0),
@@ -442,7 +482,7 @@ def collect_and_save(date_str=None, mode='closing'):
         'mode': mode,
         'is_final': mode == 'closing',
         'count': len(rankings),
-        'version': 3,
+        'version': 4,
         'rankings': rankings,
     }
 
@@ -454,7 +494,7 @@ def collect_and_save(date_str=None, mode='closing'):
     # 백테스트 데이터 기록
     append_backtest_data(date_str, rankings)
 
-    logger.info(f"===== 수집 완료 v3: {len(rankings)}개 종목 (대장점수) =====")
+    logger.info(f"===== 수집 완료 v4: {len(rankings)}개 종목 (네이버 매핑) =====")
     return True
 
 

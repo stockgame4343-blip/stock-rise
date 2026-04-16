@@ -2,7 +2,7 @@
   "date": "20260413",
   "collected_at": "2026-04-14T10:02:20",
   "count": 100,
-  "version": 2,
+  "version": 4,
   "rankings": [
     {
       "rank": 1,
@@ -15,13 +15,12 @@
       "trading_value": 115523000000,
       "market_cap": 232200000000,
       "sector": "전기제품",
-      "theme_tag": "2차전지",
-      "score": 84,
+      "theme_tag": "2차전지(LFP/리튬인산철)",
+      "score": 65,
       "score_detail": {
-        "buzz": 20,
-        "quality": 9,
-        "type": 30,
-        "turnover": 25
+        "tp": 22,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "2차전지 자사주 매입",
       "news": [
@@ -75,6 +74,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005206663&office_id=015&code=037030&page=&sm=",
           "source": "한국경제"
         }
+      ],
+      "theme_tags": [
+        "2차전지(LFP/리튬인산철)",
+        "2차전지(LFP/리튬인산철)"
       ]
     },
     {
@@ -88,13 +91,12 @@
       "trading_value": 8771000000,
       "market_cap": 38400000000,
       "sector": "전자장비와기기",
-      "theme_tag": "",
-      "score": 55,
+      "theme_tag": "전자파",
+      "score": 58,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 0,
-        "turnover": 25
+        "tp": 15,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -148,6 +150,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005611014&office_id=009&code=368600&page=&sm=",
           "source": "매일경제"
         }
+      ],
+      "theme_tags": [
+        "전자파"
       ]
     },
     {
@@ -161,13 +166,12 @@
       "trading_value": 6753000000,
       "market_cap": 73400000000,
       "sector": "통신장비",
-      "theme_tag": "연료전지",
-      "score": 83,
+      "theme_tag": "LED",
+      "score": 59,
       "score_detail": {
-        "buzz": 20,
-        "quality": 13,
-        "type": 25,
-        "turnover": 25
+        "tp": 18,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "연료전지 계약 체결",
       "news": [
@@ -221,6 +225,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006107059&office_id=018&code=073540&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "LED"
       ]
     },
     {
@@ -234,13 +241,12 @@
       "trading_value": 29892000000,
       "market_cap": 146700000000,
       "sector": "전자장비와기기",
-      "theme_tag": "연료전지",
-      "score": 70,
+      "theme_tag": "철도",
+      "score": 62,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 15,
-        "turnover": 25
+        "tp": 19,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "연료전지 합병 기대감",
       "news": [
@@ -294,6 +300,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000069042&office_id=293&code=072950&page=&sm=",
           "source": "블로터"
         }
+      ],
+      "theme_tags": [
+        "철도",
+        "LED"
       ]
     },
     {
@@ -308,12 +318,11 @@
       "market_cap": 52500000000,
       "sector": "전자장비와기기",
       "theme_tag": "",
-      "score": 70,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 15,
-        "turnover": 25
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "상장 이슈",
       "news": [
@@ -367,7 +376,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003014065&office_id=029&code=027040&page=&sm=",
           "source": "디지털타임스"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 6,
@@ -380,13 +390,12 @@
       "trading_value": 1079000000,
       "market_cap": 51800000000,
       "sector": "식품과기본식료품소매",
-      "theme_tag": "통신장비",
-      "score": 67,
+      "theme_tag": "양자암호/양자컴퓨팅",
+      "score": 62,
       "score_detail": {
-        "buzz": 20,
-        "quality": 7,
-        "type": 15,
-        "turnover": 25
+        "tp": 23,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "통신장비 테마 강세",
       "news": [
@@ -440,6 +449,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000126585&office_id=586&code=223310&page=&sm=",
           "source": "시사저널"
         }
+      ],
+      "theme_tags": [
+        "양자암호/양자컴퓨팅",
+        "스테이블코인"
       ]
     },
     {
@@ -454,12 +467,11 @@
       "market_cap": 122000000000,
       "sector": "해운사",
       "theme_tag": "연료전지",
-      "score": 65,
+      "score": 63,
       "score_detail": {
-        "buzz": 20,
-        "quality": 5,
-        "type": 15,
-        "turnover": 25
+        "tp": 22,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "연료전지 테마 강세",
       "news": [
@@ -513,6 +525,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000497387&office_id=374&code=109070&page=&sm=",
           "source": "SBS Biz"
         }
+      ],
+      "theme_tags": [
+        "연료전지"
       ]
     },
     {
@@ -526,13 +541,12 @@
       "trading_value": 3136000000,
       "market_cap": 51100000000,
       "sector": "소프트웨어",
-      "theme_tag": "",
-      "score": 65,
+      "theme_tag": "보안주(정보)",
+      "score": 57,
       "score_detail": {
-        "buzz": 20,
-        "quality": 5,
-        "type": 15,
-        "turnover": 25
+        "tp": 18,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "경영진 교체",
       "news": [
@@ -586,6 +600,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003381657&office_id=030&code=430690&page=&sm=",
           "source": "전자신문"
         }
+      ],
+      "theme_tags": [
+        "보안주(정보)"
       ]
     },
     {
@@ -599,13 +616,12 @@
       "trading_value": 15480000000,
       "market_cap": 54100000000,
       "sector": "IT서비스",
-      "theme_tag": "",
-      "score": 78,
+      "theme_tag": "SI(시스템통합)",
+      "score": 65,
       "score_detail": {
-        "buzz": 20,
-        "quality": 3,
-        "type": 30,
-        "turnover": 25
+        "tp": 22,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "실적 개선 기대",
       "news": [
@@ -659,6 +675,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000080084&office_id=293&code=020180&page=&sm=",
           "source": "블로터"
         }
+      ],
+      "theme_tags": [
+        "SI(시스템통합)",
+        "토스(toss)"
       ]
     },
     {
@@ -672,13 +692,12 @@
       "trading_value": 221849000000,
       "market_cap": 2066500000000,
       "sector": "창업투자",
-      "theme_tag": "HBM",
-      "score": 90,
+      "theme_tag": "창투사",
+      "score": 61,
       "score_detail": {
-        "buzz": 20,
-        "quality": 15,
-        "type": 30,
-        "turnover": 25
+        "tp": 18,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "HBM 흑자 전환 기대",
       "news": [
@@ -732,6 +751,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005746258&office_id=277&code=100790&page=&sm=",
           "source": "아시아경제"
         }
+      ],
+      "theme_tags": [
+        "창투사",
+        "창투사"
       ]
     },
     {
@@ -745,13 +768,12 @@
       "trading_value": 279559000000,
       "market_cap": 1371400000000,
       "sector": "창업투자",
-      "theme_tag": "우주항공",
-      "score": 80,
+      "theme_tag": "창투사",
+      "score": 57,
       "score_detail": {
-        "buzz": 20,
-        "quality": 14,
-        "type": 21,
-        "turnover": 25
+        "tp": 18,
+        "tl": 28,
+        "ti": 11
       },
       "rise_reason": "우주항공 주주환원 정책",
       "news": [
@@ -805,6 +827,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005339973&office_id=008&code=027360&page=&sm=",
           "source": "머니투데이"
         }
+      ],
+      "theme_tags": [
+        "창투사",
+        "창투사"
       ]
     },
     {
@@ -818,13 +844,12 @@
       "trading_value": 130383000000,
       "market_cap": 608100000000,
       "sector": "통신장비",
-      "theme_tag": "연료전지",
-      "score": 65,
+      "theme_tag": "광통신(광케이블/광섬유 등)",
+      "score": 59,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 15,
-        "turnover": 20
+        "tp": 16,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "연료전지 상장 이슈",
       "news": [
@@ -873,6 +898,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000173248&office_id=656&code=069540&page=&sm=",
           "source": "대전일보"
         }
+      ],
+      "theme_tags": [
+        "광통신(광케이블/광섬유 등)",
+        "광통신(광케이블/광섬유 등)"
       ]
     },
     {
@@ -886,13 +915,12 @@
       "trading_value": 67454000000,
       "market_cap": 946200000000,
       "sector": "전자장비와기기",
-      "theme_tag": "광통신",
-      "score": 76,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "score": 52,
       "score_detail": {
-        "buzz": 20,
-        "quality": 15,
-        "type": 21,
-        "turnover": 20
+        "tp": 18,
+        "tl": 25,
+        "ti": 9
       },
       "rise_reason": "광통신 배당 기대",
       "news": [
@@ -946,6 +974,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006223568&office_id=018&code=368770&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)",
+        "방위산업/전쟁 및 테러"
       ]
     },
     {
@@ -959,13 +991,12 @@
       "trading_value": 24416000000,
       "market_cap": 368800000000,
       "sector": "통신장비",
-      "theme_tag": "방위산업",
-      "score": 82,
+      "theme_tag": "지주사",
+      "score": 59,
       "score_detail": {
-        "buzz": 20,
-        "quality": 17,
-        "type": 25,
-        "turnover": 20
+        "tp": 18,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "방위산업 승인 기대",
       "news": [
@@ -1019,6 +1050,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005246457&office_id=015&code=078070&page=&sm=",
           "source": "한국경제"
         }
+      ],
+      "theme_tags": [
+        "지주사",
+        "지주사"
       ]
     },
     {
@@ -1032,13 +1067,12 @@
       "trading_value": 25274000000,
       "market_cap": 492900000000,
       "sector": "반도체와반도체장비",
-      "theme_tag": "CXL",
-      "score": 80,
+      "theme_tag": "CXL(컴퓨트익스프레스링크)",
+      "score": 57,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 30,
-        "turnover": 20
+        "tp": 18,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "CXL 실적 개선 기대",
       "news": [
@@ -1092,6 +1126,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003410466&office_id=030&code=080580&page=&sm=",
           "source": "전자신문"
         }
+      ],
+      "theme_tags": [
+        "CXL(컴퓨트익스프레스링크)",
+        "CXL(컴퓨트익스프레스링크)"
       ]
     },
     {
@@ -1105,13 +1143,12 @@
       "trading_value": 179485000000,
       "market_cap": 529800000000,
       "sector": "컴퓨터와주변기기",
-      "theme_tag": "광통신",
-      "score": 59,
+      "theme_tag": "양자암호/양자컴퓨팅",
+      "score": 62,
       "score_detail": {
-        "buzz": 17,
-        "quality": 7,
-        "type": 15,
-        "turnover": 20
+        "tp": 23,
+        "tl": 28,
+        "ti": 11
       },
       "rise_reason": "광통신 테마 강세",
       "news": [
@@ -1165,6 +1202,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005268481&office_id=015&code=046970&page=&sm=",
           "source": "한국경제"
         }
+      ],
+      "theme_tags": [
+        "양자암호/양자컴퓨팅",
+        "日 수출 규제(국산화 등)"
       ]
     },
     {
@@ -1178,13 +1219,12 @@
       "trading_value": 2801000000,
       "market_cap": 43500000000,
       "sector": "디스플레이장비및부품",
-      "theme_tag": "",
+      "theme_tag": "LED",
       "score": 42,
       "score_detail": {
-        "buzz": 13,
-        "quality": 9,
-        "type": 0,
-        "turnover": 20
+        "tp": 18,
+        "tl": 17,
+        "ti": 7
       },
       "rise_reason": "경영진 교체",
       "news": [
@@ -1208,6 +1248,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002963726&office_id=029&code=038060&page=&sm=",
           "source": "디지털타임스"
         }
+      ],
+      "theme_tags": [
+        "LED",
+        "플렉서블 디스플레이"
       ]
     },
     {
@@ -1221,13 +1265,12 @@
       "trading_value": 7150000000,
       "market_cap": 154000000000,
       "sector": "전자장비와기기",
-      "theme_tag": "",
-      "score": 48,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "score": 42,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 0,
-        "turnover": 20
+        "tp": 18,
+        "tl": 17,
+        "ti": 7
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -1281,6 +1324,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003615290&office_id=081&code=225190&page=&sm=",
           "source": "서울신문"
         }
+      ],
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)",
+        "카메라모듈/부품"
       ]
     },
     {
@@ -1294,13 +1341,12 @@
       "trading_value": 293551000000,
       "market_cap": 439500000000,
       "sector": "비철금속",
-      "theme_tag": "알루미늄",
-      "score": 72,
+      "theme_tag": "자동차부품",
+      "score": 54,
       "score_detail": {
-        "buzz": 20,
-        "quality": 7,
-        "type": 25,
-        "turnover": 20
+        "tp": 11,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "알루미늄 수출 확대 기대",
       "news": [
@@ -1354,6 +1400,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004610102&office_id=011&code=008350&page=&sm=",
           "source": "서울경제"
         }
+      ],
+      "theme_tags": [
+        "자동차부품"
       ]
     },
     {
@@ -1367,13 +1416,12 @@
       "trading_value": 80842000000,
       "market_cap": 2369500000000,
       "sector": "우주항공과국방",
-      "theme_tag": "집은",
-      "score": 52,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "score": 49,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 0,
-        "turnover": 20
+        "tp": 18,
+        "tl": 22,
+        "ti": 9
       },
       "rise_reason": "집은 해외 진출 기대",
       "news": [
@@ -1427,6 +1475,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000104390&office_id=024&code=347700&page=&sm=",
           "source": "매경이코노미"
         }
+      ],
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)",
+        "원격진료/비대면진료(U-Healthcare)"
       ]
     },
     {
@@ -1440,13 +1492,12 @@
       "trading_value": 14125000000,
       "market_cap": 259200000000,
       "sector": "소프트웨어",
-      "theme_tag": "",
-      "score": 55,
+      "theme_tag": "보안주(정보)",
+      "score": 46,
       "score_detail": {
-        "buzz": 20,
-        "quality": 5,
-        "type": 10,
-        "turnover": 20
+        "tp": 18,
+        "tl": 21,
+        "ti": 7
       },
       "rise_reason": "방산 상장 이슈",
       "news": [
@@ -1500,6 +1551,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004594199&office_id=011&code=356680&page=&sm=",
           "source": "서울경제"
         }
+      ],
+      "theme_tags": [
+        "보안주(정보)",
+        "양자암호/양자컴퓨팅"
       ]
     },
     {
@@ -1513,13 +1568,12 @@
       "trading_value": 42353000000,
       "market_cap": 270900000000,
       "sector": "통신장비",
-      "theme_tag": "연료전지",
-      "score": 73,
+      "theme_tag": "광통신(광케이블/광섬유 등)",
+      "score": 46,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 25,
-        "turnover": 20
+        "tp": 16,
+        "tl": 21,
+        "ti": 9
       },
       "rise_reason": "연료전지 신규 계약 기대",
       "news": [
@@ -1573,6 +1627,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0015984421&office_id=001&code=388790&page=&sm=",
           "source": "연합뉴스"
         }
+      ],
+      "theme_tags": [
+        "광통신(광케이블/광섬유 등)",
+        "광통신(광케이블/광섬유 등)"
       ]
     },
     {
@@ -1586,13 +1644,12 @@
       "trading_value": 22873000000,
       "market_cap": 441200000000,
       "sector": "창업투자",
-      "theme_tag": "",
-      "score": 74,
+      "theme_tag": "창투사",
+      "score": 39,
       "score_detail": {
-        "buzz": 20,
-        "quality": 19,
-        "type": 15,
-        "turnover": 20
+        "tp": 18,
+        "tl": 14,
+        "ti": 7
       },
       "rise_reason": "주주환원 정책",
       "news": [
@@ -1646,6 +1703,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005330966&office_id=008&code=241520&page=&sm=",
           "source": "머니투데이"
         }
+      ],
+      "theme_tags": [
+        "창투사",
+        "창투사"
       ]
     },
     {
@@ -1659,13 +1720,12 @@
       "trading_value": 8633000000,
       "market_cap": 67000000000,
       "sector": "핸드셋",
-      "theme_tag": "흑자",
-      "score": 78,
+      "theme_tag": "유심(USIM)",
+      "score": 55,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 30,
-        "turnover": 20
+        "tp": 14,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "흑자 전환 기대",
       "news": [
@@ -1719,6 +1779,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005308088&office_id=008&code=070300&page=&sm=",
           "source": "머니투데이"
         }
+      ],
+      "theme_tags": [
+        "유심(USIM)"
       ]
     },
     {
@@ -1732,13 +1795,12 @@
       "trading_value": 22864000000,
       "market_cap": 526000000000,
       "sector": "반도체와반도체장비",
-      "theme_tag": "항공",
-      "score": 67,
+      "theme_tag": "소캠(SOCAMM)",
+      "score": 53,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 15,
-        "turnover": 20
+        "tp": 14,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "항공 테마 강세",
       "news": [
@@ -1792,6 +1854,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005267577&office_id=015&code=033160&page=&sm=",
           "source": "한국경제"
         }
+      ],
+      "theme_tags": [
+        "소캠(SOCAMM)",
+        "HBM(고대역폭메모리)"
       ]
     },
     {
@@ -1805,13 +1871,12 @@
       "trading_value": 3495000000,
       "market_cap": 91300000000,
       "sector": "반도체와반도체장비",
-      "theme_tag": "",
-      "score": 52,
+      "theme_tag": "반도체 장비",
+      "score": 36,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 0,
-        "turnover": 20
+        "tp": 8,
+        "tl": 21,
+        "ti": 7
       },
       "rise_reason": "상장 이슈",
       "news": [
@@ -1865,6 +1930,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003617518&office_id=081&code=227950&page=&sm=",
           "source": "서울신문"
         }
+      ],
+      "theme_tags": [
+        "반도체 장비"
       ]
     },
     {
@@ -1878,13 +1946,12 @@
       "trading_value": 98465000000,
       "market_cap": 211500000000,
       "sector": "통신장비",
-      "theme_tag": "광통신",
-      "score": 56,
+      "theme_tag": "철도",
+      "score": 58,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 10,
-        "turnover": 15
+        "tp": 19,
+        "tl": 28,
+        "ti": 11
       },
       "rise_reason": "광통신 테마 강세",
       "news": [
@@ -1938,6 +2005,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0015982573&office_id=001&code=115440&page=&sm=",
           "source": "연합뉴스"
         }
+      ],
+      "theme_tags": [
+        "철도",
+        "OLED(유기 발광 다이오드)"
       ]
     },
     {
@@ -1951,13 +2022,12 @@
       "trading_value": 33651000000,
       "market_cap": 470000000000,
       "sector": "우주항공과국방",
-      "theme_tag": "",
-      "score": 74,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "score": 37,
       "score_detail": {
-        "buzz": 20,
-        "quality": 14,
-        "type": 25,
-        "turnover": 15
+        "tp": 18,
+        "tl": 10,
+        "ti": 9
       },
       "rise_reason": "계약 체결",
       "news": [
@@ -2011,6 +2081,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003968946&office_id=023&code=478340&page=&sm=",
           "source": "조선일보"
         }
+      ],
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)",
+        "2025 하반기 신규상장"
       ]
     },
     {
@@ -2025,12 +2099,11 @@
       "market_cap": 33400000000,
       "sector": "섬유,의류,신발,호화품",
       "theme_tag": "",
-      "score": 45,
+      "score": 17,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 0,
-        "turnover": 15
+        "tp": 3,
+        "tl": 5,
+        "ti": 9
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -2084,7 +2157,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003602044&office_id=081&code=900100&page=&sm=",
           "source": "서울신문"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 30,
@@ -2097,13 +2171,12 @@
       "trading_value": 56851000000,
       "market_cap": 2832600000000,
       "sector": "전기제품",
-      "theme_tag": "검색",
-      "score": 70,
+      "theme_tag": "고체산화물 연료전지(SOFC)",
+      "score": 53,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 25,
-        "turnover": 15
+        "tp": 14,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "공급 계약 체결",
       "news": [
@@ -2157,6 +2230,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002379780&office_id=123&code=336260&page=&sm=",
           "source": "조세일보"
         }
+      ],
+      "theme_tags": [
+        "고체산화물 연료전지(SOFC)",
+        "고체산화물 연료전지(SOFC)"
       ]
     },
     {
@@ -2170,13 +2247,12 @@
       "trading_value": 15717000000,
       "market_cap": 109300000000,
       "sector": "IT서비스",
-      "theme_tag": "",
-      "score": 62,
+      "theme_tag": "NI(네트워크통합)",
+      "score": 51,
       "score_detail": {
-        "buzz": 20,
-        "quality": 7,
-        "type": 20,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "경영진 교체",
       "news": [
@@ -2230,6 +2306,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003014425&office_id=029&code=038680&page=&sm=",
           "source": "디지털타임스"
         }
+      ],
+      "theme_tags": [
+        "NI(네트워크통합)",
+        "보안주(정보)"
       ]
     },
     {
@@ -2243,13 +2323,12 @@
       "trading_value": 356000000,
       "market_cap": 26600000000,
       "sector": "창업투자",
-      "theme_tag": "",
-      "score": 60,
+      "theme_tag": "창투사",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 15,
-        "turnover": 15
+        "tp": 18,
+        "tl": 10,
+        "ti": 7
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -2303,6 +2382,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0013769175&office_id=003&code=019570&page=&sm=",
           "source": "뉴시스"
         }
+      ],
+      "theme_tags": [
+        "창투사",
+        "창투사"
       ]
     },
     {
@@ -2316,13 +2399,12 @@
       "trading_value": 10565000000,
       "market_cap": 226500000000,
       "sector": "창업투자",
-      "theme_tag": "데이터센터",
-      "score": 74,
+      "theme_tag": "창투사",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 28,
-        "turnover": 15
+        "tp": 18,
+        "tl": 10,
+        "ti": 7
       },
       "rise_reason": "데이터센터 매출 성장 기대",
       "news": [
@@ -2376,6 +2458,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006244338&office_id=018&code=289080&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "창투사",
+        "창투사"
       ]
     },
     {
@@ -2389,13 +2475,12 @@
       "trading_value": 26588000000,
       "market_cap": 78900000000,
       "sector": "창업투자",
-      "theme_tag": "",
-      "score": 58,
+      "theme_tag": "창투사",
+      "score": 39,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 15,
-        "turnover": 15
+        "tp": 18,
+        "tl": 10,
+        "ti": 11
       },
       "rise_reason": "투자 기대",
       "news": [
@@ -2449,6 +2534,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000045629&office_id=648&code=452300&page=&sm=",
           "source": "비즈워치"
         }
+      ],
+      "theme_tags": [
+        "창투사",
+        "창투사"
       ]
     },
     {
@@ -2462,13 +2551,12 @@
       "trading_value": 6634000000,
       "market_cap": 385400000000,
       "sector": "기계",
-      "theme_tag": "",
-      "score": 56,
+      "theme_tag": "로봇(산업용/협동로봇 등)",
+      "score": 49,
       "score_detail": {
-        "buzz": 20,
-        "quality": 6,
-        "type": 15,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "상장 이슈",
       "news": [
@@ -2522,6 +2610,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005745281&office_id=277&code=389500&page=&sm=",
           "source": "아시아경제"
         }
+      ],
+      "theme_tags": [
+        "로봇(산업용/협동로봇 등)",
+        "피지컬 AI/휴머노이드 로봇"
       ]
     },
     {
@@ -2534,14 +2626,13 @@
       "change_rate": 14.29,
       "trading_value": 14000000,
       "market_cap": 4000000000,
-      "sector": "",
+      "sector": "기타",
       "theme_tag": "",
-      "score": 55,
+      "score": 15,
       "score_detail": {
-        "buzz": 8,
-        "quality": 20,
-        "type": 12,
-        "turnover": 15
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "자사주 소각",
       "news": [
@@ -2555,7 +2646,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004597758&office_id=011&code=550043&page=&sm=",
           "source": "서울경제"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 37,
@@ -2569,12 +2661,11 @@
       "market_cap": 922600000000,
       "sector": "전기장비",
       "theme_tag": "신재생에너지",
-      "score": 72,
+      "score": 49,
       "score_detail": {
-        "buzz": 20,
-        "quality": 7,
-        "type": 30,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "신재생에너지 흑자 전환",
       "news": [
@@ -2628,6 +2719,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001240656&office_id=215&code=126340&page=&sm=",
           "source": "한국경제TV"
         }
+      ],
+      "theme_tags": [
+        "신재생에너지"
       ]
     },
     {
@@ -2641,13 +2735,12 @@
       "trading_value": 17770000000,
       "market_cap": 1143200000000,
       "sector": "비철금속",
-      "theme_tag": "광통신",
-      "score": 57,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 7,
-        "type": 15,
-        "turnover": 15
+        "tp": 18,
+        "tl": 10,
+        "ti": 7
       },
       "rise_reason": "광통신 생산 증설",
       "news": [
@@ -2701,6 +2794,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000501572&office_id=374&code=295310&page=&sm=",
           "source": "SBS Biz"
         }
+      ],
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)",
+        "OLED(유기 발광 다이오드)"
       ]
     },
     {
@@ -2715,12 +2812,11 @@
       "market_cap": 58200000000,
       "sector": "기계",
       "theme_tag": "",
-      "score": 74,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 14,
-        "type": 25,
-        "turnover": 15
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "수주 확대",
       "news": [
@@ -2774,7 +2870,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002606403&office_id=016&code=043340&page=&sm=",
           "source": "헤럴드경제"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 40,
@@ -2788,12 +2885,11 @@
       "market_cap": 276700000000,
       "sector": "비철금속",
       "theme_tag": "알루미늄",
-      "score": 67,
+      "score": 53,
       "score_detail": {
-        "buzz": 20,
-        "quality": 7,
-        "type": 25,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "알루미늄 공급 확대",
       "news": [
@@ -2847,6 +2943,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005748516&office_id=277&code=018470&page=&sm=",
           "source": "아시아경제"
         }
+      ],
+      "theme_tags": [
+        "알루미늄"
       ]
     },
     {
@@ -2860,13 +2959,12 @@
       "trading_value": 13909000000,
       "market_cap": 59700000000,
       "sector": "IT서비스",
-      "theme_tag": "",
-      "score": 60,
+      "theme_tag": "보안주(정보)",
+      "score": 47,
       "score_detail": {
-        "buzz": 20,
-        "quality": 5,
-        "type": 20,
-        "turnover": 15
+        "tp": 18,
+        "tl": 18,
+        "ti": 11
       },
       "rise_reason": "정부 정책 수혜",
       "news": [
@@ -2920,6 +3018,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002211195&office_id=138&code=465480&page=&sm=",
           "source": "디지털데일리"
         }
+      ],
+      "theme_tags": [
+        "보안주(정보)"
       ]
     },
     {
@@ -2934,12 +3035,11 @@
       "market_cap": 46400000000,
       "sector": "제약",
       "theme_tag": "",
-      "score": 56,
+      "score": 17,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 10,
-        "turnover": 15
+        "tp": 3,
+        "tl": 5,
+        "ti": 9
       },
       "rise_reason": "특허 취득",
       "news": [
@@ -2993,7 +3093,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003551178&office_id=081&code=019175&page=&sm=",
           "source": "서울신문"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 43,
@@ -3006,13 +3107,12 @@
       "trading_value": 28923000000,
       "market_cap": 326400000000,
       "sector": "IT서비스",
-      "theme_tag": "",
-      "score": 61,
+      "theme_tag": "AI 챗봇(챗GPT 등)",
+      "score": 51,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 15,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "특허 취득",
       "news": [
@@ -3066,6 +3166,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006246136&office_id=018&code=0007C0&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "AI 챗봇(챗GPT 등)",
+        "의료AI"
       ]
     },
     {
@@ -3079,13 +3183,12 @@
       "trading_value": 475000000,
       "market_cap": 56900000000,
       "sector": "소프트웨어",
-      "theme_tag": "",
-      "score": 66,
+      "theme_tag": "카메라모듈/부품",
+      "score": 49,
       "score_detail": {
-        "buzz": 20,
-        "quality": 6,
-        "type": 25,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "수출 확대 기대",
       "news": [
@@ -3139,6 +3242,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006246252&office_id=018&code=300120&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "카메라모듈/부품",
+        "지능형로봇/인공지능(AI)"
       ]
     },
     {
@@ -3152,13 +3259,12 @@
       "trading_value": 76347000000,
       "market_cap": 855300000000,
       "sector": "조선",
-      "theme_tag": "광통신",
-      "score": 54,
+      "theme_tag": "조선기자재",
+      "score": 51,
       "score_detail": {
-        "buzz": 20,
-        "quality": 9,
-        "type": 10,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "광통신 수출 확대 기대",
       "news": [
@@ -3212,6 +3318,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006249219&office_id=018&code=217590&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "조선기자재",
+        "광통신(광케이블/광섬유 등)"
       ]
     },
     {
@@ -3225,13 +3335,12 @@
       "trading_value": 15195000000,
       "market_cap": 64800000000,
       "sector": "통신장비",
-      "theme_tag": "",
-      "score": 77,
+      "theme_tag": "방위산업/전쟁 및 테러",
+      "score": 44,
       "score_detail": {
-        "buzz": 20,
-        "quality": 17,
-        "type": 25,
-        "turnover": 15
+        "tp": 8,
+        "tl": 25,
+        "ti": 11
       },
       "rise_reason": "신규 계약 기대",
       "news": [
@@ -3285,6 +3394,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0013682936&office_id=003&code=140430&page=&sm=",
           "source": "뉴시스"
         }
+      ],
+      "theme_tags": [
+        "방위산업/전쟁 및 테러",
+        "보안주(물리)"
       ]
     },
     {
@@ -3298,13 +3411,12 @@
       "trading_value": 363486000000,
       "market_cap": 40871300000000,
       "sector": "증권",
-      "theme_tag": "",
-      "score": 76,
+      "theme_tag": "증권",
+      "score": 49,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 30,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "증권 실적 서프라이즈",
       "news": [
@@ -3358,6 +3470,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005507177&office_id=014&code=006800&page=&sm=",
           "source": "파이낸셜뉴스"
         }
+      ],
+      "theme_tags": [
+        "증권",
+        "스페이스X(SpaceX)"
       ]
     },
     {
@@ -3371,13 +3487,12 @@
       "trading_value": 3759000000,
       "market_cap": 194500000000,
       "sector": "IT서비스",
-      "theme_tag": "흑자",
-      "score": 70,
+      "theme_tag": "보안주(정보)",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 5,
-        "type": 30,
-        "turnover": 15
+        "tp": 18,
+        "tl": 10,
+        "ti": 7
       },
       "rise_reason": "흑자 전환 기대",
       "news": [
@@ -3431,6 +3546,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005747027&office_id=277&code=488280&page=&sm=",
           "source": "아시아경제"
         }
+      ],
+      "theme_tags": [
+        "보안주(정보)",
+        "지능형로봇/인공지능(AI)"
       ]
     },
     {
@@ -3444,13 +3563,12 @@
       "trading_value": 4951000000,
       "market_cap": 143300000000,
       "sector": "디스플레이장비및부품",
-      "theme_tag": "",
-      "score": 76,
+      "theme_tag": "OLED(유기 발광 다이오드)",
+      "score": 49,
       "score_detail": {
-        "buzz": 20,
-        "quality": 16,
-        "type": 25,
-        "turnover": 15
+        "tp": 10,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "공급 계약 체결",
       "news": [
@@ -3504,6 +3622,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000471860&office_id=374&code=141000&page=&sm=",
           "source": "SBS Biz"
         }
+      ],
+      "theme_tags": [
+        "OLED(유기 발광 다이오드)",
+        "플렉서블 디스플레이"
       ]
     },
     {
@@ -3516,14 +3638,13 @@
       "change_rate": 12.54,
       "trading_value": 2074000000,
       "market_cap": 63300000000,
-      "sector": "",
+      "sector": "기타",
       "theme_tag": "",
-      "score": 56,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 10,
-        "turnover": 15
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "상장 이슈",
       "news": [
@@ -3577,7 +3698,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0013190146&office_id=003&code=570117&page=&sm=",
           "source": "뉴시스"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 51,
@@ -3590,13 +3712,12 @@
       "trading_value": 41227000000,
       "market_cap": 232500000000,
       "sector": "전자장비와기기",
-      "theme_tag": "",
-      "score": 60,
+      "theme_tag": "LED",
+      "score": 52,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 15,
-        "turnover": 15
+        "tp": 18,
+        "tl": 25,
+        "ti": 9
       },
       "rise_reason": "인수 기대감",
       "news": [
@@ -3650,6 +3771,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002224236&office_id=138&code=004710&page=&sm=",
           "source": "디지털데일리"
         }
+      ],
+      "theme_tags": [
+        "LED",
+        "태양광에너지"
       ]
     },
     {
@@ -3664,12 +3789,11 @@
       "market_cap": 54700000000,
       "sector": "통신장비",
       "theme_tag": "페라이트",
-      "score": 58,
+      "score": 53,
       "score_detail": {
-        "buzz": 20,
-        "quality": 3,
-        "type": 25,
-        "turnover": 10
+        "tp": 10,
+        "tl": 32,
+        "ti": 11
       },
       "rise_reason": "페라이트 인수 기대감",
       "news": [
@@ -3723,6 +3847,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000079766&office_id=293&code=148250&page=&sm=",
           "source": "블로터"
         }
+      ],
+      "theme_tags": [
+        "페라이트",
+        "페라이트"
       ]
     },
     {
@@ -3735,14 +3863,13 @@
       "change_rate": 12.18,
       "trading_value": 1075000000,
       "market_cap": 77400000000,
-      "sector": "",
+      "sector": "기타",
       "theme_tag": "",
-      "score": 45,
+      "score": 15,
       "score_detail": {
-        "buzz": 13,
-        "quality": 12,
-        "type": 10,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -3766,7 +3893,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0013857074&office_id=003&code=500094&page=&sm=",
           "source": "뉴시스"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 54,
@@ -3778,14 +3906,13 @@
       "change_rate": 12.12,
       "trading_value": 375000000,
       "market_cap": 7400000000,
-      "sector": "",
+      "sector": "기타",
       "theme_tag": "",
-      "score": 50,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 10,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -3834,7 +3961,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0015959396&office_id=001&code=700030&page=&sm=",
           "source": "연합뉴스"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 55,
@@ -3848,12 +3976,11 @@
       "market_cap": 331500000000,
       "sector": "증권",
       "theme_tag": "",
-      "score": 49,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 9,
-        "type": 10,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "투자 기대",
       "news": [
@@ -3907,7 +4034,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004586831&office_id=011&code=006805&page=&sm=",
           "source": "서울경제"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 56,
@@ -3921,12 +4049,11 @@
       "market_cap": 310400000000,
       "sector": "반도체와반도체장비",
       "theme_tag": "",
-      "score": 73,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 13,
-        "type": 30,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "실적 개선 기대",
       "news": [
@@ -3980,7 +4107,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005699921&office_id=277&code=226590&page=&sm=",
           "source": "아시아경제"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 57,
@@ -3993,13 +4121,12 @@
       "trading_value": 17622000000,
       "market_cap": 330000000000,
       "sector": "우주항공과국방",
-      "theme_tag": "광통신",
-      "score": 64,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "score": 37,
       "score_detail": {
-        "buzz": 20,
-        "quality": 9,
-        "type": 25,
-        "turnover": 10
+        "tp": 18,
+        "tl": 10,
+        "ti": 9
       },
       "rise_reason": "광통신 수주 확대",
       "news": [
@@ -4053,6 +4180,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005660442&office_id=009&code=274090&page=&sm=",
           "source": "매일경제"
         }
+      ],
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)",
+        "방위산업/전쟁 및 테러"
       ]
     },
     {
@@ -4065,14 +4196,13 @@
       "change_rate": 11.67,
       "trading_value": 6962000000,
       "market_cap": 184300000000,
-      "sector": "",
+      "sector": "기타",
       "theme_tag": "",
-      "score": 50,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 10,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "상장 이슈",
       "news": [
@@ -4126,7 +4256,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002458620&office_id=016&code=530134&page=&sm=",
           "source": "헤럴드경제"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 59,
@@ -4139,13 +4270,12 @@
       "trading_value": 8469000000,
       "market_cap": 46400000000,
       "sector": "소프트웨어",
-      "theme_tag": "",
-      "score": 60,
+      "theme_tag": "보안주(정보)",
+      "score": 37,
       "score_detail": {
-        "buzz": 20,
-        "quality": 5,
-        "type": 25,
-        "turnover": 10
+        "tp": 18,
+        "tl": 10,
+        "ti": 9
       },
       "rise_reason": "자사주 소각",
       "news": [
@@ -4199,6 +4329,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002221834&office_id=138&code=434480&page=&sm=",
           "source": "디지털데일리"
         }
+      ],
+      "theme_tags": [
+        "보안주(정보)"
       ]
     },
     {
@@ -4213,12 +4346,11 @@
       "market_cap": 1884400000000,
       "sector": "반도체와반도체장비",
       "theme_tag": "",
-      "score": 63,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 21,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "반도체 배당 기대",
       "news": [
@@ -4272,7 +4404,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001136975&office_id=417&code=131970&page=&sm=",
           "source": "동행미디어 시대"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 61,
@@ -4286,12 +4419,11 @@
       "market_cap": 274300000000,
       "sector": "반도체와반도체장비",
       "theme_tag": "",
-      "score": 72,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 30,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "실적 개선 기대",
       "news": [
@@ -4345,7 +4477,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003584951&office_id=081&code=098120&page=&sm=",
           "source": "서울신문"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 62,
@@ -4358,13 +4491,12 @@
       "trading_value": 21454000000,
       "market_cap": 2108100000000,
       "sector": "전자장비와기기",
-      "theme_tag": "",
-      "score": 67,
+      "theme_tag": "PCB(FPCB 등)",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 25,
-        "turnover": 10
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "수주 확대",
       "news": [
@@ -4418,6 +4550,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000037905&office_id=037&code=007810&page=&sm=",
           "source": "주간동아"
         }
+      ],
+      "theme_tags": [
+        "PCB(FPCB 등)",
+        "CXL(컴퓨트익스프레스링크)"
       ]
     },
     {
@@ -4431,13 +4567,12 @@
       "trading_value": 9841000000,
       "market_cap": 109400000000,
       "sector": "디스플레이장비및부품",
-      "theme_tag": "",
-      "score": 76,
+      "theme_tag": "가상화폐(비트코인 등)",
+      "score": 47,
       "score_detail": {
-        "buzz": 20,
-        "quality": 16,
-        "type": 30,
-        "turnover": 10
+        "tp": 6,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "실적 호조",
       "news": [
@@ -4491,6 +4626,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005220334&office_id=008&code=036090&page=&sm=",
           "source": "머니투데이"
         }
+      ],
+      "theme_tags": [
+        "가상화폐(비트코인 등)"
       ]
     },
     {
@@ -4504,13 +4642,12 @@
       "trading_value": 74304000000,
       "market_cap": 1529000000000,
       "sector": "전기제품",
-      "theme_tag": "국내증시",
-      "score": 63,
+      "theme_tag": "전기차",
+      "score": 48,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 25,
-        "turnover": 10
+        "tp": 7,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "국내증시 자사주 매입",
       "news": [
@@ -4564,6 +4701,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002622763&office_id=016&code=417200&page=&sm=",
           "source": "헤럴드경제"
         }
+      ],
+      "theme_tags": [
+        "전기차",
+        "풍력에너지"
       ]
     },
     {
@@ -4577,13 +4718,12 @@
       "trading_value": 14802000000,
       "market_cap": 92700000000,
       "sector": "핸드셋",
-      "theme_tag": "",
-      "score": 57,
+      "theme_tag": "LED",
+      "score": 41,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 15,
-        "turnover": 10
+        "tp": 18,
+        "tl": 14,
+        "ti": 9
       },
       "rise_reason": "인수 기대감",
       "news": [
@@ -4637,6 +4777,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003621417&office_id=081&code=061040&page=&sm=",
           "source": "서울신문"
         }
+      ],
+      "theme_tags": [
+        "LED",
+        "스마트폰"
       ]
     },
     {
@@ -4650,13 +4794,12 @@
       "trading_value": 21295000000,
       "market_cap": 364000000000,
       "sector": "통신장비",
-      "theme_tag": "지목하면",
-      "score": 61,
+      "theme_tag": "광통신(광케이블/광섬유 등)",
+      "score": 39,
       "score_detail": {
-        "buzz": 20,
-        "quality": 16,
-        "type": 15,
-        "turnover": 10
+        "tp": 16,
+        "tl": 14,
+        "ti": 9
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -4710,6 +4853,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004598458&office_id=011&code=389020&page=&sm=",
           "source": "서울경제"
         }
+      ],
+      "theme_tags": [
+        "광통신(광케이블/광섬유 등)",
+        "뉴로모픽 반도체"
       ]
     },
     {
@@ -4723,13 +4870,12 @@
       "trading_value": 693000000,
       "market_cap": 117000000000,
       "sector": "화학",
-      "theme_tag": "",
-      "score": 74,
+      "theme_tag": "황사/미세먼지",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 14,
-        "type": 30,
-        "turnover": 10
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "실적 호조",
       "news": [
@@ -4783,6 +4929,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002993131&office_id=029&code=187790&page=&sm=",
           "source": "디지털타임스"
         }
+      ],
+      "theme_tags": [
+        "황사/미세먼지"
       ]
     },
     {
@@ -4796,13 +4945,12 @@
       "trading_value": 16616000000,
       "market_cap": 2517500000000,
       "sector": "철강",
-      "theme_tag": "광통신",
-      "score": 66,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 25,
-        "turnover": 10
+        "tp": 18,
+        "tl": 10,
+        "ti": 7
       },
       "rise_reason": "광통신 납품 계약 체결",
       "news": [
@@ -4856,6 +5004,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003628890&office_id=081&code=001430&page=&sm=",
           "source": "서울신문"
         }
+      ],
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)",
+        "지주사"
       ]
     },
     {
@@ -4870,12 +5022,11 @@
       "market_cap": 1561300000000,
       "sector": "생명과학도구및서비스",
       "theme_tag": "전지",
-      "score": 52,
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 12,
-        "turnover": 10
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "전지 배당 기대",
       "news": [
@@ -4929,6 +5080,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001151490&office_id=366&code=445680&page=&sm=",
           "source": "조선비즈"
         }
+      ],
+      "theme_tags": [
+        "전지"
       ]
     },
     {
@@ -4943,12 +5097,11 @@
       "market_cap": 16400000000,
       "sector": "디스플레이장비및부품",
       "theme_tag": "",
-      "score": 65,
+      "score": 19,
       "score_detail": {
-        "buzz": 17,
-        "quality": 13,
-        "type": 25,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 11
       },
       "rise_reason": "신규 계약 기대",
       "news": [
@@ -5002,7 +5155,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003614724&office_id=081&code=121850&page=&sm=",
           "source": "서울신문"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 71,
@@ -5014,17 +5168,17 @@
       "change_rate": 10.33,
       "trading_value": 2047000000,
       "market_cap": 79000000000,
-      "sector": "",
+      "sector": "기타",
       "theme_tag": "",
-      "score": 10,
+      "score": 15,
       "score_detail": {
-        "buzz": 0,
-        "quality": 0,
-        "type": 0,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "거래 급증",
-      "news": []
+      "news": [],
+      "theme_tags": []
     },
     {
       "rank": 72,
@@ -5037,13 +5191,12 @@
       "trading_value": 43092000000,
       "market_cap": 559500000000,
       "sector": "통신장비",
-      "theme_tag": "제지",
-      "score": 63,
+      "theme_tag": "방위산업/전쟁 및 테러",
+      "score": 42,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 25,
-        "turnover": 10
+        "tp": 8,
+        "tl": 25,
+        "ti": 9
       },
       "rise_reason": "제지 승인 기대",
       "news": [
@@ -5097,6 +5250,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005657020&office_id=009&code=088800&page=&sm=",
           "source": "매일경제"
         }
+      ],
+      "theme_tags": [
+        "방위산업/전쟁 및 테러"
       ]
     },
     {
@@ -5111,12 +5267,11 @@
       "market_cap": 276400000000,
       "sector": "건축자재",
       "theme_tag": "",
-      "score": 63,
+      "score": 17,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 25,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 9
       },
       "rise_reason": "공급 확대",
       "news": [
@@ -5170,7 +5325,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0008886722&office_id=421&code=000390&page=&sm=",
           "source": "뉴스1"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 74,
@@ -5182,14 +5338,13 @@
       "change_rate": 10.12,
       "trading_value": 228000000,
       "market_cap": 26300000000,
-      "sector": "",
+      "sector": "기타",
       "theme_tag": "",
-      "score": 54,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 12,
-        "turnover": 10
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "자사주 소각",
       "news": [
@@ -5238,7 +5393,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0008815380&office_id=421&code=610089&page=&sm=",
           "source": "뉴스1"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 75,
@@ -5252,12 +5408,11 @@
       "market_cap": 38700000000,
       "sector": "레저용장비와제품",
       "theme_tag": "가상자산",
-      "score": 55,
+      "score": 45,
       "score_detail": {
-        "buzz": 17,
-        "quality": 13,
-        "type": 15,
-        "turnover": 10
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "가상자산 M&A 기대감",
       "news": [
@@ -5291,6 +5446,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002957319&office_id=029&code=050120&page=&sm=",
           "source": "디지털타임스"
         }
+      ],
+      "theme_tags": [
+        "가상자산"
       ]
     },
     {
@@ -5304,13 +5462,12 @@
       "trading_value": 7985000000,
       "market_cap": 306600000000,
       "sector": "건강관리장비와용품",
-      "theme_tag": "",
-      "score": 62,
+      "theme_tag": "의료기기",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 20,
-        "turnover": 10
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "바이오 상장 이슈",
       "news": [
@@ -5364,6 +5521,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0008849969&office_id=421&code=0088M0&page=&sm=",
           "source": "뉴스1"
         }
+      ],
+      "theme_tags": [
+        "의료기기",
+        "2026 상반기 신규상장"
       ]
     },
     {
@@ -5377,13 +5538,12 @@
       "trading_value": 8301000000,
       "market_cap": 170700000000,
       "sector": "반도체와반도체장비",
-      "theme_tag": "흑자",
-      "score": 66,
+      "theme_tag": "밸류업(25년 기업가치 제고계획 발표)",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 30,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "흑자 전환 기대",
       "news": [
@@ -5437,6 +5597,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0013784307&office_id=003&code=396270&page=&sm=",
           "source": "뉴시스"
         }
+      ],
+      "theme_tags": [
+        "밸류업(25년 기업가치 제고계획 발표)"
       ]
     },
     {
@@ -5450,13 +5613,12 @@
       "trading_value": 4507000000,
       "market_cap": 223100000000,
       "sector": "전자장비와기기",
-      "theme_tag": "스페이스X",
-      "score": 48,
+      "theme_tag": "전기차",
+      "score": 31,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 15,
-        "turnover": 5
+        "tp": 7,
+        "tl": 17,
+        "ti": 7
       },
       "rise_reason": "스페이스X 합병 기대감",
       "news": [
@@ -5510,6 +5672,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001120608&office_id=417&code=417010&page=&sm=",
           "source": "동행미디어 시대"
         }
+      ],
+      "theme_tags": [
+        "전기차",
+        "2차전지"
       ]
     },
     {
@@ -5523,13 +5689,12 @@
       "trading_value": 15312000000,
       "market_cap": 344900000000,
       "sector": "핸드셋",
-      "theme_tag": "대표",
-      "score": 61,
+      "theme_tag": "전자파",
+      "score": 50,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 25,
-        "turnover": 5
+        "tp": 15,
+        "tl": 28,
+        "ti": 7
       },
       "rise_reason": "폭증에 공급 확대",
       "news": [
@@ -5583,6 +5748,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003619997&office_id=081&code=052710&page=&sm=",
           "source": "서울신문"
         }
+      ],
+      "theme_tags": [
+        "전자파",
+        "스마트폰"
       ]
     },
     {
@@ -5596,13 +5765,12 @@
       "trading_value": 25898000000,
       "market_cap": 787900000000,
       "sector": "반도체와반도체장비",
-      "theme_tag": "",
-      "score": 62,
+      "theme_tag": "반도체 장비",
+      "score": 43,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 25,
-        "turnover": 5
+        "tp": 8,
+        "tl": 28,
+        "ti": 7
       },
       "rise_reason": "계약 체결",
       "news": [
@@ -5656,6 +5824,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006187013&office_id=018&code=253590&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "반도체 장비",
+        "CXL(컴퓨트익스프레스링크)"
       ]
     },
     {
@@ -5669,13 +5841,12 @@
       "trading_value": 3226000000,
       "market_cap": 121400000000,
       "sector": "전자제품",
-      "theme_tag": "",
-      "score": 35,
+      "theme_tag": "지능형로봇/인공지능(AI)",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 0,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "투자 기대",
       "news": [
@@ -5729,6 +5900,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000501035&office_id=374&code=078890&page=&sm=",
           "source": "SBS Biz"
         }
+      ],
+      "theme_tags": [
+        "지능형로봇/인공지능(AI)",
+        "증강현실(AR)"
       ]
     },
     {
@@ -5742,13 +5917,12 @@
       "trading_value": 5440000000,
       "market_cap": 309000000000,
       "sector": "반도체와반도체장비",
-      "theme_tag": "",
-      "score": 68,
+      "theme_tag": "LED",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 13,
-        "type": 30,
-        "turnover": 5
+        "tp": 18,
+        "tl": 10,
+        "ti": 7
       },
       "rise_reason": "실적 호조",
       "news": [
@@ -5802,6 +5976,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005479356&office_id=014&code=272110&page=&sm=",
           "source": "파이낸셜뉴스"
         }
+      ],
+      "theme_tags": [
+        "LED"
       ]
     },
     {
@@ -5816,12 +5993,11 @@
       "market_cap": 81200000000,
       "sector": "건설",
       "theme_tag": "",
-      "score": 72,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 17,
-        "type": 30,
-        "turnover": 5
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "에너지 흑자 전환 기대",
       "news": [
@@ -5875,7 +6051,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005323199&office_id=008&code=066980&page=&sm=",
           "source": "머니투데이"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 84,
@@ -5888,13 +6065,12 @@
       "trading_value": 12817000000,
       "market_cap": 728500000000,
       "sector": "IT서비스",
-      "theme_tag": "통신장비",
-      "score": 61,
+      "theme_tag": "전자결제(전자화폐)",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 6,
-        "type": 30,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "통신장비 실적 개선",
       "news": [
@@ -5948,6 +6124,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005269797&office_id=015&code=060250&page=&sm=",
           "source": "한국경제"
         }
+      ],
+      "theme_tags": [
+        "전자결제(전자화폐)",
+        "애플페이"
       ]
     },
     {
@@ -5961,13 +6141,12 @@
       "trading_value": 3298000000,
       "market_cap": 362700000000,
       "sector": "방송과엔터테인먼트",
-      "theme_tag": "이용자들",
-      "score": 25,
+      "theme_tag": "영상콘텐츠",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 0,
-        "type": 0,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -6021,6 +6200,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003020216&office_id=029&code=419530&page=&sm=",
           "source": "디지털타임스"
         }
+      ],
+      "theme_tags": [
+        "영상콘텐츠",
+        "캐릭터상품"
       ]
     },
     {
@@ -6033,14 +6216,13 @@
       "change_rate": 8.95,
       "trading_value": 6246000000,
       "market_cap": 148000000000,
-      "sector": "",
+      "sector": "기타",
       "theme_tag": "",
-      "score": 69,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 14,
-        "type": 30,
-        "turnover": 5
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "반도체 실적 개선 기대",
       "news": [
@@ -6094,7 +6276,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002611766&office_id=016&code=243880&page=&sm=",
           "source": "헤럴드경제"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 87,
@@ -6107,13 +6290,12 @@
       "trading_value": 1279000000,
       "market_cap": 52800000000,
       "sector": "자동차부품",
-      "theme_tag": "흑자",
-      "score": 69,
+      "theme_tag": "자동차부품",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 14,
-        "type": 30,
-        "turnover": 5
+        "tp": 11,
+        "tl": 17,
+        "ti": 7
       },
       "rise_reason": "흑자 전환 기대",
       "news": [
@@ -6167,6 +6349,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005400979&office_id=014&code=097780&page=&sm=",
           "source": "파이낸셜뉴스"
         }
+      ],
+      "theme_tags": [
+        "자동차부품"
       ]
     },
     {
@@ -6180,13 +6365,12 @@
       "trading_value": 1175000000,
       "market_cap": 46500000000,
       "sector": "제약",
-      "theme_tag": "",
-      "score": 59,
+      "theme_tag": "제약업체",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 9,
-        "type": 25,
-        "turnover": 5
+        "tp": 7,
+        "tl": 21,
+        "ti": 7
       },
       "rise_reason": "신규 계약 기대",
       "news": [
@@ -6240,6 +6424,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006177061&office_id=018&code=200230&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "제약업체"
       ]
     },
     {
@@ -6253,13 +6440,12 @@
       "trading_value": 7537000000,
       "market_cap": 919100000000,
       "sector": "제약",
-      "theme_tag": "신약",
-      "score": 62,
+      "theme_tag": "제약업체",
+      "score": 42,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 25,
-        "turnover": 5
+        "tp": 7,
+        "tl": 28,
+        "ti": 7
       },
       "rise_reason": "신약 모멘텀",
       "news": [
@@ -6313,6 +6499,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005274396&office_id=015&code=249420&page=&sm=",
           "source": "한국경제"
         }
+      ],
+      "theme_tags": [
+        "제약업체",
+        "비만치료제"
       ]
     },
     {
@@ -6326,13 +6516,12 @@
       "trading_value": 17757000000,
       "market_cap": 238700000000,
       "sector": "통신장비",
-      "theme_tag": "우주항공산업",
-      "score": 59,
+      "theme_tag": "보안주(정보)",
+      "score": 39,
       "score_detail": {
-        "buzz": 20,
-        "quality": 4,
-        "type": 30,
-        "turnover": 5
+        "tp": 18,
+        "tl": 14,
+        "ti": 7
       },
       "rise_reason": "우주항공산업 MOU 체결",
       "news": [
@@ -6386,6 +6575,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000036371&office_id=584&code=456010&page=&sm=",
           "source": "동아사이언스"
         }
+      ],
+      "theme_tags": [
+        "보안주(정보)",
+        "양자암호/양자컴퓨팅"
       ]
     },
     {
@@ -6399,13 +6592,12 @@
       "trading_value": 2095000000,
       "market_cap": 171500000000,
       "sector": "통신장비",
-      "theme_tag": "조선기자재",
-      "score": 60,
+      "theme_tag": "리튬",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 10,
-        "type": 25,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "조선기자재 승인 기대",
       "news": [
@@ -6459,6 +6651,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003010512&office_id=029&code=051980&page=&sm=",
           "source": "디지털타임스"
         }
+      ],
+      "theme_tags": [
+        "리튬",
+        "리튬"
       ]
     },
     {
@@ -6472,13 +6668,12 @@
       "trading_value": 1805000000,
       "market_cap": 157900000000,
       "sector": "창업투자",
-      "theme_tag": "",
-      "score": 61,
+      "theme_tag": "창투사",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 25,
-        "turnover": 5
+        "tp": 18,
+        "tl": 10,
+        "ti": 7
       },
       "rise_reason": "양산 본격화",
       "news": [
@@ -6532,6 +6727,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005505257&office_id=014&code=021080&page=&sm=",
           "source": "파이낸셜뉴스"
         }
+      ],
+      "theme_tags": [
+        "창투사",
+        "가상화폐(비트코인 등)"
       ]
     },
     {
@@ -6545,13 +6744,12 @@
       "trading_value": 3210000000,
       "market_cap": 79200000000,
       "sector": "섬유,의류,신발,호화품",
-      "theme_tag": "정치",
-      "score": 46,
+      "theme_tag": "패션/의류",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 10,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -6605,6 +6803,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003609749&office_id=081&code=306040&page=&sm=",
           "source": "서울신문"
         }
+      ],
+      "theme_tags": [
+        "패션/의류"
       ]
     },
     {
@@ -6618,13 +6819,12 @@
       "trading_value": 4111000000,
       "market_cap": 392800000000,
       "sector": "반도체와반도체장비",
-      "theme_tag": "",
-      "score": 57,
+      "theme_tag": "반도체 장비",
+      "score": 29,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 21,
-        "turnover": 5
+        "tp": 8,
+        "tl": 14,
+        "ti": 7
       },
       "rise_reason": "자사주 소각",
       "news": [
@@ -6678,6 +6878,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004549314&office_id=011&code=092870&page=&sm=",
           "source": "서울경제"
         }
+      ],
+      "theme_tags": [
+        "반도체 장비",
+        "CXL(컴퓨트익스프레스링크)"
       ]
     },
     {
@@ -6691,13 +6895,12 @@
       "trading_value": 7555000000,
       "market_cap": 705600000000,
       "sector": "반도체와반도체장비",
-      "theme_tag": "",
-      "score": 61,
+      "theme_tag": "온디바이스 AI",
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 8,
-        "type": 28,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "매출 성장 기대",
       "news": [
@@ -6751,6 +6954,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002223196&office_id=138&code=200710&page=&sm=",
           "source": "디지털데일리"
         }
+      ],
+      "theme_tags": [
+        "온디바이스 AI",
+        "온디바이스 AI"
       ]
     },
     {
@@ -6765,12 +6972,11 @@
       "market_cap": 8414000000000,
       "sector": "건강관리장비와용품",
       "theme_tag": "FDA",
-      "score": 63,
+      "score": 45,
       "score_detail": {
-        "buzz": 20,
-        "quality": 13,
-        "type": 25,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
       },
       "rise_reason": "FDA 승인 기대",
       "news": [
@@ -6824,6 +7030,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006256296&office_id=018&code=028300&page=&sm=",
           "source": "이데일리"
         }
+      ],
+      "theme_tags": [
+        "FDA"
       ]
     },
     {
@@ -6837,13 +7046,12 @@
       "trading_value": 25224000000,
       "market_cap": 265400000000,
       "sector": "통신장비",
-      "theme_tag": "AI",
-      "score": 62,
+      "theme_tag": "피지컬 AI/휴머노이드 로봇",
+      "score": 47,
       "score_detail": {
-        "buzz": 20,
-        "quality": 12,
-        "type": 25,
-        "turnover": 5
+        "tp": 6,
+        "tl": 32,
+        "ti": 9
       },
       "rise_reason": "AI 상장 이슈",
       "news": [
@@ -6897,6 +7105,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001137421&office_id=366&code=264450&page=&sm=",
           "source": "조선비즈"
         }
+      ],
+      "theme_tags": [
+        "피지컬 AI/휴머노이드 로봇"
       ]
     },
     {
@@ -6910,13 +7121,12 @@
       "trading_value": 31209000000,
       "market_cap": 95000000000,
       "sector": "우주항공과국방",
-      "theme_tag": "",
-      "score": 36,
+      "theme_tag": "방위산업/전쟁 및 테러",
+      "score": 41,
       "score_detail": {
-        "buzz": 17,
-        "quality": 14,
-        "type": 0,
-        "turnover": 5
+        "tp": 8,
+        "tl": 22,
+        "ti": 11
       },
       "rise_reason": "시장 관심 증가",
       "news": [
@@ -6960,6 +7170,10 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001082866&office_id=417&code=035460&page=&sm=",
           "source": "동행미디어 시대"
         }
+      ],
+      "theme_tags": [
+        "방위산업/전쟁 및 테러",
+        "UAM(도심항공모빌리티)"
       ]
     },
     {
@@ -6974,12 +7188,11 @@
       "market_cap": 96100000000,
       "sector": "전자장비와기기",
       "theme_tag": "",
-      "score": 61,
+      "score": 15,
       "score_detail": {
-        "buzz": 20,
-        "quality": 11,
-        "type": 25,
-        "turnover": 5
+        "tp": 3,
+        "tl": 5,
+        "ti": 7
       },
       "rise_reason": "납품 계약 체결",
       "news": [
@@ -7033,7 +7246,8 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002406715&office_id=092&code=360350&page=&sm=",
           "source": "지디넷코리아"
         }
-      ]
+      ],
+      "theme_tags": []
     },
     {
       "rank": 100,
@@ -7046,13 +7260,12 @@
       "trading_value": 4042000000,
       "market_cap": 267400000000,
       "sector": "우주항공과국방",
-      "theme_tag": "",
-      "score": 62,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "score": 35,
       "score_detail": {
-        "buzz": 20,
-        "quality": 16,
-        "type": 21,
-        "turnover": 5
+        "tp": 18,
+        "tl": 10,
+        "ti": 7
       },
       "rise_reason": "투자 기대",
       "news": [
@@ -7106,6 +7319,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003606644&office_id=081&code=474170&page=&sm=",
           "source": "서울신문"
         }
+      ],
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)"
       ]
     }
   ]

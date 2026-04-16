@@ -202,12 +202,17 @@ var StockTable = (function () {
             html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
             var displayTag = (ratingData.customTag != null ? ratingData.customTag : r.theme_tag) || '';
             var isCustom = ratingData.customTag != null && ratingData.customTag !== r.theme_tag;
+            var subTag = '';
+            if (!isCustom && r.theme_tags && r.theme_tags.length > 1) {
+                subTag = r.theme_tags[1];
+            }
             var reason = r.rise_reason || '-';
             html += '<td class="cell-reason">' +
                 '<span class="tag-edit' + (displayTag ? ' theme-tag' : ' tag-edit--empty') +
                 (isCustom ? ' theme-tag--custom' : '') +
                 '" data-ticker="' + r.ticker + '">' +
                 (displayTag || '+') + '</span>' +
+                (subTag ? '<span class="theme-tag theme-tag--sub">' + subTag + '</span>' : '') +
                 reason + '</td>';
             html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '</tr>';

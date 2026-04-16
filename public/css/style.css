@@ -130,6 +130,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .theme-tag:hover{background:rgba(91,157,249,.25)}
 .theme-tag--custom{background:rgba(46,213,115,.15);color:var(--green)}
 .theme-tag--custom:hover{background:rgba(46,213,115,.3)}
+.theme-tag--sub{font-size:10px;font-weight:500;padding:1px 4px;background:rgba(91,157,249,.06);color:var(--text-muted);cursor:default;margin-right:4px}
+.theme-tag--sub:hover{background:rgba(91,157,249,.12);color:var(--accent)}
 .tag-edit--empty{display:inline-block;font-size:11px;padding:1px 6px;border-radius:3px;margin-right:5px;color:var(--text-muted);cursor:pointer;border:1px dashed var(--border)}
 .tag-edit--empty:hover{border-color:var(--accent);color:var(--accent)}
 .modal--sm .modal__body{padding:16px}
