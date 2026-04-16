@@ -18,24 +18,24 @@ KST = timezone(timedelta(hours=9))
 
 # 수집 스케줄 (KST 시:분, 모드)
 SCHEDULE = [
-    (9, 5, 'intraday'),
-    (10, 5, 'intraday'),
-    (11, 5, 'intraday'),
-    (12, 5, 'intraday'),
-    (13, 5, 'intraday'),
-    (14, 5, 'intraday'),
-    (15, 35, 'closing'),
-    (16, 5, 'closing'),
+    (9, 6, 'intraday'),
+    (10, 6, 'intraday'),
+    (11, 6, 'intraday'),
+    (12, 6, 'intraday'),
+    (13, 6, 'intraday'),
+    (14, 6, 'intraday'),
+    (15, 36, 'closing'),
+    (16, 6, 'closing'),
 ]
 
 
 def _should_trigger(now_kst):
-    """현재 시각이 스케줄에 해당하는지 확인. 5분 허용."""
+    """현재 시각이 스케줄에 해당하는지 확인."""
     if now_kst.weekday() >= 5:  # 토(5), 일(6)
         return None
     for h, m, mode in SCHEDULE:
         diff = abs((now_kst.hour * 60 + now_kst.minute) - (h * 60 + m))
-        if diff <= 2:  # 2분 이내
+        if diff <= 3:  # 3분 이내
             return mode
     return None
 
