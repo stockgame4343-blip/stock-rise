@@ -5,6 +5,13 @@ var StockTable = (function () {
 
     var _currentData = [];
 
+    function shortenTheme(name) {
+        if (!name) return name;
+        var short = name.replace(/\(.*?\)/g, '').trim();
+        if (short.indexOf('/') !== -1) short = short.split('/')[0].trim();
+        return short || name;
+    }
+
     function formatNumber(n) {
         if (n == null) return '-';
         return n.toLocaleString('ko-KR');
@@ -200,11 +207,13 @@ var StockTable = (function () {
             html += '<td class="cell-volume">' + formatTradingValue(r.trading_value) + '</td>';
             html += '<td class="cell-cap">' + formatAmount(r.market_cap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
-            var displayTag = (ratingData.customTag != null ? ratingData.customTag : r.theme_tag) || '';
+            var rawTag = (ratingData.customTag != null ? ratingData.customTag : r.theme_tag) || '';
+            var displayTag = ratingData.customTag != null ? rawTag : shortenTheme(rawTag);
             var isCustom = ratingData.customTag != null && ratingData.customTag !== r.theme_tag;
             var subTag = '';
             if (!isCustom && r.theme_tags && r.theme_tags.length > 1) {
-                subTag = r.theme_tags[1];
+                var sub = shortenTheme(r.theme_tags[1]);
+                if (sub !== displayTag) subTag = sub;  // primary와 같으면 스킵
             }
             var reason = r.rise_reason || '-';
             html += '<td class="cell-reason">' +

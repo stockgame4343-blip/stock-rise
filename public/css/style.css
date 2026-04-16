@@ -323,7 +323,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .sector-card__volume{font-size:12px;color:var(--text-muted)}
 .sector-card__stocks{display:flex;flex-direction:column;gap:6px;padding-top:10px;border-top:1px solid var(--border-subtle)}
 .sector-card__stock{display:flex;justify-content:space-between;font-size:13px}
-.sector-card__stock-name{color:var(--text-secondary);font-weight:500;flex:1;min-width:0;overflow:visible;white-space:nowrap}
+.sector-card__stock-name{color:var(--text-secondary);font-weight:500;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sector-card__stock-rate{color:var(--text-primary);font-weight:600}
 .sector-card__more{font-size:11px;color:var(--text-muted);margin-top:2px}
 

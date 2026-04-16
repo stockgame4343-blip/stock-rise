@@ -14,6 +14,17 @@
         summaryHistory: [],
     };
 
+    // 네이버 테마명 줄임 처리 — 괄호/슬래시 정리
+    function shortenTheme(name) {
+        if (!name) return name;
+        // 괄호 내용 제거: "우주항공산업(누리호/인공위성 등)" → "우주항공산업"
+        var short = name.replace(/\(.*?\)/g, '').trim();
+        // 슬래시: 앞쪽만 사용: "양자암호/양자컴퓨팅" → "양자암호"
+        if (short.indexOf('/') !== -1) short = short.split('/')[0].trim();
+        // 빈 문자열 방지
+        return short || name;
+    }
+
     // DOM
     var $reportTitle = document.getElementById('reportTitle');
     var $loading = document.getElementById('loading');
@@ -499,18 +510,16 @@
             .sort(function (a, b) { return b.stocks.length - a.stocks.length; });
         result.sectors = result.allSectors.slice(0, 5);
 
-        // 3) 테마 분석
+        // 3) 테마 분석 (theme_tag 그대로 1개 그룹, 분할 안 함)
         var themeMap = {};
         rankings.forEach(function (r) {
             if (!r.theme_tag) return;
-            var tags = r.theme_tag.split(/[,\/]/).map(function (t) { return t.trim(); }).filter(Boolean);
-            tags.forEach(function (tag) {
-                if (!themeMap[tag]) themeMap[tag] = { name: tag, count: 0, totalRate: 0, totalVolume: 0, stocks: [] };
-                themeMap[tag].count++;
-                themeMap[tag].totalRate += r.change_rate;
-                themeMap[tag].totalVolume += (r.trading_value || 0);
-                themeMap[tag].stocks.push(r);
-            });
+            var tag = shortenTheme(r.theme_tag);
+            if (!themeMap[tag]) themeMap[tag] = { name: tag, count: 0, totalRate: 0, totalVolume: 0, stocks: [] };
+            themeMap[tag].count++;
+            themeMap[tag].totalRate += r.change_rate;
+            themeMap[tag].totalVolume += (r.trading_value || 0);
+            themeMap[tag].stocks.push(r);
         });
         result.allThemes = Object.values(themeMap)
             .filter(function (t) { return t.count >= 2; })
@@ -871,7 +880,7 @@
             html += '</div>';
 
             html += '<div class="pick-card__reason">';
-            if (s.theme_tag) html += '<span class="theme-tag">' + s.theme_tag + '</span>';
+            if (s.theme_tag) html += '<span class="theme-tag">' + shortenTheme(s.theme_tag) + '</span>';
             html += '<span>' + rationale + '</span>';
             html += '</div>';
 
