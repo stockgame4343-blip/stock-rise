@@ -362,6 +362,8 @@ def collect_and_save(date_str=None, mode='closing'):
         theme_tag = ''
         theme_tags = []  # [primary, secondary, ...]
 
+        theme_no = None  # 네이버 테마 번호 (링크용)
+
         if t in tag_overrides:
             theme_tag = tag_overrides[t]
             theme_tags = [theme_tag]
@@ -372,6 +374,7 @@ def collect_and_save(date_str=None, mode='closing'):
                 mapping_hit += 1
                 theme_tags = [r['name'] for r in resolved[:2]]  # 최대 2개
                 theme_tag = theme_tags[0]  # primary
+                theme_no = resolved[0].get('no')  # primary 테마 번호
             else:
                 mapping_miss += 1
                 # fallback: 기존 방식 (캐시 > 뉴스 추출 > Toss)
@@ -414,6 +417,7 @@ def collect_and_save(date_str=None, mode='closing'):
             'high_52w_date': high_52w_map.get(t, {}).get('date', ''),
             'theme_tag': theme_tag,
             'theme_tags': theme_tags,
+            'theme_no': theme_no,
             'is_limit_up': td.get('is_limit_up', False),
             'intensity_label': intensity_label,
             'reason': reason,
@@ -462,6 +466,7 @@ def collect_and_save(date_str=None, mode='closing'):
             'high_52w_date': rs['high_52w_date'],
             'theme_tag': tag,
             'theme_tags': rs.get('theme_tags', [tag] if tag else []),
+            'theme_no': rs.get('theme_no'),
             'avg_5day': td.get('avg_5day', 0),
             'inst_net': td.get('inst_net', 0),
             'foreign_net': td.get('foreign_net', 0),

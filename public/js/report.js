@@ -400,6 +400,17 @@
         html += buildRankChartHtml(name, type);
         html += '</div>';
 
+        // 네이버 테마 링크 (테마일 때만)
+        if (type === 'theme' && item.themeNo) {
+            html += '<div class="detail-naver-link">';
+            html += '<a href="https://m.stock.naver.com/domestic/stock/theme/THEMEALL/' + item.themeNo + '" target="_blank" rel="noopener" class="detail-naver-btn">';
+            html += '<span class="detail-naver-btn__icon">N</span>';
+            html += '네이버에서 전체 종목 보기';
+            html += '</a>';
+            html += '<span class="detail-naver-note">상승 TOP 100 중 ' + item.stocks.length + '종목 포함</span>';
+            html += '</div>';
+        }
+
         // 종목 리스트 (호버 컨트롤 + 네이버 링크)
         html += '<div class="detail-stocks">';
         item.stocks.forEach(function (s, idx) {
@@ -517,11 +528,12 @@
         rankings.forEach(function (r) {
             if (!r.theme_tag) return;
             var tag = r.theme_tag;
-            if (!themeMap[tag]) themeMap[tag] = { name: tag, count: 0, totalRate: 0, totalVolume: 0, stocks: [] };
+            if (!themeMap[tag]) themeMap[tag] = { name: tag, count: 0, totalRate: 0, totalVolume: 0, stocks: [], themeNo: null };
             themeMap[tag].count++;
             themeMap[tag].totalRate += r.change_rate;
             themeMap[tag].totalVolume += (r.trading_value || 0);
             themeMap[tag].stocks.push(r);
+            if (!themeMap[tag].themeNo && r.theme_no) themeMap[tag].themeNo = r.theme_no;
         });
         result.allThemes = Object.values(themeMap)
             .filter(function (t) { return t.count >= 2; })
@@ -772,7 +784,8 @@
             html += '<div class="sector-card__header">';
             html += '<span class="sector-card__rank">' + (globalIdx + 1) + '</span>';
             var displayName = cardType === 'theme' ? shortenTheme(sec.name, 14) : sec.name;
-            html += '<span class="sector-card__name">' + displayName + delta + '</span>';
+            html += '<span class="sector-card__name" title="' + sec.name + '">' + displayName + '</span>';
+            if (delta) html += delta;
             html += '<span class="sector-card__count">' + sec.stocks.length + '종목</span>';
             html += '</div>';
             html += '<div class="sector-card__stats">';

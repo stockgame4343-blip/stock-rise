@@ -19,7 +19,7 @@
       "sector": "디스플레이장비및부품",
       "high_52w": 975,
       "high_52w_date": "20260414",
-      "theme_tag": "LED",
+      "theme_tag": "마이크로 LED",
       "score": 63,
       "score_detail": {
         "tp": 22,
@@ -55,9 +55,10 @@
         }
       ],
       "theme_tags": [
-        "LED",
+        "마이크로 LED",
         "플렉서블 디스플레이"
-      ]
+      ],
+      "theme_no": 390
     },
     {
       "rank": 2,
@@ -73,10 +74,10 @@
       "high_52w": 3596,
       "high_52w_date": "20250428",
       "theme_tag": "전자파",
-      "score": 65,
+      "score": 81,
       "score_detail": {
-        "tp": 22,
-        "tl": 32,
+        "tp": 25,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "시장 관심 증가",
@@ -134,7 +135,8 @@
       ],
       "theme_tags": [
         "전자파"
-      ]
+      ],
+      "theme_no": 18
     },
     {
       "rank": 3,
@@ -149,10 +151,10 @@
       "sector": "반도체와반도체장비",
       "high_52w": 20550,
       "high_52w_date": "20260414",
-      "theme_tag": "온디바이스 AI",
-      "score": 59,
+      "theme_tag": "자율주행차",
+      "score": 65,
       "score_detail": {
-        "tp": 16,
+        "tp": 22,
         "tl": 32,
         "ti": 11
       },
@@ -210,9 +212,10 @@
         }
       ],
       "theme_tags": [
-        "온디바이스 AI",
-        "CXL(컴퓨트익스프레스링크)"
-      ]
+        "자율주행차",
+        "온디바이스 AI"
+      ],
+      "theme_no": 362
     },
     {
       "rank": 4,
@@ -228,10 +231,10 @@
       "high_52w": 8120,
       "high_52w_date": "20260303",
       "theme_tag": "지능형로봇/인공지능(AI)",
-      "score": 65,
+      "score": 76,
       "score_detail": {
-        "tp": 24,
-        "tl": 32,
+        "tp": 22,
+        "tl": 45,
         "ti": 9
       },
       "rise_reason": "투자 기대",
@@ -290,7 +293,8 @@
       "theme_tags": [
         "지능형로봇/인공지능(AI)",
         "증강현실(AR)"
-      ]
+      ],
+      "theme_no": 99
     },
     {
       "rank": 5,
@@ -306,10 +310,10 @@
       "high_52w": 6440,
       "high_52w_date": "20260414",
       "theme_tag": "LED",
-      "score": 61,
+      "score": 81,
       "score_detail": {
-        "tp": 22,
-        "tl": 28,
+        "tp": 25,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "연료전지 계약 체결",
@@ -366,8 +370,10 @@
         }
       ],
       "theme_tags": [
-        "LED"
-      ]
+        "LED",
+        "5G(5세대 이동통신)"
+      ],
+      "theme_no": 33
     },
     {
       "rank": 6,
@@ -422,7 +428,8 @@
           "source": "뉴스1"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [],
+      "theme_no": null
     },
     {
       "rank": 7,
@@ -438,10 +445,10 @@
       "high_52w": 18220,
       "high_52w_date": "20260414",
       "theme_tag": "철도",
-      "score": 65,
+      "score": 81,
       "score_detail": {
-        "tp": 22,
-        "tl": 32,
+        "tp": 25,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "연료전지 배당 기대",
@@ -500,7 +507,8 @@
       "theme_tags": [
         "철도",
         "LED"
-      ]
+      ],
+      "theme_no": 250
     },
     {
       "rank": 8,
@@ -575,7 +583,8 @@
           "source": "파이낸셜뉴스"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [],
+      "theme_no": null
     },
     {
       "rank": 9,
@@ -591,10 +600,10 @@
       "high_52w": 7000,
       "high_52w_date": "20250627",
       "theme_tag": "양자암호/양자컴퓨팅",
-      "score": 58,
+      "score": 75,
       "score_detail": {
-        "tp": 19,
-        "tl": 32,
+        "tp": 23,
+        "tl": 45,
         "ti": 7
       },
       "rise_reason": "통신장비 테마 강세",
@@ -653,7 +662,8 @@
       "theme_tags": [
         "양자암호/양자컴퓨팅",
         "스테이블코인"
-      ]
+      ],
+      "theme_no": 426
     },
     {
       "rank": 10,
@@ -669,10 +679,10 @@
       "high_52w": 11330,
       "high_52w_date": "20260414",
       "theme_tag": "창투사",
-      "score": 65,
+      "score": 83,
       "score_detail": {
-        "tp": 22,
-        "tl": 32,
+        "tp": 27,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "우주항공 상장 이슈",
@@ -730,8 +740,9 @@
       ],
       "theme_tags": [
         "창투사",
-        "창투사"
-      ]
+        "스페이스X(SpaceX)"
+      ],
+      "theme_no": 119
     },
     {
       "rank": 11,
@@ -746,11 +757,11 @@
       "sector": "해운사",
       "high_52w": 2310,
       "high_52w_date": "20260414",
-      "theme_tag": "연료전지",
-      "score": 79,
+      "theme_tag": "통신장비",
+      "score": 63,
       "score_detail": {
-        "tp": 25,
-        "tl": 45,
+        "tp": 22,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "연료전지 테마 강세",
@@ -807,8 +818,9 @@
         }
       ],
       "theme_tags": [
-        "연료전지"
-      ]
+        "통신장비"
+      ],
+      "theme_no": 92
     },
     {
       "rank": 12,
@@ -824,10 +836,10 @@
       "high_52w": 7790,
       "high_52w_date": "20250923",
       "theme_tag": "보안주(정보)",
-      "score": 57,
+      "score": 73,
       "score_detail": {
-        "tp": 18,
-        "tl": 32,
+        "tp": 21,
+        "tl": 45,
         "ti": 7
       },
       "rise_reason": "양자 경영진 교체",
@@ -885,7 +897,8 @@
       ],
       "theme_tags": [
         "보안주(정보)"
-      ]
+      ],
+      "theme_no": 55
     },
     {
       "rank": 13,
@@ -900,11 +913,11 @@
       "sector": "IT서비스",
       "high_52w": 16029,
       "high_52w_date": "20250414",
-      "theme_tag": "지능형로봇/인공지능(AI)",
-      "score": 59,
+      "theme_tag": "딥페이크(deepfake)",
+      "score": 61,
       "score_detail": {
-        "tp": 24,
-        "tl": 28,
+        "tp": 22,
+        "tl": 32,
         "ti": 7
       },
       "rise_reason": "M&A 기대감",
@@ -961,9 +974,10 @@
         }
       ],
       "theme_tags": [
-        "지능형로봇/인공지능(AI)",
-        "딥페이크(deepfake)"
-      ]
+        "딥페이크(deepfake)",
+        "지능형로봇/인공지능(AI)"
+      ],
+      "theme_no": 566
     },
     {
       "rank": 14,
@@ -979,10 +993,10 @@
       "high_52w": 1495,
       "high_52w_date": "20250414",
       "theme_tag": "SI(시스템통합)",
-      "score": 65,
+      "score": 81,
       "score_detail": {
-        "tp": 22,
-        "tl": 32,
+        "tp": 25,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "실적 개선 기대",
@@ -1041,7 +1055,8 @@
       "theme_tags": [
         "SI(시스템통합)",
         "토스(toss)"
-      ]
+      ],
+      "theme_no": 17
     },
     {
       "rank": 15,
@@ -1118,7 +1133,8 @@
       ],
       "theme_tags": [
         "시멘트/레미콘"
-      ]
+      ],
+      "theme_no": 44
     },
     {
       "rank": 16,
@@ -1134,10 +1150,10 @@
       "high_52w": 10880,
       "high_52w_date": "20251028",
       "theme_tag": "보안주(정보)",
-      "score": 57,
+      "score": 73,
       "score_detail": {
-        "tp": 18,
-        "tl": 28,
+        "tp": 21,
+        "tl": 41,
         "ti": 11
       },
       "rise_reason": "방산 상장 이슈",
@@ -1196,7 +1212,8 @@
       "theme_tags": [
         "보안주(정보)",
         "양자암호/양자컴퓨팅"
-      ]
+      ],
+      "theme_no": 55
     },
     {
       "rank": 17,
@@ -1212,10 +1229,10 @@
       "high_52w": 38900,
       "high_52w_date": "20260414",
       "theme_tag": "창투사",
-      "score": 61,
+      "score": 79,
       "score_detail": {
-        "tp": 22,
-        "tl": 28,
+        "tp": 27,
+        "tl": 41,
         "ti": 11
       },
       "rise_reason": "HBM 실적 호조",
@@ -1273,8 +1290,9 @@
       ],
       "theme_tags": [
         "창투사",
-        "창투사"
-      ]
+        "마켓컬리(kurly)"
+      ],
+      "theme_no": 119
     },
     {
       "rank": 18,
@@ -1289,10 +1307,10 @@
       "sector": "통신장비",
       "high_52w": 6390,
       "high_52w_date": "20260414",
-      "theme_tag": "광통신(광케이블/광섬유 등)",
-      "score": 66,
+      "theme_tag": "5G(5세대 이동통신)",
+      "score": 65,
       "score_detail": {
-        "tp": 23,
+        "tp": 22,
         "tl": 32,
         "ti": 11
       },
@@ -1345,9 +1363,10 @@
         }
       ],
       "theme_tags": [
-        "광통신(광케이블/광섬유 등)",
-        "광통신(광케이블/광섬유 등)"
-      ]
+        "5G(5세대 이동통신)",
+        "통신장비"
+      ],
+      "theme_no": 373
     },
     {
       "rank": 19,
@@ -1362,11 +1381,11 @@
       "sector": "생물공학",
       "high_52w": 6480,
       "high_52w_date": "20260319",
-      "theme_tag": "",
-      "score": 17,
+      "theme_tag": "유전자 치료제/분석",
+      "score": 63,
       "score_detail": {
-        "tp": 3,
-        "tl": 5,
+        "tp": 22,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "공급 계약 체결",
@@ -1422,7 +1441,10 @@
           "source": "이데일리"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [
+        "유전자 치료제/분석"
+      ],
+      "theme_no": 376
     },
     {
       "rank": 20,
@@ -1438,10 +1460,10 @@
       "high_52w": 946,
       "high_52w_date": "20260212",
       "theme_tag": "창투사",
-      "score": 59,
+      "score": 77,
       "score_detail": {
-        "tp": 22,
-        "tl": 28,
+        "tp": 27,
+        "tl": 41,
         "ti": 9
       },
       "rise_reason": "시장 관심 증가",
@@ -1498,9 +1520,9 @@
         }
       ],
       "theme_tags": [
-        "창투사",
         "창투사"
-      ]
+      ],
+      "theme_no": 119
     },
     {
       "rank": 21,
@@ -1577,7 +1599,8 @@
       ],
       "theme_tags": [
         "이재명"
-      ]
+      ],
+      "theme_no": null
     },
     {
       "rank": 22,
@@ -1593,10 +1616,10 @@
       "high_52w": 4405,
       "high_52w_date": "20250827",
       "theme_tag": "제약업체",
-      "score": 65,
+      "score": 81,
       "score_detail": {
-        "tp": 22,
-        "tl": 32,
+        "tp": 25,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "지분 투자 이슈",
@@ -1653,8 +1676,10 @@
         }
       ],
       "theme_tags": [
-        "제약업체"
-      ]
+        "제약업체",
+        "통신장비"
+      ],
+      "theme_no": 172
     },
     {
       "rank": 23,
@@ -1670,10 +1695,10 @@
       "high_52w": 25000,
       "high_52w_date": "20260414",
       "theme_tag": "소캠(SOCAMM)",
-      "score": 61,
+      "score": 77,
       "score_detail": {
-        "tp": 18,
-        "tl": 32,
+        "tp": 21,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "항공 테마 강세",
@@ -1731,8 +1756,9 @@
       ],
       "theme_tags": [
         "소캠(SOCAMM)",
-        "HBM(고대역폭메모리)"
-      ]
+        "반도체 재료/부품"
+      ],
+      "theme_no": 599
     },
     {
       "rank": 24,
@@ -1794,7 +1820,8 @@
       ],
       "theme_tags": [
         "가상자산"
-      ]
+      ],
+      "theme_no": null
     },
     {
       "rank": 25,
@@ -1809,11 +1836,11 @@
       "sector": "전자장비와기기",
       "high_52w": 9710,
       "high_52w_date": "20260223",
-      "theme_tag": "LED",
-      "score": 43,
+      "theme_tag": "OLED(유기 발광 다이오드)",
+      "score": 57,
       "score_detail": {
-        "tp": 22,
-        "tl": 14,
+        "tp": 18,
+        "tl": 32,
         "ti": 7
       },
       "rise_reason": "매출 성장 기대",
@@ -1870,9 +1897,10 @@
         }
       ],
       "theme_tags": [
-        "LED",
-        "OLED(유기 발광 다이오드)"
-      ]
+        "OLED(유기 발광 다이오드)",
+        "로봇(산업용/협동로봇 등)"
+      ],
+      "theme_no": 9
     },
     {
       "rank": 26,
@@ -1887,10 +1915,10 @@
       "sector": "전기제품",
       "high_52w": 9100,
       "high_52w_date": "20260414",
-      "theme_tag": "2차전지(LFP/리튬인산철)",
-      "score": 61,
+      "theme_tag": "2차전지",
+      "score": 58,
       "score_detail": {
-        "tp": 18,
+        "tp": 15,
         "tl": 32,
         "ti": 11
       },
@@ -1948,9 +1976,10 @@
         }
       ],
       "theme_tags": [
-        "2차전지(LFP/리튬인산철)",
+        "2차전지",
         "2차전지(LFP/리튬인산철)"
-      ]
+      ],
+      "theme_no": 64
     },
     {
       "rank": 27,
@@ -1965,11 +1994,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 24250,
       "high_52w_date": "20260414",
-      "theme_tag": "CXL(컴퓨트익스프레스링크)",
-      "score": 59,
+      "theme_tag": "반도체 재료/부품",
+      "score": 52,
       "score_detail": {
-        "tp": 18,
-        "tl": 32,
+        "tp": 14,
+        "tl": 29,
         "ti": 9
       },
       "rise_reason": "CXL 실적 개선 기대",
@@ -2026,9 +2055,10 @@
         }
       ],
       "theme_tags": [
-        "CXL(컴퓨트익스프레스링크)",
+        "반도체 재료/부품",
         "CXL(컴퓨트익스프레스링크)"
-      ]
+      ],
+      "theme_no": 14
     },
     {
       "rank": 28,
@@ -2043,11 +2073,11 @@
       "sector": "통신장비",
       "high_52w": 64900,
       "high_52w_date": "20260414",
-      "theme_tag": "광통신(광케이블/광섬유 등)",
-      "score": 55,
+      "theme_tag": "시스템반도체",
+      "score": 52,
       "score_detail": {
-        "tp": 23,
-        "tl": 21,
+        "tp": 12,
+        "tl": 29,
         "ti": 11
       },
       "rise_reason": "시장 관심 증가",
@@ -2104,9 +2134,10 @@
         }
       ],
       "theme_tags": [
-        "광통신(광케이블/광섬유 등)",
+        "시스템반도체",
         "뉴로모픽 반도체"
-      ]
+      ],
+      "theme_no": 307
     },
     {
       "rank": 29,
@@ -2121,10 +2152,10 @@
       "sector": "기계",
       "high_52w": 86000,
       "high_52w_date": "20260128",
-      "theme_tag": "로봇(산업용/협동로봇 등)",
-      "score": 53,
+      "theme_tag": "피지컬 AI/휴머노이드 로봇",
+      "score": 57,
       "score_detail": {
-        "tp": 15,
+        "tp": 19,
         "tl": 29,
         "ti": 9
       },
@@ -2182,9 +2213,10 @@
         }
       ],
       "theme_tags": [
-        "로봇(산업용/협동로봇 등)",
-        "피지컬 AI/휴머노이드 로봇"
-      ]
+        "피지컬 AI/휴머노이드 로봇",
+        "로봇(산업용/협동로봇 등)"
+      ],
+      "theme_no": 587
     },
     {
       "rank": 30,
@@ -2199,11 +2231,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 755,
       "high_52w_date": "20260227",
-      "theme_tag": "반도체 장비",
-      "score": 44,
+      "theme_tag": "모더나(MODERNA)",
+      "score": 55,
       "score_detail": {
         "tp": 14,
-        "tl": 21,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "상장 이슈",
@@ -2260,8 +2292,10 @@
         }
       ],
       "theme_tags": [
+        "모더나(MODERNA)",
         "반도체 장비"
-      ]
+      ],
+      "theme_no": 467
     },
     {
       "rank": 31,
@@ -2277,10 +2311,10 @@
       "high_52w": 12850,
       "high_52w_date": "20260414",
       "theme_tag": "양자암호/양자컴퓨팅",
-      "score": 58,
+      "score": 75,
       "score_detail": {
-        "tp": 19,
-        "tl": 28,
+        "tp": 23,
+        "tl": 41,
         "ti": 11
       },
       "rise_reason": "광통신 테마 강세",
@@ -2339,7 +2373,8 @@
       "theme_tags": [
         "양자암호/양자컴퓨팅",
         "日 수출 규제(국산화 등)"
-      ]
+      ],
+      "theme_no": 426
     },
     {
       "rank": 32,
@@ -2354,11 +2389,11 @@
       "sector": "건설",
       "high_52w": 33300,
       "high_52w_date": "20260414",
-      "theme_tag": "",
-      "score": 19,
+      "theme_tag": "건설 중소형",
+      "score": 57,
       "score_detail": {
-        "tp": 3,
-        "tl": 5,
+        "tp": 14,
+        "tl": 32,
         "ti": 11
       },
       "rise_reason": "실적 개선 기대",
@@ -2414,7 +2449,10 @@
           "source": "동행미디어 시대"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [
+        "건설 중소형"
+      ],
+      "theme_no": 322
     },
     {
       "rank": 33,
@@ -2429,11 +2467,11 @@
       "sector": "건강관리장비와용품",
       "high_52w": 2915,
       "high_52w_date": "20250522",
-      "theme_tag": "",
-      "score": 15,
+      "theme_tag": "아프리카 돼지열병(ASF)",
+      "score": 53,
       "score_detail": {
-        "tp": 3,
-        "tl": 5,
+        "tp": 14,
+        "tl": 32,
         "ti": 7
       },
       "rise_reason": "계약 체결",
@@ -2489,7 +2527,10 @@
           "source": "아이뉴스24"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [
+        "아프리카 돼지열병(ASF)"
+      ],
+      "theme_no": 417
     },
     {
       "rank": 34,
@@ -2504,11 +2545,11 @@
       "sector": "핸드셋",
       "high_52w": 1677,
       "high_52w_date": "20260326",
-      "theme_tag": "카메라모듈/부품",
-      "score": 52,
+      "theme_tag": "양자암호/양자컴퓨팅",
+      "score": 46,
       "score_detail": {
-        "tp": 11,
-        "tl": 32,
+        "tp": 23,
+        "tl": 14,
         "ti": 9
       },
       "rise_reason": "인수 기대감",
@@ -2565,9 +2606,10 @@
         }
       ],
       "theme_tags": [
-        "카메라모듈/부품",
-        "양자암호/양자컴퓨팅"
-      ]
+        "양자암호/양자컴퓨팅",
+        "카메라모듈/부품"
+      ],
+      "theme_no": 426
     },
     {
       "rank": 35,
@@ -2583,10 +2625,10 @@
       "high_52w": 5610,
       "high_52w_date": "20250428",
       "theme_tag": "보안주(정보)",
-      "score": 43,
+      "score": 59,
       "score_detail": {
-        "tp": 18,
-        "tl": 14,
+        "tp": 21,
+        "tl": 27,
         "ti": 11
       },
       "rise_reason": "양자 자사주 소각",
@@ -2644,7 +2686,8 @@
       ],
       "theme_tags": [
         "보안주(정보)"
-      ]
+      ],
+      "theme_no": 55
     },
     {
       "rank": 36,
@@ -2659,11 +2702,11 @@
       "sector": "전자장비와기기",
       "high_52w": 3155,
       "high_52w_date": "20260209",
-      "theme_tag": "우주항공산업(누리호/인공위성 등)",
-      "score": 42,
+      "theme_tag": "카메라모듈/부품",
+      "score": 55,
       "score_detail": {
-        "tp": 12,
-        "tl": 21,
+        "tp": 14,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "우주항공 상장 이슈",
@@ -2720,9 +2763,10 @@
         }
       ],
       "theme_tags": [
-        "우주항공산업(누리호/인공위성 등)",
-        "카메라모듈/부품"
-      ]
+        "카메라모듈/부품",
+        "전기차 화재 방지(배터리 열폭주 등)"
+      ],
+      "theme_no": 41
     },
     {
       "rank": 37,
@@ -2738,9 +2782,9 @@
       "high_52w": 3900,
       "high_52w_date": "20250618",
       "theme_tag": "보안주(정보)",
-      "score": 35,
+      "score": 38,
       "score_detail": {
-        "tp": 18,
+        "tp": 21,
         "tl": 10,
         "ti": 7
       },
@@ -2799,8 +2843,9 @@
       ],
       "theme_tags": [
         "보안주(정보)",
-        "바이오인식(생체인식)"
-      ]
+        "양자암호/양자컴퓨팅"
+      ],
+      "theme_no": 55
     },
     {
       "rank": 38,
@@ -2816,10 +2861,10 @@
       "high_52w": 18180,
       "high_52w_date": "20250417",
       "theme_tag": "자동차부품",
-      "score": 44,
+      "score": 51,
       "score_detail": {
-        "tp": 12,
-        "tl": 21,
+        "tp": 15,
+        "tl": 25,
         "ti": 11
       },
       "rise_reason": "실적 호조",
@@ -2872,7 +2917,8 @@
       ],
       "theme_tags": [
         "자동차부품"
-      ]
+      ],
+      "theme_no": 27
     },
     {
       "rank": 39,
@@ -2888,10 +2934,10 @@
       "high_52w": 19060,
       "high_52w_date": "20250619",
       "theme_tag": "지능형로봇/인공지능(AI)",
-      "score": 45,
+      "score": 46,
       "score_detail": {
-        "tp": 24,
-        "tl": 14,
+        "tp": 22,
+        "tl": 17,
         "ti": 7
       },
       "rise_reason": "신규 계약 기대",
@@ -2949,7 +2995,8 @@
       ],
       "theme_tags": [
         "지능형로봇/인공지능(AI)"
-      ]
+      ],
+      "theme_no": 99
     },
     {
       "rank": 40,
@@ -2964,11 +3011,11 @@
       "sector": "우주항공과국방",
       "high_52w": 57300,
       "high_52w_date": "20260317",
-      "theme_tag": "우주항공산업(누리호/인공위성 등)",
-      "score": 51,
+      "theme_tag": "의료AI",
+      "score": 57,
       "score_detail": {
-        "tp": 12,
-        "tl": 28,
+        "tp": 14,
+        "tl": 32,
         "ti": 11
       },
       "rise_reason": "스페이스X 해외 진출 기대",
@@ -3025,9 +3072,10 @@
         }
       ],
       "theme_tags": [
-        "우주항공산업(누리호/인공위성 등)",
+        "의료AI",
         "원격진료/비대면진료(U-Healthcare)"
-      ]
+      ],
+      "theme_no": 543
     },
     {
       "rank": 41,
@@ -3042,11 +3090,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 34500,
       "high_52w_date": "20260414",
-      "theme_tag": "창투사",
-      "score": 39,
+      "theme_tag": "반도체 재료/부품",
+      "score": 38,
       "score_detail": {
-        "tp": 22,
-        "tl": 10,
+        "tp": 14,
+        "tl": 17,
         "ti": 7
       },
       "rise_reason": "창투사 실적 개선 기대",
@@ -3103,8 +3151,9 @@
         }
       ],
       "theme_tags": [
-        "창투사"
-      ]
+        "반도체 재료/부품"
+      ],
+      "theme_no": 14
     },
     {
       "rank": 42,
@@ -3120,10 +3169,10 @@
       "high_52w": 48000,
       "high_52w_date": "20260320",
       "theme_tag": "고체산화물 연료전지(SOFC)",
-      "score": 55,
+      "score": 71,
       "score_detail": {
-        "tp": 14,
-        "tl": 32,
+        "tp": 17,
+        "tl": 45,
         "ti": 9
       },
       "rise_reason": "수주 확대",
@@ -3181,8 +3230,9 @@
       ],
       "theme_tags": [
         "고체산화물 연료전지(SOFC)",
-        "고체산화물 연료전지(SOFC)"
-      ]
+        "수소에너지(수소차/연료전지 등)"
+      ],
+      "theme_no": 559
     },
     {
       "rank": 43,
@@ -3260,7 +3310,8 @@
       "theme_tags": [
         "DMZ 평화공원",
         "시멘트/레미콘"
-      ]
+      ],
+      "theme_no": 398
     },
     {
       "rank": 44,
@@ -3275,11 +3326,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 17620,
       "high_52w_date": "20260414",
-      "theme_tag": "반도체 장비",
-      "score": 53,
+      "theme_tag": "희귀금속(희토류 등)",
+      "score": 57,
       "score_detail": {
         "tp": 14,
-        "tl": 28,
+        "tl": 32,
         "ti": 11
       },
       "rise_reason": "허가 기대",
@@ -3336,9 +3387,10 @@
         }
       ],
       "theme_tags": [
-        "반도체 장비",
-        "희귀금속(희토류 등)"
-      ]
+        "희귀금속(희토류 등)",
+        "반도체 장비"
+      ],
+      "theme_no": 298
     },
     {
       "rank": 45,
@@ -3413,7 +3465,8 @@
           "source": "이코노미스트"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [],
+      "theme_no": null
     },
     {
       "rank": 46,
@@ -3428,11 +3481,11 @@
       "sector": "자동차부품",
       "high_52w": 744,
       "high_52w_date": "20260223",
-      "theme_tag": "전기차",
-      "score": 39,
+      "theme_tag": "국내 상장 중국기업",
+      "score": 53,
       "score_detail": {
-        "tp": 11,
-        "tl": 21,
+        "tp": 14,
+        "tl": 32,
         "ti": 7
       },
       "rise_reason": "실적 호조",
@@ -3489,9 +3542,10 @@
         }
       ],
       "theme_tags": [
-        "전기차",
+        "국내 상장 중국기업",
         "2차전지"
-      ]
+      ],
+      "theme_no": 228
     },
     {
       "rank": 47,
@@ -3506,11 +3560,11 @@
       "sector": "전기장비",
       "high_52w": 160000,
       "high_52w_date": "20260311",
-      "theme_tag": "신재생에너지",
-      "score": 67,
+      "theme_tag": "전력저장장치(ESS)",
+      "score": 51,
       "score_detail": {
-        "tp": 13,
-        "tl": 45,
+        "tp": 10,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "신재생에너지 흑자 전환",
@@ -3567,8 +3621,10 @@
         }
       ],
       "theme_tags": [
-        "신재생에너지"
-      ]
+        "전력저장장치(ESS)",
+        "수소에너지(수소차/연료전지 등)"
+      ],
+      "theme_no": 329
     },
     {
       "rank": 48,
@@ -3584,10 +3640,10 @@
       "high_52w": 21550,
       "high_52w_date": "20260414",
       "theme_tag": "지주사",
-      "score": 45,
+      "score": 67,
       "score_detail": {
-        "tp": 11,
-        "tl": 25,
+        "tp": 13,
+        "tl": 45,
         "ti": 9
       },
       "rise_reason": "방위산업 승인 기대",
@@ -3644,9 +3700,9 @@
         }
       ],
       "theme_tags": [
-        "지주사",
         "지주사"
-      ]
+      ],
+      "theme_no": 111
     },
     {
       "rank": 49,
@@ -3661,11 +3717,11 @@
       "sector": "기계",
       "high_52w": 139000,
       "high_52w_date": "20260122",
-      "theme_tag": "로봇(산업용/협동로봇 등)",
-      "score": 52,
+      "theme_tag": "피지컬 AI/휴머노이드 로봇",
+      "score": 53,
       "score_detail": {
-        "tp": 15,
-        "tl": 28,
+        "tp": 19,
+        "tl": 25,
         "ti": 9
       },
       "rise_reason": "지분 투자 이슈",
@@ -3722,9 +3778,10 @@
         }
       ],
       "theme_tags": [
-        "로봇(산업용/협동로봇 등)",
-        "피지컬 AI/휴머노이드 로봇"
-      ]
+        "피지컬 AI/휴머노이드 로봇",
+        "로봇(산업용/협동로봇 등)"
+      ],
+      "theme_no": 587
     },
     {
       "rank": 50,
@@ -3739,11 +3796,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 41800,
       "high_52w_date": "20260317",
-      "theme_tag": "LED",
-      "score": 41,
+      "theme_tag": "반도체 재료/부품",
+      "score": 37,
       "score_detail": {
-        "tp": 22,
-        "tl": 10,
+        "tp": 14,
+        "tl": 14,
         "ti": 9
       },
       "rise_reason": "창투사 실적 호조",
@@ -3800,8 +3857,10 @@
         }
       ],
       "theme_tags": [
+        "반도체 재료/부품",
         "LED"
-      ]
+      ],
+      "theme_no": 14
     },
     {
       "rank": 51,
@@ -3817,9 +3876,9 @@
       "high_52w": 104800,
       "high_52w_date": "20260414",
       "theme_tag": "방위산업/전쟁 및 테러",
-      "score": 49,
+      "score": 52,
       "score_detail": {
-        "tp": 10,
+        "tp": 13,
         "tl": 32,
         "ti": 7
       },
@@ -3878,8 +3937,9 @@
       ],
       "theme_tags": [
         "방위산업/전쟁 및 테러",
-        "광통신(광케이블/광섬유 등)"
-      ]
+        "통신장비"
+      ],
+      "theme_no": 144
     },
     {
       "rank": 52,
@@ -3895,10 +3955,10 @@
       "high_52w": 77000,
       "high_52w_date": "20251216",
       "theme_tag": "AI 챗봇(챗GPT 등)",
-      "score": 53,
+      "score": 69,
       "score_detail": {
-        "tp": 10,
-        "tl": 32,
+        "tp": 13,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "특허 취득",
@@ -3957,7 +4017,8 @@
       "theme_tags": [
         "AI 챗봇(챗GPT 등)",
         "의료AI"
-      ]
+      ],
+      "theme_no": 529
     },
     {
       "rank": 53,
@@ -3973,10 +4034,10 @@
       "high_52w": 11100,
       "high_52w_date": "20250429",
       "theme_tag": "보안주(정보)",
-      "score": 39,
+      "score": 55,
       "score_detail": {
-        "tp": 18,
-        "tl": 10,
+        "tp": 21,
+        "tl": 23,
         "ti": 11
       },
       "rise_reason": "정부 정책 수혜",
@@ -4034,7 +4095,8 @@
       ],
       "theme_tags": [
         "보안주(정보)"
-      ]
+      ],
+      "theme_no": 55
     },
     {
       "rank": 54,
@@ -4049,11 +4111,11 @@
       "sector": "전자장비와기기",
       "high_52w": 7950,
       "high_52w_date": "20260414",
-      "theme_tag": "LED",
-      "score": 54,
+      "theme_tag": "삼성페이",
+      "score": 53,
       "score_detail": {
-        "tp": 22,
-        "tl": 21,
+        "tp": 10,
+        "tl": 32,
         "ti": 11
       },
       "rise_reason": "인수 기대감",
@@ -4110,9 +4172,10 @@
         }
       ],
       "theme_tags": [
-        "LED",
-        "태양광에너지"
-      ]
+        "삼성페이",
+        "갤럭시 부품주"
+      ],
+      "theme_no": 348
     },
     {
       "rank": 55,
@@ -4128,10 +4191,10 @@
       "high_52w": 4084,
       "high_52w_date": "20250429",
       "theme_tag": "유심(USIM)",
-      "score": 53,
+      "score": 69,
       "score_detail": {
-        "tp": 10,
-        "tl": 32,
+        "tp": 13,
+        "tl": 45,
         "ti": 11
       },
       "rise_reason": "흑자 전환 기대",
@@ -4189,7 +4252,8 @@
       ],
       "theme_tags": [
         "유심(USIM)"
-      ]
+      ],
+      "theme_no": 580
     },
     {
       "rank": 56,
@@ -4204,11 +4268,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 50600,
       "high_52w_date": "20251230",
-      "theme_tag": "지주사",
-      "score": 48,
+      "theme_tag": "로봇(산업용/협동로봇 등)",
+      "score": 54,
       "score_detail": {
-        "tp": 11,
-        "tl": 28,
+        "tp": 13,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "납품 계약 체결",
@@ -4265,9 +4329,10 @@
         }
       ],
       "theme_tags": [
-        "지주사",
+        "로봇(산업용/협동로봇 등)",
         "반도체 장비"
-      ]
+      ],
+      "theme_no": 505
     },
     {
       "rank": 57,
@@ -4283,10 +4348,10 @@
       "high_52w": 40000,
       "high_52w_date": "20250925",
       "theme_tag": "보안주(정보)",
-      "score": 35,
+      "score": 51,
       "score_detail": {
-        "tp": 18,
-        "tl": 10,
+        "tp": 21,
+        "tl": 23,
         "ti": 7
       },
       "rise_reason": "지분 투자 이슈",
@@ -4345,7 +4410,8 @@
       "theme_tags": [
         "보안주(정보)",
         "지능형로봇/인공지능(AI)"
-      ]
+      ],
+      "theme_no": 55
     },
     {
       "rank": 58,
@@ -4360,11 +4426,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 36000,
       "high_52w_date": "20260414",
-      "theme_tag": "반도체 장비",
-      "score": 41,
+      "theme_tag": "온디바이스 AI",
+      "score": 52,
       "score_detail": {
-        "tp": 14,
-        "tl": 18,
+        "tp": 11,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "AI 설비 투자 확대",
@@ -4421,9 +4487,10 @@
         }
       ],
       "theme_tags": [
-        "반도체 장비",
-        "온디바이스 AI"
-      ]
+        "온디바이스 AI",
+        "시스템반도체"
+      ],
+      "theme_no": 545
     },
     {
       "rank": 59,
@@ -4438,7 +4505,7 @@
       "sector": "철강",
       "high_52w": 3265,
       "high_52w_date": "20260414",
-      "theme_tag": "남-북-러 가스관사업",
+      "theme_tag": "철강 중소형",
       "score": 53,
       "score_detail": {
         "tp": 10,
@@ -4499,8 +4566,10 @@
         }
       ],
       "theme_tags": [
+        "철강 중소형",
         "남-북-러 가스관사업"
-      ]
+      ],
+      "theme_no": 72
     },
     {
       "rank": 60,
@@ -4516,9 +4585,9 @@
       "high_52w": 7150,
       "high_52w_date": "20260130",
       "theme_tag": "PCB(FPCB 등)",
-      "score": 45,
+      "score": 48,
       "score_detail": {
-        "tp": 11,
+        "tp": 14,
         "tl": 25,
         "ti": 9
       },
@@ -4571,8 +4640,10 @@
         }
       ],
       "theme_tags": [
-        "PCB(FPCB 등)"
-      ]
+        "PCB(FPCB 등)",
+        "메타버스(Metaverse)"
+      ],
+      "theme_no": 287
     },
     {
       "rank": 61,
@@ -4588,9 +4659,9 @@
       "high_52w": 13100,
       "high_52w_date": "20260407",
       "theme_tag": "자동차부품",
-      "score": 51,
+      "score": 54,
       "score_detail": {
-        "tp": 12,
+        "tp": 15,
         "tl": 28,
         "ti": 11
       },
@@ -4650,7 +4721,8 @@
       "theme_tags": [
         "자동차부품",
         "2026 상반기 신규상장"
-      ]
+      ],
+      "theme_no": 27
     },
     {
       "rank": 62,
@@ -4666,10 +4738,10 @@
       "high_52w": 92400,
       "high_52w_date": "20260414",
       "theme_tag": "PCB(FPCB 등)",
-      "score": 48,
+      "score": 64,
       "score_detail": {
-        "tp": 11,
-        "tl": 28,
+        "tp": 14,
+        "tl": 41,
         "ti": 9
       },
       "rise_reason": "수주 확대",
@@ -4727,8 +4799,9 @@
       ],
       "theme_tags": [
         "PCB(FPCB 등)",
-        "CXL(컴퓨트익스프레스링크)"
-      ]
+        "갤럭시 부품주"
+      ],
+      "theme_no": 287
     },
     {
       "rank": 63,
@@ -4743,11 +4816,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 38000,
       "high_52w_date": "20260319",
-      "theme_tag": "",
-      "score": 17,
+      "theme_tag": "시스템반도체",
+      "score": 38,
       "score_detail": {
-        "tp": 3,
-        "tl": 5,
+        "tp": 12,
+        "tl": 17,
         "ti": 9
       },
       "rise_reason": "실적 개선 기대",
@@ -4803,7 +4876,10 @@
           "source": "아시아경제"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [
+        "시스템반도체"
+      ],
+      "theme_no": 307
     },
     {
       "rank": 64,
@@ -4880,7 +4956,8 @@
       ],
       "theme_tags": [
         "줄기세포"
-      ]
+      ],
+      "theme_no": 66
     },
     {
       "rank": 65,
@@ -4896,10 +4973,10 @@
       "high_52w": 32700,
       "high_52w_date": "20260204",
       "theme_tag": "카메라모듈/부품",
-      "score": 43,
+      "score": 42,
       "score_detail": {
-        "tp": 11,
-        "tl": 25,
+        "tp": 14,
+        "tl": 21,
         "ti": 7
       },
       "rise_reason": "실적 호조",
@@ -4958,7 +5035,8 @@
       "theme_tags": [
         "카메라모듈/부품",
         "스마트폰"
-      ]
+      ],
+      "theme_no": 41
     },
     {
       "rank": 66,
@@ -5035,7 +5113,8 @@
       ],
       "theme_tags": [
         "기술이전"
-      ]
+      ],
+      "theme_no": null
     },
     {
       "rank": 67,
@@ -5051,10 +5130,10 @@
       "high_52w": 137200,
       "high_52w_date": "20260414",
       "theme_tag": "OLED(유기 발광 다이오드)",
-      "score": 44,
+      "score": 50,
       "score_detail": {
-        "tp": 8,
-        "tl": 29,
+        "tp": 18,
+        "tl": 25,
         "ti": 7
       },
       "rise_reason": "발전 테마 강세",
@@ -5113,7 +5192,8 @@
       "theme_tags": [
         "OLED(유기 발광 다이오드)",
         "반도체 장비"
-      ]
+      ],
+      "theme_no": 9
     },
     {
       "rank": 68,
@@ -5129,10 +5209,10 @@
       "high_52w": 22200,
       "high_52w_date": "20250521",
       "theme_tag": "보안주(정보)",
-      "score": 47,
+      "score": 63,
       "score_detail": {
-        "tp": 18,
-        "tl": 18,
+        "tp": 21,
+        "tl": 31,
         "ti": 11
       },
       "rise_reason": "우주항공산업 MOU 체결",
@@ -5191,7 +5271,8 @@
       "theme_tags": [
         "보안주(정보)",
         "양자암호/양자컴퓨팅"
-      ]
+      ],
+      "theme_no": 55
     },
     {
       "rank": 69,
@@ -5206,10 +5287,10 @@
       "sector": "IT서비스",
       "high_52w": 47750,
       "high_52w_date": "20260325",
-      "theme_tag": "2026 상반기 신규상장",
-      "score": 49,
+      "theme_tag": "핀테크(FinTech)",
+      "score": 50,
       "score_detail": {
-        "tp": 6,
+        "tp": 7,
         "tl": 32,
         "ti": 11
       },
@@ -5267,9 +5348,10 @@
         }
       ],
       "theme_tags": [
-        "2026 상반기 신규상장",
+        "핀테크(FinTech)",
         "2026 상반기 신규상장"
-      ]
+      ],
+      "theme_no": 342
     },
     {
       "rank": 70,
@@ -5284,11 +5366,11 @@
       "sector": "자동차부품",
       "high_52w": 178400,
       "high_52w_date": "20260311",
-      "theme_tag": "자동차부품",
-      "score": 33,
+      "theme_tag": "피지컬 AI/휴머노이드 로봇",
+      "score": 44,
       "score_detail": {
-        "tp": 12,
-        "tl": 14,
+        "tp": 19,
+        "tl": 18,
         "ti": 7
       },
       "rise_reason": "상장 이슈",
@@ -5345,9 +5427,10 @@
         }
       ],
       "theme_tags": [
-        "자동차부품",
+        "피지컬 AI/휴머노이드 로봇",
         "치아 치료(임플란트 등)"
-      ]
+      ],
+      "theme_no": 587
     },
     {
       "rank": 71,
@@ -5362,11 +5445,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 19250,
       "high_52w_date": "20260414",
-      "theme_tag": "OLED(유기 발광 다이오드)",
-      "score": 43,
+      "theme_tag": "반도체 재료/부품",
+      "score": 35,
       "score_detail": {
-        "tp": 8,
-        "tl": 28,
+        "tp": 14,
+        "tl": 14,
         "ti": 7
       },
       "rise_reason": "인수 기대감",
@@ -5423,8 +5506,10 @@
         }
       ],
       "theme_tags": [
+        "반도체 재료/부품",
         "OLED(유기 발광 다이오드)"
-      ]
+      ],
+      "theme_no": 14
     },
     {
       "rank": 72,
@@ -5439,11 +5524,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 117500,
       "high_52w_date": "20260323",
-      "theme_tag": "",
-      "score": 17,
+      "theme_tag": "시스템반도체",
+      "score": 43,
       "score_detail": {
-        "tp": 3,
-        "tl": 5,
+        "tp": 12,
+        "tl": 22,
         "ti": 9
       },
       "rise_reason": "반도체 실적 개선 기대",
@@ -5499,7 +5584,10 @@
           "source": "블로터"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [
+        "시스템반도체"
+      ],
+      "theme_no": 307
     },
     {
       "rank": 73,
@@ -5576,8 +5664,9 @@
       ],
       "theme_tags": [
         "공작기계",
-        "공작기계"
-      ]
+        "스마트팩토리(스마트공장)"
+      ],
+      "theme_no": 297
     },
     {
       "rank": 74,
@@ -5592,11 +5681,11 @@
       "sector": "전자장비와기기",
       "high_52w": 5100,
       "high_52w_date": "20260126",
-      "theme_tag": "2차전지",
-      "score": 46,
+      "theme_tag": "2차전지(나트륨이온)",
+      "score": 45,
       "score_detail": {
-        "tp": 10,
-        "tl": 29,
+        "tp": 6,
+        "tl": 32,
         "ti": 7
       },
       "rise_reason": "실적 개선 기대",
@@ -5653,9 +5742,10 @@
         }
       ],
       "theme_tags": [
-        "2차전지",
-        "2차전지(나트륨이온)"
-      ]
+        "2차전지(나트륨이온)",
+        "반도체 재료/부품"
+      ],
+      "theme_no": 579
     },
     {
       "rank": 75,
@@ -5670,11 +5760,11 @@
       "sector": "우주항공과국방",
       "high_52w": 31300,
       "high_52w_date": "20260129",
-      "theme_tag": "우주항공산업(누리호/인공위성 등)",
-      "score": 35,
+      "theme_tag": "드론(Drone)",
+      "score": 47,
       "score_detail": {
-        "tp": 12,
-        "tl": 14,
+        "tp": 6,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "광통신 수주 확대",
@@ -5731,9 +5821,10 @@
         }
       ],
       "theme_tags": [
-        "우주항공산업(누리호/인공위성 등)",
-        "방위산업/전쟁 및 테러"
-      ]
+        "드론(Drone)",
+        "항공기부품"
+      ],
+      "theme_no": 349
     },
     {
       "rank": 76,
@@ -5748,11 +5839,11 @@
       "sector": "섬유,의류,신발,호화품",
       "high_52w": 1450,
       "high_52w_date": "20250811",
-      "theme_tag": "",
-      "score": 19,
+      "theme_tag": "마리화나(대마)",
+      "score": 49,
       "score_detail": {
-        "tp": 3,
-        "tl": 5,
+        "tp": 6,
+        "tl": 32,
         "ti": 11
       },
       "rise_reason": "시장 관심 증가",
@@ -5808,7 +5899,10 @@
           "source": "서울신문"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [
+        "마리화나(대마)"
+      ],
+      "theme_no": 408
     },
     {
       "rank": 77,
@@ -5824,10 +5918,10 @@
       "high_52w": 27200,
       "high_52w_date": "20260119",
       "theme_tag": "자동차부품",
-      "score": 37,
+      "score": 44,
       "score_detail": {
-        "tp": 12,
-        "tl": 14,
+        "tp": 15,
+        "tl": 18,
         "ti": 11
       },
       "rise_reason": "공급 계약 체결",
@@ -5886,7 +5980,8 @@
       "theme_tags": [
         "자동차부품",
         "2026 상반기 신규상장"
-      ]
+      ],
+      "theme_no": 27
     },
     {
       "rank": 78,
@@ -5901,7 +5996,7 @@
       "sector": "증권",
       "high_52w": 76966,
       "high_52w_date": "20260227",
-      "theme_tag": "증권",
+      "theme_tag": "밸류업(24년 기업가치 제고계획 발표)",
       "score": 45,
       "score_detail": {
         "tp": 6,
@@ -5962,9 +6057,10 @@
         }
       ],
       "theme_tags": [
-        "증권",
-        "스페이스X(SpaceX)"
-      ]
+        "밸류업(24년 기업가치 제고계획 발표)",
+        "코리아 밸류업 지수(Korea Value-up Index)"
+      ],
+      "theme_no": 567
     },
     {
       "rank": 79,
@@ -5980,9 +6076,9 @@
       "high_52w": 9830,
       "high_52w_date": "20260414",
       "theme_tag": "창투사",
-      "score": 43,
+      "score": 48,
       "score_detail": {
-        "tp": 22,
+        "tp": 27,
         "tl": 10,
         "ti": 11
       },
@@ -6041,8 +6137,9 @@
       ],
       "theme_tags": [
         "창투사",
-        "창투사"
-      ]
+        "NFT(대체불가토큰)"
+      ],
+      "theme_no": 119
     },
     {
       "rank": 80,
@@ -6058,10 +6155,10 @@
       "high_52w": 59600,
       "high_52w_date": "20260311",
       "theme_tag": "전기차",
-      "score": 48,
+      "score": 50,
       "score_detail": {
-        "tp": 11,
-        "tl": 28,
+        "tp": 9,
+        "tl": 32,
         "ti": 9
       },
       "rise_reason": "광통신 실적 개선 기대",
@@ -6119,8 +6216,9 @@
       ],
       "theme_tags": [
         "전기차",
-        "LED"
-      ]
+        "공기청정기"
+      ],
+      "theme_no": 227
     },
     {
       "rank": 81,
@@ -6197,7 +6295,8 @@
       ],
       "theme_tags": [
         "원유"
-      ]
+      ],
+      "theme_no": null
     },
     {
       "rank": 82,
@@ -6274,7 +6373,8 @@
       ],
       "theme_tags": [
         "원유"
-      ]
+      ],
+      "theme_no": null
     },
     {
       "rank": 83,
@@ -6289,11 +6389,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 4792,
       "high_52w_date": "20260211",
-      "theme_tag": "",
-      "score": 15,
+      "theme_tag": "반도체 재료/부품",
+      "score": 31,
       "score_detail": {
-        "tp": 3,
-        "tl": 5,
+        "tp": 14,
+        "tl": 10,
         "ti": 7
       },
       "rise_reason": "경영진 교체",
@@ -6349,7 +6449,10 @@
           "source": "블로터"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [
+        "반도체 재료/부품"
+      ],
+      "theme_no": 14
     },
     {
       "rank": 84,
@@ -6427,7 +6530,8 @@
       "theme_tags": [
         "온실가스(탄소배출권)/탄소 포집·활용·저장(CCUS)",
         "자동차부품"
-      ]
+      ],
+      "theme_no": 152
     },
     {
       "rank": 85,
@@ -6443,9 +6547,9 @@
       "high_52w": 19750,
       "high_52w_date": "20260212",
       "theme_tag": "온디바이스 AI",
-      "score": 40,
+      "score": 35,
       "score_detail": {
-        "tp": 16,
+        "tp": 11,
         "tl": 17,
         "ti": 7
       },
@@ -6504,8 +6608,9 @@
       ],
       "theme_tags": [
         "온디바이스 AI",
-        "CXL(컴퓨트익스프레스링크)"
-      ]
+        "시스템반도체"
+      ],
+      "theme_no": 545
     },
     {
       "rank": 86,
@@ -6521,9 +6626,9 @@
       "high_52w": 2230,
       "high_52w_date": "20260227",
       "theme_tag": "보안주(정보)",
-      "score": 35,
+      "score": 38,
       "score_detail": {
-        "tp": 18,
+        "tp": 21,
         "tl": 10,
         "ti": 7
       },
@@ -6583,7 +6688,8 @@
       "theme_tags": [
         "보안주(정보)",
         "가상화폐(비트코인 등)"
-      ]
+      ],
+      "theme_no": 55
     },
     {
       "rank": 87,
@@ -6598,11 +6704,11 @@
       "sector": "비철금속",
       "high_52w": 116600,
       "high_52w_date": "20260317",
-      "theme_tag": "우주항공산업(누리호/인공위성 등)",
-      "score": 31,
+      "theme_tag": "반도체 재료/부품",
+      "score": 37,
       "score_detail": {
-        "tp": 12,
-        "tl": 10,
+        "tp": 14,
+        "tl": 14,
         "ti": 9
       },
       "rise_reason": "광통신 생산 증설",
@@ -6659,9 +6765,10 @@
         }
       ],
       "theme_tags": [
-        "우주항공산업(누리호/인공위성 등)",
+        "반도체 재료/부품",
         "OLED(유기 발광 다이오드)"
-      ]
+      ],
+      "theme_no": 14
     },
     {
       "rank": 88,
@@ -6731,7 +6838,8 @@
           "source": "연합뉴스"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [],
+      "theme_no": null
     },
     {
       "rank": 89,
@@ -6808,8 +6916,9 @@
       ],
       "theme_tags": [
         "모바일콘텐츠(스마트폰/태블릿PC)",
-        "밸류업(24년 기업가치 제고계획 발표)"
-      ]
+        "밸류업(25년 기업가치 제고계획 발표)"
+      ],
+      "theme_no": 270
     },
     {
       "rank": 90,
@@ -6824,10 +6933,10 @@
       "sector": "조선",
       "high_52w": 38700,
       "high_52w_date": "20260414",
-      "theme_tag": "조선기자재",
-      "score": 52,
+      "theme_tag": "2025 하반기 신규상장",
+      "score": 49,
       "score_detail": {
-        "tp": 9,
+        "tp": 6,
         "tl": 32,
         "ti": 11
       },
@@ -6885,9 +6994,10 @@
         }
       ],
       "theme_tags": [
-        "조선기자재",
-        "광통신(광케이블/광섬유 등)"
-      ]
+        "2025 하반기 신규상장",
+        "조선기자재"
+      ],
+      "theme_no": 583
     },
     {
       "rank": 91,
@@ -6903,10 +7013,10 @@
       "high_52w": 61500,
       "high_52w_date": "20260325",
       "theme_tag": "온디바이스 AI",
-      "score": 37,
+      "score": 49,
       "score_detail": {
-        "tp": 16,
-        "tl": 14,
+        "tp": 11,
+        "tl": 31,
         "ti": 7
       },
       "rise_reason": "매출 성장 기대",
@@ -6964,8 +7074,9 @@
       ],
       "theme_tags": [
         "온디바이스 AI",
-        "온디바이스 AI"
-      ]
+        "시스템반도체"
+      ],
+      "theme_no": 545
     },
     {
       "rank": 92,
@@ -6981,10 +7092,10 @@
       "high_52w": 34500,
       "high_52w_date": "20260210",
       "theme_tag": "반도체 장비",
-      "score": 31,
+      "score": 59,
       "score_detail": {
-        "tp": 14,
-        "tl": 10,
+        "tp": 10,
+        "tl": 42,
         "ti": 7
       },
       "rise_reason": "자사주 소각",
@@ -7043,7 +7154,8 @@
       "theme_tags": [
         "반도체 장비",
         "CXL(컴퓨트익스프레스링크)"
-      ]
+      ],
+      "theme_no": 12
     },
     {
       "rank": 93,
@@ -7088,7 +7200,8 @@
           "source": "뉴시스"
         }
       ],
-      "theme_tags": []
+      "theme_tags": [],
+      "theme_no": null
     },
     {
       "rank": 94,
@@ -7112,7 +7225,8 @@
       },
       "rise_reason": "거래 급증",
       "news": [],
-      "theme_tags": []
+      "theme_tags": [],
+      "theme_no": null
     },
     {
       "rank": 95,
@@ -7127,11 +7241,11 @@
       "sector": "반도체와반도체장비",
       "high_52w": 1588,
       "high_52w_date": "20260219",
-      "theme_tag": "158",
-      "score": 45,
+      "theme_tag": "반도체 재료/부품",
+      "score": 31,
       "score_detail": {
-        "tp": 6,
-        "tl": 32,
+        "tp": 14,
+        "tl": 10,
         "ti": 7
       },
       "rise_reason": "자사주 매입",
@@ -7188,8 +7302,9 @@
         }
       ],
       "theme_tags": [
-        "158"
-      ]
+        "반도체 재료/부품"
+      ],
+      "theme_no": 14
     },
     {
       "rank": 96,
@@ -7204,7 +7319,7 @@
       "sector": "방송과엔터테인먼트",
       "high_52w": 99400,
       "high_52w_date": "20250625",
-      "theme_tag": "영상콘텐츠",
+      "theme_tag": "엔젤산업",
       "score": 45,
       "score_detail": {
         "tp": 6,
@@ -7265,9 +7380,10 @@
         }
       ],
       "theme_tags": [
-        "영상콘텐츠",
+        "엔젤산업",
         "캐릭터상품"
-      ]
+      ],
+      "theme_no": 316
     },
     {
       "rank": 97,
@@ -7283,10 +7399,10 @@
       "high_52w": 15560,
       "high_52w_date": "20260227",
       "theme_tag": "2차전지",
-      "score": 45,
+      "score": 39,
       "score_detail": {
-        "tp": 10,
-        "tl": 28,
+        "tp": 15,
+        "tl": 17,
         "ti": 7
       },
       "rise_reason": "실적 개선 기대",
@@ -7344,8 +7460,9 @@
       ],
       "theme_tags": [
         "2차전지",
-        "반도체 장비"
-      ]
+        "냉각시스템(액침냉각 등)"
+      ],
+      "theme_no": 64
     },
     {
       "rank": 98,
@@ -7361,10 +7478,10 @@
       "high_52w": 38200,
       "high_52w_date": "20260414",
       "theme_tag": "반도체 장비",
-      "score": 33,
+      "score": 47,
       "score_detail": {
-        "tp": 14,
-        "tl": 10,
+        "tp": 10,
+        "tl": 28,
         "ti": 9
       },
       "rise_reason": "실적 개선 기대",
@@ -7423,7 +7540,8 @@
       "theme_tags": [
         "반도체 장비",
         "HBM(고대역폭메모리)"
-      ]
+      ],
+      "theme_no": 12
     },
     {
       "rank": 99,
@@ -7438,11 +7556,11 @@
       "sector": "디스플레이장비및부품",
       "high_52w": 12070,
       "high_52w_date": "20260414",
-      "theme_tag": "OLED(유기 발광 다이오드)",
-      "score": 33,
+      "theme_tag": "플렉서블 디스플레이",
+      "score": 45,
       "score_detail": {
-        "tp": 8,
-        "tl": 18,
+        "tp": 6,
+        "tl": 32,
         "ti": 7
       },
       "rise_reason": "공급 계약 체결",
@@ -7499,9 +7617,10 @@
         }
       ],
       "theme_tags": [
-        "OLED(유기 발광 다이오드)",
-        "플렉서블 디스플레이"
-      ]
+        "플렉서블 디스플레이",
+        "OLED(유기 발광 다이오드)"
+      ],
+      "theme_no": 382
     },
     {
       "rank": 100,
@@ -7516,11 +7635,11 @@
       "sector": "IT서비스",
       "high_52w": 25500,
       "high_52w_date": "20260127",
-      "theme_tag": "전자결제(전자화폐)",
-      "score": 47,
+      "theme_tag": "핀테크(FinTech)",
+      "score": 37,
       "score_detail": {
-        "tp": 6,
-        "tl": 32,
+        "tp": 7,
+        "tl": 21,
         "ti": 9
       },
       "rise_reason": "통신장비 매출 성장 기대",
@@ -7577,9 +7696,10 @@
         }
       ],
       "theme_tags": [
-        "전자결제(전자화폐)",
-        "애플페이"
-      ]
+        "핀테크(FinTech)",
+        "스테이블코인"
+      ],
+      "theme_no": 342
     }
   ]
 }

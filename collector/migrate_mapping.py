@@ -47,10 +47,12 @@ def migrate_day(date_str, mapping, theme_rates, history_data=None):
             theme_tags = [th['name'] for th in resolved[:2]]
             r['theme_tag'] = theme_tags[0]
             r['theme_tags'] = theme_tags
+            r['theme_no'] = resolved[0].get('no')
             updated += 1
         else:
             # 매핑에 없으면 기존 태그 유지
             r['theme_tags'] = [old_tag] if old_tag else []
+            r['theme_no'] = None
 
         if not r.get('theme_tag'):
             no_tag_after += 1
