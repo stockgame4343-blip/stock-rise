@@ -357,6 +357,102 @@
         return result;
     }
 
+    // ── 대장점수 상세 팝업 ──
+    function openScoreDetail(ticker) {
+        var stock = null;
+        for (var i = 0; i < state.allRankings.length; i++) {
+            if (state.allRankings[i].ticker === ticker) { stock = state.allRankings[i]; break; }
+        }
+        if (!stock) return;
+        var detail = stock.score_detail || {};
+        var isV3 = detail.ti != null;
+        var tp = detail.tp || 0, tl = detail.tl || 0, ti = detail.ti || 0;
+        var cls = stock.score >= 70 ? 'high' : (stock.score >= 40 ? 'mid' : 'low');
+
+        var html = '<div class="score-popup">';
+        html += '<div class="score-popup__header">';
+        html += '<span class="score-badge score-badge--' + cls + '" style="width:52px;height:34px;font-size:16px">' + stock.score + '</span>';
+        html += '<div class="score-popup__stock">';
+        html += '<span class="score-popup__name">' + stock.name + '</span>';
+        html += '<span class="score-popup__meta">' + stock.market + ' &middot; ' + (stock.sector || '-') + ' &middot; +' + stock.change_rate.toFixed(2) + '%</span>';
+        html += '</div>';
+        html += '<a class="score-popup__naver" href="https://finance.naver.com/item/main.naver?code=' + stock.ticker + '" target="_blank" rel="noopener" title="네이버 증권에서 보기"><span class="score-popup__naver-icon">N</span></a>';
+        html += '</div>';
+
+        if (isV3) {
+            html += scorePopupItem('테마강도 (TP)', tp, 35, tpLevelText(tp), '테마의 시장 파괴력 — 모멘텀 + 지속일 + 규모');
+            html += scorePopupItem('대장성 (TL)', tl, 45, tlLevelText(tl), '테마 내 리더십 — 등락률 + 거래집중 + 연속출현');
+            html += scorePopupItem('거래강도 (TI)', ti, 20, tiLevelText(ti), '개별 거래 활력 — 5일대비 + 회전율 + 수급');
+        } else {
+            var bz = detail.buzz || 0, qu = detail.quality || 0;
+            var ty = detail.type || 0, tv = detail.turnover || 0;
+            html += scorePopupItem('뉴스 양', bz, 20, '', '관련 뉴스 건수');
+            html += scorePopupItem('뉴스 질', qu, 25, '', '주요 언론사, 수치 포함');
+            html += scorePopupItem('호재 강도', ty, 30, '', '테마 연동, 호재 유형');
+            html += scorePopupItem('거래량 강도', tv, 25, '', '시총 대비 거래대금');
+        }
+
+        if (stock.theme_tag) {
+            html += '<div class="score-popup__theme"><span class="theme-tag">' + stock.theme_tag + '</span>';
+            if (stock.rise_reason) html += '<span style="font-size:12px;color:var(--text-secondary)">' + stock.rise_reason + '</span>';
+            html += '</div>';
+        }
+
+        if (stock.news && stock.news.length > 0) {
+            html += '<div class="score-popup__news">';
+            stock.news.slice(0, 5).forEach(function (n) {
+                html += '<a class="score-popup__news-item" href="' + n.link + '" target="_blank" rel="noopener">';
+                html += '<span class="score-popup__news-title">' + n.title + '</span>';
+                if (n.date) html += '<span class="score-popup__news-date">' + n.date + '</span>';
+                html += '</a>';
+            });
+            html += '</div>';
+        }
+        html += '</div>';
+
+        openDetailModal(stock.name + ' 대장점수 분석', html);
+    }
+
+    function scorePopupItem(label, val, max, level, desc) {
+        var pct = Math.round(val / max * 100);
+        var h = '<div class="score-popup__row">';
+        h += '<div class="score-popup__row-header">';
+        h += '<span class="score-popup__row-label">' + label + '</span>';
+        h += '<span class="score-popup__row-score">' + val + '<span style="color:var(--text-muted);font-weight:400">/' + max + '</span></span>';
+        h += '</div>';
+        h += '<div class="score-analysis__bar"><div class="score-analysis__fill" style="width:' + pct + '%"></div></div>';
+        if (level || desc) {
+            h += '<div class="score-popup__row-desc">';
+            if (level) h += '<strong>' + level + '</strong> — ';
+            h += desc;
+            h += '</div>';
+        }
+        h += '</div>';
+        return h;
+    }
+
+    function tpLevelText(v) {
+        if (v >= 28) return '최강 테마';
+        if (v >= 20) return '강한 테마';
+        if (v >= 12) return '보통 테마';
+        if (v >= 5) return '약한 테마';
+        return '테마 미확인';
+    }
+    function tlLevelText(v) {
+        if (v >= 35) return '확실한 대장';
+        if (v >= 25) return '유력 대장';
+        if (v >= 15) return '중위권';
+        if (v >= 8) return '추종주';
+        return '미확인';
+    }
+    function tiLevelText(v) {
+        if (v >= 16) return '폭발적';
+        if (v >= 12) return '매우 활발';
+        if (v >= 8) return '활발';
+        if (v >= 4) return '보통';
+        return '평이';
+    }
+
     function openSectorDetail(name, type) {
         var list = type === 'theme'
             ? (state.analysis ? state.analysis.allThemes : [])
@@ -420,7 +516,7 @@
             var scoreCls = s.score >= 70 ? 'high' : (s.score >= 40 ? 'mid' : 'low');
             html += '<div class="detail-stock" data-url="' + url + '">';
             html += '<span class="detail-stock__rank">' + (idx + 1) + '</span>';
-            html += '<span class="detail-stock__name"><a href="' + url + '" target="_blank" rel="noopener">' + s.name + '</a><span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
+            html += '<span class="detail-stock__name"><span class="score-click detail-stock__link" data-ticker="' + s.ticker + '">' + s.name + '</span><span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="detail-stock__rate">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '<span class="score-badge score-badge--' + scoreCls + '" style="font-size:11px;width:32px;height:22px">' + s.score + '</span>';
             html += '</div>';
@@ -800,7 +896,7 @@
             html += '<div class="sector-card__stocks">';
             topStocks.forEach(function (s) {
                 html += '<div class="sector-card__stock">';
-                html += '<span class="sector-card__stock-name"><span class="sector-card__stock-name-text" title="' + s.name + '">' + s.name + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
+                html += '<span class="sector-card__stock-name"><span class="sector-card__stock-name-text score-click" data-ticker="' + s.ticker + '" title="' + s.name + '">' + s.name + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
                 html += '<span class="sector-card__stock-rate">+' + s.change_rate.toFixed(2) + '%</span>';
                 html += '</div>';
             });
@@ -996,28 +1092,26 @@
         // 돌파 먼저
         highList.forEach(function (item) {
             var s = item.stock;
-            var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
-            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
+            html += '<div class="compact-row score-click" data-ticker="' + s.ticker + '">';
             html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="compact-row__tag--break">52주 최고가 돌파</span>';
             html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
-            html += '</a>';
+            html += '</div>';
         });
 
         // 근접: 최근 → 과거 순
         nearHighList.forEach(function (item) {
             var s = item.stock;
-            var url = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
             var daysText = '';
             if (s.high_52w_date) {
                 var days = daysSince(s.high_52w_date, currentDate);
                 if (days >= 0) daysText = days + '일 전 ';
             }
-            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
+            html += '<div class="compact-row score-click" data-ticker="' + s.ticker + '">';
             html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="compact-row__tag">' + daysText + '고점 대비 -' + item.gap + '%</span>';
             html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
-            html += '</a>';
+            html += '</div>';
         });
 
         html += '</div>';
@@ -1033,8 +1127,7 @@
         }
         var html = '<div class="compact-list">';
         pullbacks.forEach(function (p) {
-            var url = 'https://finance.naver.com/item/main.naver?code=' + p.ticker;
-            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
+            html += '<div class="compact-row score-click" data-ticker="' + p.ticker + '">';
             html += '<span class="compact-row__name">' + p.name + '<span class="compact-row__market">' + p.market + '</span>' + controlsHtml(p.ticker, ratings) + '</span>';
             html += '<span class="compact-row__detail">';
             html += '<span class="compact-row__peak">고점 ' + formatNumber(p.peakPrice) + '</span>';
@@ -1043,7 +1136,7 @@
             html += '</span>';
             html += '<span class="compact-row__rate compact-row__rate--down">-' + p.dropPct.toFixed(1) + '%</span>';
             html += '<span class="compact-row__tag">' + p.reason + ' (' + formatDateKorean(p.peakDate) + ')</span>';
-            html += '</a>';
+            html += '</div>';
         });
         html += '</div>';
         container.innerHTML = html;
@@ -1195,6 +1288,16 @@
             if (ticker) openMemo(ticker);
             return;
         }
+        // 종목명 클릭 → 대장점수 팝업
+        if (e.target.closest('.float-controls')) return;
+        var scoreEl = e.target.closest('.score-click');
+        if (scoreEl) {
+            e.preventDefault();
+            e.stopPropagation();
+            var ticker = scoreEl.getAttribute('data-ticker');
+            if (ticker) openScoreDetail(ticker);
+            return;
+        }
     });
 
     // 메모 모달 이벤트
@@ -1300,11 +1403,21 @@
         // float-controls 나머지 영역 클릭은 무시
         if (e.target.closest('.float-controls')) return;
 
-        // detail-stock 행 클릭 → 네이버 이동 (이름 <a> 클릭은 자체 처리)
+        // 종목명/종목 행 클릭 → 대장점수 팝업 (a 태그 클릭은 제외)
+        var scoreEl = e.target.closest('.score-click');
+        if (scoreEl && !e.target.closest('a')) {
+            e.preventDefault();
+            e.stopPropagation();
+            var ticker = scoreEl.getAttribute('data-ticker');
+            if (ticker) openScoreDetail(ticker);
+            return;
+        }
+
+        // detail-stock 행 클릭 → 대장점수 팝업
         var stockRow = e.target.closest('.detail-stock');
         if (stockRow && !e.target.closest('a')) {
-            var url = stockRow.getAttribute('data-url');
-            if (url) window.open(url, '_blank', 'noopener');
+            var ticker = stockRow.querySelector('.score-click');
+            if (ticker) openScoreDetail(ticker.getAttribute('data-ticker'));
             return;
         }
 
