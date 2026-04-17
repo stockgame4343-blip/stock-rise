@@ -1127,7 +1127,8 @@
         }
         var html = '<div class="compact-list">';
         pullbacks.forEach(function (p) {
-            html += '<div class="compact-row score-click" data-ticker="' + p.ticker + '">';
+            var url = 'https://finance.naver.com/item/main.naver?code=' + p.ticker;
+            html += '<a class="compact-row" href="' + url + '" target="_blank" rel="noopener">';
             html += '<span class="compact-row__name">' + p.name + '<span class="compact-row__market">' + p.market + '</span>' + controlsHtml(p.ticker, ratings) + '</span>';
             html += '<span class="compact-row__detail">';
             html += '<span class="compact-row__peak">고점 ' + formatNumber(p.peakPrice) + '</span>';
@@ -1136,7 +1137,7 @@
             html += '</span>';
             html += '<span class="compact-row__rate compact-row__rate--down">-' + p.dropPct.toFixed(1) + '%</span>';
             html += '<span class="compact-row__tag">' + p.reason + ' (' + formatDateKorean(p.peakDate) + ')</span>';
-            html += '</div>';
+            html += '</a>';
         });
         html += '</div>';
         container.innerHTML = html;
