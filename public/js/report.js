@@ -800,7 +800,7 @@
             html += '<div class="sector-card__stocks">';
             topStocks.forEach(function (s) {
                 html += '<div class="sector-card__stock">';
-                html += '<span class="sector-card__stock-name">' + s.name + controlsHtml(s.ticker, ratings) + '</span>';
+                html += '<span class="sector-card__stock-name"><span class="sector-card__stock-name-text" title="' + s.name + '">' + s.name + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
                 html += '<span class="sector-card__stock-rate">+' + s.change_rate.toFixed(2) + '%</span>';
                 html += '</div>';
             });
