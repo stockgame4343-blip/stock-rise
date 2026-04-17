@@ -506,7 +506,9 @@
         html += '<div class="score-popup__stock">';
         html += '<span class="score-popup__name">' + stock.name + '</span>';
         html += '<span class="score-popup__meta">' + stock.market + ' &middot; ' + (stock.sector || '-') + ' &middot; +' + stock.change_rate.toFixed(2) + '%</span>';
-        html += '</div></div>';
+        html += '</div>';
+        html += '<a class="score-popup__naver" href="https://finance.naver.com/item/main.naver?code=' + stock.ticker + '" target="_blank" rel="noopener" title="네이버 증권에서 보기"><span class="score-popup__naver-icon">N</span></a>';
+        html += '</div>';
 
         if (isV3) {
             html += scorePopupItem('테마강도 (TP)', tp, 35, tpLevelText(tp), '테마의 시장 파괴력 — 모멘텀 + 지속일 + 규모');
