@@ -194,6 +194,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .news-btn{background:none;border:none;cursor:pointer;font-size:13px;padding:0 2px;opacity:.4;transition:opacity .15s;vertical-align:middle}
 .news-btn:hover{opacity:1}
 /* 점수 셀 레이아웃 */
+.cell-score{text-align:center}
 .cell-score-wrap{text-align:center;white-space:nowrap}
 /* 뉴스 날짜 */
 .news-item__meta{display:flex;gap:8px;align-items:center;margin-top:2px}
@@ -532,28 +533,231 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 
 /* ── 반응형 ── */
 @media(max-width:768px){
+    /* ── 프레임 & 헤더 ── */
     .frame{padding:0 12px}
-    .top-bar__inner{height:42px}
+    .top-bar__inner{height:46px}
+    .top-bar__logo{font-size:15px}
     .top-bar__updated{display:none}
-    .top-bar__nav{margin-left:16px;gap:2px}
-    .top-bar__link{font-size:12px;padding:5px 10px}
-    .toolbar{flex-wrap:wrap;gap:10px;padding:10px 0}
-    .toolbar__right{width:100%;justify-content:flex-end}
-    .date-text{font-size:13px}
-    .table-wrap{padding:0}
-    .ranking-table td,.ranking-table th{padding:8px 6px;font-size:12px}
-    .modal{max-width:95%;max-height:85vh}
-    .footer__disclaimer{padding:0 16px}
-    /* 리포트 반응형 */
-    .report__summary{grid-template-columns:repeat(2,1fr)}
+    .top-bar__nav{margin-left:12px;gap:2px}
+    .top-bar__link{font-size:12px;padding:6px 10px}
+    .top-bar__right{gap:8px}
+
+    /* ── 툴바: 탭/날짜 2줄 분리 ── */
+    .toolbar{flex-wrap:wrap;gap:8px;padding:10px 0}
+    .toolbar__left{flex-wrap:wrap;gap:5px;width:100%}
+    .toolbar__right{width:100%;justify-content:space-between;gap:6px}
+    .tab{padding:7px 12px;font-size:12px;min-height:36px}
+    .tab.tab--watchlist{margin-left:auto}
+    .date-text{font-size:14px;flex:1;text-align:center}
+    .date-nav{width:40px;height:40px}
+    .date-badge{font-size:11px;padding:4px 10px;min-height:30px}
+
+    /* ── 테이블 → 카드 전환 ── */
+    .table-wrap{padding:0;overflow:visible}
+    .ranking-table{display:block;min-width:0;width:100%}
+    .ranking-table thead{display:none}
+    .ranking-table tbody{display:block}
+    .ranking-table tr{
+        display:grid;
+        grid-template-columns:auto 1fr auto;
+        column-gap:12px;
+        row-gap:4px;
+        padding:14px 16px;
+        margin-bottom:10px;
+        background:var(--bg-secondary);
+        border:1px solid var(--border);
+        border-radius:12px;
+        box-shadow:var(--shadow);
+    }
+    .ranking-table tr:hover{background:var(--bg-secondary)}
+    .ranking-table td{
+        display:block;
+        padding:0;
+        border:none;
+        font-size:13px;
+    }
+    /* 헤더 행: 순위 | 이름 | 점수 */
+    .cell-rank{
+        align-self:center;
+        font-size:13px;
+        font-weight:800;
+        color:var(--accent);
+        min-width:28px;
+    }
+    .cell-rank::before{content:"#"}
+    .cell-name{
+        align-self:center;
+        font-weight:700;
+        font-size:15px;
+        overflow:hidden;
+    }
+    .cell-name__wrap{flex-wrap:wrap;gap:4px 8px}
+    .cell-name__market{font-size:11px}
+    .cell-score{
+        align-self:center;
+        text-align:right;
+    }
+
+    /* 본문 라벨-값 행들: 전체 3컬럼 폭 차지 */
+    .cell-price,
+    .cell-change,
+    .cell-volume,
+    .cell-cap{
+        grid-column:1 / -1;
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:4px 0;
+        text-align:right;
+        border-top:1px solid var(--border-subtle);
+    }
+    .cell-sector,
+    .cell-reason{
+        grid-column:1 / -1;
+        display:flex;
+        align-items:flex-start;
+        padding:4px 0;
+        gap:10px;
+        text-align:left;
+        line-height:1.5;
+        max-width:none;
+        border-top:1px solid var(--border-subtle);
+    }
+    .cell-compare{
+        grid-column:1 / -1;
+        display:flex;
+        justify-content:space-between;
+        padding:4px 0;
+        border-top:1px solid var(--border-subtle);
+    }
+
+    /* 라벨 자동 생성 */
+    .cell-price::before,
+    .cell-change::before,
+    .cell-volume::before,
+    .cell-cap::before,
+    .cell-sector::before,
+    .cell-reason::before,
+    .cell-compare::before{
+        color:var(--text-muted);
+        font-size:12px;
+        font-weight:500;
+        min-width:64px;
+        text-align:left;
+        flex-shrink:0;
+    }
+    .cell-price::before{content:"현재가"}
+    .cell-change::before{content:"전일대비"}
+    .cell-volume::before{content:"거래대금"}
+    .cell-cap::before{content:"시가총액"}
+    .cell-sector::before{content:"섹터"}
+    .cell-reason::before{content:"상승이유"}
+    .cell-compare::before{content:"현재가 비교"}
+
+    /* 제외 처리된 행도 카드 스타일 유지 */
+    .row--excluded{background:var(--bg-secondary)}
+
+    /* ── 대장점수 뱃지 살짝 크게 (터치하기 쉽게) ── */
+    .score-badge{width:52px;height:32px;font-size:14px}
+
+    /* ── 별점/액션 버튼 터치 영역 확보 ── */
+    .star{font-size:16px;padding:4px}
+    .exclude-btn,.memo-btn{width:28px;height:28px;font-size:12px}
+    .tag-edit--empty{padding:4px 10px;font-size:12px}
+    .theme-tag{font-size:11px;padding:3px 8px}
+
+    /* ── 툴팁 숨김 (hover 없음 + 좁음) ── */
+    .th-help{display:none}
+
+    /* ── 모달: 바텀시트 스타일 ── */
+    .modal-overlay{align-items:flex-end}
+    .modal{
+        width:100%;
+        max-width:100%;
+        min-width:0;
+        max-height:92vh;
+        border-radius:16px 16px 0 0;
+        border-bottom:none;
+        animation:slideUp .25s cubic-bezier(.22,.61,.36,1);
+    }
+    @keyframes slideUp{
+        from{transform:translateY(100%)}
+        to{transform:translateY(0)}
+    }
+    .modal__header{padding:16px 18px;position:sticky;top:0;background:var(--bg-secondary);z-index:2}
+    .modal__header::before{
+        content:"";
+        position:absolute;
+        top:6px;
+        left:50%;
+        transform:translateX(-50%);
+        width:40px;
+        height:4px;
+        border-radius:2px;
+        background:var(--border);
+    }
+    .modal__title{font-size:15px;margin-top:6px}
+    .modal__close{width:36px;height:36px;font-size:22px;display:flex;align-items:center;justify-content:center}
+    .modal__body{padding:14px 18px 24px}
+
+    /* 대장점수 팝업 모바일 폭 여유 */
+    .score-popup__meta{font-size:11px;line-height:1.5}
+    .score-popup__header{gap:10px;margin-bottom:12px;padding-bottom:12px}
+    .score-popup__name{font-size:14px}
+
+    /* ── 푸터 ── */
+    .footer__disclaimer{padding:0 16px;font-size:10px}
+
+    /* ── 리포트 페이지 ── */
+    .report{padding-bottom:24px}
+    .report__date-bar{padding:18px 0 4px;gap:10px}
     .report__title{font-size:16px}
-    .reason-row__label{min-width:120px;font-size:12px}
-    .news-row{padding:12px 16px}
-    .news-row__stock{min-width:56px}
-    .sector-card,.stock-card,.reason-bars,.news-list{border-radius:8px}
-    .sector-card,.stock-card,.pick-card{padding:16px}
-    .sector-cards{grid-template-columns:repeat(2,1fr)}
-    .pick-cards{grid-template-columns:1fr}
-    .stock-cards{grid-template-columns:1fr}
+    .report__section{margin-top:24px}
+    .report__section-title{font-size:15px}
+    .report__section-desc{font-size:12px;margin-bottom:12px}
+    .report__summary{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
+    .summary-card{padding:14px 16px}
+    .summary-card__value{font-size:18px}
+    .summary-card__label{font-size:11px}
+    .sparkline{width:48px;height:22px}
+
+    /* 섹터/테마/픽/스톡 카드 전부 1열 (가독성) */
+    .sector-cards{grid-template-columns:1fr;gap:8px}
+    .pick-cards{grid-template-columns:1fr;gap:10px}
+    .stock-cards{grid-template-columns:1fr;gap:10px}
     .compact-list--grid{grid-template-columns:1fr}
+    .sector-card,.stock-card,.pick-card{padding:16px;border-radius:10px}
+    .reason-bars,.news-list{border-radius:10px}
+
+    /* 뉴스 로우 모바일 정렬 */
+    .news-row{padding:12px 16px;gap:8px}
+    .news-row__stock{min-width:52px;font-size:11px}
+    .news-row__title{font-size:12px;white-space:normal;-webkit-line-clamp:2;line-clamp:2;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}
+    .news-row__source{font-size:10px;margin-left:6px}
+    .reason-row__label{min-width:100px;font-size:12px}
+
+    /* 컴팩트 로우 */
+    .compact-row{padding:12px 16px;gap:8px}
+    .compact-row__name{min-width:0;flex:1}
+    .compact-row__price,.compact-row__rate{min-width:70px}
+
+    /* 전체보기/페이저 */
+    .section-pager__btn{width:30px;height:30px}
+    .report__more-btn{padding:12px}
+}
+
+/* ── 초소형 (iPhone SE 등 ≤380px) ── */
+@media(max-width:380px){
+    .frame{padding:0 10px}
+    .top-bar__logo{font-size:14px}
+    .top-bar__link{font-size:11px;padding:5px 8px}
+    .top-bar__nav{margin-left:8px}
+    .tab{padding:6px 10px;font-size:11px}
+    .ranking-table tr{padding:12px 14px}
+    .cell-name{font-size:14px}
+    .cell-price,.cell-change,.cell-volume,.cell-cap,.cell-sector,.cell-reason{font-size:12px}
+    .cell-price::before,.cell-change::before,.cell-volume::before,.cell-cap::before,.cell-sector::before,.cell-reason::before{min-width:56px;font-size:11px}
+    .report__summary{grid-template-columns:1fr 1fr;gap:6px}
+    .summary-card{padding:12px}
+    .summary-card__value{font-size:16px}
 }

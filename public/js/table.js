@@ -225,7 +225,7 @@ var StockTable = (function () {
                 (displayTag || '+') + '</span>' +
                 (subTag ? '<span class="theme-tag theme-tag--sub">' + subTag + '</span>' : '') +
                 reason + '</td>';
-            html += '<td style="text-align:center">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
+            html += '<td class="cell-score">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '</tr>';
         });
 
