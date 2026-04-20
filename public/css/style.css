@@ -616,17 +616,18 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .cell-sector,
     .cell-reason{
         grid-column:1 / -1;
-        display:flex;
-        align-items:flex-start;
+        display:block;
         padding:4px 0;
-        gap:6px 10px;
         text-align:left;
-        line-height:1.5;
+        line-height:1.7;
         max-width:none;
         border-top:1px solid var(--border-subtle);
-        flex-wrap:wrap;
     }
-    .cell-reason__text{display:block;flex:0 0 100%;width:100%;padding-left:38px;color:var(--text-secondary);box-sizing:border-box}
+    .cell-sector::before,
+    .cell-reason::before{margin-right:10px;display:inline}
+    .cell-reason .tag-edit,
+    .cell-reason .theme-tag--sub{margin-right:4px}
+    .cell-reason__text{color:var(--text-secondary)}
     .cell-compare{
         grid-column:1 / -1;
         display:flex;
