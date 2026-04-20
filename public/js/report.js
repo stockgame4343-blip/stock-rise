@@ -369,12 +369,14 @@
         var tp = detail.tp || 0, tl = detail.tl || 0, ti = detail.ti || 0;
         var cls = stock.score >= 70 ? 'high' : (stock.score >= 40 ? 'mid' : 'low');
 
+        var capStr = formatAmount(stock.market_cap);
+
         var html = '<div class="score-popup">';
         html += '<div class="score-popup__header">';
         html += '<span class="score-badge score-badge--' + cls + '" style="width:52px;height:34px;font-size:16px">' + stock.score + '</span>';
         html += '<div class="score-popup__stock">';
         html += '<span class="score-popup__name">' + stock.name + '</span>';
-        html += '<span class="score-popup__meta">' + stock.market + ' &middot; ' + (stock.sector || '-') + ' &middot; +' + stock.change_rate.toFixed(2) + '%</span>';
+        html += '<span class="score-popup__meta">' + stock.market + ' &middot; ' + (stock.sector || '-') + ' &middot; 시총 ' + capStr + ' &middot; +' + stock.change_rate.toFixed(2) + '%</span>';
         html += '</div>';
         html += '<a class="score-popup__naver" href="https://finance.naver.com/item/main.naver?code=' + stock.ticker + '" target="_blank" rel="noopener" title="네이버 증권에서 보기"><span class="score-popup__naver-icon">N</span></a>';
         html += '</div>';
