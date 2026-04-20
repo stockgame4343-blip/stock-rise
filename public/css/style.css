@@ -619,12 +619,14 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
         display:flex;
         align-items:flex-start;
         padding:4px 0;
-        gap:10px;
+        gap:6px 10px;
         text-align:left;
         line-height:1.5;
         max-width:none;
         border-top:1px solid var(--border-subtle);
+        flex-wrap:wrap;
     }
+    .cell-reason__text{display:block;flex:0 0 100%;width:100%;padding-left:38px;color:var(--text-secondary);box-sizing:border-box}
     .cell-compare{
         grid-column:1 / -1;
         display:flex;

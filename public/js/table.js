@@ -224,7 +224,7 @@ var StockTable = (function () {
                 '" data-ticker="' + r.ticker + '">' +
                 (displayTag || '+') + '</span>' +
                 (subTag ? '<span class="theme-tag theme-tag--sub">' + subTag + '</span>' : '') +
-                reason + '</td>';
+                '<span class="cell-reason__text">' + reason + '</span></td>';
             html += '<td class="cell-score">' + scoreBadge(r.score, r.score_detail, r.ticker) + '</td>';
             html += '</tr>';
         });
