@@ -594,6 +594,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .cell-name__wrap{flex-wrap:wrap;gap:4px 8px}
     .cell-name__market{font-size:11px}
     .cell-score{
+        grid-column:3;
+        grid-row:1;
         align-self:center;
         text-align:right;
     }
@@ -678,11 +680,14 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
         max-height:92vh;
         border-radius:16px 16px 0 0;
         border-bottom:none;
-        animation:slideUp .25s cubic-bezier(.22,.61,.36,1);
+        animation:slideUp .25s cubic-bezier(.22,.61,.36,1) forwards;
     }
     @keyframes slideUp{
         from{transform:translateY(100%)}
         to{transform:translateY(0)}
+    }
+    @media(prefers-reduced-motion:reduce){
+        .modal{animation:none}
     }
     .modal__header{padding:16px 18px;position:sticky;top:0;background:var(--bg-secondary);z-index:2}
     .modal__header::before{
@@ -754,9 +759,19 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .top-bar__nav{margin-left:8px}
     .tab{padding:6px 10px;font-size:11px}
     .ranking-table tr{padding:12px 14px}
-    .cell-name{font-size:14px}
-    .cell-price,.cell-change,.cell-volume,.cell-cap,.cell-sector,.cell-reason{font-size:12px}
-    .cell-price::before,.cell-change::before,.cell-volume::before,.cell-cap::before,.cell-sector::before,.cell-reason::before{min-width:56px;font-size:11px}
+    .ranking-table td.cell-name{font-size:14px}
+    .ranking-table td.cell-price,
+    .ranking-table td.cell-change,
+    .ranking-table td.cell-volume,
+    .ranking-table td.cell-cap,
+    .ranking-table td.cell-sector,
+    .ranking-table td.cell-reason{font-size:12px}
+    .ranking-table td.cell-price::before,
+    .ranking-table td.cell-change::before,
+    .ranking-table td.cell-volume::before,
+    .ranking-table td.cell-cap::before,
+    .ranking-table td.cell-sector::before,
+    .ranking-table td.cell-reason::before{min-width:56px;font-size:11px}
     .report__summary{grid-template-columns:1fr 1fr;gap:6px}
     .summary-card{padding:12px}
     .summary-card__value{font-size:16px}
