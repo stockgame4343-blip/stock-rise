@@ -209,6 +209,11 @@ var StockTable = (function () {
             html += '<td class="cell-volume">' + formatTradingValue(r.trading_value) + '</td>';
             html += '<td class="cell-cap">' + formatAmount(r.market_cap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector || '-') + '</td>';
+            // 모바일 전용 compact meta 라인 (PC 에선 숨김)
+            html += '<td class="cell-meta-compact">' +
+                r.market + ' &middot; ' + (r.sector || '-') +
+                ' &middot; \uC2DC\uCD1D ' + formatAmount(r.market_cap) +
+                ' &middot; \uAC70\uB798 ' + formatTradingValue(r.trading_value) + '</td>';
             var rawTag = (ratingData.customTag != null ? ratingData.customTag : r.theme_tag) || '';
             var displayTag = ratingData.customTag != null ? rawTag : shortenTheme(rawTag);
             var isCustom = ratingData.customTag != null && ratingData.customTag !== r.theme_tag;
