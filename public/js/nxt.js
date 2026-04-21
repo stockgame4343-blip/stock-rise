@@ -204,13 +204,13 @@
             var prevChangeHtml = formatChangeCell(r.changeRate, r.change);
 
             // 모바일 전용 meta-compact 라인 (PC 에선 숨김)
-            // 대시보드와 동일 순서: 시장 · 섹터 · 시총 · 거래(NXT/본장) · 전일%
+            // 대시보드와 동일 순서: 시장 · 섹터 · 시총 · 거래(총합) · NXT거래 · 전일%
             var metaParts = [];
             if (r.market) metaParts.push(htmlEscape(r.market));
             if (r.sector) metaParts.push(htmlEscape(r.sector));
             if (r.marketCap) metaParts.push('시총 ' + formatKrw(r.marketCap));
+            if (r.totalTradingValue) metaParts.push('거래 ' + formatKrw(r.totalTradingValue));
             if (r.tradingValue) metaParts.push('NXT ' + formatKrw(r.tradingValue));
-            if (r.krxTradingValue) metaParts.push('본장 ' + formatKrw(r.krxTradingValue));
             if (r.changeRate != null) {
                 var prevSign = r.changeRate >= 0 ? '+' : '';
                 metaParts.push('전일 ' + prevSign + r.changeRate.toFixed(2) + '%');
@@ -226,7 +226,8 @@
             html += '<td class="cell-price">' + formatNumber(r.price) + '</td>';
             html += '<td class="cell-change">' + nxtChangeHtml + '</td>';
             html += '<td class="cell-change cell-change-prev">' + prevChangeHtml + '</td>';
-            html += '<td class="cell-volume">' + formatKrw(r.krxTradingValue) + '</td>';
+            // "거래대금" = NXT + 본장 총합, "NXT 거래대금" = NXT 세션만
+            html += '<td class="cell-volume">' + formatKrw(r.totalTradingValue) + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.tradingValue) + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.marketCap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector ? htmlEscape(r.sector) : '<span class="cell-empty">-</span>') + '</td>';
@@ -294,6 +295,14 @@
                 return r.json();
             })
             .then(function (data) {
+                // 총 거래대금 = NXT + 본장(KRX). "거래대금" 컬럼 표시 및 정렬 기준
+                ['gainers', 'losers'].forEach(function (side) {
+                    (data[side] || []).forEach(function (r) {
+                        var nxt = r.tradingValue || 0;
+                        var krx = r.krxTradingValue || 0;
+                        if (nxt || krx) r.totalTradingValue = nxt + krx;
+                    });
+                });
                 state.current = data;
                 state.idx = idx;
                 $loading.style.display = 'none';
