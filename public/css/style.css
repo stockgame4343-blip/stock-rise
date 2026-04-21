@@ -73,7 +73,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .loading{color:var(--accent)}
 
 /* ── 테이블 ── */
-.table-wrap{overflow-x:auto;margin-top:8px}
+.table-wrap{overflow-x:auto;margin-top:8px;padding-bottom:56px}
 .ranking-table{width:100%;border-collapse:collapse;min-width:1100px}
 .ranking-table thead{position:sticky;top:0;z-index:10}
 .ranking-table th{background:var(--bg-secondary);color:var(--text-secondary);font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:10px 12px;border-bottom:1px solid var(--border);white-space:nowrap}
