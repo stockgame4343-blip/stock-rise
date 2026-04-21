@@ -439,6 +439,11 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .compact-list--grid .compact-row__name{flex:1;min-width:0}
 .compact-list--grid .compact-row__tag,.compact-list--grid .compact-row__tag--break{margin-left:0}
 .compact-row__tag--break{font-size:11px;font-weight:600;color:var(--rise);margin-left:auto;background:rgba(255,71,87,.1);padding:2px 8px;border-radius:4px}
+.compact-row__tag--bounce{font-size:11px;font-weight:700;color:#fff;background:var(--rise);padding:2px 8px;border-radius:4px;margin-left:8px}
+
+/* NXT 페이지 */
+.nxt-delay-note{font-size:11px;color:var(--text-muted);background:var(--bg-tertiary);padding:4px 10px;border-radius:4px;border:1px solid var(--border-subtle)}
+.cell-empty{text-align:center;padding:32px;color:var(--text-muted)}
 
 /* 더보기 버튼 */
 .report__more-btn{display:block;width:100%;padding:14px;margin-top:8px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;transition:background .15s,color .15s}

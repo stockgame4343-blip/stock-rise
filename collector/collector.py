@@ -21,6 +21,7 @@ from news_crawler import (
 )
 from scorer import calculate_daejang_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason, load_user_bad_tags
 from naver_mapping import load_mapping, resolve_themes, resolve_industry, get_theme_rates
+from pullback_snapshot import build_snapshot as build_pullback_snapshot
 
 logging.basicConfig(
     level=logging.INFO,
@@ -195,14 +196,19 @@ def collect_sectors(tickers):
     return cached
 
 
-def collect_52w_highs(tickers):
-    """52주 최고가 및 달성일 수집 (차트 API)"""
+def collect_52w_highs(tickers, date_str=None):
+    """52주 최고가 및 달성일 수집 + 당일 장중 고점/저점 추출 (차트 API)
+
+    date_str: YYYYMMDD. None 이면 오늘 기준.
+    리턴: {ticker: {price, date, today_high, today_low}}
+    """
     import time
     from datetime import timedelta
     logger.info("[4/9] 52주 최고가 수집")
 
     end_date = datetime.now().strftime('%Y%m%d')
     start_date = (datetime.now() - timedelta(days=365)).strftime('%Y%m%d')
+    target_date = date_str or end_date
     high_52w_map = {}
 
     for idx, t in enumerate(tickers):
@@ -214,14 +220,17 @@ def collect_52w_highs(tickers):
 
             if data:
                 max_entry = max(data, key=lambda x: x.get('highPrice', 0))
+                today_entry = next((x for x in data if x.get('localDate') == target_date), None)
                 high_52w_map[t] = {
                     'price': int(max_entry.get('highPrice', 0)),
                     'date': max_entry.get('localDate', ''),
+                    'today_high': int(today_entry.get('highPrice', 0)) if today_entry else 0,
+                    'today_low': int(today_entry.get('lowPrice', 0)) if today_entry else 0,
                 }
             else:
-                high_52w_map[t] = {'price': 0, 'date': ''}
+                high_52w_map[t] = {'price': 0, 'date': '', 'today_high': 0, 'today_low': 0}
         except Exception:
-            high_52w_map[t] = {'price': 0, 'date': ''}
+            high_52w_map[t] = {'price': 0, 'date': '', 'today_high': 0, 'today_low': 0}
 
         if (idx + 1) % 20 == 0:
             logger.info(f"  52주 최고가 진행: {idx + 1}/{len(tickers)}")
@@ -274,8 +283,8 @@ def collect_and_save(date_str=None, mode='closing'):
         fallback_sectors = collect_sectors(unmapped_sector)
         sector_map.update(fallback_sectors)
 
-    # Step 4: 52주 최고가
-    high_52w_map = collect_52w_highs(tickers)
+    # Step 4: 52주 최고가 + 당일 장중 고점/저점
+    high_52w_map = collect_52w_highs(tickers, date_str)
 
     # Step 5: 뉴스
     logger.info("[5/9] 뉴스 수집")
@@ -418,6 +427,8 @@ def collect_and_save(date_str=None, mode='closing'):
             'industry_no': industry_no_map.get(t),
             'high_52w': high_52w_map.get(t, {}).get('price', 0),
             'high_52w_date': high_52w_map.get(t, {}).get('date', ''),
+            'high_price': high_52w_map.get(t, {}).get('today_high', 0),
+            'low_price': high_52w_map.get(t, {}).get('today_low', 0),
             'theme_tag': theme_tag,
             'theme_tags': theme_tags,
             'theme_no': theme_no,
@@ -468,6 +479,8 @@ def collect_and_save(date_str=None, mode='closing'):
             'industry_no': rs.get('industry_no'),
             'high_52w': rs['high_52w'],
             'high_52w_date': rs['high_52w_date'],
+            'high_price': rs.get('high_price', 0),
+            'low_price': rs.get('low_price', 0),
             'theme_tag': tag,
             'theme_tags': rs.get('theme_tags', [tag] if tag else []),
             'theme_no': rs.get('theme_no'),
@@ -502,6 +515,23 @@ def collect_and_save(date_str=None, mode='closing'):
 
     # 백테스트 데이터 기록
     append_backtest_data(date_str, rankings)
+
+    # 장마감(closing) 모드에서만 pullback 스냅샷 생성 후 재저장
+    # (intraday 는 매 수집마다 덮어쓰면 노이즈 커서 제외)
+    if mode == 'closing':
+        try:
+            import os
+            data_dir = os.path.join(
+                os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                'public', 'data'
+            )
+            logger.info('pullback 스냅샷 생성 시작 (closing)')
+            pullbacks = build_pullback_snapshot(date_str, data_dir, rankings)
+            daily_data['pullbacks'] = pullbacks
+            save_daily_data(date_str, daily_data)
+            logger.info(f'pullback 스냅샷 저장 완료: {len(pullbacks)}개')
+        except Exception as e:
+            logger.error(f'pullback 스냅샷 실패: {e}')
 
     logger.info(f"===== 수집 완료 v4: {len(rankings)}개 종목 (네이버 매핑) =====")
     return True

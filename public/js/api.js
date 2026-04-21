@@ -34,6 +34,7 @@ var StockAPI = (function () {
                     collected_at: data.collected_at || '',
                     is_final: data.is_final || false,
                     mode: data.mode || 'closing',
+                    pullbacks: data.pullbacks || null,  // 장마감 저장본 (없으면 null)
                 };
             });
     }

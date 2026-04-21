@@ -15,7 +15,7 @@ NAVER_MAPPING_PATH = os.path.join(COLLECTOR_DIR, 'naver_mapping.json')
 
 # 수집 설정
 TOP_N = 100
-DATA_RETENTION_DAYS = 90
+DATA_RETENTION_DAYS = 0  # 0 = 무한 보관 (cleanup_old_data 비활성화). 양수 설정 시 해당 일수 초과 JSON 자동 삭제
 NEWS_HISTORY_DAYS = 7
 
 # 크롤링 설정

@@ -1,0 +1,58 @@
+name: NXT 스냅샷 수집
+
+# 스케줄 (KST): 월~금 08:05, 16:05, 17:05, 18:05, 19:05, 20:05
+# GitHub Actions cron 은 UTC 기준
+#   KST 08:05 (화~토 UTC) = UTC 23:05 (월~금)  →  일(0) ~ 목(4)
+#   KST 16:05~20:05 (월~금 KST)               = UTC 07:05~11:05 (월~금)
+on:
+  schedule:
+    # KST 16:05, 17:05, 18:05, 19:05, 20:05 (월~금) = UTC 07:05~11:05 (월~금)
+    - cron: '5 7,8,9,10,11 * * 1-5'
+    # KST 08:05 (월~금) = UTC 23:05 (일~목)
+    - cron: '5 23 * * 0-4'
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Seoul
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Run NXT collector
+        run: |
+          cd collector
+          echo "=== NXT 수집 시작 (KST $(date +%H:%M)) ==="
+          for attempt in 1 2 3; do
+            echo "--- 시도 ${attempt}/3 ---"
+            if python nxt_collector.py; then
+              echo "수집 성공"
+              break
+            fi
+            if [ $attempt -eq 3 ]; then
+              echo "::error::3회 시도 모두 실패"
+              exit 1
+            fi
+            echo "실패 — 30초 후 재시도"
+            sleep 30
+          done
+
+      - name: Commit & push NXT data
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/data/nxt/
+          NOW=$(date +%H:%M)
+          TODAY=$(date +%Y%m%d)
+          git diff --staged --quiet || git commit -m "data: NXT ${TODAY} ${NOW} 스냅샷"
+          git pull --rebase origin master
+          git push

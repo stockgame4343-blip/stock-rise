@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StockRise — 넥스트장</title>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <script>
+    (function(){
+        var t = localStorage.getItem('theme') || 'dark';
+        if (t === 'light') document.documentElement.setAttribute('data-theme','light');
+    })();
+    </script>
+
+    <!-- ── 상단 타이틀 바 ── -->
+    <header class="top-bar">
+        <div class="top-bar__inner frame">
+            <a class="top-bar__logo" href="/">StockRise</a>
+            <nav class="top-bar__nav">
+                <a href="/" class="top-bar__link">대시보드</a>
+                <a href="/report.html" class="top-bar__link">리포트</a>
+                <a href="/nxt.html" class="top-bar__link top-bar__link--active">NXT</a>
+            </nav>
+            <div class="top-bar__right">
+                <span class="top-bar__updated" id="lastUpdated"></span>
+                <button class="theme-toggle" id="themeToggle" title="다크/라이트 모드 전환">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <div class="frame">
+        <!-- ── 툴바: 탭(상승/하락) · 스냅샷 네비게이션 ── -->
+        <nav class="toolbar">
+            <div class="toolbar__left">
+                <button class="tab active" data-side="gainers">상승 TOP 20</button>
+                <button class="tab" data-side="losers">하락 TOP 20</button>
+            </div>
+            <div class="report__date-bar">
+                <button class="date-nav" id="snapPrev" title="이전 스냅샷">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+                </button>
+                <span class="date-text" id="snapDisplay">-</span>
+                <span class="date-badge" id="snapBadge">최신</span>
+                <button class="date-nav" id="snapNext" title="다음 스냅샷">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+                </button>
+            </div>
+            <div class="toolbar__right">
+                <span class="nxt-delay-note">20분 지연</span>
+            </div>
+        </nav>
+
+        <!-- 로딩 / 에러 -->
+        <div class="message" id="message" style="display:none;"></div>
+        <div class="loading" id="loading" style="display:none;">NXT 시세 로드 중...</div>
+
+        <!-- NXT 테이블 -->
+        <div class="table-wrap">
+            <table class="ranking-table" id="nxtTable">
+                <thead>
+                    <tr>
+                        <th class="col-rank">#</th>
+                        <th class="col-name">종목명</th>
+                        <th class="col-price">현재가</th>
+                        <th class="col-change">전일대비</th>
+                        <th class="col-volume">거래대금</th>
+                        <th class="col-reason">상승이유</th>
+                    </tr>
+                </thead>
+                <tbody id="nxtBody"></tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ── 푸터 ── -->
+    <div class="footer">
+        <footer class="footer__wrap">
+            <div class="frame footer__inner">
+                <p class="footer__disclaimer">
+                    넥스트레이드(NXT) 시세는 <strong>20분 지연</strong> 데이터입니다. 투자 판단에 따른 손실은 본인에게 귀속되며, 본 사이트는 투자 자문이 아닙니다.
+                </p>
+                <p class="footer__copy">&copy; 2026 StockRise. 넥스트레이드 공식 데이터 기반.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/js/nxt.js"></script>
+</body>
+</html>

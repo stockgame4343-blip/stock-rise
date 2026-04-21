@@ -6,6 +6,12 @@
     var THEME_KEY = 'theme';
     var RATINGS_KEY = 'stock-ratings';
 
+    // 급등 → 조정 → 재반등 임계값 (backtest_pullback.py 결과 기반)
+    //   peak=20  n=504 조합 중 breakout 68.7% / double_top 5.4% / fwd60 +14.6%
+    var PEAK_PCT = 20;     // 급등 기준 (%)
+    var DROP_PCT = 20;     // 조정 기준 (%)
+    var REBOUND_PCT = 25;  // 재반등 기준 (%)
+
     var state = {
         dates: [],
         dateIndex: 0,
@@ -671,27 +677,75 @@
 
     // ── 급등 후 조정 분석 (과거 데이터 비교) ──
     function analyzePullbacks(currentDate, allDates) {
-        // 과거 30일 데이터에서 20%+ 급등 또는 신고가 돌파 종목 찾기
-        var pastDates = allDates.filter(function (d) { return d < currentDate; }).slice(0, 30);
+        // 과거 날짜: 장마감 저장본에서 종목/고점/저점 frozen, 현재가만 실시간 재조회 후 % 재계산
+        // 저장본 없으면 runtime 재계산
+        var isToday = (state.dateIndex === 0);
+        if (!isToday) {
+            return StockAPI.getRankings(currentDate, 'ALL').then(function (data) {
+                if (data && Array.isArray(data.pullbacks)) return refreshPullbackPrices(data.pullbacks);
+                return analyzePullbacksRuntime(currentDate, allDates);
+            }).catch(function () { return analyzePullbacksRuntime(currentDate, allDates); });
+        }
+        return analyzePullbacksRuntime(currentDate, allDates);
+    }
+
+    // ── 과거 스냅샷 pullbacks 의 현재가만 실시간 갱신 + dropPct/bouncePct 재계산 ──
+    // 종목 리스트·peakPrice·peakDate·postPeakLow 는 저장 당시 값 유지 (frozen).
+    // 실시간 조회 실패 종목은 frozen 값 그대로 유지.
+    function refreshPullbackPrices(frozen) {
+        if (!frozen || frozen.length === 0) return Promise.resolve(frozen || []);
+        var pricePromises = frozen.map(function (p) {
+            return StockAPI.getCurrentPrice(p.ticker)
+                .then(function (data) { return { ticker: p.ticker, price: data.price }; })
+                .catch(function () { return { ticker: p.ticker, price: null }; });
+        });
+        return batchProcess(pricePromises, 5).then(function (prices) {
+            var priceMap = {};
+            prices.forEach(function (x) { priceMap[x.ticker] = x.price; });
+            var updated = frozen.map(function (p) {
+                var livePrice = priceMap[p.ticker];
+                if (!livePrice || livePrice <= 0) return p;
+                var dropPct = ((p.peakPrice - livePrice) / p.peakPrice) * 100;
+                var low = (p.postPeakLow && p.postPeakLow > 0) ? p.postPeakLow : livePrice;
+                var bouncePct = low > 0 ? ((livePrice - low) / low * 100) : 0;
+                var next = {};
+                for (var k in p) { if (Object.prototype.hasOwnProperty.call(p, k)) next[k] = p[k]; }
+                next.currentPrice = livePrice;
+                next.dropPct = dropPct;
+                next.bouncePct = bouncePct;
+                next.bounceBack = bouncePct >= REBOUND_PCT;
+                return next;
+            });
+            updated.sort(function (a, b) { return b.dropPct - a.dropPct; });
+            return updated;
+        });
+    }
+
+    // ── runtime 재계산 로직 (기존 analyzePullbacks 본체) ──
+    function analyzePullbacksRuntime(currentDate, allDates) {
+        // 과거 90일 데이터에서 PEAK_PCT+ 급등 또는 신고가 돌파 종목 찾기
+        var pastDates = allDates.filter(function (d) { return d < currentDate; }).slice(0, 90);
         if (pastDates.length === 0) return Promise.resolve([]);
 
-        var peakStocks = {}; // ticker → { name, peakPrice, peakDate, reason }
+        var peakStocks = {}; // ticker → { name, peakPrice (장중 고점), peakDate, reason }
 
         var promises = pastDates.map(function (date) {
             return StockAPI.getRankings(date, 'ALL')
                 .then(function (data) {
                     (data.rankings || []).forEach(function (r) {
-                        var dominated = r.change_rate >= 20;
-                        var hitHigh = r.high_52w > 0 && r.close_price >= r.high_52w;
+                        // 장중 고점 우선, 없으면 종가 폴백
+                        var peakVal = r.high_price || r.close_price;
+                        var dominated = r.change_rate >= PEAK_PCT;
+                        var hitHigh = r.high_52w > 0 && peakVal >= r.high_52w;
                         if (!dominated && !hitHigh) return;
 
                         var existing = peakStocks[r.ticker];
-                        if (!existing || r.close_price > existing.peakPrice) {
+                        if (!existing || peakVal > existing.peakPrice) {
                             peakStocks[r.ticker] = {
                                 name: r.name,
                                 market: r.market,
                                 sector: r.sector,
-                                peakPrice: r.close_price,
+                                peakPrice: peakVal,
                                 peakDate: date,
                                 reason: dominated ? '+' + r.change_rate.toFixed(1) + '% 급등' : '52주 신고가',
                             };
@@ -722,7 +776,7 @@
                     if (!p.price) return;
                     var peak = peakStocks[p.ticker];
                     var dropPct = ((peak.peakPrice - p.price) / peak.peakPrice * 100);
-                    if (dropPct >= 25) {
+                    if (dropPct >= DROP_PCT) {
                         pullbacks.push({
                             ticker: p.ticker,
                             name: peak.name,
@@ -737,8 +791,43 @@
                     }
                 });
                 pullbacks.sort(function (a, b) { return b.dropPct - a.dropPct; });
-                return pullbacks;
+                return enrichBounce(pullbacks, currentDate);
             });
+        });
+    }
+
+    // ── pullback 후보의 peak 이후 저점 추출 + 반등률 계산 ──
+    function enrichBounce(pullbacks, currentDate) {
+        if (pullbacks.length === 0) return Promise.resolve(pullbacks);
+
+        var bouncePromises = pullbacks.map(function (p) {
+            // /api/chart-ohlc 프록시 (Vercel serverless) — 브라우저 CORS 우회
+            var url = '/api/chart-ohlc?ticker=' + p.ticker +
+                '&from=' + p.peakDate + '&to=' + currentDate;
+            return fetch(url)
+                .then(function (r) { return r.ok ? r.json() : []; })
+                .then(function (arr) {
+                    if (!arr || !arr.length) return { ticker: p.ticker, low: p.currentPrice };
+                    var after = arr.filter(function (x) { return x.localDate > p.peakDate; });
+                    if (!after.length) return { ticker: p.ticker, low: p.currentPrice };
+                    var lows = after.map(function (x) { return x.lowPrice || x.closePrice; })
+                        .filter(function (v) { return v && v > 0; });
+                    if (!lows.length) return { ticker: p.ticker, low: p.currentPrice };
+                    return { ticker: p.ticker, low: Math.min.apply(null, lows) };
+                })
+                .catch(function () { return { ticker: p.ticker, low: p.currentPrice }; });
+        });
+
+        return batchProcess(bouncePromises, 5).then(function (lows) {
+            var lowMap = {};
+            lows.forEach(function (x) { lowMap[x.ticker] = x.low; });
+            pullbacks.forEach(function (p) {
+                var low = lowMap[p.ticker] || p.currentPrice;
+                p.postPeakLow = low;
+                p.bouncePct = low > 0 ? (p.currentPrice - low) / low * 100 : 0;
+                p.bounceBack = p.bouncePct >= REBOUND_PCT;
+            });
+            return pullbacks;
         });
     }
 
@@ -1140,6 +1229,9 @@
             html += '<span class="compact-row__current">현재 ' + formatNumber(p.currentPrice) + '</span>';
             html += '</span>';
             html += '<span class="compact-row__rate compact-row__rate--down">-' + p.dropPct.toFixed(1) + '%</span>';
+            if (p.bounceBack) {
+                html += '<span class="compact-row__tag--bounce">저점 대비 +' + p.bouncePct.toFixed(1) + '%</span>';
+            }
             html += '<span class="compact-row__tag">' + p.reason + ' (' + formatDateKorean(p.peakDate) + ')</span>';
             html += '</a>';
         });

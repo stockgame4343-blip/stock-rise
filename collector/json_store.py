@@ -51,7 +51,10 @@ def update_dates_index():
 
 
 def cleanup_old_data():
-    """보관 기간(90일) 초과 JSON 삭제"""
+    """보관 기간 초과 JSON 삭제. DATA_RETENTION_DAYS<=0 이면 비활성화 (무한 보관)."""
+    if not DATA_RETENTION_DAYS or DATA_RETENTION_DAYS <= 0:
+        return
+
     cutoff = (datetime.now() - timedelta(days=DATA_RETENTION_DAYS)).strftime('%Y%m%d')
     removed = 0
 
