@@ -128,10 +128,11 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .cell-change--up{color:var(--rise)}
 .cell-change--down{color:var(--fall)}
 .change-rate{font-size:12px;opacity:.8}
-.cell-volume{text-align:right}
-.cell-cap{text-align:right;color:var(--text-secondary)}
-.cell-sector{font-size:12px;color:var(--text-secondary)}
-.cell-reason{font-size:12px;color:var(--text-primary);line-height:1.5;max-width:260px;text-align:left}
+/* .ranking-table td 와 specificity 동률 맞추기 위해 .ranking-table 접두어 사용 */
+.ranking-table td.cell-volume{text-align:right}
+.ranking-table td.cell-cap{text-align:right}
+.ranking-table td.cell-sector{font-size:12px;color:var(--text-secondary);white-space:nowrap}
+.ranking-table td.cell-reason{font-size:12px;color:var(--text-primary);line-height:1.5;max-width:260px;text-align:left}
 .theme-tag{display:inline-block;font-size:11px;font-weight:600;padding:1px 6px;border-radius:3px;margin-right:5px;background:rgba(91,157,249,.12);color:var(--accent);white-space:nowrap;cursor:pointer}
 .theme-tag:hover{background:rgba(91,157,249,.25)}
 .theme-tag--custom{background:rgba(46,213,115,.15);color:var(--green)}
@@ -447,12 +448,11 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .nxt-delay-note{font-size:11px;color:var(--text-muted);background:var(--bg-tertiary);padding:4px 10px;border-radius:4px;border:1px solid var(--border-subtle)}
 .cell-empty{text-align:center;padding:32px;color:var(--text-muted)}
 
-/* NXT 테이블 전용 컬럼 */
+/* NXT 테이블 전용 컬럼 (cell-sector 는 공용 .ranking-table td.cell-sector 에 위임) */
 .nxt-table .col-marketcap{width:96px;text-align:right}
 .nxt-table .col-themes{min-width:220px;text-align:left}
 .nxt-table .cell-themes{font-size:0;line-height:1.8;padding:8px 10px}
 .nxt-table .cell-themes .theme-tag{font-size:11px;margin:2px 3px 2px 0;white-space:nowrap}
-.nxt-table .cell-sector{font-size:12px;color:var(--text-secondary);white-space:nowrap}
 .nxt-table .cell-empty{padding:0;color:var(--text-muted)}
 
 /* 더보기 버튼 */
