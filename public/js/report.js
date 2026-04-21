@@ -654,13 +654,14 @@
             .sort(function (a, b) { return b.count - a.count; });
         result.themes = result.allThemes.slice(0, 5);
 
-        // 4) 52주 신고가 / 근접
+        // 4) 52주 신고가 / 근접 — 장중 고점(high_price) 우선, 없으면 종가 폴백 (pullback 섹션과 통일)
         var highList = [];
         var nearHighList = [];
         rankings.forEach(function (r) {
             var h = r.high_52w || 0;
             if (h <= 0) return;
-            var ratio = r.close_price / h;
+            var peakVal = r.high_price || r.close_price;
+            var ratio = peakVal / h;
             if (ratio >= 1.0) {
                 highList.push({ stock: r, ratio: ratio });
             } else if (ratio >= 0.9) {
