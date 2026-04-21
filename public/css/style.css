@@ -110,15 +110,18 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .float-controls{position:absolute;left:0;top:calc(100% + 2px);z-index:20;display:flex;align-items:center;gap:6px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:8px;padding:6px 10px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .15s .12s;white-space:nowrap}
 /* 투명 브릿지: 트리거→패널 사이 gap을 메워서 호버 유지 */
 .float-controls::before{content:'';position:absolute;left:-12px;right:-12px;top:-10px;height:10px}
-/* 호버 트리거: 종목명 영역 (각 컨텍스트별 부모) */
-.ctrl-wrap:hover .float-controls,
-.ctrl-wrap.is-open .float-controls,
-.cell-name__wrap:hover .float-controls,
-.sector-card__stock:hover .float-controls,
-.stock-card__top:hover .float-controls,
-.compact-row:hover .float-controls,
-.detail-stock:hover .float-controls,
-.float-controls:hover{opacity:1;pointer-events:auto;transition-delay:0s}
+/* 탭 토글 (모바일 ⋯ 버튼): hover 지원 여부와 무관하게 항상 작동 */
+.ctrl-wrap.is-open .float-controls{opacity:1;pointer-events:auto;transition-delay:0s}
+/* 호버 트리거: 마우스 호버가 진짜 있는 장치에서만 (모바일 터치의 sticky-hover 회피) */
+@media (hover: hover){
+    .ctrl-wrap:hover .float-controls,
+    .cell-name__wrap:hover .float-controls,
+    .sector-card__stock:hover .float-controls,
+    .stock-card__top:hover .float-controls,
+    .compact-row:hover .float-controls,
+    .detail-stock:hover .float-controls,
+    .float-controls:hover{opacity:1;pointer-events:auto;transition-delay:0s}
+}
 .ctrl-toggle{display:none;background:none;border:none;padding:0;color:var(--text-muted);cursor:pointer;line-height:1}
 .cell-price{text-align:right;font-weight:600}
 .cell-change{text-align:right}
@@ -732,6 +735,15 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
         color:var(--text-muted);
     }
     .ctrl-toggle:active{background:var(--bg-tertiary,rgba(255,255,255,.12))}
+    /* 모바일: 호버 기반 오픈 규칙 전부 취소 (sticky-hover 로 탭 시 오작동 방지) —
+       Preview 에뮬레이션이 hover:hover 를 여전히 true 로 보내므로 안전망 */
+    .ctrl-wrap:hover .float-controls,
+    .cell-name__wrap:hover .float-controls,
+    .sector-card__stock:hover .float-controls,
+    .stock-card__top:hover .float-controls,
+    .compact-row:hover .float-controls,
+    .detail-stock:hover .float-controls,
+    .float-controls:hover{opacity:0;pointer-events:none;transition-delay:.12s}
     /* 패널 앵커를 cell-name__wrap 로 이동 (ctrl-wrap 은 너무 작음) */
     .cell-name__wrap{position:relative}
     .ctrl-wrap{position:static}
