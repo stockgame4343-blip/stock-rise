@@ -220,9 +220,10 @@ var StockTable = (function () {
                 var diff = ((r.current_price - r.close_price) / r.close_price * 100).toFixed(2);
                 var cls = diff > 0 ? 'cell-compare--up' : (diff < 0 ? 'cell-compare--down' : 'cell-compare--neutral');
                 var sign = diff > 0 ? '+' : '';
+                var arrow = diff > 0 ? '▲' : (diff < 0 ? '▼' : '');
                 html += '<td class="cell-compare ' + cls + '">' +
                     formatNumber(r.current_price) + '<br>' +
-                    sign + diff + '%</td>';
+                    arrow + sign + diff + '%</td>';
             } else if (isPast) {
                 html += '<td class="cell-compare cell-compare--neutral">-</td>';
             }

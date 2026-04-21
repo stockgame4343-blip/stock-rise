@@ -21,7 +21,15 @@
     };
 
     // 문자열 정렬 컬럼
-    var STRING_COLS = { sector: true };
+    var STRING_COLS = { sector: true, themes: true };
+
+    // 컬럼별 실제 비교 값 (r[key] 대신 파생값이 필요한 경우)
+    function sortValue(r, key) {
+        if (key === 'themes') {
+            return (r.themes && r.themes[0]) || '';
+        }
+        return r[key];
+    }
 
     // DOM
     var $body = document.getElementById('nxtBody');
@@ -80,6 +88,15 @@
             .replace(/>/g, '&gt;')
             .replace(/"/g, '&quot;');
     }
+    // 대시보드(table.js) 와 동일: 괄호 속 부연 제거 + 12자 커트
+    function shortenTheme(name, maxLen) {
+        if (!name) return name;
+        maxLen = maxLen || 12;
+        var short = name.replace(/\(.*?\)/g, '').trim();
+        if (!short) return name;
+        if (short.length > maxLen) short = short.substring(0, maxLen) + '…';
+        return short;
+    }
 
     // ── 테마 토글 ──
     function currentTheme() {
@@ -114,8 +131,8 @@
         var dir = state.sort.dir === 'asc' ? 1 : -1;
         var isString = !!STRING_COLS[key];
         list.sort(function (a, b) {
-            var va = a[key];
-            var vb = b[key];
+            var va = sortValue(a, key);
+            var vb = sortValue(b, key);
             if (isString) {
                 va = va || '';
                 vb = vb || '';
@@ -136,13 +153,15 @@
     function renderSortArrows() {
         $sortHeaders.forEach(function (th) {
             var key = th.getAttribute('data-sort');
-            var arrow = th.querySelector('.sort-arrow');
-            if (!arrow) return;
+            var icon = th.querySelector('.sort-icon');
+            if (!icon) return;
             if (state.sort.key === key) {
-                arrow.textContent = state.sort.dir === 'asc' ? ' ▲' : ' ▼';
+                icon.innerHTML = state.sort.dir === 'asc' ? '&#9650;' : '&#9660;';
+                icon.classList.add('sort-icon--active');
                 th.classList.add('nxt-sorted');
             } else {
-                arrow.textContent = '';
+                icon.innerHTML = '&#9660;';
+                icon.classList.remove('sort-icon--active');
                 th.classList.remove('nxt-sorted');
             }
         });
@@ -163,11 +182,15 @@
         var html = '';
         list.forEach(function (r, i) {
             var detailUrl = 'https://finance.naver.com/item/main.naver?code=' + r.ticker;
+            // 대시보드와 동일 규칙: primary 1개 + 보조 1개(있고 primary와 다를 때만)
             var themesHtml = '<span class="cell-empty">-</span>';
             if (r.themes && r.themes.length) {
-                themesHtml = r.themes.map(function (n) {
-                    return '<span class="theme-tag">' + htmlEscape(n) + '</span>';
-                }).join('');
+                var primary = shortenTheme(r.themes[0]);
+                var sub = r.themes.length > 1 ? shortenTheme(r.themes[1]) : '';
+                if (sub && sub === primary) sub = '';
+                var parts = ['<span class="theme-tag">' + htmlEscape(primary) + '</span>'];
+                if (sub) parts.push('<span class="theme-tag theme-tag--sub">' + htmlEscape(sub) + '</span>');
+                themesHtml = parts.join('');
             }
             // NXT 변동 (nxtChangeRate/nxtChange) — 없으면 '-'
             var nxtChangeHtml = formatChangeCell(
@@ -186,8 +209,8 @@
             html += '<td class="cell-price">' + formatNumber(r.price) + '</td>';
             html += '<td class="cell-change">' + nxtChangeHtml + '</td>';
             html += '<td class="cell-change">' + prevChangeHtml + '</td>';
-            html += '<td class="cell-volume">' + formatKrw(r.tradingValue) + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.krxTradingValue) + '</td>';
+            html += '<td class="cell-volume">' + formatKrw(r.tradingValue) + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.marketCap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector ? htmlEscape(r.sector) : '<span class="cell-empty">-</span>') + '</td>';
             html += '<td class="cell-themes">' + themesHtml + '</td>';
