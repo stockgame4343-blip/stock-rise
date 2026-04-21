@@ -12,6 +12,9 @@
     "memo": "",
     "stars": 0
   },
+  "123320": {
+    "excluded": true
+  },
   "123750": {
     "excluded": true
   },
@@ -31,7 +34,8 @@
     "excluded": true
   },
   "189330": {
-    "excluded": true
+    "excluded": false,
+    "stars": 1
   },
   "201490": {},
   "203650": {
@@ -57,6 +61,15 @@
   "243880": {
     "excluded": true
   },
+  "252400": {
+    "excluded": true
+  },
+  "253150": {
+    "excluded": true
+  },
+  "253250": {
+    "excluded": true
+  },
   "258790": {
     "excluded": true
   },
@@ -65,6 +78,9 @@
   },
   "287840": {},
   "298020": {
+    "excluded": true
+  },
+  "304780": {
     "excluded": true
   },
   "306040": {},
@@ -103,12 +119,18 @@
     "excluded": false
   },
   "408470": {},
+  "412570": {
+    "excluded": true
+  },
   "415920": {
     "excluded": true
   },
   "417200": {},
   "417840": {},
   "419530": {},
+  "419650": {
+    "excluded": true
+  },
   "424760": {
     "excluded": true
   },
@@ -130,8 +152,14 @@
   "459790": {
     "excluded": true
   },
+  "462330": {
+    "excluded": true
+  },
   "488280": {},
   "489790": {
+    "excluded": true
+  },
+  "500037": {
     "excluded": true
   },
   "500082": {
@@ -149,7 +177,13 @@
   "520093": {
     "excluded": true
   },
+  "520098": {
+    "excluded": true
+  },
   "530031": {
+    "excluded": true
+  },
+  "530036": {
     "excluded": true
   },
   "530133": {
@@ -188,10 +222,19 @@
   "570117": {
     "excluded": true
   },
+  "570118": {
+    "excluded": true
+  },
+  "580039": {
+    "excluded": true
+  },
   "580055": {
     "excluded": true
   },
   "580068": {
+    "excluded": true
+  },
+  "580071": {
     "excluded": true
   },
   "580081": {
@@ -209,6 +252,9 @@
   "610095": {
     "excluded": true
   },
+  "610096": {
+    "excluded": true
+  },
   "610101": {
     "excluded": true
   },
@@ -223,6 +269,9 @@
     "excluded": true
   },
   "700031": {
+    "excluded": true
+  },
+  "760011": {
     "excluded": true
   },
   "900070": {
@@ -328,5 +377,10 @@
   },
   "012030": {
     "excluded": true
+  },
+  "045510": {
+    "stars": 5,
+    "excluded": true,
+    "memo": "dd"
   }
 }
