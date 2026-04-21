@@ -20,17 +20,17 @@ var StockTable = (function () {
     }
 
     function formatAmount(n) {
+        // NXT formatKrw 와 동일: 억/조 단위 + 콤마 없음 (짧고 깔끔)
         if (n == null || n === 0) return '-';
         if (n >= 1e12) return (n / 1e12).toFixed(1) + '조';
-        if (n >= 1e8) return Math.round(n / 1e8).toLocaleString('ko-KR') + '억';
-        if (n >= 1e4) return Math.round(n / 1e4).toLocaleString('ko-KR') + '만';
+        if (n >= 1e8) return Math.round(n / 1e8) + '억';
+        if (n >= 1e4) return Math.round(n / 1e4) + '만';
         return formatNumber(n);
     }
 
     function formatTradingValue(n) {
-        if (n == null || n === 0) return '-';
-        var millions = Math.round(n / 1e6);
-        return formatNumber(millions) + '백만';
+        // 리포트/NXT 와 동일한 억/조 단위로 통일 ("668,008백만" → "6,680억")
+        return formatAmount(n);
     }
 
     function formatChange(amount, rate) {

@@ -58,9 +58,11 @@
     }
 
     function formatAmount(n) {
+        // 대시보드/NXT 와 동일: 조/억/만 단위 + 콤마 없음
         if (n == null || n === 0) return '-';
         if (n >= 1e12) return (n / 1e12).toFixed(1) + '조';
-        if (n >= 1e8) return Math.round(n / 1e8).toLocaleString('ko-KR') + '억';
+        if (n >= 1e8) return Math.round(n / 1e8) + '억';
+        if (n >= 1e4) return Math.round(n / 1e4) + '만';
         return formatNumber(n);
     }
 
