@@ -598,7 +598,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
         font-weight:700;
         font-size:15px;
         min-width:0;
-        overflow:hidden;
+        /* overflow:hidden 제거 — .float-controls 패널이 셀 밖으로 나와야 함 (호버/탭 시)
+           종목명 ellipsis 는 .cell-name__link 에서 처리 */
     }
     /* gap: 4px row / 14px column — 종목명 ↔ ⋮ 간격 확보 (오탭 방지) */
     .cell-name__wrap{flex-wrap:wrap;gap:4px 14px;min-width:0}
