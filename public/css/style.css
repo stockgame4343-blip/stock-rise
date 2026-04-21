@@ -169,6 +169,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .score-detail{font-size:11px;color:var(--text-muted);margin-top:2px;white-space:nowrap}
 .score-click{cursor:pointer;transition:opacity .15s}
 .score-click:hover{opacity:.7}
+/* 모바일 전용 미니 점수 배지 — PC 에서는 숨김 (cell-score td 가 대신 표시) */
+.score-click--mini{display:none}
 
 /* 메모 버튼 */
 .memo-btn{background:none;border:1px solid var(--border);color:var(--text-muted);width:18px;height:18px;border-radius:3px;cursor:pointer;font-size:10px;display:inline-flex;align-items:center;justify-content:center;transition:all .15s;padding:0}
@@ -563,8 +565,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .ranking-table tbody{display:block}
     .ranking-table tr{
         display:grid;
-        /* rank | name(flex) | price | change | score  — 한 줄에 몰아넣음 */
-        grid-template-columns:auto minmax(0,1fr) auto auto auto;
+        /* rank | name+mini점수 | price | change — 점수는 종목명 옆으로 이동 (4열) */
+        grid-template-columns:auto minmax(0,1fr) auto auto;
         column-gap:8px;
         row-gap:6px;
         padding:12px 14px;
@@ -629,16 +631,24 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     }
     /* 변동폭 + 퍼센트 2줄 스택 (공간 절약) */
     .cell-change .change-rate{margin-left:0;font-size:11px}
-    .cell-score{
-        grid-column:5;
-        grid-row:1;
-        align-self:center;
-        text-align:right;
-    }
+    /* 모바일: 점수 셀은 숨김 (미니 뱃지가 종목명 옆에 들어감) */
+    .ranking-table td.cell-score{display:none}
     /* 상세 점수 (TP/TL/TI) 모바일에선 숨김 — 탭하면 팝업에서 확인 */
     .score-detail{display:none}
-    /* 점수 뱃지 살짝 키움 (탭 타겟 확보 + 시인성) */
-    .score-badge{width:50px;height:40px;font-size:16px;border-radius:8px}
+    /* 미니 점수 배지 (종목명 인라인) */
+    .score-click--mini{display:inline-flex;align-items:center;cursor:pointer}
+    .score-badge.score-badge--mini{
+        width:auto;
+        min-width:28px;
+        height:22px;
+        padding:0 7px;
+        font-size:12px;
+        font-weight:700;
+        border-radius:5px;
+        line-height:22px;
+    }
+    /* 종목명 링크: 모바일에선 점수 팝업으로 리디렉트되므로 시각 단서 조정 */
+    .cell-name__link{cursor:pointer}
 
     /* Compact meta: market · sector · 시총 · 거래 한 줄 */
     /* .ranking-table td{display:block} 과 같은 specificity 경쟁 피하려고 td 붙임 */

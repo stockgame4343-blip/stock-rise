@@ -382,6 +382,15 @@
             if (ticker) openScoreDetail(ticker);
             return;
         }
+
+        // 모바일: 종목명 링크 클릭 시 네이버 대신 대장점수 팝업 (네이버는 팝업 헤더의 N 버튼으로)
+        var nameLink = e.target.closest('.cell-name__link');
+        if (nameLink && window.innerWidth <= 768) {
+            e.preventDefault();
+            var ticker = nameLink.getAttribute('data-ticker');
+            if (ticker) openScoreDetail(ticker);
+            return;
+        }
     }
 
     // ── 메모 모달 ──

@@ -55,12 +55,15 @@ var StockTable = (function () {
         return '<span class="intensity-badge intensity-badge--' + cls + '">' + intensity + '</span>';
     }
 
+    function scoreCls(score) {
+        if (score >= 70) return 'high';
+        if (score >= 40) return 'mid';
+        if (score > 0) return 'low';
+        return 'none';
+    }
+
     function scoreBadge(score, detail, ticker) {
-        var cls;
-        if (score >= 70) cls = 'high';
-        else if (score >= 40) cls = 'mid';
-        else if (score > 0) cls = 'low';
-        else cls = 'none';
+        var cls = scoreCls(score);
 
         var html = '<div class="score-click" data-ticker="' + ticker + '">';
         html += '<span class="score-badge score-badge--' + cls + '">' + score + '</span>';
@@ -82,6 +85,14 @@ var StockTable = (function () {
         return html;
     }
 
+    // 모바일 전용 미니 점수 배지 (종목명 옆 인라인) — PC 에서는 CSS로 숨김
+    function scoreBadgeMini(score, ticker) {
+        var cls = scoreCls(score);
+        return '<span class="score-click score-click--mini" data-ticker="' + ticker + '">' +
+            '<span class="score-badge score-badge--' + cls + ' score-badge--mini">' + score + '</span>' +
+            '</span>';
+    }
+
     function starRatingHtml(ticker, ratings) {
         var rating = ratings[ticker] || {};
         var stars = rating.stars || 0;
@@ -92,8 +103,9 @@ var StockTable = (function () {
         var html = '<span class="ctrl-wrap">';
 
         // 모바일 토글 버튼 (PC 에선 hover 로 동작, 모바일에선 탭으로 열기)
+        // 아이콘: ⋯ (U+22EF, 수평 점 — iOS 스타일 "더보기")
         html += '<button class="ctrl-toggle" type="button" data-ticker="' +
-            ticker + '" aria-label="\uD3C9\uAC00">\u22EE</button>';
+            ticker + '" aria-label="\uD3C9\uAC00">\u22EF</button>';
 
         // 플로팅 컨트롤 패널 (PC: hover / 모바일: .is-open 클래스)
         html += '<div class="float-controls" data-ticker="' + ticker + '">';
@@ -192,7 +204,8 @@ var StockTable = (function () {
             html += '<tr' + (isExcluded ? ' class="row--excluded"' : '') + '>';
             html += '<td class="cell-rank">' + r.rank + '</td>';
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
-                '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link">' + r.name + '</a>' +
+                '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link" data-ticker="' + r.ticker + '">' + r.name + '</a>' +
+                scoreBadgeMini(r.score, r.ticker) +
                 '<span class="cell-name__market">' + r.market + '</span>' +
                 starRatingHtml(r.ticker, ratings) +
                 '</div></td>';
