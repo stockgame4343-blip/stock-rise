@@ -215,14 +215,15 @@ var StockTable = (function () {
                 '</div></td>';
             html += '<td class="cell-price">' + formatNumber(r.close_price) + '</td>';
 
-            // 현재가 비교 (과거일 때만)
+            // 현재가 비교 (과거일 때만) — 대시보드 전일대비와 동일 포맷
             if (isPast && r.current_price != null) {
                 var diff = ((r.current_price - r.close_price) / r.close_price * 100).toFixed(2);
                 var cls = diff > 0 ? 'cell-compare--up' : (diff < 0 ? 'cell-compare--down' : 'cell-compare--neutral');
                 var sign = diff > 0 ? '+' : '';
+                var arrow = diff > 0 ? '\u25B2' : (diff < 0 ? '\u25BC' : '');
                 html += '<td class="cell-compare ' + cls + '">' +
-                    formatNumber(r.current_price) + '<br>' +
-                    sign + diff + '%</td>';
+                    arrow + formatNumber(r.current_price) +
+                    '<br><span class="change-rate">(' + sign + diff + '%)</span></td>';
             } else if (isPast) {
                 html += '<td class="cell-compare cell-compare--neutral">-</td>';
             }

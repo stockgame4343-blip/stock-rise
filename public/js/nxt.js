@@ -50,13 +50,18 @@
         return Math.round(n).toLocaleString('ko-KR');
     }
     function formatChangeCell(rate, change) {
+        // 대시보드 전일대비와 동일 포맷: ▲+1,560 / (+30.00%)
         if (rate == null) return '<span class="cell-empty">-</span>';
         var cls = rate >= 0 ? 'cell-change--up' : 'cell-change--down';
         var sign = rate >= 0 ? '+' : '';
-        var changeStr = change != null ? (sign + formatNumber(change)) : '';
-        var rateStr = sign + rate.toFixed(2) + '%';
-        return '<span class="' + cls + '">' +
-            (changeStr ? (changeStr + '<br>') : '') + rateStr + '</span>';
+        var arrow = rate > 0 ? '\u25B2' : (rate < 0 ? '\u25BC' : '');
+        var line1 = change != null
+            ? (arrow + sign + formatNumber(change))
+            : (arrow + sign + rate.toFixed(2) + '%');
+        var rateStr = '(' + sign + rate.toFixed(2) + '%)';
+        return '<span class="' + cls + '">' + line1 +
+            (change != null ? ('<br><span class="change-rate">' + rateStr + '</span>') : '') +
+            '</span>';
     }
     function formatKrw(v) {
         if (v == null || !v) return '-';
