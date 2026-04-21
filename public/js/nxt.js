@@ -22,13 +22,18 @@
     var $snapNext = document.getElementById('snapNext');
     var $themeToggle = document.getElementById('themeToggle');
     var $tabs = document.querySelectorAll('.tab[data-side]');
+    var $colChangeHeader = document.getElementById('colChangeHeader');
 
     // ── 유틸 ──
     function formatNumber(n) {
         if (n == null) return '-';
         return Math.round(n).toLocaleString('ko-KR');
     }
-    function formatChange(change, rate) {
+    function formatChange(r) {
+        // nxtChangeRate 있으면 (postmarket + KRX 종가 매칭) NXT 세션 한정 변동 우선
+        var hasNxt = r.nxtChangeRate !== undefined && r.nxtChangeRate !== null;
+        var rate = hasNxt ? r.nxtChangeRate : r.changeRate;
+        var change = hasNxt ? r.nxtChange : r.change;
         var cls = rate >= 0 ? 'cell-change--up' : 'cell-change--down';
         var sign = rate >= 0 ? '+' : '';
         var changeStr = sign + formatNumber(change);
@@ -98,7 +103,7 @@
                 '<span class="cell-name__market">' + (r.market || 'NXT') + '</span>' +
                 '</div></td>';
             html += '<td class="cell-price">' + formatNumber(r.price) + '</td>';
-            html += '<td class="cell-change">' + formatChange(r.change, r.changeRate) + '</td>';
+            html += '<td class="cell-change">' + formatChange(r) + '</td>';
             html += '<td class="cell-volume">' + formatTradingValue(r.tradingValue) + '</td>';
             html += '<td class="cell-reason">' +
                 (r.reason ? '<span class="theme-tag">' + r.reason + '</span>' : '<span class="cell-reason__text">-</span>') +
@@ -122,6 +127,21 @@
         }
         $snapPrev.disabled = state.idx >= state.snapshots.length - 1;
         $snapNext.disabled = state.idx <= 0;
+    }
+
+    function renderColChangeHeader() {
+        if (!$colChangeHeader) return;
+        var snap = state.current;
+        if (snap && snap.nxtChangeEnriched) {
+            $colChangeHeader.textContent = 'NXT 변동';
+            $colChangeHeader.title = '본장 종가 대비 NXT 애프터마켓 변동';
+        } else if (snap && snap.session === 'premarket') {
+            $colChangeHeader.textContent = 'NXT 변동';
+            $colChangeHeader.title = '전일 종가 대비 NXT 프리마켓 변동';
+        } else {
+            $colChangeHeader.textContent = '전일대비';
+            $colChangeHeader.removeAttribute('title');
+        }
     }
 
     function showMessage(msg) {
@@ -154,6 +174,7 @@
                 state.idx = idx;
                 $loading.style.display = 'none';
                 renderSnapInfo();
+                renderColChangeHeader();
                 renderTable();
             });
     }

@@ -18,6 +18,7 @@
   "losers":  [...20]
 }
 """
+import concurrent.futures
 import json
 import logging
 import os
@@ -91,8 +92,104 @@ def classify_session(now_kst):
     return 'regular'
 
 
+def load_krx_close_map(date_str):
+    """당일 KRX 장마감 종가 맵 (ticker → close_price) — 메인 rankings JSON 기반.
+
+    장마감 collector 가 저장한 TOP 100 rankings 에서만 추출. 랭킹 밖 종목은
+    fetch_krx_close_naver 로 보완 필요.
+    """
+    path = os.path.join(ROOT, 'public', 'data', f'{date_str}.json')
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+        result = {}
+        for r in data.get('rankings', []):
+            t = r.get('ticker')
+            cp = r.get('close_price')
+            if t and cp and cp > 0:
+                result[t] = int(cp)
+        return result
+    except Exception as e:
+        logger.warning(f'  KRX close map 로드 실패: {e}')
+        return {}
+
+
+_NAVER_CHART_HEADERS = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+    'Accept': 'application/json',
+}
+
+
+def _fetch_krx_close_one(ticker, date_str, timeout=5):
+    """Naver chart API 로 단일 ticker 의 date_str 종가 조회. 실패 시 0."""
+    url = (
+        f'https://api.stock.naver.com/chart/domestic/item/{ticker}/day'
+        f'?startDateTime={date_str}&endDateTime={date_str}'
+    )
+    try:
+        req = urllib.request.Request(url, headers=_NAVER_CHART_HEADERS)
+        with urllib.request.urlopen(req, timeout=timeout) as resp:
+            data = json.loads(resp.read().decode('utf-8')) or []
+        for x in data:
+            if x.get('localDate') == date_str:
+                return int(x.get('closePrice') or 0)
+        if data:
+            return int(data[0].get('closePrice') or 0)
+    except Exception:
+        return 0
+    return 0
+
+
+def fetch_krx_close_naver(tickers, date_str, max_workers=20):
+    """Naver chart API 병렬 호출로 여러 ticker 의 KRX 종가 조회.
+
+    rankings 에 없는 종목 보완용. 20 워커 동시 실행.
+    """
+    if not tickers:
+        return {}
+    result = {}
+    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as ex:
+        futures = {ex.submit(_fetch_krx_close_one, t, date_str): t for t in tickers}
+        for fut in concurrent.futures.as_completed(futures):
+            t = futures[fut]
+            try:
+                cp = fut.result()
+                if cp and cp > 0:
+                    result[t] = cp
+            except Exception:
+                pass
+    return result
+
+
+def enrich_nxt_change(items, krx_close_map):
+    """각 item 에 NXT 세션 한정 변동 필드 부착.
+
+    nxtChange: NXT 가격 - KRX 종가
+    nxtChangeRate: 비율 (%)
+    krxClose: KRX 종가 (참조용)
+
+    KRX 종가 없는 종목은 필드 추가 안 함 (JS 에서 changeRate 로 폴백).
+    """
+    for x in items:
+        krx_close = krx_close_map.get(x['ticker'])
+        if not krx_close or krx_close <= 0:
+            continue
+        nxt_change = x['price'] - krx_close
+        nxt_change_rate = (nxt_change / krx_close) * 100
+        x['krxClose'] = krx_close
+        x['nxtChange'] = nxt_change
+        x['nxtChangeRate'] = round(nxt_change_rate, 2)
+    return items
+
+
 def build_snapshot():
-    """상승 TOP N + 하락 TOP N 스냅샷 구성."""
+    """상승 TOP N + 하락 TOP N 스냅샷 구성.
+
+    postmarket 세션: 본장 종가 대비 NXT 변동 계산, nxtChangeRate 기준 정렬.
+    premarket 세션: 전일 종가 대비 변동 (= NXT 프리마켓 변동).
+    """
     now_kst = datetime.now(KST)
     raw = fetch_nxt_all()
     items_raw = raw.get('brdinfoTimeList') or []
@@ -104,19 +201,51 @@ def build_snapshot():
     # 거래량이 없거나 창구 집계 이상치(0원) 제외
     slim = [s for s in slim if s['price'] > 0]
 
-    gainers = sorted(slim, key=lambda s: s['changeRate'], reverse=True)[:TOP_N]
-    losers = sorted(slim, key=lambda s: s['changeRate'])[:TOP_N]
+    session = classify_session(now_kst)
+    today = now_kst.strftime('%Y%m%d')
+    krx_close_enriched = False
+
+    if session == 'postmarket':
+        # 1차: 메인 rankings JSON 에서 TOP 100 종가 확보 (빠름)
+        krx_close_map = load_krx_close_map(today)
+
+        # 2차: 랭킹 밖 종목들은 Naver API 병렬 fetch (20 워커)
+        all_tickers = {s['ticker'] for s in slim}
+        missing = [t for t in all_tickers if t not in krx_close_map]
+        if missing:
+            logger.info(f'  랭킹 밖 {len(missing)}개 종목 KRX 종가 병렬 fetch 시작...')
+            extra = fetch_krx_close_naver(missing, today)
+            krx_close_map.update(extra)
+            logger.info(f'  fetch 완료: {len(extra)}/{len(missing)}개 매칭')
+
+        if krx_close_map:
+            enrich_nxt_change(slim, krx_close_map)
+            krx_close_enriched = True
+            logger.info(f'  NXT 세션 변동 계산: 총 KRX 종가 {len(krx_close_map)}개 매칭')
+        else:
+            logger.info('  KRX 종가 전혀 없음 — 전일대비 기준 정렬 폴백')
+
+    # postmarket + KRX 종가 있으면 nxtChangeRate 기준 정렬, 아니면 changeRate 기준
+    if krx_close_enriched:
+        def sort_val(s):
+            return s.get('nxtChangeRate') if s.get('nxtChangeRate') is not None else s['changeRate']
+        gainers = sorted(slim, key=sort_val, reverse=True)[:TOP_N]
+        losers = sorted(slim, key=sort_val)[:TOP_N]
+    else:
+        gainers = sorted(slim, key=lambda s: s['changeRate'], reverse=True)[:TOP_N]
+        losers = sorted(slim, key=lambda s: s['changeRate'])[:TOP_N]
 
     setTime = raw.get('setTime', '') or ''
     agg_dd = items_raw[0].get('aggDd', '') if items_raw else ''
 
     return {
         'collected_at': now_kst.isoformat(timespec='seconds'),
-        'session': classify_session(now_kst),
+        'session': session,
         'aggDd': agg_dd,
         'setTime': setTime,
         'totalCnt': raw.get('totalCnt', len(slim)),
         'delayMinutes': 20,  # 넥스트레이드 표기 기준
+        'nxtChangeEnriched': krx_close_enriched,  # true 면 gainers/losers 에 nxtChangeRate 필드 존재
         'gainers': gainers,
         'losers': losers,
     }
