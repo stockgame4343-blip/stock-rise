@@ -93,12 +93,25 @@ var StockTable = (function () {
             '</span>';
     }
 
+    function miniIndicatorsHtml(ticker, ratings) {
+        var rating = ratings[ticker] || {};
+        var stars = rating.stars || 0;
+        var excluded = rating.excluded || false;
+        var hasMemo = rating.memo ? true : false;
+        if (!(stars > 0 || excluded || hasMemo)) return '';
+        var html = '<span class="mini-indicators">';
+        if (stars > 0) html += '<span class="mini-star">\u2605' + stars + '</span>';
+        if (excluded) html += '<span class="mini-exclude">\u2715</span>';
+        if (hasMemo) html += '<span class="mini-memo">\u270E</span>';
+        html += '</span>';
+        return html;
+    }
+
     function starRatingHtml(ticker, ratings) {
         var rating = ratings[ticker] || {};
         var stars = rating.stars || 0;
         var excluded = rating.excluded || false;
         var hasMemo = rating.memo ? true : false;
-        var hasAny = stars > 0 || excluded || hasMemo;
 
         var html = '<span class="ctrl-wrap">';
 
@@ -121,16 +134,6 @@ var StockTable = (function () {
             '" data-ticker="' + ticker + '" title="메모">\u270E</button>';
         html += '</div>';
         html += '</span>';
-
-        // 미니 인디케이터: ctrl-wrap 밖에 두어 cell-name__wrap 의 직계 자식으로 만든다
-        // (모바일에선 flex-basis:100% 로 서브라인 분리, PC 에선 인라인)
-        if (hasAny) {
-            html += '<span class="mini-indicators">';
-            if (stars > 0) html += '<span class="mini-star">\u2605' + stars + '</span>';
-            if (excluded) html += '<span class="mini-exclude">\u2715</span>';
-            if (hasMemo) html += '<span class="mini-memo">\u270E</span>';
-            html += '</span>';
-        }
 
         return html;
     }
@@ -206,6 +209,7 @@ var StockTable = (function () {
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
                 '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link" data-ticker="' + r.ticker + '">' + r.name + '</a>' +
                 scoreBadgeMini(r.score, r.ticker) +
+                miniIndicatorsHtml(r.ticker, ratings) +
                 '<span class="cell-name__market">' + r.market + '</span>' +
                 starRatingHtml(r.ticker, ratings) +
                 '</div></td>';

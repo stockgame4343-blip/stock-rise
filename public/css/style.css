@@ -35,10 +35,10 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 
 /* ── 상단 타이틀 바 ── */
 .top-bar{background:var(--bg-secondary);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100}
-.top-bar__inner{display:flex;align-items:center;justify-content:space-between;height:58px}
-.top-bar__logo{font-size:17px;font-weight:800;color:var(--rise);text-decoration:none;letter-spacing:-.3px}
+.top-bar__inner{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:58px}
+.top-bar__logo{font-size:17px;font-weight:800;color:var(--rise);text-decoration:none;letter-spacing:-.3px;justify-self:start}
 .top-bar__logo:hover{opacity:.85}
-.top-bar__right{display:flex;align-items:center;gap:16px}
+.top-bar__right{display:flex;align-items:center;gap:16px;justify-self:end}
 .top-bar__updated{font-size:12px;color:var(--text-muted)}
 
 /* ── 테마 토글 ── */
@@ -266,7 +266,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .score-popup__news-date{font-size:11px;color:var(--text-muted);flex-shrink:0}
 
 /* ── 상단 네비게이션 ── */
-.top-bar__nav{display:flex;gap:4px;margin-left:28px}
+.top-bar__nav{display:flex;gap:4px;justify-self:center}
 .top-bar__link{font-size:13px;font-weight:500;color:var(--text-secondary);text-decoration:none;padding:6px 14px;border-radius:6px;transition:color .15s,background .15s}
 .top-bar__link:hover{color:var(--text-primary);background:var(--bg-hover)}
 .top-bar__link--active{color:var(--text-primary);font-weight:700;background:var(--bg-tertiary)}
@@ -543,10 +543,11 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .frame{padding:0 12px}
     .top-bar__inner{height:46px}
     .top-bar__logo{font-size:15px}
-    .top-bar__updated{display:none}
-    .top-bar__nav{margin-left:12px;gap:2px}
+    .top-bar__nav{gap:2px}
     .top-bar__link{font-size:12px;padding:6px 10px}
-    .top-bar__right{gap:8px}
+    .top-bar__right{gap:6px}
+    /* 업데이트 시간: 모바일에서도 표시 (텍스트 축소) */
+    .top-bar__updated{font-size:10px;white-space:nowrap;max-width:72px;overflow:hidden;text-overflow:ellipsis}
 
     /* ── 툴바: 탭/날짜 2줄 분리 ── */
     .toolbar{flex-wrap:wrap;gap:8px;padding:10px 0}
@@ -603,9 +604,10 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
         /* overflow:hidden 제거 — .float-controls 패널이 셀 밖으로 나와야 함 (호버/탭 시)
            종목명 ellipsis 는 .cell-name__link 에서 처리 */
     }
-    /* gap: 4px row / 14px column — 종목명 ↔ ⋮ 간격 확보 (오탭 방지) */
-    .cell-name__wrap{flex-wrap:wrap;gap:4px 14px;min-width:0}
-    .cell-name__link{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+    /* nowrap: 종목명은 ellipsis 로 잘리더라도 점수/인디케이터/⋯ 은 한 줄에 유지 */
+    .cell-name__wrap{flex-wrap:nowrap;gap:4px 10px;min-width:0;align-items:center}
+    .cell-name__link{flex:0 1 auto;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .score-click--mini,.mini-indicators,.ctrl-wrap{flex-shrink:0}
     .cell-name__market{font-size:11px}
     .cell-price{
         grid-column:3;
@@ -731,8 +733,10 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     /* 패널 앵커를 cell-name__wrap 로 이동 (ctrl-wrap 은 너무 작음) */
     .cell-name__wrap{position:relative}
     .ctrl-wrap{position:static}
-    /* 미니 인디케이터(★/✕/✎): 종목명 아래 서브라인으로 분리 — ⋮ 위치가 흔들리지 않도록 */
-    .mini-indicators{flex:0 0 100%;margin:2px 0 0;font-size:11px;gap:6px}
+    /* 리포트 섹터 상세: .detail-stock__name 을 앵커로 */
+    .detail-stock__name{position:relative}
+    /* 미니 인디케이터(★/✕/✎): 점수 미니배지 옆에 인라인 배치 */
+    .mini-indicators{font-size:11px;gap:4px}
     .ctrl-wrap.is-open .float-controls{
         opacity:1;
         pointer-events:auto;
@@ -798,7 +802,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .summary-card{padding:14px 16px}
     .summary-card__value{font-size:18px}
     .summary-card__label{font-size:11px}
-    .sparkline{width:48px;height:22px}
+    /* 모바일: 스파크라인 숨김 (요약 카드 영역 공간 확보) */
+    .sparkline-wrap,.sparkline{display:none}
 
     /* 섹터/테마/픽/스톡 카드 전부 1열 (가독성) */
     .sector-cards{grid-template-columns:1fr;gap:8px}

@@ -103,6 +103,8 @@
             if (hasMemo) html += '<span class="mini-memo">\u270E</span>';
             html += '</span>';
         }
+        // 모바일 토글 버튼 (PC 에선 hover 로 열기 때문에 CSS 에서 숨김)
+        html += '<button class="ctrl-toggle" type="button" data-ticker="' + ticker + '" aria-label="\uD3C9\uAC00">\u22EF</button>';
         html += '<div class="float-controls" data-ticker="' + ticker + '">';
         html += '<span class="star-rating" data-ticker="' + ticker + '">';
         for (var i = 1; i <= 5; i++) {
@@ -1254,6 +1256,21 @@
 
     // ── 이벤트 위임 (별점, X, 메모) — 리포트 전체 영역 ──
     document.getElementById('reportContent').addEventListener('click', function (e) {
+        // 모바일 토글 버튼: 패널 열기/닫기
+        var toggleBtn = e.target.closest('.ctrl-toggle');
+        if (toggleBtn) {
+            e.preventDefault();
+            e.stopPropagation();
+            var tWrap = toggleBtn.closest('.ctrl-wrap');
+            if (!tWrap) return;
+            var wasOpen = tWrap.classList.contains('is-open');
+            document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
+                if (w !== tWrap) w.classList.remove('is-open');
+            });
+            if (!wasOpen) tWrap.classList.add('is-open');
+            else tWrap.classList.remove('is-open');
+            return;
+        }
         var starEl = e.target.closest('.star');
         if (starEl) {
             e.preventDefault();
@@ -1326,6 +1343,15 @@
             });
     }
 
+    // 모바일 ctrl-wrap 패널: 바깥 탭하면 닫기
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.ctrl-wrap')) {
+            document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
+                w.classList.remove('is-open');
+            });
+        }
+    });
+
     // ── 이벤트 ──
     $datePrev.addEventListener('click', function () {
         if (state.dateIndex < state.dates.length - 1) {
@@ -1367,6 +1393,21 @@
 
     // 섹터/테마 카드 클릭 → 상세 팝업
     document.addEventListener('click', function (e) {
+        // 모바일 토글 버튼: 패널 열기/닫기 (모달 포함 전역)
+        var toggleBtn = e.target.closest('.ctrl-toggle');
+        if (toggleBtn) {
+            e.preventDefault(); e.stopPropagation();
+            var tWrap = toggleBtn.closest('.ctrl-wrap');
+            if (!tWrap) return;
+            var wasOpen = tWrap.classList.contains('is-open');
+            document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
+                if (w !== tWrap) w.classList.remove('is-open');
+            });
+            if (!wasOpen) tWrap.classList.add('is-open');
+            else tWrap.classList.remove('is-open');
+            return;
+        }
+
         // 별점/제외/메모 (모달 포함 전역 처리)
         var starEl = e.target.closest('.star');
         if (starEl) {
