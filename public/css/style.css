@@ -561,10 +561,11 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .ranking-table tbody{display:block}
     .ranking-table tr{
         display:grid;
-        grid-template-columns:auto 1fr auto;
-        column-gap:12px;
-        row-gap:4px;
-        padding:14px 16px;
+        /* rank | name(flex) | price | change | score  — 한 줄에 몰아넣음 */
+        grid-template-columns:auto minmax(0,1fr) auto auto auto;
+        column-gap:8px;
+        row-gap:6px;
+        padding:12px 14px;
         margin-bottom:10px;
         background:var(--bg-secondary);
         border:1px solid var(--border);
@@ -578,59 +579,73 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
         border:none;
         font-size:13px;
     }
-    /* 헤더 행: 순위 | 이름 | 점수 */
+    /* Row 1: 순위 | 이름 | 현재가 | 전일대비 | 점수 — 모두 한 줄 */
     .cell-rank{
+        grid-column:1;
+        grid-row:1;
         align-self:center;
-        font-size:13px;
+        font-size:12px;
         font-weight:800;
         color:var(--accent);
-        min-width:28px;
     }
     .cell-rank::before{content:"#"}
     .cell-name{
+        grid-column:2;
+        grid-row:1;
         align-self:center;
         font-weight:700;
         font-size:15px;
+        min-width:0;
         overflow:hidden;
     }
-    .cell-name__wrap{flex-wrap:wrap;gap:4px 8px}
+    .cell-name__wrap{flex-wrap:wrap;gap:4px 8px;min-width:0}
+    .cell-name__link{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
     .cell-name__market{font-size:11px}
-    .cell-score{
+    .cell-price{
         grid-column:3;
+        grid-row:1;
+        align-self:center;
+        padding:0;
+        font-size:14px;
+        font-weight:700;
+        text-align:right;
+        border:none;
+        white-space:nowrap;
+    }
+    .cell-change{
+        grid-column:4;
+        grid-row:1;
+        align-self:center;
+        padding:0;
+        text-align:right;
+        border:none;
+        white-space:nowrap;
+        font-size:13px;
+        line-height:1.25;
+    }
+    /* 변동폭 + 퍼센트 2줄 스택 (공간 절약) */
+    .cell-change .change-rate{margin-left:0;font-size:11px}
+    .cell-score{
+        grid-column:5;
         grid-row:1;
         align-self:center;
         text-align:right;
     }
-
-    /* 현재가 + 전일대비: 같은 행에 붙여서 prominent 하게 */
-    .cell-price{
-        grid-column:1 / 3;
-        padding:6px 0 4px;
-        font-size:20px;
-        font-weight:700;
-        text-align:left;
-        border-top:1px solid var(--border-subtle);
-    }
-    .cell-change{
-        grid-column:3;
-        padding:6px 0 4px;
-        text-align:right;
-        border-top:1px solid var(--border-subtle);
-        align-self:center;
-        white-space:nowrap;
-    }
-    .cell-change br{display:none}
-    .cell-change .change-rate{margin-left:4px;font-size:12px}
+    /* 상세 점수 (TP/TL/TI) 모바일에선 숨김 — 탭하면 팝업에서 확인 */
+    .score-detail{display:none}
+    /* 점수 뱃지 살짝 키움 (탭 타겟 확보 + 시인성) */
+    .score-badge{width:50px;height:40px;font-size:16px;border-radius:8px}
 
     /* Compact meta: market · sector · 시총 · 거래 한 줄 */
     /* .ranking-table td{display:block} 과 같은 specificity 경쟁 피하려고 td 붙임 */
     .ranking-table td.cell-meta-compact{
         display:block;
         grid-column:1 / -1;
-        padding:4px 0;
+        padding:6px 0 2px;
         font-size:12px;
         color:var(--text-muted);
         line-height:1.5;
+        border-top:1px solid var(--border-subtle);
     }
 
     /* PC 의 개별 volume/cap/sector 셀 숨김 (정보는 meta-compact 에서 나옴) */
@@ -645,11 +660,10 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .cell-reason{
         grid-column:1 / -1;
         display:block;
-        padding:4px 0;
+        padding:2px 0 0;
         text-align:left;
         line-height:1.7;
         max-width:none;
-        border-top:1px solid var(--border-subtle);
     }
     .cell-reason::before{
         content:"";
@@ -678,8 +692,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     /* 제외 처리된 행도 카드 스타일 유지 */
     .row--excluded{background:var(--bg-secondary)}
 
-    /* ── 대장점수 뱃지 살짝 크게 (터치하기 쉽게) ── */
-    .score-badge{width:52px;height:32px;font-size:14px}
+    /* (score-badge 크기는 위 Row 1 블록에서 정의 — 50x40 16px) */
 
     /* ── 별점/액션 버튼 터치 영역 확보 ── */
     .star{font-size:16px;padding:4px}
