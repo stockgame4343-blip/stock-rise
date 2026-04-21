@@ -232,22 +232,37 @@
     }
 
     // ── 이벤트: 날짜 ──
+    function exitWatchlistMode() {
+        if (!state.watchlistMode) return false;
+        state.watchlistMode = false;
+        $watchlistBtn.classList.remove('active');
+        return true;
+    }
+
     function onDatePrev() {
+        var wasWatch = exitWatchlistMode();
         if (state.dateIndex < state.dates.length - 1) {
             state.dateIndex++;
+            loadRankings();
+        } else if (wasWatch) {
+            // 관심 모드에서 빠져나오면서 이미 가장 오래된 날짜면 그냥 현재 날짜로 리로드
             loadRankings();
         }
     }
 
     function onDateNext() {
+        var wasWatch = exitWatchlistMode();
         if (state.dateIndex > 0) {
             state.dateIndex--;
+            loadRankings();
+        } else if (wasWatch) {
             loadRankings();
         }
     }
 
     function onDateBadgeClick() {
-        if (isPastDate()) {
+        var wasWatch = exitWatchlistMode();
+        if (isPastDate() || wasWatch) {
             state.dateIndex = 0;
             loadRankings();
         }
@@ -262,6 +277,11 @@
         });
         e.target.classList.add('active');
         state.currentMarket = market;
+        // 관심 모드 해제 (시장 탭은 날짜별 랭킹이므로)
+        if (state.watchlistMode) {
+            state.watchlistMode = false;
+            $watchlistBtn.classList.remove('active');
+        }
         loadRankings();
     }
 
@@ -270,10 +290,66 @@
         state.watchlistMode = !state.watchlistMode;
         if (state.watchlistMode) {
             $watchlistBtn.classList.add('active');
+            loadWatchlistAcrossDates();
         } else {
             $watchlistBtn.classList.remove('active');
+            loadRankings();
         }
-        renderTable();
+    }
+
+    // 모든 날짜에서 관심 종목(stars>0) 취합: 가장 최근 등장 기준
+    function loadWatchlistAcrossDates() {
+        var ratings = getRatings();
+        var watchTickers = Object.keys(ratings).filter(function (t) {
+            return ratings[t] && ratings[t].stars > 0;
+        });
+
+        $dateDisplay.textContent = '관심 종목 ' + watchTickers.length + '개';
+        $dateBadge.textContent = '전체';
+        $dateBadge.className = 'date-badge';
+
+        if (watchTickers.length === 0) {
+            state.rankings = [];
+            showLoading(false);
+            renderTable();
+            showMessage('관심 등록된 종목이 없습니다. 종목 옆 ⋯ → 별점을 눌러 등록하세요.');
+            return;
+        }
+
+        showLoading(true);
+        showMessage('');
+
+        // 모든 날짜 병렬 fetch (실패 무시)
+        var promises = state.dates.map(function (date) {
+            return StockAPI.getRankings(date, 'ALL')
+                .then(function (d) { return { date: date, rankings: d.rankings || [] }; })
+                .catch(function () { return { date: date, rankings: [] }; });
+        });
+
+        Promise.all(promises).then(function (results) {
+            // 최신 날짜부터 역순으로 검색하여 각 ticker 의 가장 최근 데이터 찾기
+            var found = {};
+            results.forEach(function (r) {
+                r.rankings.forEach(function (stock) {
+                    if (watchTickers.indexOf(stock.ticker) < 0) return;
+                    if (!found[stock.ticker] || r.date > found[stock.ticker].last_date) {
+                        found[stock.ticker] = Object.assign({}, stock, { last_date: r.date });
+                    }
+                });
+            });
+
+            // 관심 순서: stars 높은 순 → 등록한 ticker 순
+            var merged = watchTickers
+                .map(function (t) { return found[t]; })
+                .filter(function (r) { return r; });
+
+            state.rankings = merged;
+            showLoading(false);
+            renderTable();
+        }).catch(function () {
+            showLoading(false);
+            showMessage('관심 종목 데이터를 불러올 수 없습니다.');
+        });
     }
 
     // ── 이벤트: 정렬 ──

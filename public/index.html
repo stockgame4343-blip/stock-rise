@@ -37,7 +37,19 @@
     </header>
 
     <div class="frame">
-        <!-- ── 탭 + 날짜 바 (한 줄) ── -->
+        <!-- ── 날짜 바 (가운데 정렬) ── -->
+        <div class="report__date-bar">
+            <button class="date-nav" id="datePrev">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <span class="date-text" id="dateDisplay">-</span>
+            <span class="date-badge" id="dateBadge">오늘</span>
+            <button class="date-nav" id="dateNext">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+
+        <!-- ── 탭 ── -->
         <nav class="toolbar">
             <div class="toolbar__left">
                 <button class="tab active" data-market="ALL">전체</button>
@@ -46,16 +58,6 @@
                 <button class="tab tab--watchlist" id="watchlistBtn">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
                     관심
-                </button>
-            </div>
-            <div class="toolbar__right">
-                <button class="date-nav" id="datePrev">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-                </button>
-                <span class="date-text" id="dateDisplay">-</span>
-                <span class="date-badge" id="dateBadge">오늘</span>
-                <button class="date-nav" id="dateNext">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
                 </button>
             </div>
         </nav>
