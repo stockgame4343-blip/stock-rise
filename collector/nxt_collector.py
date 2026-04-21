@@ -285,25 +285,35 @@ def enrich_reasons(snapshot):
 
 
 def save_snapshot(snapshot):
-    """스냅샷 3종 저장: 파일 + latest + index."""
+    """스냅샷 저장: 일별 1개 (하루에 여러 번 수집되면 overwrite) + latest + index.
+
+    파일명은 KST 날짜 기준 `YYYYMMDD.json`. 같은 날 여러 번 돌면 덮어씀 → 항상 해당 일자의 최신.
+    snapshot['last_updated'] 에 "HH:MM" 부착해 UI 에서 마지막 업데이트 시각으로 표시.
+    """
     os.makedirs(DATA_DIR, exist_ok=True)
-    # 파일명은 collected_at (KST) 기준으로 생성 — setTime 포맷이 변동적이라 불안정
-    # collected_at: "2026-04-21T20:05:03+09:00"
     ca = snapshot.get('collected_at', '')
     try:
         dt = datetime.fromisoformat(ca)
         date_part = dt.strftime('%Y%m%d')
-        time_part = dt.strftime('%H%M')
+        time_label = dt.strftime('%H:%M')
     except (TypeError, ValueError):
         now = datetime.now(KST)
         date_part = now.strftime('%Y%m%d')
-        time_part = now.strftime('%H%M')
-    snap_name = f'{date_part}_{time_part}.json'
+        time_label = now.strftime('%H:%M')
+
+    # UI 표시용: 마지막 업데이트 시각
+    snapshot['last_updated'] = time_label
+    snapshot['date'] = date_part
+
+    snap_name = f'{date_part}.json'
     snap_path = os.path.join(DATA_DIR, snap_name)
 
     with open(snap_path, 'w', encoding='utf-8') as f:
         json.dump(snapshot, f, ensure_ascii=False, indent=2)
-    logger.info(f'  저장: {snap_name} (gainers {len(snapshot["gainers"])} / losers {len(snapshot["losers"])})')
+    logger.info(
+        f'  저장: {snap_name} @ {time_label} '
+        f'(gainers {len(snapshot["gainers"])} / losers {len(snapshot["losers"])})'
+    )
 
     # latest
     latest_path = os.path.join(DATA_DIR, 'latest.json')
@@ -315,7 +325,7 @@ def save_snapshot(snapshot):
 
 
 def update_index(snap_name, snapshot):
-    """index.json 에 스냅샷 메타 추가 (중복 방지, 최신 순)."""
+    """index.json — 일별 1개 entry. 같은 날짜면 덮어씀."""
     index_path = os.path.join(DATA_DIR, 'index.json')
     entries = []
     if os.path.exists(index_path):
@@ -325,18 +335,25 @@ def update_index(snap_name, snapshot):
         except Exception:
             entries = []
 
-    # 기존 동일 파일명 제거
-    entries = [e for e in entries if e.get('file') != snap_name]
+    # legacy 파일명 (YYYYMMDD_HHMM.json) 과 새 파일명 (YYYYMMDD.json) 모두 정리
+    # → 같은 날짜의 legacy/신규 entry 모두 제거 후 새 entry 삽입
+    date_part = snap_name.replace('.json', '')
+    def _date_of(e):
+        f = e.get('file', '')
+        stem = f.replace('.json', '')
+        return stem.split('_', 1)[0] if '_' in stem else stem
+    entries = [e for e in entries if _date_of(e) != date_part]
 
     entries.insert(0, {
         'file': snap_name,
+        'date': date_part,
         'collected_at': snapshot['collected_at'],
+        'last_updated': snapshot.get('last_updated'),
         'session': snapshot['session'],
-        'setTime': snapshot['setTime'],
     })
 
-    # 최신 순 정렬 후 오래된 항목 정리 (RETENTION_DAYS 기준)
-    entries.sort(key=lambda e: e.get('file', ''), reverse=True)
+    # 날짜 desc 정렬 후 오래된 항목 정리
+    entries.sort(key=lambda e: _date_of(e), reverse=True)
     entries = cleanup_old_entries(entries)
 
     with open(index_path, 'w', encoding='utf-8') as f:
@@ -344,12 +361,16 @@ def update_index(snap_name, snapshot):
 
 
 def cleanup_old_entries(entries):
-    """RETENTION_DAYS 보다 오래된 스냅샷 파일 삭제 + index 에서 제거."""
+    """RETENTION_DAYS 초과 일별 스냅샷 + legacy intraday 파일 삭제.
+
+    신규: YYYYMMDD.json / legacy: YYYYMMDD_HHMM.json 둘 다 처리.
+    """
     cutoff = (datetime.now(KST) - timedelta(days=RETENTION_DAYS)).strftime('%Y%m%d')
     kept = []
     for e in entries:
         fname = e.get('file', '')
-        date_part = fname.split('_', 1)[0] if '_' in fname else ''
+        stem = fname.replace('.json', '')
+        date_part = stem.split('_', 1)[0] if '_' in stem else stem
         if date_part and date_part < cutoff:
             path = os.path.join(DATA_DIR, fname)
             if os.path.exists(path):
@@ -363,12 +384,37 @@ def cleanup_old_entries(entries):
     return kept
 
 
+def cleanup_legacy_intraday_files():
+    """legacy YYYYMMDD_HHMM.json 파일 제거 (같은 날짜의 YYYYMMDD.json 이 있으면)."""
+    if not os.path.isdir(DATA_DIR):
+        return
+    for fname in os.listdir(DATA_DIR):
+        if not fname.endswith('.json'):
+            continue
+        stem = fname.replace('.json', '')
+        if '_' not in stem:
+            continue
+        date_part = stem.split('_', 1)[0]
+        if not date_part.isdigit() or len(date_part) != 8:
+            continue
+        # 같은 날짜의 신규 파일이 있으면 legacy 삭제
+        new_path = os.path.join(DATA_DIR, f'{date_part}.json')
+        if os.path.exists(new_path):
+            legacy_path = os.path.join(DATA_DIR, fname)
+            try:
+                os.remove(legacy_path)
+                logger.info(f'  legacy 정리: {fname} 삭제')
+            except OSError as ex:
+                logger.warning(f'  legacy 삭제 실패 {fname}: {ex}')
+
+
 def main():
     logger.info('===== NXT 스냅샷 수집 시작 =====')
     try:
         snapshot = build_snapshot()
         enrich_reasons(snapshot)
         save_snapshot(snapshot)
+        cleanup_legacy_intraday_files()
         logger.info(f'===== 완료: gainers TOP {len(snapshot["gainers"])} / losers TOP {len(snapshot["losers"])} =====')
         return 0
     except Exception as e:

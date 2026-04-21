@@ -1,12 +1,15 @@
 /**
- * 넥스트장(NXT) 스냅샷 조회 페이지
+ * 넥스트장(NXT) 일별 스냅샷 조회 페이지
  * - 정적 JSON 읽기: /data/nxt/index.json → 스냅샷 파일 → 테이블 렌더
+ * - 하루 1개 파일 (YYYYMMDD.json) — 같은 날 여러 번 수집되어도 overwrite
  * - 탭: 상승 TOP 20 / 하락 TOP 20 전환
- * - 네비게이션: 이전/다음 스냅샷
+ * - 네비게이션: 이전/다음 날짜 (리포트와 동일 스타일)
  */
 (function () {
+    var DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
+
     var state = {
-        snapshots: [],   // [{file, collected_at, session, setTime}, ...] 최신순
+        snapshots: [],   // [{file, date, collected_at, last_updated, session}, ...] 최신순
         idx: 0,          // 현재 보는 스냅샷 인덱스
         side: 'gainers', // 'gainers' | 'losers'
         current: null,   // 로드된 스냅샷 객체
@@ -21,6 +24,7 @@
     var $snapPrev = document.getElementById('snapPrev');
     var $snapNext = document.getElementById('snapNext');
     var $themeToggle = document.getElementById('themeToggle');
+    var $lastUpdated = document.getElementById('lastUpdated');
     var $tabs = document.querySelectorAll('.tab[data-side]');
     var $colChangeHeader = document.getElementById('colChangeHeader');
 
@@ -47,15 +51,21 @@
         if (v >= 1e4) return (v / 1e4).toFixed(0) + '만';
         return formatNumber(v);
     }
-    function formatSnapLabel(entry) {
-        // "20260421_2005" → "04.21 20:05"
-        var f = (entry && entry.file) || '';
-        var m = f.match(/^(\d{4})(\d{2})(\d{2})_(\d{2})(\d{2})/);
-        if (!m) return '-';
-        return m[2] + '.' + m[3] + ' ' + m[4] + ':' + m[5];
+    function formatDateKorean(ds) {
+        // "20260421" → "4월 21일 (화)"
+        if (!ds || ds.length < 8) return '-';
+        var y = ds.substring(0, 4);
+        var m = parseInt(ds.substring(4, 6), 10);
+        var d = parseInt(ds.substring(6, 8), 10);
+        var dt = new Date(+y, m - 1, +d);
+        return m + '월 ' + d + '일 (' + DAYS_KO[dt.getDay()] + ')';
     }
-    function sessionLabel(s) {
-        return s === 'premarket' ? '프리마켓' : (s === 'postmarket' ? '애프터마켓' : '정규장');
+    function entryDate(entry) {
+        if (!entry) return '';
+        if (entry.date) return entry.date;
+        var f = entry.file || '';
+        var stem = f.replace('.json', '');
+        return stem.indexOf('_') >= 0 ? stem.split('_')[0] : stem;
     }
 
     // ── 테마 토글 ──
@@ -115,18 +125,33 @@
 
     function renderSnapInfo() {
         var entry = state.snapshots[state.idx];
-        $snapDisplay.textContent = entry ? formatSnapLabel(entry) : '-';
+        var dateStr = entryDate(entry);
+        $snapDisplay.textContent = dateStr ? formatDateKorean(dateStr) : '-';
+
+        // 리포트와 동일: idx===0 이면 오늘, 아니면 과거
         if (state.idx === 0) {
-            $snapBadge.textContent = '최신';
-            $snapBadge.style.display = '';
-        } else if (entry && entry.session) {
-            $snapBadge.textContent = sessionLabel(entry.session);
-            $snapBadge.style.display = '';
+            $snapBadge.textContent = '오늘';
+            $snapBadge.className = 'date-badge';
         } else {
-            $snapBadge.style.display = 'none';
+            $snapBadge.textContent = '과거';
+            $snapBadge.className = 'date-badge date-badge--past';
         }
+        $snapBadge.style.display = '';
         $snapPrev.disabled = state.idx >= state.snapshots.length - 1;
         $snapNext.disabled = state.idx <= 0;
+
+        // 상단 바: 마지막 업데이트 시각
+        if ($lastUpdated) {
+            var lu = (state.current && state.current.last_updated)
+                || (entry && entry.last_updated) || '';
+            if (!lu && state.current && state.current.collected_at) {
+                var d = new Date(state.current.collected_at);
+                var hh = String(d.getHours()).padStart(2, '0');
+                var mm = String(d.getMinutes()).padStart(2, '0');
+                lu = hh + ':' + mm;
+            }
+            $lastUpdated.textContent = lu ? (lu + ' 수집') : '';
+        }
     }
 
     function renderColChangeHeader() {
