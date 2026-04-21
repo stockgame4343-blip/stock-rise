@@ -178,7 +178,7 @@
         }
         var list = getSortedList();
         if (list.length === 0) {
-            $body.innerHTML = '<tr><td colspan="10" class="cell-empty">데이터 없음</td></tr>';
+            $body.innerHTML = '<tr><td colspan="11" class="cell-empty">데이터 없음</td></tr>';
             return;
         }
 
@@ -203,6 +203,20 @@
             // 전일대비 (changeRate/change) — NXT API 기본
             var prevChangeHtml = formatChangeCell(r.changeRate, r.change);
 
+            // 모바일 전용 meta-compact 라인 (PC 에선 숨김)
+            var metaParts = [];
+            if (r.changeRate != null) {
+                var prevCls = r.changeRate >= 0 ? 'meta-prev--up' : 'meta-prev--down';
+                var prevArrow = r.changeRate > 0 ? '\u25B2' : (r.changeRate < 0 ? '\u25BC' : '');
+                var prevSign = r.changeRate >= 0 ? '+' : '';
+                metaParts.push('<span class="meta-prev ' + prevCls + '">전일 ' + prevArrow + prevSign + r.changeRate.toFixed(2) + '%</span>');
+            }
+            if (r.krxTradingValue) metaParts.push('본장 ' + formatKrw(r.krxTradingValue));
+            if (r.tradingValue) metaParts.push('NXT ' + formatKrw(r.tradingValue));
+            if (r.marketCap) metaParts.push('시총 ' + formatKrw(r.marketCap));
+            if (r.sector) metaParts.push(htmlEscape(r.sector));
+            var metaCompact = metaParts.join(' &middot; ');
+
             html += '<tr>';
             html += '<td class="cell-rank">' + (i + 1) + '</td>';
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
@@ -211,12 +225,13 @@
                 '</div></td>';
             html += '<td class="cell-price">' + formatNumber(r.price) + '</td>';
             html += '<td class="cell-change">' + nxtChangeHtml + '</td>';
-            html += '<td class="cell-change">' + prevChangeHtml + '</td>';
+            html += '<td class="cell-change cell-change-prev">' + prevChangeHtml + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.krxTradingValue) + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.tradingValue) + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.marketCap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector ? htmlEscape(r.sector) : '<span class="cell-empty">-</span>') + '</td>';
             html += '<td class="cell-themes">' + themesHtml + '</td>';
+            html += '<td class="cell-meta-compact">' + metaCompact + '</td>';
             html += '</tr>';
         });
         $body.innerHTML = html;
