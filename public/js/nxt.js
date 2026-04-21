@@ -204,13 +204,13 @@
             var prevChangeHtml = formatChangeCell(r.changeRate, r.change);
 
             // 모바일 전용 meta-compact 라인 (PC 에선 숨김)
-            // 대시보드와 동일 순서: 시장 · 섹터 · 시총 · 거래(총합) · NXT거래 · 전일%
+            // 데스크톱 컬럼 순서와 동일: 시장 · 섹터 · 시총 · NXT거래 · 거래(총합) · 전일%
             var metaParts = [];
             if (r.market) metaParts.push(htmlEscape(r.market));
             if (r.sector) metaParts.push(htmlEscape(r.sector));
             if (r.marketCap) metaParts.push('시총 ' + formatKrw(r.marketCap));
-            if (r.totalTradingValue) metaParts.push('거래 ' + formatKrw(r.totalTradingValue));
             if (r.tradingValue) metaParts.push('NXT ' + formatKrw(r.tradingValue));
+            if (r.totalTradingValue) metaParts.push('거래 ' + formatKrw(r.totalTradingValue));
             if (r.changeRate != null) {
                 var prevSign = r.changeRate >= 0 ? '+' : '';
                 metaParts.push('전일 ' + prevSign + r.changeRate.toFixed(2) + '%');
@@ -226,9 +226,9 @@
             html += '<td class="cell-price">' + formatNumber(r.price) + '</td>';
             html += '<td class="cell-change">' + nxtChangeHtml + '</td>';
             html += '<td class="cell-change cell-change-prev">' + prevChangeHtml + '</td>';
-            // "거래대금" = NXT + 본장 총합, "NXT 거래대금" = NXT 세션만
-            html += '<td class="cell-volume">' + formatKrw(r.totalTradingValue) + '</td>';
+            // "NXT 거래대금" = NXT 세션만, "거래대금" = NXT + 본장 총합
             html += '<td class="cell-volume">' + formatKrw(r.tradingValue) + '</td>';
+            html += '<td class="cell-volume">' + formatKrw(r.totalTradingValue) + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.marketCap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector ? htmlEscape(r.sector) : '<span class="cell-empty">-</span>') + '</td>';
             // 모바일 카드 순서: meta 라인 먼저, 테마 태그 나중 (대시보드와 동일)
