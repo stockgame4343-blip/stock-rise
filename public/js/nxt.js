@@ -42,7 +42,7 @@
     var $themeToggle = document.getElementById('themeToggle');
     var $lastUpdated = document.getElementById('lastUpdated');
     var $tabs = document.querySelectorAll('.tab[data-side]');
-    var $sortHeaders = document.querySelectorAll('.nxt-sortable[data-sort]');
+    var $sortHeaders = document.querySelectorAll('.sortable[data-sort]');
 
     // ── 유틸 ──
     function formatNumber(n) {
@@ -158,11 +158,9 @@
             if (state.sort.key === key) {
                 icon.innerHTML = state.sort.dir === 'asc' ? '&#9650;' : '&#9660;';
                 icon.classList.add('sort-icon--active');
-                th.classList.add('nxt-sorted');
             } else {
                 icon.innerHTML = '&#9660;';
                 icon.classList.remove('sort-icon--active');
-                th.classList.remove('nxt-sorted');
             }
         });
     }
