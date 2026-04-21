@@ -600,7 +600,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
         min-width:0;
         overflow:hidden;
     }
-    .cell-name__wrap{flex-wrap:wrap;gap:4px 8px;min-width:0}
+    /* gap: 4px row / 14px column — 종목명 ↔ ⋮ 간격 확보 (오탭 방지) */
+    .cell-name__wrap{flex-wrap:wrap;gap:4px 14px;min-width:0}
     .cell-name__link{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
     .cell-name__market{font-size:11px}
     .cell-price{
@@ -703,20 +704,24 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .theme-tag{font-size:11px;padding:3px 8px}
 
     /* ── 모바일 전용: ctrl-toggle 노출 + 패널 포지션 조정 ── */
+    /* hit-box 32×32 (Fitts' Law 터치 안전선 근접), 희미한 원형 배경으로 "버튼" 신호 */
     .ctrl-toggle{
         display:inline-flex;
         align-items:center;
         justify-content:center;
-        width:24px;
-        height:24px;
+        width:32px;
+        height:32px;
         font-size:18px;
-        border-radius:6px;
+        border-radius:50%;
+        background:rgba(255,255,255,.04);
         color:var(--text-muted);
     }
-    .ctrl-toggle:active{background:var(--bg-tertiary,rgba(255,255,255,.06))}
+    .ctrl-toggle:active{background:var(--bg-tertiary,rgba(255,255,255,.12))}
     /* 패널 앵커를 cell-name__wrap 로 이동 (ctrl-wrap 은 너무 작음) */
     .cell-name__wrap{position:relative}
     .ctrl-wrap{position:static}
+    /* 미니 인디케이터(★/✕/✎): 종목명 아래 서브라인으로 분리 — ⋮ 위치가 흔들리지 않도록 */
+    .mini-indicators{flex:0 0 100%;margin:2px 0 0;font-size:11px;gap:6px}
     .ctrl-wrap.is-open .float-controls{
         opacity:1;
         pointer-events:auto;

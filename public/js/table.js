@@ -91,15 +91,6 @@ var StockTable = (function () {
 
         var html = '<span class="ctrl-wrap">';
 
-        // 미니 인디케이터 (활성 상태만 종목명 옆에 표시)
-        if (hasAny) {
-            html += '<span class="mini-indicators">';
-            if (stars > 0) html += '<span class="mini-star">\u2605' + stars + '</span>';
-            if (excluded) html += '<span class="mini-exclude">\u2715</span>';
-            if (hasMemo) html += '<span class="mini-memo">\u270E</span>';
-            html += '</span>';
-        }
-
         // 모바일 토글 버튼 (PC 에선 hover 로 동작, 모바일에선 탭으로 열기)
         html += '<button class="ctrl-toggle" type="button" data-ticker="' +
             ticker + '" aria-label="\uD3C9\uAC00">\u22EE</button>';
@@ -118,6 +109,16 @@ var StockTable = (function () {
             '" data-ticker="' + ticker + '" title="메모">\u270E</button>';
         html += '</div>';
         html += '</span>';
+
+        // 미니 인디케이터: ctrl-wrap 밖에 두어 cell-name__wrap 의 직계 자식으로 만든다
+        // (모바일에선 flex-basis:100% 로 서브라인 분리, PC 에선 인라인)
+        if (hasAny) {
+            html += '<span class="mini-indicators">';
+            if (stars > 0) html += '<span class="mini-star">\u2605' + stars + '</span>';
+            if (excluded) html += '<span class="mini-exclude">\u2715</span>';
+            if (hasMemo) html += '<span class="mini-memo">\u270E</span>';
+            html += '</span>';
+        }
 
         return html;
     }
