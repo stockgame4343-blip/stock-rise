@@ -299,6 +299,21 @@
 
     // ── 이벤트 위임: tbody 클릭 (별점, X, 점수) ──
     function onBodyClick(e) {
+        // 모바일 토글 버튼: 패널 열기/닫기 (PC 에선 hover 로 뜨기 때문에 안 씀)
+        var toggleBtn = e.target.closest('.ctrl-toggle');
+        if (toggleBtn) {
+            var wrap = toggleBtn.closest('.ctrl-wrap');
+            if (!wrap) return;
+            var wasOpen = wrap.classList.contains('is-open');
+            // 다른 열려 있는 패널 닫기
+            document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
+                if (w !== wrap) w.classList.remove('is-open');
+            });
+            if (!wasOpen) wrap.classList.add('is-open');
+            else wrap.classList.remove('is-open');
+            return;
+        }
+
         // 별점 클릭
         var starEl = e.target.closest('.star');
         if (starEl) {
@@ -641,6 +656,15 @@
 
         // tbody 이벤트 위임
         $rankingBody.addEventListener('click', onBodyClick);
+
+        // 모바일 ctrl-wrap 패널: 바깥 탭하면 닫기
+        document.addEventListener('click', function (e) {
+            if (!e.target.closest('.ctrl-wrap')) {
+                document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
+                    w.classList.remove('is-open');
+                });
+            }
+        });
 
         // 뉴스 모달 닫기
         $newsModalClose.addEventListener('click', StockTable.closeNews);

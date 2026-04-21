@@ -111,12 +111,14 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .float-controls::before{content:'';position:absolute;left:-12px;right:-12px;top:-10px;height:10px}
 /* 호버 트리거: 종목명 영역 (각 컨텍스트별 부모) */
 .ctrl-wrap:hover .float-controls,
+.ctrl-wrap.is-open .float-controls,
 .cell-name__wrap:hover .float-controls,
 .sector-card__stock:hover .float-controls,
 .stock-card__top:hover .float-controls,
 .compact-row:hover .float-controls,
 .detail-stock:hover .float-controls,
 .float-controls:hover{opacity:1;pointer-events:auto;transition-delay:0s}
+.ctrl-toggle{display:none;background:none;border:none;padding:0;color:var(--text-muted);cursor:pointer;line-height:1}
 .cell-price{text-align:right;font-weight:600}
 .cell-change{text-align:right}
 .cell-change--up{color:var(--rise)}
@@ -699,6 +701,30 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .exclude-btn,.memo-btn{width:28px;height:28px;font-size:12px}
     .tag-edit--empty{padding:4px 10px;font-size:12px}
     .theme-tag{font-size:11px;padding:3px 8px}
+
+    /* ── 모바일 전용: ctrl-toggle 노출 + 패널 포지션 조정 ── */
+    .ctrl-toggle{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        width:24px;
+        height:24px;
+        font-size:18px;
+        border-radius:6px;
+        color:var(--text-muted);
+    }
+    .ctrl-toggle:active{background:var(--bg-tertiary,rgba(255,255,255,.06))}
+    /* 패널 앵커를 cell-name__wrap 로 이동 (ctrl-wrap 은 너무 작음) */
+    .cell-name__wrap{position:relative}
+    .ctrl-wrap{position:static}
+    .ctrl-wrap.is-open .float-controls{
+        opacity:1;
+        pointer-events:auto;
+        transition:none;
+        left:0;
+        right:auto;
+        top:calc(100% + 4px);
+    }
 
     /* ── 툴팁 숨김 (hover 없음 + 좁음) ── */
     .th-help{display:none}

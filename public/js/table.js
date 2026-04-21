@@ -100,7 +100,11 @@ var StockTable = (function () {
             html += '</span>';
         }
 
-        // 플로팅 컨트롤 패널 (호버 시 표시)
+        // 모바일 토글 버튼 (PC 에선 hover 로 동작, 모바일에선 탭으로 열기)
+        html += '<button class="ctrl-toggle" type="button" data-ticker="' +
+            ticker + '" aria-label="\uD3C9\uAC00">\u22EE</button>';
+
+        // 플로팅 컨트롤 패널 (PC: hover / 모바일: .is-open 클래스)
         html += '<div class="float-controls" data-ticker="' + ticker + '">';
         html += '<span class="star-rating" data-ticker="' + ticker + '">';
         for (var i = 1; i <= 5; i++) {
