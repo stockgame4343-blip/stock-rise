@@ -1227,6 +1227,10 @@
             html += '<span class="compact-row__detail">';
             html += '<span class="compact-row__peak">고점 ' + formatNumber(p.peakPrice) + '</span>';
             html += '<span class="compact-row__arrow">&rarr;</span>';
+            if (p.bounceBack && p.postPeakLow > 0 && p.postPeakLow < p.peakPrice) {
+                html += '<span class="compact-row__low">저점 ' + formatNumber(p.postPeakLow) + '</span>';
+                html += '<span class="compact-row__arrow">&rarr;</span>';
+            }
             html += '<span class="compact-row__current">현재 ' + formatNumber(p.currentPrice) + '</span>';
             html += '</span>';
             html += '<span class="compact-row__rate compact-row__rate--down">-' + p.dropPct.toFixed(1) + '%</span>';
