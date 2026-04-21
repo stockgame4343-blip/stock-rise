@@ -449,7 +449,6 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .nxt-table th.nxt-sortable{cursor:pointer;user-select:none;position:relative}
 .nxt-table th.nxt-sortable:hover{color:var(--accent)}
 .nxt-table th.nxt-sorted{color:var(--accent)}
-.nxt-table th .sort-arrow{display:inline-block;min-width:12px;font-size:10px;margin-left:2px}
 .nxt-table .col-marketcap{width:96px;text-align:right}
 .nxt-table .col-themes{min-width:220px;text-align:left}
 .nxt-table .cell-themes{font-size:0;line-height:1.8;padding:8px 10px}
