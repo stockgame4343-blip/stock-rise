@@ -459,9 +459,10 @@
             return;
         }
 
-        // 모바일: 종목명 링크 클릭 시 네이버 대신 대장점수 팝업 (네이버는 팝업 헤더의 N 버튼으로)
+        // 종목명 링크 클릭 시 네이버 대신 대장점수 팝업 (네이버는 팝업 헤더의 N 버튼으로)
+        // Ctrl/Cmd/중간버튼 클릭은 기본 동작(네이버 새 탭) 유지
         var nameLink = e.target.closest('.cell-name__link');
-        if (nameLink && window.innerWidth <= 768) {
+        if (nameLink && !(e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1)) {
             e.preventDefault();
             var ticker = nameLink.getAttribute('data-ticker');
             if (ticker) openScoreDetail(ticker);
