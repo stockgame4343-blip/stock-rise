@@ -744,11 +744,6 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
         padding:2px 6px;
         white-space:nowrap;
     }
-    /* meta-compact 안의 전일대비 뱃지 */
-    .meta-prev{font-weight:600}
-    .meta-prev--up{color:var(--rise)}
-    .meta-prev--down{color:var(--fall)}
-
     /* 제외 처리된 행도 카드 스타일 유지 */
     .row--excluded{background:var(--bg-secondary)}
 

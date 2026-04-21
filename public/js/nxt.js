@@ -204,17 +204,17 @@
             var prevChangeHtml = formatChangeCell(r.changeRate, r.change);
 
             // 모바일 전용 meta-compact 라인 (PC 에선 숨김)
+            // 대시보드와 동일 순서: 시장 · 섹터 · 시총 · 거래(NXT/본장) · 전일%
             var metaParts = [];
-            if (r.changeRate != null) {
-                var prevCls = r.changeRate >= 0 ? 'meta-prev--up' : 'meta-prev--down';
-                var prevArrow = r.changeRate > 0 ? '\u25B2' : (r.changeRate < 0 ? '\u25BC' : '');
-                var prevSign = r.changeRate >= 0 ? '+' : '';
-                metaParts.push('<span class="meta-prev ' + prevCls + '">전일 ' + prevArrow + prevSign + r.changeRate.toFixed(2) + '%</span>');
-            }
-            if (r.krxTradingValue) metaParts.push('본장 ' + formatKrw(r.krxTradingValue));
-            if (r.tradingValue) metaParts.push('NXT ' + formatKrw(r.tradingValue));
-            if (r.marketCap) metaParts.push('시총 ' + formatKrw(r.marketCap));
+            if (r.market) metaParts.push(htmlEscape(r.market));
             if (r.sector) metaParts.push(htmlEscape(r.sector));
+            if (r.marketCap) metaParts.push('시총 ' + formatKrw(r.marketCap));
+            if (r.tradingValue) metaParts.push('NXT ' + formatKrw(r.tradingValue));
+            if (r.krxTradingValue) metaParts.push('본장 ' + formatKrw(r.krxTradingValue));
+            if (r.changeRate != null) {
+                var prevSign = r.changeRate >= 0 ? '+' : '';
+                metaParts.push('전일 ' + prevSign + r.changeRate.toFixed(2) + '%');
+            }
             var metaCompact = metaParts.join(' &middot; ');
 
             html += '<tr>';
@@ -230,8 +230,9 @@
             html += '<td class="cell-volume">' + formatKrw(r.tradingValue) + '</td>';
             html += '<td class="cell-volume">' + formatKrw(r.marketCap) + '</td>';
             html += '<td class="cell-sector">' + (r.sector ? htmlEscape(r.sector) : '<span class="cell-empty">-</span>') + '</td>';
-            html += '<td class="cell-themes">' + themesHtml + '</td>';
+            // 모바일 카드 순서: meta 라인 먼저, 테마 태그 나중 (대시보드와 동일)
             html += '<td class="cell-meta-compact">' + metaCompact + '</td>';
+            html += '<td class="cell-themes">' + themesHtml + '</td>';
             html += '</tr>';
         });
         $body.innerHTML = html;
