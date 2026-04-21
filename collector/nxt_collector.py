@@ -1,22 +1,21 @@
 """넥스트장(NXT / Nextrade) 스냅샷 수집기
 
-스케줄 (KST): 08:05, 16:05, 17:05, 18:05, 19:05, 20:05 (하루 6회, 월~금)
+스케줄 (KST): 16:05, 17:05, 18:05, 19:05, 20:05 (하루 5회, 월~금 애프터마켓)
+- 프리마켓(08:05) 은 제외: 기준가가 전일 종가라 포스트마켓의 "NXT 세션 한정 변동" 과 의미 충돌
 호출: .github/workflows/nxt-collect.yml 의 cron schedule
 
 저장:
-- public/data/nxt/YYYYMMDD_HHMM.json  (스냅샷)
-- public/data/nxt/latest.json         (최신 복사본, 빠른 로드용)
-- public/data/nxt/index.json          (스냅샷 메타 리스트, 역순)
+- public/data/nxt/YYYYMMDD.json       (일별 1개, 같은 날 여러 번 돌면 overwrite)
+- public/data/nxt/latest.json         (최신 복사본)
+- public/data/nxt/index.json          (날짜 메타 리스트, 역순)
 
-각 스냅샷:
-{
-  "collected_at": "2026-04-21T20:05:03+09:00",
-  "session": "postmarket",  // premarket / postmarket
-  "setTime": "20260421200500",
-  "totalCnt": 644,
-  "gainers": [{ticker, name, market, price, change, changeRate, volume, tradingValue, creTime}, ...20],
-  "losers":  [...20]
-}
+각 스냅샷 기본 필드:
+- ticker, name, market (KOSPI/KOSDAQ)
+- price, change, changeRate (NXT 가격, 전일 종가 대비)
+- volume, tradingValue (NXT 누적거래량/거래대금)
+- nxtChange, nxtChangeRate, krxClose (본장 종가 대비 NXT 세션 한정 변동)
+- marketCap (시가총액), krxTradingValue (본장 거래대금)
+- sector (업종명), themes (테마 목록, 배열)
 """
 import concurrent.futures
 import json
@@ -92,103 +91,150 @@ def classify_session(now_kst):
     return 'regular'
 
 
-def load_krx_close_map(date_str):
-    """당일 KRX 장마감 종가 맵 (ticker → close_price) — 메인 rankings JSON 기반.
-
-    장마감 collector 가 저장한 TOP 100 rankings 에서만 추출. 랭킹 밖 종목은
-    fetch_krx_close_naver 로 보완 필요.
-    """
-    path = os.path.join(ROOT, 'public', 'data', f'{date_str}.json')
-    if not os.path.exists(path):
-        return {}
-    try:
-        with open(path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        result = {}
-        for r in data.get('rankings', []):
-            t = r.get('ticker')
-            cp = r.get('close_price')
-            if t and cp and cp > 0:
-                result[t] = int(cp)
-        return result
-    except Exception as e:
-        logger.warning(f'  KRX close map 로드 실패: {e}')
-        return {}
-
-
-_NAVER_CHART_HEADERS = {
+_NAVER_API_HEADERS = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
     'Accept': 'application/json',
 }
+_NAVER_MARKETVALUE_URL = (
+    'https://m.stock.naver.com/api/stocks/marketValue/{market}?page={page}&pageSize=100'
+)
 
 
-def _fetch_krx_close_one(ticker, date_str, timeout=5):
-    """Naver chart API 로 단일 ticker 의 date_str 종가 조회. 실패 시 0."""
-    url = (
-        f'https://api.stock.naver.com/chart/domestic/item/{ticker}/day'
-        f'?startDateTime={date_str}&endDateTime={date_str}'
-    )
-    try:
-        req = urllib.request.Request(url, headers=_NAVER_CHART_HEADERS)
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
-            data = json.loads(resp.read().decode('utf-8')) or []
-        for x in data:
-            if x.get('localDate') == date_str:
-                return int(x.get('closePrice') or 0)
-        if data:
-            return int(data[0].get('closePrice') or 0)
-    except Exception:
-        return 0
-    return 0
+def _fetch_marketvalue_page(market, page, timeout=10):
+    """Naver marketValue 엔드포인트 한 페이지 호출 → stocks 배열."""
+    url = _NAVER_MARKETVALUE_URL.format(market=market, page=page)
+    req = urllib.request.Request(url, headers=_NAVER_API_HEADERS)
+    with urllib.request.urlopen(req, timeout=timeout) as resp:
+        data = json.loads(resp.read().decode('utf-8')) or {}
+    return data.get('stocks') or [], int(data.get('totalCount') or 0)
 
 
-def fetch_krx_close_naver(tickers, date_str, max_workers=20):
-    """Naver chart API 병렬 호출로 여러 ticker 의 KRX 종가 조회.
+def fetch_all_krx_details(max_workers=10):
+    """KOSPI + KOSDAQ 전 종목(ETF 포함) 상세: {ticker: {krxClose, marketCap, krxTradingValue}}.
 
-    rankings 에 없는 종목 보완용. 20 워커 동시 실행.
+    `stocks/marketValue/{market}` 페이지네이션 (100개/page).
+    시총 순이라 NXT 대형주까지 확실히 커버.
+    병렬 fetch 로 ~55 페이지 → 2~3초.
     """
-    if not tickers:
-        return {}
     result = {}
-    with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as ex:
-        futures = {ex.submit(_fetch_krx_close_one, t, date_str): t for t in tickers}
-        for fut in concurrent.futures.as_completed(futures):
-            t = futures[fut]
-            try:
-                cp = fut.result()
-                if cp and cp > 0:
-                    result[t] = cp
-            except Exception:
-                pass
+    for market in ['KOSPI', 'KOSDAQ']:
+        try:
+            first, total = _fetch_marketvalue_page(market, 1)
+        except Exception as e:
+            logger.warning(f'  {market} page 1 실패: {e}')
+            continue
+        for s in first:
+            _absorb_details(result, s)
+        if total <= 100:
+            continue
+        last_page = (total + 99) // 100
+        pages = list(range(2, last_page + 1))
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as ex:
+            futures = {ex.submit(_fetch_marketvalue_page, market, p): p for p in pages}
+            for fut in concurrent.futures.as_completed(futures):
+                p = futures[fut]
+                try:
+                    stocks, _ = fut.result()
+                    for s in stocks:
+                        _absorb_details(result, s)
+                except Exception as e:
+                    logger.warning(f'  {market} page {p} 실패: {e}')
+        logger.info(f'  {market}: totalCount={total}, 매핑 {sum(1 for r in result.values() if r.get("_market") == market)}개')
     return result
 
 
-def enrich_nxt_change(items, krx_close_map):
-    """각 item 에 NXT 세션 한정 변동 필드 부착.
+def _absorb_details(result, s):
+    """_fetch_marketvalue_page 반환 항목 → result dict 에 흡수."""
+    t = s.get('itemCode')
+    if not t:
+        return
+    try:
+        krx_close = int(s.get('closePriceRaw') or 0)
+    except (TypeError, ValueError):
+        krx_close = 0
+    try:
+        market_cap = int(s.get('marketValueRaw') or 0)
+    except (TypeError, ValueError):
+        market_cap = 0
+    try:
+        trading_value = int(s.get('accumulatedTradingValueRaw') or 0)
+    except (TypeError, ValueError):
+        trading_value = 0
+    if krx_close <= 0 and market_cap <= 0:
+        return
+    result[t] = {
+        'krxClose': krx_close,
+        'marketCap': market_cap,
+        'krxTradingValue': trading_value,
+        '_market': (s.get('stockExchangeType') or {}).get('nameEng') or '',
+    }
 
-    nxtChange: NXT 가격 - KRX 종가
-    nxtChangeRate: 비율 (%)
-    krxClose: KRX 종가 (참조용)
 
-    KRX 종가 없는 종목은 필드 추가 안 함 (JS 에서 changeRate 로 폴백).
+def load_sector_theme_mapping():
+    """naver_mapping.json 로드 → (industries, themes).
+
+    industries: {ticker: {name, no}}
+    themes:     {ticker: [{no, name}, ...]}
+    """
+    path = os.path.join(ROOT, 'collector', 'naver_mapping.json')
+    if not os.path.exists(path):
+        logger.warning('  naver_mapping.json 없음 → 섹터/테마 스킵')
+        return {}, {}
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            m = json.load(f)
+        return m.get('industries') or {}, m.get('themes') or {}
+    except Exception as e:
+        logger.warning(f'  naver_mapping 로드 실패: {e}')
+        return {}, {}
+
+
+def enrich_nxt_full(items, krx_details, industries, themes_map):
+    """각 NXT item 에 풀 메타 부착.
+
+    - NXT 세션 변동: nxtChange/nxtChangeRate/krxClose
+    - 본장 정보: marketCap, krxTradingValue
+    - 매핑: sector (업종명), themes (테마명 리스트, 중복 제거)
     """
     for x in items:
-        krx_close = krx_close_map.get(x['ticker'])
-        if not krx_close or krx_close <= 0:
-            continue
-        nxt_change = x['price'] - krx_close
-        nxt_change_rate = (nxt_change / krx_close) * 100
-        x['krxClose'] = krx_close
-        x['nxtChange'] = nxt_change
-        x['nxtChangeRate'] = round(nxt_change_rate, 2)
+        t = x['ticker']
+        d = krx_details.get(t) or {}
+        krx_close = d.get('krxClose') or 0
+        if krx_close > 0:
+            nxt_change = x['price'] - krx_close
+            x['krxClose'] = krx_close
+            x['nxtChange'] = nxt_change
+            x['nxtChangeRate'] = round((nxt_change / krx_close) * 100, 2)
+        mc = d.get('marketCap') or 0
+        if mc > 0:
+            x['marketCap'] = mc
+        ktv = d.get('krxTradingValue') or 0
+        if ktv > 0:
+            x['krxTradingValue'] = ktv
+
+        ind = industries.get(t) or {}
+        if ind.get('name'):
+            x['sector'] = ind['name']
+
+        theme_list = themes_map.get(t) or []
+        names = []
+        seen = set()
+        for th in theme_list:
+            n = (th or {}).get('name') if isinstance(th, dict) else None
+            if n and n not in seen:
+                seen.add(n)
+                names.append(n)
+        if names:
+            x['themes'] = names
     return items
 
 
 def build_snapshot():
     """상승 TOP N + 하락 TOP N 스냅샷 구성.
 
-    postmarket 세션: 본장 종가 대비 NXT 변동 계산, nxtChangeRate 기준 정렬.
-    premarket 세션: 전일 종가 대비 변동 (= NXT 프리마켓 변동).
+    포스트마켓 세션을 가정 (프리마켓은 cron 에서 제외). 정규장 중 수동 실행 시에도
+    동일 로직이 동작하지만, 정규장 가격이 KRX 종가에 반영되지 않아 nxtChangeRate 는
+    0 근처로 나올 수 있음.
     """
     now_kst = datetime.now(KST)
     raw = fetch_nxt_all()
@@ -202,38 +248,39 @@ def build_snapshot():
     slim = [s for s in slim if s['price'] > 0]
 
     session = classify_session(now_kst)
-    today = now_kst.strftime('%Y%m%d')
-    krx_close_enriched = False
 
-    if session == 'postmarket':
-        # 1차: 메인 rankings JSON 에서 TOP 100 종가 확보 (빠름)
-        krx_close_map = load_krx_close_map(today)
+    # KOSPI + KOSDAQ 전 종목 상세 (종가/시총/거래대금)
+    logger.info('  KRX 전 종목 상세 fetch 시작 (marketValue 페이지네이션)...')
+    krx_details = fetch_all_krx_details()
+    logger.info(f'  KRX 상세 매핑: {len(krx_details)}개 종목')
 
-        # 2차: 랭킹 밖 종목들은 Naver API 병렬 fetch (20 워커)
-        all_tickers = {s['ticker'] for s in slim}
-        missing = [t for t in all_tickers if t not in krx_close_map]
-        if missing:
-            logger.info(f'  랭킹 밖 {len(missing)}개 종목 KRX 종가 병렬 fetch 시작...')
-            extra = fetch_krx_close_naver(missing, today)
-            krx_close_map.update(extra)
-            logger.info(f'  fetch 완료: {len(extra)}/{len(missing)}개 매칭')
+    # 섹터/테마 매핑
+    industries, themes_map = load_sector_theme_mapping()
+    logger.info(f'  섹터 매핑: {len(industries)}개, 테마 매핑: {len(themes_map)}개')
 
-        if krx_close_map:
-            enrich_nxt_change(slim, krx_close_map)
-            krx_close_enriched = True
-            logger.info(f'  NXT 세션 변동 계산: 총 KRX 종가 {len(krx_close_map)}개 매칭')
-        else:
-            logger.info('  KRX 종가 전혀 없음 — 전일대비 기준 정렬 폴백')
+    enrich_nxt_full(slim, krx_details, industries, themes_map)
 
-    # postmarket + KRX 종가 있으면 nxtChangeRate 기준 정렬, 아니면 changeRate 기준
-    if krx_close_enriched:
-        def sort_val(s):
-            return s.get('nxtChangeRate') if s.get('nxtChangeRate') is not None else s['changeRate']
+    # 매칭 카운트 (관찰용)
+    matched_close = sum(1 for s in slim if s.get('krxClose'))
+    matched_sector = sum(1 for s in slim if s.get('sector'))
+    matched_themes = sum(1 for s in slim if s.get('themes'))
+    logger.info(
+        f'  enrich 결과: KRX종가 {matched_close}/{len(slim)} · '
+        f'섹터 {matched_sector}/{len(slim)} · 테마 {matched_themes}/{len(slim)}'
+    )
+
+    nxt_change_enriched = matched_close > 0
+
+    # 정렬: nxtChangeRate 우선, 없으면 changeRate
+    def sort_val(s):
+        v = s.get('nxtChangeRate')
+        return v if v is not None else s.get('changeRate', 0)
+    if nxt_change_enriched:
         gainers = sorted(slim, key=sort_val, reverse=True)[:TOP_N]
         losers = sorted(slim, key=sort_val)[:TOP_N]
     else:
-        gainers = sorted(slim, key=lambda s: s['changeRate'], reverse=True)[:TOP_N]
-        losers = sorted(slim, key=lambda s: s['changeRate'])[:TOP_N]
+        gainers = sorted(slim, key=lambda s: s.get('changeRate', 0), reverse=True)[:TOP_N]
+        losers = sorted(slim, key=lambda s: s.get('changeRate', 0))[:TOP_N]
 
     setTime = raw.get('setTime', '') or ''
     agg_dd = items_raw[0].get('aggDd', '') if items_raw else ''
@@ -245,43 +292,10 @@ def build_snapshot():
         'setTime': setTime,
         'totalCnt': raw.get('totalCnt', len(slim)),
         'delayMinutes': 20,  # 넥스트레이드 표기 기준
-        'nxtChangeEnriched': krx_close_enriched,  # true 면 gainers/losers 에 nxtChangeRate 필드 존재
+        'nxtChangeEnriched': nxt_change_enriched,
         'gainers': gainers,
         'losers': losers,
     }
-
-
-def enrich_reasons(snapshot):
-    """당일 리포트의 theme_tag 를 ticker 기준으로 gainers/losers 에 부착.
-
-    리포트 JSON 없으면 조용히 skip.
-    """
-    daily_dir = os.path.join(ROOT, 'public', 'data')
-    date_key = (snapshot['aggDd'] or datetime.now(KST).strftime('%Y%m%d'))
-    path = os.path.join(daily_dir, f'{date_key}.json')
-    if not os.path.exists(path):
-        return
-    try:
-        with open(path, 'r', encoding='utf-8') as f:
-            data = json.load(f)
-    except Exception as e:
-        logger.warning(f'  reason 맵 로드 실패: {e}')
-        return
-
-    reason_map = {}
-    for r in data.get('rankings', []):
-        t = r.get('ticker')
-        if not t:
-            continue
-        tag = r.get('theme_tag') or (r.get('theme_tags') or [None])[0] or r.get('sector')
-        if tag:
-            reason_map[t] = tag
-
-    for bucket in ('gainers', 'losers'):
-        for x in snapshot[bucket]:
-            tag = reason_map.get(x['ticker'])
-            if tag:
-                x['reason'] = tag
 
 
 def save_snapshot(snapshot):
@@ -412,7 +426,6 @@ def main():
     logger.info('===== NXT 스냅샷 수집 시작 =====')
     try:
         snapshot = build_snapshot()
-        enrich_reasons(snapshot)
         save_snapshot(snapshot)
         cleanup_legacy_intraday_files()
         logger.info(f'===== 완료: gainers TOP {len(snapshot["gainers"])} / losers TOP {len(snapshot["losers"])} =====')

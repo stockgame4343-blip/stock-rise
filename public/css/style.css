@@ -445,6 +445,18 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .nxt-delay-note{font-size:11px;color:var(--text-muted);background:var(--bg-tertiary);padding:4px 10px;border-radius:4px;border:1px solid var(--border-subtle)}
 .cell-empty{text-align:center;padding:32px;color:var(--text-muted)}
 
+/* NXT 정렬 가능 헤더 */
+.nxt-table th.nxt-sortable{cursor:pointer;user-select:none;position:relative}
+.nxt-table th.nxt-sortable:hover{color:var(--accent)}
+.nxt-table th.nxt-sorted{color:var(--accent)}
+.nxt-table th .sort-arrow{display:inline-block;min-width:12px;font-size:10px;margin-left:2px}
+.nxt-table .col-marketcap{width:96px;text-align:right}
+.nxt-table .col-themes{min-width:220px;text-align:left}
+.nxt-table .cell-themes{font-size:0;line-height:1.8;padding:8px 10px}
+.nxt-table .cell-themes .theme-tag{font-size:11px;margin:2px 3px 2px 0;white-space:nowrap}
+.nxt-table .cell-sector{font-size:12px;color:var(--text-secondary);white-space:nowrap}
+.nxt-table .cell-empty{padding:0;color:var(--text-muted)}
+
 /* 더보기 버튼 */
 .report__more-btn{display:block;width:100%;padding:14px;margin-top:8px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:10px;color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;transition:background .15s,color .15s}
 .report__more-btn:hover{background:var(--bg-hover);color:var(--text-primary)}

@@ -4,6 +4,7 @@
  * - 하루 1개 파일 (YYYYMMDD.json) — 같은 날 여러 번 수집되어도 overwrite
  * - 탭: 상승 TOP 20 / 하락 TOP 20 전환
  * - 네비게이션: 이전/다음 날짜 (리포트와 동일 스타일)
+ * - 정렬: 컬럼 헤더 클릭 → 해당 컬럼 기준 desc/asc 토글
  */
 (function () {
     var DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
@@ -13,7 +14,14 @@
         idx: 0,          // 현재 보는 스냅샷 인덱스
         side: 'gainers', // 'gainers' | 'losers'
         current: null,   // 로드된 스냅샷 객체
+        sort: {          // 정렬 상태 (null 이면 기본: 변동률)
+            key: null,   // 'price' | 'nxtChangeRate' | 'changeRate' | 'tradingValue' | 'krxTradingValue' | 'marketCap' | 'sector'
+            dir: 'desc', // 'desc' | 'asc'
+        },
     };
+
+    // 문자열 정렬 컬럼
+    var STRING_COLS = { sector: true };
 
     // DOM
     var $body = document.getElementById('nxtBody');
@@ -26,26 +34,24 @@
     var $themeToggle = document.getElementById('themeToggle');
     var $lastUpdated = document.getElementById('lastUpdated');
     var $tabs = document.querySelectorAll('.tab[data-side]');
-    var $colChangeHeader = document.getElementById('colChangeHeader');
+    var $sortHeaders = document.querySelectorAll('.nxt-sortable[data-sort]');
 
     // ── 유틸 ──
     function formatNumber(n) {
         if (n == null) return '-';
         return Math.round(n).toLocaleString('ko-KR');
     }
-    function formatChange(r) {
-        // nxtChangeRate 있으면 (postmarket + KRX 종가 매칭) NXT 세션 한정 변동 우선
-        var hasNxt = r.nxtChangeRate !== undefined && r.nxtChangeRate !== null;
-        var rate = hasNxt ? r.nxtChangeRate : r.changeRate;
-        var change = hasNxt ? r.nxtChange : r.change;
+    function formatChangeCell(rate, change) {
+        if (rate == null) return '<span class="cell-empty">-</span>';
         var cls = rate >= 0 ? 'cell-change--up' : 'cell-change--down';
         var sign = rate >= 0 ? '+' : '';
-        var changeStr = sign + formatNumber(change);
+        var changeStr = change != null ? (sign + formatNumber(change)) : '';
         var rateStr = sign + rate.toFixed(2) + '%';
-        return '<span class="' + cls + '">' + changeStr + '<br>' + rateStr + '</span>';
+        return '<span class="' + cls + '">' +
+            (changeStr ? (changeStr + '<br>') : '') + rateStr + '</span>';
     }
-    function formatTradingValue(v) {
-        if (!v) return '-';
+    function formatKrw(v) {
+        if (v == null || !v) return '-';
         if (v >= 1e12) return (v / 1e12).toFixed(1) + '조';
         if (v >= 1e8) return (v / 1e8).toFixed(0) + '억';
         if (v >= 1e4) return (v / 1e4).toFixed(0) + '만';
@@ -66,6 +72,13 @@
         var f = entry.file || '';
         var stem = f.replace('.json', '');
         return stem.indexOf('_') >= 0 ? stem.split('_')[0] : stem;
+    }
+    function htmlEscape(s) {
+        return String(s)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;');
     }
 
     // ── 테마 토글 ──
@@ -91,33 +104,93 @@
         });
     }
 
+    // ── 정렬 ──
+    function getSortedList() {
+        if (!state.current) return [];
+        var list = (state.current[state.side] || []).slice();
+        var key = state.sort.key;
+        if (!key) return list; // 기본: 서버 정렬 유지 (변동률 desc)
+
+        var dir = state.sort.dir === 'asc' ? 1 : -1;
+        var isString = !!STRING_COLS[key];
+        list.sort(function (a, b) {
+            var va = a[key];
+            var vb = b[key];
+            if (isString) {
+                va = va || '';
+                vb = vb || '';
+                if (va === vb) return 0;
+                return (va < vb ? -1 : 1) * dir;
+            }
+            // 숫자: null/undefined 를 최하위로 (desc 기준)
+            var aMissing = va == null;
+            var bMissing = vb == null;
+            if (aMissing && bMissing) return 0;
+            if (aMissing) return 1;
+            if (bMissing) return -1;
+            return (va - vb) * dir;
+        });
+        return list;
+    }
+
+    function renderSortArrows() {
+        $sortHeaders.forEach(function (th) {
+            var key = th.getAttribute('data-sort');
+            var arrow = th.querySelector('.sort-arrow');
+            if (!arrow) return;
+            if (state.sort.key === key) {
+                arrow.textContent = state.sort.dir === 'asc' ? ' ▲' : ' ▼';
+                th.classList.add('nxt-sorted');
+            } else {
+                arrow.textContent = '';
+                th.classList.remove('nxt-sorted');
+            }
+        });
+    }
+
     // ── 렌더링 ──
     function renderTable() {
         if (!state.current) {
             $body.innerHTML = '';
             return;
         }
-        var list = (state.current[state.side] || []);
+        var list = getSortedList();
         if (list.length === 0) {
-            $body.innerHTML = '<tr><td colspan="6" class="cell-empty">데이터 없음</td></tr>';
+            $body.innerHTML = '<tr><td colspan="10" class="cell-empty">데이터 없음</td></tr>';
             return;
         }
 
         var html = '';
         list.forEach(function (r, i) {
             var detailUrl = 'https://finance.naver.com/item/main.naver?code=' + r.ticker;
+            var themesHtml = '<span class="cell-empty">-</span>';
+            if (r.themes && r.themes.length) {
+                themesHtml = r.themes.map(function (n) {
+                    return '<span class="theme-tag">' + htmlEscape(n) + '</span>';
+                }).join('');
+            }
+            // NXT 변동 (nxtChangeRate/nxtChange) — 없으면 '-'
+            var nxtChangeHtml = formatChangeCell(
+                r.nxtChangeRate != null ? r.nxtChangeRate : null,
+                r.nxtChange != null ? r.nxtChange : null
+            );
+            // 전일대비 (changeRate/change) — NXT API 기본
+            var prevChangeHtml = formatChangeCell(r.changeRate, r.change);
+
             html += '<tr>';
             html += '<td class="cell-rank">' + (i + 1) + '</td>';
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
-                '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link">' + r.name + '</a>' +
-                '<span class="cell-name__market">' + (r.market || 'NXT') + '</span>' +
+                '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link">' + htmlEscape(r.name) + '</a>' +
+                '<span class="cell-name__market">' + htmlEscape(r.market || 'NXT') + '</span>' +
                 '</div></td>';
             html += '<td class="cell-price">' + formatNumber(r.price) + '</td>';
-            html += '<td class="cell-change">' + formatChange(r) + '</td>';
-            html += '<td class="cell-volume">' + formatTradingValue(r.tradingValue) + '</td>';
-            html += '<td class="cell-reason">' +
-                (r.reason ? '<span class="theme-tag">' + r.reason + '</span>' : '<span class="cell-reason__text">-</span>') +
-                '</td>';
+            html += '<td class="cell-change">' + nxtChangeHtml + '</td>';
+            html += '<td class="cell-change">' + prevChangeHtml + '</td>';
+            html += '<td class="cell-volume">' + formatKrw(r.tradingValue) + '</td>';
+            html += '<td class="cell-volume">' + formatKrw(r.krxTradingValue) + '</td>';
+            html += '<td class="cell-volume">' + formatKrw(r.marketCap) + '</td>';
+            html += '<td class="cell-sector">' + (r.sector ? htmlEscape(r.sector) : '<span class="cell-empty">-</span>') + '</td>';
+            html += '<td class="cell-themes">' + themesHtml + '</td>';
             html += '</tr>';
         });
         $body.innerHTML = html;
@@ -128,7 +201,6 @@
         var dateStr = entryDate(entry);
         $snapDisplay.textContent = dateStr ? formatDateKorean(dateStr) : '-';
 
-        // 리포트와 동일: idx===0 이면 오늘, 아니면 과거
         if (state.idx === 0) {
             $snapBadge.textContent = '오늘';
             $snapBadge.className = 'date-badge';
@@ -151,21 +223,6 @@
                 lu = hh + ':' + mm;
             }
             $lastUpdated.textContent = lu ? (lu + ' 수집') : '';
-        }
-    }
-
-    function renderColChangeHeader() {
-        if (!$colChangeHeader) return;
-        var snap = state.current;
-        if (snap && snap.nxtChangeEnriched) {
-            $colChangeHeader.textContent = 'NXT 변동';
-            $colChangeHeader.title = '본장 종가 대비 NXT 애프터마켓 변동';
-        } else if (snap && snap.session === 'premarket') {
-            $colChangeHeader.textContent = 'NXT 변동';
-            $colChangeHeader.title = '전일 종가 대비 NXT 프리마켓 변동';
-        } else {
-            $colChangeHeader.textContent = '전일대비';
-            $colChangeHeader.removeAttribute('title');
         }
     }
 
@@ -199,7 +256,7 @@
                 state.idx = idx;
                 $loading.style.display = 'none';
                 renderSnapInfo();
-                renderColChangeHeader();
+                renderSortArrows();
                 renderTable();
             });
     }
@@ -211,7 +268,6 @@
             .then(function (list) {
                 state.snapshots = Array.isArray(list) ? list : [];
                 if (state.snapshots.length === 0) {
-                    // index 없어도 latest.json 단독 시도
                     return loadSnapshot(0).catch(function () {
                         showMessage('아직 수집된 NXT 스냅샷이 없습니다.');
                     });
@@ -229,6 +285,25 @@
             $tabs.forEach(function (t) { t.classList.remove('active'); });
             tab.classList.add('active');
             state.side = tab.getAttribute('data-side');
+            renderTable();
+        });
+    });
+
+    $sortHeaders.forEach(function (th) {
+        th.addEventListener('click', function () {
+            var key = th.getAttribute('data-sort');
+            if (!key) return;
+            if (state.sort.key === key) {
+                // 같은 컬럼 재클릭 → 방향 토글, 두 번 더 클릭하면 정렬 해제
+                if (state.sort.dir === 'desc') {
+                    state.sort.dir = 'asc';
+                } else {
+                    state.sort = { key: null, dir: 'desc' };
+                }
+            } else {
+                state.sort = { key: key, dir: 'desc' };
+            }
+            renderSortArrows();
             renderTable();
         });
     });
