@@ -45,14 +45,15 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .theme-toggle{background:none;border:none;cursor:pointer;font-size:20px;line-height:1;padding:4px;color:var(--text-secondary);transition:color .2s,transform .2s;display:flex;align-items:center}
 .theme-toggle:hover{color:var(--text-primary);transform:scale(1.15)}
 
-/* ── 툴바 (탭 + 날짜) ── */
-.toolbar{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-.toolbar__left{display:flex;align-items:center;gap:6px}
-.toolbar__right{display:flex;align-items:center;gap:8px}
+/* ── 툴바 (탭 + 날짜 + 관심) ── */
+.toolbar{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;padding:14px 0}
+.toolbar__left{display:flex;align-items:center;gap:6px;justify-self:start}
+.toolbar__right{display:flex;align-items:center;gap:8px;justify-self:end}
+.toolbar .report__date-bar{justify-self:center;padding:0}
 .tab{padding:7px 18px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text-secondary);cursor:pointer;font-size:13px;font-weight:500;transition:all .15s}
 .tab:hover{background:var(--bg-tertiary);color:var(--text-primary)}
 .tab.active{background:var(--accent);border-color:var(--accent);color:#fff}
-.tab.tab--watchlist{border-color:var(--border);color:var(--text-muted);display:inline-flex;align-items:center;gap:5px;margin-left:6px}
+.tab.tab--watchlist{border-color:var(--border);color:var(--text-muted);display:inline-flex;align-items:center;gap:5px}
 .tab.tab--watchlist svg{opacity:.6}
 .tab.tab--watchlist:hover{background:var(--bg-tertiary);color:var(--text-secondary)}
 .tab.tab--watchlist:hover svg{opacity:1}
@@ -549,11 +550,13 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     /* 업데이트 시간: 모바일에서도 표시 (텍스트 축소) */
     .top-bar__updated{font-size:10px;white-space:nowrap;max-width:72px;overflow:hidden;text-overflow:ellipsis}
 
-    /* ── 툴바: 탭만 (날짜 바는 위 별도 영역) ── */
-    .toolbar{gap:8px;padding:10px 0}
-    .toolbar__left{flex-wrap:wrap;gap:5px;width:100%}
+    /* ── 툴바: 2줄 (1행 탭+관심, 2행 날짜 가운데) ── */
+    .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 5px;padding:10px 0}
+    .toolbar__left{order:1;flex:1 1 auto;display:flex;flex-wrap:wrap;align-items:center;gap:5px;justify-self:auto}
+    .toolbar__right{order:1;margin-left:auto;justify-self:auto}
+    .toolbar .report__date-bar{order:2;flex:0 0 100%;padding:4px 0 0;justify-content:center;justify-self:auto}
     .tab{padding:7px 12px;font-size:12px;min-height:36px}
-    .tab.tab--watchlist{margin-left:auto}
+    .tab.tab--watchlist{margin-left:0}
     .date-text{font-size:15px}
     .date-nav{width:36px;height:36px}
     .date-badge{font-size:11px;padding:4px 10px;min-height:28px}
