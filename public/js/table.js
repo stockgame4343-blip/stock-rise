@@ -220,10 +220,9 @@ var StockTable = (function () {
                 var diff = ((r.current_price - r.close_price) / r.close_price * 100).toFixed(2);
                 var cls = diff > 0 ? 'cell-compare--up' : (diff < 0 ? 'cell-compare--down' : 'cell-compare--neutral');
                 var sign = diff > 0 ? '+' : '';
-                var arrow = diff > 0 ? '▲' : (diff < 0 ? '▼' : '');
                 html += '<td class="cell-compare ' + cls + '">' +
                     formatNumber(r.current_price) + '<br>' +
-                    arrow + sign + diff + '%</td>';
+                    sign + diff + '%</td>';
             } else if (isPast) {
                 html += '<td class="cell-compare cell-compare--neutral">-</td>';
             }
@@ -265,8 +264,9 @@ var StockTable = (function () {
         var existing = thead.querySelector('.col-compare');
         if (show && !existing) {
             var th = document.createElement('th');
-            th.className = 'col-compare';
-            th.textContent = '현재가 비교';
+            th.className = 'col-compare sortable';
+            th.setAttribute('data-sort', 'current_price_diff');
+            th.innerHTML = '현재가 비교 <span class="sort-icon">&#9660;</span>';
             th.style.width = '110px';
             th.style.textAlign = 'right';
             // .col-price 뒤에 삽입 (현재가와 전일대비 사이)

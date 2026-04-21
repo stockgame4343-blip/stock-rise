@@ -120,6 +120,15 @@
             var diff = 0;
             if (col === 'market_cap' || col === 'trading_value' || col === 'change_rate' || col === 'score') {
                 diff = (a[col] || 0) - (b[col] || 0);
+            } else if (col === 'current_price_diff') {
+                // 과거 날짜의 종가 대비 현재가 변동률 (%). current_price 없으면 최하위.
+                var pa = priceCompareRatio(a);
+                var pb = priceCompareRatio(b);
+                // null(=데이터 없음) 은 desc 기준 맨 아래로
+                if (pa === null && pb === null) diff = 0;
+                else if (pa === null) diff = state.sortDirection === 'asc' ? 1 : -1;
+                else if (pb === null) diff = state.sortDirection === 'asc' ? -1 : 1;
+                else diff = pa - pb;
             } else if (col === 'sector') {
                 diff = (a.sector || '').localeCompare(b.sector || '', 'ko');
             } else if (col === 'theme_tag') {
@@ -128,6 +137,11 @@
             return state.sortDirection === 'asc' ? diff : -diff;
         });
         return sorted;
+    }
+
+    function priceCompareRatio(r) {
+        if (r.current_price == null || !r.close_price) return null;
+        return (r.current_price - r.close_price) / r.close_price * 100;
     }
 
     // ── 렌더 ──
@@ -736,9 +750,9 @@
 
         $watchlistBtn.addEventListener('click', onWatchlistClick);
 
-        document.querySelectorAll('.sortable').forEach(function (th) {
-            th.addEventListener('click', onSortClick);
-        });
+        // 정렬 클릭: thead 위임 — 동적으로 추가되는 "현재가 비교" 헤더에도 반응
+        var rankingThead = document.querySelector('#rankingTable thead');
+        if (rankingThead) rankingThead.addEventListener('click', onSortClick);
 
         // tbody 이벤트 위임
         $rankingBody.addEventListener('click', onBodyClick);
