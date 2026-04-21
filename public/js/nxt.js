@@ -8,6 +8,9 @@
  */
 (function () {
     var DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
+    var RATINGS_KEY = 'stock-ratings';   // 대시보드와 동일 키 — 평가/제외/메모 공유
+    var _syncTimer = null;
+    var _memoTicker = null;
 
     var state = {
         snapshots: [],   // [{file, date, collected_at, last_updated, session}, ...] 최신순
@@ -43,6 +46,12 @@
     var $lastUpdated = document.getElementById('lastUpdated');
     var $tabs = document.querySelectorAll('.tab[data-side]');
     var $sortHeaders = document.querySelectorAll('.sortable[data-sort]');
+    var $memoModal = document.getElementById('memoModal');
+    var $memoModalClose = document.getElementById('memoModalClose');
+    var $memoModalTitle = document.getElementById('memoModalTitle');
+    var $memoTextarea = document.getElementById('memoTextarea');
+    var $memoSave = document.getElementById('memoSave');
+    var $memoDelete = document.getElementById('memoDelete');
 
     // ── 유틸 ──
     function formatNumber(n) {
@@ -101,6 +110,70 @@
         if (!short) return name;
         if (short.length > maxLen) short = short.substring(0, maxLen) + '…';
         return short;
+    }
+
+    // ── 별점/제외/메모 (대시보드 app.js + table.js 와 동일 동작) ──
+    function getRatings() {
+        try { return JSON.parse(localStorage.getItem(RATINGS_KEY) || '{}'); }
+        catch (e) { return {}; }
+    }
+    function saveRatings(ratings) {
+        localStorage.setItem(RATINGS_KEY, JSON.stringify(ratings));
+        if (_syncTimer) clearTimeout(_syncTimer);
+        _syncTimer = setTimeout(syncToServer, 3000);
+    }
+    function syncToServer() {
+        fetch('/api/sync-ratings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(getRatings()),
+        }).catch(function () {});
+    }
+    function loadFromServer() {
+        if (Object.keys(getRatings()).length > 0) return Promise.resolve();
+        return fetch('/api/sync-ratings')
+            .then(function (r) { return r.json(); })
+            .then(function (s) {
+                if (s && Object.keys(s).length > 0) {
+                    localStorage.setItem(RATINGS_KEY, JSON.stringify(s));
+                }
+            })
+            .catch(function () {});
+    }
+    function miniIndicatorsHtml(ticker, ratings) {
+        var rating = ratings[ticker] || {};
+        var stars = rating.stars || 0;
+        var excluded = rating.excluded || false;
+        var hasMemo = rating.memo ? true : false;
+        if (!(stars > 0 || excluded || hasMemo)) return '';
+        var html = '<span class="mini-indicators">';
+        if (stars > 0) html += '<span class="mini-star">★' + stars + '</span>';
+        if (excluded) html += '<span class="mini-exclude">✕</span>';
+        if (hasMemo) html += '<span class="mini-memo">✎</span>';
+        html += '</span>';
+        return html;
+    }
+    function starRatingHtml(ticker, ratings) {
+        var rating = ratings[ticker] || {};
+        var stars = rating.stars || 0;
+        var excluded = rating.excluded || false;
+        var hasMemo = rating.memo ? true : false;
+        var html = '<span class="ctrl-wrap">';
+        html += '<button class="ctrl-toggle" type="button" data-ticker="' + ticker + '" aria-label="평가">⋯</button>';
+        html += '<div class="float-controls" data-ticker="' + ticker + '">';
+        html += '<span class="star-rating" data-ticker="' + ticker + '">';
+        for (var i = 1; i <= 5; i++) {
+            html += '<span class="star' + (i <= stars ? ' star--active' : '') +
+                '" data-star="' + i + '">★</span>';
+        }
+        html += '</span>';
+        html += '<button class="exclude-btn' + (excluded ? ' exclude-btn--active' : '') +
+            '" data-ticker="' + ticker + '" title="제외">✕</button>';
+        html += '<button class="memo-btn' + (hasMemo ? ' memo-btn--has' : '') +
+            '" data-ticker="' + ticker + '" title="메모">✎</button>';
+        html += '</div>';
+        html += '</span>';
+        return html;
     }
 
     // ── 테마 토글 ──
@@ -182,6 +255,7 @@
             return;
         }
 
+        var ratings = getRatings();
         var html = '';
         list.forEach(function (r, i) {
             var detailUrl = 'https://finance.naver.com/item/main.naver?code=' + r.ticker;
@@ -221,7 +295,9 @@
             html += '<td class="cell-rank">' + (i + 1) + '</td>';
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
                 '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link">' + htmlEscape(r.name) + '</a>' +
+                miniIndicatorsHtml(r.ticker, ratings) +
                 '<span class="cell-name__market">' + htmlEscape(r.market || 'NXT') + '</span>' +
+                starRatingHtml(r.ticker, ratings) +
                 '</div></td>';
             html += '<td class="cell-price">' + formatNumber(r.price) + '</td>';
             html += '<td class="cell-change">' + nxtChangeHtml + '</td>';
@@ -312,8 +388,102 @@
             });
     }
 
+    // ── 이벤트 위임: tbody 클릭 (별점/제외/메모/ctrl-toggle) ──
+    function onBodyClick(e) {
+        var toggleBtn = e.target.closest('.ctrl-toggle');
+        if (toggleBtn) {
+            var wrap = toggleBtn.closest('.ctrl-wrap');
+            if (!wrap) return;
+            var wasOpen = wrap.classList.contains('is-open');
+            document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
+                if (w !== wrap) w.classList.remove('is-open');
+            });
+            if (!wasOpen) wrap.classList.add('is-open');
+            else wrap.classList.remove('is-open');
+            return;
+        }
+        var starEl = e.target.closest('.star');
+        if (starEl) {
+            var starRating = starEl.closest('.star-rating');
+            if (!starRating) return;
+            var ticker = starRating.getAttribute('data-ticker');
+            var starNum = parseInt(starEl.getAttribute('data-star'), 10);
+            if (!ticker || isNaN(starNum)) return;
+            var ratings = getRatings();
+            if (!ratings[ticker]) ratings[ticker] = {};
+            ratings[ticker].stars = (ratings[ticker].stars === starNum) ? 0 : starNum;
+            saveRatings(ratings);
+            renderTable();
+            return;
+        }
+        var excludeBtn = e.target.closest('.exclude-btn');
+        if (excludeBtn) {
+            var t = excludeBtn.getAttribute('data-ticker');
+            if (!t) return;
+            var rs = getRatings();
+            if (!rs[t]) rs[t] = {};
+            rs[t].excluded = !rs[t].excluded;
+            saveRatings(rs);
+            renderTable();
+            return;
+        }
+        var memoBtn = e.target.closest('.memo-btn');
+        if (memoBtn) {
+            var mt = memoBtn.getAttribute('data-ticker');
+            if (mt) openMemo(mt);
+            return;
+        }
+    }
+
+    // ── 메모 모달 ──
+    function findStockName(ticker) {
+        if (!state.current) return '';
+        var all = (state.current.gainers || []).concat(state.current.losers || []);
+        for (var i = 0; i < all.length; i++) {
+            if (all[i].ticker === ticker) return all[i].name || '';
+        }
+        return '';
+    }
+    function openMemo(ticker) {
+        _memoTicker = ticker;
+        var rd = getRatings()[ticker] || {};
+        $memoModalTitle.textContent = (findStockName(ticker) || ticker) + ' 메모';
+        $memoTextarea.value = rd.memo || '';
+        $memoModal.style.display = 'flex';
+        $memoTextarea.focus();
+    }
+    function closeMemo() {
+        $memoModal.style.display = 'none';
+        _memoTicker = null;
+    }
+    function saveMemo() {
+        if (!_memoTicker) return;
+        var rs = getRatings();
+        if (!rs[_memoTicker]) rs[_memoTicker] = {};
+        var text = $memoTextarea.value.trim();
+        if (text) rs[_memoTicker].memo = text;
+        else delete rs[_memoTicker].memo;
+        saveRatings(rs);
+        closeMemo();
+        renderTable();
+    }
+    function deleteMemo() {
+        if (!_memoTicker) return;
+        var rs = getRatings();
+        if (rs[_memoTicker]) {
+            delete rs[_memoTicker].memo;
+            saveRatings(rs);
+        }
+        closeMemo();
+        renderTable();
+    }
+
     function init() {
         $loading.style.display = 'block';
+        // 서버 저장본이 있으면 localStorage 미리 채우기 (병렬, 완료 시 재렌더)
+        loadFromServer().then(function () {
+            if (state.current) renderTable();
+        });
 
         loadIndex()
             .then(function (list) {
@@ -367,6 +537,26 @@
     $snapNext.addEventListener('click', function () {
         if (state.idx > 0) {
             loadSnapshot(state.idx - 1).catch(function () {});
+        }
+    });
+
+    // tbody 이벤트 위임 (별점/제외/메모/ctrl-toggle)
+    $body.addEventListener('click', onBodyClick);
+
+    // 메모 모달
+    if ($memoModalClose) $memoModalClose.addEventListener('click', closeMemo);
+    if ($memoModal) $memoModal.addEventListener('click', function (e) {
+        if (e.target === $memoModal) closeMemo();
+    });
+    if ($memoSave) $memoSave.addEventListener('click', saveMemo);
+    if ($memoDelete) $memoDelete.addEventListener('click', deleteMemo);
+
+    // 바깥 탭 → 열려 있는 ctrl-wrap 패널 닫기 (모바일)
+    document.addEventListener('click', function (e) {
+        if (!e.target.closest('.ctrl-wrap')) {
+            document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
+                w.classList.remove('is-open');
+            });
         }
     });
 
