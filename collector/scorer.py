@@ -489,6 +489,68 @@ def extract_theme_tag(articles, article_bodies=None, stock_name=''):
     return ''
 
 
+def extract_news_keywords(articles, article_bodies=None, stock_name='', top_n=None):
+    """뉴스 본문/제목에서 상위 N개 테마 키워드를 Counter 기반으로 추출.
+
+    resolve_themes() 와 교차해 primary/secondary 태그 선정에 쓰기 위한 "증거 세트".
+    extract_theme_tag() 와 다른 점:
+    - 단일 best 가 아니라 상위 N개 리스트를 돌려줌
+    - 종목명 윈도우 / 제목 / 전체 본문 각각 가중치 (×3 / ×2 / ×1) 로 누적
+
+    Args:
+        articles: [{title, ...}, ...]
+        article_bodies: 기사 본문 텍스트 리스트
+        stock_name: 종목명 (윈도우 필터링용)
+        top_n: 상위 개수 (None 이면 config.NEWS_KEYWORDS_TOP_N)
+
+    Returns:
+        list[str]: _is_valid_theme_tag 통과한 상위 N개 키워드 (등장 빈도 내림차순)
+    """
+    from collections import Counter
+    if top_n is None:
+        try:
+            from config import NEWS_KEYWORDS_TOP_N
+            top_n = NEWS_KEYWORDS_TOP_N
+        except ImportError:
+            top_n = 10
+
+    bodies = [b for b in (article_bodies or []) if b]
+    counts = Counter()
+
+    # 전략 1: 종목명 근처 200자 윈도우 (가중치 ×3)
+    if bodies and stock_name:
+        for body in bodies:
+            idx = 0
+            while True:
+                pos = body.find(stock_name, idx)
+                if pos == -1:
+                    break
+                start = max(0, pos - 100)
+                end = min(len(body), pos + len(stock_name) + 100)
+                for k, v in _extract_themes_from_text(body[start:end]).items():
+                    counts[k] += v * 3
+                idx = pos + 1
+
+    # 전략 2: 전체 본문 (가중치 ×1)
+    if bodies:
+        for k, v in _extract_themes_from_text('\n'.join(bodies)).items():
+            counts[k] += v
+
+    # 전략 3: 뉴스 제목 (가중치 ×2)
+    if articles:
+        titles = ' '.join(a.get('title', '') for a in articles)
+        for k, v in _extract_themes_from_text(titles).items():
+            counts[k] += v * 2
+
+    out = []
+    for tag, _cnt in counts.most_common(top_n * 3):
+        if _is_valid_theme_tag(tag) and tag != stock_name:
+            out.append(tag)
+        if len(out) >= top_n:
+            break
+    return out
+
+
 # ══════════════════════════════════════
 # 상승 이유 텍스트 생성
 # ══════════════════════════════════════
@@ -606,7 +668,35 @@ def _extract_subject_from_titles(articles, stock_name=''):
     return ''
 
 
-def generate_rise_reason(articles, analyst_reports=None, theme_tag='', stock_name=''):
+def _is_tag_grounded(theme_tag, articles, article_bodies=None):
+    """theme_tag 가 뉴스 제목/본문에 실제로 등장하는지 검증.
+
+    네이버 매핑에서 온 태그가 이 종목의 실제 상승 원인과 무관하게 고를 때
+    (예: 빛샘전자 → "철도" 매핑) rise_reason 에 그 태그를 결합시키면 부자연스러움.
+    grounding 실패한 태그는 Priority 1 에서 제외해 더 정직한 이유 생성.
+    """
+    if not theme_tag:
+        return False
+    text = ''
+    if articles:
+        text = ' '.join(a.get('title', '') for a in articles)
+    if article_bodies:
+        text += '\n' + '\n'.join(b for b in article_bodies if b)
+    if not text:
+        return False
+    if theme_tag in text:
+        return True
+    # 3자 이상 태그의 주요 2글자 핵이 둘 다 들어오면 grounded 로 간주
+    # (예: "광통신" → "광통" + "통신" 둘 다 포함 체크는 과할 수 있어 substring 만 사용)
+    if len(theme_tag) >= 3:
+        core = theme_tag
+        if core in text:
+            return True
+    return False
+
+
+def generate_rise_reason(articles, analyst_reports=None, theme_tag='', stock_name='',
+                         article_bodies=None):
     """Toss 스타일 간결한 상승 이유 생성
 
     출력 예시:
@@ -615,6 +705,9 @@ def generate_rise_reason(articles, analyst_reports=None, theme_tag='', stock_nam
     - "신약 FDA 승인 기대"
     - "실적 개선 기대"
     - "자사주 소각"
+
+    개선(2026-04-22): theme_tag 가 뉴스에 grounding 안 된 경우 (네이버 매핑이 종목과
+    거리 먼 테마에 태깅했을 때) Priority 1 에서 제외해 엉뚱한 "{tag} {action}" 생성 방지.
     """
     all_titles = ''
     if articles:
@@ -622,16 +715,24 @@ def generate_rise_reason(articles, analyst_reports=None, theme_tag='', stock_nam
 
     action_text, action_priority = _find_best_action(all_titles)
 
-    # ── Priority 1: theme_tag + 구체적 액션 ──
     valid_tag = _is_valid_theme_tag(theme_tag)
-    if valid_tag:
-        if action_text and action_priority >= 4:
+    tag_grounded = valid_tag and _is_tag_grounded(theme_tag, articles, article_bodies)
+
+    # ── Priority 1: theme_tag (grounded) + 강한 액션(>=6) ──
+    # threshold 를 높게 잡아 "배당(5)"·"계약(5)" 같은 약한 액션이 tag 와 결합되는 걸 억제.
+    # 약한 액션이면 "테마 강세" 로 일반화 — 실제 상승이 '배당' 보다 '테마 전반' 일 경우가 많음.
+    if tag_grounded:
+        if action_text and action_priority >= 6:
             # 테마와 액션이 겹치면 액션만 사용
             if theme_tag in action_text:
                 return action_text
             return f'{theme_tag} {action_text}'
-        # 액션이 약하면 "테마 강세"
+        # 액션이 약하거나 없으면 "테마 강세"
         return f'{theme_tag} 테마 강세'
+
+    # ── Priority 1b: grounded 안 됐지만 tag 있고 액션이 매우 강함 → 액션만 사용 (tag 버림) ──
+    if valid_tag and not tag_grounded and action_text and action_priority >= 6:
+        return action_text
 
     # ── Priority 2: 뉴스 제목에서 주제어 추출 + 액션 ──
     subject = _extract_subject_from_titles(articles, stock_name) if articles else ''

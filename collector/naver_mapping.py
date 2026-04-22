@@ -6,13 +6,14 @@ ticker → [themes], ticker → industry 역매핑을 구축한다.
 """
 import json
 import os
+import re
 import time
 import logging
 from datetime import datetime
 
 import requests
 
-from config import COLLECTOR_DIR
+from config import COLLECTOR_DIR, THEME_KEYWORD_MATCH_BOOST, THEME_KEYWORD_PARTIAL_BOOST
 
 logger = logging.getLogger(__name__)
 
@@ -185,16 +186,68 @@ def get_theme_rates():
     return rates
 
 
-def resolve_themes(ticker, mapping, theme_rates=None):
-    """종목의 테마를 매핑에서 조회하고 당일 등락률 순으로 정렬.
+def _theme_name_core(name):
+    """테마명에서 괄호 속 부연·공백 제거한 핵심부 (매칭용)."""
+    return re.sub(r'\(.*?\)', '', name or '').strip()
+
+
+def _shared_substring(a, b, min_len=3):
+    """a 와 b 에 공통으로 등장하는 min_len 이상의 substring 이 있는지."""
+    if not a or not b or len(a) < min_len or len(b) < min_len:
+        return False
+    for i in range(len(a) - min_len + 1):
+        if a[i:i + min_len] in b:
+            return True
+    return False
+
+
+def _score_theme_keyword_match(theme_name, keywords):
+    """테마명이 키워드 중 어느 것과 매칭되는지 판단.
+
+    Returns:
+        ('exact' | 'partial' | None): 매칭 강도
+    """
+    if not keywords:
+        return None
+    core = _theme_name_core(theme_name)
+    if not core:
+        return None
+    core_l = core.lower()
+    for kw in keywords:
+        if not kw or len(kw) < 2:
+            continue
+        kw_l = kw.lower()
+        # 정확 매칭: 완전 일치 또는 한쪽이 다른쪽을 포함 (3자 이상)
+        if kw_l == core_l:
+            return 'exact'
+        if len(kw_l) >= 3 and kw_l in core_l:
+            return 'exact'
+        if len(core_l) >= 3 and core_l in kw_l:
+            return 'exact'
+    # 정확 매칭 없으면 부분 매칭 (3자 공통 substring)
+    for kw in keywords:
+        if not kw or len(kw) < 3:
+            continue
+        if _shared_substring(kw.lower(), core_l, min_len=3):
+            return 'partial'
+    return None
+
+
+def resolve_themes(ticker, mapping, theme_rates=None, stock_keywords=None):
+    """종목의 테마를 매핑에서 조회하고 (키워드 매칭 + 당일 등락률) 순으로 정렬.
 
     Args:
         ticker: 종목코드
         mapping: load_mapping() 결과
         theme_rates: {theme_no: changeRate} — 없으면 mapping 내 theme_list 사용
+        stock_keywords: 해당 종목 뉴스에서 추출한 테마 키워드 목록.
+            매핑 테마명과 정확/부분 매칭되면 sort_score 에 가중치(config 상수) 가산.
+            실제 상승 원인과 거리 먼 네이버 매핑을 억제하는 핵심 로직.
 
     Returns:
-        list: [{'no': int, 'name': str, 'changeRate': float}, ...] 등락률 내림차순 (최대 전체)
+        list: [{'no': int, 'name': str, 'changeRate': float,
+                'keyword_match': 'exact'|'partial'|None, 'sort_score': float}, ...]
+            정렬 기준: keyword_match(exact>partial>None) → sort_score(등락률+boost) 내림차순
     """
     themes = mapping.get('themes', {}).get(ticker, [])
     if not themes:
@@ -212,10 +265,27 @@ def resolve_themes(ticker, mapping, theme_rates=None):
     result = []
     for th in themes:
         rate = theme_rates.get(th['no'], 0.0)
-        result.append({'no': th['no'], 'name': th['name'], 'changeRate': rate})
+        match = _score_theme_keyword_match(th['name'], stock_keywords or [])
+        if match == 'exact':
+            boost = THEME_KEYWORD_MATCH_BOOST
+        elif match == 'partial':
+            boost = THEME_KEYWORD_PARTIAL_BOOST
+        else:
+            boost = 0.0
+        result.append({
+            'no': th['no'],
+            'name': th['name'],
+            'changeRate': rate,
+            'keyword_match': match,
+            'sort_score': rate + boost,
+        })
 
-    # 당일 등락률 높은 순 정렬
-    result.sort(key=lambda x: x['changeRate'], reverse=True)
+    # 정렬: 정확 매칭 > 부분 매칭 > 매칭 없음. 같은 그룹 안에서는 sort_score 내림차순
+    _match_rank = {'exact': 2, 'partial': 1, None: 0}
+    result.sort(
+        key=lambda x: (_match_rank.get(x['keyword_match'], 0), x['sort_score']),
+        reverse=True,
+    )
     return result
 
 

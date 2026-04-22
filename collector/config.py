@@ -23,6 +23,15 @@ NEWS_HISTORY_DAYS = 7
 # 빈 튜플이면 필터링 없음 (전부 수집). 일반 주식만 보려면 ('stock',).
 ALLOWED_STOCK_END_TYPES = ('stock',)
 
+# ── 테마 태그 선정: 뉴스 키워드와 매핑 테마명 교차 매칭 가중치 ──
+# 네이버 매핑의 종목별 테마 풀에서 primary/secondary 를 고를 때,
+# 뉴스에서 추출된 키워드와 테마명이 일치하면 당일 테마 등락률 위에 이 값을 더해 우선시.
+# 당일 테마 등락률(보통 -5~+10%) 대비 충분히 크게 설정해야 실제 상승 원인과 맞는 테마가 올라감.
+THEME_KEYWORD_MATCH_BOOST = 15.0      # 정확 매칭 (테마명 ↔ 키워드)
+THEME_KEYWORD_PARTIAL_BOOST = 7.5     # 부분 매칭 (3자 이상 공통 substring)
+# 뉴스 키워드 추출 시 상위 N개까지 사용
+NEWS_KEYWORDS_TOP_N = 10
+
 # 크롤링 설정
 USER_AGENTS = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',

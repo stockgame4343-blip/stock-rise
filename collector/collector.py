@@ -19,7 +19,7 @@ from news_crawler import (
     fetch_article_bodies_for_themes,
     crawl_toss_ai_signals,
 )
-from scorer import calculate_daejang_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason, load_user_bad_tags
+from scorer import calculate_daejang_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason, extract_news_keywords, load_user_bad_tags
 from naver_mapping import load_mapping, resolve_themes, resolve_industry, get_theme_rates
 from pullback_snapshot import build_snapshot as build_pullback_snapshot
 
@@ -379,21 +379,26 @@ def collect_and_save(date_str=None, mode='closing'):
         if td.get('is_limit_up'):
             intensity_label = '상한가'
 
-        # ── 테마 태그: 네이버 매핑 우선 ──
+        # ── 테마 태그: 네이버 매핑 + 뉴스 키워드 교차 매칭 ──
         # 1순위: 사용자 오버라이드
-        # 2순위: 네이버 매핑 (당일 등락률 높은 테마가 primary)
-        # 3순위: 기존 뉴스 추출 fallback
+        # 2순위: 네이버 매핑 — 뉴스 키워드 매칭된 테마를 당일 등락률보다 우선
+        # 3순위: 기존 뉴스 추출 fallback (매핑 미스 시)
         theme_tag = ''
         theme_tags = []  # [primary, secondary, ...]
-
         theme_no = None  # 네이버 테마 번호 (링크용)
+
+        # 뉴스 키워드 추출 (매핑 교차용 + rise_reason grounding 용)
+        article_bodies_for_stock = article_bodies_map.get(t, [])
+        news_keywords = extract_news_keywords(
+            news_articles, article_bodies_for_stock, stock_name=s['name']
+        )
 
         if t in tag_overrides:
             theme_tag = tag_overrides[t]
             theme_tags = [theme_tag]
         else:
-            # 네이버 매핑 조회
-            resolved = resolve_themes(t, naver_map, theme_rates)
+            # 네이버 매핑 조회 (뉴스 키워드로 교차 매칭)
+            resolved = resolve_themes(t, naver_map, theme_rates, stock_keywords=news_keywords)
             if resolved:
                 mapping_hit += 1
                 theme_tags = [r['name'] for r in resolved[:2]]  # 최대 2개
@@ -405,7 +410,7 @@ def collect_and_save(date_str=None, mode='closing'):
                 if t in cached_tags:
                     theme_tag = cached_tags[t]
                 else:
-                    theme_tag = extract_theme_tag(news_articles, article_bodies_map.get(t, []), stock_name=s['name'])
+                    theme_tag = extract_theme_tag(news_articles, article_bodies_for_stock, stock_name=s['name'])
                     new_theme_tags[t] = theme_tag
                 if not theme_tag and t in toss_reasons:
                     theme_tag = extract_theme_from_reason(toss_reasons[t])
@@ -414,7 +419,8 @@ def collect_and_save(date_str=None, mode='closing'):
                 if not theme_tag:
                     theme_tag = extract_theme_from_reason(
                         generate_rise_reason(news_articles, report_map.get(t, []),
-                                             theme_tag='', stock_name=s['name'])
+                                             theme_tag='', stock_name=s['name'],
+                                             article_bodies=article_bodies_for_stock)
                     )
                 if theme_tag:
                     theme_tags = [theme_tag]
@@ -424,7 +430,8 @@ def collect_and_save(date_str=None, mode='closing'):
             reason = toss_reasons[t]
         else:
             reason = generate_rise_reason(news_articles, report_map.get(t, []),
-                                          theme_tag=theme_tag, stock_name=s['name'])
+                                          theme_tag=theme_tag, stock_name=s['name'],
+                                          article_bodies=article_bodies_for_stock)
 
         resolved_stocks.append({
             'idx': idx,
