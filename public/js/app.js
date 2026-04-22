@@ -112,14 +112,21 @@
     }
 
     // ── 정렬 ──
-    function applySort(rankings) {
+    function applySort(rankings, ratings) {
         if (!state.sortColumn) return rankings;
         var sorted = rankings.slice();
+        var r = ratings || {};
         sorted.sort(function (a, b) {
             var col = state.sortColumn;
             var diff = 0;
             if (col === 'market_cap' || col === 'trading_value' || col === 'change_rate' || col === 'score') {
                 diff = (a[col] || 0) - (b[col] || 0);
+            } else if (col === 'stars') {
+                // 관심 모드 전용: 별점 높은 순. 같은 별점은 change_rate 로 tie-break.
+                var sa = (r[a.ticker] || {}).stars || 0;
+                var sb = (r[b.ticker] || {}).stars || 0;
+                diff = sa - sb;
+                if (diff === 0) diff = (a.change_rate || 0) - (b.change_rate || 0);
             } else if (col === 'current_price_diff') {
                 // 과거 날짜의 종가 대비 현재가 변동률 (%). current_price 없으면 최하위.
                 var pa = priceCompareRatio(a);
@@ -137,6 +144,34 @@
             return state.sortDirection === 'asc' ? diff : -diff;
         });
         return sorted;
+    }
+
+    // ── 관심 모드 전용: 종목명 th 에 별점 정렬 삼각형 동적 토글 ──
+    function setNameSortable(enable) {
+        var th = document.querySelector('#rankingTable th.col-name');
+        if (!th) return;
+        if (enable) {
+            th.classList.add('sortable');
+            th.setAttribute('data-sort', 'stars');
+            th.title = '별점 기준 정렬';
+            if (!th.querySelector('.sort-icon')) {
+                var icon = document.createElement('span');
+                icon.className = 'sort-icon';
+                icon.innerHTML = ' &#9660;';
+                th.appendChild(icon);
+            }
+        } else {
+            th.classList.remove('sortable');
+            th.removeAttribute('data-sort');
+            th.removeAttribute('title');
+            var oldIcon = th.querySelector('.sort-icon');
+            if (oldIcon) oldIcon.remove();
+            // 종목명 기준 정렬 상태였다면 해제
+            if (state.sortColumn === 'stars') {
+                state.sortColumn = null;
+                state.sortDirection = null;
+            }
+        }
     }
 
     function priceCompareRatio(r) {
@@ -157,7 +192,7 @@
             });
         }
 
-        var sorted = applySort(data);
+        var sorted = applySort(data, ratings);
         var past = isPastDate();
         StockTable.setCompareHeader(past);
         StockTable.render(sorted, past, ratings);
@@ -250,6 +285,7 @@
         if (!state.watchlistMode) return false;
         state.watchlistMode = false;
         $watchlistBtn.classList.remove('active');
+        setNameSortable(false);
         return true;
     }
 
@@ -295,6 +331,7 @@
         if (state.watchlistMode) {
             state.watchlistMode = false;
             $watchlistBtn.classList.remove('active');
+            setNameSortable(false);
         }
         loadRankings();
     }
@@ -304,6 +341,7 @@
         state.watchlistMode = !state.watchlistMode;
         if (state.watchlistMode) {
             $watchlistBtn.classList.add('active');
+            setNameSortable(true);
             loadWatchlistAcrossDates();
         } else {
             $watchlistBtn.classList.remove('active');
