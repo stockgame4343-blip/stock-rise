@@ -18,6 +18,11 @@ TOP_N = 100
 DATA_RETENTION_DAYS = 0  # 0 = 무한 보관 (cleanup_old_data 비활성화). 양수 설정 시 해당 일수 초과 JSON 자동 삭제
 NEWS_HISTORY_DAYS = 7
 
+# 종목 유형 whitelist — 네이버 API 응답의 stockEndType 중 수집 대상
+# 'stock' = 일반 주식, 'etf' = 상장지수펀드, 'etn' = 상장지수증권, 'reits' = 리츠 등
+# 빈 튜플이면 필터링 없음 (전부 수집). 일반 주식만 보려면 ('stock',).
+ALLOWED_STOCK_END_TYPES = ('stock',)
+
 # 크롤링 설정
 USER_AGENTS = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',

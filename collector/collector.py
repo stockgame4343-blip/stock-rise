@@ -3,7 +3,7 @@ import logging
 import requests
 from datetime import datetime, timedelta
 
-from config import TOP_N, USER_AGENTS, LEADER_HISTORY_DAYS
+from config import TOP_N, USER_AGENTS, LEADER_HISTORY_DAYS, ALLOWED_STOCK_END_TYPES
 from json_store import (
     save_daily_data, load_daily_data, update_dates_index, cleanup_old_data,
     update_summary_index,
@@ -46,9 +46,14 @@ def _parse_raw(value):
 
 
 def collect_naver_rising_stocks():
-    """네이버 증권 API에서 코스피+코스닥 상승 종목을 가져온다."""
+    """네이버 증권 API에서 코스피+코스닥 상승 종목을 가져온다.
+
+    ALLOWED_STOCK_END_TYPES 에 포함된 stockEndType 만 통과시킨다
+    (기본값 ('stock',) 이면 일반 주식만 수집, ETF/ETN/REIT/SPAC 등은 제외).
+    """
     logger.info("[1/9] 네이버 증권 상승 종목 수집")
     all_stocks = []
+    excluded_by_type = {}  # {excluded_type: count}
 
     for market in ['KOSPI', 'KOSDAQ']:
         url = NAVER_STOCK_UP_URL.format(market=market, size=TOP_N)
@@ -60,6 +65,10 @@ def collect_naver_rising_stocks():
             logger.info(f"  {market}: {len(stocks)}개 조회")
 
             for s in stocks:
+                end_type = (s.get('stockEndType') or '').lower()
+                if ALLOWED_STOCK_END_TYPES and end_type not in ALLOWED_STOCK_END_TYPES:
+                    excluded_by_type[end_type or 'unknown'] = excluded_by_type.get(end_type or 'unknown', 0) + 1
+                    continue
                 all_stocks.append({
                     'ticker': s.get('itemCode', ''),
                     'name': s.get('stockName', ''),
@@ -72,6 +81,10 @@ def collect_naver_rising_stocks():
                 })
         except Exception as e:
             logger.error(f"  {market} 수집 실패: {e}")
+
+    if excluded_by_type:
+        summary = ', '.join(f"{k}={v}" for k, v in sorted(excluded_by_type.items()))
+        logger.info(f"  비주식 제외: {summary} (whitelist={list(ALLOWED_STOCK_END_TYPES)})")
 
     all_stocks.sort(key=lambda x: x['change_rate'], reverse=True)
     top = all_stocks[:TOP_N]
