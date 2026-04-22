@@ -193,7 +193,8 @@
         }
 
         var sorted = applySort(data, ratings);
-        var past = isPastDate();
+        // 관심 모드에서도 "현재가 비교" 컬럼 표시. last_date 종가 대비 실시간 변동.
+        var past = isPastDate() || state.watchlistMode;
         StockTable.setCompareHeader(past);
         StockTable.render(sorted, past, ratings);
         StockTable.updateSortIcons(state.sortColumn, state.sortDirection);
@@ -398,6 +399,18 @@
             state.rankings = merged;
             showLoading(false);
             renderTable();
+
+            // 비동기로 현재가 fetch → 완료 시점에 "현재가 비교" 셀만 다시 렌더
+            if (merged.length > 0) {
+                fetchCurrentPrices(merged).then(function (updated) {
+                    // 관심 모드가 중간에 해제됐을 수 있으니 state.watchlistMode 재확인
+                    if (!state.watchlistMode) return;
+                    state.rankings = updated;
+                    renderTable();
+                }).catch(function () {
+                    // 가격 조회 실패는 치명적이지 않음 (기본 비교 셀만 '-' 표시)
+                });
+            }
         }).catch(function () {
             showLoading(false);
             showMessage('관심 종목 데이터를 불러올 수 없습니다.');
