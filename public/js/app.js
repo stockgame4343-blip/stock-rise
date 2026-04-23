@@ -319,6 +319,22 @@
         }
     }
 
+    function onDateDisplayClick() {
+        if (state.watchlistMode) return; // 관심 모드에서는 날짜 의미 없음
+        if (!window.DatePicker || !state.dates || !state.dates.length) return;
+        DatePicker.open({
+            trigger: $dateDisplay,
+            dates: state.dates,
+            current: state.dates[state.dateIndex],
+            onSelect: function (date) {
+                var idx = state.dates.indexOf(date);
+                if (idx < 0 || idx === state.dateIndex) return;
+                state.dateIndex = idx;
+                loadRankings();
+            }
+        });
+    }
+
     // ── 이벤트: 탭 ──
     function onTabClick(e) {
         var market = e.target.getAttribute('data-market');
@@ -794,6 +810,7 @@
         $datePrev.addEventListener('click', onDatePrev);
         $dateNext.addEventListener('click', onDateNext);
         $dateBadge.addEventListener('click', onDateBadgeClick);
+        $dateDisplay.addEventListener('click', onDateDisplayClick);
 
         document.querySelectorAll('.tab[data-market]').forEach(function (tab) {
             tab.addEventListener('click', onTabClick);

@@ -548,6 +548,25 @@
             loadSnapshot(state.idx - 1).catch(function () {});
         }
     });
+    $snapDisplay.addEventListener('click', function () {
+        if (!window.DatePicker || !state.snapshots.length) return;
+        var datesByIdx = {};
+        var dateList = state.snapshots.map(function (s, i) {
+            var d = entryDate(s);
+            datesByIdx[d] = i;
+            return d;
+        });
+        DatePicker.open({
+            trigger: $snapDisplay,
+            dates: dateList,
+            current: entryDate(state.snapshots[state.idx]),
+            onSelect: function (date) {
+                var idx = datesByIdx[date];
+                if (idx == null || idx === state.idx) return;
+                loadSnapshot(idx).catch(function () {});
+            }
+        });
+    });
 
     // tbody 이벤트 위임 (별점/제외/메모/ctrl-toggle)
     $body.addEventListener('click', onBodyClick);

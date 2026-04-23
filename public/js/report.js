@@ -1475,6 +1475,24 @@
         });
     }
 
+    // 타이틀 클릭 → 캘린더 팝오버
+    if ($reportTitle) {
+        $reportTitle.addEventListener('click', function () {
+            if (!window.DatePicker || !state.dates || !state.dates.length) return;
+            DatePicker.open({
+                trigger: $reportTitle,
+                dates: state.dates,
+                current: state.dates[state.dateIndex],
+                onSelect: function (date) {
+                    var idx = state.dates.indexOf(date);
+                    if (idx < 0 || idx === state.dateIndex) return;
+                    state.dateIndex = idx;
+                    loadReport();
+                }
+            });
+        });
+    }
+
     // 상세 모달 닫기
     if ($detailModal) {
         $detailModalClose.addEventListener('click', closeDetailModal);
