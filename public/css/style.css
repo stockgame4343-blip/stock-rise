@@ -81,6 +81,21 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .ranking-table tbody tr{transition:background .1s}
 .ranking-table tbody tr:hover{background:var(--bg-hover)}
 .row--excluded{opacity:.35}
+/* 별점 (관심) — 옐로우 살짝 */
+.ranking-table tbody tr.row--starred{background:rgba(255,165,2,.05)}
+.ranking-table tbody tr.row--starred:hover{background:rgba(255,165,2,.1)}
+/* 상한가 — 레드 살짝 (한국 증시 상승색) */
+.ranking-table tbody tr.row--limit-up{background:rgba(255,71,87,.06)}
+.ranking-table tbody tr.row--limit-up:hover{background:rgba(255,71,87,.11)}
+/* 별점 + 상한가 동시 — 좌→우 그라데이션 */
+.ranking-table tbody tr.row--starred.row--limit-up{background:linear-gradient(90deg,rgba(255,165,2,.07),rgba(255,71,87,.08))}
+.ranking-table tbody tr.row--starred.row--limit-up:hover{background:linear-gradient(90deg,rgba(255,165,2,.12),rgba(255,71,87,.13))}
+[data-theme="light"] .ranking-table tbody tr.row--starred{background:rgba(255,149,0,.06)}
+[data-theme="light"] .ranking-table tbody tr.row--starred:hover{background:rgba(255,149,0,.12)}
+[data-theme="light"] .ranking-table tbody tr.row--limit-up{background:rgba(255,59,48,.06)}
+[data-theme="light"] .ranking-table tbody tr.row--limit-up:hover{background:rgba(255,59,48,.12)}
+[data-theme="light"] .ranking-table tbody tr.row--starred.row--limit-up{background:linear-gradient(90deg,rgba(255,149,0,.08),rgba(255,59,48,.09))}
+[data-theme="light"] .ranking-table tbody tr.row--starred.row--limit-up:hover{background:linear-gradient(90deg,rgba(255,149,0,.13),rgba(255,59,48,.14))}
 
 /* 컬럼 */
 .col-rank{width:36px;text-align:center}

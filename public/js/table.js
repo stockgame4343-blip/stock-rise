@@ -203,8 +203,13 @@ var StockTable = (function () {
             var detailUrl = 'https://finance.naver.com/item/main.naver?code=' + r.ticker;
             var ratingData = ratings[r.ticker] || {};
             var isExcluded = ratingData.excluded || false;
-
-            html += '<tr' + (isExcluded ? ' class="row--excluded"' : '') + '>';
+            var isStarred = (ratingData.stars || 0) > 0;
+            var isLimitUp = (r.change_rate != null && r.change_rate >= 29.9);
+            var rowClasses = [];
+            if (isExcluded) rowClasses.push('row--excluded');
+            if (isStarred) rowClasses.push('row--starred');
+            if (isLimitUp) rowClasses.push('row--limit-up');
+            html += '<tr' + (rowClasses.length ? ' class="' + rowClasses.join(' ') + '"' : '') + '>';
             html += '<td class="cell-rank">' + r.rank + '</td>';
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
                 '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link" data-ticker="' + r.ticker + '">' + r.name + '</a>' +

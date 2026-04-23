@@ -291,8 +291,16 @@
             }
             var metaCompact = metaParts.join(' &middot; ');
 
-            var isExcluded = !!(ratings[r.ticker] && ratings[r.ticker].excluded);
-            html += '<tr' + (isExcluded ? ' class="row--excluded"' : '') + '>';
+            var rd = ratings[r.ticker] || {};
+            var isExcluded = !!rd.excluded;
+            var isStarred = (rd.stars || 0) > 0;
+            // 본장 +30% (NXT 데이터의 changeRate 는 본장 종가 기준 전일대비)
+            var isLimitUp = (r.changeRate != null && r.changeRate >= 29.9);
+            var rowClasses = [];
+            if (isExcluded) rowClasses.push('row--excluded');
+            if (isStarred) rowClasses.push('row--starred');
+            if (isLimitUp) rowClasses.push('row--limit-up');
+            html += '<tr' + (rowClasses.length ? ' class="' + rowClasses.join(' ') + '"' : '') + '>';
             html += '<td class="cell-rank">' + (i + 1) + '</td>';
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
                 '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link">' + htmlEscape(r.name) + '</a>' +
