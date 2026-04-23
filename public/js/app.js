@@ -73,13 +73,11 @@
     }
 
     function loadFromServer() {
-        // localStorage가 비어있으면 서버에서 불러오기
-        var local = getRatings();
-        if (Object.keys(local).length > 0) return;
+        // 페이지 로드 시 서버 상태를 항상 localStorage에 덮어쓰기 (단일 사용자 기기 간 동기화)
         fetch('/api/sync-ratings')
             .then(function (r) { return r.json(); })
             .then(function (server) {
-                if (server && Object.keys(server).length > 0) {
+                if (server && typeof server === 'object') {
                     localStorage.setItem(RATINGS_KEY, JSON.stringify(server));
                     renderTable();
                 }
