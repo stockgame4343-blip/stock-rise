@@ -291,7 +291,8 @@
             }
             var metaCompact = metaParts.join(' &middot; ');
 
-            html += '<tr>';
+            var isExcluded = !!(ratings[r.ticker] && ratings[r.ticker].excluded);
+            html += '<tr' + (isExcluded ? ' class="row--excluded"' : '') + '>';
             html += '<td class="cell-rank">' + (i + 1) + '</td>';
             html += '<td class="cell-name"><div class="cell-name__wrap">' +
                 '<a href="' + detailUrl + '" target="_blank" rel="noopener" class="cell-name__link">' + htmlEscape(r.name) + '</a>' +
