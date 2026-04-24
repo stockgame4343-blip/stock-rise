@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
@@ -7,93 +7,94 @@
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="/css/style.css">
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap');
-.cards-viewer *{box-sizing:border-box;margin:0;padding:0;font-family:'Pretendard',-apple-system,sans-serif}
-body{background:#1a1a1a;margin:0}
-.cards-viewer{padding:40px;display:flex;flex-direction:column;gap:40px;align-items:center}
-.card{width:1080px;height:1080px;border-radius:0;overflow:hidden;position:relative;display:flex;flex-direction:column}
+body{background:var(--bg-primary);margin:0;min-height:100vh}
+.cards-viewer{padding:40px 20px;display:flex;flex-direction:column;gap:40px;align-items:center}
+.cards-viewer__status{color:var(--text-muted);padding:60px;font-size:15px}
 
-/* ===== CARD 1: HERO ???ㅻ뒛??????뚮쭏 ===== */
-.c1{background:linear-gradient(135deg,#0a0a0f 0%,#1a1030 100%);color:#fff;padding:80px 80px 70px}
+.card{width:1080px;height:1080px;max-width:100%;overflow:hidden;position:relative;display:flex;flex-direction:column;font-family:'Pretendard',-apple-system,sans-serif;color:#fff;box-shadow:0 8px 40px rgba(0,0,0,.35)}
+.card *{box-sizing:border-box;margin:0;padding:0;font-family:inherit}
+
+/* ===== CARD 1: HERO ===== */
+.c1{background:linear-gradient(135deg,#0a0a0f 0%,#1a1030 100%);padding:80px 80px 70px}
 .c1__brand{display:flex;align-items:center;gap:10px;font-size:22px;font-weight:700;letter-spacing:-.02em;opacity:.7}
 .c1__brand-dot{width:10px;height:10px;border-radius:50%;background:#ff6b6b}
 .c1__date{margin-top:8px;font-size:18px;color:#888;font-weight:500}
-.c1__hook{margin-top:60px;font-size:36px;font-weight:600;color:#ff6b6b;letter-spacing:-.02em}
-.c1__title{margin-top:16px;font-size:108px;font-weight:900;letter-spacing:-.04em;line-height:1}
-.c1__sub{margin-top:24px;font-size:42px;font-weight:700;color:#ffd166;letter-spacing:-.02em}
-.c1__stats{margin-top:80px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:30px}
+.c1__hook{margin-top:54px;font-size:36px;font-weight:600;color:#ff6b6b;letter-spacing:-.02em}
+.c1__title{margin-top:16px;font-size:96px;font-weight:900;letter-spacing:-.04em;line-height:1}
+.c1__sub{margin-top:24px;font-size:36px;font-weight:700;color:#ffd166;letter-spacing:-.02em}
+.c1__stats{margin-top:70px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px}
 .c1__stat{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:28px}
 .c1__stat-label{font-size:18px;color:#aaa;font-weight:500}
-.c1__stat-value{margin-top:10px;font-size:54px;font-weight:800;letter-spacing:-.03em}
+.c1__stat-value{margin-top:10px;font-size:42px;font-weight:800;letter-spacing:-.03em}
 .c1__stat-value.up{color:#ff6b6b}
-.c1__reason{margin-top:auto;padding-top:50px;font-size:30px;color:#ccc;line-height:1.5;font-weight:500;border-top:1px solid rgba(255,255,255,.1)}
-.c1__reason strong{color:#fff;font-weight:800}
-.c1__cta{margin-top:40px;font-size:22px;color:#666;font-weight:600;display:flex;justify-content:space-between;align-items:center}
+.c1__reason{margin-top:auto;padding-top:44px;font-size:26px;color:#ccc;line-height:1.5;font-weight:500;border-top:1px solid rgba(255,255,255,.1)}
+.c1__cta{margin-top:36px;font-size:20px;color:#666;font-weight:600;display:flex;justify-content:space-between;align-items:center}
 .c1__cta-r{color:#5b9df9}
 
-/* ===== CARD 2: ???醫낅ぉ TOP 3 ===== */
-.c2{background:#0f0f14;color:#fff;padding:80px}
+/* ===== CARD 2: TOP 5 ===== */
+.c2{background:#0f0f14;padding:80px}
 .c2__label{display:inline-block;background:#ff6b6b;color:#fff;padding:10px 20px;border-radius:100px;font-size:20px;font-weight:800;letter-spacing:.02em}
-.c2__title{margin-top:30px;font-size:76px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.c2__title{margin-top:26px;font-size:72px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
 .c2__title span{color:#ff6b6b}
-.c2__sub{margin-top:14px;font-size:26px;color:#888;font-weight:500}
-.c2__list{margin-top:60px;display:flex;flex-direction:column;gap:24px}
-.c2__item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:24px;padding:32px 40px;display:flex;align-items:center;gap:32px;position:relative;overflow:hidden}
+.c2__sub{margin-top:14px;font-size:24px;color:#888;font-weight:500}
+.c2__list{margin-top:54px;display:flex;flex-direction:column;gap:18px}
+.c2__item{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:24px 32px;display:flex;align-items:center;gap:28px}
 .c2__item.lead{background:linear-gradient(135deg,rgba(255,107,107,.15),rgba(255,107,107,.02));border-color:rgba(255,107,107,.4)}
-.c2__rank{font-size:60px;font-weight:900;color:#333;letter-spacing:-.05em;min-width:70px}
+.c2__rank{font-size:48px;font-weight:900;color:#333;letter-spacing:-.05em;min-width:58px;text-align:center}
 .c2__item.lead .c2__rank{color:#ff6b6b}
-.c2__info{flex:1;min-width:0}
-.c2__name{font-size:40px;font-weight:800;letter-spacing:-.02em}
-.c2__why{margin-top:6px;font-size:22px;color:#999;font-weight:500}
-.c2__rate{font-size:48px;font-weight:900;color:#ff6b6b;letter-spacing:-.03em}
-.c2__badge{position:absolute;top:20px;right:28px;font-size:16px;font-weight:700;color:#ffd166;background:rgba(255,209,102,.12);padding:4px 10px;border-radius:6px}
-.c2__footer{margin-top:auto;padding-top:48px;display:flex;justify-content:space-between;color:#555;font-size:20px;font-weight:600}
+.c2__info{flex:1;min-width:0;overflow:hidden}
+.c2__name{font-size:34px;font-weight:800;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c2__why{margin-top:4px;font-size:19px;color:#999;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.c2__rate{font-size:40px;font-weight:900;color:#ff6b6b;letter-spacing:-.03em}
+.c2__footer{margin-top:auto;padding-top:40px;display:flex;justify-content:space-between;color:#555;font-size:20px;font-weight:600}
 .c2__footer-r{color:#5b9df9}
 
-/* ===== CARD 3: WHY ?????щ옄??===== */
+/* ===== CARD 3: THEMES ===== */
 .c3{background:#fff;color:#0a0a0f;padding:80px}
-.c3__eyebrow{display:inline-block;font-size:20px;font-weight:800;color:#ff6b6b;letter-spacing:.05em;text-transform:uppercase}
-.c3__hook{margin-top:20px;font-size:96px;font-weight:900;letter-spacing:-.04em;line-height:.95}
-.c3__hook em{font-style:normal;color:#ff6b6b}
-.c3__timeline{margin-top:60px;border-left:3px solid #0a0a0f;padding-left:36px;display:flex;flex-direction:column;gap:32px}
-.c3__event{position:relative}
-.c3__event::before{content:'';position:absolute;left:-48px;top:8px;width:18px;height:18px;border-radius:50%;background:#0a0a0f;border:4px solid #fff;box-shadow:0 0 0 2px #0a0a0f}
-.c3__event.now::before{background:#ff6b6b;box-shadow:0 0 0 2px #ff6b6b}
-.c3__event-date{font-size:22px;font-weight:700;color:#666}
-.c3__event-title{margin-top:4px;font-size:34px;font-weight:800;letter-spacing:-.02em}
-.c3__event.now .c3__event-title{color:#ff6b6b}
-.c3__event-desc{margin-top:6px;font-size:22px;color:#555;line-height:1.5;font-weight:500}
-.c3__result{margin-top:auto;background:#0a0a0f;color:#fff;border-radius:24px;padding:40px 48px;display:flex;align-items:center;justify-content:space-between}
-.c3__result-label{font-size:22px;color:#888;font-weight:600}
-.c3__result-val{margin-top:6px;font-size:56px;font-weight:900;letter-spacing:-.03em;color:#ff6b6b}
-.c3__footer{margin-top:32px;display:flex;justify-content:space-between;color:#aaa;font-size:20px;font-weight:600}
+.c3__label{display:inline-block;background:#0a0a0f;color:#fff;padding:10px 20px;border-radius:100px;font-size:20px;font-weight:800;letter-spacing:.02em}
+.c3__title{margin-top:26px;font-size:68px;font-weight:900;letter-spacing:-.03em;line-height:1.1}
+.c3__title span{color:#ff6b6b}
+.c3__sub{margin-top:14px;font-size:22px;color:#666;font-weight:500}
+.c3__list{margin-top:54px;display:flex;flex-direction:column;gap:22px}
+.c3__item{background:#fafafa;border:1px solid #eee;border-radius:22px;padding:30px 36px}
+.c3__item-head{display:flex;align-items:center;gap:20px}
+.c3__item-rank{font-size:40px;font-weight:900;color:#ccc;min-width:52px;letter-spacing:-.05em}
+.c3__item-name{font-size:36px;font-weight:800;letter-spacing:-.02em;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.c3__item-count{font-size:18px;color:#ff6b6b;font-weight:700;background:rgba(255,107,107,.1);padding:6px 14px;border-radius:100px;white-space:nowrap}
+.c3__item-stocks{margin-top:12px;font-size:19px;color:#666;line-height:1.5;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.c3__footer{margin-top:auto;padding-top:40px;display:flex;justify-content:space-between;color:#999;font-size:20px;font-weight:600}
 .c3__footer-r{color:#5b9df9}
 
-/* ===== CARD 4: CHAIN ???곌? ?뚮쭏 ===== */
-.c4{background:linear-gradient(180deg,#0a0a0f 0%,#1a0a0a 100%);color:#fff;padding:80px}
-.c4__label{display:inline-block;background:rgba(255,107,107,.15);color:#ff6b6b;padding:10px 24px;border-radius:100px;font-size:22px;font-weight:800;border:1px solid rgba(255,107,107,.3)}
-.c4__title{margin-top:26px;font-size:82px;font-weight:900;letter-spacing:-.03em;line-height:1}
-.c4__sub{margin-top:14px;font-size:26px;color:#888;font-weight:500}
-.c4__chain{margin-top:50px;display:flex;flex-direction:column;gap:14px}
-.c4__node{display:flex;align-items:center;gap:24px;background:rgba(255,255,255,.04);border-radius:18px;padding:22px 28px}
-.c4__node.main{background:linear-gradient(90deg,rgba(255,107,107,.2),rgba(255,107,107,.05));border:1px solid rgba(255,107,107,.4)}
-.c4__node-idx{font-size:28px;font-weight:900;color:#555;min-width:40px}
-.c4__node.main .c4__node-idx{color:#ff6b6b}
-.c4__node-info{flex:1;min-width:0}
-.c4__node-name{font-size:28px;font-weight:800;letter-spacing:-.02em}
-.c4__node-cnt{font-size:18px;color:#888;font-weight:600;margin-top:4px}
-.c4__node-rate{font-size:32px;font-weight:900;color:#ff6b6b}
-.c4__arrow{text-align:center;color:#555;font-size:24px;margin:-4px 0}
-.c4__tip{margin-top:auto;background:rgba(255,209,102,.08);border:1px solid rgba(255,209,102,.25);border-radius:18px;padding:28px;display:flex;gap:16px;align-items:flex-start}
-.c4__tip-icon{font-size:36px}
-.c4__tip-body{flex:1}
-.c4__tip-label{font-size:18px;color:#ffd166;font-weight:800;letter-spacing:.02em;text-transform:uppercase}
-.c4__tip-text{margin-top:6px;font-size:24px;font-weight:600;color:#fff;line-height:1.4}
-.c4__footer{margin-top:24px;display:flex;justify-content:space-between;color:#555;font-size:20px;font-weight:600}
-.c4__footer-r{color:#5b9df9}
+@media (max-width:1160px){
+  .cards-viewer{padding:20px 0}
+  .card{width:calc(100vw - 24px);height:calc(100vw - 24px);border-radius:12px}
+  .c1,.c2,.c3{padding:6%}
+  .c1__title{font-size:8vw}
+  .c1__sub{font-size:3.4vw}
+  .c1__hook,.c1__reason{font-size:3vw}
+  .c1__stat-label{font-size:1.8vw}
+  .c1__stat-value{font-size:3.8vw}
+  .c1__brand{font-size:2.2vw}
+  .c1__date,.c1__cta{font-size:1.9vw}
+  .c2__title,.c3__title{font-size:6.4vw}
+  .c2__label,.c3__label,.c2__sub,.c3__sub{font-size:2vw}
+  .c2__name,.c3__item-name{font-size:3.2vw}
+  .c2__rank,.c3__item-rank{font-size:4.2vw;min-width:5vw}
+  .c2__why,.c3__item-stocks{font-size:1.8vw}
+  .c2__rate{font-size:3.6vw}
+  .c3__item-count{font-size:1.7vw}
+  .c2__footer,.c3__footer{font-size:1.8vw}
+}
 </style>
 </head>
 <body>
+<script>
+(function(){
+  var t = localStorage.getItem('theme') || 'dark';
+  if (t === 'light') document.documentElement.setAttribute('data-theme','light');
+})();
+</script>
+
 <header class="top-bar">
   <div class="top-bar__inner frame">
     <a class="top-bar__logo" href="/">StockRise</a>
@@ -103,183 +104,86 @@ body{background:#1a1a1a;margin:0}
       <a href="/report.html" class="top-bar__link">리포트</a>
       <a href="/cards.html" class="top-bar__link top-bar__link--active">카드뉴스</a>
     </nav>
-    <div class="top-bar__right"></div>
+    <div class="top-bar__right">
+      <button class="theme-toggle" id="themeToggle" title="다크/라이트 모드 전환">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
   </div>
 </header>
 
 <main class="cards-viewer">
+  <div class="cards-viewer__status" id="cardsStatus">카드뉴스 생성 중...</div>
 
-<!-- ========== CARD 1: HERO ========== -->
-<div class="card c1">
-  <div class="c1__brand"><span class="c1__brand-dot"></span>StockRise 쨌 ?ㅻ뒛??由ы룷??</div>
-  <div class="c1__date">2026??4??17??(湲? ?μ쨷</div>
-
-  <div class="c1__hook">?ㅻ뒛??????뚮쭏</div>
-  <div class="c1__title">諛깆떊 由ы꽩</div>
-  <div class="c1__sub">#蹂?댄솗??#諛⑹뿭?뚮쭏 遺??</div>
-
-  <div class="c1__stats">
-    <div class="c1__stat">
-      <div class="c1__stat-label">醫낅ぉ ??</div>
-      <div class="c1__stat-value">11</div>
-    </div>
-    <div class="c1__stat">
-      <div class="c1__stat-label">?됯퇏 ?깅씫</div>
-      <div class="c1__stat-value up">+15.2%</div>
-    </div>
-    <div class="c1__stat">
-      <div class="c1__stat-label">?곹븳媛</div>
-      <div class="c1__stat-value up">2</div>
-    </div>
-  </div>
-
-  <div class="c1__reason">
-    <strong>BA.3.2 蹂???뺤궛 ?곕젮</strong>??諛깆떊쨌吏꾨떒쨌諛⑹뿭二쇨? ?숈떆??遺덉쓣 肉쒖뿀?듬땲??
-    肄붾줈???댄썑 2?꾧컙 ?딇삍???뚮쭏媛 ?섎（留뚯뿉 ?됯퇏 +15% ?먰봽.
-  </div>
-  <div class="c1__cta">
-    <span>@stockrise_kr</span>
-    <span class="c1__cta-r">?ㅼ쓬 ????</span>
-  </div>
-</div>
-
-<!-- ========== CARD 2: TOP 3 ========== -->
-<div class="card c2">
-  <span class="c2__label">TOP ??μ＜</span>
-  <h1 class="c2__title">?꾧? <span>?쒖씪</span> 留롮씠<br>?щ옄?꾧퉴?</h1>
-  <div class="c2__sub">諛깆떊/吏꾨떒/諛⑹뿭 ?뚮쭏 TOP 3</div>
-
-  <div class="c2__list">
-    <div class="c2__item lead">
-      <span class="c2__badge">?????</span>
-      <div class="c2__rank">1</div>
-      <div class="c2__info">
-        <div class="c2__name">吏꾩썝?앸챸怨쇳븰</div>
-        <div class="c2__why">?먮낯 援ъ“ 蹂寃?+ ?좎빟 紐⑤찘?</div>
+  <!-- Card 1: HERO -->
+  <div class="card c1" id="cardHero" style="display:none">
+    <div class="c1__brand"><span class="c1__brand-dot"></span>StockRise</div>
+    <div class="c1__date" id="heroDate"></div>
+    <div class="c1__hook">오늘의 1등</div>
+    <div class="c1__title" id="heroName"></div>
+    <div class="c1__sub" id="heroTag"></div>
+    <div class="c1__stats">
+      <div class="c1__stat">
+        <div class="c1__stat-label">상승률</div>
+        <div class="c1__stat-value up" id="heroRate"></div>
       </div>
-      <div class="c2__rate">+29.89%</div>
-    </div>
-    <div class="c2__item">
-      <div class="c2__rank">2</div>
-      <div class="c2__info">
-        <div class="c2__name">?섏젨??</div>
-        <div class="c2__why">BA.3.2 蹂???뺤궛 ?곕젮 吏곸젒 ?섑삙</div>
+      <div class="c1__stat">
+        <div class="c1__stat-label">종가</div>
+        <div class="c1__stat-value" id="heroPrice"></div>
       </div>
-      <div class="c2__rate">+24.62%</div>
-    </div>
-    <div class="c2__item">
-      <div class="c2__rank">3</div>
-      <div class="c2__info">
-        <div class="c2__name">?꾩씠吏?</div>
-        <div class="c2__why">?꾩긽 吏꾩쟾 ??肄붾줈??諛깆떊 ?뚯씠?꾨씪??</div>
+      <div class="c1__stat">
+        <div class="c1__stat-label">거래대금</div>
+        <div class="c1__stat-value" id="heroTradeValue"></div>
       </div>
-      <div class="c2__rate">+19.99%</div>
+    </div>
+    <div class="c1__reason" id="heroReason"></div>
+    <div class="c1__cta">
+      <span>@stockrise_kr</span>
+      <span class="c1__cta-r">stockrise.vercel.app</span>
     </div>
   </div>
 
-  <div class="c2__footer">
-    <span>@stockrise_kr</span>
-    <span class="c2__footer-r">??湲됰벑?덈굹 ??</span>
-  </div>
-</div>
-
-<!-- ========== CARD 3: WHY ========== -->
-<div class="card c3">
-  <span class="c3__eyebrow">HOW IT HAPPENED</span>
-  <h1 class="c3__hook">??<em>媛묒옄湲?</em><br>諛깆떊??<br>?ㅼ떆 ?곗뿀?꾧퉴?</h1>
-
-  <div class="c3__timeline">
-    <div class="c3__event">
-      <div class="c3__event-date">04.14 쨌 ??</div>
-      <div class="c3__event-title">蹂??理쒖큹 媛먯?</div>
-      <div class="c3__event-desc">?띿쉘 蹂닿굔?밴뎅, BA.3.2 蹂?댁＜ ?뺤씤 蹂닿퀬</div>
-    </div>
-    <div class="c3__event">
-      <div class="c3__event-date">04.16 쨌 紐?</div>
-      <div class="c3__event-title">援?궡 ?뺤궛 ?곕젮 蹂대룄</div>
-      <div class="c3__event-desc">"援?궡 ?좎엯 ???꾪뿕" 諛⑹뿭?밴뎅 寃쎄퀬 湲곗궗 ?뺤궛</div>
-    </div>
-    <div class="c3__event now">
-      <div class="c3__event-date">04.17 쨌 湲?</div>
-      <div class="c3__event-title">?뚮쭏 ?꾩껜 ?먰솕</div>
-      <div class="c3__event-desc">諛깆떊쨌吏꾨떒쨌諛⑹뿭二?11醫낅ぉ ?숇컲 湲됰벑 ???됯퇏 +15.2%</div>
+  <!-- Card 2: TOP 5 -->
+  <div class="card c2" id="cardTop5" style="display:none">
+    <span class="c2__label">TOP 5</span>
+    <div class="c2__title">오늘의 <span>급등주</span></div>
+    <div class="c2__sub" id="top5Date"></div>
+    <div class="c2__list" id="top5List"></div>
+    <div class="c2__footer">
+      <span>@stockrise_kr</span>
+      <span class="c2__footer-r">stockrise.vercel.app</span>
     </div>
   </div>
 
-  <div class="c3__result">
-    <div>
-      <div class="c3__result-label">??μ＜ ?곸듅瑜?</div>
-      <div class="c3__result-val">+29.89%</div>
-    </div>
-    <div style="text-align:right">
-      <div class="c3__result-label">吏꾩썝?앸챸怨쇳븰</div>
-      <div class="c3__result-val" style="font-size:32px">?곹븳媛 留덇컧</div>
-    </div>
-  </div>
-  <div class="c3__footer">
-    <span>@stockrise_kr</span>
-    <span class="c3__footer-r">?곌? ?뚮쭏 ??</span>
-  </div>
-</div>
-
-<!-- ========== CARD 4: CHAIN ========== -->
-<div class="card c4">
-  <span class="c4__label">?곌? ?뚮쭏 泥댁씤</span>
-  <h1 class="c4__title">媛숈씠<br>?щ씪???뚮쭏</h1>
-  <div class="c4__sub">??肉뚮━?먯꽌 媛덈씪吏?4媛??쇱씤</div>
-
-  <div class="c4__chain">
-    <div class="c4__node main">
-      <div class="c4__node-idx">01</div>
-      <div class="c4__node-info">
-        <div class="c4__node-name">諛깆떊/吏꾨떒?쒖빟/諛⑹뿭</div>
-        <div class="c4__node-cnt">11醫낅ぉ 쨌 ????뚮쭏</div>
-      </div>
-      <div class="c4__node-rate">+15.2%</div>
-    </div>
-    <div class="c4__arrow">???곌껐</div>
-    <div class="c4__node">
-      <div class="c4__node-idx">02</div>
-      <div class="c4__node-info">
-        <div class="c4__node-name">肄붾줈??9 (移섎즺??諛깆떊 媛쒕컻)</div>
-        <div class="c4__node-cnt">9醫낅ぉ 쨌 以묐났 7媛?</div>
-      </div>
-      <div class="c4__node-rate">+17.9%</div>
-    </div>
-    <div class="c4__arrow">???뚯깮</div>
-    <div class="c4__node">
-      <div class="c4__node-idx">03</div>
-      <div class="c4__node-info">
-        <div class="c4__node-name">諛붿씠?ㅼ떆諛??CMO</div>
-        <div class="c4__node-cnt">4醫낅ぉ 쨌 2李??섑삙 湲곕?</div>
-      </div>
-      <div class="c4__node-rate">+7.8%</div>
-    </div>
-    <div class="c4__arrow">???뚯깮</div>
-    <div class="c4__node">
-      <div class="c4__node-idx">04</div>
-      <div class="c4__node-info">
-        <div class="c4__node-name">留덉뒪???꾩깮?⑺뭹</div>
-        <div class="c4__node-cnt">3醫낅ぉ 쨌 ?뚯쇅沅뚯뿉??諛섎벑 ?쒖옉</div>
-      </div>
-      <div class="c4__node-rate">+5.3%</div>
+  <!-- Card 3: THEMES -->
+  <div class="card c3" id="cardThemes" style="display:none">
+    <span class="c3__label">HOT 테마</span>
+    <div class="c3__title">오늘 뜨거운 <span>테마</span></div>
+    <div class="c3__sub" id="themesDate"></div>
+    <div class="c3__list" id="themesList"></div>
+    <div class="c3__footer">
+      <span>@stockrise_kr</span>
+      <span class="c3__footer-r">stockrise.vercel.app</span>
     </div>
   </div>
-
-  <div class="c4__tip">
-    <div class="c4__tip-icon">?뮕</div>
-    <div class="c4__tip-body">
-      <div class="c4__tip-label">TOMORROW WATCH</div>
-      <div class="c4__tip-text">蹂??援?궡 ?좎엯 ????留덉뒪??룹쐞???쇱씤???ㅻ뵲????媛?μ꽦</div>
-    </div>
-  </div>
-  <div class="c4__footer">
-    <span>@stockrise_kr</span>
-    <span class="c4__footer-r">stockrise.vercel.app</span>
-  </div>
-</div>
-
 </main>
+
+<script>
+(function(){
+  var btn = document.getElementById('themeToggle');
+  function sync() {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    btn.title = isLight ? '다크 모드로 전환' : '라이트 모드로 전환';
+  }
+  btn.addEventListener('click', function(){
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme','dark'); }
+    else { document.documentElement.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); }
+    sync();
+  });
+  sync();
+})();
+</script>
+<script src="/js/cards.js"></script>
 </body>
 </html>
-
