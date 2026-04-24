@@ -2,12 +2,15 @@
 <html lang="ko">
 <head>
 <meta charset="UTF-8">
-<meta name="robots" content="noindex,nofollow">
-<title>Instagram Card Samples</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StockRise — 카드뉴스</title>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/css/style.css">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700;800;900&display=swap');
-*{box-sizing:border-box;margin:0;padding:0;font-family:'Pretendard',-apple-system,sans-serif}
-body{background:#1a1a1a;padding:40px;display:flex;flex-direction:column;gap:40px;align-items:center}
+.cards-viewer *{box-sizing:border-box;margin:0;padding:0;font-family:'Pretendard',-apple-system,sans-serif}
+body{background:#1a1a1a;margin:0}
+.cards-viewer{padding:40px;display:flex;flex-direction:column;gap:40px;align-items:center}
 .card{width:1080px;height:1080px;border-radius:0;overflow:hidden;position:relative;display:flex;flex-direction:column}
 
 /* ===== CARD 1: HERO ???ㅻ뒛??????뚮쭏 ===== */
@@ -91,6 +94,20 @@ body{background:#1a1a1a;padding:40px;display:flex;flex-direction:column;gap:40px
 </style>
 </head>
 <body>
+<header class="top-bar">
+  <div class="top-bar__inner frame">
+    <a class="top-bar__logo" href="/">StockRise</a>
+    <nav class="top-bar__nav">
+      <a href="/" class="top-bar__link">랭킹</a>
+      <a href="/nxt.html" class="top-bar__link">NXT</a>
+      <a href="/report.html" class="top-bar__link">리포트</a>
+      <a href="/cards.html" class="top-bar__link top-bar__link--active">카드뉴스</a>
+    </nav>
+    <div class="top-bar__right"></div>
+  </div>
+</header>
+
+<main class="cards-viewer">
 
 <!-- ========== CARD 1: HERO ========== -->
 <div class="card c1">
@@ -262,6 +279,7 @@ body{background:#1a1a1a;padding:40px;display:flex;flex-direction:column;gap:40px
   </div>
 </div>
 
+</main>
 </body>
 </html>
 
