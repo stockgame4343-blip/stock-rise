@@ -173,9 +173,9 @@
         return '매우 낮음';
     }
     function typeLevel(v) {
-        if (v >= 25) return '핵심 호재';
-        if (v >= 15) return '보통 호재';
-        if (v >= 5) return '약한 호재';
+        if (v >= 25) return '핵심 이슈';
+        if (v >= 15) return '보통 이슈';
+        if (v >= 5) return '약한 이슈';
         return '미분류';
     }
     function turnoverLevel(v) {
@@ -400,7 +400,7 @@
             var ty = detail.type || 0, tv = detail.turnover || 0;
             html += scorePopupItem('뉴스 양', bz, 20, '', '관련 뉴스 건수');
             html += scorePopupItem('뉴스 질', qu, 25, '', '주요 언론사, 수치 포함');
-            html += scorePopupItem('호재 강도', ty, 30, '', '테마 연동, 호재 유형');
+            html += scorePopupItem('이슈 강도', ty, 30, '', '테마 연동, 이슈 유형');
             html += scorePopupItem('거래량 강도', tv, 25, '', '시총 대비 거래대금');
         }
 
@@ -1042,117 +1042,6 @@
     }
 
     // renderThemes는 renderThemePage로 대체됨
-
-    function renderPickCards(rankings) {
-        var container = document.getElementById('pickCards');
-        if (!rankings || rankings.length === 0) {
-            container.innerHTML = '<p class="report__empty">데이터가 부족합니다</p>';
-            return;
-        }
-        // 후보: theme_tag 있고 score >= 30
-        var candidates = rankings.filter(function (r) {
-            return r.theme_tag && r.score >= 30;
-        }).sort(function (a, b) { return b.score - a.score; });
-
-        if (candidates.length === 0) {
-            container.innerHTML = '<p class="report__empty">추천 조건에 해당하는 종목이 없습니다</p>';
-            return;
-        }
-        // 가능하면 다른 테마에서 2종목
-        var picks = [candidates[0]];
-        var firstTag = candidates[0].theme_tag;
-        for (var i = 1; i < candidates.length; i++) {
-            if (candidates[i].theme_tag !== firstTag) { picks.push(candidates[i]); break; }
-        }
-        if (picks.length < 2 && candidates.length >= 2) picks.push(candidates[1]);
-
-        // 비중: 점수 차이 > 20이면 70/30, 아니면 50/50
-        var weights;
-        if (picks.length === 1) { weights = [100]; }
-        else {
-            var gap = picks[0].score - picks[1].score;
-            weights = gap > 20 ? [70, 30] : [50, 50];
-        }
-
-        var html = '';
-        picks.forEach(function (s, idx) {
-            var detail = s.score_detail || {};
-            var isV3 = detail.ti != null;
-            var tp = detail.tp || 0, tl = detail.tl || 0, ti = detail.ti || 0;
-
-            // 매수 근거
-            var rationale = '';
-            if (isV3) {
-                var parts = [];
-                if (tp >= 20) parts.push('강한 테마 모멘텀');
-                else if (tp >= 12) parts.push('양호한 테마');
-                if (tl >= 25) parts.push('테마 내 대장주');
-                else if (tl >= 15) parts.push('테마 내 중위권');
-                if (ti >= 12) parts.push('활발한 거래');
-                rationale = parts.join(' + ') || '종합 점수 우위';
-            } else {
-                rationale = '종합 점수 기준 상위';
-            }
-
-            var entry = s.close_price;
-            var target1 = Math.round(entry * 1.10 / 10) * 10;
-            var target2 = Math.round(entry * 1.20 / 10) * 10;
-            var stopLoss = Math.round(entry * 0.95 / 10) * 10;
-            var cls = s.score >= 70 ? 'high' : (s.score >= 40 ? 'mid' : 'low');
-
-            html += '<div class="pick-card">';
-            html += '<div class="pick-card__header">';
-            html += '<div class="pick-card__rank">' + (idx + 1) + '</div>';
-            html += '<div class="pick-card__info">';
-            html += '<span class="pick-card__name">' + s.name + '</span>';
-            html += '<span class="pick-card__market">' + s.market + ' &middot; ' + (s.sector || '-') + '</span>';
-            html += '</div>';
-            html += '<div class="pick-card__badge">';
-            html += '<span class="score-badge score-badge--' + cls + '">' + s.score + '</span>';
-            html += '<span class="pick-card__weight">' + weights[idx] + '%</span>';
-            html += '</div>';
-            html += '</div>';
-
-            html += '<div class="pick-card__reason">';
-            if (s.theme_tag) html += '<span class="theme-tag">' + shortenTheme(s.theme_tag) + '</span>';
-            html += '<span>' + rationale + '</span>';
-            html += '</div>';
-
-            html += '<div class="pick-card__prices">';
-            html += priceRow('기준가', entry, '+' + s.change_rate.toFixed(2) + '%', 'up');
-            html += priceRow('1차 목표', target1, '+10%', '');
-            html += priceRow('2차 목표', target2, '+20%', '');
-            html += priceRow('손절가', stopLoss, '-5%', 'down');
-            html += '</div>';
-
-            if (isV3) {
-                html += '<div class="pick-card__scores">';
-                html += pickScoreBar('TP', tp, 35);
-                html += pickScoreBar('TL', tl, 45);
-                html += pickScoreBar('TI', ti, 20);
-                html += '</div>';
-            }
-            html += '</div>';
-        });
-        container.innerHTML = html;
-    }
-
-    function priceRow(label, price, rate, dir) {
-        return '<div class="pick-card__price-row">' +
-            '<span class="pick-card__price-label">' + label + '</span>' +
-            '<span class="pick-card__price-value' + (dir === 'down' ? ' pick-card__price-value--stop' : '') + '">' + formatNumber(price) + '원</span>' +
-            '<span class="pick-card__price-rate' + (dir ? ' pick-card__price-rate--' + dir : '') + '">' + rate + '</span>' +
-            '</div>';
-    }
-
-    function pickScoreBar(key, val, max) {
-        var pct = Math.round(val / max * 100);
-        return '<div class="pick-card__score-bar">' +
-            '<span class="pick-card__score-label">' + key + '</span>' +
-            '<div class="score-analysis__bar"><div class="score-analysis__fill" style="width:' + pct + '%"></div></div>' +
-            '<span class="pick-card__score-val">' + val + '/' + max + '</span>' +
-            '</div>';
-    }
 
     function scoreItem(label, val, max, level, desc) {
         var pct = Math.round(val / max * 100);

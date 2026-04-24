@@ -706,7 +706,7 @@
             var ty = detail.type || 0, tv = detail.turnover || 0;
             html += scorePopupItem('뉴스 양', bz, 20, '', '관련 뉴스 건수');
             html += scorePopupItem('뉴스 질', qu, 25, '', '주요 언론사, 수치 포함');
-            html += scorePopupItem('호재 강도', ty, 30, '', '테마 연동, 호재 유형');
+            html += scorePopupItem('이슈 강도', ty, 30, '', '테마 연동, 이슈 유형');
             html += scorePopupItem('거래량 강도', tv, 25, '', '시총 대비 거래대금');
         }
 

@@ -481,33 +481,6 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .sector-card--clickable{cursor:pointer;transition:background .15s,border-color .15s}
 .sector-card--clickable:hover{background:var(--bg-hover)}
 
-/* ── 추천 픽 카드 ── */
-.pick-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
-.pick-card{background:var(--bg-secondary);border-radius:12px;padding:20px 24px}
-.pick-card__header{display:flex;align-items:center;gap:12px;margin-bottom:14px}
-.pick-card__rank{font-size:20px;font-weight:800;color:var(--accent);min-width:24px}
-.pick-card__info{flex:1}
-.pick-card__name{font-size:15px;font-weight:700;display:block}
-.pick-card__market{font-size:12px;color:var(--text-muted)}
-.pick-card__badge{display:flex;flex-direction:column;align-items:center;gap:4px}
-.pick-card__weight{font-size:12px;font-weight:700;color:var(--accent)}
-.pick-card__reason{font-size:12px;color:var(--text-secondary);line-height:1.6;margin-bottom:14px}
-.pick-card__reason .theme-tag{margin-right:6px;vertical-align:middle}
-.pick-card__prices{background:var(--bg-tertiary);border-radius:8px;padding:12px 16px;margin-bottom:12px}
-.pick-card__price-row{display:flex;align-items:center;justify-content:space-between;padding:5px 0}
-.pick-card__price-row+.pick-card__price-row{border-top:1px solid var(--border-subtle)}
-.pick-card__price-label{font-size:12px;color:var(--text-muted);min-width:64px}
-.pick-card__price-value{font-size:13px;font-weight:600;color:var(--text-primary);flex:1;text-align:right;margin-right:10px}
-.pick-card__price-value--stop{color:var(--fall)}
-.pick-card__price-rate{font-size:12px;font-weight:600;color:var(--text-muted);min-width:48px;text-align:right}
-.pick-card__price-rate--up{color:var(--rise)}
-.pick-card__price-rate--down{color:var(--fall)}
-.pick-card__scores{display:flex;flex-direction:column;gap:6px}
-.pick-card__score-bar{display:flex;align-items:center;gap:8px}
-.pick-card__score-label{font-size:11px;font-weight:700;color:var(--text-muted);min-width:22px}
-.pick-card__score-bar .score-analysis__bar{flex:1}
-.pick-card__score-val{font-size:11px;color:var(--text-secondary);min-width:36px;text-align:right}
-
 /* ── 상세 모달 차트 ── */
 .detail-chart{width:100%;height:auto;margin-bottom:16px;overflow:visible;display:block}
 .detail-stats{display:flex;gap:16px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
@@ -871,12 +844,11 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     /* 모바일: 스파크라인 숨김 (요약 카드 영역 공간 확보) */
     .sparkline-wrap,.sparkline{display:none}
 
-    /* 섹터/테마/픽/스톡 카드 전부 1열 (가독성) */
+    /* 섹터/테마/스톡 카드 전부 1열 (가독성) */
     .sector-cards{grid-template-columns:1fr;gap:8px}
-    .pick-cards{grid-template-columns:1fr;gap:10px}
     .stock-cards{grid-template-columns:1fr;gap:10px}
     .compact-list--grid{grid-template-columns:1fr}
-    .sector-card,.stock-card,.pick-card{padding:16px;border-radius:10px}
+    .sector-card,.stock-card{padding:16px;border-radius:10px}
     .reason-bars,.news-list{border-radius:10px}
 
     /* 뉴스 로우 모바일 정렬 */
