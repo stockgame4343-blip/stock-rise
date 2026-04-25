@@ -1108,9 +1108,16 @@
         slice.forEach(function (card, i) {
             var globalIdx = page * CARDS_PAGE_SIZE + i;
             var label = CARDS_TYPE_LABEL[card.type] || card.type;
+            var title = card.title || '';
             html += '<button type="button" class="cards-grid__item" data-idx="' + globalIdx + '">' +
-                '<span class="cards-grid__tag cards-grid__tag--' + card.type + '">' + label + '</span>' +
-                '<img class="cards-grid__img" src="/cards/' + card.file + '" alt="' + (card.title || label) + '" loading="lazy">' +
+                '<div class="cards-grid__thumb">' +
+                    '<span class="cards-grid__tag cards-grid__tag--' + card.type + '">' + label + '</span>' +
+                    '<img class="cards-grid__img" src="/cards/' + card.file + '" alt="' + (title || label) + '" loading="lazy">' +
+                '</div>' +
+                '<div class="cards-grid__caption">' +
+                    '<span class="cards-grid__caption-num">' + (globalIdx + 1) + '</span>' +
+                    '<span class="cards-grid__caption-title">' + title + '</span>' +
+                '</div>' +
                 '</button>';
         });
         grid.innerHTML = html;
