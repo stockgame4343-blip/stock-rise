@@ -64,22 +64,36 @@ def _walk_strings(value):
             yield from _walk_strings(item)
 
 
+# 카드 dict 의 메타 필드 (검증 제외) — 모든 카드 공통이라 중복 false positive
+META_FIELDS = {'date_full', 'label', 'series', 'date_kr', 'time_text',
+               'eyebrow', 'weekday_ko', 'weekday_en'}
+
+
+def _walk_content(card):
+    """메타 필드 제외한 콘텐츠 문자열만 yield."""
+    if not isinstance(card, dict):
+        yield from _walk_strings(card)
+        return
+    for k, v in card.items():
+        if k in META_FIELDS:
+            continue
+        yield from _walk_strings(v)
+
+
 def _validate_text(cards):
     """검열·중복 검증. 위반 발견 시 list 반환 (빈 list = 통과).
 
-    중복 룰:
-      - 12자 이상 동일 문장이 카드 2~5장에만 등장하면 위반 (의미 중복)
-      - 모든 카드(>=6장)에 등장하는 짧은 메타(시간·라벨)는 통과
-      - 테마 태그 같은 pre/pre3 양분 중복은 통과
+    - 카드 dict 의 META_FIELDS (date_full/label 등) 는 검증 제외
+    - 12자 이상 콘텐츠 문장이 2장 이상 카드에 동일 등장 = 위반
+    - 테마 태그 같은 pre/pre3 양분 중복은 통과
     """
     failures = []
     seen = {}
     MIN_LEN = 12
-    META_THRESHOLD = 6  # 이 카드 수 이상 등장 = 메타 (브랜딩·시간) 로 간주
     for name, card in cards.items():
         if name.startswith('_') or card is None:
             continue
-        for s in _walk_strings(card):
+        for s in _walk_content(card):
             forbidden = text_synth.has_forbidden(s)
             if forbidden:
                 failures.append(f"[{name}] 검열 위반 {forbidden}: {s!r}")
@@ -89,17 +103,23 @@ def _validate_text(cards):
         unique = sorted(set(names))
         if len(unique) < 2:
             continue
-        if len(unique) >= META_THRESHOLD:
-            continue  # 모든/대부분 카드 공통 메타
         if all(n in ('pre', 'pre3') for n in unique) and '#' not in text and ' ' not in text:
             continue  # 테마 태그 의도된 양분
         failures.append(f"중복 문장 {unique}: {text!r}")
     return failures
 
 
-def generate(date, fetch_us=True, fetch_kr=True, dry=False):
-    """카드 7장 생성. dry=True 면 PNG 미생성."""
-    log.info(f"=== 카드 생성 시작 — date={date} ===")
+SERIES_CARDS = {
+    'pre':     ('pre', 'pre2', 'pre3'),         # 평일 07:30 — 장전 키워드 + NY 마감 + 주도 종목
+    'closing': ('leader', 'leader2', 'close', 'close2'),  # 평일 16:30 — 대장주 + 마감 + 이슈
+    'all':     renderer.CARD_NAMES,
+}
+
+
+def generate(date, fetch_us=True, fetch_kr=True, dry=False, series='all'):
+    """카드 생성. series='pre'|'closing'|'all'."""
+    targets = SERIES_CARDS.get(series, renderer.CARD_NAMES)
+    log.info(f"=== 카드 생성 시작 — date={date}, series={series} ({len(targets)}장 대상) ===")
 
     us = us_indices.fetch(date) if fetch_us else None
     kr = kr_indices.fetch(date) if fetch_kr else None
@@ -108,7 +128,9 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False):
     cards = data_loader.build_all(date, us_indices=us, kr_indices=kr)
     log.info(f"  meta: {cards['_meta']}")
 
-    failures = _validate_text(cards)
+    # 검열·중복 검증은 대상 카드만
+    cards_for_validate = {k: v for k, v in cards.items() if k in targets or k.startswith('_')}
+    failures = _validate_text(cards_for_validate)
     if failures:
         for f in failures:
             log.error(f"  검증 실패: {f}")
@@ -118,7 +140,7 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False):
 
     html_dir = config.HTML_OUT_DIR
     html_files = {}
-    for name in renderer.CARD_NAMES:
+    for name in targets:
         html = htmls.get(name)
         if html is None:
             html_files[name] = None
@@ -131,12 +153,11 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False):
 
     png_files = {
         name: os.path.join(config.OUTPUT_DIR, f'{date}-{name}.png')
-        for name in renderer.CARD_NAMES
+        for name in targets
     }
     log.info(f"=== PNG 변환 → {config.OUTPUT_DIR} ===")
     results = to_png.html_to_png_batch(html_files, png_files)
 
-    # ─ PNG 검증 (1080×1080 + 4모서리 흰 짤림 0)
     bad = []
     for name, png_path in results.items():
         if png_path is None:
@@ -149,7 +170,7 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False):
             log.info(f"  ✓ [{name}] {msg}")
 
     success = sum(1 for v in results.values() if v is not None)
-    log.info(f"=== 완료 — 생성 {success}/7장, 검증 실패 {len(bad)}건 ===")
+    log.info(f"=== 완료 — 생성 {success}/{len(targets)}장, 검증 실패 {len(bad)}건 ===")
     return 0 if not bad else 2
 
 
@@ -157,6 +178,8 @@ def main():
     _setup_logging()
     p = argparse.ArgumentParser(description='StockRise 카드뉴스 일일 생성')
     p.add_argument('date', nargs='?', help='YYYYMMDD (생략 시 dates.json 최신)')
+    p.add_argument('--series', choices=['pre', 'closing', 'all'], default='all',
+                   help='pre=장전 3장(07:30) / closing=마감 4장(16:30) / all=7장')
     p.add_argument('--dry', action='store_true', help='PNG 미생성 (HTML만)')
     p.add_argument('--skip-us', action='store_true', help='미국 지수 fetch 스킵')
     p.add_argument('--skip-kr', action='store_true', help='한국 지수 fetch 스킵')
@@ -172,6 +195,7 @@ def main():
         fetch_us=not args.skip_us,
         fetch_kr=not args.skip_kr,
         dry=args.dry,
+        series=args.series,
     ))
 
 

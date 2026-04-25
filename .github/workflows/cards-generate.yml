@@ -1,26 +1,38 @@
-name: 카드뉴스 일일 생성
+name: 카드뉴스 자동 생성
 
-# 트리거 1: collect.yml (장마감 모드) 성공 후 자동 실행
-# 트리거 2: 평일 KST 16:30 cron 백업 (workflow_run 누락 대비)
-# 트리거 3: 수동 (workflow_dispatch)
+# ───────────────────────────────────────────────────────────────
+# 일정 (KST)
+#   07:30 평일 → PRE 시리즈 3장 (pre/pre2/pre3)
+#                · 데이터: 가장 최근 마감 거래일 (dates.json 첫 항목)
+#                · 새벽 NY 마감(yfinance) 데이터 신선
+#                · 프리장(08:00) 시작 전 노출
 #
-# 정책:
-#   - 비거래일(public/data/{TODAY}.json 없음) 스킵
-#   - 이미 같은 날짜 카드 7장 모두 있으면 스킵 (중복 방지)
-#   - 3회 재시도 후 실패하면 에러
-#   - PNG 생성 후 자동 커밋 & push
+#   16:30 평일 → CLOSING 시리즈 4장 (leader/leader2/close/close2)
+#                · 데이터: 당일 closing (collect.yml 15:36 직후)
+#                · 한국 장마감(15:30) 후 정리
+#
+# 트리거: cron + workflow_dispatch (수동) + workflow_run (closing collect 후 백업)
+# ───────────────────────────────────────────────────────────────
 on:
+  schedule:
+    # 평일 KST 07:30 = UTC 22:30 일~목 (PRE)
+    - cron: '30 22 * * 0-4'
+    # 평일 KST 16:30 = UTC 07:30 월~금 (CLOSING)
+    - cron: '30 7 * * 1-5'
   workflow_run:
     workflows: ["주식 데이터 수집"]
     types: [completed]
     branches: [master, main]
-  schedule:
-    # KST 16:30 = UTC 07:30 (월~금)
-    - cron: '30 7 * * 1-5'
   workflow_dispatch:
     inputs:
+      series:
+        description: '시리즈 (pre / closing / all)'
+        required: false
+        default: 'all'
+        type: choice
+        options: [pre, closing, all]
       date:
-        description: '대상 날짜 (YYYYMMDD, 빈 값이면 dates.json 최신)'
+        description: '대상 날짜 YYYYMMDD (빈 값=dates.json 최신)'
         required: false
 
 env:
@@ -32,8 +44,7 @@ jobs:
     permissions:
       contents: write
 
-    # workflow_run 의 경우 closing 모드 성공 시에만 (intraday 무시)
-    # collect.yml 이 commit 한 메시지에 "장마감 최종" 포함되면 closing 으로 판정
+    # workflow_run 은 closing 수집 성공 시에만
     if: |
       github.event_name != 'workflow_run' ||
       (github.event.workflow_run.conclusion == 'success' &&
@@ -45,44 +56,52 @@ jobs:
           ref: master
           fetch-depth: 1
 
-      - name: Resolve target date
+      - name: Resolve series + date
         id: target
         run: |
-          TODAY=$(date +%Y%m%d)
-          DATE_ARG="${{ inputs.date }}"
-          if [ -z "$DATE_ARG" ]; then
-            # dates.json 의 첫 항목
-            if [ -f "public/data/dates.json" ]; then
-              DATE_ARG=$(python3 -c "import json; print(json.load(open('public/data/dates.json'))[0])" 2>/dev/null || echo "")
-            fi
-          fi
-          if [ -z "$DATE_ARG" ]; then
-            DATE_ARG="$TODAY"
-          fi
-          echo "date=$DATE_ARG" >> $GITHUB_OUTPUT
-          echo "today=$TODAY" >> $GITHUB_OUTPUT
-          echo "대상 날짜: $DATE_ARG"
+          # cron schedule 시각으로 시리즈 자동 결정
+          # workflow_dispatch 또는 workflow_run 인 경우 inputs / default
+          EVENT="${{ github.event_name }}"
+          INPUT_SERIES="${{ inputs.series }}"
+          INPUT_DATE="${{ inputs.date }}"
 
-      - name: Skip if not a trading day
+          if [ "$EVENT" = "schedule" ]; then
+            HOUR_UTC=$(date -u +%H)
+            MIN_UTC=$(date -u +%M)
+            # UTC 22:30 = PRE / UTC 07:30 = CLOSING
+            if [ "$HOUR_UTC" = "22" ]; then
+              SERIES="pre"
+            elif [ "$HOUR_UTC" = "07" ]; then
+              SERIES="closing"
+            else
+              SERIES="all"
+            fi
+          elif [ -n "$INPUT_SERIES" ]; then
+            SERIES="$INPUT_SERIES"
+          else
+            SERIES="all"
+          fi
+
+          if [ -n "$INPUT_DATE" ]; then
+            DATE="$INPUT_DATE"
+          elif [ -f "public/data/dates.json" ]; then
+            DATE=$(python3 -c "import json; print(json.load(open('public/data/dates.json'))[0])" 2>/dev/null || echo "")
+          fi
+          [ -z "$DATE" ] && DATE=$(date +%Y%m%d)
+
+          echo "series=$SERIES" >> $GITHUB_OUTPUT
+          echo "date=$DATE" >> $GITHUB_OUTPUT
+          echo "결정: series=$SERIES, date=$DATE (event=$EVENT)"
+
+      - name: Skip if no trading data
         id: gate
         run: |
           DATE="${{ steps.target.outputs.date }}"
           if [ ! -f "public/data/${DATE}.json" ]; then
             echo "skip=true" >> $GITHUB_OUTPUT
-            echo "거래일 데이터 없음 — 스킵"
-            exit 0
-          fi
-          # 이미 7장 모두 있으면 스킵
-          MISSING=0
-          for n in pre pre2 pre3 leader leader2 close close2; do
-            [ ! -f "public/cards/${DATE}-${n}.png" ] && MISSING=$((MISSING+1))
-          done
-          if [ $MISSING -eq 0 ]; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-            echo "카드 7장 모두 존재 — 스킵"
+            echo "거래일 데이터 없음(${DATE}) — 스킵"
           else
             echo "skip=false" >> $GITHUB_OUTPUT
-            echo "누락 카드 ${MISSING}장 → 생성 진행"
           fi
 
       - uses: actions/setup-python@v5
@@ -102,10 +121,11 @@ jobs:
         if: steps.gate.outputs.skip != 'true'
         run: |
           DATE="${{ steps.target.outputs.date }}"
-          echo "=== 카드 생성 — $DATE ==="
+          SERIES="${{ steps.target.outputs.series }}"
+          echo "=== 카드 생성 — date=$DATE, series=$SERIES ==="
           for attempt in 1 2 3; do
             echo "--- 시도 ${attempt}/3 ---"
-            if python -m cards.generate "$DATE"; then
+            if python -m cards.generate "$DATE" --series "$SERIES"; then
               echo "성공"
               exit 0
             fi
@@ -122,6 +142,7 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add public/cards/
           DATE="${{ steps.target.outputs.date }}"
-          git diff --staged --quiet || git commit -m "cards: ${DATE} 카드뉴스 7장 생성"
+          SERIES="${{ steps.target.outputs.series }}"
+          git diff --staged --quiet || git commit -m "cards: ${DATE} ${SERIES} 시리즈 생성"
           git pull --rebase origin master
           git push
