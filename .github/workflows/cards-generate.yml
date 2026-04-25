@@ -19,11 +19,14 @@ on:
   repository_dispatch:
     types: [cards]
   # GitHub 자체 cron (외부 트리거 실패 시 백업)
+  # 일정 (KST → UTC 변환)
+  #   08:30 평일 → PRE (UTC 23:30 일~목)
+  #   16:00 평일 → CLOSING 1차 (UTC 07:00 월~금)
+  #   20:00 평일 → CLOSING 2차 덮어쓰기 (UTC 11:00 월~금)
   schedule:
-    # 평일 KST 07:30 = UTC 22:30 일~목 (PRE)
-    - cron: '30 22 * * 0-4'
-    # 평일 KST 16:30 = UTC 07:30 월~금 (CLOSING)
-    - cron: '30 7 * * 1-5'
+    - cron: '30 23 * * 0-4'   # PRE
+    - cron: '0 7 * * 1-5'     # CLOSING 1차
+    - cron: '0 11 * * 1-5'    # CLOSING 2차
   workflow_run:
     workflows: ["주식 데이터 수집"]
     types: [completed]
@@ -76,10 +79,10 @@ jobs:
             [ -z "$SERIES" ] && SERIES="all"
           elif [ "$EVENT" = "schedule" ]; then
             HOUR_UTC=$(date -u +%H)
-            # UTC 22:30 = PRE / UTC 07:30 = CLOSING
-            if [ "$HOUR_UTC" = "22" ]; then
+            # UTC 23 = PRE (KST 08:30) / UTC 07 또는 11 = CLOSING (KST 16:00, 20:00)
+            if [ "$HOUR_UTC" = "23" ]; then
               SERIES="pre"
-            elif [ "$HOUR_UTC" = "07" ]; then
+            elif [ "$HOUR_UTC" = "07" ] || [ "$HOUR_UTC" = "11" ]; then
               SERIES="closing"
             else
               SERIES="all"
@@ -93,11 +96,13 @@ jobs:
             SERIES="all"
           fi
 
-          # PRE 시리즈는 항상 KST today (오늘 거래일 라벨, 데이터는 fallback).
-          # CLOSING/all 은 dates.json 첫 (가장 최근 마감 거래일).
+          # PRE / CLOSING 모두 KST today (오늘 거래일 라벨).
+          # · PRE: 데이터 fallback 자동 (load_day fallback=True)
+          # · CLOSING: 오늘 데이터 파일 필수 (gate 에서 검사)
+          # all / workflow_run 은 dates.json 첫 (가장 최근 마감 거래일).
           if [ -n "$INPUT_DATE" ]; then
             DATE="$INPUT_DATE"
-          elif [ "$SERIES" = "pre" ]; then
+          elif [ "$SERIES" = "pre" ] || [ "$SERIES" = "closing" ]; then
             DATE=$(date +%Y%m%d)   # env TZ=Asia/Seoul → KST today
           elif [ -f "public/data/dates.json" ]; then
             DATE=$(python3 -c "import json; print(json.load(open('public/data/dates.json'))[0])" 2>/dev/null || echo "")
