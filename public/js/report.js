@@ -19,7 +19,14 @@
         allRankings: [],
         analysis: null,
         summaryHistory: [],
+        cardsIndex: null,    // public/cards/index.json 캐시
+        cardsList: [],       // 현재 날짜의 카드 배열
+        cardsPage: 0,
+        cardsModalIdx: 0,
     };
+
+    var CARDS_PAGE_SIZE = 5;
+    var CARDS_TYPE_LABEL = { pre: '장전', leader: '주도주', close: '장마감' };
 
     // 네이버 테마명 표시용 줄임 — 괄호 제거 + 길면 말줄임
     function shortenTheme(name, maxLen) {
@@ -1066,6 +1073,93 @@
 
     // renderThemes는 renderThemePage로 대체됨
 
+    // ── 카드뉴스 ──
+    function loadCardsIndex() {
+        if (state.cardsIndex) return Promise.resolve(state.cardsIndex);
+        return fetch('/cards/index.json', { cache: 'no-cache' })
+            .then(function (r) { return r.ok ? r.json() : {}; })
+            .then(function (idx) { state.cardsIndex = idx || {}; return state.cardsIndex; })
+            .catch(function () { state.cardsIndex = {}; return state.cardsIndex; });
+    }
+
+    function renderCardsSection() {
+        var section = document.getElementById('cardsSection');
+        var grid = document.getElementById('cardsGrid');
+        if (!section || !grid) return;
+        var date = state.dates[state.dateIndex];
+        var list = (state.cardsIndex && state.cardsIndex[date]) || [];
+        state.cardsList = list;
+        if (!list.length) {
+            section.style.display = 'none';
+            return;
+        }
+        section.style.display = '';
+        state.cardsPage = 0;
+        renderCardsPage(0);
+    }
+
+    function renderCardsPage(page) {
+        state.cardsPage = page;
+        var grid = document.getElementById('cardsGrid');
+        if (!grid) return;
+        var list = state.cardsList;
+        var slice = list.slice(page * CARDS_PAGE_SIZE, (page + 1) * CARDS_PAGE_SIZE);
+        var html = '';
+        slice.forEach(function (card, i) {
+            var globalIdx = page * CARDS_PAGE_SIZE + i;
+            var label = CARDS_TYPE_LABEL[card.type] || card.type;
+            html += '<button type="button" class="cards-grid__item" data-idx="' + globalIdx + '">' +
+                '<span class="cards-grid__tag cards-grid__tag--' + card.type + '">' + label + '</span>' +
+                '<img class="cards-grid__img" src="/cards/' + card.file + '" alt="' + (card.title || label) + '" loading="lazy">' +
+                '</button>';
+        });
+        grid.innerHTML = html;
+        renderPager('cardsPager', list, page, renderCardsPage);
+    }
+
+    function openCardsModal(idx) {
+        var modal = document.getElementById('cardsModal');
+        if (!modal || !state.cardsList.length) return;
+        state.cardsModalIdx = idx;
+        updateCardsModal();
+        modal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeCardsModal() {
+        var modal = document.getElementById('cardsModal');
+        if (!modal) return;
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    function updateCardsModal() {
+        var list = state.cardsList;
+        var idx = state.cardsModalIdx;
+        if (idx < 0) idx = 0;
+        if (idx >= list.length) idx = list.length - 1;
+        state.cardsModalIdx = idx;
+        var card = list[idx];
+        if (!card) return;
+        var label = CARDS_TYPE_LABEL[card.type] || card.type;
+        document.getElementById('cardsModalImg').src = '/cards/' + card.file;
+        document.getElementById('cardsModalImg').alt = card.title || label;
+        var tagEl = document.getElementById('cardsModalTag');
+        tagEl.textContent = label;
+        tagEl.className = 'cards-modal__tag cards-modal__tag--' + card.type;
+        document.getElementById('cardsModalTitle').textContent = card.title || '';
+        document.getElementById('cardsModalCount').textContent = (idx + 1) + ' / ' + list.length;
+        document.getElementById('cardsModalPrev').disabled = idx <= 0;
+        document.getElementById('cardsModalNext').disabled = idx >= list.length - 1;
+    }
+
+    function moveCardsModal(delta) {
+        var next = state.cardsModalIdx + delta;
+        if (next < 0 || next >= state.cardsList.length) return;
+        state.cardsModalIdx = next;
+        updateCardsModal();
+    }
+
     function scoreItem(label, val, max, level, desc) {
         var pct = Math.round(val / max * 100);
         return '<div class="score-analysis__item">' +
@@ -1206,6 +1300,7 @@
                 themePage = 0;
                 renderSectorPage(0);
                 renderThemePage(0);
+                loadCardsIndex().then(renderCardsSection);
                 renderHighSection(analysis.highList, analysis.nearHighList, date, ratings);
 
                 // 급등 후 조정 (비동기)
@@ -1412,6 +1507,29 @@
     if ($detailModal) {
         $detailModalClose.addEventListener('click', closeDetailModal);
         $detailModal.addEventListener('click', function (e) { if (e.target === $detailModal) closeDetailModal(); });
+    }
+
+    // 카드뉴스 — 그리드 클릭 → 모달, 모달 좌우 넘김 + ESC/외부 클릭 닫기
+    var $cardsGrid = document.getElementById('cardsGrid');
+    var $cardsModal = document.getElementById('cardsModal');
+    if ($cardsGrid) {
+        $cardsGrid.addEventListener('click', function (e) {
+            var btn = e.target.closest('.cards-grid__item');
+            if (!btn) return;
+            openCardsModal(parseInt(btn.getAttribute('data-idx'), 10) || 0);
+        });
+    }
+    if ($cardsModal) {
+        document.getElementById('cardsModalClose').addEventListener('click', closeCardsModal);
+        document.getElementById('cardsModalPrev').addEventListener('click', function () { moveCardsModal(-1); });
+        document.getElementById('cardsModalNext').addEventListener('click', function () { moveCardsModal(1); });
+        $cardsModal.addEventListener('click', function (e) { if (e.target === $cardsModal) closeCardsModal(); });
+        document.addEventListener('keydown', function (e) {
+            if ($cardsModal.style.display !== 'flex') return;
+            if (e.key === 'Escape') closeCardsModal();
+            else if (e.key === 'ArrowLeft') moveCardsModal(-1);
+            else if (e.key === 'ArrowRight') moveCardsModal(1);
+        });
     }
 
     // 서머리 카드 클릭 → 차트 팝업

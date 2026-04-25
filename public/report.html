@@ -127,6 +127,18 @@
                 <div class="sector-cards" id="themeCards"></div>
             </section>
 
+            <!-- ── 카드뉴스 ── -->
+            <section class="report__section" id="cardsSection" style="display:none;">
+                <div class="report__section-header">
+                    <h2 class="report__section-title">카드뉴스</h2>
+                </div>
+                <div class="report__section-desc">
+                    <span>장전 · 주도주 · 장마감 카드 — 클릭 시 크게 보기</span>
+                    <span class="section-pager" id="cardsPager"></span>
+                </div>
+                <div class="cards-grid" id="cardsGrid"></div>
+            </section>
+
             <!-- ── 52주 신고가 ── -->
             <section class="report__section">
                 <h2 class="report__section-title">52주 신고가</h2>
@@ -152,6 +164,21 @@
             </div>
             <div class="modal__body" id="detailModalBody"></div>
         </div>
+    </div>
+
+    <!-- 카드뉴스 라이트박스 모달 -->
+    <div class="modal-overlay cards-modal" id="cardsModal" style="display:none;">
+        <button class="cards-modal__nav cards-modal__nav--prev" id="cardsModalPrev" aria-label="이전 카드">‹</button>
+        <div class="cards-modal__inner">
+            <button class="cards-modal__close" id="cardsModalClose" aria-label="닫기">&times;</button>
+            <img class="cards-modal__img" id="cardsModalImg" alt="">
+            <div class="cards-modal__caption">
+                <span class="cards-modal__tag" id="cardsModalTag"></span>
+                <span class="cards-modal__title" id="cardsModalTitle"></span>
+                <span class="cards-modal__count" id="cardsModalCount"></span>
+            </div>
+        </div>
+        <button class="cards-modal__nav cards-modal__nav--next" id="cardsModalNext" aria-label="다음 카드">›</button>
     </div>
 
     <!-- 메모 모달 -->
