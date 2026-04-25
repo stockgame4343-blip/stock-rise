@@ -130,11 +130,13 @@
         }).catch(function () {});
     }
     function loadFromServer() {
-        if (Object.keys(getRatings()).length > 0) return Promise.resolve();
+        // 페이지 로드 시 항상 서버 상태로 localStorage 덮어쓰기 (기기 간 동기화)
+        // 대시보드 app.js 와 동일 패턴 — 이전엔 "비어있을 때만 GET" 가드가 있어
+        // 다른 기기 변경 사항을 영원히 못 받아오는 버그가 있었음.
         return fetch('/api/sync-ratings')
             .then(function (r) { return r.json(); })
             .then(function (s) {
-                if (s && Object.keys(s).length > 0) {
+                if (s && typeof s === 'object') {
                     localStorage.setItem(RATINGS_KEY, JSON.stringify(s));
                 }
             })

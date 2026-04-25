@@ -5,6 +5,7 @@
     var DAYS_KO = ['일', '월', '화', '수', '목', '금', '토'];
     var THEME_KEY = 'theme';
     var RATINGS_KEY = 'stock-ratings';
+    var _syncTimer = null;
 
     // 급등 → 조정 → 재반등 임계값 (backtest_pullback.py 결과 기반)
     //   peak=20  n=504 조합 중 breakout 68.7% / double_top 5.4% / fwd60 +14.6%
@@ -95,6 +96,28 @@
     }
     function saveRatings(r) {
         localStorage.setItem(RATINGS_KEY, JSON.stringify(r));
+        // 3초 디바운스 후 서버 동기화 (대시보드/NXT와 동일 패턴)
+        if (_syncTimer) clearTimeout(_syncTimer);
+        _syncTimer = setTimeout(syncToServer, 3000);
+    }
+    function syncToServer() {
+        var ratings = getRatings();
+        fetch('/api/sync-ratings', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(ratings),
+        }).catch(function () {});
+    }
+    function loadFromServer() {
+        // 페이지 로드 시 서버 상태를 localStorage 로 덮어쓰기 (기기 간 동기화)
+        return fetch('/api/sync-ratings')
+            .then(function (r) { return r.json(); })
+            .then(function (server) {
+                if (server && typeof server === 'object') {
+                    localStorage.setItem(RATINGS_KEY, JSON.stringify(server));
+                }
+            })
+            .catch(function () {});
     }
     function controlsHtml(ticker, ratings) {
         var rd = ratings[ticker] || {};
@@ -1319,16 +1342,19 @@
     // ── 초기화 ──
     function init() {
         showLoading(true);
-        StockAPI.getDates()
-            .then(function (dates) {
-                state.dates = dates;
-                state.dateIndex = 0;
-                loadReport();
-            })
-            .catch(function () {
-                showLoading(false);
-                showMessage('날짜 목록을 불러올 수 없습니다.');
-            });
+        // 서버에서 최신 ratings 받아온 뒤 리포트 로드 (실패해도 진행)
+        loadFromServer().finally(function () {
+            StockAPI.getDates()
+                .then(function (dates) {
+                    state.dates = dates;
+                    state.dateIndex = 0;
+                    loadReport();
+                })
+                .catch(function () {
+                    showLoading(false);
+                    showMessage('날짜 목록을 불러올 수 없습니다.');
+                });
+        });
     }
 
     // 모바일 ctrl-wrap 패널: 바깥 탭하면 닫기
