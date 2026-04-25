@@ -170,6 +170,18 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False, series='all'):
             log.info(f"  ✓ [{name}] {msg}")
 
     success = sum(1 for v in results.values() if v is not None)
+
+    # SNS 공유용 og:image 고정 경로 — leader 갱신 시 latest-leader.png 동기화
+    leader_png = results.get('leader')
+    if leader_png and os.path.exists(leader_png):
+        import shutil
+        latest_path = os.path.join(config.OUTPUT_DIR, 'latest-leader.png')
+        try:
+            shutil.copyfile(leader_png, latest_path)
+            log.info(f"  og:image 동기화 — latest-leader.png ← {os.path.basename(leader_png)}")
+        except OSError as exc:
+            log.warning("latest-leader.png 복사 실패: %s", exc)
+
     log.info(f"=== 완료 — 생성 {success}/{len(targets)}장, 검증 실패 {len(bad)}건 ===")
     return 0 if not bad else 2
 
