@@ -25,8 +25,11 @@
         cardsModalIdx: 0,
     };
 
-    var CARDS_PAGE_SIZE = 5;
+    // 카드뉴스 페이지당 표시 개수 — 데스크톱 5(1줄) / 모바일 4(2x2)
     var CARDS_TYPE_LABEL = { pre: '장전', leader: '주도주', close: '장마감' };
+    function getCardsPageSize() {
+        return (window.matchMedia && window.matchMedia('(max-width: 560px)').matches) ? 4 : 5;
+    }
 
     // 네이버 테마명 표시용 줄임 — 괄호 제거 + 길면 말줄임
     function shortenTheme(name, maxLen) {
@@ -1099,14 +1102,18 @@
     }
 
     function renderCardsPage(page) {
-        state.cardsPage = page;
         var grid = document.getElementById('cardsGrid');
         if (!grid) return;
         var list = state.cardsList;
-        var slice = list.slice(page * CARDS_PAGE_SIZE, (page + 1) * CARDS_PAGE_SIZE);
+        var pageSize = getCardsPageSize();
+        var totalPages = Math.max(1, Math.ceil(list.length / pageSize));
+        if (page >= totalPages) page = totalPages - 1;
+        if (page < 0) page = 0;
+        state.cardsPage = page;
+        var slice = list.slice(page * pageSize, (page + 1) * pageSize);
         var html = '';
         slice.forEach(function (card, i) {
-            var globalIdx = page * CARDS_PAGE_SIZE + i;
+            var globalIdx = page * pageSize + i;
             var label = CARDS_TYPE_LABEL[card.type] || card.type;
             html += '<button type="button" class="cards-grid__item" data-idx="' + globalIdx + '">' +
                 '<span class="cards-grid__tag cards-grid__tag--' + card.type + '">' + label + '</span>' +
@@ -1114,7 +1121,25 @@
                 '</button>';
         });
         grid.innerHTML = html;
-        renderPager('cardsPager', list, page, renderCardsPage);
+        renderCardsPager(list, page, pageSize);
+    }
+
+    // 카드뉴스 전용 페이저 — 공용 renderPager 는 PAGE_SIZE 상수에 의존
+    function renderCardsPager(allItems, currentPage, pageSize) {
+        var pager = document.getElementById('cardsPager');
+        if (!pager) return;
+        var totalPages = Math.ceil(allItems.length / pageSize);
+        if (totalPages <= 1) { pager.innerHTML = ''; pager.onclick = null; return; }
+        pager.innerHTML =
+            '<button class="section-pager__btn" data-dir="prev" ' + (currentPage <= 0 ? 'disabled' : '') + '>‹</button>' +
+            '<span class="section-pager__text">' + (currentPage + 1) + '/' + totalPages + '</span>' +
+            '<button class="section-pager__btn" data-dir="next" ' + (currentPage >= totalPages - 1 ? 'disabled' : '') + '>›</button>';
+        pager.onclick = function (e) {
+            var btn = e.target.closest('.section-pager__btn');
+            if (!btn || btn.disabled) return;
+            var dir = btn.getAttribute('data-dir');
+            renderCardsPage(dir === 'prev' ? currentPage - 1 : currentPage + 1);
+        };
     }
 
     function openCardsModal(idx) {
@@ -1508,6 +1533,19 @@
         $detailModalClose.addEventListener('click', closeDetailModal);
         $detailModal.addEventListener('click', function (e) { if (e.target === $detailModal) closeDetailModal(); });
     }
+
+    // 카드뉴스 — 화면 폭 변경 시 페이지 사이즈(데스크톱 5 / 모바일 4) 재계산
+    var _cardsResizeTimer = null;
+    var _cardsLastPageSize = getCardsPageSize();
+    window.addEventListener('resize', function () {
+        if (_cardsResizeTimer) clearTimeout(_cardsResizeTimer);
+        _cardsResizeTimer = setTimeout(function () {
+            var nextSize = getCardsPageSize();
+            if (nextSize === _cardsLastPageSize) return;
+            _cardsLastPageSize = nextSize;
+            if (state.cardsList && state.cardsList.length) renderCardsPage(0);
+        }, 120);
+    });
 
     // 카드뉴스 — 그리드 클릭 → 모달, 모달 좌우 넘김 + ESC/외부 클릭 닫기
     var $cardsGrid = document.getElementById('cardsGrid');
