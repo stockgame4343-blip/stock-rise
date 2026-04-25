@@ -23,32 +23,31 @@
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 body{background:var(--bg-primary);margin:0;min-height:100vh}
-/* 카드뉴스는 항상 다크 — 카드 PNG 가 어두운 그라디언트라
-   라이트 테마 페이지 배경(#f5f5f7)이 카드 주변에 새는 부조화를 차단.
-   wrapper 띠는 두지 않음(중복 박스 보임). 페이지 자체를 다크로 강제. */
-.cards-page{max-width:1200px;margin:0 auto;padding:32px 20px 56px;
-  background:#0e0e0e;color:#f5f5f5;border-radius:0}
-.cards-page__head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:8px}
-.cards-page__title{color:#fff;font-size:22px;font-weight:800;letter-spacing:-.3px}
-.cards-page__date{color:#a0a0a0;font-size:13px;font-weight:600}
-.cards-page__hint{color:#a0a0a0;font-size:13px;font-weight:500;margin-bottom:24px}
+/* 페이지 폭 = 카드 폭(1080px) 정확히. 카드 좌우 빈 띠 0. 인스타 피드처럼
+   브라우저 외부만 페이지 배경(라이트/다크 사용자 테마)으로 자연스럽게 흐름. */
+.cards-page{max-width:1080px;margin:0 auto;padding:32px 0 56px}
+/* 머리·라벨·구분선은 카드 가장자리에 맞추되 작은 좌우 padding 으로 숨막힘 방지 */
+.cards-page__head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin:0 4px 8px;padding:0 12px}
+.cards-page__title{color:var(--text-primary);font-size:22px;font-weight:800;letter-spacing:-.3px}
+.cards-page__date{color:var(--text-muted);font-size:13px;font-weight:600}
+.cards-page__hint{color:var(--text-muted);font-size:13px;font-weight:500;margin:0 4px 24px;padding:0 12px}
 .cards-group{margin-top:32px}
 .cards-group:first-of-type{margin-top:0}
-.cards-group__head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #2a2a2a}
-.cards-group__tag{display:inline-block;padding:4px 12px;background:#ff6b6b;color:#fff;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-.cards-group__title{color:#fff;font-size:17px;font-weight:800;letter-spacing:-.2px}
-.cards-group__sub{color:#a0a0a0;font-size:12px;font-weight:500;margin-left:auto}
-.cards-list{display:flex;flex-direction:column;gap:20px;align-items:center}
-.cards-list__item{width:100%;max-width:1080px;display:flex;flex-direction:column;gap:8px}
-.cards-list__label{color:#fff;font-size:13px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
-.cards-list__num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:#1f1f1f;color:#fff;border:1px solid #2f2f2f;border-radius:6px;font-size:11px;font-weight:800}
-.cards-list__img{width:100%;aspect-ratio:1/1;display:block;border-radius:16px;box-shadow:0 6px 32px rgba(0,0,0,.4)}
-.cards-list__actions{display:flex;gap:8px;flex-wrap:wrap}
-.cards-list__action{padding:7px 14px;border:1px solid #2f2f2f;background:#1f1f1f;color:#fff;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:opacity .15s}
+.cards-group__head{display:flex;align-items:baseline;gap:12px;margin:0 4px 14px;padding:0 12px 10px;border-bottom:1px solid var(--border)}
+.cards-group__tag{display:inline-block;padding:4px 12px;background:var(--accent,#ff6b6b);color:#fff;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.cards-group__title{color:var(--text-primary);font-size:17px;font-weight:800;letter-spacing:-.2px}
+.cards-group__sub{color:var(--text-muted);font-size:12px;font-weight:500;margin-left:auto}
+.cards-list{display:flex;flex-direction:column;gap:28px;align-items:stretch}
+.cards-list__item{width:100%;display:flex;flex-direction:column;gap:10px}
+.cards-list__label{color:var(--text-primary);font-size:13px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px;padding:0 12px}
+.cards-list__num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;font-size:11px;font-weight:800}
+/* 카드 PNG: 페이지에 떠있는 인스타 카드. 둥근 모서리 + 큰 그림자로 라이트 테마에서도 자연스럽게 분리. */
+.cards-list__img{width:100%;aspect-ratio:1/1;display:block;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,.32)}
+.cards-list__actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 12px}
+.cards-list__action{padding:7px 14px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-primary);border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:opacity .15s}
 .cards-list__action:hover{opacity:.75}
-.disclaimer-box{margin-top:36px;padding:18px 22px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;color:#a0a0a0;font-size:12px;line-height:1.65}
-.disclaimer-box strong{color:#fff;font-weight:700;display:block;margin-bottom:4px}
-.disclaimer-box b{color:#ddd}
+.disclaimer-box{margin:36px 4px 0;padding:18px 22px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:12px;line-height:1.65}
+.disclaimer-box strong{color:var(--text-primary);font-weight:700;display:block;margin-bottom:4px}
 @media (max-width:600px){
   .cards-page{padding:20px 12px 40px}
   .cards-list{gap:16px}
