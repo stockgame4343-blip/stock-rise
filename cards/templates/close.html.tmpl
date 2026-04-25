@@ -1,58 +1,44 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-.title { margin-top: 14px; font-size: 84px; }
-.indices { margin-top: 30px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px; position: relative; z-index: 2; }
+/* 마감 = 두 지수 큰 글씨 + 대장 테마 한 줄 */
+.title { margin-top: 24px; font-size: 124px; }
+.sub { margin-top: 18px; font-size: 26px; }
+.indices { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; position: relative; z-index: 2; }
 .idx {
   background: {{ tokens.card_bg }};
   border: 1px solid {{ tokens.card_border }};
-  border-radius: 22px;
-  padding: 22px 26px;
+  border-radius: 28px;
+  padding: 36px 36px;
 }
-.idx.up   { background: linear-gradient(135deg, rgba(255,107,107,.18), rgba(255,107,107,.02)); border-color: rgba(255,107,107,.4); }
-.idx.flat { background: linear-gradient(135deg, rgba(180,180,180,.1), rgba(180,180,180,.02)); border-color: rgba(180,180,180,.3); }
-.idx.dn   { background: linear-gradient(135deg, rgba(91,157,249,.16), rgba(91,157,249,.02)); border-color: rgba(91,157,249,.35); }
-.idx-name { font-size: 15px; color: {{ tokens.muted }}; font-weight: 700; letter-spacing: 0.02em; }
-.idx-value { margin-top: 8px; font-size: 46px; font-weight: 900; letter-spacing: -0.03em; }
-.idx-change-row { margin-top: 4px; display: flex; gap: 12px; align-items: baseline; }
-.idx-change { font-size: 22px; font-weight: 800; color: {{ tokens.accent2 }}; }
-.idx.flat .idx-change, .idx.dn .idx-change { color: #aaa; }
-.idx-pct { font-size: 16px; font-weight: 700; color: #ff9999; }
+.idx.up   { background: linear-gradient(135deg, rgba(255,107,107,.20), rgba(255,107,107,.04)); border-color: rgba(255,107,107,.45); }
+.idx.flat { background: linear-gradient(135deg, rgba(180,180,180,.12), rgba(180,180,180,.02)); border-color: rgba(180,180,180,.32); }
+.idx.dn   { background: linear-gradient(135deg, rgba(91,157,249,.18), rgba(91,157,249,.03)); border-color: rgba(91,157,249,.4); }
+.idx-name { font-size: 28px; color: {{ tokens.muted }}; font-weight: 800; letter-spacing: 0.02em; }
+.idx-value { margin-top: 14px; font-size: 76px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+.idx-pct { margin-top: 14px; font-size: 40px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.02em; }
 .idx.flat .idx-pct, .idx.dn .idx-pct { color: #aaa; }
-.stats { margin-top: 22px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; position: relative; z-index: 2; }
-.ss {
-  background: {{ tokens.card_bg }};
-  border: 1px solid {{ tokens.card_border }};
-  border-radius: 14px;
-  padding: 14px 20px;
-}
-.ss-label { font-size: 12px; color: {{ tokens.muted }}; font-weight: 700; letter-spacing: 0.02em; }
-.ss-value { margin-top: 4px; font-size: 22px; font-weight: 900; letter-spacing: -0.02em; }
-.ss-value.up { color: {{ tokens.accent2 }}; }
-.ss-value.neutral { color: {{ tokens.accent }}; }
 .leader-strip {
-  margin-top: 22px;
-  padding: 18px 24px;
-  background: {{ tokens.card_bg }};
-  border: 1px solid {{ tokens.card_border }};
-  border-radius: 16px;
+  margin-top: 56px;
+  padding: 36px 40px;
+  background: linear-gradient(90deg, {{ tokens.hot_bg1 }}, transparent);
+  border: 1px solid {{ tokens.hot_border }};
+  border-radius: 24px;
   position: relative;
   z-index: 2;
 }
-.leader-label { font-size: 12px; color: {{ tokens.accent }}; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
-.leader-row { margin-top: 8px; display: flex; align-items: center; gap: 14px; }
-.leader-icon { font-size: 28px; color: {{ tokens.accent }}; }
-.leader-name { font-size: 30px; font-weight: 900; letter-spacing: -0.02em; flex: 1; }
-.leader-rate { font-size: 30px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.03em; }
+.leader-label { font-size: 22px; color: {{ tokens.accent }}; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; }
+.leader-row { margin-top: 14px; display: flex; align-items: baseline; gap: 24px; }
+.leader-name { font-size: 56px; font-weight: 900; letter-spacing: -0.02em; flex: 1; }
+.leader-rate { font-size: 60px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.03em; }
 {% endblock %}
 
 {% block content %}
 <div class="top">
-  <div class="brand"><span class="brand-dot"></span>StockRise · 마감 시황</div>
+  <div class="brand"><span class="brand-dot"></span>StockRise · 마감</div>
   <div class="time">{{ data.time_text }}</div>
 </div>
 <div class="eyebrow">{{ data.eyebrow }}</div>
-<h1 class="title">{{ data.title_top }}<br><em>{{ data.title_em }}</em> {{ data.title_bot }}</h1>
-<div class="sub">{{ data.sub }}</div>
+<h1 class="title">{{ data.title_top }}<br><em>{{ data.title_em }}</em></h1>
 
 {% if data.indices %}
 <div class="indices">
@@ -60,28 +46,15 @@
   <div class="idx {% if i.flat %}flat{% elif i.up %}up{% else %}dn{% endif %}">
     <div class="idx-name">{{ i.name }}</div>
     <div class="idx-value">{{ "{:,.2f}".format(i.value) }}</div>
-    <div class="idx-change-row">
-      <span class="idx-change">{% if i.up %}▲{% elif i.flat %}―{% else %}▼{% endif %} {{ "{:,.2f}".format(i.change|abs) }}</span>
-      <span class="idx-pct">{{ "%+.2f"|format(i.pct) }}%</span>
-    </div>
+    <div class="idx-pct">{{ "%+.2f"|format(i.pct) }}%</div>
   </div>
 {% endfor %}
 </div>
 {% endif %}
 
-<div class="stats">
-{% for s in data.stats %}
-  <div class="ss">
-    <div class="ss-label">{{ s.label }}</div>
-    <div class="ss-value {{ s.kind }}">{{ s.value }}</div>
-  </div>
-{% endfor %}
-</div>
-
 <div class="leader-strip">
   <div class="leader-label">{{ data.leader_label }}</div>
   <div class="leader-row">
-    <div class="leader-icon">◆</div>
     <div class="leader-name">{{ data.leader_name }}</div>
     <div class="leader-rate">{{ "%+.1f"|format(data.leader_rate) }}%</div>
   </div>

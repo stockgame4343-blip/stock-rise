@@ -181,7 +181,7 @@ def _big_themes(day):
 
 
 def build_pre(day):
-    """카드 1 — 키워드 4개 (테마). 하단 중복 strip 제거."""
+    """카드 1 — 키워드 4개. 한 카드 = 4 핵심 테마, 메타 최소."""
     top = _big_themes(day)[:config.TOP_THEMES_PRE]
     if not top:
         return None
@@ -195,12 +195,11 @@ def build_pre(day):
         'time_text': f"{day['date_kr']} 마감",
         'title_top': f"{day['weekday_ko']}요일 달궜던",
         'title_em': '키워드',
-        'sub': f"{day['date_kr_short']}, 가장 강했던 {len(top)}가지 테마",
         'keywords': [
             {
                 'rank': f"{i + 1:02d}",
                 'tag': t['tag'],
-                'note': ts.theme_short_note(t),
+                'pct_text': f"평균 +{t['avg_rate']:.1f}%",
                 'hot': i < config.TOP_HOT_THEMES,
             }
             for i, t in enumerate(top)
@@ -209,7 +208,7 @@ def build_pre(day):
 
 
 def build_pre2(day, us_indices):
-    """카드 2 — 미국 마감. us_indices가 없으면 None."""
+    """카드 2 — 미국 마감. 3 지수 + mood 한 줄. 한국 시장 노트 제거."""
     if not us_indices:
         return None
     return {
@@ -218,9 +217,7 @@ def build_pre2(day, us_indices):
         'time_text': f"NY · {day['date_kr']} 마감",
         'label': 'US MARKET',
         'title_top': '뉴욕',
-        'title_em': '마감과',
-        'title_bot': '오늘의 한국',
-        'sub': '미국 3대 지수 · 한국 시장 관점',
+        'title_em': '마감',
         'indices': [
             {'name': name, 'value': v['close'], 'change': v['change'], 'pct': v['pct'], 'up': v['pct'] > 0}
             for name, v in [
@@ -230,15 +227,12 @@ def build_pre2(day, us_indices):
             ]
             if v
         ],
-        'mood_label': 'MARKET MOOD',
         'mood_text': ts.market_mood(us_indices),
-        'notes_label': '한국 시장 관점',
-        'notes': ts.ny_notes(us_indices, day['themes']),
     }
 
 
 def build_pre3(day):
-    """카드 3 — 4테마별 거래대금 상위 종목."""
+    """카드 3 — 4테마 × 대장 1명만 (한 줄에 테마+종목+%)."""
     top = _big_themes(day)[:config.TOP_THEMES_PRE3]
     if not top:
         return None
@@ -247,40 +241,26 @@ def build_pre3(day):
         'date_kr': day['date_kr'],
         'time_text': f"{day['date_kr']} 마감",
         'label': '★ 주도 종목',
-        'title_top': f"{day['weekday_ko']}요일",
-        'title_em': '이 종목',
-        'title_bot': '이 움직였다',
-        'sub': f"{len(top)}개 테마별 거래대금 상위 종목",
+        'title_top': f"{day['weekday_ko']}요일의",
+        'title_em': '대장',
+        'title_bot': '',
         'themes': [
             {
                 'rank': f"{i + 1:02d}",
                 'tag': t['tag'],
-                'count': t['count'],
-                'avg_rate': t['avg_rate'],
                 'hot': i < config.TOP_HOT_THEMES,
-                'tag_label': '대장 테마' if i == 0 else ('동반 강세' if t['avg_rate'] >= config.STRONG_THEME_AVG else '관찰'),
                 'stocks': [
-                    {
-                        'name': s['name'],
-                        'ticker': s['ticker'],
-                        'rate': s['change_rate'],
-                        'is_leader': j == 0,
-                    }
-                    for j, s in enumerate(t['members'][:config.TOP_STOCKS_PER_THEME])
+                    {'name': s['name'], 'ticker': s['ticker'], 'rate': s['change_rate']}
+                    for s in t['members'][:config.TOP_STOCKS_PER_THEME]
                 ],
             }
             for i, t in enumerate(top)
         ],
-        'note': '★ = 각 테마 거래대금 1위 (사후 집계)',
     }
 
 
 def build_leader(day):
-    """카드 4 — 대장주 1개.
-
-    선정: 강세(>=LEADER_MIN_RATE) 종목 중 거래대금 1위. 사용자 직관과 일치
-    (e.g. 04.24 → 시스템반도체 고영 1.2조).
-    """
+    """카드 4 — 대장주 1개. 종목명 + 등락률 초대형. 점수 박스 제거."""
     leader = _select_leader_stock(day['rankings'])
     if not leader:
         return None
@@ -291,28 +271,19 @@ def build_leader(day):
         'weekday_ko': day['weekday_ko'],
         'time_text': f"{day['date_kr']} 마감",
         'eyebrow': f"★ {day['weekday_en']} LEADER",
-        'title_top': f"{day['weekday_ko']}요일의",
         'title_em': '대장주',
-        'sub': '가장 강했던 테마의 가장 강했던 종목',
-        'badge': f"★ LEADER · {top_theme['tag']}",
+        'badge_theme': top_theme['tag'],
         'name': leader['name'],
         'code': leader['ticker'],
         'market': leader['market'],
         'rate': leader['change_rate'],
         'is_limit_up': ts.is_limit_up(leader['change_rate']),
-        'trading_value_text': ts.fmt_won(leader.get('trading_value', 0)),
-        'market_cap_text': ts.fmt_won(leader.get('market_cap', 0)),
-        'scores': _normalize_scores(leader.get('score_detail', {})),
         'why_text': ts.leader_why(leader, top_theme),
     }
 
 
 def build_leader2(day):
-    """카드 5 — 대장 테마 멤버 + 자금 흐름.
-
-    `build_leader`가 선정한 대장주의 theme_tag 그룹을 사용 (두 카드 일관성).
-    멤버 부족하면 None (스토리 카드 의미 없음).
-    """
+    """카드 5 — 대장 테마 + 멤버 5명. 큰 글씨, WHY/FLOW 텍스트 제거."""
     leader = _select_leader_stock(day['rankings'])
     if not leader:
         return None
@@ -324,28 +295,20 @@ def build_leader2(day):
         'series': 'leader',
         'date_kr': day['date_kr'],
         'time_text': f"{day['date_kr']} 마감",
-        'label': f"★ {top_theme['tag']} 스토리",
+        'label': '★ THEME',
         'title_top': f"{day['weekday_ko']}요일",
-        'title_em': '이 테마',
-        'title_bot': '의 흐름',
-        'sub': f"대장 테마 배경과 {top_theme['count']}종목 멤버 요약",
-        'story_label': 'WHY TODAY',
-        'story_text': ts.theme_story_why(top_theme),
-        'members_label': f"MEMBERS TOP {len(members)}",
-        'members_summary': f"전체 {top_theme['count']}종목 · 평균 +{top_theme['avg_rate']:.1f}%",
+        'title_em': '대장 테마',
+        'theme_name': f"#{top_theme['tag']}",
+        'theme_stat_html': f"<strong>+{top_theme['avg_rate']:.1f}%</strong> · {top_theme['count']}종목",
         'members': [
             {
                 'rank': i + 1,
                 'name': m['name'],
-                'code': m['ticker'],
                 'rate': m['change_rate'],
-                'is_limit_up': ts.is_limit_up(m['change_rate']),
                 'is_leader': i == 0,
             }
             for i, m in enumerate(members)
         ],
-        'flow_label': 'FLOW',
-        'flow_text': ts.theme_flow_text(top_theme),
     }
 
 
@@ -386,71 +349,38 @@ def build_close(day, kr_indices):
         'date_kr': day['date_kr'],
         'time_text': f"{day['date_kr']} 마감",
         'eyebrow': '★ MARKET CLOSE',
-        'title_top': '장 마감,',
-        'title_em': '한 줄',
-        'title_bot': '요약',
-        'sub': f"{top_theme['tag']} 주도 · 거래상위 자금 집중",
+        'title_top': '장 마감',
+        'title_em': '한 줄 요약',
         'indices': indices,
-        'stats': [
-            {'label': '상한가 종목', 'value': f"{limit_ups}개" if limit_ups else '없음', 'kind': 'up'},
-            {'label': '강세 테마',   'value': f"{strong_themes}개", 'kind': 'neutral'},
-            {'label': 'TOP 거래대금', 'value': f"{top_stock_by_volume['name']} {ts.fmt_won(top_stock_by_volume['trading_value'])}" if top_stock_by_volume else '-', 'kind': 'up'},
-        ],
-        'leader_label': f"★ {day['weekday_ko']}요일 대장 테마",
-        'leader_name': f"{top_theme['tag']} ({top_theme['count']}종목)",
+        'leader_label': '대장 테마',
+        'leader_name': f"#{top_theme['tag']}",
         'leader_rate': top_theme['avg_rate'],
     }
 
 
 def build_close2(day):
-    """카드 7 — 핵심 이슈 + 섹터 리뷰.
-
-    이슈는 큰 테마 우선 (작은 테마/단독 종목 제외).
-    """
+    """카드 7 — 핵심 이슈 3장만 (큰 글씨). 섹터 grid 제거."""
     big = _big_themes(day)
     if not big:
         return None
-
     issue_themes = big[:config.TOP_ISSUES_CLOSE2]
-    issue_tag_labels = ['최대 이슈', '모멘텀', '추가 이슈']
     issues = [
         {
             'num': f"{i + 1:02d}",
-            'title': f"{t['tag']} 동반 상승",
-            'tag': issue_tag_labels[i] if i < len(issue_tag_labels) else '관찰',
+            'title': f"#{t['tag']} +{t['avg_rate']:.1f}%",
             'hot': i == 0,
             'desc': ts.issue_text(t),
         }
         for i, t in enumerate(issue_themes)
     ]
-
-    sectors = []
-    for s in day['sectors'][:config.TOP_SECTORS_CLOSE2]:
-        intensity = 'up-strong' if s['avg_rate'] >= config.SECTOR_INTENSITY_STRONG else 'up-mild'
-        top3 = s['members'][:3]
-        stocks_html = ' · '.join(
-            f"<strong>{m['name']}</strong> {ts.fmt_pct(m['change_rate'])}"
-            for m in top3
-        )
-        sectors.append({
-            'name': s['name'],
-            'rate': s['avg_rate'],
-            'intensity': intensity,
-            'stocks_html': stocks_html,
-        })
-
     return {
         'series': 'close',
         'date_kr': day['date_kr'],
         'time_text': f"{day['date_kr']} 마감",
-        'label': "★ TODAY'S ISSUES",
+        'label': "★ ISSUES",
         'title_top': f"{day['weekday_ko']}요일,",
-        'title_em': '무슨 일',
-        'title_bot': '이 있었나',
-        'sub': '핵심 이슈 · 섹터 리뷰',
+        'title_em': '핵심 이슈',
         'issues': issues,
-        'sectors_label': '▣ 섹터 리뷰',
-        'sectors': sectors,
     }
 
 

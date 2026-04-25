@@ -1,57 +1,26 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-.title { margin-top: 14px; font-size: 60px; }
-.sub { margin-top: 8px; font-size: 16px; margin-bottom: 22px; }
-.themes { display: flex; flex-direction: column; gap: 14px; }
+.title { margin-top: 24px; font-size: 96px; }
+.sub { margin-top: 18px; font-size: 26px; }
+.themes { margin-top: 56px; display: flex; flex-direction: column; gap: 18px; position: relative; z-index: 2; }
 .theme {
   background: {{ tokens.card_bg }};
   border: 1px solid {{ tokens.card_border }};
-  border-radius: 18px;
-  padding: 18px 24px;
+  border-radius: 24px;
+  padding: 28px 36px;
   display: flex;
-  flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 24px;
 }
 .theme.hot {
   background: linear-gradient(90deg, {{ tokens.hot_bg1 }}, {{ tokens.hot_bg2 }});
   border-color: {{ tokens.hot_border }};
 }
-.t-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-.t-num { font-size: 22px; font-weight: 900; color: {{ tokens.text_dim }}; min-width: 32px; }
+.t-num { font-size: 36px; font-weight: 900; color: {{ tokens.text_dim }}; min-width: 56px; }
 .theme.hot .t-num { color: {{ tokens.accent }}; }
-.t-name { font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
-.t-tag { font-size: 11px; font-weight: 800; padding: 3px 9px; border-radius: 5px; background: {{ tokens.hot_bg1 }}; color: {{ tokens.accent }}; }
-.t-stat { font-size: 13px; color: {{ tokens.muted }}; font-weight: 600; }
-.t-stocks { display: flex; gap: 10px; flex-wrap: wrap; }
-.stock {
-  background: rgba(255,255,255,.08);
-  border: 1px solid rgba(255,255,255,.12);
-  border-radius: 10px;
-  padding: 8px 13px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 13px;
-  font-weight: 700;
-}
-.stock.lead {
-  background: linear-gradient(90deg, {{ tokens.hot_bg1 }}, transparent);
-  border-color: {{ tokens.hot_border }};
-}
-.stock .star { color: {{ tokens.accent }}; }
-.stock .code { font-size: 11px; color: {{ tokens.muted }}; font-weight: 600; }
-.stock .rate { font-size: 12px; color: {{ tokens.accent2 }}; font-weight: 800; }
-.note-bar {
-  margin-top: 14px;
-  background: rgba(91,157,249,.08);
-  border: 1px solid rgba(91,157,249,.22);
-  border-radius: 14px;
-  padding: 12px 18px;
-  font-size: 13px;
-  color: {{ tokens.muted }};
-  font-weight: 600;
-}
-.note-bar strong { color: {{ tokens.accent }}; }
+.t-tag { font-size: 30px; font-weight: 900; color: {{ tokens.accent }}; min-width: 220px; }
+.t-stock-name { flex: 1; font-size: 38px; font-weight: 900; letter-spacing: -0.02em; }
+.t-stock-rate { font-size: 42px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.02em; min-width: 180px; text-align: right; }
 {% endblock %}
 
 {% block content %}
@@ -60,29 +29,16 @@
   <div class="time">{{ data.time_text }}</div>
 </div>
 <h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em>{{ data.title_bot }}</h1>
-<div class="sub">{{ data.sub }}</div>
 
 <div class="themes">
 {% for t in data.themes %}
   <div class="theme{% if t.hot %} hot{% endif %}">
-    <div class="t-head">
-      <span class="t-num">{{ t.rank }}</span>
-      <span class="t-name">{{ t.tag }}</span>
-      <span class="t-tag">{{ t.tag_label }}</span>
-      <span class="t-stat">· {{ t.count }}종목 · 평균 +{{ "%.1f"|format(t.avg_rate) }}%</span>
-    </div>
-    <div class="t-stocks">
-    {% for s in t.stocks %}
-      <div class="stock{% if s.is_leader %} lead{% endif %}">
-        {% if s.is_leader %}<span class="star">★</span>{% endif %}{{ s.name }}
-        <span class="code">{{ s.ticker }}</span>
-        <span class="rate">{{ "%+.2f"|format(s.rate) }}%</span>
-      </div>
-    {% endfor %}
-    </div>
+    <span class="t-num">{{ t.rank }}</span>
+    <span class="t-tag">#{{ t.tag }}</span>
+    {% set lead = t.stocks[0] %}
+    <span class="t-stock-name">{{ lead.name }}</span>
+    <span class="t-stock-rate">{{ "%+.2f"|format(lead.rate) }}%</span>
   </div>
 {% endfor %}
 </div>
-
-<div class="note-bar"><strong>★</strong> = 각 테마 거래대금 1위 (사후 집계)</div>
 {% endblock %}

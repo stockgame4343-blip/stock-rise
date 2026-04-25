@@ -33,15 +33,15 @@ TL_MAX = 45
 TI_MAX = 20
 SCORE_NORMALIZED_MAX = 100
 
-# ─── 카드별 표시 개수 ────────────────────────────────
+# ─── 카드별 표시 개수 (카드뉴스 원칙: 한 장 = 한 메시지, 정보 최소) ─
 TOP_THEMES_PRE = 4         # pre  — 키워드 카드 수
 TOP_HOT_THEMES = 2         # pre  — 강조 hot 처리 상위 N
 TOP_THEMES_PRE3 = 4        # pre3 — 테마 수
-TOP_STOCKS_PER_THEME = 4   # pre3 — 테마당 종목 수
-LEADER_MEMBERS_TOP = 8     # leader2 — 멤버 수
+TOP_STOCKS_PER_THEME = 1   # pre3 — 테마당 대장 1명만 (이전 4 → 1)
+LEADER_MEMBERS_TOP = 5     # leader2 — 멤버 수 (이전 8 → 5)
 TOP_ISSUES_CLOSE2 = 3      # close2 — 핵심 이슈 수
-TOP_SECTORS_CLOSE2 = 6     # close2 — 섹터 카드 수
-NY_NOTES_TOP = 2           # pre2  — 한국 시장 관점 노트 수
+TOP_SECTORS_CLOSE2 = 0     # close2 — 섹터 영역 제거 (한 카드 = 한 메시지)
+NY_NOTES_TOP = 0           # pre2  — 한국 시장 관점 노트 제거
 
 # ─── 그룹화 임계값 ───────────────────────────────────
 MIN_THEME_MEMBERS = 2          # _group_by_theme 일반 임계

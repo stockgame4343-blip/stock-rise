@@ -1,48 +1,27 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-.title { margin-top: 14px; font-size: 60px; }
-.sub { margin-top: 8px; font-size: 16px; margin-bottom: 18px; }
-.issues { display: flex; flex-direction: column; gap: 10px; margin-bottom: 18px; }
+/* 핵심 이슈 3장만. 섹터 grid 제거 (한 카드 = 한 메시지) */
+.title { margin-top: 24px; font-size: 96px; }
+.sub { margin-top: 18px; font-size: 26px; }
+.issues { margin-top: 64px; display: flex; flex-direction: column; gap: 22px; position: relative; z-index: 2; }
 .issue {
   background: {{ tokens.card_bg }};
   border: 1px solid {{ tokens.card_border }};
-  border-radius: 16px;
-  padding: 16px 22px;
+  border-radius: 28px;
+  padding: 36px 40px;
   display: flex;
-  gap: 16px;
+  gap: 28px;
   align-items: flex-start;
 }
 .issue.hot {
   background: linear-gradient(90deg, {{ tokens.hot_bg1 }}, {{ tokens.hot_bg2 }});
   border-color: {{ tokens.hot_border }};
 }
-.i-num { font-size: 22px; font-weight: 900; color: {{ tokens.text_dim }}; min-width: 30px; line-height: 1.1; }
+.i-num { font-size: 56px; font-weight: 900; color: {{ tokens.text_dim }}; min-width: 80px; line-height: 1; }
 .issue.hot .i-num { color: {{ tokens.accent2 }}; }
 .i-body { flex: 1; min-width: 0; }
-.i-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.i-title { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
-.i-tag { font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 5px; background: {{ tokens.hot_bg1 }}; color: {{ tokens.accent }}; letter-spacing: 0.02em; }
-.i-tag.hot { background: rgba(255,107,107,.22); color: {{ tokens.accent2 }}; }
-.i-desc { margin-top: 4px; font-size: 13px; color: {{ tokens.muted }}; font-weight: 500; line-height: 1.4; }
-
-.section-head { font-size: 13px; font-weight: 800; color: {{ tokens.accent }}; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 10px; }
-.sector-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.sec {
-  background: {{ tokens.card_bg }};
-  border: 1px solid {{ tokens.card_border }};
-  border-radius: 14px;
-  padding: 13px 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.sec.up-strong { background: linear-gradient(135deg, rgba(255,107,107,.18), rgba(255,107,107,.04)); border-color: rgba(255,107,107,.4); }
-.sec.up-mild   { background: linear-gradient(135deg, rgba(255,107,107,.08), rgba(255,107,107,.01)); border-color: rgba(255,107,107,.2); }
-.sec-head { display: flex; justify-content: space-between; align-items: center; }
-.sec-name { font-size: 17px; font-weight: 800; letter-spacing: -0.02em; }
-.sec-rate { font-size: 19px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.02em; }
-.sec-stocks { font-size: 12px; color: {{ tokens.muted }}; font-weight: 600; line-height: 1.4; }
-.sec-stocks strong { color: #fff; }
+.i-title { font-size: 44px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+.i-desc { margin-top: 12px; font-size: 22px; color: {{ tokens.muted }}; font-weight: 700; line-height: 1.4; }
 {% endblock %}
 
 {% block content %}
@@ -50,30 +29,16 @@
   <span class="label">{{ data.label }}</span>
   <div class="time">{{ data.time_text }}</div>
 </div>
-<h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em>{{ data.title_bot }}</h1>
-<div class="sub">{{ data.sub }}</div>
+<h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em></h1>
 
 <div class="issues">
 {% for it in data.issues %}
   <div class="issue{% if it.hot %} hot{% endif %}">
     <div class="i-num">{{ it.num }}</div>
     <div class="i-body">
-      <div class="i-head"><span class="i-title">{{ it.title }}</span><span class="i-tag{% if it.hot %} hot{% endif %}">{{ it.tag }}</span></div>
+      <div class="i-title">{{ it.title }}</div>
       <div class="i-desc">{{ it.desc }}</div>
     </div>
-  </div>
-{% endfor %}
-</div>
-
-<div class="section-head">{{ data.sectors_label }}</div>
-<div class="sector-grid">
-{% for s in data.sectors %}
-  <div class="sec {{ s.intensity }}">
-    <div class="sec-head">
-      <span class="sec-name">{{ s.name }}</span>
-      <span class="sec-rate">{{ "%+.1f"|format(s.rate) }}%</span>
-    </div>
-    <div class="sec-stocks">{{ s.stocks_html|safe }}</div>
   </div>
 {% endfor %}
 </div>

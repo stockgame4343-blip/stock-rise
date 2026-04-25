@@ -1,109 +1,79 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-.stock-main {
-  margin-top: 32px;
-  background: linear-gradient(135deg, {{ tokens.hot_bg1 }}, {{ tokens.hot_bg2 }});
-  border: 2px solid {{ tokens.hot_border }};
-  border-radius: 24px;
-  padding: 28px 32px;
-  position: relative;
-  z-index: 2;
-  overflow: hidden;
-}
-.sm-badge {
+/* 대장주 = 한 종목 초대형 강조. 점수 박스 제거 (카드뉴스답지 않음) */
+.title { font-size: 110px; }
+.sub { margin-top: 16px; font-size: 26px; }
+.theme-badge {
   display: inline-block;
-  font-size: 13px;
-  font-weight: 800;
-  color: {{ tokens.bg1 }};
+  margin-top: 56px;
+  padding: 14px 28px;
   background: {{ tokens.accent }};
-  padding: 4px 12px;
-  border-radius: 6px;
-  letter-spacing: 0.02em;
-}
-.sm-name-row { margin-top: 12px; display: flex; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-.sm-name { font-size: 54px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
-.sm-code { font-size: 18px; color: {{ tokens.muted }}; font-weight: 600; }
-.sm-rate-row { margin-top: 8px; display: flex; gap: 16px; align-items: baseline; flex-wrap: wrap; }
-.sm-rate { font-size: 68px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.04em; line-height: 1; }
-.sm-ceiling {
-  font-size: 18px;
-  font-weight: 800;
-  color: {{ tokens.accent }};
-  padding: 5px 14px;
-  background: {{ tokens.hot_bg1 }};
-  border-radius: 8px;
-  border: 1px solid {{ tokens.hot_border }};
-}
-.sm-trade { margin-top: 10px; font-size: 16px; color: {{ tokens.muted }}; font-weight: 600; }
-.sm-trade b { color: {{ tokens.accent }}; font-weight: 800; }
-.scores { margin-top: 26px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; position: relative; z-index: 2; }
-.score {
-  background: {{ tokens.card_bg }};
-  border: 1px solid {{ tokens.card_border }};
-  border-radius: 18px;
-  padding: 18px 22px;
-}
-.score-label { font-size: 13px; color: {{ tokens.muted }}; font-weight: 700; letter-spacing: 0.02em; }
-.score-row { margin-top: 6px; display: flex; align-items: baseline; gap: 6px; }
-.score-value { font-size: 36px; font-weight: 900; letter-spacing: -0.03em; color: {{ tokens.accent }}; }
-.score-max { font-size: 16px; color: {{ tokens.text_dim }}; font-weight: 600; }
-.score-bar { margin-top: 10px; height: 6px; background: rgba(255,255,255,.1); border-radius: 3px; overflow: hidden; }
-.score-bar span { display: block; height: 100%; background: linear-gradient(90deg, {{ tokens.accent2 }}, {{ tokens.accent }}); border-radius: 3px; }
-.why {
-  margin-top: 22px;
-  padding: 18px 24px;
-  background: {{ tokens.card_bg }};
-  border: 1px solid {{ tokens.card_border }};
-  border-radius: 16px;
-  font-size: 17px;
-  color: {{ tokens.muted }};
-  line-height: 1.5;
-  font-weight: 500;
+  color: {{ tokens.bg1 }};
+  font-size: 28px;
+  font-weight: 900;
+  border-radius: 12px;
+  letter-spacing: -0.01em;
+  align-self: flex-start;
   position: relative;
   z-index: 2;
 }
-.why strong { color: #fff; font-weight: 800; }
-.why em { font-style: normal; color: {{ tokens.accent }}; font-weight: 800; }
+.stock-name {
+  margin-top: 28px;
+  font-size: 180px;
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  position: relative;
+  z-index: 2;
+}
+.stock-meta { margin-top: 18px; font-size: 26px; color: {{ tokens.muted }}; font-weight: 700; position: relative; z-index: 2; }
+.stock-rate {
+  margin-top: 28px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+}
+.stock-rate-num { font-size: 156px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.05em; line-height: 1; }
+.stock-ceiling {
+  font-size: 28px;
+  font-weight: 900;
+  color: {{ tokens.accent }};
+  padding: 10px 20px;
+  background: {{ tokens.hot_bg1 }};
+  border: 2px solid {{ tokens.hot_border }};
+  border-radius: 12px;
+}
+.why {
+  margin-top: 40px;
+  padding: 28px 36px;
+  background: {{ tokens.card_bg }};
+  border-left: 6px solid {{ tokens.accent }};
+  border-radius: 16px;
+  font-size: 26px;
+  color: #fff;
+  line-height: 1.45;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
 {% endblock %}
 
 {% block content %}
 <div class="top">
-  <div class="brand"><span class="brand-dot"></span>StockRise · {{ data.weekday_ko if data.weekday_ko else "오늘" }}의 주도주</div>
+  <div class="brand"><span class="brand-dot"></span>StockRise</div>
   <div class="time">{{ data.time_text }}</div>
 </div>
 <div class="eyebrow">{{ data.eyebrow }}</div>
-<h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em></h1>
-<div class="sub">{{ data.sub }}</div>
+<h1 class="title"><em>{{ data.title_em }}</em></h1>
 
-<div class="stock-main">
-  <span class="sm-badge">{{ data.badge }}</span>
-  <div class="sm-name-row">
-    <span class="sm-name">{{ data.name }}</span>
-    <span class="sm-code">{{ data.code }} · {{ data.market }}</span>
-  </div>
-  <div class="sm-rate-row">
-    <span class="sm-rate">{{ "%+.2f"|format(data.rate) }}%</span>
-    {% if data.is_limit_up %}<span class="sm-ceiling">▲ 상한가 마감</span>{% endif %}
-  </div>
-  <div class="sm-trade">거래대금 <b>{{ data.trading_value_text }}</b> · 시가총액 <b>{{ data.market_cap_text }}</b></div>
-</div>
-
-<div class="scores">
-  <div class="score">
-    <div class="score-label">대장성</div>
-    <div class="score-row"><span class="score-value">{{ data.scores.leadership }}</span><span class="score-max">/100</span></div>
-    <div class="score-bar"><span style="width:{{ data.scores.leadership }}%"></span></div>
-  </div>
-  <div class="score">
-    <div class="score-label">기세</div>
-    <div class="score-row"><span class="score-value">{{ data.scores.momentum }}</span><span class="score-max">/100</span></div>
-    <div class="score-bar"><span style="width:{{ data.scores.momentum }}%"></span></div>
-  </div>
-  <div class="score">
-    <div class="score-label">테마력</div>
-    <div class="score-row"><span class="score-value">{{ data.scores.theme_power }}</span><span class="score-max">/100</span></div>
-    <div class="score-bar"><span style="width:{{ data.scores.theme_power }}%"></span></div>
-  </div>
+<span class="theme-badge">★ {{ data.badge_theme }}</span>
+<div class="stock-name">{{ data.name }}</div>
+<div class="stock-meta">{{ data.code }} · {{ data.market }}</div>
+<div class="stock-rate">
+  <span class="stock-rate-num">{{ "%+.2f"|format(data.rate) }}%</span>
+  {% if data.is_limit_up %}<span class="stock-ceiling">▲ 상한가</span>{% endif %}
 </div>
 
 <div class="why">{{ data.why_text }}</div>

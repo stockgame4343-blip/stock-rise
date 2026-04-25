@@ -1,46 +1,31 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-.title { margin-top: 14px; font-size: 80px; }
-.sub { margin-top: 14px; font-size: 22px; }
-.indices { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; position: relative; z-index: 2; }
+.title { margin-top: 24px; font-size: 110px; }
+.sub { margin-top: 18px; font-size: 26px; }
+.indices { margin-top: 70px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; position: relative; z-index: 2; }
 .idx {
   background: {{ tokens.card_bg }};
   border: 1px solid {{ tokens.card_border }};
-  border-radius: 20px;
-  padding: 22px 24px;
+  border-radius: 26px;
+  padding: 36px 32px;
+  text-align: center;
 }
-.idx.up   { background: linear-gradient(135deg, rgba(255,107,107,.18), rgba(255,107,107,.02)); border-color: rgba(255,107,107,.38); }
-.idx.dn   { background: linear-gradient(135deg, rgba(91,157,249,.16), rgba(91,157,249,.02)); border-color: rgba(91,157,249,.35); }
-.idx-name { font-size: 15px; color: {{ tokens.muted }}; font-weight: 700; letter-spacing: 0.02em; }
-.idx-value { margin-top: 6px; font-size: 38px; font-weight: 900; letter-spacing: -0.03em; }
-.idx-change-row { margin-top: 4px; display: flex; gap: 8px; align-items: baseline; flex-wrap: wrap; }
-.idx-change { font-size: 16px; font-weight: 800; color: #ff8c8c; }
-.idx.dn .idx-change { color: #7cadff; }
-.idx-pct { font-size: 14px; font-weight: 700; color: #ff9999; }
-.idx.dn .idx-pct { color: #9ec1ff; }
+.idx.up   { background: linear-gradient(135deg, rgba(255,107,107,.20), rgba(255,107,107,.04)); border-color: rgba(255,107,107,.45); }
+.idx.dn   { background: linear-gradient(135deg, rgba(91,157,249,.18), rgba(91,157,249,.03)); border-color: rgba(91,157,249,.4); }
+.idx-name { font-size: 24px; color: {{ tokens.muted }}; font-weight: 800; letter-spacing: 0.02em; }
+.idx-value { margin-top: 14px; font-size: 64px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+.idx-pct { margin-top: 14px; font-size: 36px; font-weight: 900; color: #ff8c8c; letter-spacing: -0.02em; }
+.idx.dn .idx-pct { color: #7cadff; }
 .mood {
-  margin-top: 28px;
-  padding: 22px 26px;
+  margin-top: 56px;
+  padding: 36px 40px;
   background: linear-gradient(90deg, {{ tokens.hot_bg1 }}, transparent);
   border: 1px solid {{ tokens.hot_border }};
-  border-radius: 20px;
+  border-radius: 24px;
   position: relative;
   z-index: 2;
 }
-.mood-label { font-size: 12px; color: {{ tokens.accent }}; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
-.mood-text { margin-top: 8px; font-size: 26px; font-weight: 900; letter-spacing: -0.02em; }
-.notes-head { margin-top: 26px; font-size: 13px; color: {{ tokens.accent }}; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; position: relative; z-index: 2; }
-.notes { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; position: relative; z-index: 2; }
-.note {
-  background: {{ tokens.card_bg }};
-  border: 1px solid {{ tokens.card_border }};
-  border-radius: 14px;
-  padding: 14px 20px;
-}
-.note-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
-.note-title { font-size: 18px; font-weight: 800; letter-spacing: -0.02em; }
-.note-tag { font-size: 11px; font-weight: 800; padding: 2px 8px; border-radius: 5px; background: {{ tokens.hot_bg1 }}; color: {{ tokens.accent }}; }
-.note-desc { margin-top: 4px; font-size: 13px; font-weight: 600; color: {{ tokens.muted }}; }
+.mood-text { font-size: 38px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.25; }
 {% endblock %}
 
 {% block content %}
@@ -49,34 +34,19 @@
   <div class="time">{{ data.time_text }}</div>
 </div>
 <span class="label">{{ data.label }}</span>
-<h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em><br>{{ data.title_bot }}</h1>
-<div class="sub">{{ data.sub }}</div>
+<h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em></h1>
 
 <div class="indices">
 {% for i in data.indices %}
   <div class="idx {% if i.up %}up{% else %}dn{% endif %}">
     <div class="idx-name">{{ i.name }}</div>
-    <div class="idx-value">{{ "{:,.2f}".format(i.value) }}</div>
-    <div class="idx-change-row">
-      <span class="idx-change">{% if i.up %}▲{% else %}▼{% endif %} {{ "{:,.2f}".format(i.change|abs) }}</span>
-      <span class="idx-pct">{{ "%+.2f"|format(i.pct) }}%</span>
-    </div>
+    <div class="idx-value">{{ "{:,.0f}".format(i.value) }}</div>
+    <div class="idx-pct">{{ "%+.2f"|format(i.pct) }}%</div>
   </div>
 {% endfor %}
 </div>
 
 <div class="mood">
-  <div class="mood-label">{{ data.mood_label }}</div>
   <div class="mood-text">{{ data.mood_text }}</div>
-</div>
-
-<div class="notes-head">{{ data.notes_label }}</div>
-<div class="notes">
-{% for n in data.notes %}
-  <div class="note">
-    <div class="note-head"><span class="note-title">{{ n.title }}</span><span class="note-tag">{{ n.tag }}</span></div>
-    <div class="note-desc">{{ n.desc }}</div>
-  </div>
-{% endfor %}
 </div>
 {% endblock %}

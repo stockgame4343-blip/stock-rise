@@ -1,6 +1,6 @@
-/* StockRise 카드 공통 스타일.
- * 시리즈별 컬러 토큰은 base.html.tmpl 의 인라인 <style> 에서 주입.
- * 모든 카드는 1080×1080. 폰트는 Pretendard 우선 (cards.html 과 동일 fallback).
+/* StockRise 카드뉴스 공통 스타일.
+ * 카드뉴스 원칙: 한 장 = 한 메시지, 큰 폰트, 메타 최소.
+ * 모바일 인스타 viewport 에서도 또렷하게 읽힘.
  */
 * {
   box-sizing: border-box;
@@ -26,7 +26,7 @@ body {
   flex-direction: column;
   color: #fff;
   background: transparent;
-  padding: 60px 76px 60px;
+  padding: 72px 84px 72px;
 }
 .top {
   display: flex;
@@ -39,25 +39,25 @@ body {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 18px;
-  font-weight: 700;
-  opacity: 0.9;
+  gap: 12px;
+  font-size: 22px;
+  font-weight: 800;
+  opacity: 0.95;
 }
 .brand-dot {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
 }
 .time {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 18px;
+  font-weight: 700;
 }
 .label {
   display: inline-block;
-  padding: 7px 18px;
+  padding: 9px 22px;
   border-radius: 100px;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 800;
   letter-spacing: 0.04em;
   align-self: flex-start;
@@ -65,8 +65,8 @@ body {
   z-index: 2;
 }
 .eyebrow {
-  margin-top: 32px;
-  font-size: 20px;
+  margin-top: 36px;
+  font-size: 26px;
   font-weight: 800;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -74,11 +74,11 @@ body {
   z-index: 2;
 }
 .title {
-  margin-top: 10px;
-  font-size: 84px;
+  margin-top: 14px;
+  font-size: 116px;
   font-weight: 900;
-  letter-spacing: -0.04em;
-  line-height: 0.98;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
   position: relative;
   z-index: 2;
 }
@@ -86,26 +86,26 @@ body {
   font-style: normal;
 }
 .sub {
-  margin-top: 12px;
-  font-size: 20px;
-  font-weight: 600;
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: 700;
   position: relative;
   z-index: 2;
 }
 .footer {
   margin-top: auto;
-  padding-top: 18px;
+  padding-top: 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 700;
   position: relative;
   z-index: 2;
 }
 .disclaimer {
-  margin-top: 8px;
-  font-size: 11px;
+  margin-top: 10px;
+  font-size: 14px;
   font-weight: 500;
   opacity: 0.7;
   letter-spacing: 0.01em;
@@ -132,9 +132,9 @@ body {
   position: absolute;
   bottom: 30px;
   right: -30px;
-  font-size: 260px;
+  font-size: 320px;
   line-height: 1;
-  opacity: 0.06;
+  opacity: 0.05;
   pointer-events: none;
   z-index: 0;
 }
