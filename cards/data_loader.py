@@ -146,21 +146,51 @@ def _group_by_sector(rankings):
 
 # ─── 로드 ───────────────────────────────────────────
 
-def load_day(yyyymmdd):
+def _latest_date_with_data():
+    """dates.json 첫 항목 (가장 최근 거래일). 없으면 None."""
+    dates_path = os.path.join(config.DATA_DIR, 'dates.json')
+    if not os.path.exists(dates_path):
+        return None
+    try:
+        with open(dates_path, encoding='utf-8') as f:
+            dates = json.load(f)
+        return dates[0] if dates else None
+    except (json.JSONDecodeError, OSError):
+        return None
+
+
+def load_day(yyyymmdd, fallback=False):
+    """target_date 파일 없으면 가장 최근 거래일 데이터로 fallback.
+
+    PRE 시리즈가 오늘 (장 시작 전) 만들어질 때 사용 — 오늘 마감 데이터는
+    아직 없으므로 가장 최근 마감(어제) 데이터를 사용하되, 카드 라벨은 오늘.
+
+    Returns dict 에 'data_date' (실제 사용한 데이터 거래일) 추가.
+    """
     path = os.path.join(config.DATA_DIR, f'{yyyymmdd}.json')
+    data_date = yyyymmdd
     if not os.path.exists(path):
-        raise FileNotFoundError(f'data file not found: {path}')
+        if not fallback:
+            raise FileNotFoundError(f'data file not found: {path}')
+        latest = _latest_date_with_data()
+        if not latest:
+            raise FileNotFoundError(f'no data available (target={yyyymmdd}, no fallback)')
+        path = os.path.join(config.DATA_DIR, f'{latest}.json')
+        data_date = latest
+
     with open(path, encoding='utf-8') as f:
         data = json.load(f)
 
     rankings = data.get('rankings', [])
     return {
-        'date': yyyymmdd,
+        'date': yyyymmdd,                              # 라벨용 (인자 그대로)
         'date_kr': _date_kr_full(yyyymmdd),
         'date_kr_short': _date_kr_short(yyyymmdd),
         'date_full': _date_full(yyyymmdd),
         'weekday_ko': _weekday_ko(yyyymmdd),
         'weekday_en': _weekday_en(yyyymmdd),
+        'data_date': data_date,                        # 실제 데이터 거래일 (참조용)
+        'data_date_kr': _date_kr_full(data_date),
         'rankings': rankings,
         'themes': _group_by_theme(rankings),
         'sectors': _group_by_sector(rankings),
@@ -392,19 +422,18 @@ def build_close2(day):
 
 # ─── 진입점 ─────────────────────────────────────────
 
-def build_all(yyyymmdd, us_indices=None, kr_indices=None):
+def build_all(yyyymmdd, us_indices=None, kr_indices=None, fallback=False):
     """카드 7장 입력 dict 한 번에 빌드.
 
     Args:
         yyyymmdd: 거래일 (예: '20260424')
-        us_indices: {'sp500': {'close','change','pct'}, 'nasdaq': {...}, 'dow': {...}} 또는 None
-        kr_indices: {'kospi': {'close','change','pct'}, 'kosdaq': {...}} 또는 None
-
-    Returns:
-        dict: {'pre','pre2','pre3','leader','leader2','close','close2','_meta'}
+        us_indices: {'sp500': {...}, 'nasdaq': {...}, 'dow': {...}} 또는 None
+        kr_indices: {'kospi': {...}, 'kosdaq': {...}} 또는 None
+        fallback: True 면 오늘 데이터 없을 때 가장 최근 거래일 데이터 사용
+                  (PRE 시리즈가 장전 07:30 에 만들어질 때)
     """
-    day = load_day(yyyymmdd)
-    summary = load_summary(yyyymmdd)
+    day = load_day(yyyymmdd, fallback=fallback)
+    summary = load_summary(day['data_date']) or load_summary(yyyymmdd)
     return {
         'pre':     build_pre(day),
         'pre2':    build_pre2(day, us_indices),

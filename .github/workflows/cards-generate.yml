@@ -93,8 +93,12 @@ jobs:
             SERIES="all"
           fi
 
+          # PRE 시리즈는 항상 KST today (오늘 거래일 라벨, 데이터는 fallback).
+          # CLOSING/all 은 dates.json 첫 (가장 최근 마감 거래일).
           if [ -n "$INPUT_DATE" ]; then
             DATE="$INPUT_DATE"
+          elif [ "$SERIES" = "pre" ]; then
+            DATE=$(date +%Y%m%d)   # env TZ=Asia/Seoul → KST today
           elif [ -f "public/data/dates.json" ]; then
             DATE=$(python3 -c "import json; print(json.load(open('public/data/dates.json'))[0])" 2>/dev/null || echo "")
           fi
@@ -108,11 +112,23 @@ jobs:
         id: gate
         run: |
           DATE="${{ steps.target.outputs.date }}"
-          if [ ! -f "public/data/${DATE}.json" ]; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-            echo "거래일 데이터 없음(${DATE}) — 스킵"
+          SERIES="${{ steps.target.outputs.series }}"
+          # PRE 시리즈는 fallback 가능 (오늘 데이터 없으면 dates.json 첫 사용).
+          # CLOSING/all 은 오늘 데이터 파일 필수.
+          if [ "$SERIES" = "pre" ]; then
+            if [ ! -f "public/data/dates.json" ]; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+              echo "dates.json 없음 — 스킵"
+            else
+              echo "skip=false" >> $GITHUB_OUTPUT
+            fi
           else
-            echo "skip=false" >> $GITHUB_OUTPUT
+            if [ ! -f "public/data/${DATE}.json" ]; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+              echo "거래일 데이터 없음(${DATE}) — 스킵"
+            else
+              echo "skip=false" >> $GITHUB_OUTPUT
+            fi
           fi
 
       - uses: actions/setup-python@v5

@@ -117,7 +117,11 @@ SERIES_CARDS = {
 
 
 def generate(date, fetch_us=True, fetch_kr=True, dry=False, series='all'):
-    """카드 생성. series='pre'|'closing'|'all'."""
+    """카드 생성. series='pre'|'closing'|'all'.
+
+    PRE 시리즈는 fallback=True — 오늘 마감 데이터가 없으면 (장 시작 전 07:30)
+    가장 최근 거래일 데이터로 fallback. 카드 라벨은 인자 date (오늘) 그대로.
+    """
     targets = SERIES_CARDS.get(series, renderer.CARD_NAMES)
     log.info(f"=== 카드 생성 시작 — date={date}, series={series} ({len(targets)}장 대상) ===")
 
@@ -125,7 +129,8 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False, series='all'):
     kr = kr_indices.fetch(date) if fetch_kr else None
     log.info(f"  지수: us={'OK' if us else 'SKIP'}, kr={'OK' if kr else 'SKIP'}")
 
-    cards = data_loader.build_all(date, us_indices=us, kr_indices=kr)
+    fallback = (series == 'pre')
+    cards = data_loader.build_all(date, us_indices=us, kr_indices=kr, fallback=fallback)
     log.info(f"  meta: {cards['_meta']}")
 
     # 검열·중복 검증은 대상 카드만
