@@ -182,8 +182,63 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False, series='all'):
         except OSError as exc:
             log.warning("latest-leader.png 복사 실패: %s", exc)
 
+    # public/cards/index.json 갱신 — 리포트 페이지(report.js)가 이 인덱스로 카드 노출
+    _update_cards_index(date, [n for n, p in results.items() if p is not None])
+
     log.info(f"=== 완료 — 생성 {success}/{len(targets)}장, 검증 실패 {len(bad)}건 ===")
     return 0 if not bad else 2
+
+
+# 카드 메타 (report.js / cards.html 공용)
+CARD_META = {
+    'pre':     ('pre',    '장전 키워드'),
+    'pre2':    ('pre',    '뉴욕 마감'),
+    'pre3':    ('pre',    '주도 종목'),
+    'leader':  ('leader', '오늘의 대장주'),
+    'leader2': ('leader', '대장 테마 멤버'),
+    'close':   ('close',  '마감 한줄'),
+    'close2':  ('close',  '마감 이슈·섹터'),
+}
+NAME_ORDER = ('pre', 'pre2', 'pre3', 'leader', 'leader2', 'close', 'close2')
+
+
+def _update_cards_index(date, generated):
+    """public/cards/index.json — 시리즈별 시간차 갱신 보존.
+
+    같은 날짜에 PRE 시리즈만 새로 생성되면 기존 LEADER/CLOSE 항목은 그대로 두고
+    PRE 항목만 덮어씀. 리포트 페이지가 시간 흐름에 따라 7장이 채워지는 걸 봄.
+    """
+    if not generated:
+        return
+    index_path = os.path.join(config.OUTPUT_DIR, 'index.json')
+    index = {}
+    if os.path.exists(index_path):
+        try:
+            with open(index_path, encoding='utf-8') as f:
+                index = json.load(f)
+        except (json.JSONDecodeError, OSError):
+            index = {}
+
+    by_file = {c['file']: c for c in index.get(date, [])}
+    for name in generated:
+        meta = CARD_META.get(name)
+        if not meta:
+            continue
+        type_, title = meta
+        fname = f'{date}-{name}.png'
+        by_file[fname] = {'type': type_, 'file': fname, 'title': title}
+
+    name_idx = {n: i for i, n in enumerate(NAME_ORDER)}
+
+    def _key(card):
+        stem = card['file'].rsplit('.', 1)[0].split('-', 1)[1]
+        return name_idx.get(stem, 99)
+
+    index[date] = sorted(by_file.values(), key=_key)
+
+    with open(index_path, 'w', encoding='utf-8') as f:
+        json.dump(index, f, ensure_ascii=False, indent=2)
+    log.info(f"  index.json 갱신 — {date} {len(index[date])}장")
 
 
 def main():

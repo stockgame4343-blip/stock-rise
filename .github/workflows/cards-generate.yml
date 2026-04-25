@@ -14,6 +14,11 @@ name: 카드뉴스 자동 생성
 # 트리거: cron + workflow_dispatch (수동) + workflow_run (closing collect 후 백업)
 # ───────────────────────────────────────────────────────────────
 on:
+  # 외부 cron-job.org → api/cron-trigger.py → repository_dispatch
+  # (event_type=cards, payload={series: pre|closing}) — 가장 신뢰성 높은 트리거
+  repository_dispatch:
+    types: [cards]
+  # GitHub 자체 cron (외부 트리거 실패 시 백업)
   schedule:
     # 평일 KST 07:30 = UTC 22:30 일~목 (PRE)
     - cron: '30 22 * * 0-4'
@@ -65,7 +70,11 @@ jobs:
           INPUT_SERIES="${{ inputs.series }}"
           INPUT_DATE="${{ inputs.date }}"
 
-          if [ "$EVENT" = "schedule" ]; then
+          if [ "$EVENT" = "repository_dispatch" ]; then
+            # 외부 cron-job.org → cron-trigger.py 가 보낸 payload.series
+            SERIES="${{ github.event.client_payload.series }}"
+            [ -z "$SERIES" ] && SERIES="all"
+          elif [ "$EVENT" = "schedule" ]; then
             HOUR_UTC=$(date -u +%H)
             # UTC 22:30 = PRE / UTC 07:30 = CLOSING
             if [ "$HOUR_UTC" = "22" ]; then

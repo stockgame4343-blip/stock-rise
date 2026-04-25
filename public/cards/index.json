@@ -1,11 +1,39 @@
 {
-    "20260424": [
-        { "type": "pre",    "file": "20260424-pre.png",    "title": "장전 키워드" },
-        { "type": "pre",    "file": "20260424-pre2.png",   "title": "뉴욕 마감" },
-        { "type": "pre",    "file": "20260424-pre3.png",   "title": "테마별 거래대금" },
-        { "type": "leader", "file": "20260424-leader.png", "title": "오늘의 대장주" },
-        { "type": "leader", "file": "20260424-leader2.png","title": "대장 테마 멤버" },
-        { "type": "close",  "file": "20260424-close.png",  "title": "마감 한줄" },
-        { "type": "close",  "file": "20260424-close2.png", "title": "마감 이슈·섹터" }
-    ]
+  "20260424": [
+    {
+      "type": "pre",
+      "file": "20260424-pre.png",
+      "title": "장전 키워드"
+    },
+    {
+      "type": "pre",
+      "file": "20260424-pre2.png",
+      "title": "뉴욕 마감"
+    },
+    {
+      "type": "pre",
+      "file": "20260424-pre3.png",
+      "title": "주도 종목"
+    },
+    {
+      "type": "leader",
+      "file": "20260424-leader.png",
+      "title": "오늘의 대장주"
+    },
+    {
+      "type": "leader",
+      "file": "20260424-leader2.png",
+      "title": "대장 테마 멤버"
+    },
+    {
+      "type": "close",
+      "file": "20260424-close.png",
+      "title": "마감 한줄"
+    },
+    {
+      "type": "close",
+      "file": "20260424-close2.png",
+      "title": "마감 이슈·섹터"
+    }
+  ]
 }
