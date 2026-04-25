@@ -67,7 +67,6 @@ jobs:
 
           if [ "$EVENT" = "schedule" ]; then
             HOUR_UTC=$(date -u +%H)
-            MIN_UTC=$(date -u +%M)
             # UTC 22:30 = PRE / UTC 07:30 = CLOSING
             if [ "$HOUR_UTC" = "22" ]; then
               SERIES="pre"
@@ -76,6 +75,9 @@ jobs:
             else
               SERIES="all"
             fi
+          elif [ "$EVENT" = "workflow_run" ]; then
+            # collect.yml(장마감 최종) 성공 후 백업 — closing 시리즈만
+            SERIES="closing"
           elif [ -n "$INPUT_SERIES" ]; then
             SERIES="$INPUT_SERIES"
           else
