@@ -1,37 +1,19 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-/* 대장 테마 멤버 5명 — 큰 글씨로 줄세움 */
-.title { margin-top: 24px; font-size: 96px; }
-.sub { margin-top: 18px; font-size: 26px; }
+.title { margin-top: 56px; font-size: 96px; }
 .theme-headline {
-  margin-top: 56px;
+  margin-top: 44px;
   display: flex;
   align-items: baseline;
   gap: 28px;
   position: relative;
   z-index: 2;
+  flex-wrap: wrap;
 }
-.theme-name {
-  font-size: 80px;
-  font-weight: 900;
-  color: {{ tokens.accent }};
-  letter-spacing: -0.03em;
-  line-height: 1;
-}
-.theme-stat {
-  font-size: 36px;
-  color: #fff;
-  font-weight: 800;
-}
+.theme-name { font-size: 80px; font-weight: 900; color: {{ tokens.accent }}; letter-spacing: -0.03em; line-height: 1; }
+.theme-stat { font-size: 36px; color: #fff; font-weight: 800; }
 .theme-stat strong { color: {{ tokens.accent2 }}; }
-.members {
-  margin-top: 44px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  position: relative;
-  z-index: 2;
-}
+.members { margin-top: 44px; display: flex; flex-direction: column; gap: 14px; position: relative; z-index: 2; }
 .mem {
   background: {{ tokens.card_bg }};
   border: 1px solid {{ tokens.card_border }};
@@ -52,17 +34,11 @@
 {% endblock %}
 
 {% block content %}
-<div class="top">
-  <span class="label">{{ data.label }}</span>
-  <div class="time">{{ data.time_text }}</div>
-</div>
 <h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em></h1>
-
 <div class="theme-headline">
   <span class="theme-name">{{ data.theme_name }}</span>
   <span class="theme-stat">{{ data.theme_stat_html | safe }}</span>
 </div>
-
 <div class="members">
 {% for m in data.members %}
   <div class="mem{% if m.is_leader %} lead{% endif %}">

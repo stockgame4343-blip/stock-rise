@@ -1,7 +1,6 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-.title { margin-top: 24px; font-size: 96px; }
-.sub { margin-top: 18px; font-size: 26px; }
+.title { margin-top: 56px; font-size: 110px; }
 .themes { margin-top: 56px; display: flex; flex-direction: column; gap: 18px; position: relative; z-index: 2; }
 .theme {
   background: {{ tokens.card_bg }};
@@ -24,12 +23,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="top">
-  <span class="label">{{ data.label }}</span>
-  <div class="time">{{ data.time_text }}</div>
-</div>
-<h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em>{{ data.title_bot }}</h1>
-
+<h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em></h1>
 <div class="themes">
 {% for t in data.themes %}
   <div class="theme{% if t.hot %} hot{% endif %}">

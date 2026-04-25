@@ -1,9 +1,7 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-/* 핵심 이슈 3장만. 섹터 grid 제거 (한 카드 = 한 메시지) */
-.title { margin-top: 24px; font-size: 96px; }
-.sub { margin-top: 18px; font-size: 26px; }
-.issues { margin-top: 64px; display: flex; flex-direction: column; gap: 22px; position: relative; z-index: 2; }
+.title { margin-top: 56px; font-size: 96px; }
+.issues { margin-top: 56px; display: flex; flex-direction: column; gap: 22px; position: relative; z-index: 2; }
 .issue {
   background: {{ tokens.card_bg }};
   border: 1px solid {{ tokens.card_border }};
@@ -25,12 +23,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="top">
-  <span class="label">{{ data.label }}</span>
-  <div class="time">{{ data.time_text }}</div>
-</div>
 <h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em></h1>
-
 <div class="issues">
 {% for it in data.issues %}
   <div class="issue{% if it.hot %} hot{% endif %}">

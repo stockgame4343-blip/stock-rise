@@ -1,20 +1,17 @@
 {#
-  공통 골격. 자식 템플릿이 {% block style %}, {% block content %}만 채움.
-  data, tokens 컨텍스트는 renderer.py 가 주입.
+  공통 골격 — 통일 헤더(좌상 라벨 + 우상 날짜) + 우하단 URL.
+  자식 템플릿은 {% block style %}, {% block content %} 만 채움.
 #}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>StockRise · {{ data.date_kr }} · {{ data.series }}</title>
+  <title>StockRise · {{ data.date_full }} · {{ data.series }}</title>
   <link rel="stylesheet" as="style" crossorigin
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <style>
 {% include "_base.css" %}
-/* 시리즈별 컬러 토큰 주입.
- * BG 흰 짤림 방지: html, body, .card 모두 명시 background.
- * .card 가 viewport 외로 밀리거나 캡처 영역이 카드보다 커도 흰색 노출 0.
- */
+/* 시리즈별 컬러 토큰 주입 */
 html, body {
   background: {{ tokens.bg1 }};
   background: linear-gradient(165deg,
@@ -28,15 +25,10 @@ html, body {
     {{ tokens.bg2 }} 50%,
     {{ tokens.bg3 }} 100%);
 }
-.brand { color: #fff; }
-.brand-dot { background: {{ tokens.accent }}; }
-.time { color: {{ tokens.muted }}; }
-.label { background: {{ tokens.hot_bg1 }}; color: {{ tokens.accent }}; border: 1px solid {{ tokens.hot_border }}; }
-.eyebrow { color: {{ tokens.accent }}; }
+.card-label { background: {{ tokens.hot_bg1 }}; color: {{ tokens.accent }}; border: 1px solid {{ tokens.hot_border }}; }
+.card-date { color: {{ tokens.muted }}; }
+.card-url { color: {{ tokens.accent }}; }
 .title em { color: {{ tokens.accent }}; }
-.sub { color: {{ tokens.muted }}; }
-.footer { color: {{ tokens.text_dim }}; }
-.footer-r { color: {{ tokens.accent }}; }
 .bg-glow-tr { background: radial-gradient(circle, {{ tokens.hot_bg1 }}, transparent 70%); }
 .bg-glow-bl { background: radial-gradient(circle, {{ tokens.hot_bg2 }}, transparent 70%); }
 .bg-watermark { color: {{ tokens.accent }}; }
@@ -48,12 +40,12 @@ html, body {
   <span class="bg-glow bg-glow-tr"></span>
   <span class="bg-glow bg-glow-bl"></span>
   <span class="bg-watermark">★</span>
+  <header class="card-header">
+    <span class="card-label">{{ data.label }}</span>
+    <span class="card-date">{{ data.date_full }}</span>
+  </header>
 {% block content %}{% endblock %}
-  <div class="footer">
-    <span>@stockrise_kr</span>
-    <span class="footer-r">stockrise.vercel.app</span>
-  </div>
-  <div class="disclaimer">정보 제공 · 매매 권유 아님 · 유사투자자문업 미신고</div>
+  <span class="card-url">stockrise.vercel.app</span>
 </div>
 </body>
 </html>

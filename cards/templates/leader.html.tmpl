@@ -1,11 +1,9 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-/* 대장주 = 한 종목 초대형 강조. 점수 박스 제거 (카드뉴스답지 않음) */
-.title { font-size: 110px; }
-.sub { margin-top: 16px; font-size: 26px; }
+.title { margin-top: 36px; font-size: 116px; }
 .theme-badge {
   display: inline-block;
-  margin-top: 56px;
+  margin-top: 36px;
   padding: 14px 28px;
   background: {{ tokens.accent }};
   color: {{ tokens.bg1 }};
@@ -51,7 +49,7 @@
   background: {{ tokens.card_bg }};
   border-left: 6px solid {{ tokens.accent }};
   border-radius: 16px;
-  font-size: 26px;
+  font-size: 24px;
   color: #fff;
   line-height: 1.45;
   font-weight: 700;
@@ -61,13 +59,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="top">
-  <div class="brand"><span class="brand-dot"></span>StockRise</div>
-  <div class="time">{{ data.time_text }}</div>
-</div>
-<div class="eyebrow">{{ data.eyebrow }}</div>
 <h1 class="title"><em>{{ data.title_em }}</em></h1>
-
 <span class="theme-badge">★ {{ data.badge_theme }}</span>
 <div class="stock-name">{{ data.name }}</div>
 <div class="stock-meta">{{ data.code }} · {{ data.market }}</div>
@@ -75,6 +67,5 @@
   <span class="stock-rate-num">{{ "%+.2f"|format(data.rate) }}%</span>
   {% if data.is_limit_up %}<span class="stock-ceiling">▲ 상한가</span>{% endif %}
 </div>
-
 <div class="why">{{ data.why_text }}</div>
 {% endblock %}

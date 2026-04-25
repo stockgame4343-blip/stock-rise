@@ -1,7 +1,6 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-.title { margin-top: 24px; font-size: 110px; }
-.sub { margin-top: 18px; font-size: 26px; }
+.title { margin-top: 56px; font-size: 124px; }
 .indices { margin-top: 70px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 22px; position: relative; z-index: 2; }
 .idx {
   background: {{ tokens.card_bg }};
@@ -10,9 +9,9 @@
   padding: 36px 32px;
   text-align: center;
 }
-.idx.up   { background: linear-gradient(135deg, rgba(255,107,107,.20), rgba(255,107,107,.04)); border-color: rgba(255,107,107,.45); }
-.idx.dn   { background: linear-gradient(135deg, rgba(91,157,249,.18), rgba(91,157,249,.03)); border-color: rgba(91,157,249,.4); }
-.idx-name { font-size: 24px; color: {{ tokens.muted }}; font-weight: 800; letter-spacing: 0.02em; }
+.idx.up { background: linear-gradient(135deg, rgba(255,107,107,.20), rgba(255,107,107,.04)); border-color: rgba(255,107,107,.45); }
+.idx.dn { background: linear-gradient(135deg, rgba(91,157,249,.18), rgba(91,157,249,.03)); border-color: rgba(91,157,249,.4); }
+.idx-name { font-size: 24px; color: {{ tokens.muted }}; font-weight: 800; }
 .idx-value { margin-top: 14px; font-size: 64px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
 .idx-pct { margin-top: 14px; font-size: 36px; font-weight: 900; color: #ff8c8c; letter-spacing: -0.02em; }
 .idx.dn .idx-pct { color: #7cadff; }
@@ -29,13 +28,7 @@
 {% endblock %}
 
 {% block content %}
-<div class="top">
-  <div class="brand"><span class="brand-dot"></span>StockRise · 뉴욕 마감</div>
-  <div class="time">{{ data.time_text }}</div>
-</div>
-<span class="label">{{ data.label }}</span>
 <h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em></h1>
-
 <div class="indices">
 {% for i in data.indices %}
   <div class="idx {% if i.up %}up{% else %}dn{% endif %}">
@@ -45,7 +38,6 @@
   </div>
 {% endfor %}
 </div>
-
 <div class="mood">
   <div class="mood-text">{{ data.mood_text }}</div>
 </div>

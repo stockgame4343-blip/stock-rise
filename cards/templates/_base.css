@@ -28,41 +28,27 @@ body {
   background: transparent;
   padding: 72px 84px 72px;
 }
-.top {
+/* 모든 카드 통일 헤더 — 좌상 카테고리 라벨 + 우상 날짜만. */
+.card-header {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 20px;
   position: relative;
   z-index: 2;
 }
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+.card-label {
+  display: inline-block;
+  padding: 10px 22px;
+  border-radius: 100px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+.card-date {
   font-size: 22px;
   font-weight: 800;
-  opacity: 0.95;
-}
-.brand-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-}
-.time {
-  font-size: 18px;
-  font-weight: 700;
-}
-.label {
-  display: inline-block;
-  padding: 9px 22px;
-  border-radius: 100px;
-  font-size: 17px;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  align-self: flex-start;
-  position: relative;
-  z-index: 2;
+  letter-spacing: 0.02em;
 }
 .eyebrow {
   margin-top: 36px;
@@ -92,23 +78,15 @@ body {
   position: relative;
   z-index: 2;
 }
-.footer {
-  margin-top: auto;
-  padding-top: 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 18px;
-  font-weight: 700;
-  position: relative;
+/* 우하단 URL 만 — 좌하단 + disclaimer 모두 제거 (시그니처 단순화) */
+.card-url {
+  position: absolute;
+  bottom: 36px;
+  right: 84px;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
   z-index: 2;
-}
-.disclaimer {
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  opacity: 0.7;
-  letter-spacing: 0.01em;
 }
 .bg-glow {
   position: absolute;

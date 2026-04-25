@@ -1,7 +1,6 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-.title { margin-top: 24px; font-size: 124px; }
-.sub { margin-top: 18px; font-size: 26px; }
+.title { margin-top: 56px; font-size: 124px; }
 .kw-grid { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; position: relative; z-index: 2; }
 .kw {
   background: {{ tokens.card_bg }};
@@ -17,36 +16,16 @@
   background: linear-gradient(135deg, {{ tokens.hot_bg1 }}, {{ tokens.hot_bg2 }});
   border-color: {{ tokens.hot_border }};
 }
-.kw-num {
-  font-size: 56px;
-  font-weight: 900;
-  color: {{ tokens.text_dim }};
-  letter-spacing: -0.04em;
-  min-width: 64px;
-  line-height: 1;
-}
+.kw-num { font-size: 56px; font-weight: 900; color: {{ tokens.text_dim }}; min-width: 64px; line-height: 1; }
 .kw.hot .kw-num { color: {{ tokens.accent }}; }
 .kw-body { flex: 1; min-width: 0; }
-.kw-tag {
-  font-size: 40px;
-  font-weight: 900;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
+.kw-tag { font-size: 40px; font-weight: 900; letter-spacing: -0.03em; line-height: 1.05;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .kw-pct { margin-top: 12px; font-size: 32px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.02em; }
 {% endblock %}
 
 {% block content %}
-<div class="top">
-  <div class="brand"><span class="brand-dot"></span>StockRise</div>
-  <div class="time">{{ data.time_text }}</div>
-</div>
-<div class="eyebrow">{{ data.eyebrow }}</div>
 <h1 class="title">{{ data.title_top }}<br><em>{{ data.title_em }}</em></h1>
-
 <div class="kw-grid">
 {% for kw in data.keywords %}
   <div class="kw{% if kw.hot %} hot{% endif %}">

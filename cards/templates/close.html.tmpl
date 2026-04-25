@@ -1,9 +1,7 @@
 {% extends "base.html.tmpl" %}
 {% block style %}
-/* 마감 = 두 지수 큰 글씨 + 대장 테마 한 줄 */
-.title { margin-top: 24px; font-size: 124px; }
-.sub { margin-top: 18px; font-size: 26px; }
-.indices { margin-top: 64px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; position: relative; z-index: 2; }
+.title { margin-top: 56px; font-size: 124px; }
+.indices { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: 22px; position: relative; z-index: 2; }
 .idx {
   background: {{ tokens.card_bg }};
   border: 1px solid {{ tokens.card_border }};
@@ -13,12 +11,29 @@
 .idx.up   { background: linear-gradient(135deg, rgba(255,107,107,.20), rgba(255,107,107,.04)); border-color: rgba(255,107,107,.45); }
 .idx.flat { background: linear-gradient(135deg, rgba(180,180,180,.12), rgba(180,180,180,.02)); border-color: rgba(180,180,180,.32); }
 .idx.dn   { background: linear-gradient(135deg, rgba(91,157,249,.18), rgba(91,157,249,.03)); border-color: rgba(91,157,249,.4); }
-.idx-name { font-size: 28px; color: {{ tokens.muted }}; font-weight: 800; letter-spacing: 0.02em; }
+.idx-name { font-size: 28px; color: {{ tokens.muted }}; font-weight: 800; }
 .idx-value { margin-top: 14px; font-size: 76px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
 .idx-pct { margin-top: 14px; font-size: 40px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.02em; }
 .idx.flat .idx-pct, .idx.dn .idx-pct { color: #aaa; }
+.market-stats {
+  margin-top: 36px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1.4fr;
+  gap: 18px;
+  position: relative;
+  z-index: 2;
+}
+.ms {
+  background: {{ tokens.card_bg }};
+  border: 1px solid {{ tokens.card_border }};
+  border-radius: 24px;
+  padding: 24px 26px;
+}
+.ms-label { font-size: 20px; color: {{ tokens.muted }}; font-weight: 800; }
+.ms-value { margin-top: 10px; font-size: 38px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.02em; line-height: 1.1;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .leader-strip {
-  margin-top: 56px;
+  margin-top: 36px;
   padding: 36px 40px;
   background: linear-gradient(90deg, {{ tokens.hot_bg1 }}, transparent);
   border: 1px solid {{ tokens.hot_border }};
@@ -33,11 +48,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="top">
-  <div class="brand"><span class="brand-dot"></span>StockRise · 마감</div>
-  <div class="time">{{ data.time_text }}</div>
-</div>
-<div class="eyebrow">{{ data.eyebrow }}</div>
 <h1 class="title">{{ data.title_top }}<br><em>{{ data.title_em }}</em></h1>
 
 {% if data.indices %}
@@ -47,6 +57,17 @@
     <div class="idx-name">{{ i.name }}</div>
     <div class="idx-value">{{ "{:,.2f}".format(i.value) }}</div>
     <div class="idx-pct">{{ "%+.2f"|format(i.pct) }}%</div>
+  </div>
+{% endfor %}
+</div>
+{% endif %}
+
+{% if data.market_stats %}
+<div class="market-stats">
+{% for s in data.market_stats %}
+  <div class="ms">
+    <div class="ms-label">{{ s.label }}</div>
+    <div class="ms-value">{{ s.value }}</div>
   </div>
 {% endfor %}
 </div>

@@ -31,6 +31,12 @@ def _date_kr_short(yyyymmdd):
     return f"{dt.month}월 {dt.day}일"
 
 
+def _date_full(yyyymmdd):
+    """20260424 → '2026.04.24 (금)' (모든 카드 우상단 통일 포맷)."""
+    dt = _yyyymmdd_to_dt(yyyymmdd)
+    return f"{dt.year}.{dt.strftime('%m.%d')} ({config.WEEKDAY_KO[dt.weekday()]})"
+
+
 def _weekday_ko(yyyymmdd):
     return config.WEEKDAY_KO[_yyyymmdd_to_dt(yyyymmdd).weekday()]
 
@@ -152,6 +158,7 @@ def load_day(yyyymmdd):
         'date': yyyymmdd,
         'date_kr': _date_kr_full(yyyymmdd),
         'date_kr_short': _date_kr_short(yyyymmdd),
+        'date_full': _date_full(yyyymmdd),
         'weekday_ko': _weekday_ko(yyyymmdd),
         'weekday_en': _weekday_en(yyyymmdd),
         'rankings': rankings,
@@ -187,12 +194,8 @@ def build_pre(day):
         return None
     return {
         'series': 'pre',
-        'date_kr': day['date_kr'],
-        'date_kr_short': day['date_kr_short'],
-        'weekday_en': day['weekday_en'],
-        'weekday_ko': day['weekday_ko'],
-        'eyebrow': f"★ {day['weekday_en']} KEYWORDS",
-        'time_text': f"{day['date_kr']} 마감",
+        'date_full': day['date_full'],
+        'label': '★ 주도 키워드',
         'title_top': f"{day['weekday_ko']}요일 달궜던",
         'title_em': '키워드',
         'keywords': [
@@ -208,14 +211,13 @@ def build_pre(day):
 
 
 def build_pre2(day, us_indices):
-    """카드 2 — 미국 마감. 3 지수 + mood 한 줄. 한국 시장 노트 제거."""
+    """카드 2 — 미국 마감. 3 지수 + mood 한 줄."""
     if not us_indices:
         return None
     return {
         'series': 'pre',
-        'date_kr': day['date_kr'],
-        'time_text': f"NY · {day['date_kr']} 마감",
-        'label': 'US MARKET',
+        'date_full': day['date_full'],
+        'label': '★ 뉴욕 마감',
         'title_top': '뉴욕',
         'title_em': '마감',
         'indices': [
@@ -238,12 +240,10 @@ def build_pre3(day):
         return None
     return {
         'series': 'pre',
-        'date_kr': day['date_kr'],
-        'time_text': f"{day['date_kr']} 마감",
+        'date_full': day['date_full'],
         'label': '★ 주도 종목',
         'title_top': f"{day['weekday_ko']}요일의",
         'title_em': '대장',
-        'title_bot': '',
         'themes': [
             {
                 'rank': f"{i + 1:02d}",
@@ -260,17 +260,15 @@ def build_pre3(day):
 
 
 def build_leader(day):
-    """카드 4 — 대장주 1개. 종목명 + 등락률 초대형. 점수 박스 제거."""
+    """카드 4 — 대장주 1개. 종목명 + 등락률 초대형."""
     leader = _select_leader_stock(day['rankings'])
     if not leader:
         return None
     top_theme = _theme_group_for(leader, day['themes'])
     return {
         'series': 'leader',
-        'date_kr': day['date_kr'],
-        'weekday_ko': day['weekday_ko'],
-        'time_text': f"{day['date_kr']} 마감",
-        'eyebrow': f"★ {day['weekday_en']} LEADER",
+        'date_full': day['date_full'],
+        'label': '★ 대장주',
         'title_em': '대장주',
         'badge_theme': top_theme['tag'],
         'name': leader['name'],
@@ -283,7 +281,7 @@ def build_leader(day):
 
 
 def build_leader2(day):
-    """카드 5 — 대장 테마 + 멤버 5명. 큰 글씨, WHY/FLOW 텍스트 제거."""
+    """카드 5 — 대장 테마 + 멤버 5명."""
     leader = _select_leader_stock(day['rankings'])
     if not leader:
         return None
@@ -293,9 +291,8 @@ def build_leader2(day):
     members = top_theme['members'][:config.LEADER_MEMBERS_TOP]
     return {
         'series': 'leader',
-        'date_kr': day['date_kr'],
-        'time_text': f"{day['date_kr']} 마감",
-        'label': '★ THEME',
+        'date_full': day['date_full'],
+        'label': '★ 대장 테마',
         'title_top': f"{day['weekday_ko']}요일",
         'title_em': '대장 테마',
         'theme_name': f"#{top_theme['tag']}",
@@ -312,11 +309,10 @@ def build_leader2(day):
     }
 
 
-def build_close(day, kr_indices):
-    """카드 6 — 마감 한 줄 요약.
+def build_close(day, kr_indices, summary):
+    """카드 6 — 마감 시황. 지수 + 통계 + 대장 테마.
 
-    대장 테마는 큰 테마(>=KEYWORD_MIN_THEME_MEMBERS) 우선,
-    TOP 거래대금은 거래대금 정렬 1위 (등락률 정렬과 다름).
+    kr_indices 가 None 일 때 휑함 방지 — summary.json 기반 fallback 통계 사용.
     """
     big = _big_themes(day)
     if not big:
@@ -326,8 +322,6 @@ def build_close(day, kr_indices):
         max(day['rankings'], key=lambda s: s.get('trading_value', 0))
         if day['rankings'] else None
     )
-    limit_ups = sum(1 for s in day['rankings'] if ts.is_limit_up(s['change_rate']))
-    strong_themes = sum(1 for t in day['themes'] if t['avg_rate'] >= config.STRONG_THEME_AVG)
 
     indices = []
     if kr_indices:
@@ -344,14 +338,27 @@ def build_close(day, kr_indices):
                 'flat': abs(idx['pct']) <= 0.05,
             })
 
+    # summary.json 기반 시장 통계 (kr_indices 실패해도 카드가 풍성)
+    market_stats = []
+    if summary:
+        if summary.get('limitUp'):
+            market_stats.append({'label': '상한가', 'value': f"{summary['limitUp']}종목"})
+        if summary.get('avgRate'):
+            market_stats.append({'label': 'TOP 100 평균', 'value': f"+{summary['avgRate']:.1f}%"})
+    if top_stock_by_volume:
+        market_stats.append({
+            'label': '거래대금 1위',
+            'value': f"{top_stock_by_volume['name']} {ts.fmt_won(top_stock_by_volume['trading_value'])}",
+        })
+
     return {
         'series': 'close',
-        'date_kr': day['date_kr'],
-        'time_text': f"{day['date_kr']} 마감",
-        'eyebrow': '★ MARKET CLOSE',
+        'date_full': day['date_full'],
+        'label': '★ 마감 시황',
         'title_top': '장 마감',
         'title_em': '한 줄 요약',
         'indices': indices,
+        'market_stats': market_stats,
         'leader_label': '대장 테마',
         'leader_name': f"#{top_theme['tag']}",
         'leader_rate': top_theme['avg_rate'],
@@ -359,7 +366,7 @@ def build_close(day, kr_indices):
 
 
 def build_close2(day):
-    """카드 7 — 핵심 이슈 3장만 (큰 글씨). 섹터 grid 제거."""
+    """카드 7 — 핵심 이슈 3장만 (큰 글씨)."""
     big = _big_themes(day)
     if not big:
         return None
@@ -375,9 +382,8 @@ def build_close2(day):
     ]
     return {
         'series': 'close',
-        'date_kr': day['date_kr'],
-        'time_text': f"{day['date_kr']} 마감",
-        'label': "★ ISSUES",
+        'date_full': day['date_full'],
+        'label': '★ 핵심 이슈',
         'title_top': f"{day['weekday_ko']}요일,",
         'title_em': '핵심 이슈',
         'issues': issues,
@@ -398,13 +404,14 @@ def build_all(yyyymmdd, us_indices=None, kr_indices=None):
         dict: {'pre','pre2','pre3','leader','leader2','close','close2','_meta'}
     """
     day = load_day(yyyymmdd)
+    summary = load_summary(yyyymmdd)
     return {
         'pre':     build_pre(day),
         'pre2':    build_pre2(day, us_indices),
         'pre3':    build_pre3(day),
         'leader':  build_leader(day),
         'leader2': build_leader2(day),
-        'close':   build_close(day, kr_indices),
+        'close':   build_close(day, kr_indices, summary),
         'close2':  build_close2(day),
         '_meta': {
             'date': yyyymmdd,
