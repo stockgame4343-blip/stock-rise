@@ -17,7 +17,12 @@ from http.server import BaseHTTPRequestHandler
 KST = timezone(timedelta(hours=9))
 
 # 수집 스케줄 (KST 시:분, 모드)
+# - intraday/closing: collect.yml (event_type=collect)
+# - cards-pre/cards-close: cards 생성 워크플로우 (event_type=cards)
+#   16:06 closing 워크플로우가 종료된 뒤 leader/close 카드를 함께 생성하므로
+#   별도 16:06 cards 트리거는 두지 않음 (closing 워크플로우 chain 으로 처리).
 SCHEDULE = [
+    (7, 6, 'cards-pre'),
     (9, 6, 'intraday'),
     (10, 6, 'intraday'),
     (11, 6, 'intraday'),
@@ -41,15 +46,26 @@ def _should_trigger(now_kst):
 
 
 def _trigger_github(mode):
-    """GitHub repository_dispatch 발송."""
+    """GitHub repository_dispatch 발송.
+
+    mode 가 'cards-' 로 시작하면 카드 생성용 event_type='cards', mode 는 prefix 제거.
+    그 외는 일반 수집용 event_type='collect'.
+    """
     token = os.environ.get('GITHUB_TOKEN', '')
     if not token:
         return False, 'GITHUB_TOKEN not set'
 
+    if mode.startswith('cards-'):
+        event_type = 'cards'
+        payload_mode = mode[len('cards-'):]   # 'pre' / 'close'
+    else:
+        event_type = 'collect'
+        payload_mode = mode
+
     url = 'https://api.github.com/repos/stockgame4343-blip/stock-rise/dispatches'
     payload = json.dumps({
-        'event_type': 'collect',
-        'client_payload': {'mode': mode},
+        'event_type': event_type,
+        'client_payload': {'mode': payload_mode},
     }).encode('utf-8')
 
     req = urllib.request.Request(url, data=payload, method='POST', headers={
