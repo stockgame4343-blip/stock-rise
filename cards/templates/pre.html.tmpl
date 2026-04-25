@@ -1,0 +1,51 @@
+{% extends "base.html.tmpl" %}
+{% block style %}
+.kw-grid { margin-top: 38px; display: grid; grid-template-columns: 1fr 1fr; gap: 18px; position: relative; z-index: 2; }
+.kw {
+  background: {{ tokens.card_bg }};
+  border: 1px solid {{ tokens.card_border }};
+  border-radius: 22px;
+  padding: 26px 28px;
+  display: flex;
+  gap: 18px;
+  align-items: center;
+}
+.kw.hot {
+  background: linear-gradient(135deg, {{ tokens.hot_bg1 }}, {{ tokens.hot_bg2 }});
+  border-color: {{ tokens.hot_border }};
+}
+.kw-num {
+  font-size: 42px;
+  font-weight: 900;
+  color: {{ tokens.text_dim }};
+  letter-spacing: -0.04em;
+  min-width: 48px;
+  line-height: 1;
+}
+.kw.hot .kw-num { color: {{ tokens.accent }}; }
+.kw-body { flex: 1; min-width: 0; }
+.kw-tag { font-size: 30px; font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+.kw-note { margin-top: 6px; font-size: 14px; font-weight: 600; color: {{ tokens.muted }}; }
+{% endblock %}
+
+{% block content %}
+<div class="top">
+  <div class="brand"><span class="brand-dot"></span>StockRise · 주도 테마</div>
+  <div class="time">{{ data.time_text }}</div>
+</div>
+<div class="eyebrow">{{ data.eyebrow }}</div>
+<h1 class="title">{{ data.title_top }}<br><em>{{ data.title_em }}</em></h1>
+<div class="sub">{{ data.sub }}</div>
+
+<div class="kw-grid">
+{% for kw in data.keywords %}
+  <div class="kw{% if kw.hot %} hot{% endif %}">
+    <div class="kw-num">{{ kw.rank }}</div>
+    <div class="kw-body">
+      <div class="kw-tag">#{{ kw.tag }}</div>
+      <div class="kw-note">{{ kw.note }}</div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+{% endblock %}

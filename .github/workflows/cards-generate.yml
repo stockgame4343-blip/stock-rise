@@ -1,0 +1,127 @@
+name: 카드뉴스 일일 생성
+
+# 트리거 1: collect.yml (장마감 모드) 성공 후 자동 실행
+# 트리거 2: 평일 KST 16:30 cron 백업 (workflow_run 누락 대비)
+# 트리거 3: 수동 (workflow_dispatch)
+#
+# 정책:
+#   - 비거래일(public/data/{TODAY}.json 없음) 스킵
+#   - 이미 같은 날짜 카드 7장 모두 있으면 스킵 (중복 방지)
+#   - 3회 재시도 후 실패하면 에러
+#   - PNG 생성 후 자동 커밋 & push
+on:
+  workflow_run:
+    workflows: ["주식 데이터 수집"]
+    types: [completed]
+    branches: [master, main]
+  schedule:
+    # KST 16:30 = UTC 07:30 (월~금)
+    - cron: '30 7 * * 1-5'
+  workflow_dispatch:
+    inputs:
+      date:
+        description: '대상 날짜 (YYYYMMDD, 빈 값이면 dates.json 최신)'
+        required: false
+
+env:
+  TZ: Asia/Seoul
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    # workflow_run 의 경우 closing 모드 성공 시에만 (intraday 무시)
+    # collect.yml 이 commit 한 메시지에 "장마감 최종" 포함되면 closing 으로 판정
+    if: |
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       contains(github.event.workflow_run.head_commit.message, '장마감 최종'))
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+          fetch-depth: 1
+
+      - name: Resolve target date
+        id: target
+        run: |
+          TODAY=$(date +%Y%m%d)
+          DATE_ARG="${{ inputs.date }}"
+          if [ -z "$DATE_ARG" ]; then
+            # dates.json 의 첫 항목
+            if [ -f "public/data/dates.json" ]; then
+              DATE_ARG=$(python3 -c "import json; print(json.load(open('public/data/dates.json'))[0])" 2>/dev/null || echo "")
+            fi
+          fi
+          if [ -z "$DATE_ARG" ]; then
+            DATE_ARG="$TODAY"
+          fi
+          echo "date=$DATE_ARG" >> $GITHUB_OUTPUT
+          echo "today=$TODAY" >> $GITHUB_OUTPUT
+          echo "대상 날짜: $DATE_ARG"
+
+      - name: Skip if not a trading day
+        id: gate
+        run: |
+          DATE="${{ steps.target.outputs.date }}"
+          if [ ! -f "public/data/${DATE}.json" ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "거래일 데이터 없음 — 스킵"
+            exit 0
+          fi
+          # 이미 7장 모두 있으면 스킵
+          MISSING=0
+          for n in pre pre2 pre3 leader leader2 close close2; do
+            [ ! -f "public/cards/${DATE}-${n}.png" ] && MISSING=$((MISSING+1))
+          done
+          if [ $MISSING -eq 0 ]; then
+            echo "skip=true" >> $GITHUB_OUTPUT
+            echo "카드 7장 모두 존재 — 스킵"
+          else
+            echo "skip=false" >> $GITHUB_OUTPUT
+            echo "누락 카드 ${MISSING}장 → 생성 진행"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.gate.outputs.skip != 'true'
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: cards/requirements.txt
+
+      - name: Install dependencies
+        if: steps.gate.outputs.skip != 'true'
+        run: |
+          pip install -r cards/requirements.txt
+          playwright install chromium --with-deps
+
+      - name: Generate cards
+        if: steps.gate.outputs.skip != 'true'
+        run: |
+          DATE="${{ steps.target.outputs.date }}"
+          echo "=== 카드 생성 — $DATE ==="
+          for attempt in 1 2 3; do
+            echo "--- 시도 ${attempt}/3 ---"
+            if python -m cards.generate "$DATE"; then
+              echo "성공"
+              exit 0
+            fi
+            echo "실패 — 30초 후 재시도"
+            sleep 30
+          done
+          echo "::error::3회 시도 모두 실패"
+          exit 1
+
+      - name: Commit & push cards
+        if: steps.gate.outputs.skip != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add public/cards/
+          DATE="${{ steps.target.outputs.date }}"
+          git diff --staged --quiet || git commit -m "cards: ${DATE} 카드뉴스 7장 생성"
+          git pull --rebase origin master
+          git push

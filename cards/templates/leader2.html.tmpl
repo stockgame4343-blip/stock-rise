@@ -1,0 +1,113 @@
+{% extends "base.html.tmpl" %}
+{% block style %}
+.title { margin-top: 14px; font-size: 60px; }
+.sub { margin-top: 8px; font-size: 16px; margin-bottom: 22px; }
+.story {
+  background: linear-gradient(90deg, {{ tokens.hot_bg1 }}, {{ tokens.hot_bg2 }});
+  border: 1px solid {{ tokens.hot_border }};
+  border-radius: 18px;
+  padding: 18px 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+.story-icon { font-size: 28px; color: {{ tokens.accent }}; }
+.story-body { flex: 1; }
+.story-label { font-size: 11px; color: {{ tokens.accent }}; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+.story-text { margin-top: 4px; font-size: 16px; color: #fff; font-weight: 600; line-height: 1.4; }
+.story-text strong { color: {{ tokens.accent }}; }
+
+.members-head {
+  font-size: 13px;
+  font-weight: 800;
+  color: {{ tokens.accent2 }};
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.members-count { font-size: 12px; color: {{ tokens.muted }}; font-weight: 600; text-transform: none; letter-spacing: 0; }
+.members { display: flex; flex-direction: column; gap: 8px; }
+.mem {
+  background: {{ tokens.card_bg }};
+  border: 1px solid {{ tokens.card_border }};
+  border-radius: 12px;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.mem.lead {
+  background: linear-gradient(90deg, {{ tokens.hot_bg1 }}, transparent);
+  border-color: {{ tokens.hot_border }};
+}
+.m-rank { font-size: 20px; font-weight: 900; color: {{ tokens.text_dim }}; min-width: 28px; }
+.mem.lead .m-rank { color: {{ tokens.accent }}; }
+.m-name { font-size: 19px; font-weight: 800; letter-spacing: -0.02em; flex: 1; min-width: 0; }
+.m-tag { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 5px; background: {{ tokens.hot_bg1 }}; color: {{ tokens.accent }}; margin-left: 8px; }
+.m-code { font-size: 12px; color: {{ tokens.text_dim }}; font-weight: 600; }
+.m-rate { font-size: 22px; font-weight: 900; color: {{ tokens.accent2 }}; letter-spacing: -0.02em; min-width: 88px; text-align: right; }
+.m-ceiling { font-size: 11px; font-weight: 800; color: {{ tokens.accent }}; margin-top: 1px; text-align: right; }
+.flow {
+  margin-top: 16px;
+  background: rgba(91,157,249,.08);
+  border: 1px solid rgba(91,157,249,.22);
+  border-radius: 14px;
+  padding: 14px 20px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+.flow-icon { font-size: 20px; color: #5b9df9; }
+.flow-body { flex: 1; }
+.flow-label { font-size: 12px; color: #5b9df9; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; }
+.flow-text { margin-top: 4px; font-size: 14px; color: {{ tokens.muted }}; font-weight: 600; line-height: 1.4; }
+{% endblock %}
+
+{% block content %}
+<div class="top">
+  <span class="label">{{ data.label }}</span>
+  <div class="time">{{ data.time_text }}</div>
+</div>
+<h1 class="title">{{ data.title_top }} <em>{{ data.title_em }}</em>{{ data.title_bot }}</h1>
+<div class="sub">{{ data.sub }}</div>
+
+<div class="story">
+  <div class="story-icon">◆</div>
+  <div class="story-body">
+    <div class="story-label">{{ data.story_label }}</div>
+    <div class="story-text">{{ data.story_text }}</div>
+  </div>
+</div>
+
+<div class="members-head">
+  <span>{{ data.members_label }}</span>
+  <span class="members-count">{{ data.members_summary }}</span>
+</div>
+<div class="members">
+{% for m in data.members %}
+  <div class="mem{% if m.is_leader %} lead{% endif %}">
+    <div class="m-rank">{{ m.rank }}</div>
+    <div class="m-name">{{ m.name }}{% if m.is_leader %}<span class="m-tag">★ 대장</span>{% endif %}</div>
+    <div class="m-code">{{ m.code }}</div>
+    <div>
+      <div class="m-rate">{{ "%+.2f"|format(m.rate) }}%</div>
+      {% if m.is_limit_up %}<div class="m-ceiling">▲ 상한가</div>{% endif %}
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+{% if data.flow_text %}
+<div class="flow">
+  <div class="flow-icon">▣</div>
+  <div class="flow-body">
+    <div class="flow-label">{{ data.flow_label }}</div>
+    <div class="flow-text">{{ data.flow_text }}</div>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

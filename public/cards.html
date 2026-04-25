@@ -35,12 +35,15 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
 .cards-group__title{color:var(--text-primary);font-size:17px;font-weight:800;letter-spacing:-.2px}
 .cards-group__sub{color:var(--text-muted);font-size:12px;font-weight:500;margin-left:auto}
 .cards-list{display:flex;flex-direction:column;gap:20px;align-items:center}
-.cards-list__item{width:100%;max-width:1080px;display:flex;flex-direction:column;gap:8px}
-.cards-list__label{color:var(--text-primary);font-size:13px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
-.cards-list__num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;font-size:11px;font-weight:800}
-.cards-list__img{width:100%;aspect-ratio:1/1;display:block;border-radius:16px;box-shadow:0 6px 32px rgba(0,0,0,.28);background:#1a1a1a}
+/* 카드 PNG 자체가 어두운 그라디언트라 라이트 테마 페이지 배경(#f5f5f7)이
+   주변에 흰 띠로 새는 걸 방지: 카드 wrapper 자체에 다크 박스 + padding. */
+.cards-list__item{width:100%;max-width:1080px;display:flex;flex-direction:column;gap:10px;
+  background:#161616;padding:14px;border-radius:18px;box-shadow:0 4px 20px rgba(0,0,0,.18)}
+.cards-list__label{color:#fff;font-size:13px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.cards-list__num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:#2a2a2a;color:#fff;border:1px solid #3a3a3a;border-radius:6px;font-size:11px;font-weight:800}
+.cards-list__img{width:100%;aspect-ratio:1/1;display:block;border-radius:12px;background:#161616}
 .cards-list__actions{display:flex;gap:8px;flex-wrap:wrap}
-.cards-list__action{padding:7px 14px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-primary);border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:opacity .15s}
+.cards-list__action{padding:7px 14px;border:1px solid #3a3a3a;background:#2a2a2a;color:#fff;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:opacity .15s}
 .cards-list__action:hover{opacity:.75}
 .disclaimer-box{margin-top:36px;padding:18px 22px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:12px;line-height:1.65}
 .disclaimer-box strong{color:var(--text-primary);font-weight:700;display:block;margin-bottom:4px}
@@ -80,8 +83,8 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
 
 <main class="cards-page">
   <div class="cards-page__head">
-    <div class="cards-page__title">금요일 카드뉴스</div>
-    <div class="cards-page__date">2026.04.24 (금) 마감 기준 · 총 7장</div>
+    <div class="cards-page__title" id="cardsPageTitle">카드뉴스</div>
+    <div class="cards-page__date" id="cardsPageDate">최신 거래일 마감 기준 · 총 7장</div>
   </div>
   <div class="cards-page__hint">SNS 공유용 1080×1080 이미지 — 길게 눌러 저장하거나 아래 다운로드 버튼을 이용하세요.</div>
 
@@ -94,26 +97,26 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
     <div class="cards-list">
       <div class="cards-list__item">
         <div class="cards-list__label"><span class="cards-list__num">01</span>금요일 달궜던 키워드</div>
-        <img class="cards-list__img" src="/cards/20260424-pre.png" alt="금요일 주도 키워드 4개">
+        <img class="cards-list__img" src="/cards/__DATE__-pre.png" alt="금요일 주도 키워드 4개">
         <div class="cards-list__actions">
-          <a class="cards-list__action" href="/cards/20260424-pre.png" download>다운로드</a>
-          <a class="cards-list__action" href="/cards/20260424-pre.png" target="_blank" rel="noopener">원본 열기</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre.png" target="_blank" rel="noopener">원본 열기</a>
         </div>
       </div>
       <div class="cards-list__item">
         <div class="cards-list__label"><span class="cards-list__num">02</span>뉴욕 마감과 오늘의 한국</div>
-        <img class="cards-list__img" src="/cards/20260424-pre2.png" alt="뉴욕 마감 S&amp;P/NASDAQ/DOW 지수와 한국 시장 참고">
+        <img class="cards-list__img" src="/cards/__DATE__-pre2.png" alt="뉴욕 마감 S&amp;P/NASDAQ/DOW 지수와 한국 시장 참고">
         <div class="cards-list__actions">
-          <a class="cards-list__action" href="/cards/20260424-pre2.png" download>다운로드</a>
-          <a class="cards-list__action" href="/cards/20260424-pre2.png" target="_blank" rel="noopener">원본 열기</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre2.png" target="_blank" rel="noopener">원본 열기</a>
         </div>
       </div>
       <div class="cards-list__item">
         <div class="cards-list__label"><span class="cards-list__num">03</span>금요일 이 종목이 움직였다</div>
-        <img class="cards-list__img" src="/cards/20260424-pre3.png" alt="금요일 테마별 거래대금 상위 종목">
+        <img class="cards-list__img" src="/cards/__DATE__-pre3.png" alt="금요일 테마별 거래대금 상위 종목">
         <div class="cards-list__actions">
-          <a class="cards-list__action" href="/cards/20260424-pre3.png" download>다운로드</a>
-          <a class="cards-list__action" href="/cards/20260424-pre3.png" target="_blank" rel="noopener">원본 열기</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre3.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre3.png" target="_blank" rel="noopener">원본 열기</a>
         </div>
       </div>
     </div>
@@ -128,18 +131,18 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
     <div class="cards-list">
       <div class="cards-list__item">
         <div class="cards-list__label"><span class="cards-list__num">01</span>금요일의 대장주</div>
-        <img class="cards-list__img" src="/cards/20260424-leader.png" alt="금요일 대장주 고영">
+        <img class="cards-list__img" src="/cards/__DATE__-leader.png" alt="금요일 대장주 고영">
         <div class="cards-list__actions">
-          <a class="cards-list__action" href="/cards/20260424-leader.png" download>다운로드</a>
-          <a class="cards-list__action" href="/cards/20260424-leader.png" target="_blank" rel="noopener">원본 열기</a>
+          <a class="cards-list__action" href="/cards/__DATE__-leader.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-leader.png" target="_blank" rel="noopener">원본 열기</a>
         </div>
       </div>
       <div class="cards-list__item">
         <div class="cards-list__label"><span class="cards-list__num">02</span>왜 금요일 이 테마였나</div>
-        <img class="cards-list__img" src="/cards/20260424-leader2.png" alt="시스템반도체 테마 스토리">
+        <img class="cards-list__img" src="/cards/__DATE__-leader2.png" alt="시스템반도체 테마 스토리">
         <div class="cards-list__actions">
-          <a class="cards-list__action" href="/cards/20260424-leader2.png" download>다운로드</a>
-          <a class="cards-list__action" href="/cards/20260424-leader2.png" target="_blank" rel="noopener">원본 열기</a>
+          <a class="cards-list__action" href="/cards/__DATE__-leader2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-leader2.png" target="_blank" rel="noopener">원본 열기</a>
         </div>
       </div>
     </div>
@@ -154,18 +157,18 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
     <div class="cards-list">
       <div class="cards-list__item">
         <div class="cards-list__label"><span class="cards-list__num">01</span>장 마감, 한 줄 요약</div>
-        <img class="cards-list__img" src="/cards/20260424-close.png" alt="장마감 한 줄 요약">
+        <img class="cards-list__img" src="/cards/__DATE__-close.png" alt="장마감 한 줄 요약">
         <div class="cards-list__actions">
-          <a class="cards-list__action" href="/cards/20260424-close.png" download>다운로드</a>
-          <a class="cards-list__action" href="/cards/20260424-close.png" target="_blank" rel="noopener">원본 열기</a>
+          <a class="cards-list__action" href="/cards/__DATE__-close.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-close.png" target="_blank" rel="noopener">원본 열기</a>
         </div>
       </div>
       <div class="cards-list__item">
         <div class="cards-list__label"><span class="cards-list__num">02</span>금요일, 무슨 일이 있었나</div>
-        <img class="cards-list__img" src="/cards/20260424-close2.png" alt="금요일 이슈 및 섹터 리뷰">
+        <img class="cards-list__img" src="/cards/__DATE__-close2.png" alt="금요일 이슈 및 섹터 리뷰">
         <div class="cards-list__actions">
-          <a class="cards-list__action" href="/cards/20260424-close2.png" download>다운로드</a>
-          <a class="cards-list__action" href="/cards/20260424-close2.png" target="_blank" rel="noopener">원본 열기</a>
+          <a class="cards-list__action" href="/cards/__DATE__-close2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-close2.png" target="_blank" rel="noopener">원본 열기</a>
         </div>
       </div>
     </div>
@@ -178,16 +181,54 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
 </main>
 
 <script>
-(function(){
+// 카드 PNG 경로의 __DATE__ placeholder 를 dates.json 의 최신 거래일로 치환.
+(function () {
+  var WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
+
+  function applyDate(date) {
+    var pretty;
+    if (date && date.length === 8) {
+      var y = date.slice(0, 4), m = date.slice(4, 6), d = date.slice(6, 8);
+      var dt = new Date(Number(y), Number(m) - 1, Number(d));
+      var w = WEEKDAYS[dt.getDay()];
+      pretty = y + '.' + m + '.' + d + ' (' + w + ')';
+    } else {
+      pretty = '';
+    }
+    document.querySelectorAll('img[src*="__DATE__"]').forEach(function (el) {
+      el.src = el.getAttribute('src').replace(/__DATE__/g, date);
+    });
+    document.querySelectorAll('a[href*="__DATE__"]').forEach(function (el) {
+      el.href = el.getAttribute('href').replace(/__DATE__/g, date);
+    });
+    var titleEl = document.getElementById('cardsPageTitle');
+    var dateEl = document.getElementById('cardsPageDate');
+    if (titleEl) {
+      var w = pretty ? pretty.slice(-2, -1) : '';
+      titleEl.textContent = w ? (w + '요일 카드뉴스') : '카드뉴스';
+    }
+    if (dateEl && pretty) dateEl.textContent = pretty + ' 마감 기준 · 총 7장';
+  }
+
+  fetch('/data/dates.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (dates) { if (dates && dates.length) applyDate(dates[0]); })
+    .catch(function () { /* fallback: PNG 경로 그대로 두면 404 — 빈 카드 영역 */ });
+
   var btn = document.getElementById('themeToggle');
   function sync() {
     var isLight = document.documentElement.getAttribute('data-theme') === 'light';
     btn.title = isLight ? '다크 모드로 전환' : '라이트 모드로 전환';
   }
-  btn.addEventListener('click', function(){
+  btn.addEventListener('click', function () {
     var isLight = document.documentElement.getAttribute('data-theme') === 'light';
-    if (isLight) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme','dark'); }
-    else { document.documentElement.setAttribute('data-theme','light'); localStorage.setItem('theme','light'); }
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
     sync();
   });
   sync();

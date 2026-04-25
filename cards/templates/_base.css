@@ -1,0 +1,140 @@
+/* StockRise 카드 공통 스타일.
+ * 시리즈별 컬러 토큰은 base.html.tmpl 의 인라인 <style> 에서 주입.
+ * 모든 카드는 1080×1080. 폰트는 Pretendard 우선 (cards.html 과 동일 fallback).
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Pretendard Variable', 'Pretendard', 'Apple SD Gothic Neo',
+    'Malgun Gothic', 'Noto Sans KR', sans-serif;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+.card {
+  width: 1080px;
+  height: 1080px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  background: transparent;
+  padding: 60px 76px 60px;
+}
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 18px;
+  font-weight: 700;
+  opacity: 0.9;
+}
+.brand-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.time {
+  font-size: 14px;
+  font-weight: 600;
+}
+.label {
+  display: inline-block;
+  padding: 7px 18px;
+  border-radius: 100px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  align-self: flex-start;
+  position: relative;
+  z-index: 2;
+}
+.eyebrow {
+  margin-top: 32px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 2;
+}
+.title {
+  margin-top: 10px;
+  font-size: 84px;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
+  position: relative;
+  z-index: 2;
+}
+.title em {
+  font-style: normal;
+}
+.sub {
+  margin-top: 12px;
+  font-size: 20px;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+.footer {
+  margin-top: auto;
+  padding-top: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 700;
+  position: relative;
+  z-index: 2;
+}
+.disclaimer {
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 500;
+  opacity: 0.7;
+  letter-spacing: 0.01em;
+}
+.bg-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.bg-glow-tr {
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+}
+.bg-glow-bl {
+  bottom: -120px;
+  left: -120px;
+  width: 480px;
+  height: 480px;
+}
+.bg-watermark {
+  position: absolute;
+  bottom: 30px;
+  right: -30px;
+  font-size: 260px;
+  line-height: 1;
+  opacity: 0.06;
+  pointer-events: none;
+  z-index: 0;
+}
