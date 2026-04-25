@@ -1108,16 +1108,9 @@
         slice.forEach(function (card, i) {
             var globalIdx = page * CARDS_PAGE_SIZE + i;
             var label = CARDS_TYPE_LABEL[card.type] || card.type;
-            var title = card.title || '';
             html += '<button type="button" class="cards-grid__item" data-idx="' + globalIdx + '">' +
-                '<div class="cards-grid__thumb">' +
-                    '<span class="cards-grid__tag cards-grid__tag--' + card.type + '">' + label + '</span>' +
-                    '<img class="cards-grid__img" src="/cards/' + card.file + '" alt="' + (title || label) + '" loading="lazy">' +
-                '</div>' +
-                '<div class="cards-grid__caption">' +
-                    '<span class="cards-grid__caption-num">' + (globalIdx + 1) + '</span>' +
-                    '<span class="cards-grid__caption-title">' + title + '</span>' +
-                '</div>' +
+                '<span class="cards-grid__tag cards-grid__tag--' + card.type + '">' + label + '</span>' +
+                '<img class="cards-grid__img" src="/cards/' + card.file + '" alt="' + (card.title || label) + '" loading="lazy">' +
                 '</button>';
         });
         grid.innerHTML = html;
@@ -1537,6 +1530,21 @@
             else if (e.key === 'ArrowLeft') moveCardsModal(-1);
             else if (e.key === 'ArrowRight') moveCardsModal(1);
         });
+        // 모바일: 좌우 스와이프로 카드 넘김 (수직 스크롤은 그대로 살림)
+        var SWIPE_THRESHOLD = 50;
+        var touchStartX = 0, touchStartY = 0;
+        $cardsModal.addEventListener('touchstart', function (e) {
+            if (!e.touches.length) return;
+            touchStartX = e.touches[0].clientX;
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        $cardsModal.addEventListener('touchend', function (e) {
+            if (!e.changedTouches.length) return;
+            var dx = e.changedTouches[0].clientX - touchStartX;
+            var dy = e.changedTouches[0].clientY - touchStartY;
+            if (Math.abs(dx) < SWIPE_THRESHOLD || Math.abs(dx) < Math.abs(dy)) return;
+            moveCardsModal(dx > 0 ? -1 : 1);
+        }, { passive: true });
     }
 
     // 서머리 카드 클릭 → 차트 팝업
