@@ -23,30 +23,32 @@
 <script defer src="/_vercel/insights/script.js"></script>
 <style>
 body{background:var(--bg-primary);margin:0;min-height:100vh}
-.cards-page{max-width:1200px;margin:0 auto;padding:32px 20px 56px}
+/* 카드뉴스는 항상 다크 — 카드 PNG 가 어두운 그라디언트라
+   라이트 테마 페이지 배경(#f5f5f7)이 카드 주변에 새는 부조화를 차단.
+   wrapper 띠는 두지 않음(중복 박스 보임). 페이지 자체를 다크로 강제. */
+.cards-page{max-width:1200px;margin:0 auto;padding:32px 20px 56px;
+  background:#0e0e0e;color:#f5f5f5;border-radius:0}
 .cards-page__head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin-bottom:8px}
-.cards-page__title{color:var(--text-primary);font-size:22px;font-weight:800;letter-spacing:-.3px}
-.cards-page__date{color:var(--text-muted);font-size:13px;font-weight:600}
-.cards-page__hint{color:var(--text-muted);font-size:13px;font-weight:500;margin-bottom:24px}
+.cards-page__title{color:#fff;font-size:22px;font-weight:800;letter-spacing:-.3px}
+.cards-page__date{color:#a0a0a0;font-size:13px;font-weight:600}
+.cards-page__hint{color:#a0a0a0;font-size:13px;font-weight:500;margin-bottom:24px}
 .cards-group{margin-top:32px}
 .cards-group:first-of-type{margin-top:0}
-.cards-group__head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
-.cards-group__tag{display:inline-block;padding:4px 12px;background:var(--accent,#ff6b6b);color:#fff;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
-.cards-group__title{color:var(--text-primary);font-size:17px;font-weight:800;letter-spacing:-.2px}
-.cards-group__sub{color:var(--text-muted);font-size:12px;font-weight:500;margin-left:auto}
+.cards-group__head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #2a2a2a}
+.cards-group__tag{display:inline-block;padding:4px 12px;background:#ff6b6b;color:#fff;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.cards-group__title{color:#fff;font-size:17px;font-weight:800;letter-spacing:-.2px}
+.cards-group__sub{color:#a0a0a0;font-size:12px;font-weight:500;margin-left:auto}
 .cards-list{display:flex;flex-direction:column;gap:20px;align-items:center}
-/* 카드 PNG 자체가 어두운 그라디언트라 라이트 테마 페이지 배경(#f5f5f7)이
-   주변에 흰 띠로 새는 걸 방지: 카드 wrapper 자체에 다크 박스 + padding. */
-.cards-list__item{width:100%;max-width:1080px;display:flex;flex-direction:column;gap:10px;
-  background:#161616;padding:14px;border-radius:18px;box-shadow:0 4px 20px rgba(0,0,0,.18)}
+.cards-list__item{width:100%;max-width:1080px;display:flex;flex-direction:column;gap:8px}
 .cards-list__label{color:#fff;font-size:13px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
-.cards-list__num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:#2a2a2a;color:#fff;border:1px solid #3a3a3a;border-radius:6px;font-size:11px;font-weight:800}
-.cards-list__img{width:100%;aspect-ratio:1/1;display:block;border-radius:12px;background:#161616}
+.cards-list__num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:#1f1f1f;color:#fff;border:1px solid #2f2f2f;border-radius:6px;font-size:11px;font-weight:800}
+.cards-list__img{width:100%;aspect-ratio:1/1;display:block;border-radius:16px;box-shadow:0 6px 32px rgba(0,0,0,.4)}
 .cards-list__actions{display:flex;gap:8px;flex-wrap:wrap}
-.cards-list__action{padding:7px 14px;border:1px solid #3a3a3a;background:#2a2a2a;color:#fff;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:opacity .15s}
+.cards-list__action{padding:7px 14px;border:1px solid #2f2f2f;background:#1f1f1f;color:#fff;border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:opacity .15s}
 .cards-list__action:hover{opacity:.75}
-.disclaimer-box{margin-top:36px;padding:18px 22px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:12px;line-height:1.65}
-.disclaimer-box strong{color:var(--text-primary);font-weight:700;display:block;margin-bottom:4px}
+.disclaimer-box{margin-top:36px;padding:18px 22px;background:#1a1a1a;border:1px solid #2a2a2a;border-radius:12px;color:#a0a0a0;font-size:12px;line-height:1.65}
+.disclaimer-box strong{color:#fff;font-weight:700;display:block;margin-bottom:4px}
+.disclaimer-box b{color:#ddd}
 @media (max-width:600px){
   .cards-page{padding:20px 12px 40px}
   .cards-list{gap:16px}
