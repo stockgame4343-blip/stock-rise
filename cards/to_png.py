@@ -113,6 +113,37 @@ def html_to_png_batch(html_files, png_files):
 
 # ─── PNG 검증 ───────────────────────────────────────
 
+def add_png_metadata(png_path, title, description, keywords=''):
+    """PNG tEXt/iTXt 청크에 메타데이터 삽입.
+
+    구글 이미지 검색·SNS 공유 시 활용. PNG 표준 키:
+      Title, Description, Author, Source, Software, Keywords, Copyright
+    """
+    try:
+        from PIL import Image
+        from PIL.PngImagePlugin import PngInfo
+    except ImportError:
+        log.warning("PIL 미설치 — PNG 메타 스킵")
+        return False
+
+    try:
+        img = Image.open(png_path)
+        info = PngInfo()
+        info.add_text("Title", title)
+        info.add_text("Description", description)
+        info.add_text("Author", "라이즈와이 RiseWhy")
+        info.add_text("Source", "https://stock-rise.vercel.app/cards.html")
+        info.add_text("Software", "StockRise cards generator")
+        info.add_text("Copyright", "© 라이즈와이 RiseWhy")
+        if keywords:
+            info.add_text("Keywords", keywords)
+        img.save(png_path, "PNG", pnginfo=info, optimize=True)
+        return True
+    except Exception as exc:
+        log.warning("PNG 메타 추가 실패 (%s): %s", png_path, exc)
+        return False
+
+
 def verify_png(png_path):
     """PNG 강력 검증.
 

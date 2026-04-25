@@ -173,6 +173,14 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False, series='all'):
             bad.append(name)
         else:
             log.info(f"  ✓ [{name}] {msg}")
+        # PNG 자체에 메타데이터 삽입 (구글 이미지 검색 + SNS 공유)
+        meta = CARD_META.get(name)
+        if meta:
+            type_, title = meta
+            full_title = f"{title} — {cards['_meta']['date_kr']} 라이즈와이"
+            desc = f"국내 주식 {title} 카드뉴스. {cards['_meta']['date_kr']} 마감 기준. 자동 생성."
+            keywords = f"주식 카드뉴스,{title},국내주식,KOSPI,KOSDAQ,라이즈와이,RiseWhy,{date}"
+            to_png.add_png_metadata(png_path, full_title, desc, keywords)
 
     success = sum(1 for v in results.values() if v is not None)
 
