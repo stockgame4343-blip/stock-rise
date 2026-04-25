@@ -27,10 +27,16 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
 .cards-page__title{color:var(--text-primary);font-size:22px;font-weight:800;letter-spacing:-.3px}
 .cards-page__date{color:var(--text-muted);font-size:13px;font-weight:600}
 .cards-page__hint{color:var(--text-muted);font-size:13px;font-weight:500;margin-bottom:24px}
-.cards-list{display:flex;flex-direction:column;gap:28px;align-items:center}
-.cards-list__item{width:100%;max-width:1080px;display:flex;flex-direction:column;gap:10px}
-.cards-list__label{color:var(--text-primary);font-size:14px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
-.cards-list__label-badge{display:inline-block;padding:3px 10px;background:var(--accent,#ff6b6b);color:#fff;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.cards-group{margin-top:32px}
+.cards-group:first-of-type{margin-top:0}
+.cards-group__head{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.cards-group__tag{display:inline-block;padding:4px 12px;background:var(--accent,#ff6b6b);color:#fff;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.cards-group__title{color:var(--text-primary);font-size:17px;font-weight:800;letter-spacing:-.2px}
+.cards-group__sub{color:var(--text-muted);font-size:12px;font-weight:500;margin-left:auto}
+.cards-list{display:flex;flex-direction:column;gap:20px;align-items:center}
+.cards-list__item{width:100%;max-width:1080px;display:flex;flex-direction:column;gap:8px}
+.cards-list__label{color:var(--text-primary);font-size:13px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px}
+.cards-list__num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;font-size:11px;font-weight:800}
 .cards-list__img{width:100%;aspect-ratio:1/1;display:block;border-radius:16px;box-shadow:0 6px 32px rgba(0,0,0,.28);background:#1a1a1a}
 .cards-list__actions{display:flex;gap:8px;flex-wrap:wrap}
 .cards-list__action{padding:7px 14px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-primary);border-radius:8px;font-size:12px;font-weight:600;text-decoration:none;cursor:pointer;transition:opacity .15s}
@@ -39,8 +45,10 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
 .disclaimer-box strong{color:var(--text-primary);font-weight:700;display:block;margin-bottom:4px}
 @media (max-width:600px){
   .cards-page{padding:20px 12px 40px}
-  .cards-list{gap:22px}
+  .cards-list{gap:16px}
   .cards-list__img{border-radius:12px}
+  .cards-group__head{flex-wrap:wrap}
+  .cards-group__sub{margin-left:0;width:100%}
 }
 </style>
 </head>
@@ -72,38 +80,87 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
 <main class="cards-page">
   <div class="cards-page__head">
     <div class="cards-page__title">금요일 카드뉴스</div>
-    <div class="cards-page__date">2026.04.24 (금) 마감 기준</div>
+    <div class="cards-page__date">2026.04.24 (금) 마감 기준 · 총 6장</div>
   </div>
-  <div class="cards-page__hint">SNS 공유용 1080×1080 — 길게 눌러 저장하거나 아래 다운로드 버튼을 누르세요.</div>
+  <div class="cards-page__hint">SNS 공유용 1080×1080 이미지 — 길게 눌러 저장하거나 아래 다운로드 버튼을 이용하세요.</div>
 
-  <div class="cards-list">
-    <div class="cards-list__item">
-      <div class="cards-list__label"><span class="cards-list__label-badge">KEYWORDS</span>금요일 달궜던 키워드</div>
-      <img class="cards-list__img" src="/cards/20260424-pre.png" alt="금요일 달궜던 키워드 카드">
-      <div class="cards-list__actions">
-        <a class="cards-list__action" href="/cards/20260424-pre.png" download>다운로드</a>
-        <a class="cards-list__action" href="/cards/20260424-pre.png" target="_blank" rel="noopener">원본 열기</a>
+  <section class="cards-group">
+    <div class="cards-group__head">
+      <span class="cards-group__tag">KEYWORDS</span>
+      <div class="cards-group__title">키워드 시리즈</div>
+      <span class="cards-group__sub">금요일 주도 테마 개요 · 2장</span>
+    </div>
+    <div class="cards-list">
+      <div class="cards-list__item">
+        <div class="cards-list__label"><span class="cards-list__num">01</span>금요일 달궜던 키워드</div>
+        <img class="cards-list__img" src="/cards/20260424-pre.png" alt="금요일 주도 키워드 4개">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/20260424-pre.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/20260424-pre.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+      <div class="cards-list__item">
+        <div class="cards-list__label"><span class="cards-list__num">02</span>금요일 이 종목이 움직였다</div>
+        <img class="cards-list__img" src="/cards/20260424-pre2.png" alt="금요일 테마별 거래대금 상위 종목">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/20260424-pre2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/20260424-pre2.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="cards-list__item">
-      <div class="cards-list__label"><span class="cards-list__label-badge">LEADER</span>금요일의 대장주</div>
-      <img class="cards-list__img" src="/cards/20260424-leader.png" alt="금요일 대장주 카드">
-      <div class="cards-list__actions">
-        <a class="cards-list__action" href="/cards/20260424-leader.png" download>다운로드</a>
-        <a class="cards-list__action" href="/cards/20260424-leader.png" target="_blank" rel="noopener">원본 열기</a>
+  <section class="cards-group">
+    <div class="cards-group__head">
+      <span class="cards-group__tag">LEADER</span>
+      <div class="cards-group__title">대장주 시리즈</div>
+      <span class="cards-group__sub">금요일 가장 강했던 종목·테마 · 2장</span>
+    </div>
+    <div class="cards-list">
+      <div class="cards-list__item">
+        <div class="cards-list__label"><span class="cards-list__num">01</span>금요일의 대장주</div>
+        <img class="cards-list__img" src="/cards/20260424-leader.png" alt="금요일 대장주 고영">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/20260424-leader.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/20260424-leader.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+      <div class="cards-list__item">
+        <div class="cards-list__label"><span class="cards-list__num">02</span>왜 금요일 이 테마였나</div>
+        <img class="cards-list__img" src="/cards/20260424-leader2.png" alt="시스템반도체 테마 스토리">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/20260424-leader2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/20260424-leader2.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
       </div>
     </div>
+  </section>
 
-    <div class="cards-list__item">
-      <div class="cards-list__label"><span class="cards-list__label-badge">CLOSE</span>장 마감 한 줄 요약</div>
-      <img class="cards-list__img" src="/cards/20260424-close.png" alt="장 마감 요약 카드">
-      <div class="cards-list__actions">
-        <a class="cards-list__action" href="/cards/20260424-close.png" download>다운로드</a>
-        <a class="cards-list__action" href="/cards/20260424-close.png" target="_blank" rel="noopener">원본 열기</a>
+  <section class="cards-group">
+    <div class="cards-group__head">
+      <span class="cards-group__tag">CLOSE</span>
+      <div class="cards-group__title">장마감 시리즈</div>
+      <span class="cards-group__sub">지수·이슈·섹터 총정리 · 2장</span>
+    </div>
+    <div class="cards-list">
+      <div class="cards-list__item">
+        <div class="cards-list__label"><span class="cards-list__num">01</span>장 마감, 한 줄 요약</div>
+        <img class="cards-list__img" src="/cards/20260424-close.png" alt="장마감 한 줄 요약">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/20260424-close.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/20260424-close.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+      <div class="cards-list__item">
+        <div class="cards-list__label"><span class="cards-list__num">02</span>금요일, 무슨 일이 있었나</div>
+        <img class="cards-list__img" src="/cards/20260424-close2.png" alt="금요일 이슈 및 섹터 리뷰">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/20260424-close2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/20260424-close2.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <div class="disclaimer-box">
     <strong>※ 정보 제공 목적 · 매매 권유 아님</strong>
