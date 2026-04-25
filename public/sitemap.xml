@@ -1,14 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
     <url>
         <loc>https://stock-rise.vercel.app/</loc>
         <changefreq>hourly</changefreq>
         <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://stock-rise.vercel.app/cards/latest-leader.png</image:loc>
+            <image:title>오늘의 대장주</image:title>
+            <image:caption>오늘 가장 강했던 종목 카드</image:caption>
+        </image:image>
     </url>
     <url>
         <loc>https://stock-rise.vercel.app/report.html</loc>
         <changefreq>daily</changefreq>
         <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://stock-rise.vercel.app/cards/latest-leader.png</image:loc>
+            <image:title>오늘의 대장주</image:title>
+        </image:image>
     </url>
     <url>
         <loc>https://stock-rise.vercel.app/nxt.html</loc>
@@ -18,6 +28,10 @@
     <url>
         <loc>https://stock-rise.vercel.app/cards.html</loc>
         <changefreq>daily</changefreq>
-        <priority>0.6</priority>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://stock-rise.vercel.app/cards/latest-leader.png</image:loc>
+            <image:title>오늘의 카드뉴스</image:title>
+        </image:image>
     </url>
 </urlset>
