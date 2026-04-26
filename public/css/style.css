@@ -427,7 +427,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .stock-card__link--naver{color:var(--naver-green)}
 
 /* 52주 신고가/근접/조정 목록 */
-.compact-list{background:var(--bg-secondary);border-radius:12px;overflow:visible}
+.compact-list{background:var(--bg-secondary);border-radius:12px;overflow:hidden}
 .compact-list>.compact-row:first-child{border-radius:12px 12px 0 0}
 .compact-list>.compact-row:last-child{border-radius:0 0 12px 12px}
 .compact-list>.compact-row:only-child{border-radius:12px}
@@ -848,9 +848,10 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .sector-cards{grid-template-columns:1fr;gap:8px}
     .stock-cards{grid-template-columns:1fr;gap:10px}
     .compact-list--grid{grid-template-columns:1fr}
-    /* 모바일: compact-row__name 이 한 줄 다 차지 → 긴 한국어 종목명 글자 단위 wrap 차단 */
-    .compact-row{padding:12px 16px;gap:6px}
-    .compact-row__name{flex:1 1 100%;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    /* 모바일: 첫 줄=종목명+라벨(한국어는 한 단어라 wrap 안 됨), 둘째 줄=detail/rate/tag.
+       ellipsis 로 짤리지 않게 white-space:normal + overflow:visible. */
+    .compact-row{padding:12px 16px;gap:6px 10px;flex-wrap:wrap}
+    .compact-row__name{flex:1 1 100%;min-width:0;white-space:normal;overflow:visible;text-overflow:clip;word-break:keep-all;overflow-wrap:break-word}
     .compact-row__detail{font-size:11px;flex-wrap:wrap}
     .compact-row__tag,.compact-row__tag--break,.compact-row__tag--bounce{margin-left:0}
     .sector-card,.stock-card{padding:16px;border-radius:10px}
