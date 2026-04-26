@@ -443,7 +443,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .compact-row{display:flex;align-items:center;gap:12px;padding:13px 24px;text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:background .1s;flex-wrap:wrap}
 .compact-row:last-child{border-bottom:none}
 .compact-row:hover{background:var(--bg-hover)}
-.compact-row__name{font-size:13px;font-weight:600;color:var(--text-primary);min-width:100px}
+.compact-row__name{font-size:13px;font-weight:600;color:var(--text-primary);min-width:100px;word-break:keep-all;overflow-wrap:break-word}
 .compact-row__market{font-size:11px;font-weight:400;color:var(--text-muted);margin-left:6px}
 .compact-row__price{font-size:13px;color:var(--text-secondary);min-width:80px;text-align:right}
 .compact-row__rate{font-size:13px;font-weight:700;min-width:64px;text-align:right}
@@ -848,6 +848,11 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .sector-cards{grid-template-columns:1fr;gap:8px}
     .stock-cards{grid-template-columns:1fr;gap:10px}
     .compact-list--grid{grid-template-columns:1fr}
+    /* 모바일: compact-row__name 이 한 줄 다 차지 → 긴 한국어 종목명 글자 단위 wrap 차단 */
+    .compact-row{padding:12px 16px;gap:6px}
+    .compact-row__name{flex:1 1 100%;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .compact-row__detail{font-size:11px;flex-wrap:wrap}
+    .compact-row__tag,.compact-row__tag--break,.compact-row__tag--bounce{margin-left:0}
     .sector-card,.stock-card{padding:16px;border-radius:10px}
     .reason-bars,.news-list{border-radius:10px}
 
