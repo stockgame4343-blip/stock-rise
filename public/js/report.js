@@ -1341,6 +1341,13 @@
         $dateNext.disabled = state.dateIndex <= 0;
         $datePrev.disabled = state.dateIndex >= state.dates.length - 1;
 
+        // 이전 호출에서 카드만 모드로 hide 됐을 수 있는 섹션들 복원
+        var summaryEl = document.querySelector('.report__summary');
+        if (summaryEl) summaryEl.style.display = '';
+        document.querySelectorAll('#reportContent .report__section').forEach(function (s) {
+            if (s.id !== 'cardsSection') s.style.display = '';
+        });
+
         // Fetch summary history (non-blocking)
         var summaryPromise = fetch('/data/summary.json')
             .then(function (res) { return res.ok ? res.json() : []; })
@@ -1354,9 +1361,22 @@
 
                 showLoading(false);
                 if (!data.rankings || data.rankings.length === 0) {
-                    showMessage('해당 날짜의 데이터가 없습니다.');
-                    $content.style.display = 'none';
-                    return;
+                    // 본장 시작 전(8:05~9:06)에는 카드만 먼저 노출. 그 외 섹션은 hide.
+                    return loadCardsIndex().then(function (idx) {
+                        var cards = (idx && idx[date]) || [];
+                        if (cards.length === 0) {
+                            showMessage('해당 날짜의 데이터가 없습니다.');
+                            $content.style.display = 'none';
+                            return;
+                        }
+                        showMessage('리포트는 9시 이후 본장이 시작되면 업데이트됩니다.');
+                        $content.style.display = '';
+                        if (summaryEl) summaryEl.style.display = 'none';
+                        document.querySelectorAll('#reportContent .report__section').forEach(function (s) {
+                            if (s.id !== 'cardsSection') s.style.display = 'none';
+                        });
+                        renderCardsSection();
+                    });
                 }
 
                 if (data.collected_at && $lastUpdated) {
@@ -1515,13 +1535,29 @@
         $memoModal.addEventListener('click', function (e) { if (e.target === $memoModal) closeMemo(); });
     }
 
+    // KST 오늘 YYYYMMDD — 본장 시작 전(8:05~9:06)에 카드만 있는 날짜 처리용
+    function todayKstYmd() {
+        var d = new Date(Date.now() + 9 * 60 * 60 * 1000);
+        return d.getUTCFullYear()
+            + String(d.getUTCMonth() + 1).padStart(2, '0')
+            + String(d.getUTCDate()).padStart(2, '0');
+    }
+
     // ── 초기화 ──
     function init() {
         showLoading(true);
         // 서버에서 최신 ratings 받아온 뒤 리포트 로드 (실패해도 진행)
         loadFromServer().finally(function () {
-            StockAPI.getDates()
-                .then(function (dates) {
+            // dates.json + cards/index.json 같이 로드 — 카드만 있는 오늘을 dates 앞에 끼워넣기 위함
+            Promise.all([StockAPI.getDates(), loadCardsIndex()])
+                .then(function (results) {
+                    var dates = results[0] || [];
+                    var idx = results[1] || {};
+                    var today = todayKstYmd();
+                    // 오늘 카드가 있고 dates 에 아직 없으면 맨 앞에 추가 (본장 데이터는 9시 이후)
+                    if (idx[today] && idx[today].length > 0 && dates[0] !== today) {
+                        dates = [today].concat(dates);
+                    }
                     state.dates = dates;
                     state.dateIndex = 0;
                     loadReport();

@@ -20,7 +20,7 @@ KST = timezone(timedelta(hours=9))
 # - collect : 수집 워크플로우 (intraday/closing)
 # - cards   : 카드뉴스 자동 생성 (pre/closing)
 SCHEDULE = [
-    (8,  30, 'cards',   {'series': 'pre'}),       # 프리장(08:00) 직후 PRE 미리 생성
+    (8,  5,  'cards',   {'series': 'pre'}),       # 프리장 시작 직후 PRE 미리 생성 (본장 시작 전 노출)
     (9,  6,  'collect', {'mode': 'intraday'}),    # 리포트 첫 업데이트 — PRE 도 함께 노출
     (10, 6,  'collect', {'mode': 'intraday'}),
     (11, 6,  'collect', {'mode': 'intraday'}),
