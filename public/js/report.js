@@ -189,6 +189,25 @@
             }
         });
     }
+    // ── refreshControlsUI 덮어쓰기: wrap 통째 교체 (호버 잔존 버그 수정) ──
+    // 위 구현은 클래스만 토글해서 기존 .float-controls DOM 의 :hover 가 유지돼
+    // 별점/X/메모 클릭 후에도 호버 패널이 안 사라지는 문제가 있다.
+    // 대시보드(app.js)의 renderTable() 전체 재렌더와 동일한 효과를 부분 재현.
+    refreshControlsUI = function (ticker) {
+        var ratings = getRatings();
+        // 모바일: 열려 있던 토글 패널 모두 닫기 (.is-open 잔존 방지)
+        document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
+            w.classList.remove('is-open');
+        });
+        document.querySelectorAll('.float-controls[data-ticker="' + ticker + '"]').forEach(function (fc) {
+            var wrap = fc.closest('.ctrl-wrap');
+            if (!wrap || !wrap.parentNode) return;
+            var tmp = document.createElement('div');
+            tmp.innerHTML = controlsHtml(ticker, ratings);
+            var newWrap = tmp.firstElementChild;
+            if (newWrap) wrap.replaceWith(newWrap);
+        });
+    };
 
     // 점수 레벨 텍스트
     function buzzLevel(v) {
