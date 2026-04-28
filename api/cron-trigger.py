@@ -21,12 +21,20 @@ KST = timezone(timedelta(hours=9))
 # - cards   : 카드뉴스 자동 생성 (pre/closing)
 SCHEDULE = [
     (8,  5,  'cards',   {'series': 'pre'}),       # 프리장 시작 직후 PRE 미리 생성 (본장 시작 전 노출)
-    (9,  6,  'collect', {'mode': 'intraday'}),    # 리포트 첫 업데이트 — PRE 도 함께 노출
+    # ── 본장 30분 간격 (09:06~14:36, 12회) ──
+    (9,  6,  'collect', {'mode': 'intraday'}),
+    (9,  36, 'collect', {'mode': 'intraday'}),
     (10, 6,  'collect', {'mode': 'intraday'}),
+    (10, 36, 'collect', {'mode': 'intraday'}),
     (11, 6,  'collect', {'mode': 'intraday'}),
+    (11, 36, 'collect', {'mode': 'intraday'}),
     (12, 6,  'collect', {'mode': 'intraday'}),
+    (12, 36, 'collect', {'mode': 'intraday'}),
     (13, 6,  'collect', {'mode': 'intraday'}),
+    (13, 36, 'collect', {'mode': 'intraday'}),
     (14, 6,  'collect', {'mode': 'intraday'}),
+    (14, 36, 'collect', {'mode': 'intraday'}),
+    # ── 마감 ──
     (15, 36, 'collect', {'mode': 'closing'}),
     (16, 0,  'cards',   {'series': 'closing'}),   # 1차 LEADER+CLOSE (마감 직후)
     (16, 6,  'collect', {'mode': 'closing'}),
