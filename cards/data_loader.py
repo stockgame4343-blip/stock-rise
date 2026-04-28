@@ -323,7 +323,10 @@ def build_pre0(day, dawn_data):
 
 
 def build_pre(day):
-    """카드 1 — 키워드 4개. 한 카드 = 4 핵심 테마, 메타 최소."""
+    """카드 1 — 키워드 4개. 한 카드 = 4 핵심 테마, 메타 최소.
+
+    제목에 요일 prefix 제거 (우상단 날짜로 충분).
+    """
     top = _big_themes(day, target_count=config.TOP_THEMES_PRE)[:config.TOP_THEMES_PRE]
     if not top:
         return None
@@ -331,7 +334,7 @@ def build_pre(day):
         'series': 'pre',
         'date_full': day['date_full'],
         'label': '★ 주도 키워드',
-        'title_top': f"{day['weekday_ko']}요일 달궜던",
+        'title_top': '오늘 달궜던',
         'title_em': '키워드',
         'keywords': [
             {
@@ -378,16 +381,30 @@ def build_pre2(day, us_indices, dawn_data=None):
 
 
 def build_pre3(day):
-    """카드 3 — 4테마 × 대장 1명만 (한 줄에 테마+종목+%)."""
+    """카드 3 — 4테마 × 대장 1명만 (한 줄에 테마+종목+%).
+
+    leader 카드와 일관성을 위해 leader 종목의 테마를 1번으로 강제 정렬 —
+    pre3 1번 ≠ leader 카드 종목인 인지부조화 방지.
+    """
     top = _big_themes(day, target_count=config.TOP_THEMES_PRE3)[:config.TOP_THEMES_PRE3]
     if not top:
         return None
+
+    # leader 종목의 테마를 맨 앞으로 (일관성)
+    leader_stock = _select_leader_stock(day['rankings'])
+    if leader_stock:
+        leader_tag = leader_stock.get('theme_tag')
+        for i, t in enumerate(top):
+            if t['tag'] == leader_tag and i > 0:
+                top = [top[i]] + top[:i] + top[i + 1:]
+                break
+
     return {
         'series': 'pre',
         'date_full': day['date_full'],
-        'label': '★ 주도 종목',
-        'title_top': f"{day['weekday_ko']}요일의",
-        'title_em': '대장',
+        'label': '★ 테마별 대장',
+        'title_top': '오늘의',
+        'title_em': '대장 종목',
         'themes': [
             {
                 'rank': f"{i + 1:02d}",
@@ -446,7 +463,7 @@ def build_leader2(day):
         'series': 'leader',
         'date_full': day['date_full'],
         'label': '★ 대장 테마',
-        'title_top': f"{day['weekday_ko']}요일",
+        'title_top': '오늘의',
         'title_em': '대장 테마',
         'theme_name': f"#{top_theme['tag']}",
         'theme_stat_html': f"<strong>+{top_theme['avg_rate']:.1f}%</strong> · {top_theme['count']}종목",
@@ -471,10 +488,8 @@ def build_close(day, kr_indices, summary):
     if not big:
         return None
     top_theme = big[0]
-    top_stock_by_volume = (
-        max(day['rankings'], key=lambda s: s.get('trading_value', 0))
-        if day['rankings'] else None
-    )
+    # 강세(LEADER_MIN_RATE) 종목 중 거래대금 1위 — leader 카드와 일치시켜 인지부조화 방지
+    top_stock_by_volume = _select_leader_stock(day['rankings'])
 
     indices = []
     if kr_indices:
@@ -500,7 +515,7 @@ def build_close(day, kr_indices, summary):
             market_stats.append({'label': 'TOP 100 평균', 'value': f"+{summary['avgRate']:.1f}%"})
     if top_stock_by_volume:
         market_stats.append({
-            'label': '거래대금 1위',
+            'label': '오늘의 대장주',
             'value': f"{top_stock_by_volume['name']} {ts.fmt_won(top_stock_by_volume['trading_value'])}",
         })
 
@@ -537,7 +552,7 @@ def build_close2(day):
         'series': 'close',
         'date_full': day['date_full'],
         'label': '★ 핵심 이슈',
-        'title_top': f"{day['weekday_ko']}요일,",
+        'title_top': '오늘의',
         'title_em': '핵심 이슈',
         'issues': issues,
     }

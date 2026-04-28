@@ -42,6 +42,15 @@ MACRO_TICKERS = {
 MACRO_LOOKBACK_DAYS = 14
 
 
+def _clean_title(title):
+    """헤드라인 노이즈 정리 — `[종목+]`, `[fn마켓워치]` 등 대괄호 미디어 태그 제거."""
+    # [...]·[종목+] 형태 제거 (1~20자 내). `[속보]` 같은 것도 잘림.
+    cleaned = re.sub(r'\s*\[[^\]]{1,20}\]\s*', ' ', title)
+    # 다중 공백 → 하나
+    cleaned = re.sub(r'\s+', ' ', cleaned).strip()
+    return cleaned
+
+
 def _passes_filters(title):
     """글로벌 시장 무빙 헤드라인만 통과.
 
@@ -113,6 +122,7 @@ def _fetch_naver_headlines(limit):
 
     for raw_title in re.findall(pattern, text)[:FETCH_POOL]:
         title = html_unescape.unescape(raw_title).strip()
+        title = _clean_title(title)
         if len(title) < HEADLINE_MIN_LEN:
             continue
         if not _passes_filters(title):
