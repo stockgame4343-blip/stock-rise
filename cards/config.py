@@ -165,28 +165,31 @@ WEEKDAY_EN = ['MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'
 
 # ─── 시리즈 컬러 토큰 (Phase 2 템플릿에서 사용) ─────
 COLOR_TOKENS = {
+    # 새벽·장전 = 차분한 네이비 + 오렌지 액센트 (정보 수용 분위기)
     'pre': {
-        'bg1': '#0a0f2a', 'bg2': '#0e1a4a', 'bg3': '#1a2e6a',
-        'accent': '#ffa64d', 'accent2': '#ff6b6b',
+        'bg1': '#0a1130', 'bg2': '#0e1a4a', 'bg3': '#172a5a',
+        'accent': '#ffb868', 'accent2': '#ff6b6b',
         'muted': '#a6bce0', 'text_dim': '#6a82b0',
-        'card_bg': 'rgba(255,255,255,.06)', 'card_border': 'rgba(255,255,255,.12)',
-        'hot_bg1': 'rgba(255,166,77,.18)', 'hot_bg2': 'rgba(255,107,107,.04)',
-        'hot_border': 'rgba(255,166,77,.45)',
+        'card_bg': 'rgba(255,255,255,.05)', 'card_border': 'rgba(255,255,255,.10)',
+        'hot_bg1': 'rgba(255,184,104,.16)', 'hot_bg2': 'rgba(255,107,107,.04)',
+        'hot_border': 'rgba(255,184,104,.36)',
     },
+    # 대장주 = 와인-자홍 (강세 강조, 갈색기 빼고 채도 ↑)
     'leader': {
-        'bg1': '#1a0505', 'bg2': '#330808', 'bg3': '#4a0f0f',
-        'accent': '#ffd166', 'accent2': '#ff6b6b',
-        'muted': '#e8bcbc', 'text_dim': '#8a6a6a',
-        'card_bg': 'rgba(255,255,255,.06)', 'card_border': 'rgba(255,255,255,.12)',
-        'hot_bg1': 'rgba(255,209,102,.22)', 'hot_bg2': 'rgba(255,107,107,.08)',
-        'hot_border': 'rgba(255,209,102,.45)',
+        'bg1': '#1f0717', 'bg2': '#3a0e1c', 'bg3': '#54142a',
+        'accent': '#ffd166', 'accent2': '#ff5577',
+        'muted': '#f0c4c8', 'text_dim': '#8a6a72',
+        'card_bg': 'rgba(255,255,255,.05)', 'card_border': 'rgba(255,255,255,.10)',
+        'hot_bg1': 'rgba(255,209,102,.18)', 'hot_bg2': 'rgba(255,85,119,.06)',
+        'hot_border': 'rgba(255,209,102,.36)',
     },
+    # 마감 = 청보라 (정리·마감 분위기, 푸른기 살짝 추가)
     'close': {
-        'bg1': '#1a0a2a', 'bg2': '#2a1040', 'bg3': '#3a1550',
+        'bg1': '#181436', 'bg2': '#2a2052', 'bg3': '#3a2c66',
         'accent': '#c7a3ff', 'accent2': '#ff6b6b',
         'muted': '#b8a3d8', 'text_dim': '#7a6a99',
-        'card_bg': 'rgba(255,255,255,.06)', 'card_border': 'rgba(255,255,255,.12)',
-        'hot_bg1': 'rgba(255,107,107,.18)', 'hot_bg2': 'rgba(255,107,107,.02)',
-        'hot_border': 'rgba(255,107,107,.4)',
+        'card_bg': 'rgba(255,255,255,.05)', 'card_border': 'rgba(255,255,255,.10)',
+        'hot_bg1': 'rgba(199,163,255,.18)', 'hot_bg2': 'rgba(255,107,107,.04)',
+        'hot_border': 'rgba(199,163,255,.36)',
     },
 }

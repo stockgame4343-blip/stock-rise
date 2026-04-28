@@ -43,28 +43,28 @@
 .hl-impact::before { content: '→ '; opacity: .85; }
 
 .macro-bar {
-  margin-top: 36px;
-  background: {{ tokens.hot_bg2 }};
+  margin-top: 40px;
+  background: {{ tokens.card_bg }};
   border: 1px solid {{ tokens.card_border }};
-  border-radius: 22px;
-  padding: 22px 28px;
+  border-radius: 24px;
+  padding: 32px 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px 28px;
+  gap: 20px 56px;
   position: relative;
   z-index: 2;
 }
 .m-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: 100px 1fr auto;
   align-items: baseline;
-  justify-content: space-between;
-  gap: 10px;
-  font-size: 24px;
+  gap: 16px;
+  font-size: 26px;
   letter-spacing: -0.01em;
 }
-.m-name { color: {{ tokens.muted }}; font-weight: 700; }
+.m-name { color: {{ tokens.muted }}; font-weight: 700; font-size: 22px; }
 .m-value { color: #fff; font-weight: 900; }
-.m-pct { font-weight: 800; min-width: 92px; text-align: right; }
+.m-pct { font-weight: 800; min-width: 90px; text-align: right; }
 .m-pct--up { color: {{ tokens.accent2 }}; }
 .m-pct--dn { color: #5b9df9; }
 .m-pct--flat { color: {{ tokens.text_dim }}; }
