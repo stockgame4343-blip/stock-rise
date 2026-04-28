@@ -11,35 +11,22 @@
         href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
   <style>
 {% include "_base.css" %}
-/* 시리즈별 컬러 토큰 주입 */
+/* 시리즈별 컬러 토큰 주입 — 같은 톤 안 단순 상하 그라데이션 */
 html, body {
-  background: {{ tokens.bg1 }};
-  background: linear-gradient(165deg,
-    {{ tokens.bg1 }} 0%,
-    {{ tokens.bg2 }} 50%,
-    {{ tokens.bg3 }} 100%);
+  background: linear-gradient(180deg, {{ tokens.bg1 }} 0%, {{ tokens.bg3 }} 100%);
 }
 .card {
-  background: linear-gradient(165deg,
-    {{ tokens.bg1 }} 0%,
-    {{ tokens.bg2 }} 50%,
-    {{ tokens.bg3 }} 100%);
+  background: linear-gradient(180deg, {{ tokens.bg1 }} 0%, {{ tokens.bg3 }} 100%);
 }
 .card-label { background: {{ tokens.hot_bg1 }}; color: {{ tokens.accent }}; border: 1px solid {{ tokens.hot_border }}; }
 .card-date { color: {{ tokens.muted }}; }
 .card-url { color: {{ tokens.accent }}; }
 .title em { color: {{ tokens.accent }}; }
-.bg-glow-tr { background: radial-gradient(circle, {{ tokens.hot_bg1 }}, transparent 70%); }
-.bg-glow-bl { background: radial-gradient(circle, {{ tokens.hot_bg2 }}, transparent 70%); }
-.bg-watermark { color: {{ tokens.accent }}; }
 {% block style %}{% endblock %}
   </style>
 </head>
 <body>
 <div class="card">
-  <span class="bg-glow bg-glow-tr"></span>
-  <span class="bg-glow bg-glow-bl"></span>
-  <span class="bg-watermark">★</span>
   <header class="card-header">
     <span class="card-label">{{ data.label }}</span>
     <span class="card-date">{{ data.date_full }}</span>

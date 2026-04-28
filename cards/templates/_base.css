@@ -88,31 +88,3 @@ body {
   letter-spacing: 0.02em;
   z-index: 2;
 }
-.bg-glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 0;
-}
-.bg-glow-tr {
-  top: -100px;
-  right: -100px;
-  width: 500px;
-  height: 500px;
-}
-.bg-glow-bl {
-  bottom: -120px;
-  left: -120px;
-  width: 480px;
-  height: 480px;
-}
-.bg-watermark {
-  position: absolute;
-  bottom: 30px;
-  right: -30px;
-  font-size: 320px;
-  line-height: 1;
-  opacity: 0.05;
-  pointer-events: none;
-  z-index: 0;
-}
