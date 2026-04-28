@@ -442,9 +442,12 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .compact-list--grid>.compact-row:nth-child(2):last-child{border-radius:0 12px 12px 0}
 .compact-row{display:flex;align-items:center;gap:12px;padding:13px 24px;text-decoration:none;border-bottom:1px solid var(--border-subtle);transition:background .1s;flex-wrap:wrap}
 .compact-row:last-child{border-bottom:none}
-.compact-row:hover{background:var(--bg-hover)}
+/* hover 는 hover-capable 디바이스에만 (모바일 터치 후 stuck 차단) */
+@media (hover:hover) and (pointer:fine){
+  .compact-row:hover{background:var(--bg-hover)}
+}
 .compact-row__name{font-size:13px;font-weight:600;color:var(--text-primary);min-width:100px;word-break:keep-all;overflow-wrap:break-word}
-.compact-row__market{font-size:11px;font-weight:400;color:var(--text-muted);margin-left:6px}
+.compact-row__market{font-size:11px;font-weight:400;color:var(--text-muted);margin-left:6px;white-space:nowrap}
 .compact-row__price{font-size:13px;color:var(--text-secondary);min-width:80px;text-align:right}
 .compact-row__rate{font-size:13px;font-weight:700;min-width:64px;text-align:right}
 .compact-row__rate--up{color:var(--rise)}
@@ -848,12 +851,14 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .sector-cards{grid-template-columns:1fr;gap:8px}
     .stock-cards{grid-template-columns:1fr;gap:10px}
     .compact-list--grid{grid-template-columns:1fr}
-    /* 모바일: 첫 줄=종목명+라벨(한국어는 한 단어라 wrap 안 됨), 둘째 줄=detail/rate/tag.
-       ellipsis 로 짤리지 않게 white-space:normal + overflow:visible. */
-    .compact-row{padding:12px 16px;gap:6px 10px;flex-wrap:wrap}
-    .compact-row__name{flex:1 1 100%;min-width:0;white-space:normal;overflow:visible;text-overflow:clip;word-break:keep-all;overflow-wrap:break-word}
-    .compact-row__detail{font-size:11px;flex-wrap:wrap}
-    .compact-row__tag,.compact-row__tag--break,.compact-row__tag--bounce{margin-left:0}
+    /* 모바일: row 를 grid 로 강제 — detail 길이와 무관하게 항상 같은 구조.
+       1행 종목명+라벨(전체 폭) / 2행 detail | rate / 3행 tag(전체 폭). */
+    .compact-row{display:grid;grid-template-columns:1fr auto;grid-auto-flow:row dense;gap:4px 10px;padding:12px 16px;align-items:center}
+    .compact-row__name{grid-column:1;min-width:0;font-size:14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;white-space:normal;overflow:visible;text-overflow:clip;word-break:keep-all;overflow-wrap:break-word}
+    .compact-row__market{margin-left:0;flex-shrink:0}
+    .compact-row__price,.compact-row__rate{grid-column:2;justify-self:end;align-self:center;min-width:0}
+    .compact-row__detail{grid-column:1 / -1;font-size:11px;flex-wrap:wrap;min-width:0}
+    .compact-row__tag,.compact-row__tag--break,.compact-row__tag--bounce{grid-column:1 / -1;margin-left:0;justify-self:start;font-size:11px}
     .sector-card,.stock-card{padding:16px;border-radius:10px}
     .reason-bars,.news-list{border-radius:10px}
 
