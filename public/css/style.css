@@ -129,6 +129,12 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .float-controls::before{content:'';position:absolute;left:-12px;right:-12px;top:-10px;height:10px}
 /* 탭 토글 (모바일 ⋯ 버튼): hover 지원 여부와 무관하게 항상 작동 */
 .ctrl-wrap.is-open .float-controls{opacity:1;pointer-events:auto;transition-delay:0s}
+/* 클릭 직후: 다음 마우스 이탈/터치 전까지 hover 무력화 — 호버 패널 잔존 차단.
+   리포트의 refreshControlsUI/suppressControlsHoverFor 가 부여하고 mouseleave/
+   touchstart/2s 타임아웃으로 자동 해제. */
+.ctrl-wrap.ctrl-wrap--just-acted .float-controls{
+    opacity:0!important;pointer-events:none!important;transition:none!important;
+}
 /* 호버 트리거: 마우스 호버가 진짜 있는 장치에서만 (모바일 터치의 sticky-hover 회피) */
 @media (hover: hover){
     .ctrl-wrap:hover .float-controls,

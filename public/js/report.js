@@ -189,25 +189,51 @@
             }
         });
     }
-    // ── refreshControlsUI 덮어쓰기: wrap 통째 교체 (호버 잔존 버그 수정) ──
-    // 위 구현은 클래스만 토글해서 기존 .float-controls DOM 의 :hover 가 유지돼
-    // 별점/X/메모 클릭 후에도 호버 패널이 안 사라지는 문제가 있다.
-    // 대시보드(app.js)의 renderTable() 전체 재렌더와 동일한 효과를 부분 재현.
-    refreshControlsUI = function (ticker) {
-        var ratings = getRatings();
-        // 모바일: 열려 있던 토글 패널 모두 닫기 (.is-open 잔존 방지)
+    // ── 호버 패널 잔존 버그 수정 ──
+    // 클래스만 토글하면 기존 .float-controls 의 :hover 가 유지돼 사용자가
+    // 별점/X/메모 클릭 후에도 호버 패널이 그대로 떠 있는 문제를 막는다.
+    // 두 가지를 함께 적용:
+    //   (1) wrap 통째 교체 — 새 DOM 으로 :hover 컨텍스트를 깨트린다.
+    //   (2) ctrl-wrap--just-acted 플래그 — 마우스가 wrap 영역을 한 번
+    //       벗어나기 전까지 .float-controls 를 강제 숨긴다. CSS 호버는
+    //       JS 로 직접 끌 수 없어 이 클래스로 가린다.
+    function _suppressJustActed(wrap) {
+        if (!wrap) return;
+        wrap.classList.add('ctrl-wrap--just-acted');
+        var clear = function () { wrap.classList.remove('ctrl-wrap--just-acted'); };
+        wrap.addEventListener('mouseleave', clear, { once: true });
+        wrap.addEventListener('touchstart', clear, { once: true, passive: true });
+        // 안전장치: 마우스가 영역 밖으로 영영 안 나가는 경우(브라우저 비활성화 등)
+        // 2초 뒤 자동 해제. UX 영향 없음 — 사용자가 다음에 호버 시작할 때 정상 노출.
+        setTimeout(clear, 2000);
+    }
+    function _closeOpenPanels() {
         document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
             w.classList.remove('is-open');
         });
+    }
+    // ratings 를 변경한 액션(별점/X) 후: wrap 통째 교체 + just-acted 적용.
+    refreshControlsUI = function (ticker) {
+        var ratings = getRatings();
+        _closeOpenPanels();
         document.querySelectorAll('.float-controls[data-ticker="' + ticker + '"]').forEach(function (fc) {
             var wrap = fc.closest('.ctrl-wrap');
             if (!wrap || !wrap.parentNode) return;
             var tmp = document.createElement('div');
             tmp.innerHTML = controlsHtml(ticker, ratings);
             var newWrap = tmp.firstElementChild;
-            if (newWrap) wrap.replaceWith(newWrap);
+            if (!newWrap) return;
+            wrap.replaceWith(newWrap);
+            _suppressJustActed(newWrap);
         });
     };
+    // 메모처럼 ratings 를 즉시 변경하지 않는 액션 후: 교체 없이 호버만 닫는다.
+    function suppressControlsHoverFor(ticker) {
+        _closeOpenPanels();
+        document.querySelectorAll('.float-controls[data-ticker="' + ticker + '"]').forEach(function (fc) {
+            _suppressJustActed(fc.closest('.ctrl-wrap'));
+        });
+    }
 
     // 점수 레벨 텍스트
     function buzzLevel(v) {
@@ -1455,7 +1481,10 @@
             e.preventDefault();
             e.stopPropagation();
             var ticker = memoBtn.getAttribute('data-ticker');
-            if (ticker) openMemo(ticker);
+            if (ticker) {
+                suppressControlsHoverFor(ticker);
+                openMemo(ticker);
+            }
             return;
         }
         // 종목명 클릭 → 대장점수 팝업
@@ -1662,7 +1691,10 @@
         if (memoBtn) {
             e.preventDefault(); e.stopPropagation();
             var ticker = memoBtn.getAttribute('data-ticker');
-            if (ticker) openMemo(ticker);
+            if (ticker) {
+                suppressControlsHoverFor(ticker);
+                openMemo(ticker);
+            }
             return;
         }
 
