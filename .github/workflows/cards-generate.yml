@@ -52,11 +52,12 @@ jobs:
     permissions:
       contents: write
 
-    # workflow_run 은 closing 수집 성공 시에만
+    # workflow_run 은 collect 워크플로우 성공 시 — 실제 closing 여부는 step 안에서
+    # git log 로 확인. (dispatch 트리거된 워크플로우의 head_commit.message 는
+    # 시작 시점 HEAD 이므로 collect 가 만든 새 커밋과 다름)
     if: |
       github.event_name != 'workflow_run' ||
-      (github.event.workflow_run.conclusion == 'success' &&
-       contains(github.event.workflow_run.head_commit.message, '장마감 최종'))
+      github.event.workflow_run.conclusion == 'success'
 
     steps:
       - uses: actions/checkout@v4
@@ -88,8 +89,16 @@ jobs:
               SERIES="all"
             fi
           elif [ "$EVENT" = "workflow_run" ]; then
-            # collect.yml(장마감 최종) 성공 후 백업 — closing 시리즈만
-            SERIES="closing"
+            # collect.yml 성공 후 — 마지막 커밋이 장마감 최종일 때만 closing 생성
+            LAST_MSG=$(git log -1 --pretty=%s)
+            echo "  workflow_run 마지막 커밋: $LAST_MSG"
+            if echo "$LAST_MSG" | grep -q "장마감 최종"; then
+              SERIES="closing"
+            else
+              echo "  intraday 등 closing 아님 — 카드 스킵"
+              echo "skip_event=true" >> $GITHUB_OUTPUT
+              exit 0
+            fi
           elif [ -n "$INPUT_SERIES" ]; then
             SERIES="$INPUT_SERIES"
           else

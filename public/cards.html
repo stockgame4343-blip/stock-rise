@@ -242,10 +242,25 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
     if (dateEl && pretty) dateEl.textContent = pretty + ' 마감 기준';
   }
 
-  fetch('/data/dates.json', { cache: 'no-store' })
+  // 카드 있는 가장 최근 거래일 찾기:
+  //   1) cards/index.json 에서 최신 날짜 (생성 완료된 카드만 등록됨)
+  //   2) 실패 시 dates.json 첫 항목 (수집은 됐지만 카드 미생성일 수 있음 — 그러면 onerror 가 숨김)
+  fetch('/cards/index.json', { cache: 'no-store' })
     .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
-    .then(function (dates) { if (dates && dates.length) applyDate(dates[0]); })
-    .catch(function () { /* fallback: PNG 경로 그대로 두면 404 — 위 onerror 가 숨김 */ });
+    .then(function (idx) {
+      var keys = Object.keys(idx).filter(function (k) { return /^\d{8}$/.test(k); }).sort();
+      if (keys.length) {
+        applyDate(keys[keys.length - 1]);
+      } else {
+        return Promise.reject();
+      }
+    })
+    .catch(function () {
+      fetch('/data/dates.json', { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (dates) { if (dates && dates.length) applyDate(dates[0]); })
+        .catch(function () { /* 끝까지 실패 시 PNG 404 → onerror 가 숨김 */ });
+    });
 
   var btn = document.getElementById('themeToggle');
   function sync() {

@@ -103,8 +103,15 @@ def _validate_text(cards):
         unique = sorted(set(names))
         if len(unique) < 2:
             continue
-        if all(n in ('pre', 'pre3') for n in unique) and '#' not in text and ' ' not in text:
-            continue  # 테마 태그 의도된 양분
+        # pre·pre3 사이의 중복은 의도된 양분 (테마 태그·종목명 등) — 길이/공백/특수문자 무관 허용
+        if set(unique) <= {'pre', 'pre3'}:
+            continue
+        # leader·leader2 사이도 동일 (대장주 종목명 / 멤버 1위가 같은 종목)
+        if set(unique) <= {'leader', 'leader2'}:
+            continue
+        # close·close2 사이도 동일 (요약 ↔ 이슈 카드의 동일 테마/종목 언급)
+        if set(unique) <= {'close', 'close2'}:
+            continue
         failures.append(f"중복 문장 {unique}: {text!r}")
     return failures
 
