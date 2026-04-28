@@ -189,22 +189,28 @@
             }
         });
     }
-    // ── 호버 패널 잔존 버그 수정 ──
-    // 클래스만 토글하면 기존 .float-controls 의 :hover 가 유지돼 사용자가
-    // 별점/X/메모 클릭 후에도 호버 패널이 그대로 떠 있는 문제를 막는다.
-    // 두 가지를 함께 적용:
-    //   (1) wrap 통째 교체 — 새 DOM 으로 :hover 컨텍스트를 깨트린다.
-    //   (2) ctrl-wrap--just-acted 플래그 — 마우스가 wrap 영역을 한 번
-    //       벗어나기 전까지 .float-controls 를 강제 숨긴다. CSS 호버는
-    //       JS 로 직접 끌 수 없어 이 클래스로 가린다.
+    // ── 호버 패널 잔존 버그 수정 (대시보드와 동일 동작) ──
+    // 핵심:
+    //   (1) wrap 통째 교체로 기존 .float-controls 의 :hover 컨텍스트를 깨트린다.
+    //   (2) ctrl-wrap--just-acted 플래그로 .float-controls 를 강제 숨긴다.
+    //       CSS 호버는 JS 로 직접 끌 수 없어 이 클래스로 가린다.
+    //   (3) 해제 시점은 '부모 hover 트리거(.cell-name__wrap / .detail-stock /
+    //       .compact-row / .sector-card__stock / .stock-card__top)' 의 mouseleave.
+    //       wrap 자체에 mouseleave 를 걸면 wrap 너비가 mini-indicator 추가로
+    //       살짝 줄어들 때 마우스가 wrap 밖에 위치하게 되어 즉시 해제되고,
+    //       그 사이 부모의 :hover 룰은 여전히 살아 있어 패널이 다시 노출되는
+    //       버그가 있었다. 부모 트리거에 걸어 사용자가 그 카드/행을 실제로
+    //       벗어날 때까지 just-acted 를 유지한다.
+    var _HOVER_TRIGGER_SEL = '.cell-name__wrap, .sector-card__stock, .stock-card__top, .compact-row, .detail-stock';
+
     function _suppressJustActed(wrap) {
         if (!wrap) return;
         wrap.classList.add('ctrl-wrap--just-acted');
         var clear = function () { wrap.classList.remove('ctrl-wrap--just-acted'); };
-        wrap.addEventListener('mouseleave', clear, { once: true });
-        wrap.addEventListener('touchstart', clear, { once: true, passive: true });
-        // 안전장치: 마우스가 영역 밖으로 영영 안 나가는 경우(브라우저 비활성화 등)
-        // 2초 뒤 자동 해제. UX 영향 없음 — 사용자가 다음에 호버 시작할 때 정상 노출.
+        var leaveTarget = (wrap.parentElement && wrap.parentElement.closest(_HOVER_TRIGGER_SEL)) || wrap;
+        leaveTarget.addEventListener('mouseleave', clear, { once: true });
+        leaveTarget.addEventListener('touchstart', clear, { once: true, passive: true });
+        // 안전장치: 마우스가 영영 안 나가는 경우(브라우저 비활성화 등) 2초 후 자동 해제.
         setTimeout(clear, 2000);
     }
     function _closeOpenPanels() {
@@ -213,6 +219,7 @@
         });
     }
     // ratings 를 변경한 액션(별점/X) 후: wrap 통째 교체 + just-acted 적용.
+    // attached 전에 클래스 부여해서 paint frame 사이의 hover 깜빡임도 막는다.
     refreshControlsUI = function (ticker) {
         var ratings = getRatings();
         _closeOpenPanels();
@@ -223,8 +230,9 @@
             tmp.innerHTML = controlsHtml(ticker, ratings);
             var newWrap = tmp.firstElementChild;
             if (!newWrap) return;
+            newWrap.classList.add('ctrl-wrap--just-acted'); // attach 전에 미리 부여
             wrap.replaceWith(newWrap);
-            _suppressJustActed(newWrap);
+            _suppressJustActed(newWrap);                    // 해제 리스너 등록
         });
     };
     // 메모처럼 ratings 를 즉시 변경하지 않는 액션 후: 교체 없이 호버만 닫는다.
