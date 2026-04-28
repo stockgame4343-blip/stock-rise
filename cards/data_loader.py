@@ -345,10 +345,18 @@ def build_pre(day):
     }
 
 
-def build_pre2(day, us_indices):
-    """카드 2 — 미국 마감. 3 지수 + mood 한 줄."""
+def build_pre2(day, us_indices, dawn_data=None):
+    """카드 2 — 미국 마감. 3 지수 + 무드 + 마켓 무빙 헤드라인 N개."""
     if not us_indices:
         return None
+    headlines = []
+    if dawn_data:
+        for h in (dawn_data.get('headlines') or [])[:config.PRE2_HEADLINES_TOP]:
+            headlines.append({
+                'rank': f"{len(headlines) + 1:02d}",
+                'title': h['title'],
+                'impact': h.get('impact') or '',
+            })
     return {
         'series': 'pre',
         'date_full': day['date_full'],
@@ -365,6 +373,7 @@ def build_pre2(day, us_indices):
             if v
         ],
         'mood_text': ts.market_mood(us_indices),
+        'headlines': headlines,
     }
 
 
@@ -552,7 +561,7 @@ def build_all(yyyymmdd, us_indices=None, kr_indices=None, dawn_data=None, fallba
     return {
         'pre0':    build_pre0(day, dawn_data),
         'pre':     build_pre(day),
-        'pre2':    build_pre2(day, us_indices),
+        'pre2':    build_pre2(day, us_indices, dawn_data),
         'pre3':    build_pre3(day),
         'leader':  build_leader(day),
         'leader2': build_leader2(day),

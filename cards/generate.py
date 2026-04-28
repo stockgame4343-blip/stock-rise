@@ -121,6 +121,9 @@ def _validate_text(cards):
         # pre·pre3·close·close2·leader2 — 가장 강한 테마는 시리즈 다수에 등장 가능
         if set(unique) <= {'pre', 'pre3', 'close', 'close2', 'leader2'}:
             continue
+        # pre0(새벽 브리핑)·pre2(뉴욕 마감) — 같은 마켓 무빙 헤드라인 공유 OK
+        if set(unique) <= {'pre0', 'pre2'}:
+            continue
         failures.append(f"중복 문장 {unique}: {text!r}")
     return failures
 
