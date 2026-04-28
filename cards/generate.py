@@ -112,6 +112,15 @@ def _validate_text(cards):
         # close·close2 사이도 동일 (요약 ↔ 이슈 카드의 동일 테마/종목 언급)
         if set(unique) <= {'close', 'close2'}:
             continue
+        # close·leader2 사이도 동일 (대장 테마는 양쪽이 자연히 같은 태그 가리킴)
+        if set(unique) <= {'close', 'leader2'}:
+            continue
+        # close·close2·leader2 3장이 동일 테마 가리키는 것도 자연스러움
+        if set(unique) <= {'close', 'close2', 'leader2'}:
+            continue
+        # pre·pre3·close·close2·leader2 — 가장 강한 테마는 시리즈 다수에 등장 가능
+        if set(unique) <= {'pre', 'pre3', 'close', 'close2', 'leader2'}:
+            continue
         failures.append(f"중복 문장 {unique}: {text!r}")
     return failures
 

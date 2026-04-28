@@ -212,9 +212,64 @@ def load_summary(yyyymmdd):
 
 # ─── 카드별 빌더 ────────────────────────────────────
 
-def _big_themes(day):
-    """키워드 카드용 — 종목수 ≥ KEYWORD_MIN_THEME_MEMBERS 테마만."""
-    return [t for t in day['themes'] if t['count'] >= config.KEYWORD_MIN_THEME_MEMBERS]
+def _theme_prefix(tag):
+    """테마 태그 첫 단어 — sector dedupe 용. '철강 중소형' → '철강', '반도체 장비' → '반도체'."""
+    if not tag:
+        return ''
+    # 공백 또는 슬래시 분리 시도
+    for sep in (' ', '/'):
+        if sep in tag:
+            return tag.split(sep)[0].strip()
+    return tag
+
+
+def _big_themes(day, target_count=None):
+    """키워드 카드용 — 종목수 ≥ KEYWORD_MIN_THEME_MEMBERS 테마.
+
+    - target_count 지정 시: 후보 부족하면 KEYWORD_FALLBACK_STEPS 단계로 임계 완화.
+    - 같은 sector prefix (첫 단어) 가 여러 개면 평균등락률 1위만 채택해 다양성 확보.
+      예: '철강 중소형' + '철강 주요종목' → 1개만.
+    """
+    themes_sorted = sorted(day['themes'], key=lambda t: -t['avg_rate'])
+    primary = [t for t in themes_sorted if t['count'] >= config.KEYWORD_MIN_THEME_MEMBERS]
+
+    candidates = list(primary)
+    if target_count and len(candidates) < target_count:
+        seen_tags = {t['tag'] for t in candidates}
+        for threshold in config.KEYWORD_FALLBACK_STEPS:
+            if len(candidates) >= target_count:
+                break
+            if threshold >= config.KEYWORD_MIN_THEME_MEMBERS:
+                continue
+            extra = [t for t in themes_sorted
+                     if t['count'] >= threshold and t['tag'] not in seen_tags]
+            for t in extra:
+                if len(candidates) >= target_count:
+                    break
+                candidates.append(t)
+                seen_tags.add(t['tag'])
+
+    # Sector prefix dedupe — 첫 단어 같으면 평균등락률 1위만 (이미 정렬됨)
+    seen_prefix = set()
+    deduped = []
+    for t in candidates:
+        prefix = _theme_prefix(t['tag'])
+        if prefix and len(prefix) <= 4 and prefix in seen_prefix:
+            continue
+        if prefix and len(prefix) <= 4:
+            seen_prefix.add(prefix)
+        deduped.append(t)
+
+    # dedupe 후 target 미달이면 빠진 후보 보충 (다양성보다 슬롯 채움 우선)
+    if target_count and len(deduped) < target_count:
+        seen_tags = {t['tag'] for t in deduped}
+        for t in candidates:
+            if len(deduped) >= target_count:
+                break
+            if t['tag'] not in seen_tags:
+                deduped.append(t)
+                seen_tags.add(t['tag'])
+    return deduped
 
 
 def build_pre0(day, dawn_data):
@@ -269,7 +324,7 @@ def build_pre0(day, dawn_data):
 
 def build_pre(day):
     """카드 1 — 키워드 4개. 한 카드 = 4 핵심 테마, 메타 최소."""
-    top = _big_themes(day)[:config.TOP_THEMES_PRE]
+    top = _big_themes(day, target_count=config.TOP_THEMES_PRE)[:config.TOP_THEMES_PRE]
     if not top:
         return None
     return {
@@ -315,7 +370,7 @@ def build_pre2(day, us_indices):
 
 def build_pre3(day):
     """카드 3 — 4테마 × 대장 1명만 (한 줄에 테마+종목+%)."""
-    top = _big_themes(day)[:config.TOP_THEMES_PRE3]
+    top = _big_themes(day, target_count=config.TOP_THEMES_PRE3)[:config.TOP_THEMES_PRE3]
     if not top:
         return None
     return {
@@ -361,11 +416,20 @@ def build_leader(day):
 
 
 def build_leader2(day):
-    """카드 5 — 대장 테마 + 멤버 5명."""
+    """카드 5 — 대장 테마 + 멤버 5명.
+
+    대장주 테마 멤버 수가 LEADER2_RICH_THEME_MIN 미만이면 day 의 가장 풍부한
+    테마(종목수 ≥ MIN, avg_rate 1위)로 대체 — 카드가 휑하게 나오는 것 방지.
+    """
     leader = _select_leader_stock(day['rankings'])
     if not leader:
         return None
     top_theme = _theme_group_for(leader, day['themes'])
+    if top_theme['count'] < config.LEADER2_RICH_THEME_MIN:
+        rich = [t for t in day['themes'] if t['count'] >= config.LEADER2_RICH_THEME_MIN]
+        if rich:
+            # 종목수 우선, 동일하면 평균등락률 우선
+            top_theme = max(rich, key=lambda t: (t['count'], t['avg_rate']))
     if top_theme['count'] < config.MIN_THEME_MEMBERS:
         return None
     members = top_theme['members'][:config.LEADER_MEMBERS_TOP]
@@ -447,7 +511,7 @@ def build_close(day, kr_indices, summary):
 
 def build_close2(day):
     """카드 7 — 핵심 이슈 3장만 (큰 글씨)."""
-    big = _big_themes(day)
+    big = _big_themes(day, target_count=config.TOP_ISSUES_CLOSE2)
     if not big:
         return None
     issue_themes = big[:config.TOP_ISSUES_CLOSE2]

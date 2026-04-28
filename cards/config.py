@@ -48,6 +48,8 @@ NY_NOTES_TOP = 0           # pre2  — 한국 시장 관점 노트 제거
 MIN_THEME_MEMBERS = 2          # _group_by_theme 일반 임계
 MIN_SECTOR_MEMBERS = 2
 KEYWORD_MIN_THEME_MEMBERS = 5  # pre/pre3 카드 키워드 — 의미 있는 큰 테마만 (종목수 ≥ N)
+KEYWORD_FALLBACK_STEPS = (4, 3, 2)  # 위 임계로 슬롯 못 채우면 단계적 완화
+LEADER2_RICH_THEME_MIN = 4     # leader2 — 대장주 테마 멤버 < N 이면 day 풍부한 테마로 대체
 LIMIT_UP_THRESHOLD = 29.5     # 상한가 (KOSPI/KOSDAQ 30%, 노이즈 여유 0.5%p)
 LEADER_MIN_RATE = 15.0        # 대장주 후보 강세 임계 (이상 종목 중 거래대금 1위 = 그 날 대장주)
 STRONG_THEME_AVG = 5.0        # close.png "강세 테마" 카운팅 임계
