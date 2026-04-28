@@ -217,6 +217,56 @@ def _big_themes(day):
     return [t for t in day['themes'] if t['count'] >= config.KEYWORD_MIN_THEME_MEMBERS]
 
 
+def build_pre0(day, dawn_data):
+    """카드 0 — 새벽 브리핑. 네이버 큐레이션 헤드라인 + 매크로 한 줄.
+
+    Args:
+        day: load_day() 결과 (날짜 라벨용)
+        dawn_data: dawn_brief.fetch() 결과 — {'headlines': [...], 'macro': {...}}
+                   None 또는 {} 면 카드 스킵.
+    """
+    if not dawn_data:
+        return None
+    headlines = dawn_data.get('headlines') or []
+    macro = dawn_data.get('macro') or {}
+    if not headlines and not macro:
+        return None  # 둘 다 없으면 카드 의미 없음
+
+    # 매크로 한 줄 포맷팅 — 데이터 있는 것만
+    macro_items = []
+    if macro.get('nasdaq'):
+        m = macro['nasdaq']
+        macro_items.append({'name': 'NASDAQ', 'value': f"{m['close']:,.0f}", 'pct': m['pct']})
+    if macro.get('sp500'):
+        m = macro['sp500']
+        macro_items.append({'name': 'S&P 500', 'value': f"{m['close']:,.0f}", 'pct': m['pct']})
+    if macro.get('vix'):
+        m = macro['vix']
+        macro_items.append({'name': 'VIX', 'value': f"{m['close']:,.1f}", 'pct': m['pct']})
+    if macro.get('usdkrw'):
+        m = macro['usdkrw']
+        macro_items.append({'name': 'USD/KRW', 'value': f"{m['close']:,.0f}", 'pct': m['pct']})
+
+    return {
+        'series': 'pre',
+        'date_full': day['date_full'],
+        'label': '★ 새벽 브리핑',
+        'title_top': '새벽 브리핑',
+        'title_em': '간밤에 일어난 큰 일',
+        'subtitle': '국장 흔들 만큼 큼지막한 일만',
+        'headlines': [
+            {
+                'rank': f"{i + 1:02d}",
+                'title': h['title'],
+                'impact': h.get('impact') or '',
+            }
+            for i, h in enumerate(headlines[:config.TOP_DAWN_HEADLINES])
+        ],
+        'macro': macro_items,
+        'source_note': '출처: 네이버 금융 마켓뉴스',
+    }
+
+
 def build_pre(day):
     """카드 1 — 키워드 4개. 한 카드 = 4 핵심 테마, 메타 최소."""
     top = _big_themes(day)[:config.TOP_THEMES_PRE]
@@ -422,19 +472,21 @@ def build_close2(day):
 
 # ─── 진입점 ─────────────────────────────────────────
 
-def build_all(yyyymmdd, us_indices=None, kr_indices=None, fallback=False):
-    """카드 7장 입력 dict 한 번에 빌드.
+def build_all(yyyymmdd, us_indices=None, kr_indices=None, dawn_data=None, fallback=False):
+    """카드 8장 입력 dict 한 번에 빌드.
 
     Args:
         yyyymmdd: 거래일 (예: '20260424')
         us_indices: {'sp500': {...}, 'nasdaq': {...}, 'dow': {...}} 또는 None
         kr_indices: {'kospi': {...}, 'kosdaq': {...}} 또는 None
+        dawn_data: {'headlines': [...], 'macro': {...}} 또는 None — pre0(새벽 브리핑)
         fallback: True 면 오늘 데이터 없을 때 가장 최근 거래일 데이터 사용
-                  (PRE 시리즈가 장전 07:30 에 만들어질 때)
+                  (PRE 시리즈가 장전 08:05 에 만들어질 때)
     """
     day = load_day(yyyymmdd, fallback=fallback)
     summary = load_summary(day['data_date']) or load_summary(yyyymmdd)
     return {
+        'pre0':    build_pre0(day, dawn_data),
         'pre':     build_pre(day),
         'pre2':    build_pre2(day, us_indices),
         'pre3':    build_pre3(day),

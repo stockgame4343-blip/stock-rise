@@ -26,7 +26,7 @@ from datetime import datetime
 
 from . import (
     config, data_loader, renderer, text_synth, to_png,
-    us_indices, kr_indices,
+    us_indices, kr_indices, dawn_brief,
 )
 
 
@@ -117,7 +117,7 @@ def _validate_text(cards):
 
 
 SERIES_CARDS = {
-    'pre':     ('pre', 'pre2', 'pre3'),         # 평일 07:30 — 장전 키워드 + NY 마감 + 주도 종목
+    'pre':     ('pre0', 'pre', 'pre2', 'pre3'),         # 평일 08:05 — 새벽 브리핑 + 키워드 + NY 마감 + 주도 종목
     'closing': ('leader', 'leader2', 'close', 'close2'),  # 평일 16:30 — 대장주 + 마감 + 이슈
     'all':     renderer.CARD_NAMES,
 }
@@ -134,10 +134,21 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False, series='all'):
 
     us = us_indices.fetch(date) if fetch_us else None
     kr = kr_indices.fetch(date) if fetch_kr else None
-    log.info(f"  지수: us={'OK' if us else 'SKIP'}, kr={'OK' if kr else 'SKIP'}")
+    # 새벽 브리핑(pre0) 데이터는 PRE/all 시리즈일 때만 fetch — closing 에서는 불필요
+    if series in ('pre', 'all'):
+        try:
+            dawn = dawn_brief.fetch()
+        except Exception as exc:
+            log.warning("dawn_brief fetch 실패: %s", exc)
+            dawn = None
+    else:
+        dawn = None
+    log.info(f"  지수: us={'OK' if us else 'SKIP'}, kr={'OK' if kr else 'SKIP'}, "
+             f"dawn={'OK' if dawn else 'SKIP'}")
 
     fallback = (series == 'pre')
-    cards = data_loader.build_all(date, us_indices=us, kr_indices=kr, fallback=fallback)
+    cards = data_loader.build_all(date, us_indices=us, kr_indices=kr,
+                                  dawn_data=dawn, fallback=fallback)
     log.info(f"  meta: {cards['_meta']}")
 
     # 검열·중복 검증은 대상 카드만
@@ -211,6 +222,7 @@ def generate(date, fetch_us=True, fetch_kr=True, dry=False, series='all'):
 
 # 카드 메타 (report.js / cards.html 공용)
 CARD_META = {
+    'pre0':    ('pre',    '새벽 브리핑'),
     'pre':     ('pre',    '장전 키워드'),
     'pre2':    ('pre',    '뉴욕 마감'),
     'pre3':    ('pre',    '주도 종목'),
@@ -219,7 +231,7 @@ CARD_META = {
     'close':   ('close',  '마감 한줄'),
     'close2':  ('close',  '마감 이슈·섹터'),
 }
-NAME_ORDER = ('pre', 'pre2', 'pre3', 'leader', 'leader2', 'close', 'close2')
+NAME_ORDER = ('pre0', 'pre', 'pre2', 'pre3', 'leader', 'leader2', 'close', 'close2')
 
 
 def _update_cards_index(date, generated):

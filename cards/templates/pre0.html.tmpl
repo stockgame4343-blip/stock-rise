@@ -1,0 +1,119 @@
+{% extends "base.html.tmpl" %}
+{% block style %}
+.title { margin-top: 56px; font-size: 110px; }
+.subtitle { margin-top: 16px; font-size: 30px; color: {{ tokens.muted }}; font-weight: 600; letter-spacing: -0.01em; }
+
+.headlines { margin-top: 56px; display: flex; flex-direction: column; gap: 22px; position: relative; z-index: 2; }
+.hl {
+  background: {{ tokens.card_bg }};
+  border: 1px solid {{ tokens.card_border }};
+  border-radius: 24px;
+  padding: 24px 30px;
+  display: grid;
+  grid-template-columns: 64px 1fr;
+  gap: 18px;
+  align-items: start;
+}
+.hl-num {
+  font-size: 38px;
+  font-weight: 900;
+  color: {{ tokens.accent }};
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+.hl-body { min-width: 0; }
+.hl-title {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.25;
+  color: #fff;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.hl-impact {
+  margin-top: 8px;
+  font-size: 22px;
+  font-weight: 700;
+  color: {{ tokens.accent2 }};
+  letter-spacing: -0.01em;
+}
+.hl-impact::before { content: '→ '; opacity: .85; }
+
+.macro-bar {
+  margin-top: 36px;
+  background: {{ tokens.hot_bg2 }};
+  border: 1px solid {{ tokens.card_border }};
+  border-radius: 22px;
+  padding: 22px 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px 28px;
+  position: relative;
+  z-index: 2;
+}
+.m-item {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 24px;
+  letter-spacing: -0.01em;
+}
+.m-name { color: {{ tokens.muted }}; font-weight: 700; }
+.m-value { color: #fff; font-weight: 900; }
+.m-pct { font-weight: 800; min-width: 92px; text-align: right; }
+.m-pct--up { color: {{ tokens.accent2 }}; }
+.m-pct--dn { color: #5b9df9; }
+.m-pct--flat { color: {{ tokens.text_dim }}; }
+
+.source-note {
+  margin-top: 24px;
+  font-size: 18px;
+  font-weight: 600;
+  color: {{ tokens.text_dim }};
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
+}
+{% endblock %}
+
+{% block content %}
+<h1 class="title">{{ data.title_top }}</h1>
+<div class="subtitle">{{ data.subtitle }}</div>
+
+{% if data.headlines %}
+<div class="headlines">
+  {% for h in data.headlines %}
+  <div class="hl">
+    <div class="hl-num">{{ h.rank }}</div>
+    <div class="hl-body">
+      <div class="hl-title">{{ h.title }}</div>
+      {% if h.impact %}<div class="hl-impact">{{ h.impact }}</div>{% endif %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if data.macro %}
+<div class="macro-bar">
+  {% for m in data.macro %}
+  <div class="m-item">
+    <span class="m-name">{{ m.name }}</span>
+    <span class="m-value">{{ m.value }}</span>
+    <span class="m-pct {% if m.pct > 0.05 %}m-pct--up{% elif m.pct < -0.05 %}m-pct--dn{% else %}m-pct--flat{% endif %}">
+      {%- if m.pct > 0.05 -%}+{{ '%.1f' % m.pct }}%
+      {%- elif m.pct < -0.05 -%}{{ '%.1f' % m.pct }}%
+      {%- else -%}0.0%
+      {%- endif -%}
+    </span>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if data.source_note %}<div class="source-note">{{ data.source_note }}</div>{% endif %}
+{% endblock %}

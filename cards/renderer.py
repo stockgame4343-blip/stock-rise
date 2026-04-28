@@ -11,7 +11,7 @@ from jinja2 import Environment, FileSystemLoader, select_autoescape
 from . import config
 
 
-CARD_NAMES = ('pre', 'pre2', 'pre3', 'leader', 'leader2', 'close', 'close2')
+CARD_NAMES = ('pre0', 'pre', 'pre2', 'pre3', 'leader', 'leader2', 'close', 'close2')
 
 
 def _make_env():
