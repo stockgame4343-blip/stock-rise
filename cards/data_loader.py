@@ -334,7 +334,7 @@ def build_pre(day):
         'series': 'pre',
         'date_full': day['date_full'],
         'label': '★ 주도 키워드',
-        'title_top': '오늘 달궜던',
+        'title_top': '어제 달궜던',
         'title_em': '키워드',
         'keywords': [
             {
@@ -403,7 +403,7 @@ def build_pre3(day):
         'series': 'pre',
         'date_full': day['date_full'],
         'label': '★ 테마별 대장',
-        'title_top': '오늘의',
+        'title_top': '어제의',
         'title_em': '대장 종목',
         'themes': [
             {

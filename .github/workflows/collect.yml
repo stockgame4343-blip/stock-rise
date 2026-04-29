@@ -1,7 +1,16 @@
 name: 주식 데이터 수집
 
 on:
-  # schedule 제거 — 외부 cron (cron-job.org → Vercel API → repository_dispatch)으로 대체
+  # GitHub Actions native cron — 외부 cron-job.org 호출 누락 대비 백업·이중화
+  # 평일 KST 09:06~14:36 30분 간격 (intraday) + 15:36 / 16:06 (closing)
+  schedule:
+    # KST 09:06~14:36 (UTC 00:06~05:36) 30분 간격, 평일
+    - cron: '6,36 0,1,2,3,4,5 * * 1-5'
+    # KST 15:36 (UTC 06:36) — closing 1차
+    - cron: '36 6 * * 1-5'
+    # KST 16:06 (UTC 07:06) — closing 최종
+    - cron: '6 7 * * 1-5'
+
   workflow_dispatch:
     inputs:
       mode:
@@ -11,6 +20,11 @@ on:
 
   repository_dispatch:
     types: [collect]
+
+# 동시 실행 방지 — 외부 cron + native cron 거의 같은 시각 트리거 시 race condition 회피
+concurrency:
+  group: collect
+  cancel-in-progress: false
 
 env:
   TZ: Asia/Seoul
