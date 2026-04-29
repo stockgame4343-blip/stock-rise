@@ -614,7 +614,7 @@
             var scoreCls = s.score >= 70 ? 'high' : (s.score >= 40 ? 'mid' : 'low');
             html += '<div class="detail-stock" data-url="' + url + '">';
             html += '<span class="detail-stock__rank">' + (idx + 1) + '</span>';
-            html += '<span class="detail-stock__name"><span class="score-click detail-stock__link" data-ticker="' + s.ticker + '">' + s.name + '</span><span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
+            html += '<span class="detail-stock__name"><a class="score-click detail-stock__link" href="' + url + '" target="_blank" rel="noopener" data-ticker="' + s.ticker + '">' + s.name + '</a><span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="detail-stock__rate">+' + s.change_rate.toFixed(2) + '%</span>';
             html += '<span class="score-badge score-badge--' + scoreCls + '" style="font-size:11px;width:32px;height:22px">' + s.score + '</span>';
             html += '</div>';
@@ -1077,8 +1077,9 @@
             html += '</div>';
             html += '<div class="sector-card__stocks">';
             topStocks.forEach(function (s) {
+                var stockUrl = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
                 html += '<div class="sector-card__stock">';
-                html += '<span class="sector-card__stock-name"><span class="sector-card__stock-name-text score-click" data-ticker="' + s.ticker + '" title="' + s.name + '">' + s.name + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
+                html += '<span class="sector-card__stock-name"><a class="sector-card__stock-name-text score-click" href="' + stockUrl + '" target="_blank" rel="noopener" data-ticker="' + s.ticker + '" title="' + s.name + '">' + s.name + '</a>' + controlsHtml(s.ticker, ratings) + '</span>';
                 html += '<span class="sector-card__stock-rate">+' + s.change_rate.toFixed(2) + '%</span>';
                 html += '</div>';
             });
@@ -1272,11 +1273,12 @@
         // 돌파 먼저
         highList.forEach(function (item) {
             var s = item.stock;
-            html += '<div class="compact-row score-click" data-ticker="' + s.ticker + '">';
+            var sUrl = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
+            html += '<a class="compact-row score-click" href="' + sUrl + '" target="_blank" rel="noopener" data-ticker="' + s.ticker + '">';
             html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="compact-row__tag--break">52주 최고가 돌파</span>';
             html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
-            html += '</div>';
+            html += '</a>';
         });
 
         // 근접: 최근 → 과거 순
@@ -1287,11 +1289,12 @@
                 var days = daysSince(s.high_52w_date, currentDate);
                 if (days >= 0) daysText = days + '일 전 ';
             }
-            html += '<div class="compact-row score-click" data-ticker="' + s.ticker + '">';
+            var sUrl = 'https://finance.naver.com/item/main.naver?code=' + s.ticker;
+            html += '<a class="compact-row score-click" href="' + sUrl + '" target="_blank" rel="noopener" data-ticker="' + s.ticker + '">';
             html += '<span class="compact-row__name">' + s.name + '<span class="compact-row__market">' + s.market + '</span>' + controlsHtml(s.ticker, ratings) + '</span>';
             html += '<span class="compact-row__tag">' + daysText + '고점 대비 -' + item.gap + '%</span>';
             html += '<span class="compact-row__rate compact-row__rate--up">+' + s.change_rate.toFixed(2) + '%</span>';
-            html += '</div>';
+            html += '</a>';
         });
 
         html += '</div>';
@@ -1515,10 +1518,12 @@
             }
             return;
         }
-        // 종목명 클릭 → 대장점수 팝업
+        // 종목명 클릭 → 대장점수 팝업 (Ctrl/Cmd/Shift/중간버튼 → 네이버 새 탭)
         if (e.target.closest('.float-controls')) return;
         var scoreEl = e.target.closest('.score-click');
         if (scoreEl) {
+            // 보조키 클릭은 a 태그 기본 동작(네이버 새 탭) 유지 — 대시보드와 동일
+            if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
             e.preventDefault();
             e.stopPropagation();
             var ticker = scoreEl.getAttribute('data-ticker');
@@ -1745,9 +1750,11 @@
         // float-controls 나머지 영역 클릭은 무시
         if (e.target.closest('.float-controls')) return;
 
-        // 종목명/종목 행 클릭 → 대장점수 팝업 (a 태그 클릭은 제외)
+        // 종목명/종목 행 클릭 → 대장점수 팝업
+        // score-click 자체가 a 태그 (네이버 링크) — 보조키 클릭은 a 기본 동작(새 탭) 유지
         var scoreEl = e.target.closest('.score-click');
-        if (scoreEl && !e.target.closest('a')) {
+        if (scoreEl) {
+            if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
             e.preventDefault();
             e.stopPropagation();
             var ticker = scoreEl.getAttribute('data-ticker');
@@ -1755,11 +1762,12 @@
             return;
         }
 
-        // detail-stock 행 클릭 → 대장점수 팝업
+        // detail-stock 행의 score-click 밖 영역 클릭 → 대장점수 팝업
         var stockRow = e.target.closest('.detail-stock');
-        if (stockRow && !e.target.closest('a')) {
-            var ticker = stockRow.querySelector('.score-click');
-            if (ticker) openScoreDetail(ticker.getAttribute('data-ticker'));
+        if (stockRow) {
+            if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+            var scoreInRow = stockRow.querySelector('.score-click');
+            if (scoreInRow) openScoreDetail(scoreInRow.getAttribute('data-ticker'));
             return;
         }
 

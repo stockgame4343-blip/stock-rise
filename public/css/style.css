@@ -195,8 +195,9 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .score-badge--low{background:rgba(255,99,72,.15);color:var(--orange)}
 .score-badge--none{background:rgba(90,90,112,.15);color:var(--text-muted)}
 .score-detail{font-size:11px;color:var(--text-muted);margin-top:2px;white-space:nowrap}
-.score-click{cursor:pointer;transition:opacity .15s}
-.score-click:hover{opacity:.7}
+.score-click{cursor:pointer;transition:opacity .15s;color:inherit;text-decoration:none}
+.score-click:hover{opacity:.7;text-decoration:none}
+.score-click:visited{color:inherit}
 /* 모바일 전용 미니 점수 배지 — PC 에서는 숨김 (cell-score td 가 대신 표시) */
 .score-click--mini{display:none}
 
