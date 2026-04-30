@@ -20,6 +20,7 @@ from news_crawler import (
     crawl_toss_ai_signals,
 )
 from scorer import calculate_daejang_score, generate_rise_reason, calculate_trading_intensity, extract_theme_tag, extract_theme_from_reason, extract_news_keywords, load_user_bad_tags
+from forward_score import calculate_forward_score
 from naver_mapping import load_mapping, resolve_themes, resolve_industry, get_theme_rates
 from pullback_snapshot import build_snapshot as build_pullback_snapshot
 
@@ -512,6 +513,24 @@ def collect_and_save(date_str=None, mode='closing'):
             'rise_reason': rs['reason'],
             'news': rs['news'],
         })
+
+    # ─── forward_score (v2 — ML 분석 기반 미래 상승 가산점) ───
+    # backtest_score.py 결과: 원본 score 대비 corr 0.28 → 0.29 약간 개선.
+    # 가산점: small_size(0~6, 거래대금 작을수록) + consec_limit_up(0~5, 연속 상한가).
+    # history_data 가 있으면 연속 상한가 카운트 가능.
+    for entry, rs in zip(rankings, resolved_stocks):
+        # rankings 의 dict 와 동일 ticker 의 collector 내부 stock 객체 매칭
+        # forward_score.calculate_forward_score 는 close_price·trading_value·score 등 사용
+        # stock_for_fwd 에 score 도 미리 주입 (기본 score 활용)
+        stock_for_fwd = dict(entry)
+        fwd = calculate_forward_score(
+            stock_for_fwd,
+            history_data=history_data,
+            pullbacks=None,  # 본장 collector 는 풀백 미보유 — pullback_snapshot 별도 단계
+        )
+        entry['forward_score'] = fwd['forward_total']
+        entry['forward_bonus'] = fwd['forward_bonus']
+        entry['forward_detail'] = fwd['forward_detail']
 
     # 테마 캐시 갱신
     if new_theme_tags:
