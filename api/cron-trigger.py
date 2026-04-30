@@ -20,7 +20,11 @@ KST = timezone(timedelta(hours=9))
 # - collect : 수집 워크플로우 (intraday/closing)
 # - cards   : 카드뉴스 자동 생성 (pre/closing)
 SCHEDULE = [
-    (8,  5,  'cards',   {'series': 'pre'}),       # 프리장 시작 직후 PRE 미리 생성 (본장 시작 전 노출)
+    # ── PRE 카드 다중 발사 — 외부 cron-job.org 한 번이라도 호출하면 PRE 카드 생성 ──
+    (7,  30, 'cards',   {'series': 'pre'}),       # primary
+    (8,  5,  'cards',   {'series': 'pre'}),       # 프리장 시작 직후
+    (8,  35, 'cards',   {'series': 'pre'}),       # backup 1
+    (9,  0,  'cards',   {'series': 'pre'}),       # 본장 시작 직전
     # ── 본장 30분 간격 (09:06~14:36, 12회) ──
     (9,  6,  'collect', {'mode': 'intraday'}),
     (9,  36, 'collect', {'mode': 'intraday'}),

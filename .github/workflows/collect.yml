@@ -147,3 +147,19 @@ jobs:
           git diff --staged --quiet || git commit -m "$MSG"
           git pull --rebase origin master
           git push
+
+      # 마지막 안전망 — 외부 cron + GitHub schedule 모두 누락된 worst case 보호
+      # collect 가 발사된다는 건 외부 cron-job.org 가 살아있음 → 그 발사 안에서 PRE 카드
+      # 부재 시 cards-generate workflow_dispatch 강제 호출. workflow_run 도 누락 가능하니 대안.
+      - name: Backup — dispatch cards generate if PRE missing
+        if: steps.mode.outputs.skip != 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          TODAY=$(date +%Y%m%d)
+          if [ ! -f "public/cards/${TODAY}-pre.png" ] || [ ! -f "public/cards/${TODAY}-pre0.png" ]; then
+            echo "오늘 PRE 카드 부재 — cards-generate workflow_dispatch 강제 호출"
+            gh workflow run cards-generate.yml -f series=pre -f date=$TODAY || true
+          else
+            echo "오늘 PRE 카드 존재 — 스킵"
+          fi

@@ -22,11 +22,13 @@ on:
   # PRE 시리즈: 07:30 / 08:05 / 09:00 / 09:30 KST 4중 발사. 한 슬롯 누락돼도 다음 슬롯 잡음.
   # CLOSING: 16:00 / 16:30 / 20:00 KST 3중 발사.
   schedule:
-    # ── PRE (어제 마감 데이터 fallback) ──
+    # ── PRE (어제 마감 데이터 fallback) — GitHub schedule 가끔 일괄 누락 ──
     - cron: '30 22 * * 0-4'   # UTC 22:30 일~목 = KST 07:30 월~금 — primary
     - cron: '5 23 * * 0-4'    # UTC 23:05 일~목 = KST 08:05 월~금 — backup 1
-    - cron: '0 0 * * 1-5'     # UTC 00:00 월~금 = KST 09:00 월~금 — backup 2 (장 시작 1분 전)
-    - cron: '30 0 * * 1-5'    # UTC 00:30 월~금 = KST 09:30 월~금 — backup 3 (장 시작 후)
+    - cron: '35 23 * * 0-4'   # UTC 23:35 일~목 = KST 08:35 월~금 — backup 2
+    - cron: '0 0 * * 1-5'     # UTC 00:00 월~금 = KST 09:00 월~금 — backup 3 (장 시작 1분 전)
+    - cron: '30 0 * * 1-5'    # UTC 00:30 월~금 = KST 09:30 월~금 — backup 4 (장 시작 후)
+    - cron: '0 1 * * 1-5'     # UTC 01:00 월~금 = KST 10:00 월~금 — backup 5
     # ── CLOSING ──
     - cron: '0 7 * * 1-5'     # UTC 07:00 = KST 16:00 — primary (마감 직후)
     - cron: '30 7 * * 1-5'    # UTC 07:30 = KST 16:30 — backup 1
@@ -84,12 +86,12 @@ jobs:
             [ -z "$SERIES" ] && SERIES="all"
           elif [ "$EVENT" = "schedule" ]; then
             HOUR_UTC=$(date -u +%H)
-            # PRE — UTC 22 / 23 / 00 (KST 07:30 / 08:05 / 09:00 / 09:30, 4중 발사)
+            # PRE — UTC 22 / 23 / 00 / 01 (KST 07:30 / 08:05 / 08:35 / 09:00 / 09:30 / 10:00)
             # CLOSING — UTC 07 / 11 (KST 16:00 / 16:30 / 20:00, 3중 발사)
             case "$HOUR_UTC" in
-              22|23|00) SERIES="pre" ;;
-              07|11)    SERIES="closing" ;;
-              *)        SERIES="all" ;;
+              22|23|00|01) SERIES="pre" ;;
+              07|11)       SERIES="closing" ;;
+              *)           SERIES="all" ;;
             esac
           elif [ "$EVENT" = "workflow_run" ]; then
             # collect.yml 성공 후
