@@ -1,6 +1,6 @@
 {
   "date": "20260430",
-  "collected_at": "2026-04-30T15:50:45",
+  "collected_at": "2026-04-30T16:21:57",
   "mode": "closing",
   "is_final": true,
   "count": 100,
@@ -14,7 +14,7 @@
       "close_price": 17810,
       "change_amount": 4110,
       "change_rate": 30.0,
-      "trading_value": 1986000000,
+      "trading_value": 1987000000,
       "market_cap": 584900000000,
       "sector": "도로와철도운송",
       "industry_no": 329,
@@ -36,8 +36,38 @@
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "유상증자 공시",
+      "rise_reason": "투자 관련 뉴스",
       "news": [
+        {
+          "title": "쏘카, 1500억 규모 자율주행 법인 설립…크래프톤 전략 투자 참여",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005515928&office_id=014&code=403550&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "쏘카, 1500억원 규모 자율주행 법인 설립...크래프톤 참여",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002420988&office_id=092&code=403550&page=&sm=",
+          "source": "지디넷코리아",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "쏘카, 크래프톤과 함께 1500억원 규모 자율주행 법인 설립",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001161170&office_id=366&code=403550&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "게임사가 자율주행을?… 쏘카·크래프톤 손 잡았다 [팩플]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003520284&office_id=025&code=403550&page=&sm=",
+          "source": "중앙일보",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "쏘카, 1천500억원 자율주행 법인 설립…크래프톤 투자자로 참여",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016053328&office_id=001&code=403550&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.04.30"
+        },
         {
           "title": "쏘카, 1500억 들여 국내 최대 자율주행 법인 만든다…크래프톤 참여",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005757370&office_id=277&code=403550&page=&sm=",
@@ -67,36 +97,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006270107&office_id=018&code=403550&page=&sm=",
           "source": "이데일리",
           "date": "2026.04.30"
-        },
-        {
-          "title": "\"FSD 되는 테슬라 빌려타면 되네?\"...쏘카 큰그림 엿보니",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002420838&office_id=092&code=403550&page=&sm=",
-          "source": "지디넷코리아",
-          "date": "2026.04.30"
-        },
-        {
-          "title": "쏘카, 650억원 규모 제3자배정 유상증자",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005757337&office_id=277&code=403550&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.04.30"
-        },
-        {
-          "title": "\"스르륵 눈치보고 끼어들기\"...'1주일 149만원' 쏘카, 모델X 타...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005350402&office_id=008&code=403550&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.04.28"
-        },
-        {
-          "title": "쏘카로 테슬라 FSD 탄다…자체 데이터로 자율주행 시동",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005755725&office_id=277&code=403550&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.04.28"
-        },
-        {
-          "title": "'억대' 테슬라 모델S \"일주일만 빌려볼까\"…쏘카 테슬라 타보니",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008914956&office_id=421&code=403550&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.04.28"
         }
       ],
       "forward_score": 67,
@@ -140,12 +140,6 @@
       "rise_reason": "공급 계약 체결",
       "news": [
         {
-          "title": "[공시pick] 선도전기, 78억 SK하이닉스 Y1지원시설 분전반 수주",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002376655&office_id=123&code=007610&page=&sm=",
-          "source": "조세일보",
-          "date": "2026.01.28"
-        },
-        {
           "title": "“4년 만에 웃습니다”… 거래 재개된 선도전기, 흑자 전환·경영 정상....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001161035&office_id=366&code=007610&page=&sm=",
           "source": "조선비즈",
@@ -182,6 +176,12 @@
           "date": "2026.04.29"
         },
         {
+          "title": "[속보] 9일 만에 방향 튼 코스피…개미, 1조 실탄 방어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001250754&office_id=215&code=007610&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.04.30"
+        },
+        {
           "title": "[이 시각 시황] 알파고 다음은 로보틱스…하사비스 \"AI로 인류 황금기...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000507580&office_id=374&code=007610&page=&sm=",
           "source": "SBS Biz",
@@ -215,7 +215,7 @@
       "close_price": 30550,
       "change_amount": 7050,
       "change_rate": 30.0,
-      "trading_value": 54564000000,
+      "trading_value": 54574000000,
       "market_cap": 396500000000,
       "sector": "기계",
       "industry_no": 299,
@@ -295,10 +295,10 @@
           "date": "2026.04.14"
         },
         {
-          "title": "[단독]위아공작기계·한양로보틱스, 美 USTR에 '301조 관세 면제'...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005748798&office_id=277&code=459510&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.04.13"
+          "title": "한화에어로스페이스 등 56개사 2억242만주, 5월 의무보유등록 해제",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005351885&office_id=008&code=459510&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.04.30"
         }
       ],
       "forward_score": 63,
@@ -518,14 +518,14 @@
       "close_price": 5100,
       "change_amount": 1175,
       "change_rate": 29.94,
-      "trading_value": 181179000000,
+      "trading_value": 27000000,
       "market_cap": 178000000000,
       "sector": "전기장비",
       "industry_no": 306,
       "high_52w": 5100,
       "high_52w_date": "20260430",
       "high_price": 5100,
-      "low_price": 4040,
+      "low_price": 5100,
       "theme_tag": "전선",
       "theme_tags": [
         "전선",
@@ -535,11 +535,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 76,
+      "score": 72,
       "score_detail": {
         "tp": 20,
         "tl": 45,
-        "ti": 11
+        "ti": 7
       },
       "rise_reason": "전선 인수 관련 뉴스",
       "news": [
@@ -604,10 +604,10 @@
           "date": "2026.04.23"
         }
       ],
-      "forward_score": 79,
-      "forward_bonus": 3,
+      "forward_score": 80,
+      "forward_bonus": 8,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 2
       }
     },
@@ -720,7 +720,7 @@
       "close_price": 8640,
       "change_amount": 1990,
       "change_rate": 29.92,
-      "trading_value": 30563000000,
+      "trading_value": 30566000000,
       "market_cap": 396300000000,
       "sector": "디스플레이장비및부품",
       "industry_no": 269,
@@ -922,14 +922,14 @@
       "close_price": 11740,
       "change_amount": 2300,
       "change_rate": 24.36,
-      "trading_value": 502318000000,
+      "trading_value": 1852000000,
       "market_cap": 583200000000,
       "sector": "화학",
       "industry_no": 272,
-      "high_52w": 12270,
+      "high_52w": 11740,
       "high_52w_date": "20260430",
-      "high_price": 12270,
-      "low_price": 9550,
+      "high_price": 11740,
+      "low_price": 11740,
       "theme_tag": "비료",
       "theme_tags": [
         "비료",
@@ -939,11 +939,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 55,
+      "score": 40,
       "score_detail": {
         "tp": 12,
-        "tl": 32,
-        "ti": 11
+        "tl": 21,
+        "ti": 7
       },
       "rise_reason": "비료 관련 뉴스",
       "news": [
@@ -1008,10 +1008,10 @@
           "date": "2026.04.13"
         }
       ],
-      "forward_score": 55,
-      "forward_bonus": 0,
+      "forward_score": 46,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 0,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -1023,7 +1023,7 @@
       "close_price": 266000,
       "change_amount": 45000,
       "change_rate": 20.36,
-      "trading_value": 660178000000,
+      "trading_value": 660362000000,
       "market_cap": 8143800000000,
       "sector": "전기장비",
       "industry_no": 306,
@@ -1054,22 +1054,28 @@
           "date": "2026.04.30"
         },
         {
+          "title": "산일전기 1분기 영업이익 555억원…작년 동기 대비 48%↑",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016053425&office_id=001&code=062040&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.04.30"
+        },
+        {
           "title": "산일전기, 블룸에너지향 503억 수주에 25% 급등[이런국장 저런주식]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004616391&office_id=011&code=062040&page=&sm=",
           "source": "서울경제",
           "date": "2026.04.30"
         },
         {
-          "title": "NH證 “산일전기, 이란 전쟁으로 변압기 수요 확대 기대…목표가 25만...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001159064&office_id=366&code=062040&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.04.23"
+          "title": "[속보] 9일 만에 방향 튼 코스피…개미, 1조 실탄 방어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001250754&office_id=215&code=062040&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.04.30"
         },
         {
-          "title": "[특징주] 美 AI 인프라 수요 증가에 전기장비株 강세",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001159440&office_id=366&code=062040&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.04.24"
+          "title": "코스피, 국제유가 급등에 6600선 아래로…코스닥 2%대 급락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005281847&office_id=015&code=062040&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.04.30"
         },
         {
           "title": "투자의견 하향에도 굴하지 않는다…SK하이닉스, 한미반도체 신고가 돌.....",
@@ -1100,12 +1106,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005754715&office_id=277&code=062040&page=&sm=",
           "source": "아시아경제",
           "date": "2026.04.26"
-        },
-        {
-          "title": "K증시 상승세 계속…전력설비·반도체·조선주에 시선 집중 [매경 자이.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005671037&office_id=009&code=062040&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.04.24"
         }
       ],
       "forward_score": 63,
@@ -1123,14 +1123,14 @@
       "close_price": 1739,
       "change_amount": 282,
       "change_rate": 19.35,
-      "trading_value": 61226000000,
+      "trading_value": 73000000,
       "market_cap": 92500000000,
       "sector": "핸드셋",
       "industry_no": 292,
       "high_52w": 2235,
       "high_52w_date": "20260123",
-      "high_price": 1888,
-      "low_price": 1450,
+      "high_price": 1739,
+      "low_price": 1739,
       "theme_tag": "카메라모듈/부품",
       "theme_tags": [
         "카메라모듈/부품",
@@ -1140,11 +1140,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 57,
+      "score": 53,
       "score_detail": {
         "tp": 14,
         "tl": 32,
-        "ti": 11
+        "ti": 7
       },
       "rise_reason": "매출 관련 뉴스",
       "news": [
@@ -1174,9 +1174,9 @@
         }
       ],
       "forward_score": 59,
-      "forward_bonus": 2,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 2,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -1188,7 +1188,7 @@
       "close_price": 5960,
       "change_amount": 940,
       "change_rate": 18.73,
-      "trading_value": 1584000000,
+      "trading_value": 1586000000,
       "market_cap": 153200000000,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -1289,7 +1289,7 @@
       "close_price": 4010,
       "change_amount": 630,
       "change_rate": 18.64,
-      "trading_value": 82648000000,
+      "trading_value": 82685000000,
       "market_cap": 109400000000,
       "sector": "IT서비스",
       "industry_no": 267,
@@ -1306,10 +1306,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 50,
+      "score": 57,
       "score_detail": {
         "tp": 14,
-        "tl": 25,
+        "tl": 32,
         "ti": 11
       },
       "rise_reason": "투자 관련 뉴스",
@@ -1327,7 +1327,7 @@
           "date": "2026.03.12"
         }
       ],
-      "forward_score": 52,
+      "forward_score": 59,
       "forward_bonus": 2,
       "forward_detail": {
         "small_size": 2,
@@ -1342,7 +1342,7 @@
       "close_price": 2355,
       "change_amount": 355,
       "change_rate": 17.75,
-      "trading_value": 745193000000,
+      "trading_value": 745310000000,
       "market_cap": 13200000000,
       "sector": "창업투자",
       "industry_no": 277,
@@ -1382,7 +1382,7 @@
       "close_price": 8910,
       "change_amount": 1340,
       "change_rate": 17.7,
-      "trading_value": 148349000000,
+      "trading_value": 148634000000,
       "market_cap": 163100000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -1483,7 +1483,7 @@
       "close_price": 3880,
       "change_amount": 580,
       "change_rate": 17.58,
-      "trading_value": 4733000000,
+      "trading_value": 4735000000,
       "market_cap": 58700000000,
       "sector": "생명과학도구및서비스",
       "industry_no": 262,
@@ -1583,7 +1583,7 @@
       "close_price": 17100,
       "change_amount": 2450,
       "change_rate": 16.72,
-      "trading_value": 43216000000,
+      "trading_value": 43227000000,
       "market_cap": 399800000000,
       "sector": "핸드셋",
       "industry_no": 292,
@@ -1684,7 +1684,7 @@
       "close_price": 7010,
       "change_amount": 1000,
       "change_rate": 16.64,
-      "trading_value": 25467000000,
+      "trading_value": 25518000000,
       "market_cap": 83000000000,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -1784,7 +1784,7 @@
       "close_price": 2660,
       "change_amount": 375,
       "change_rate": 16.41,
-      "trading_value": 42557000000,
+      "trading_value": 42636000000,
       "market_cap": 99200000000,
       "sector": "에너지장비및서비스",
       "industry_no": 295,
@@ -1801,10 +1801,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 54,
+      "score": 65,
       "score_detail": {
         "tp": 16,
-        "tl": 27,
+        "tl": 38,
         "ti": 11
       },
       "rise_reason": "계약 체결",
@@ -1852,7 +1852,7 @@
           "date": "2026.04.03"
         }
       ],
-      "forward_score": 56,
+      "forward_score": 67,
       "forward_bonus": 2,
       "forward_detail": {
         "small_size": 2,
@@ -1867,14 +1867,14 @@
       "close_price": 8430,
       "change_amount": 1130,
       "change_rate": 15.48,
-      "trading_value": 213523000000,
+      "trading_value": 128000000,
       "market_cap": 295400000000,
       "sector": "전기장비",
       "industry_no": 306,
-      "high_52w": 9420,
+      "high_52w": 8430,
       "high_52w_date": "20260430",
-      "high_price": 9420,
-      "low_price": 7750,
+      "high_price": 8430,
+      "low_price": 8430,
       "theme_tag": "전력설비",
       "theme_tags": [
         "전력설비",
@@ -1884,11 +1884,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 59,
+      "score": 51,
       "score_detail": {
         "tp": 24,
-        "tl": 24,
-        "ti": 11
+        "tl": 20,
+        "ti": 7
       },
       "rise_reason": "계약 체결",
       "news": [
@@ -1905,6 +1905,12 @@
           "date": "2026.02.09"
         },
         {
+          "title": "[속보] 9일 만에 방향 튼 코스피…개미, 1조 실탄 방어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001250754&office_id=215&code=125020&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.04.30"
+        },
+        {
           "title": "[이 시각 시황] 알파고 다음은 로보틱스…하사비스 \"AI로 인류 황금기...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000507580&office_id=374&code=125020&page=&sm=",
           "source": "SBS Biz",
@@ -1917,10 +1923,10 @@
           "date": "2026.04.29"
         }
       ],
-      "forward_score": 60,
-      "forward_bonus": 1,
+      "forward_score": 57,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -1932,14 +1938,14 @@
       "close_price": 9940,
       "change_amount": 1330,
       "change_rate": 15.45,
-      "trading_value": 34464000000,
+      "trading_value": 34567000000,
       "market_cap": 26100000000,
       "sector": "전기장비",
       "industry_no": 306,
-      "high_52w": 11190,
+      "high_52w": 9940,
       "high_52w_date": "20260430",
-      "high_price": 11190,
-      "low_price": 8630,
+      "high_price": 9940,
+      "low_price": 9940,
       "theme_tag": "전기",
       "theme_tags": [
         "전기"
@@ -2002,14 +2008,14 @@
       "close_price": 16510,
       "change_amount": 2190,
       "change_rate": 15.29,
-      "trading_value": 232778000000,
+      "trading_value": 23000000,
       "market_cap": 962600000000,
       "sector": "디스플레이장비및부품",
       "industry_no": 269,
-      "high_52w": 17440,
+      "high_52w": 16510,
       "high_52w_date": "20260430",
-      "high_price": 17440,
-      "low_price": 15120,
+      "high_price": 16510,
+      "low_price": 16510,
       "theme_tag": "마이크로 LED",
       "theme_tags": [
         "마이크로 LED",
@@ -2019,11 +2025,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 67,
+      "score": 52,
       "score_detail": {
         "tp": 11,
-        "tl": 45,
-        "ti": 11
+        "tl": 34,
+        "ti": 7
       },
       "rise_reason": "마이크로 LED 승인 관련 뉴스",
       "news": [
@@ -2082,10 +2088,10 @@
           "date": "2026.04.26"
         }
       ],
-      "forward_score": 68,
-      "forward_bonus": 1,
+      "forward_score": 58,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -2097,7 +2103,7 @@
       "close_price": 15050,
       "change_amount": 1960,
       "change_rate": 14.97,
-      "trading_value": 1265436000000,
+      "trading_value": 1266113000000,
       "market_cap": 1180100000000,
       "sector": "전기장비",
       "industry_no": 306,
@@ -2198,14 +2204,14 @@
       "close_price": 25050,
       "change_amount": 3200,
       "change_rate": 14.65,
-      "trading_value": 232944000000,
+      "trading_value": 261000000,
       "market_cap": 354600000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
-      "high_52w": 27950,
+      "high_52w": 25050,
       "high_52w_date": "20260430",
-      "high_price": 27950,
-      "low_price": 20850,
+      "high_price": 25050,
+      "low_price": 25050,
       "theme_tag": "CXL(컴퓨트익스프레스링크)",
       "theme_tags": [
         "CXL(컴퓨트익스프레스링크)",
@@ -2215,11 +2221,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 56,
+      "score": 52,
       "score_detail": {
         "tp": 13,
         "tl": 32,
-        "ti": 11
+        "ti": 7
       },
       "rise_reason": "계약 체결",
       "news": [
@@ -2278,10 +2284,10 @@
           "date": "2026.04.14"
         }
       ],
-      "forward_score": 57,
-      "forward_bonus": 1,
+      "forward_score": 58,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -2293,7 +2299,7 @@
       "close_price": 3065,
       "change_amount": 385,
       "change_rate": 14.37,
-      "trading_value": 13352000000,
+      "trading_value": 13358000000,
       "market_cap": 36200000000,
       "sector": "핸드셋",
       "industry_no": 292,
@@ -2394,7 +2400,7 @@
       "close_price": 48050,
       "change_amount": 5250,
       "change_rate": 12.27,
-      "trading_value": 28294000000,
+      "trading_value": 28307000000,
       "market_cap": 2811400000000,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -2495,7 +2501,7 @@
       "close_price": 10100,
       "change_amount": 1090,
       "change_rate": 12.1,
-      "trading_value": 4762000000,
+      "trading_value": 4764000000,
       "market_cap": 64600000000,
       "sector": "IT서비스",
       "industry_no": 267,
@@ -2595,7 +2601,7 @@
       "close_price": 241500,
       "change_amount": 24500,
       "change_rate": 11.29,
-      "trading_value": 33648000000,
+      "trading_value": 33721000000,
       "market_cap": 3995200000000,
       "sector": "전기장비",
       "industry_no": 306,
@@ -2631,6 +2637,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000506421&office_id=374&code=000500&page=&sm=",
           "source": "SBS Biz",
           "date": "2026.04.24"
+        },
+        {
+          "title": "코스피, 국제유가 급등에 6600선 아래로…코스닥 2%대 급락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005281847&office_id=015&code=000500&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.04.30"
         },
         {
           "title": "‘대표님’ 가장 많이 사는 아파트, 2위 나인원 한남…1위는?",
@@ -2673,12 +2685,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002788305&office_id=021&code=000500&page=&sm=",
           "source": "문화일보",
           "date": "2026.04.29"
-        },
-        {
-          "title": "이 집도 사장님, 저 집도 사장님…대기업 CEO 가장 많이 산다는 아...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004615903&office_id=011&code=000500&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.04.29"
         }
       ],
       "forward_score": 49,
@@ -2696,7 +2702,7 @@
       "close_price": 7070,
       "change_amount": 710,
       "change_rate": 11.16,
-      "trading_value": 47256000000,
+      "trading_value": 47370000000,
       "market_cap": 475300000000,
       "sector": "자동차",
       "industry_no": 273,
@@ -2713,10 +2719,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 38,
+      "score": 46,
       "score_detail": {
         "tp": 12,
-        "tl": 17,
+        "tl": 25,
         "ti": 9
       },
       "rise_reason": "비료 관련 뉴스",
@@ -2782,7 +2788,7 @@
           "date": "2026.04.28"
         }
       ],
-      "forward_score": 40,
+      "forward_score": 48,
       "forward_bonus": 2,
       "forward_detail": {
         "small_size": 2,
@@ -2797,7 +2803,7 @@
       "close_price": 630,
       "change_amount": 63,
       "change_rate": 11.11,
-      "trading_value": 2988000000,
+      "trading_value": 2991000000,
       "market_cap": 25100000000,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -2846,15 +2852,15 @@
           "date": "2026.03.20"
         },
         {
-          "title": "이원컴포텍, 나스닥 상장사 리미나투스 주식 437만주 취득",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013700968&office_id=003&code=088290&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.01.09"
-        },
-        {
           "title": "이원컴포텍, 나스닥 상장사 리미나투스 주식 437만주 취득…관리종목....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006197513&office_id=018&code=088290&page=&sm=",
           "source": "이데일리",
+          "date": "2026.01.09"
+        },
+        {
+          "title": "이원컴포텍, 나스닥 상장사 리미나투스 주식 437만주 취득",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013700968&office_id=003&code=088290&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.01.09"
         },
         {
@@ -2897,7 +2903,7 @@
       "close_price": 5900,
       "change_amount": 580,
       "change_rate": 10.9,
-      "trading_value": 102969000000,
+      "trading_value": 103069000000,
       "market_cap": 156300000000,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -2998,7 +3004,7 @@
       "close_price": 23350,
       "change_amount": 2200,
       "change_rate": 10.4,
-      "trading_value": 59265000000,
+      "trading_value": 59294000000,
       "market_cap": 337100000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -3099,7 +3105,7 @@
       "close_price": 2110,
       "change_amount": 195,
       "change_rate": 10.18,
-      "trading_value": 405000000,
+      "trading_value": 410000000,
       "market_cap": 46200000000,
       "sector": "컴퓨터와주변기기",
       "industry_no": 293,
@@ -3199,7 +3205,7 @@
       "close_price": 2790,
       "change_amount": 255,
       "change_rate": 10.06,
-      "trading_value": 33790000000,
+      "trading_value": 33798000000,
       "market_cap": 115200000000,
       "sector": "건강관리업체및서비스",
       "industry_no": 316,
@@ -3300,7 +3306,7 @@
       "close_price": 1914,
       "change_amount": 174,
       "change_rate": 10.0,
-      "trading_value": 782000000,
+      "trading_value": 785000000,
       "market_cap": 25400000000,
       "sector": "운송인프라",
       "industry_no": 296,
@@ -3352,7 +3358,7 @@
       "close_price": 56300,
       "change_amount": 5100,
       "change_rate": 9.96,
-      "trading_value": 1879049000000,
+      "trading_value": 1881174000000,
       "market_cap": 10497000000000,
       "sector": "전기장비",
       "industry_no": 306,
@@ -3390,6 +3396,12 @@
           "date": "2026.04.30"
         },
         {
+          "title": "[속보] 9일 만에 방향 튼 코스피…개미, 1조 실탄 방어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001250754&office_id=215&code=001440&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.04.30"
+        },
+        {
           "title": "[이 시각 시황] 알파고 다음은 로보틱스…하사비스 \"AI로 인류 황금기...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000507580&office_id=374&code=001440&page=&sm=",
           "source": "SBS Biz",
@@ -3400,6 +3412,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005673353&office_id=009&code=001440&page=&sm=",
           "source": "매일경제",
           "date": "2026.04.29"
+        },
+        {
+          "title": "코스피, 국제유가 급등에 6600선 아래로…코스닥 2%대 급락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005281847&office_id=015&code=001440&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.04.30"
         },
         {
           "title": "코스피 사상 최고치 경신 후 숨 고르기…환율 1480원 중반 '쑥'",
@@ -3418,18 +3436,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005673382&office_id=009&code=001440&page=&sm=",
           "source": "매일경제",
           "date": "2026.04.29"
-        },
-        {
-          "title": "코스피 6690.90 마감… 3일 연속 최고치 경신",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000136177&office_id=310&code=001440&page=&sm=",
-          "source": "여성신문",
-          "date": "2026.04.29"
-        },
-        {
-          "title": "\"반도체만 오르는 줄 알았더니\"…AI 수혜, 조선株까지 번진다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006269339&office_id=018&code=001440&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.04.29"
         }
       ],
       "forward_score": 58,
@@ -3447,7 +3453,7 @@
       "close_price": 10890,
       "change_amount": 980,
       "change_rate": 9.89,
-      "trading_value": 36312000000,
+      "trading_value": 36328000000,
       "market_cap": 223200000000,
       "sector": "제약",
       "industry_no": 261,
@@ -3648,7 +3654,7 @@
       "close_price": 263,
       "change_amount": 23,
       "change_rate": 9.58,
-      "trading_value": 568000000,
+      "trading_value": 577000000,
       "market_cap": 22500000000,
       "sector": "화장품",
       "industry_no": 266,
@@ -3718,7 +3724,7 @@
       "close_price": 13140,
       "change_amount": 1090,
       "change_rate": 9.05,
-      "trading_value": 13247000000,
+      "trading_value": 13253000000,
       "market_cap": 394200000000,
       "sector": "제약",
       "industry_no": 261,
@@ -3807,14 +3813,14 @@
       "close_price": 51000,
       "change_amount": 4000,
       "change_rate": 8.51,
-      "trading_value": 22518000000,
+      "trading_value": 17000000,
       "market_cap": 397700000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
-      "high_52w": 54000,
-      "high_52w_date": "20260430",
-      "high_price": 54000,
-      "low_price": 44750,
+      "high_52w": 51900,
+      "high_52w_date": "20260429",
+      "high_price": 51000,
+      "low_price": 51000,
       "theme_tag": "전력반도체",
       "theme_tags": [
         "전력반도체",
@@ -3824,11 +3830,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 66,
+      "score": 64,
       "score_detail": {
         "tp": 12,
         "tl": 45,
-        "ti": 9
+        "ti": 7
       },
       "rise_reason": "전력반도체 흑자 전환 보도",
       "news": [
@@ -3875,10 +3881,10 @@
           "date": "2025.11.26"
         }
       ],
-      "forward_score": 68,
-      "forward_bonus": 2,
+      "forward_score": 70,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 2,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -3890,7 +3896,7 @@
       "close_price": 10180,
       "change_amount": 790,
       "change_rate": 8.41,
-      "trading_value": 21262000000,
+      "trading_value": 21284000000,
       "market_cap": 133500000000,
       "sector": "기계",
       "industry_no": 299,
@@ -3990,7 +3996,7 @@
       "close_price": 19450,
       "change_amount": 1500,
       "change_rate": 8.36,
-      "trading_value": 12328000000,
+      "trading_value": 12342000000,
       "market_cap": 300500000000,
       "sector": "기계",
       "industry_no": 299,
@@ -4091,7 +4097,7 @@
       "close_price": 453000,
       "change_amount": 34500,
       "change_rate": 8.24,
-      "trading_value": 161432000000,
+      "trading_value": 161486000000,
       "market_cap": 14133600000000,
       "sector": "전기장비",
       "industry_no": 306,
@@ -4114,7 +4120,7 @@
         "tl": 10,
         "ti": 7
       },
-      "rise_reason": "구리 가격 상승 전망",
+      "rise_reason": "영업이익 공시",
       "news": [
         {
           "title": "녹색분류체계로 친환경활동 공개…기후부, LS·삼성·우리銀과 협약",
@@ -4129,6 +4135,18 @@
           "date": "2026.04.30"
         },
         {
+          "title": "키움증권, 1분기 영업익 6212억…전년대비 91% 증가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000495840&office_id=629&code=006260&page=&sm=",
+          "source": "더팩트",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "키움증권, 1분기 영업이익 6212억…전년대비 91%↑",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013918593&office_id=003&code=006260&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.04.30"
+        },
+        {
           "title": "코스피 6700 뚫었지만…K-OTC 시총은 연초보다 외려 줄어",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005515847&office_id=014&code=006260&page=&sm=",
           "source": "파이낸셜뉴스",
@@ -4138,6 +4156,12 @@
           "title": "증시 호황 덕 본 키움증권, 1분기 순이익 4774억원… 전년비 102...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002226562&office_id=138&code=006260&page=&sm=",
           "source": "디지털데일리",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "“증시 호조에 순이익 2배 늘었다”…키움증권, 1분기 순이익 4774...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001160943&office_id=366&code=006260&page=&sm=",
+          "source": "조선비즈",
           "date": "2026.04.30"
         },
         {
@@ -4157,24 +4181,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004616234&office_id=011&code=006260&page=&sm=",
           "source": "서울경제",
           "date": "2026.04.30"
-        },
-        {
-          "title": "“증시 호조에 순이익 2배 늘었다”…키움증권, 1분기 순이익 4774...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001160943&office_id=366&code=006260&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.04.30"
-        },
-        {
-          "title": "키움증권, 1분기 순이익 4700억 '두 배' 늘었다…\"주식 거래대금...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008920160&office_id=421&code=006260&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.04.30"
-        },
-        {
-          "title": "한국형 녹색분류체계(K-Taxonomy)로 기업 탄소중립·친환경 활동...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002637617&office_id=016&code=006260&page=&sm=",
-          "source": "헤럴드경제",
-          "date": "2026.04.30"
         }
       ],
       "forward_score": 38,
@@ -4192,14 +4198,14 @@
       "close_price": 51400,
       "change_amount": 3900,
       "change_rate": 8.21,
-      "trading_value": 20611000000,
+      "trading_value": 9000000,
       "market_cap": 1074800000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
-      "high_52w": 52400,
+      "high_52w": 51400,
       "high_52w_date": "20260430",
-      "high_price": 52400,
-      "low_price": 47950,
+      "high_price": 51400,
+      "low_price": 51400,
       "theme_tag": "증강현실(AR)",
       "theme_tags": [
         "증강현실(AR)",
@@ -4209,10 +4215,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 50,
+      "score": 39,
       "score_detail": {
         "tp": 15,
-        "tl": 28,
+        "tl": 17,
         "ti": 7
       },
       "rise_reason": "허가 관련 뉴스",
@@ -4272,10 +4278,10 @@
           "date": "2026.03.10"
         }
       ],
-      "forward_score": 52,
-      "forward_bonus": 2,
+      "forward_score": 45,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 2,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -4287,7 +4293,7 @@
       "close_price": 32000,
       "change_amount": 2400,
       "change_rate": 8.11,
-      "trading_value": 47954000000,
+      "trading_value": 48027000000,
       "market_cap": 347200000000,
       "sector": "건강관리장비와용품",
       "industry_no": 281,
@@ -4388,7 +4394,7 @@
       "close_price": 11990,
       "change_amount": 890,
       "change_rate": 8.02,
-      "trading_value": 4568000000,
+      "trading_value": 4581000000,
       "market_cap": 310800000000,
       "sector": "생물공학",
       "industry_no": 286,
@@ -4488,7 +4494,7 @@
       "close_price": 110200,
       "change_amount": 8000,
       "change_rate": 7.83,
-      "trading_value": 207245000000,
+      "trading_value": 78000000,
       "market_cap": 7143200000000,
       "sector": "기계",
       "industry_no": 299,
@@ -4504,10 +4510,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 50,
+      "score": 39,
       "score_detail": {
         "tp": 18,
-        "tl": 25,
+        "tl": 14,
         "ti": 7
       },
       "rise_reason": "엔비디아 협력 논의",
@@ -4573,10 +4579,10 @@
           "date": "2026.04.30"
         }
       ],
-      "forward_score": 51,
-      "forward_bonus": 1,
+      "forward_score": 45,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -4588,7 +4594,7 @@
       "close_price": 42450,
       "change_amount": 3050,
       "change_rate": 7.74,
-      "trading_value": 136652000000,
+      "trading_value": 136832000000,
       "market_cap": 1437300000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -4668,9 +4674,9 @@
           "date": "2026.04.29"
         },
         {
-          "title": "반도체산업협회, 실리콘밸리 한미AI반도체혁신센터 확장 개소",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016049432&office_id=001&code=490470&page=&sm=",
-          "source": "연합뉴스",
+          "title": "美 실리콘밸리 '한미AI반도체혁신센터' 2배 확장 개소",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003422817&office_id=030&code=490470&page=&sm=",
+          "source": "전자신문",
           "date": "2026.04.29"
         }
       ],
@@ -4689,7 +4695,7 @@
       "close_price": 503,
       "change_amount": 36,
       "change_rate": 7.71,
-      "trading_value": 3298000000,
+      "trading_value": 3301000000,
       "market_cap": 86800000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -4742,7 +4748,7 @@
       "close_price": 2740,
       "change_amount": 190,
       "change_rate": 7.45,
-      "trading_value": 26706000000,
+      "trading_value": 26709000000,
       "market_cap": 249100000000,
       "sector": "화학",
       "industry_no": 272,
@@ -4942,7 +4948,7 @@
       "close_price": 3015,
       "change_amount": 205,
       "change_rate": 7.3,
-      "trading_value": 15495000000,
+      "trading_value": 15497000000,
       "market_cap": 241000000000,
       "sector": "출판",
       "industry_no": 314,
@@ -5042,7 +5048,7 @@
       "close_price": 15930,
       "change_amount": 1070,
       "change_rate": 7.2,
-      "trading_value": 53336000000,
+      "trading_value": 53401000000,
       "market_cap": 82700000000,
       "sector": "화학",
       "industry_no": 272,
@@ -5059,10 +5065,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 37,
+      "score": 48,
       "score_detail": {
         "tp": 12,
-        "tl": 14,
+        "tl": 25,
         "ti": 11
       },
       "rise_reason": "비료 관련 뉴스",
@@ -5122,7 +5128,7 @@
           "date": "2026.03.19"
         }
       ],
-      "forward_score": 39,
+      "forward_score": 50,
       "forward_bonus": 2,
       "forward_detail": {
         "small_size": 2,
@@ -5137,7 +5143,7 @@
       "close_price": 7890,
       "change_amount": 530,
       "change_rate": 7.2,
-      "trading_value": 3926000000,
+      "trading_value": 3929000000,
       "market_cap": 103800000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -5226,7 +5232,7 @@
       "close_price": 231000,
       "change_amount": 15500,
       "change_rate": 7.19,
-      "trading_value": 330225000000,
+      "trading_value": 420000000,
       "market_cap": 2587200000000,
       "sector": "에너지장비및서비스",
       "industry_no": 295,
@@ -5243,11 +5249,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 58,
+      "score": 46,
       "score_detail": {
         "tp": 16,
-        "tl": 31,
-        "ti": 11
+        "tl": 23,
+        "ti": 7
       },
       "rise_reason": "흑자 전환",
       "news": [
@@ -5312,10 +5318,10 @@
           "date": "2026.04.29"
         }
       ],
-      "forward_score": 59,
-      "forward_bonus": 1,
+      "forward_score": 52,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -5327,7 +5333,7 @@
       "close_price": 15850,
       "change_amount": 1050,
       "change_rate": 7.09,
-      "trading_value": 48132000000,
+      "trading_value": 48189000000,
       "market_cap": 380400000000,
       "sector": "화학",
       "industry_no": 272,
@@ -5409,7 +5415,7 @@
       "close_price": 37850,
       "change_amount": 2500,
       "change_rate": 7.07,
-      "trading_value": 24216000000,
+      "trading_value": 24237000000,
       "market_cap": 461200000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -5498,14 +5504,14 @@
       "close_price": 7810,
       "change_amount": 510,
       "change_rate": 6.99,
-      "trading_value": 47964000000,
+      "trading_value": 10000000,
       "market_cap": 158900000000,
       "sector": "교육서비스",
       "industry_no": 290,
       "high_52w": 15300,
       "high_52w_date": "20260122",
-      "high_price": 8870,
-      "low_price": 7540,
+      "high_price": 7810,
+      "low_price": 7810,
       "theme_tag": "교육/온라인 교육",
       "theme_tags": [
         "교육/온라인 교육",
@@ -5515,11 +5521,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 49,
+      "score": 45,
       "score_detail": {
         "tp": 6,
         "tl": 32,
-        "ti": 11
+        "ti": 7
       },
       "rise_reason": "테마 대장주",
       "news": [
@@ -5567,9 +5573,9 @@
         }
       ],
       "forward_score": 51,
-      "forward_bonus": 2,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 2,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -5581,7 +5587,7 @@
       "close_price": 1063,
       "change_amount": 68,
       "change_rate": 6.83,
-      "trading_value": 4617000000,
+      "trading_value": 4620000000,
       "market_cap": 44400000000,
       "sector": "에너지장비및서비스",
       "industry_no": 295,
@@ -5693,10 +5699,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 35,
+      "score": 46,
       "score_detail": {
         "tp": 7,
-        "tl": 21,
+        "tl": 32,
         "ti": 7
       },
       "rise_reason": "기술이전 뉴스",
@@ -5762,7 +5768,7 @@
           "date": "2026.03.05"
         }
       ],
-      "forward_score": 39,
+      "forward_score": 50,
       "forward_bonus": 4,
       "forward_detail": {
         "small_size": 4,
@@ -5777,7 +5783,7 @@
       "close_price": 12070,
       "change_amount": 770,
       "change_rate": 6.81,
-      "trading_value": 20527000000,
+      "trading_value": 20541000000,
       "market_cap": 273600000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -5877,14 +5883,14 @@
       "close_price": 93300,
       "change_amount": 5900,
       "change_rate": 6.75,
-      "trading_value": 47726000000,
+      "trading_value": 51000000,
       "market_cap": 792600000000,
       "sector": "우주항공과국방",
       "industry_no": 284,
       "high_52w": 116900,
       "high_52w_date": "20260420",
-      "high_price": 97200,
-      "low_price": 90300,
+      "high_price": 93300,
+      "low_price": 93300,
       "theme_tag": "광통신(광케이블/광섬유 등)",
       "theme_tags": [
         "광통신(광케이블/광섬유 등)",
@@ -5894,11 +5900,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 52,
+      "score": 39,
       "score_detail": {
         "tp": 15,
-        "tl": 28,
-        "ti": 9
+        "tl": 17,
+        "ti": 7
       },
       "rise_reason": "실적 관련 뉴스",
       "news": [
@@ -5963,10 +5969,10 @@
           "date": "2026.04.16"
         }
       ],
-      "forward_score": 54,
-      "forward_bonus": 2,
+      "forward_score": 45,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 2,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -5978,7 +5984,7 @@
       "close_price": 3280,
       "change_amount": 205,
       "change_rate": 6.67,
-      "trading_value": 2637000000,
+      "trading_value": 2643000000,
       "market_cap": 164200000000,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -6076,7 +6082,7 @@
       "close_price": 80200,
       "change_amount": 5000,
       "change_rate": 6.65,
-      "trading_value": 49631000000,
+      "trading_value": 49633000000,
       "market_cap": 1363400000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -6164,7 +6170,7 @@
       "close_price": 70400,
       "change_amount": 4300,
       "change_rate": 6.51,
-      "trading_value": 101138000000,
+      "trading_value": 101167000000,
       "market_cap": 1130800000000,
       "sector": "전기장비",
       "industry_no": 306,
@@ -6190,12 +6196,6 @@
       "rise_reason": "수주 공시",
       "news": [
         {
-          "title": "제룡전기, 작년 영업익 670억…전년비 31% 감소",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006216065&office_id=018&code=033100&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.02.09"
-        },
-        {
           "title": "제룡전기, 주당 1100원 현금 배당 결정",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006216066&office_id=018&code=033100&page=&sm=",
           "source": "이데일리",
@@ -6206,6 +6206,18 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002598260&office_id=016&code=033100&page=&sm=",
           "source": "헤럴드경제",
           "date": "2026.02.09"
+        },
+        {
+          "title": "제룡전기, 작년 영업익 670억…전년비 31% 감소",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006216065&office_id=018&code=033100&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.02.09"
+        },
+        {
+          "title": "[속보] 9일 만에 방향 튼 코스피…개미, 1조 실탄 방어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001250754&office_id=215&code=033100&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.04.30"
         },
         {
           "title": "[거버넌스워치] 대기업 은퇴 후 60세에 중기 재취업해 360억 대박…...",
@@ -6242,12 +6254,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005321081&office_id=008&code=033100&page=&sm=",
           "source": "머니투데이",
           "date": "2026.02.23"
-        },
-        {
-          "title": "美 전력수요에 AI 모멘텀까지…슈퍼사이클 올라탄 전기株 '덩실'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005320868&office_id=008&code=033100&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.02.23"
         }
       ],
       "forward_score": 59,
@@ -6265,14 +6271,14 @@
       "close_price": 17110,
       "change_amount": 1040,
       "change_rate": 6.47,
-      "trading_value": 371621000000,
+      "trading_value": 201000000,
       "market_cap": 1039500000000,
       "sector": "통신장비",
       "industry_no": 294,
       "high_52w": 20000,
       "high_52w_date": "20260415",
-      "high_price": 18490,
-      "low_price": 16300,
+      "high_price": 17110,
+      "low_price": 17110,
       "theme_tag": "5G(5세대 이동통신)",
       "theme_tags": [
         "5G(5세대 이동통신)",
@@ -6282,11 +6288,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 53,
+      "score": 38,
       "score_detail": {
         "tp": 14,
-        "tl": 28,
-        "ti": 11
+        "tl": 17,
+        "ti": 7
       },
       "rise_reason": "투자 관련 뉴스",
       "news": [
@@ -6351,10 +6357,10 @@
           "date": "2026.04.14"
         }
       ],
-      "forward_score": 54,
-      "forward_bonus": 1,
+      "forward_score": 44,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -6366,7 +6372,7 @@
       "close_price": 119300,
       "change_amount": 7200,
       "change_rate": 6.42,
-      "trading_value": 313557000000,
+      "trading_value": 313588000000,
       "market_cap": 9092100000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -6392,9 +6398,39 @@
       "rise_reason": "동시 순매수세 집중",
       "news": [
         {
+          "title": "[오늘증시]1.4조 던진 외인, 코스피 6600선 반납…환율 1483....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001141397&office_id=417&code=058470&page=&sm=",
+          "source": "동행미디어 시대",
+          "date": "2026.04.30"
+        },
+        {
           "title": "[티타임]7058억 사들인 개인, 코스피 6630선 등락…환율 1486...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001141343&office_id=417&code=058470&page=&sm=",
           "source": "동행미디어 시대",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "코스피, 국제유가 급등에 6600선 아래로…코스닥 2%대 급락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005281847&office_id=015&code=058470&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "코스피, 6600선 못 지켜…美 FOMC·고유가 영향",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005351884&office_id=008&code=058470&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "코스피, 외인 '팔자'에 6500선 주저앉아…삼전 역대급 실적에도 2%...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000496066&office_id=629&code=058470&page=&sm=",
+          "source": "더팩트",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "코스피, 6600선도 깨졌다…사상 최고치 찍고 급락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006270169&office_id=018&code=058470&page=&sm=",
+          "source": "이데일리",
           "date": "2026.04.30"
         },
         {
@@ -6420,36 +6456,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006269819&office_id=018&code=058470&page=&sm=",
           "source": "이데일리",
           "date": "2026.04.30"
-        },
-        {
-          "title": "코스피, 6750선 넘어 사상 최고치…악재에도 반도체 ‘질주’",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006269708&office_id=018&code=058470&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.04.30"
-        },
-        {
-          "title": "코스피, 장중 최고치 경신 후 오름폭 축소…코스닥은 약세",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005281717&office_id=015&code=058470&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.04.30"
-        },
-        {
-          "title": "코스피, 보합권서 혼조…장중 6,750선 터치하며 사상최고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016052378&office_id=001&code=058470&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.04.30"
-        },
-        {
-          "title": "기관 투자자 \"팔자\"…코스피 6690선 보합권 등락[장중시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008920689&office_id=421&code=058470&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.04.30"
-        },
-        {
-          "title": "코스피, 장중 최고치 또 경신…6750선 돌파하며 나흘째 상승 [투자3...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002637674&office_id=016&code=058470&page=&sm=",
-          "source": "헤럴드경제",
-          "date": "2026.04.30"
         }
       ],
       "forward_score": 46,
@@ -6467,7 +6473,7 @@
       "close_price": 2655,
       "change_amount": 160,
       "change_rate": 6.41,
-      "trading_value": 5799000000,
+      "trading_value": 5803000000,
       "market_cap": 151700000000,
       "sector": "에너지장비및서비스",
       "industry_no": 295,
@@ -6567,7 +6573,7 @@
       "close_price": 107700,
       "change_amount": 6400,
       "change_rate": 6.32,
-      "trading_value": 36519000000,
+      "trading_value": 36521000000,
       "market_cap": 654200000000,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -6584,13 +6590,13 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 43,
+      "score": 51,
       "score_detail": {
         "tp": 18,
-        "tl": 16,
+        "tl": 24,
         "ti": 9
       },
-      "rise_reason": "정책 관련 뉴스",
+      "rise_reason": "로봇 관련주 강세",
       "news": [
         {
           "title": "한국피아이엠, AI 데이터센터 냉각 소재 개발 완료",
@@ -6653,7 +6659,7 @@
           "date": "2026.04.27"
         }
       ],
-      "forward_score": 45,
+      "forward_score": 53,
       "forward_bonus": 2,
       "forward_detail": {
         "small_size": 2,
@@ -6668,7 +6674,7 @@
       "close_price": 36100,
       "change_amount": 2100,
       "change_rate": 6.18,
-      "trading_value": 5464000000,
+      "trading_value": 5470000000,
       "market_cap": 323700000000,
       "sector": "건축자재",
       "industry_no": 289,
@@ -6769,7 +6775,7 @@
       "close_price": 5170,
       "change_amount": 300,
       "change_rate": 6.16,
-      "trading_value": 1429000000,
+      "trading_value": 1431000000,
       "market_cap": 106600000000,
       "sector": "건강관리업체및서비스",
       "industry_no": 316,
@@ -6870,7 +6876,7 @@
       "close_price": 150000,
       "change_amount": 8500,
       "change_rate": 6.01,
-      "trading_value": 36878000000,
+      "trading_value": 36879000000,
       "market_cap": 1342900000000,
       "sector": "화학",
       "industry_no": 272,
@@ -6887,10 +6893,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 33,
+      "score": 41,
       "score_detail": {
         "tp": 16,
-        "tl": 10,
+        "tl": 18,
         "ti": 7
       },
       "rise_reason": "영업이익 공시",
@@ -6956,7 +6962,7 @@
           "date": "2026.02.23"
         }
       ],
-      "forward_score": 35,
+      "forward_score": 43,
       "forward_bonus": 2,
       "forward_detail": {
         "small_size": 2,
@@ -7060,14 +7066,14 @@
       "close_price": 17930,
       "change_amount": 990,
       "change_rate": 5.84,
-      "trading_value": 256350000000,
+      "trading_value": 104000000,
       "market_cap": 269000000000,
       "sector": "석유와가스",
       "industry_no": 313,
       "high_52w": 36200,
       "high_52w_date": "20260305",
-      "high_price": 19300,
-      "low_price": 17000,
+      "high_price": 17930,
+      "low_price": 17930,
       "theme_tag": "주유소",
       "theme_tags": [
         "주유소",
@@ -7077,11 +7083,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 52,
+      "score": 48,
       "score_detail": {
         "tp": 9,
         "tl": 32,
-        "ti": 11
+        "ti": 7
       },
       "rise_reason": "주유소 관련 뉴스",
       "news": [
@@ -7146,10 +7152,10 @@
           "date": "2026.04.13"
         }
       ],
-      "forward_score": 53,
-      "forward_bonus": 1,
+      "forward_score": 54,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -7389,7 +7395,7 @@
       "close_price": 50700,
       "change_amount": 2750,
       "change_rate": 5.74,
-      "trading_value": 625509000000,
+      "trading_value": 48000000,
       "market_cap": 8715000000000,
       "sector": "에너지장비및서비스",
       "industry_no": 295,
@@ -7406,13 +7412,13 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 46,
+      "score": 33,
       "score_detail": {
         "tp": 16,
-        "tl": 21,
-        "ti": 9
+        "tl": 10,
+        "ti": 7
       },
-      "rise_reason": "1분기 실적 개선 및 미국 태양광 규제 반사이익",
+      "rise_reason": "복합적 실적·정책 효과",
       "news": [
         {
           "title": "'유증 파고' 넘었다...한화솔루션 주주들 '환호'",
@@ -7475,10 +7481,10 @@
           "date": "2026.04.30"
         }
       ],
-      "forward_score": 46,
-      "forward_bonus": 0,
+      "forward_score": 39,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 0,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -7490,7 +7496,7 @@
       "close_price": 3335,
       "change_amount": 180,
       "change_rate": 5.71,
-      "trading_value": 22486000000,
+      "trading_value": 22496000000,
       "market_cap": 45500000000,
       "sector": "소프트웨어",
       "industry_no": 287,
@@ -7591,7 +7597,7 @@
       "close_price": 14090,
       "change_amount": 750,
       "change_rate": 5.62,
-      "trading_value": 38918000000,
+      "trading_value": 39109000000,
       "market_cap": 402200000000,
       "sector": "소프트웨어",
       "industry_no": 287,
@@ -7692,7 +7698,7 @@
       "close_price": 86200,
       "change_amount": 4500,
       "change_rate": 5.51,
-      "trading_value": 189793000000,
+      "trading_value": 189796000000,
       "market_cap": 4352100000000,
       "sector": "통신장비",
       "industry_no": 294,
@@ -7715,7 +7721,7 @@
         "tl": 32,
         "ti": 9
       },
-      "rise_reason": "자사주 매입",
+      "rise_reason": "실적 회복 전망",
       "news": [
         {
           "title": "한화비전, 1분기 영업익 221억원…세미텍 137억원 적자 전환",
@@ -7894,14 +7900,14 @@
       "close_price": 13950,
       "change_amount": 700,
       "change_rate": 5.28,
-      "trading_value": 9396000000,
+      "trading_value": 13000000,
       "market_cap": 199600000000,
       "sector": "우주항공과국방",
       "industry_no": 284,
       "high_52w": 17750,
       "high_52w_date": "20260422",
-      "high_price": 14280,
-      "low_price": 13030,
+      "high_price": 13950,
+      "low_price": 13950,
       "theme_tag": "방위산업/전쟁 및 테러",
       "theme_tags": [
         "방위산업/전쟁 및 테러"
@@ -7979,10 +7985,10 @@
           "date": "2026.03.26"
         }
       ],
-      "forward_score": 49,
-      "forward_bonus": 4,
+      "forward_score": 51,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 4,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -7994,14 +8000,14 @@
       "close_price": 4100,
       "change_amount": 205,
       "change_rate": 5.26,
-      "trading_value": 66010000000,
+      "trading_value": 22000000,
       "market_cap": 110300000000,
       "sector": "제약",
       "industry_no": 261,
       "high_52w": 6720,
       "high_52w_date": "20260324",
-      "high_price": 4700,
-      "low_price": 3750,
+      "high_price": 4100,
+      "low_price": 4100,
       "theme_tag": "코로나19(치료제/백신 개발 등)",
       "theme_tags": [
         "코로나19(치료제/백신 개발 등)",
@@ -8011,11 +8017,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 46,
+      "score": 31,
       "score_detail": {
         "tp": 7,
-        "tl": 28,
-        "ti": 11
+        "tl": 17,
+        "ti": 7
       },
       "rise_reason": "FDA 관련 뉴스",
       "news": [
@@ -8074,10 +8080,10 @@
           "date": "2026.03.25"
         }
       ],
-      "forward_score": 48,
-      "forward_bonus": 2,
+      "forward_score": 37,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 2,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -8089,14 +8095,14 @@
       "close_price": 28550,
       "change_amount": 1400,
       "change_rate": 5.16,
-      "trading_value": 25260000000,
+      "trading_value": 9000000,
       "market_cap": 303500000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
       "high_52w": 38000,
       "high_52w_date": "20260319",
-      "high_price": 30800,
-      "low_price": 27600,
+      "high_price": 28550,
+      "low_price": 28550,
       "theme_tag": "시스템반도체",
       "theme_tags": [
         "시스템반도체"
@@ -8105,11 +8111,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 30,
+      "score": 28,
       "score_detail": {
         "tp": 11,
         "tl": 10,
-        "ti": 9
+        "ti": 7
       },
       "rise_reason": "실적 관련 뉴스",
       "news": [
@@ -8174,10 +8180,10 @@
           "date": "2025.12.28"
         }
       ],
-      "forward_score": 32,
-      "forward_bonus": 2,
+      "forward_score": 34,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 2,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -8189,14 +8195,14 @@
       "close_price": 754,
       "change_amount": 37,
       "change_rate": 5.16,
-      "trading_value": 4030000000,
+      "trading_value": 12000000,
       "market_cap": 71200000000,
       "sector": "소프트웨어",
       "industry_no": 287,
       "high_52w": 1359,
       "high_52w_date": "20260421",
-      "high_price": 782,
-      "low_price": 714,
+      "high_price": 754,
+      "low_price": 754,
       "theme_tag": "가상화폐(비트코인 등)",
       "theme_tags": [
         "가상화폐(비트코인 등)",
@@ -8290,7 +8296,7 @@
       "close_price": 1285,
       "change_amount": 63,
       "change_rate": 5.16,
-      "trading_value": 3204000000,
+      "trading_value": 3205000000,
       "market_cap": 40400000000,
       "sector": "소프트웨어",
       "industry_no": 287,
@@ -8390,7 +8396,7 @@
       "close_price": 22650,
       "change_amount": 1100,
       "change_rate": 5.1,
-      "trading_value": 45236000000,
+      "trading_value": 45246000000,
       "market_cap": 756900000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -8491,7 +8497,7 @@
       "close_price": 752,
       "change_amount": 36,
       "change_rate": 5.03,
-      "trading_value": 2554000000,
+      "trading_value": 2557000000,
       "market_cap": 40200000000,
       "sector": "통신장비",
       "industry_no": 294,
@@ -8586,7 +8592,7 @@
       "close_price": 29350,
       "change_amount": 1400,
       "change_rate": 5.01,
-      "trading_value": 2972000000,
+      "trading_value": 5000000,
       "market_cap": 75600000000,
       "sector": "에너지장비및서비스",
       "industry_no": 295,
@@ -8668,14 +8674,14 @@
       "close_price": 1449,
       "change_amount": 69,
       "change_rate": 5.0,
-      "trading_value": 11124000000,
+      "trading_value": 5000000,
       "market_cap": 94100000000,
       "sector": "에너지장비및서비스",
       "industry_no": 295,
       "high_52w": 1731,
       "high_52w_date": "20250514",
-      "high_price": 1568,
-      "low_price": 1381,
+      "high_price": 1449,
+      "low_price": 1449,
       "theme_tag": "태양광에너지",
       "theme_tags": [
         "태양광에너지"
@@ -8684,11 +8690,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 35,
+      "score": 33,
       "score_detail": {
         "tp": 16,
         "tl": 10,
-        "ti": 9
+        "ti": 7
       },
       "rise_reason": "공급 계약 체결",
       "news": [
@@ -8754,9 +8760,9 @@
         }
       ],
       "forward_score": 39,
-      "forward_bonus": 4,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 4,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -8768,14 +8774,14 @@
       "close_price": 47400,
       "change_amount": 2250,
       "change_rate": 4.98,
-      "trading_value": 17496000000,
+      "trading_value": 8000000,
       "market_cap": 786100000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
-      "high_52w": 49700,
+      "high_52w": 47400,
       "high_52w_date": "20260430",
-      "high_price": 49700,
-      "low_price": 42650,
+      "high_price": 47400,
+      "low_price": 47400,
       "theme_tag": "마이크로 LED",
       "theme_tags": [
         "마이크로 LED",
@@ -8848,10 +8854,10 @@
           "date": "2026.02.03"
         }
       ],
-      "forward_score": 39,
-      "forward_bonus": 4,
+      "forward_score": 41,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 4,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -8863,14 +8869,14 @@
       "close_price": 59500,
       "change_amount": 2800,
       "change_rate": 4.94,
-      "trading_value": 214534000000,
+      "trading_value": 273000000,
       "market_cap": 3542200000000,
       "sector": "전기장비",
       "industry_no": 306,
-      "high_52w": 61000,
+      "high_52w": 59500,
       "high_52w_date": "20260430",
-      "high_price": 61000,
-      "low_price": 55400,
+      "high_price": 59500,
+      "low_price": 59500,
       "theme_tag": "스마트폰",
       "theme_tags": [
         "스마트폰",
@@ -8880,11 +8886,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 47,
+      "score": 45,
       "score_detail": {
         "tp": 6,
         "tl": 32,
-        "ti": 9
+        "ti": 7
       },
       "rise_reason": "공급 계약 체결",
       "news": [
@@ -8949,10 +8955,10 @@
           "date": "2026.04.28"
         }
       ],
-      "forward_score": 48,
-      "forward_bonus": 1,
+      "forward_score": 51,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -8964,7 +8970,7 @@
       "close_price": 7480,
       "change_amount": 350,
       "change_rate": 4.91,
-      "trading_value": 123606000000,
+      "trading_value": 123647000000,
       "market_cap": 99400000000,
       "sector": "제약",
       "industry_no": 261,
@@ -9064,7 +9070,7 @@
       "close_price": 1180,
       "change_amount": 55,
       "change_rate": 4.89,
-      "trading_value": 1062000000,
+      "trading_value": 1063000000,
       "market_cap": 56800000000,
       "sector": "디스플레이장비및부품",
       "industry_no": 269,
@@ -9081,10 +9087,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 45,
+      "score": 56,
       "score_detail": {
         "tp": 11,
-        "tl": 27,
+        "tl": 38,
         "ti": 7
       },
       "rise_reason": "경영진 교체",
@@ -9114,7 +9120,7 @@
           "date": "2025.06.25"
         }
       ],
-      "forward_score": 51,
+      "forward_score": 62,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -9129,14 +9135,14 @@
       "close_price": 37400,
       "change_amount": 1700,
       "change_rate": 4.76,
-      "trading_value": 12237000000,
+      "trading_value": 9000000,
       "market_cap": 310900000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
-      "high_52w": 39600,
-      "high_52w_date": "20260430",
-      "high_price": 39600,
-      "low_price": 35000,
+      "high_52w": 37950,
+      "high_52w_date": "20260427",
+      "high_price": 37400,
+      "low_price": 37400,
       "theme_tag": "반도체 재료/부품",
       "theme_tags": [
         "반도체 재료/부품"
@@ -9145,10 +9151,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 41,
+      "score": 37,
       "score_detail": {
         "tp": 13,
-        "tl": 21,
+        "tl": 17,
         "ti": 7
       },
       "rise_reason": "실적 관련 뉴스",
@@ -9190,10 +9196,10 @@
           "date": "2025.11.14"
         }
       ],
-      "forward_score": 45,
-      "forward_bonus": 4,
+      "forward_score": 43,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 4,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -9205,7 +9211,7 @@
       "close_price": 336,
       "change_amount": 15,
       "change_rate": 4.67,
-      "trading_value": 320000000,
+      "trading_value": 321000000,
       "market_cap": 26500000000,
       "sector": "디스플레이장비및부품",
       "industry_no": 269,
@@ -9282,14 +9288,14 @@
       "close_price": 11690,
       "change_amount": 510,
       "change_rate": 4.56,
-      "trading_value": 157709000000,
+      "trading_value": 132000000,
       "market_cap": 233800000000,
       "sector": "전기장비",
       "industry_no": 306,
-      "high_52w": 13400,
-      "high_52w_date": "20260430",
-      "high_price": 13400,
-      "low_price": 10960,
+      "high_52w": 12220,
+      "high_52w_date": "20260429",
+      "high_price": 11690,
+      "low_price": 11690,
       "theme_tag": "전력설비",
       "theme_tags": [
         "전력설비"
@@ -9298,11 +9304,11 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 58,
+      "score": 54,
       "score_detail": {
         "tp": 24,
         "tl": 23,
-        "ti": 11
+        "ti": 7
       },
       "rise_reason": "MOU 체결",
       "news": [
@@ -9367,10 +9373,10 @@
           "date": "2025.11.18"
         }
       ],
-      "forward_score": 59,
-      "forward_bonus": 1,
+      "forward_score": 60,
+      "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 1,
+        "small_size": 6,
         "consec_lu": 0
       }
     }
@@ -9400,8 +9406,8 @@
       "reason": "+29.9% 급등",
       "currentPrice": 1596,
       "dropPct": 63.23,
-      "postPeakLow": 1596,
-      "bouncePct": 0.0,
+      "postPeakLow": 1568,
+      "bouncePct": 1.79,
       "bounceBack": false
     },
     {
@@ -9638,8 +9644,8 @@
       "reason": "+30.0% 급등",
       "currentPrice": 2740,
       "dropPct": 29.38,
-      "postPeakLow": 2740,
-      "bouncePct": 0.0,
+      "postPeakLow": 2605,
+      "bouncePct": 5.18,
       "bounceBack": false
     },
     {
@@ -9708,8 +9714,8 @@
       "reason": "52주 신고가",
       "currentPrice": 13500,
       "dropPct": 27.92,
-      "postPeakLow": 13480,
-      "bouncePct": 0.15,
+      "postPeakLow": 13280,
+      "bouncePct": 1.66,
       "bounceBack": false
     },
     {
@@ -9890,8 +9896,8 @@
       "reason": "+30.0% 급등",
       "currentPrice": 11100,
       "dropPct": 24.08,
-      "postPeakLow": 10950,
-      "bouncePct": 1.37,
+      "postPeakLow": 11100,
+      "bouncePct": 0.0,
       "bounceBack": false
     },
     {
