@@ -102,6 +102,38 @@ class handler(BaseHTTPRequestHandler):
             return
 
         now = datetime.now(KST)
+
+        # ── force 파라미터 — 시각 무관 즉시 발사 (cron-job.org 1회 호출용 백업) ──
+        # 사용 예: /api/cron-trigger?secret=XXX&force=cards-pre
+        force = params.get('force', [None])[0]
+        if force:
+            FORCE_MAP = {
+                'cards-pre':     ('cards',   {'series': 'pre'}),
+                'cards-closing': ('cards',   {'series': 'closing'}),
+                'collect-intra': ('collect', {'mode': 'intraday'}),
+                'collect-close': ('collect', {'mode': 'closing'}),
+            }
+            slot = FORCE_MAP.get(force)
+            if not slot:
+                self._respond(400, {'error': f'unknown force value: {force}',
+                                    'allowed': list(FORCE_MAP.keys())})
+                return
+            # 주말 가드 (필요 시)
+            if now.weekday() >= 5:
+                self._respond(200, {'status': 'skip', 'reason': 'weekend',
+                                    'force': force})
+                return
+            event_type, payload = slot
+            ok, msg = _trigger_github(event_type, payload)
+            self._respond(200 if ok else 500, {
+                'status': 'forced' if ok else 'error',
+                'event': event_type,
+                'payload': payload,
+                'time': now.strftime('%Y-%m-%d %H:%M KST'),
+                'detail': msg,
+            })
+            return
+
         slot = _should_trigger(now)
 
         if slot is None:
