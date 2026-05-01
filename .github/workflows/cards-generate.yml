@@ -139,6 +139,17 @@ jobs:
         run: |
           DATE="${{ steps.target.outputs.date }}"
           SERIES="${{ steps.target.outputs.series }}"
+          EVENT="${{ github.event_name }}"
+
+          # 한국 공휴일(근로자의 날·어린이날·추석 등) 스킵 — workflow_dispatch 는 수동이므로 통과
+          if [ "$EVENT" != "workflow_dispatch" ]; then
+            if ! python3 collector/kr_holidays.py "$DATE" >/dev/null 2>&1; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+              echo "한국 휴장일($DATE) — 카드 생성 스킵"
+              exit 0
+            fi
+          fi
+
           # PRE 시리즈는 fallback 가능 (오늘 데이터 없으면 dates.json 첫 사용).
           # CLOSING/all 은 오늘 데이터 파일 필수.
           if [ "$SERIES" = "pre" ]; then

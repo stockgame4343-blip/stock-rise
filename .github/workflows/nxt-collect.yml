@@ -22,11 +22,27 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Holiday gate
+        id: gate
+        run: |
+          TODAY=$(date +%Y%m%d)
+          # workflow_dispatch 는 수동이므로 통과
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+            if ! python3 collector/kr_holidays.py "$TODAY" >/dev/null 2>&1; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+              echo "한국 휴장일($TODAY) — NXT 스킵"
+              exit 0
+            fi
+          fi
+          echo "skip=false" >> $GITHUB_OUTPUT
+
       - uses: actions/setup-python@v5
+        if: steps.gate.outputs.skip != 'true'
         with:
           python-version: '3.12'
 
       - name: Run NXT collector
+        if: steps.gate.outputs.skip != 'true'
         run: |
           cd collector
           echo "=== NXT 수집 시작 (KST $(date +%H:%M)) ==="
@@ -45,6 +61,7 @@ jobs:
           done
 
       - name: Commit & push NXT data
+        if: steps.gate.outputs.skip != 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"

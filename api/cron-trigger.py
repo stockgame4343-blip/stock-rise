@@ -9,10 +9,16 @@
 """
 import json
 import os
+import sys
 import urllib.request
 import urllib.error
 from datetime import datetime, timezone, timedelta
 from http.server import BaseHTTPRequestHandler
+
+# 휴일 캘린더 — collector/kr_holidays.py 단일 소스 import
+_REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(_REPO_ROOT, 'collector'))
+from kr_holidays import is_kr_holiday  # noqa: E402
 
 KST = timezone(timedelta(hours=9))
 
@@ -53,6 +59,8 @@ def _should_trigger(now_kst):
         (event_type, payload) or None
     """
     if now_kst.weekday() >= 5:  # 토(5), 일(6)
+        return None
+    if is_kr_holiday(now_kst):  # 한국 공휴일(근로자의 날·어린이날·추석 등)
         return None
     for h, m, event_type, payload in SCHEDULE:
         diff = abs((now_kst.hour * 60 + now_kst.minute) - (h * 60 + m))
@@ -118,10 +126,15 @@ class handler(BaseHTTPRequestHandler):
                 self._respond(400, {'error': f'unknown force value: {force}',
                                     'allowed': list(FORCE_MAP.keys())})
                 return
-            # 주말 가드 (필요 시)
+            # 주말·공휴일 가드 (force 도 휴일은 차단)
             if now.weekday() >= 5:
                 self._respond(200, {'status': 'skip', 'reason': 'weekend',
                                     'force': force})
+                return
+            if is_kr_holiday(now):
+                self._respond(200, {'status': 'skip', 'reason': 'kr_holiday',
+                                    'force': force,
+                                    'time': now.strftime('%Y-%m-%d %H:%M KST')})
                 return
             event_type, payload = slot
             ok, msg = _trigger_github(event_type, payload)
@@ -137,10 +150,16 @@ class handler(BaseHTTPRequestHandler):
         slot = _should_trigger(now)
 
         if slot is None:
+            if now.weekday() >= 5:
+                reason = 'weekend'
+            elif is_kr_holiday(now):
+                reason = 'kr_holiday'
+            else:
+                reason = 'not scheduled'
             self._respond(200, {
                 'status': 'skip',
                 'time': now.strftime('%Y-%m-%d %H:%M KST'),
-                'reason': 'not scheduled' if now.weekday() < 5 else 'weekend',
+                'reason': reason,
             })
             return
 

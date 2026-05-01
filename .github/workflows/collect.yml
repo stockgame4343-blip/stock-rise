@@ -57,6 +57,17 @@ jobs:
             exit 0
           fi
 
+          # 한국 공휴일(근로자의 날·어린이날·추석 등) 스킵 — schedule/repository_dispatch 만,
+          # workflow_dispatch 는 수동이므로 통과
+          if [ "${{ github.event_name }}" != "workflow_dispatch" ]; then
+            if ! python3 collector/kr_holidays.py "$TODAY" >/dev/null 2>&1; then
+              echo "skip=true" >> $GITHUB_OUTPUT
+              echo "mode=intraday" >> $GITHUB_OUTPUT
+              echo "한국 휴장일($TODAY) — 스킵"
+              exit 0
+            fi
+          fi
+
           # 수동/외부 트리거 시 입력값 또는 시간 기반 모드 결정
           if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ inputs.mode }}" ]; then
             echo "mode=${{ inputs.mode }}" >> $GITHUB_OUTPUT
