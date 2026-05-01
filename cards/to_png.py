@@ -149,7 +149,9 @@ def verify_png(png_path):
 
     1) 1080×1080 정사각형
     2) 4 가장자리 (위·아래·좌·우) 행/열 전체에 흰 픽셀 0건
-    3) 전체 행 단위 — 어떤 행이든 흰 픽셀 비율 50% 초과 0건 (배경 짤림 차단)
+    3) 어떤 행이든 **연속** 흰 픽셀 런이 가로 폭의 절반 이상 0건 (배경 짤림 차단)
+       — 흰 글자(180px 굵은 종목명 등)는 글리프 사이 공백으로 짧은 런만 생기지만,
+         배경이 잘려 흰 띠가 생기면 수백 px 연속 → 둘을 명확히 구분
 
     Returns:
         (ok: bool, msg: str)
@@ -164,6 +166,7 @@ def verify_png(png_path):
 
     w, h = img.size
     WHITE = (255, 255, 255)
+    pixels = img.load()  # 픽셀 직접 접근 — getpixel 보다 빠름
 
     # (1) 4 가장자리 — 8픽셀 step 으로 샘플
     edges = []
@@ -173,18 +176,29 @@ def verify_png(png_path):
     for y in range(0, h, 8):
         edges.append((0, y))
         edges.append((w - 1, y))
-    edge_whites = [p for p in edges if img.getpixel(p) == WHITE]
+    edge_whites = [p for p in edges if pixels[p[0], p[1]] == WHITE]
     if edge_whites:
         return False, f"가장자리 흰 픽셀 {len(edge_whites)}개 (예: {edge_whites[:3]})"
 
-    # (2) 전체 행 검사 — 어떤 행도 흰 비율 50% 초과 X
-    threshold = w // 2
+    # (2) 행 단위 연속 흰 런 검사 — 절반 폭(540px) 이상 연속이면 배경 짤림
+    max_run_threshold = w // 2  # 540px
     bad_rows = []
     for y in range(h):
-        whites = sum(1 for x in range(0, w, 4) if img.getpixel((x, y)) == WHITE)
-        if whites * 4 > threshold:
-            bad_rows.append(y)
+        run = 0
+        max_run = 0
+        for x in range(w):
+            if pixels[x, y] == WHITE:
+                run += 1
+                if run > max_run:
+                    max_run = run
+            else:
+                run = 0
+        if max_run > max_run_threshold:
+            bad_rows.append((y, max_run))
+            if len(bad_rows) >= 3:
+                break  # 조기 종료 — 3개만 보여줘도 충분
     if bad_rows:
-        return False, f"흰 행 {len(bad_rows)}개 (y={bad_rows[:3]}…)"
+        sample = ', '.join(f'y={y} run={r}px' for y, r in bad_rows)
+        return False, f"흰 띠(연속 흰 런 {max_run_threshold}px 초과) — {sample}"
 
     return True, f"OK ({img.size})"
