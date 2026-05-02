@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>카드뉴스 — 라이즈와이 RiseWhy</title>
+<meta name="description" content="국내 주식 마감 시황·대장주·핵심 이슈를 매일 자동 생성하는 SNS 카드뉴스. 평일 07:30 장전 키워드, 16:30 마감 정리.">
+<meta name="keywords" content="주식 카드뉴스,국내주식,상승종목,대장주,오늘의 시황,장마감,KOSPI,KOSDAQ,테마주,라이즈와이,RiseWhy,StockRise">
+<meta name="author" content="라이즈와이 RiseWhy">
+<meta name="robots" content="noindex,nofollow">
+<meta name="googlebot" content="noindex,nofollow">
+<meta name="google-site-verification" content="mD_gW_p6meVkU1A8raJauhIpK7nNd6F3WChXoPBi-uY">
+<meta name="naver-site-verification" content="76458dff5f6e013bbcc75209ba888552c7295b38">
+<link rel="canonical" href="https://stock-rise.vercel.app/cards.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="라이즈와이 RiseWhy">
+<meta property="og:title" content="오늘의 카드뉴스 — 라이즈와이">
+<meta property="og:description" content="국내 주식 마감 시황·대장주·핵심 이슈를 매일 자동 생성하는 1080×1080 SNS 카드뉴스 7장.">
+<meta property="og:url" content="https://stock-rise.vercel.app/cards.html">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:image" content="https://stock-rise.vercel.app/cards/latest-leader.png">
+<meta property="og:image:width" content="1080">
+<meta property="og:image:height" content="1080">
+<meta property="og:image:alt" content="오늘의 대장주 카드뉴스">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="오늘의 카드뉴스 — 라이즈와이">
+<meta name="twitter:description" content="국내 주식 마감 시황·대장주·핵심 이슈 SNS 카드뉴스.">
+<meta name="twitter:image" content="https://stock-rise.vercel.app/cards/latest-leader.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "오늘의 카드뉴스",
+  "description": "국내 주식 마감 시황·대장주·핵심 이슈 SNS 카드뉴스",
+  "publisher": {
+    "@type": "Organization",
+    "name": "라이즈와이 RiseWhy",
+    "url": "https://stock-rise.vercel.app/"
+  }
+}
+</script>
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="/v2/css/style.css">
+<script defer src="/_vercel/insights/script.js"></script>
+<style>
+body{background:var(--bg-primary);margin:0;min-height:100vh}
+/* 페이지 폭 = 카드 폭(1080px) 정확히. 카드 좌우 빈 띠 0. 인스타 피드처럼
+   브라우저 외부만 페이지 배경(라이트/다크 사용자 테마)으로 자연스럽게 흐름. */
+.cards-page{max-width:1080px;margin:0 auto;padding:32px 0 56px}
+/* 머리·라벨·구분선은 카드 가장자리에 맞추되 작은 좌우 padding 으로 숨막힘 방지 */
+.cards-page__head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:10px;margin:0 4px 8px;padding:0 12px}
+.cards-page__title{color:var(--text-primary);font-size:22px;font-weight:800;letter-spacing:-.3px}
+.cards-page__date{color:var(--text-muted);font-size:13px;font-weight:600}
+.cards-page__hint{color:var(--text-muted);font-size:13px;font-weight:500;margin:0 4px 24px;padding:0 12px}
+.cards-group{margin-top:32px}
+.cards-group:first-of-type{margin-top:0}
+.cards-group__head{display:flex;align-items:baseline;gap:12px;margin:0 4px 14px;padding:0 12px 10px;border-bottom:1px solid var(--border)}
+.cards-group__tag{display:inline-block;padding:4px 12px;background:var(--accent,#ff6b6b);color:#fff;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.cards-group__title{color:var(--text-primary);font-size:17px;font-weight:800;letter-spacing:-.2px}
+.cards-group__sub{color:var(--text-muted);font-size:12px;font-weight:500;margin-left:auto}
+.cards-list{display:flex;flex-direction:column;gap:28px;align-items:stretch}
+.cards-list__item{width:100%;display:flex;flex-direction:column;gap:10px}
+.cards-list__label{color:var(--text-primary);font-size:13px;font-weight:700;letter-spacing:.02em;display:flex;align-items:center;gap:10px;padding:0 12px}
+.cards-list__num{display:inline-block;width:22px;height:22px;line-height:22px;text-align:center;background:var(--bg-secondary);color:var(--text-primary);border:1px solid var(--border);border-radius:6px;font-size:11px;font-weight:800}
+/* 카드 PNG: 페이지에 떠있는 인스타 카드. 둥근 모서리 + 큰 그림자로 라이트 테마에서도 자연스럽게 분리. */
+.cards-list__img{width:100%;aspect-ratio:1/1;display:block;border-radius:18px;box-shadow:0 8px 32px rgba(0,0,0,.32)}
+.cards-list__actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 12px}
+.cards-list__action{display:inline-flex;align-items:center;justify-content:center;min-height:var(--tap-min,44px);padding:8px 16px;border:1px solid var(--border);background:var(--bg-secondary);color:var(--text-primary);border-radius:8px;font-size:13px;font-weight:600;text-decoration:none;cursor:pointer;transition:opacity .15s,background .15s}
+.cards-list__action:hover{opacity:.75}
+.disclaimer-box{margin:36px 4px 0;padding:18px 22px;background:var(--bg-secondary);border:1px solid var(--border);border-radius:12px;color:var(--text-muted);font-size:12px;line-height:1.65}
+.disclaimer-box strong{color:var(--text-primary);font-weight:700;display:block;margin-bottom:4px}
+@media (max-width:600px){
+  .cards-page{padding:20px 12px 40px}
+  .cards-list{gap:16px}
+  .cards-list__img{border-radius:12px}
+  .cards-group__head{flex-wrap:wrap}
+  .cards-group__sub{margin-left:0;width:100%}
+}
+</style>
+</head>
+<body>
+<script>
+(function(){
+  var saved = localStorage.getItem('theme');
+  var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+  var t = saved || (prefersLight ? 'light' : 'dark');
+  if (t === 'light') document.documentElement.setAttribute('data-theme','light');
+})();
+</script>
+
+<header class="top-bar">
+  <div class="top-bar__inner frame">
+    <a class="top-bar__logo" href="/v2/">RiseWhy</a>
+    <nav class="top-bar__nav">
+      <a href="/v2/" class="top-bar__link">대시보드</a>
+      <a href="/v2/report.html" class="top-bar__link">리포트</a>
+      <a href="/v2/nxt.html" class="top-bar__link">NXT</a>
+      <a href="/v2/cards.html" class="top-bar__link top-bar__link--active">카드뉴스</a>
+    </nav>
+    <div class="top-bar__right">
+      <button class="theme-toggle" id="themeToggle" title="다크/라이트 모드 전환">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- 면책 배너 (당일 1회 dismiss) -->
+<div class="disclaimer-banner" id="disclaimerBanner" role="region" aria-label="투자 위험 고지" style="display:none;">
+    <div class="disclaimer-banner__inner">
+        <span class="disclaimer-banner__icon" aria-hidden="true">⚠️</span>
+        <span class="disclaimer-banner__text">본 카드뉴스는 공개 시세·공시의 사후 요약입니다. <strong>매수·매도 신호가 아니며 모든 투자 책임은 본인에게 있습니다.</strong></span>
+        <button type="button" class="disclaimer-banner__close" aria-label="고지 닫기">&times;</button>
+    </div>
+</div>
+
+<main class="cards-page">
+  <div class="cards-page__head">
+    <div class="cards-page__title" id="cardsPageTitle">카드뉴스</div>
+    <div class="cards-page__date" id="cardsPageDate">최신 거래일 마감 기준 · 총 7장</div>
+  </div>
+  <div class="cards-page__hint">SNS 공유용 1080×1080 이미지 — 길게 눌러 저장하거나 아래 다운로드 버튼을 이용하세요.</div>
+
+  <!-- 시리즈 노출 순서 — CLOSE → LEADER → PRE.
+       16:30 closing 카드 → 익일 07:30 PRE 카드 순으로 페이지 위에 쌓임. -->
+  <section class="cards-group" data-series="close">
+    <div class="cards-group__head">
+      <span class="cards-group__tag">CLOSE</span>
+      <div class="cards-group__title">마감 시황 시리즈</div>
+      <span class="cards-group__sub">지수·이슈·섹터 총정리 · 2장 · 평일 16:30 자동</span>
+    </div>
+    <div class="cards-list">
+      <div class="cards-list__item" data-card="close">
+        <div class="cards-list__label"><span class="cards-list__num">01</span>장 마감, 한 줄 요약</div>
+        <img class="cards-list__img" src="/cards/__DATE__-close.png" alt="국내 주식 마감 시황 카드 — KOSPI/KOSDAQ 등락과 핵심 지수 요약" loading="lazy">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/__DATE__-close.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-close.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+      <div class="cards-list__item" data-card="close2">
+        <div class="cards-list__label"><span class="cards-list__num">02</span>오늘 무슨 일이 있었나</div>
+        <img class="cards-list__img" src="/cards/__DATE__-close2.png" alt="오늘 시장에 영향을 준 핵심 이슈 3개 요약 카드" loading="lazy">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/__DATE__-close2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-close2.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-group" data-series="leader">
+    <div class="cards-group__head">
+      <span class="cards-group__tag">LEADER</span>
+      <div class="cards-group__title">대장주 시리즈</div>
+      <span class="cards-group__sub">오늘 가장 강했던 종목·테마 · 2장 · 평일 16:30 자동</span>
+    </div>
+    <div class="cards-list">
+      <div class="cards-list__item" data-card="leader">
+        <div class="cards-list__label"><span class="cards-list__num">01</span>오늘의 대장주</div>
+        <img class="cards-list__img" src="/cards/__DATE__-leader.png" alt="오늘의 대장주 카드 — 거래대금 1위 강세 종목과 상승률 요약" loading="lazy">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/__DATE__-leader.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-leader.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+      <div class="cards-list__item" data-card="leader2">
+        <div class="cards-list__label"><span class="cards-list__num">02</span>오늘 대장 테마</div>
+        <img class="cards-list__img" src="/cards/__DATE__-leader2.png" alt="오늘 대장 테마 카드 — 주도 테마와 멤버 5종목 요약" loading="lazy">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/__DATE__-leader2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-leader2.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cards-group" data-series="pre">
+    <div class="cards-group__head">
+      <span class="cards-group__tag">PRE</span>
+      <div class="cards-group__title">장전·키워드 시리즈</div>
+      <span class="cards-group__sub">새벽 브리핑 · 주도 테마 · 뉴욕 마감 · 주도 종목 · 4장 · 평일 08:05 자동</span>
+    </div>
+    <div class="cards-list">
+      <div class="cards-list__item" data-card="pre0">
+        <div class="cards-list__label"><span class="cards-list__num">01</span>새벽 브리핑</div>
+        <img class="cards-list__img" src="/cards/__DATE__-pre0.png" alt="새벽 브리핑 카드 — 간밤 주요 헤드라인과 매크로 환율·금리 요약" loading="lazy">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/__DATE__-pre0.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre0.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+      <div class="cards-list__item" data-card="pre">
+        <div class="cards-list__label"><span class="cards-list__num">02</span>달궜던 키워드</div>
+        <img class="cards-list__img" src="/cards/__DATE__-pre.png" alt="장 시작 전 주목할 키워드 4개 테마 카드" loading="lazy">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/__DATE__-pre.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+      <div class="cards-list__item" data-card="pre2">
+        <div class="cards-list__label"><span class="cards-list__num">03</span>뉴욕 마감</div>
+        <img class="cards-list__img" src="/cards/__DATE__-pre2.png" alt="뉴욕 마감 카드 — S&amp;P 500, NASDAQ, DOW 미국 3대 지수 마감" loading="lazy">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/__DATE__-pre2.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre2.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+      <div class="cards-list__item" data-card="pre3">
+        <div class="cards-list__label"><span class="cards-list__num">04</span>주도 종목</div>
+        <img class="cards-list__img" src="/cards/__DATE__-pre3.png" alt="장전 주도 종목 카드 — 테마별 거래대금 상위 대장 종목" loading="lazy">
+        <div class="cards-list__actions">
+          <a class="cards-list__action" href="/cards/__DATE__-pre3.png" download>다운로드</a>
+          <a class="cards-list__action" href="/cards/__DATE__-pre3.png" target="_blank" rel="noopener">원본 열기</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="disclaimer-box">
+    <strong>※ 정보 제공 목적 · 매매 권유 아님</strong>
+    본 페이지에 게시된 카드뉴스는 공개된 시세·공시 정보를 기반으로 한 <b>사후 요약</b>이며, 특정 종목의 매수·매도를 권유하거나 수익을 보장하지 않습니다. 투자 자문업·유사투자자문업 등록 업체가 아니며, 투자 판단과 그에 따른 책임은 전적으로 이용자 본인에게 있습니다.
+  </div>
+</main>
+
+<script src="/v2/js/disclaimer.js"></script>
+<script src="/v2/js/toast.js"></script>
+<script src="/v2/js/modal-a11y.js"></script>
+<script>
+// 카드 PNG 경로의 __DATE__ placeholder 를 dates.json 의 최신 거래일로 치환.
+(function () {
+  var WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
+
+  function applyDate(date) {
+    var pretty;
+    if (date && date.length === 8) {
+      var y = date.slice(0, 4), m = date.slice(4, 6), d = date.slice(6, 8);
+      var dt = new Date(Number(y), Number(m) - 1, Number(d));
+      var w = WEEKDAYS[dt.getDay()];
+      pretty = y + '.' + m + '.' + d + ' (' + w + ')';
+    } else {
+      pretty = '';
+    }
+    document.querySelectorAll('img[src*="__DATE__"]').forEach(function (el) {
+      el.src = el.getAttribute('src').replace(/__DATE__/g, date);
+      // 시리즈별 시간차 (PRE 07:30, CLOSING 16:30) 로 일부 PNG 가 아직 없을 수 있음.
+      // 404 인 카드는 부모 .cards-list__item 통째로 숨김 → 노출 시점에 자연스럽게 채워짐.
+      el.addEventListener('error', function () {
+        var item = el.closest('.cards-list__item');
+        if (item) item.style.display = 'none';
+        // 그룹 안 모든 item 이 숨겨지면 그룹 자체도 숨김
+        var group = el.closest('.cards-group');
+        if (group && !group.querySelector('.cards-list__item:not([style*="display: none"])')) {
+          group.style.display = 'none';
+        }
+      });
+    });
+    document.querySelectorAll('a[href*="__DATE__"]').forEach(function (el) {
+      el.href = el.getAttribute('href').replace(/__DATE__/g, date);
+    });
+    var titleEl = document.getElementById('cardsPageTitle');
+    var dateEl = document.getElementById('cardsPageDate');
+    if (titleEl) {
+      var w = pretty ? pretty.slice(-2, -1) : '';
+      titleEl.textContent = w ? (w + '요일 카드뉴스') : '카드뉴스';
+    }
+    if (dateEl && pretty) dateEl.textContent = pretty + ' 마감 기준';
+  }
+
+  // 카드 있는 가장 최근 거래일 찾기:
+  //   1) cards/index.json 에서 최신 날짜 (생성 완료된 카드만 등록됨)
+  //   2) 실패 시 dates.json 첫 항목 (수집은 됐지만 카드 미생성일 수 있음 — 그러면 onerror 가 숨김)
+  fetch('/cards/index.json', { cache: 'no-store' })
+    .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+    .then(function (idx) {
+      var keys = Object.keys(idx).filter(function (k) { return /^\d{8}$/.test(k); }).sort();
+      if (keys.length) {
+        applyDate(keys[keys.length - 1]);
+      } else {
+        return Promise.reject();
+      }
+    })
+    .catch(function () {
+      fetch('/data/dates.json', { cache: 'no-store' })
+        .then(function (r) { return r.ok ? r.json() : Promise.reject(); })
+        .then(function (dates) { if (dates && dates.length) applyDate(dates[0]); })
+        .catch(function () { /* 끝까지 실패 시 PNG 404 → onerror 가 숨김 */ });
+    });
+
+  // 카드별 "공유" 버튼 동적 삽입 — Web Share API 우선, 미지원 시 클립보드 복사 폴백
+  function attachShare() {
+    document.querySelectorAll('.cards-list__item').forEach(function (item) {
+      var actions = item.querySelector('.cards-list__actions');
+      if (!actions || actions.querySelector('.cards-list__action--share')) return;
+      var labelEl = item.querySelector('.cards-list__label');
+      var label = labelEl ? labelEl.textContent.replace(/^\s*\d+\s*/, '').trim() : '카드뉴스';
+      var shareBtn = document.createElement('button');
+      shareBtn.type = 'button';
+      shareBtn.className = 'cards-list__action cards-list__action--share';
+      shareBtn.textContent = '공유';
+      shareBtn.addEventListener('click', function () {
+        var img = item.querySelector('.cards-list__img');
+        var imgUrl = img ? img.src : '';
+        if (!imgUrl) return;
+        if (navigator.share) {
+          navigator.share({ title: 'RiseWhy 카드뉴스 — ' + label, text: label, url: imgUrl })
+            .catch(function () { /* 사용자 취소 */ });
+        } else if (navigator.clipboard) {
+          navigator.clipboard.writeText(imgUrl).then(function () {
+            if (window.Toast) window.Toast.show('카드 이미지 URL을 복사했습니다', { type: 'success' });
+          }).catch(function () {
+            if (window.Toast) window.Toast.show('복사에 실패했습니다', { type: 'error' });
+          });
+        } else {
+          if (window.Toast) window.Toast.show('이 브라우저는 공유 기능을 지원하지 않습니다', { type: 'info' });
+        }
+      });
+      actions.appendChild(shareBtn);
+    });
+  }
+  attachShare();
+
+  var btn = document.getElementById('themeToggle');
+  function sync() {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    btn.title = isLight ? '다크 모드로 전환' : '라이트 모드로 전환';
+  }
+  btn.addEventListener('click', function () {
+    var isLight = document.documentElement.getAttribute('data-theme') === 'light';
+    if (isLight) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+    sync();
+  });
+  sync();
+})();
+</script>
+</body>
+</html>

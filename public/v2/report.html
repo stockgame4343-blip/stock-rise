@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>일별 시황·상승 종목 분석 — 라이즈와이 데일리 리포트</title>
+    <meta name="description" content="일자별 코스피·코스닥 상승 요약 / 상한가 / 대장주 / 주도 테마·섹터 / 52주 신고가 / 급등 후 조정 / 카드뉴스. 매일 장마감 후 자동 갱신되는 무료 시장 리포트.">
+    <meta name="keywords" content="데일리리포트,일별리포트,오늘 시황,오늘 오른 종목,상승 종목,상한가 종목,급등주,왜 올랐나,상승 이유,대장주,오늘의 대장주,주도 테마,주도 섹터,섹터 분석,테마 분석,52주 신고가,급등 후 조정,풀백,종목 분석,종목별 카드뉴스,코스피,코스닥,KOSPI,KOSDAQ,장마감 정리,라이즈와이,RiseWhy">
+    <meta name="author" content="라이즈와이 RiseWhy">
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="googlebot" content="noindex,nofollow">
+    <meta name="google-site-verification" content="mD_gW_p6meVkU1A8raJauhIpK7nNd6F3WChXoPBi-uY">
+    <meta name="naver-site-verification" content="76458dff5f6e013bbcc75209ba888552c7295b38">
+    <meta name="theme-color" content="#191919">
+    <link rel="canonical" href="https://stock-rise.vercel.app/report.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="라이즈와이 RiseWhy">
+    <meta property="og:title" content="일별 시황·상승 종목 분석 — 라이즈와이 데일리 리포트">
+    <meta property="og:description" content="일자별 상승 요약·상한가·대장주·주도 테마·섹터·52주 신고가·풀백·카드뉴스를 한 페이지에. 매일 장마감 후 자동.">
+    <meta property="og:url" content="https://stock-rise.vercel.app/report.html">
+    <meta property="og:locale" content="ko_KR">
+    <meta property="og:image" content="https://stock-rise.vercel.app/cards/latest-leader.png">
+    <meta property="og:image:width" content="1080">
+    <meta property="og:image:height" content="1080">
+    <meta property="og:image:alt" content="오늘의 대장주 카드">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="일별 시황·상승 종목 — 라이즈와이">
+    <meta name="twitter:description" content="일자별 상승 요약·대장주·주도 테마·섹터·52주 신고가·카드뉴스.">
+    <meta name="twitter:image" content="https://stock-rise.vercel.app/cards/latest-leader.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "일별 시황·상승 종목 분석",
+      "description": "코스피·코스닥 일별 상승 요약, 대장주, 주도 테마·섹터, 52주 신고가, 카드뉴스",
+      "publisher": { "@type": "Organization", "name": "라이즈와이 RiseWhy", "url": "https://stock-rise.vercel.app/" },
+      "image": "https://stock-rise.vercel.app/cards/latest-leader.png"
+    }
+    </script>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/v2/css/style.css">
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <script>
+    (function(){
+        var saved = localStorage.getItem('theme');
+        var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+        var t = saved || (prefersLight ? 'light' : 'dark');
+        if (t === 'light') document.documentElement.setAttribute('data-theme','light');
+    })();
+    </script>
+
+    <!-- ── 상단 타이틀 바 ── -->
+    <header class="top-bar">
+        <div class="top-bar__inner frame">
+            <a class="top-bar__logo" href="/v2/">RiseWhy</a>
+            <nav class="top-bar__nav">
+                <a href="/v2/" class="top-bar__link">대시보드</a>
+                <a href="/v2/report.html" class="top-bar__link top-bar__link--active">리포트</a>
+                <a href="/v2/nxt.html" class="top-bar__link">NXT</a>
+                <a href="/v2/cards.html" class="top-bar__link">카드뉴스</a>
+            </nav>
+            <div class="top-bar__right">
+                <span class="top-bar__updated" id="lastUpdated"></span>
+                <button class="theme-toggle" id="themeToggle" title="다크/라이트 모드 전환">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 면책 배너 (당일 1회 dismiss) -->
+    <div class="disclaimer-banner" id="disclaimerBanner" role="region" aria-label="투자 위험 고지" style="display:none;">
+        <div class="disclaimer-banner__inner">
+            <span class="disclaimer-banner__icon" aria-hidden="true">⚠️</span>
+            <span class="disclaimer-banner__text">본 리포트는 과거 시장 데이터의 집계입니다. <strong>매수·매도 신호가 아니며 모든 투자 책임은 본인에게 있습니다.</strong></span>
+            <button type="button" class="disclaimer-banner__close" aria-label="고지 닫기">&times;</button>
+        </div>
+    </div>
+
+    <div class="report frame">
+        <!-- 날짜 네비게이션 -->
+        <div class="report__date-bar">
+            <button class="date-nav" id="datePrev">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <h1 class="report__title" id="reportTitle">데일리 리포트</h1>
+            <span class="date-badge" id="dateBadge">오늘</span>
+            <button class="date-nav" id="dateNext">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </div>
+
+        <!-- 로딩 -->
+        <div class="loading" id="loading" style="display:none;">리포트 생성 중...</div>
+        <div class="message" id="message" style="display:none;"></div>
+
+        <!-- 리포트 본문 -->
+        <div id="reportContent" style="display:none;">
+
+            <!-- ── 요약 카드 ── -->
+            <section class="report__summary">
+                <div class="summary-card">
+                    <span class="summary-card__label">분석 종목</span>
+                    <span class="summary-card__value" id="sumCount">-</span>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-card__label">평균 상승률</span>
+                    <div class="summary-card__row">
+                        <span class="summary-card__value summary-card__value--rise" id="sumAvgRate">-</span>
+                    </div>
+                    <span class="sparkline-wrap" id="sparkAvgRate"></span>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-card__label">상한가</span>
+                    <div class="summary-card__row">
+                        <span class="summary-card__value summary-card__value--hot" id="sumLimit">-</span>
+                    </div>
+                    <span class="sparkline-wrap" id="sparkLimit"></span>
+                </div>
+                <div class="summary-card">
+                    <span class="summary-card__label">총 거래대금</span>
+                    <div class="summary-card__row">
+                        <span class="summary-card__value" id="sumVolume">-</span>
+                    </div>
+                    <span class="sparkline-wrap" id="sparkVolume"></span>
+                </div>
+            </section>
+
+            <!-- ── 주도 섹터 ── -->
+            <section class="report__section">
+                <div class="report__section-header">
+                    <h2 class="report__section-title">주도 섹터</h2>
+                    <span class="section-viewall" data-all-type="sector">전체보기</span>
+                </div>
+                <div class="report__section-desc">
+                    <span>상승 종목이 집중된 섹터</span>
+                    <span class="section-pager" id="sectorPager"></span>
+                </div>
+                <div class="sector-cards" id="sectorCards"></div>
+            </section>
+
+            <!-- ── 핫 테마 ── -->
+            <section class="report__section">
+                <div class="report__section-header">
+                    <h2 class="report__section-title">핫 테마</h2>
+                    <span class="section-viewall" data-all-type="theme">전체보기</span>
+                </div>
+                <div class="report__section-desc">
+                    <span>오늘 시장을 이끈 테마</span>
+                    <span class="section-pager" id="themePager"></span>
+                </div>
+                <div class="sector-cards" id="themeCards"></div>
+            </section>
+
+            <!-- ── 카드뉴스 ── -->
+            <section class="report__section" id="cardsSection" style="display:none;">
+                <div class="report__section-header">
+                    <h2 class="report__section-title">카드뉴스</h2>
+                </div>
+                <div class="report__section-desc">
+                    <span>장전 · 주도주 · 장마감 요약 카드</span>
+                    <span class="section-pager" id="cardsPager"></span>
+                </div>
+                <div class="cards-grid" id="cardsGrid"></div>
+            </section>
+
+            <!-- ── 52주 신고가 ── -->
+            <section class="report__section">
+                <h2 class="report__section-title">52주 신고가</h2>
+                <p class="report__section-desc">52주 최고가 돌파 및 근접 종목 (고점 대비 10% 이내)</p>
+                <div id="highList"></div>
+            </section>
+
+            <!-- ── 급등 후 조정 ── -->
+            <section class="report__section">
+                <h2 class="report__section-title">급등 후 조정</h2>
+                <p class="report__section-desc">20%+ 급등 또는 52주 신고가 돌파 후 고점 대비 20% 이상 하락 종목과 저점 대비 25%+ 반등 종목</p>
+                <div id="pullbackList"></div>
+            </section>
+        </div>
+    </div>
+
+    <!-- 상세 팝업 모달 (섹터/테마/서머리 차트) -->
+    <div class="modal-overlay" id="detailModal" style="display:none;">
+        <div class="modal" style="max-width:600px;">
+            <div class="modal__header">
+                <h3 class="modal__title" id="detailModalTitle">상세</h3>
+                <button class="modal__close" id="detailModalClose">&times;</button>
+            </div>
+            <div class="modal__body" id="detailModalBody"></div>
+        </div>
+    </div>
+
+    <!-- 카드뉴스 라이트박스 모달 -->
+    <div class="modal-overlay cards-modal" id="cardsModal" style="display:none;">
+        <button class="cards-modal__nav cards-modal__nav--prev" id="cardsModalPrev" aria-label="이전 카드">‹</button>
+        <div class="cards-modal__inner">
+            <button class="cards-modal__close" id="cardsModalClose" aria-label="닫기">&times;</button>
+            <img class="cards-modal__img" id="cardsModalImg" alt="">
+            <div class="cards-modal__caption">
+                <span class="cards-modal__tag" id="cardsModalTag"></span>
+                <span class="cards-modal__title" id="cardsModalTitle"></span>
+                <span class="cards-modal__count" id="cardsModalCount"></span>
+            </div>
+        </div>
+        <button class="cards-modal__nav cards-modal__nav--next" id="cardsModalNext" aria-label="다음 카드">›</button>
+    </div>
+
+    <!-- 메모 모달 -->
+    <div class="modal-overlay" id="memoModal" style="display:none;">
+        <div class="modal">
+            <div class="modal__header">
+                <h3 class="modal__title" id="memoModalTitle">메모</h3>
+                <button class="modal__close" id="memoModalClose">&times;</button>
+            </div>
+            <div class="modal__body">
+                <textarea class="memo-textarea" id="memoTextarea" placeholder="이 종목에 대한 메모를 작성하세요..."></textarea>
+                <div class="memo-actions">
+                    <button class="memo-delete" id="memoDelete">삭제</button>
+                    <button class="memo-save" id="memoSave">저장</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── 푸터 ── -->
+    <div class="footer">
+        <footer class="footer__wrap">
+            <div class="frame footer__inner">
+                <p class="footer__disclaimer">
+                    <strong>본 사이트는 유사투자자문업 신고를 하지 않았으며, 어떠한 형태의 투자자문·종목 추천·매수/매도 권유도 제공하지 않습니다.</strong><br>
+                    본 리포트는 공개된 과거 시장 데이터를 기계적으로 집계·분류한 결과로, 특정 종목의 매수·매도 신호나 미래 수익을 의미하지 않습니다.
+                    데이터는 외부 소스에서 수집되어 지연·오류가 있을 수 있으며 정확성을 보장하지 않습니다.
+                    모든 투자 판단과 그에 따른 손익은 전적으로 이용자 본인의 책임입니다.
+                </p>
+                <p class="footer__copy">&copy; 2026 라이즈와이 (RiseWhy). 네이버 금융 데이터 기반 · 비영리 개인 프로젝트.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="/v2/js/disclaimer.js"></script>
+    <script src="/v2/js/toast.js"></script>
+    <script src="/v2/js/modal-a11y.js"></script>
+    <script src="/v2/js/api.js"></script>
+    <script src="/v2/js/date-picker.js"></script>
+    <script src="/v2/js/report.js"></script>
+</body>
+</html>
