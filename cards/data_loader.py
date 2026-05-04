@@ -163,7 +163,8 @@ def load_day(yyyymmdd, fallback=False):
     """target_date 파일 없으면 가장 최근 거래일 데이터로 fallback.
 
     PRE 시리즈가 오늘 (장 시작 전) 만들어질 때 사용 — 오늘 마감 데이터는
-    아직 없으므로 가장 최근 마감(어제) 데이터를 사용하되, 카드 라벨은 오늘.
+    아직 없으므로 직전 거래일 마감 데이터를 사용한다 (휴일·주말 갭이면 며칠 전).
+    카드 라벨은 "전일 ..." (데이터 기준일은 카드 우상단 date_full 로 명시).
 
     Returns dict 에 'data_date' (실제 사용한 데이터 거래일) 추가.
     """
@@ -191,6 +192,7 @@ def load_day(yyyymmdd, fallback=False):
         'weekday_en': _weekday_en(yyyymmdd),
         'data_date': data_date,                        # 실제 데이터 거래일 (참조용)
         'data_date_kr': _date_kr_full(data_date),
+        'data_date_full': _date_full(data_date),       # 우상단 노출용 (PRE/직전거래일 데이터 카드)
         'rankings': rankings,
         'themes': _group_by_theme(rankings),
         'sectors': _group_by_sector(rankings),
@@ -332,9 +334,9 @@ def build_pre(day):
         return None
     return {
         'series': 'pre',
-        'date_full': day['date_full'],
+        'date_full': day['data_date_full'],
         'label': '★ 주도 키워드',
-        'title_top': '어제 달궜던',
+        'title_top': '전일 달궜던',
         'title_em': '키워드',
         'keywords': [
             {
@@ -401,9 +403,9 @@ def build_pre3(day):
 
     return {
         'series': 'pre',
-        'date_full': day['date_full'],
+        'date_full': day['data_date_full'],
         'label': '★ 테마별 대장',
-        'title_top': '어제의',
+        'title_top': '전일',
         'title_em': '대장 종목',
         'themes': [
             {
