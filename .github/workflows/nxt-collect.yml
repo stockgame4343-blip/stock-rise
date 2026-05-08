@@ -8,16 +8,7 @@ on:
   schedule:
     - cron: '5,35 7,8,9,10 * * 1-5'   # 7:05~10:35 (UTC) = KST 16:05~19:35 30분 간격
     - cron: '5 11 * * 1-5'             # 11:05 (UTC) = KST 20:05 (애프터마켓 마지막)
-  # 외부 cron-job.org → api/cron-trigger.py → repository_dispatch (event_type=nxt)
-  # GitHub Actions schedule 누락(67% 발생) 보강 — 외부 cron 트리거가 가장 신뢰성 ↑
-  repository_dispatch:
-    types: [nxt]
   workflow_dispatch:
-
-# 동시 실행 방지
-concurrency:
-  group: nxt-collect
-  cancel-in-progress: false
 
 env:
   TZ: Asia/Seoul
