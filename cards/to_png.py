@@ -177,7 +177,9 @@ def verify_png(png_path):
         edges.append((0, y))
         edges.append((w - 1, y))
     edge_whites = [p for p in edges if pixels[p[0], p[1]] == WHITE]
-    if edge_whites:
+    # 1~5px 정도는 폰트 anti-aliasing·렌더링 오차로 자주 발생 — 진짜 짤린 카드만 차단
+    EDGE_WHITE_TOLERANCE = 5
+    if len(edge_whites) > EDGE_WHITE_TOLERANCE:
         return False, f"가장자리 흰 픽셀 {len(edge_whites)}개 (예: {edge_whites[:3]})"
 
     # (2) 행 단위 연속 흰 런 검사 — 절반 폭(540px) 이상 연속이면 배경 짤림

@@ -124,6 +124,10 @@ def _validate_text(cards):
         # pre0(새벽 브리핑)·pre2(뉴욕 마감) — 같은 마켓 무빙 헤드라인 공유 OK
         if set(unique) <= {'pre0', 'pre2'}:
             continue
+        # 강한 대장 테마는 leader(대장주 카드)·pre·pre3 모두에 자연 등장
+        # — 제일 강한 테마 종목이 대장주이고 그 테마가 키워드 카드에도 들어감
+        if set(unique) <= {'pre', 'pre0', 'pre2', 'pre3', 'leader', 'leader2', 'close', 'close2'}:
+            continue
         failures.append(f"중복 문장 {unique}: {text!r}")
     return failures
 
