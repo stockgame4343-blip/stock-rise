@@ -49,6 +49,17 @@ SCHEDULE = [
     (16, 0,  'cards',   {'series': 'closing'}),   # 1차 LEADER+CLOSE (마감 직후)
     (16, 6,  'collect', {'mode': 'closing'}),
     (20, 0,  'cards',   {'series': 'closing'}),   # 2차 — 데이터 안정화 후 덮어쓰기
+    # ── NXT 애프터마켓 30분 간격 9회 (16:05~20:05) ──
+    # GitHub Actions schedule 단독 발사 시 67% 누락 → 외부 cron 으로 보강
+    (16, 5,  'nxt', {}),
+    (16, 35, 'nxt', {}),
+    (17, 5,  'nxt', {}),
+    (17, 35, 'nxt', {}),
+    (18, 5,  'nxt', {}),
+    (18, 35, 'nxt', {}),
+    (19, 5,  'nxt', {}),
+    (19, 35, 'nxt', {}),
+    (20, 5,  'nxt', {}),
 ]
 
 
@@ -120,6 +131,7 @@ class handler(BaseHTTPRequestHandler):
                 'cards-closing': ('cards',   {'series': 'closing'}),
                 'collect-intra': ('collect', {'mode': 'intraday'}),
                 'collect-close': ('collect', {'mode': 'closing'}),
+                'nxt':           ('nxt',     {}),
             }
             slot = FORCE_MAP.get(force)
             if not slot:
