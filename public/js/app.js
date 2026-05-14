@@ -549,16 +549,8 @@
         }
     }
 
-    // 모바일: 모달 열기 전에 잔존하는 ⋯ 플로팅 패널 모두 닫기 (모달 뒤로 흘러 보이는 버그 방지)
-    function closeAllCtrlPanels() {
-        document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
-            w.classList.remove('is-open');
-        });
-    }
-
     // ── 메모 모달 ──
     function openMemo(ticker) {
-        closeAllCtrlPanels();
         _memoTicker = ticker;
         var ratings = getRatings();
         var rd = ratings[ticker] || {};
@@ -601,7 +593,6 @@
 
     // ── 태그 편집 모달 ──
     function openTagEdit(ticker) {
-        closeAllCtrlPanels();
         _tagTicker = ticker;
         var ratings = getRatings();
         var rd = ratings[ticker] || {};
@@ -679,7 +670,6 @@
 
     // ── 대장점수 상세 팝업 ──
     function openScoreDetail(ticker) {
-        closeAllCtrlPanels();
         var stock = null;
         for (var i = 0; i < state.rankings.length; i++) {
             if (state.rankings[i].ticker === ticker) { stock = state.rankings[i]; break; }

@@ -314,7 +314,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 /* 요약 카드 */
 .report__summary{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:20px}
 .summary-card{background:var(--bg-secondary);border-radius:12px;padding:20px 24px;display:flex;flex-direction:column;gap:6px}
-.summary-card__label{font-size:12px;color:var(--text-muted);font-weight:500;white-space:nowrap}
+.summary-card__label{font-size:12px;color:var(--text-muted);font-weight:500}
 .summary-card__value{font-size:22px;font-weight:700}
 .summary-card__value--rise{color:var(--rise)}
 .summary-card__value--hot{color:var(--text-primary)}
@@ -494,8 +494,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 /* ── 상세 모달 차트 ── */
 .detail-chart{width:100%;height:auto;margin-bottom:16px;overflow:visible;display:block}
 .detail-stats{display:flex;gap:16px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
-.detail-stat{display:flex;flex-direction:column;gap:2px;flex:1;padding:8px 12px;min-width:0}
-.detail-stat__label{font-size:11px;color:var(--text-muted);white-space:nowrap}
+.detail-stat{display:flex;flex-direction:column;gap:2px;flex:1;padding:8px 12px}
+.detail-stat__label{font-size:11px;color:var(--text-muted)}
 .detail-stat__value{font-size:16px;font-weight:700}
 .detail-stat__value--rise{color:var(--rise)}
 .detail-stat__delta{display:block;margin-top:2px}
@@ -566,8 +566,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .top-bar__nav{gap:2px}
     .top-bar__link{font-size:12px;padding:6px 10px}
     .top-bar__right{gap:6px}
-    /* 업데이트 시간: 모바일에선 nav 와 토글 사이가 좁아 가독성이 위협됨 → 숨김(시간 정보는 리포트/일자 라벨이 대신 제공) */
-    .top-bar__updated{display:none}
+    /* 업데이트 시간: 모바일에서도 표시 (텍스트 축소) */
+    .top-bar__updated{font-size:10px;white-space:nowrap;max-width:72px;overflow:hidden;text-overflow:ellipsis}
 
     /* ── 툴바: 2줄 (1행 탭+관심, 2행 날짜 가운데) ── */
     .toolbar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 5px;padding:10px 0}
@@ -750,37 +750,26 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 
     /* (score-badge 크기는 위 Row 1 블록에서 정의 — 50x40 16px) */
 
-    /* ── 별점/액션 버튼 터치 영역 확보 (Apple HIG 44pt 권장, 최소 36px) ── */
-    .star{font-size:18px;padding:6px;min-width:36px;min-height:36px;display:inline-flex;align-items:center;justify-content:center}
-    .star-rating{gap:0}
-    .exclude-btn,.memo-btn{width:36px;height:36px;font-size:14px}
-    .tag-edit{padding:6px 10px;min-height:30px;display:inline-flex;align-items:center;line-height:1.2}
-    .tag-edit--empty{padding:6px 12px;font-size:12px;min-height:30px}
-    .theme-tag{font-size:11px;padding:5px 10px;min-height:30px;display:inline-flex;align-items:center}
-    .theme-tag--sub{padding:4px 8px;min-height:28px}
-    /* 상단 네비 링크 — 27px → 40px (가장 자주 누름) */
-    .top-bar__link{padding:10px 12px;min-height:40px;display:inline-flex;align-items:center}
-    .top-bar__nav{gap:4px}
-    /* 테마 토글 — 26 → 40px */
-    .theme-toggle{padding:10px;min-width:40px;min-height:40px;justify-content:center}
-    /* 모달 닫기 — 항상 44px */
-    .modal__close{min-width:44px;min-height:44px}
+    /* ── 별점/액션 버튼 터치 영역 확보 ── */
+    .star{font-size:16px;padding:4px}
+    .exclude-btn,.memo-btn{width:28px;height:28px;font-size:12px}
+    .tag-edit--empty{padding:4px 10px;font-size:12px}
+    .theme-tag{font-size:11px;padding:3px 8px}
 
     /* ── 모바일 전용: ctrl-toggle 노출 + 패널 포지션 조정 ── */
-    /* hit-box 36×36 (Apple HIG 44 권장, 36 minimum), 배경 보강으로 "버튼" 신호 강화 */
+    /* hit-box 32×32 (Fitts' Law 터치 안전선 근접), 희미한 원형 배경으로 "버튼" 신호 */
     .ctrl-toggle{
         display:inline-flex;
         align-items:center;
         justify-content:center;
-        width:36px;
-        height:36px;
+        width:32px;
+        height:32px;
         font-size:18px;
         border-radius:50%;
-        background:rgba(255,255,255,.07);
-        color:var(--text-secondary);
+        background:rgba(255,255,255,.04);
+        color:var(--text-muted);
     }
-    [data-theme="light"] .ctrl-toggle{background:rgba(0,0,0,.05);color:var(--text-secondary)}
-    .ctrl-toggle:active{background:var(--bg-tertiary,rgba(255,255,255,.18))}
+    .ctrl-toggle:active{background:var(--bg-tertiary,rgba(255,255,255,.12))}
     /* 모바일: 호버 기반 오픈 규칙 전부 취소 (sticky-hover 로 탭 시 오작동 방지) —
        Preview 에뮬레이션이 hover:hover 를 여전히 true 로 보내므로 안전망 */
     .ctrl-wrap:hover .float-controls,
@@ -861,7 +850,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .report__summary{grid-template-columns:repeat(2,1fr);gap:8px;margin-top:12px}
     .summary-card{padding:14px 16px}
     .summary-card__value{font-size:18px}
-    .summary-card__label{font-size:11px;letter-spacing:-.2px}
+    .summary-card__label{font-size:11px}
     /* 모바일: 스파크라인 숨김 (요약 카드 영역 공간 확보) */
     .sparkline-wrap,.sparkline{display:none}
 
@@ -873,9 +862,7 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
        1행 종목명+라벨(전체 폭) / 2행 detail | rate / 3행 tag(전체 폭). */
     .compact-row{display:grid;grid-template-columns:1fr auto;grid-auto-flow:row dense;gap:4px 10px;padding:12px 16px;align-items:center}
     .compact-row__name{grid-column:1;min-width:0;font-size:14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;white-space:normal;overflow:visible;text-overflow:clip;word-break:keep-all;overflow-wrap:break-word}
-    /* compact-row 내부: 부모 flex `gap:6px` 가 간격 제공 → margin-left 제거.
-       다른 컨텍스트(detail-stock__name, summary list 등 inline 부모)는 margin-left:6px 유지. */
-    .compact-row .compact-row__market{margin-left:0;flex-shrink:0}
+    .compact-row__market{margin-left:0;flex-shrink:0}
     .compact-row__price,.compact-row__rate{grid-column:2;justify-self:end;align-self:center;min-width:0}
     .compact-row__detail{grid-column:1 / -1;font-size:11px;flex-wrap:wrap;min-width:0}
     .compact-row__tag,.compact-row__tag--break,.compact-row__tag--bounce{grid-column:1 / -1;margin-left:0;justify-self:start;font-size:11px}
@@ -921,15 +908,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
     .ranking-table td.cell-sector::before,
     .ranking-table td.cell-reason::before{min-width:56px;font-size:11px}
     .report__summary{grid-template-columns:1fr 1fr;gap:6px}
-    .summary-card{padding:12px 10px}
+    .summary-card{padding:12px}
     .summary-card__value{font-size:16px}
-    /* SE 폭에서 "총 거래대금" 처럼 한글 4자 label 이 폭에 빠듯해서 줄바꿈됐던 이슈 — letter-spacing 추가로 압축 */
-    .summary-card__label{font-size:10px;letter-spacing:-.3px}
-    /* 섹터/테마 상세 모달의 4개 stat 도 SE 에서 좁아 줄바꿈됨 — 2x2 그리드로 전환 */
-    .detail-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-    .detail-stat{padding:6px 8px}
-    .detail-stat__label{font-size:10px;letter-spacing:-.2px}
-    .detail-stat__value{font-size:14px}
 }
 
 /* ── 날짜 캘린더 피커 (대시보드/NXT/리포트 공용) ── */
@@ -1062,11 +1042,6 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 .cards-modal__tag--close{background:rgba(123,77,184,.98)}
 .cards-modal__title{font-weight:700}
 .cards-modal__count{color:rgba(255,255,255,.6);font-size:12px}
-/* 모바일 전용 스와이프 힌트 — 좌우 ‹ › 버튼 숨김 보완. PC 에서는 숨김(키보드/마우스 화살표가 신호) */
-.cards-modal__hint{display:none}
-@media(max-width:560px){
-    .cards-modal__hint{display:inline-block;color:rgba(255,255,255,.55);font-size:11px;font-weight:500;letter-spacing:.04em;flex-basis:100%;text-align:center;margin-top:2px}
-}
 .cards-modal__nav{
     background:rgba(255,255,255,.08);border:none;color:#fff;cursor:pointer;
     width:48px;height:48px;border-radius:50%;font-size:28px;line-height:1;
@@ -1082,37 +1057,9 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
 @media(max-width:560px){
     .cards-grid{grid-template-columns:repeat(2,1fr);gap:8px}
     .cards-grid__tag{font-size:9px;padding:2px 7px}
-    /* 모바일: ‹ › 버튼 숨김 — 좌우 스와이프로 대체 (스와이프 힌트는 .cards-modal__hint 로 안내) */
+    /* 모바일: ‹ › 버튼 숨김 — 좌우 스와이프로 대체 */
     .cards-modal__nav{display:none}
     .cards-modal__inner{max-width:96vw}
     .cards-modal__img{max-height:78vh}
     .cards-modal__close{top:-40px}
-}
-
-/* ── 면책 배너 (당일 1회 dismiss · KST 날짜 바뀌면 재노출) ── */
-.disclaimer-banner{
-    background:rgba(255,165,2,.10);
-    border-bottom:1px solid rgba(255,165,2,.25);
-    color:var(--text-primary);
-    font-size:13px;line-height:1.5;
-}
-.disclaimer-banner__inner{
-    display:flex;align-items:center;gap:10px;
-    padding:8px 40px;
-}
-.disclaimer-banner__icon{font-size:14px;flex-shrink:0}
-.disclaimer-banner__text{flex:1;min-width:0}
-.disclaimer-banner__text strong{color:var(--rise);font-weight:700}
-.disclaimer-banner__close{
-    background:none;border:1px solid transparent;color:var(--text-secondary);
-    cursor:pointer;font-size:20px;line-height:1;
-    padding:4px 10px;border-radius:6px;flex-shrink:0;
-    transition:background .15s,color .15s;
-}
-.disclaimer-banner__close:hover{background:var(--bg-hover);color:var(--text-primary)}
-@media(max-width:768px){
-    .disclaimer-banner{font-size:12px}
-    .disclaimer-banner__inner{padding:6px 12px;gap:6px}
-    .disclaimer-banner__icon{font-size:12px}
-    .disclaimer-banner__close{font-size:18px;padding:3px 8px}
 }

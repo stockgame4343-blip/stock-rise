@@ -139,10 +139,6 @@ var StockTable = (function () {
     }
 
     function openNews(ticker) {
-        // 모바일: 잔존 ⋯ 패널 닫기 (모달 뒤 잔존 방지)
-        document.querySelectorAll('.ctrl-wrap.is-open').forEach(function (w) {
-            w.classList.remove('is-open');
-        });
         var stock = null;
         for (var i = 0; i < _currentData.length; i++) {
             if (_currentData[i].ticker === ticker) {
