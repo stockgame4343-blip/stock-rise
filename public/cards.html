@@ -42,6 +42,7 @@
 <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
 <link rel="stylesheet" href="/css/style.css">
 <script defer src="/_vercel/insights/script.js"></script>
+<script src="/js/disclaimer.js" defer></script>
 <style>
 body{background:var(--bg-primary);margin:0;min-height:100vh}
 /* 페이지 폭 = 카드 폭(1080px) 정확히. 카드 좌우 빈 띠 0. 인스타 피드처럼
@@ -101,6 +102,15 @@ body{background:var(--bg-primary);margin:0;min-height:100vh}
     </div>
   </div>
 </header>
+
+<!-- 면책 배너 (당일 1회 dismiss · KST 날짜 바뀌면 재노출) -->
+<div class="disclaimer-banner" id="disclaimerBanner" role="region" aria-label="투자 위험 고지" style="display:none;">
+    <div class="disclaimer-banner__inner">
+        <span class="disclaimer-banner__icon" aria-hidden="true">⚠️</span>
+        <span class="disclaimer-banner__text">카드뉴스는 사후 요약입니다. <strong>매수·매도 권유가 아니며 모든 투자 책임은 본인에게 있습니다.</strong></span>
+        <button type="button" class="disclaimer-banner__close" aria-label="고지 닫기">&times;</button>
+    </div>
+</div>
 
 <main class="cards-page">
   <div class="cards-page__head">

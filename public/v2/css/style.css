@@ -876,7 +876,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:var(--fo
        1행 종목명+라벨(전체 폭) / 2행 detail | rate / 3행 tag(전체 폭). */
     .compact-row{display:grid;grid-template-columns:1fr auto;grid-auto-flow:row dense;gap:4px 10px;padding:12px 16px;align-items:center}
     .compact-row__name{grid-column:1;min-width:0;font-size:14px;display:flex;flex-wrap:wrap;align-items:center;gap:6px;white-space:normal;overflow:visible;text-overflow:clip;word-break:keep-all;overflow-wrap:break-word}
-    .compact-row__market{margin-left:0;flex-shrink:0}
+    /* compact-row 내부만 margin-left:0 — detail-stock__name 등 inline 부모는 기본 margin-left:6px 유지 */
+    .compact-row .compact-row__market{margin-left:0;flex-shrink:0}
     .compact-row__price,.compact-row__rate{grid-column:2;justify-self:end;align-self:center;min-width:0}
     .compact-row__detail{grid-column:1 / -1;font-size:11px;flex-wrap:wrap;min-width:0}
     .compact-row__tag,.compact-row__tag--break,.compact-row__tag--bounce{grid-column:1 / -1;margin-left:0;justify-self:start;font-size:11px}

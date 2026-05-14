@@ -69,6 +69,15 @@
         </div>
     </header>
 
+    <!-- 면책 배너 (당일 1회 dismiss · KST 날짜 바뀌면 재노출) -->
+    <div class="disclaimer-banner" id="disclaimerBanner" role="region" aria-label="투자 위험 고지" style="display:none;">
+        <div class="disclaimer-banner__inner">
+            <span class="disclaimer-banner__icon" aria-hidden="true">⚠️</span>
+            <span class="disclaimer-banner__text">NXT 시세는 <strong>20분 지연</strong>이며, 매수·매도 신호가 아닌 단순 정보 제공입니다.</span>
+            <button type="button" class="disclaimer-banner__close" aria-label="고지 닫기">&times;</button>
+        </div>
+    </div>
+
     <div class="frame">
         <!-- ── 툴바: 탭(상승/하락) · 스냅샷 네비게이션 ── -->
         <nav class="toolbar">
@@ -148,6 +157,7 @@
         </div>
     </div>
 
+    <script src="/js/disclaimer.js"></script>
     <script src="/js/date-picker.js"></script>
     <script src="/js/nxt.js"></script>
 </body>

@@ -77,6 +77,15 @@
         </div>
     </header>
 
+    <!-- 면책 배너 (당일 1회 dismiss · KST 날짜 바뀌면 재노출) -->
+    <div class="disclaimer-banner" id="disclaimerBanner" role="region" aria-label="투자 위험 고지" style="display:none;">
+        <div class="disclaimer-banner__inner">
+            <span class="disclaimer-banner__icon" aria-hidden="true">⚠️</span>
+            <span class="disclaimer-banner__text">본 지표는 과거 시장 데이터의 집계입니다. <strong>매수·매도 신호가 아니며 모든 투자 책임은 본인에게 있습니다.</strong></span>
+            <button type="button" class="disclaimer-banner__close" aria-label="고지 닫기">&times;</button>
+        </div>
+    </div>
+
     <div class="frame">
         <!-- ── 툴바: PC 한 줄 (탭 · 날짜 · 관심) / 모바일 2줄 (탭+관심 위, 날짜 아래) ── -->
         <nav class="toolbar">
@@ -209,6 +218,7 @@
         </div>
     </div>
 
+    <script src="/js/disclaimer.js"></script>
     <script src="/js/api.js"></script>
     <script src="/js/date-picker.js"></script>
     <script src="/js/table.js"></script>

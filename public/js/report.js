@@ -1230,6 +1230,9 @@
         document.getElementById('cardsModalCount').textContent = (idx + 1) + ' / ' + list.length;
         document.getElementById('cardsModalPrev').disabled = idx <= 0;
         document.getElementById('cardsModalNext').disabled = idx >= list.length - 1;
+        // 모바일 스와이프 힌트: 카드가 2장 이상일 때만 노출
+        var hintEl = document.getElementById('cardsModalHint');
+        if (hintEl) hintEl.style.display = (list.length > 1) ? '' : 'none';
     }
 
     function moveCardsModal(delta) {
