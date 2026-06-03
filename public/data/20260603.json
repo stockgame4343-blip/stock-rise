@@ -1,8 +1,8 @@
 {
   "date": "20260603",
-  "collected_at": "2026-06-03T14:22:33",
-  "mode": "intraday",
-  "is_final": false,
+  "collected_at": "2026-06-03T16:22:35",
+  "mode": "closing",
+  "is_final": true,
   "count": 100,
   "version": 4,
   "rankings": [
@@ -444,22 +444,16 @@
       "rise_reason": "지분 관련 이슈",
       "news": [
         {
-          "title": "[특징주] 로봇株, \"엔비디아도 기여 희망\" 젠슨황 발언에 상승(종합)",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016114595&office_id=001&code=090360&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.06.02"
-        },
-        {
-          "title": "[특징주] 로봇株, \"엔비디아도 기여 희망\" 젠슨황 발언에 상승",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016113152&office_id=001&code=090360&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.06.02"
-        },
-        {
           "title": "[애프터마켓 브리핑] 코스닥, 5거래일 연속 하락",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000513735&office_id=374&code=090360&page=&sm=",
           "source": "SBS Biz",
           "date": "2026.06.02"
+        },
+        {
+          "title": "코스피는 9000 코앞인데…코스닥은 고점 대비 16% ‘미끄럼’",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006296600&office_id=018&code=090360&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.03"
         },
         {
           "title": "방한하는 젠슨 황, 8일 서울대 찾는다…'입'과 '발' 따라 화제만발",
@@ -846,51 +840,33 @@
       "rise_reason": "협력 관련 뉴스",
       "news": [
         {
-          "title": "젠슨 황, 방한 임박…두산로보틱스 방문 가능성에 'AI 로봇' 협력 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013983389&office_id=003&code=454910&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.06.03"
-        },
-        {
           "title": "AI 다음은 로봇?…LG전자 327%·두산로보틱스 114% 뛰었다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006296490&office_id=018&code=454910&page=&sm=",
           "source": "이데일리",
           "date": "2026.06.03"
         },
         {
-          "title": "엔비디아 AI 생태계 올라탄 두산…'이것' 뛰어넘는 게 관건",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000047686&office_id=648&code=454910&page=&sm=",
-          "source": "비즈워치",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "젠슨 황도 픽한 ‘K로보틱스’···2차 깐부회동 앞두고 국내 피지컬....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003449596&office_id=032&code=454910&page=&sm=",
-          "source": "경향신문",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "젠슨황 ‘삼쏘 회동’에 더 주목받는 로봇주…이미 150% 상승",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002795267&office_id=021&code=454910&page=&sm=",
-          "source": "문화일보",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "젠슨 황 방한…‘누구’와 ‘어디’서 만나 ‘무슨’ 대화 나눌까",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005688646&office_id=009&code=454910&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "젠슨 황 방한…'누구'와 '어디'서 만나 '무슨' 대화 나누나 '촉각...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008981235&office_id=421&code=454910&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "젠슨 황,' 깐부회동 시즌2'…'치맥'서 '삼쏘'로, 화두는 '로보틱...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013983177&office_id=003&code=454910&page=&sm=",
+          "title": "젠슨 황, 방한 임박…두산로보틱스 방문 가능성에 'AI 로봇' 협력 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013983389&office_id=003&code=454910&page=&sm=",
           "source": "뉴시스",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "\"AI 돈 몰리더니 같이 터졌다\"?올해만 150% 이상 상승한 '이 종...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001032652&office_id=031&code=454910&page=&sm=",
+          "source": "아이뉴스24",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "\"삼전 말고 '이 전자' 샀더니\"…300% 폭등에 개미들 '환호'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005294374&office_id=015&code=454910&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "‘코스피 리딩방장’ 젠슨 황 덕에…로봇주 올해에만 155% 질주했다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005688702&office_id=009&code=454910&page=&sm=",
+          "source": "매일경제",
           "date": "2026.06.03"
         },
         {
@@ -903,6 +879,24 @@
           "title": "반도체 다음은 로봇?...‘젠슨 황 효과’에 올해 국내 대형 로봇株 ...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003979934&office_id=023&code=454910&page=&sm=",
           "source": "조선일보",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "‘젠슨 황 효과’에… 올해 대형 로봇株 155% 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001169023&office_id=366&code=454910&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "주가 9만→39만 ‘329’% 폭등…로봇 신사업 기대감에 LG전자 날...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004627232&office_id=011&code=454910&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "올해 150% 뛴 로봇주…‘젠슨 황 방한’ 기대감 커진다[코주부]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004627229&office_id=011&code=454910&page=&sm=",
+          "source": "서울경제",
           "date": "2026.06.03"
         }
       ],
@@ -1160,6 +1154,12 @@
           "date": "2026.06.02"
         },
         {
+          "title": "증시 활황에 목표가 추월 종목 속출…1위는 'LG전자'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013984054&office_id=003&code=032830&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.06.03"
+        },
+        {
           "title": "4대 그룹 상표권 부자는 SK…“하이닉스 고맙다”",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003029834&office_id=029&code=032830&page=&sm=",
           "source": "디지털타임스",
@@ -1198,12 +1198,6 @@
         {
           "title": "코스피 종가 첫 8800선 돌파",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005529780&office_id=014&code=032830&page=&sm=",
-          "source": "파이낸셜뉴스",
-          "date": "2026.06.02"
-        },
-        {
-          "title": "코스피 종가기준 사상 첫 8800고지 입성...외국인은 18일째 순매...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005529692&office_id=014&code=032830&page=&sm=",
           "source": "파이낸셜뉴스",
           "date": "2026.06.02"
         }
@@ -1355,14 +1349,14 @@
           "date": "2026.05.22"
         },
         {
-          "title": "BHI·미코그룹…LNG 발전 대세 된 K기업",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005293759&office_id=015&code=059090&page=&sm=",
+          "title": "M&A로 큰 미코, 유럽 'LNG 100년 기업' 인수",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005293760&office_id=015&code=059090&page=&sm=",
           "source": "한국경제",
           "date": "2026.06.01"
         },
         {
-          "title": "M&A로 큰 미코, 유럽 'LNG 100년 기업' 인수",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005293760&office_id=015&code=059090&page=&sm=",
+          "title": "BHI·미코그룹…LNG 발전 대세 된 K기업",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005293759&office_id=015&code=059090&page=&sm=",
           "source": "한국경제",
           "date": "2026.06.01"
         },
@@ -1651,6 +1645,30 @@
       "rise_reason": "게임 관련 뉴스",
       "news": [
         {
+          "title": "젠슨 황, 이번엔 ‘삼겹살+소맥 회동’…기업총수들과 광폭 행보 예고",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002807916&office_id=028&code=036570&page=&sm=",
+          "source": "한겨레",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "젠슨 황, 한국 AI 스타트업들도 만난다...업스테이지 참석 예정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005688707&office_id=009&code=036570&page=&sm=",
+          "source": "매일경제",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "젠슨 황, AI 스타트업 만난다…서울대 방문도",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000870863&office_id=422&code=036570&page=&sm=",
+          "source": "연합뉴스TV",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "엔씨는 '리니지', 스마일게이트는 '카제나'…中 시장서 승부수",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005530016&office_id=014&code=036570&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.06.03"
+        },
+        {
           "title": "젠슨 황, 방한 임박…두산로보틱스 방문 가능성에 'AI 로봇' 협력 확...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0013983389&office_id=003&code=036570&page=&sm=",
           "source": "뉴시스",
@@ -1675,7 +1693,7 @@
           "date": "2026.06.03"
         },
         {
-          "title": "한국 오는 젠슨 황, 'AI 깐부' 크래프톤은 어디에",
+          "title": "한국 오는 젠슨 황, 'AI 깐부' 기업들 기대감",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001145884&office_id=417&code=036570&page=&sm=",
           "source": "동행미디어 시대",
           "date": "2026.06.03"
@@ -1684,30 +1702,6 @@
           "title": "\"AI 콘퍼런스 서울 개최 가능\"…이번엔 '삼소' 회동",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001361280&office_id=055&code=036570&page=&sm=",
           "source": "SBS",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "\"AI 콘퍼런스 서울 개최 가능\"…이번엔 '삼소' 회동?",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001361257&office_id=055&code=036570&page=&sm=",
-          "source": "SBS",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "젠슨 황과 밀착 ‘총수 세일즈’ vs 차세대 HBM5 선점 선언",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004132541&office_id=022&code=036570&page=&sm=",
-          "source": "세계일보",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "젠슨 황 방한 D-1… 5년 물린 네이버 주주들, ‘전원 구조’ 가능할...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004627176&office_id=011&code=036570&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "축지법 쓰는 젠슨 황...방한 기간 '광폭 행보'[1일IT템]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005529876&office_id=014&code=036570&page=&sm=",
-          "source": "파이낸셜뉴스",
           "date": "2026.06.03"
         }
       ],
@@ -2475,15 +2469,15 @@
           "date": "2026.06.02"
         },
         {
-          "title": "미래에셋운용, 코스닥 성장주 담는 '코스닥액티브 ETF' 상장",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016113226&office_id=001&code=033160&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.06.02"
-        },
-        {
           "title": "미래에셋운용, ‘TIGER 코스닥액티브 ETF’ 신규 상장",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006295836&office_id=018&code=033160&page=&sm=",
           "source": "이데일리",
+          "date": "2026.06.02"
+        },
+        {
+          "title": "미래에셋운용, 코스닥 성장주 담는 '코스닥액티브 ETF' 상장",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016113226&office_id=001&code=033160&page=&sm=",
+          "source": "연합뉴스",
           "date": "2026.06.02"
         }
       ],
@@ -2729,27 +2723,51 @@
       "rise_reason": "통신 관련 뉴스",
       "news": [
         {
-          "title": "[AI픽] \"출근 전 AI 한판 붙자\"…SKT 직원들 몰린 수요 챌린지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016115415&office_id=001&code=017670&page=&sm=",
-          "source": "연합뉴스",
+          "title": "SK텔레콤, 엔비디아와 '피지컬 AI' 정기 회의체 구성",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003434033&office_id=030&code=017670&page=&sm=",
+          "source": "전자신문",
           "date": "2026.06.03"
         },
         {
-          "title": "앤트로픽 '프로젝트 글래스윙'에 KISA·삼성·SK 포함",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000085728&office_id=293&code=017670&page=&sm=",
-          "source": "블로터",
+          "title": "[ET단상] 리커머스, 이제는 '산업'으로 육성할 때다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003434048&office_id=030&code=017670&page=&sm=",
+          "source": "전자신문",
           "date": "2026.06.03"
         },
         {
-          "title": "앤트로픽 ‘글래스윙’ 펼친다…정부·삼성·SK, 글로벌 AI 보안 동맹",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000105981&office_id=024&code=017670&page=&sm=",
-          "source": "매경이코노미",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "앤트로픽 '글래스윙' 150곳 확대…KISA 참여한다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005366556&office_id=008&code=017670&page=&sm=",
+          "title": "'구독하면 뭐 주지?'…국내 이용자 10명 중 7명 \"멤버십 경험 있어...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005366647&office_id=008&code=017670&page=&sm=",
           "source": "머니투데이",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "앤스로픽, 전문가급 AI 미토스 접근 권한 확대…삼성전자·SK하이닉스....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003724226&office_id=020&code=017670&page=&sm=",
+          "source": "동아일보",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "한국도 '미토스' 접근 가능…삼성전자·SK하이닉스·SKT·KISA 참...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005530031&office_id=014&code=017670&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "'미토스' 접근 기업에 삼성, SK도 포함, KISA도 합류",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005529965&office_id=014&code=017670&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "앤스로픽, AI ‘미토스’ 15개국 150곳으로 확대…\"韓 삼성도 포...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006296420&office_id=018&code=017670&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "앤트로픽, ‘미토스’ 보급 150개 기관으로 확대…삼성·SK도 참여",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003527723&office_id=025&code=017670&page=&sm=",
+          "source": "중앙일보",
           "date": "2026.06.03"
         },
         {
@@ -2759,33 +2777,9 @@
           "date": "2026.06.03"
         },
         {
-          "title": "앤트로픽, AI 보안모델 ‘미토스’ 접속 확대…삼성·SK·KISA 참...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003527689&office_id=025&code=017670&page=&sm=",
-          "source": "중앙일보",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "앤트로픽, AI 보안모델 ‘미토스’ 접속기관 확대···한국 정부와 삼...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003449637&office_id=032&code=017670&page=&sm=",
-          "source": "경향신문",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "앤트로픽, '미토스' 접속권 확대…삼성·SK 합류한 듯",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001254183&office_id=215&code=017670&page=&sm=",
-          "source": "한국경제TV",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "앤트로픽 ‘미토스’ 프로젝트에 한국도 합류…KISA·삼성·SK하이닉스...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002651524&office_id=016&code=017670&page=&sm=",
-          "source": "헤럴드경제",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "앤트로픽, '미토스' 접속 기관 확대…삼성·SK·KISA 등 포함",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001361359&office_id=055&code=017670&page=&sm=",
-          "source": "SBS",
+          "title": "한국 정부, 미토스 들여다본다...삼성·SK·KISA 참여",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002425193&office_id=092&code=017670&page=&sm=",
+          "source": "지디넷코리아",
           "date": "2026.06.03"
         }
       ],
@@ -2986,32 +2980,26 @@
       "rise_reason": "지분 관련 이슈",
       "news": [
         {
-          "title": "7월부터 LG헬로비전에서 SPOTV 채널 빠진다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002425012&office_id=092&code=037560&page=&sm=",
-          "source": "지디넷코리아",
-          "date": "2026.06.02"
-        },
-        {
-          "title": "LG헬로비전, 7월부터 스포티비 송출 중단",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003433586&office_id=030&code=037560&page=&sm=",
-          "source": "전자신문",
-          "date": "2026.06.02"
-        },
-        {
           "title": "[ET특징주] 차익 실현 매물에…LG전자, 2연상 이어 하락 전환",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003433674&office_id=030&code=037560&page=&sm=",
           "source": "전자신문",
           "date": "2026.06.02"
         },
         {
-          "title": "\"우리 동네 시의원 누가 됐나\"…케이블TV, 구석구석 선거방송",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005366464&office_id=008&code=037560&page=&sm=",
-          "source": "머니투데이",
+          "title": "증시 활황에 목표가 추월 종목 속출…1위는 'LG전자'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013984054&office_id=003&code=037560&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.06.03"
         },
         {
           "title": "LG헬로서 사라지는 '스포티비'…왜",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005366466&office_id=008&code=037560&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "\"우리 동네 시의원 누가 됐나\"…케이블TV, 구석구석 선거방송",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005366464&office_id=008&code=037560&page=&sm=",
           "source": "머니투데이",
           "date": "2026.06.03"
         },
@@ -3757,15 +3745,15 @@
           "date": "2026.06.03"
         },
         {
-          "title": "\"캐시백부터 상품권까지\"…신세계百, 5메이징 카드 위크 개최",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008981209&office_id=421&code=004170&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.03"
-        },
-        {
           "title": "신세계百, 신백리워드에 쿠폰·무이자 할부까지…‘5메이징 카드 위크.....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003029756&office_id=029&code=004170&page=&sm=",
           "source": "디지털타임스",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "\"캐시백부터 상품권까지\"…신세계百, 5메이징 카드 위크 개최",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008981209&office_id=421&code=004170&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.06.03"
         },
         {
@@ -3787,15 +3775,15 @@
           "date": "2026.06.03"
         },
         {
-          "title": "[홈플러스 M&A] 회생안 기한 한달…인수 후보군 반응 '촉각'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000085726&office_id=293&code=004170&page=&sm=",
-          "source": "블로터",
+          "title": "[ET단상] 리커머스, 이제는 '산업'으로 육성할 때다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003434048&office_id=030&code=004170&page=&sm=",
+          "source": "전자신문",
           "date": "2026.06.03"
         },
         {
-          "title": "수박부터 명품까지…유통업계, 6월 대규모 할인전",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006296389&office_id=018&code=004170&page=&sm=",
-          "source": "이데일리",
+          "title": "[홈플러스 M&A] 회생안 기한 한달…인수 후보군 반응 '촉각'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000085726&office_id=293&code=004170&page=&sm=",
+          "source": "블로터",
           "date": "2026.06.03"
         }
       ],
@@ -5083,6 +5071,30 @@
       "rise_reason": "백화점 관련 뉴스",
       "news": [
         {
+          "title": "“나무 5만 3000그루 살린 현대백화점의 친환경 쇼핑백”",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003449661&office_id=032&code=069960&page=&sm=",
+          "source": "경향신문",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "친환경 쇼핑백 도입 4년 현대백화점… \"나무 5만3000그루 살려\"",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000934255&office_id=469&code=069960&page=&sm=",
+          "source": "한국일보",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "현대백화점 자원순환 시스템 '프로젝트 100' 결실…4년간 제작 친환...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004411531&office_id=076&code=069960&page=&sm=",
+          "source": "스포츠조선",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "현대백화점, 친환경 쇼핑백 도입 4년… “나무 5만3000그루 보호”",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001169072&office_id=366&code=069960&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.06.03"
+        },
+        {
           "title": "현대백화점, 친환경 쇼핑백 4년…\"나무 5만3000그루 보호 효과\"",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0008981673&office_id=421&code=069960&page=&sm=",
           "source": "뉴스1",
@@ -5113,32 +5125,8 @@
           "date": "2026.06.03"
         },
         {
-          "title": "[단독] ‘전국 매출 1위’ 홈플러스 매장, 49층 주상복합으로…롯데...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005688239&office_id=009&code=069960&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.06.02"
-        },
-        {
-          "title": "버려진 박스의 변신…현대百 쇼핑백, 나무 5만3000그루 살렸다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002229787&office_id=138&code=069960&page=&sm=",
-          "source": "디지털데일리",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "현대百, 친환경 쇼핑백 3200만장 제작…나무 5만3000그루 살렸다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013983784&office_id=003&code=069960&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "폐지로 살린 나무 5만그루…현대百 ‘착한 쇼핑백’의 힘",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003029802&office_id=029&code=069960&page=&sm=",
-          "source": "디지털타임스",
-          "date": "2026.06.03"
-        },
-        {
-          "title": "현대百, 친환경 쇼핑백 3200만장 제작…“나무 5만3000그루 보호...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003433971&office_id=030&code=069960&page=&sm=",
+          "title": "[ET단상] 리커머스, 이제는 '산업'으로 육성할 때다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003434048&office_id=030&code=069960&page=&sm=",
           "source": "전자신문",
           "date": "2026.06.03"
         }
@@ -5697,6 +5685,18 @@
           "date": "2026.05.27"
         },
         {
+          "title": "목표가마저 추월한 급등주 속출…LG전자 상회율 1위",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005530013&office_id=014&code=001740&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "증시 활황에 목표가 추월 종목 속출…1위는 'LG전자'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013984054&office_id=003&code=001740&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.06.03"
+        },
+        {
           "title": "단기 급등에 '증권가 목표가 초과' 종목 속출",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002361457&office_id=052&code=001740&page=&sm=",
           "source": "YTN",
@@ -5737,18 +5737,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002229110&office_id=138&code=001740&page=&sm=",
           "source": "디지털데일리",
           "date": "2026.05.28"
-        },
-        {
-          "title": "엔코아, 국가데이터처에 공공데이터 품질관리 고도화 방안 제시",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003028796&office_id=029&code=001740&page=&sm=",
-          "source": "디지털타임스",
-          "date": "2026.05.27"
-        },
-        {
-          "title": "다음 넘기고 업스테이지 주식 받은 카카오... 70억 책정했는데, 50...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001167263&office_id=366&code=001740&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.05.27"
         }
       ],
       "forward_score": 53,
@@ -7178,10 +7166,10 @@
           "date": "2026.05.22"
         },
         {
-          "title": "K항암제, 美 ASCO서 존재감↑ \"가능성 아닌 데이터로 승부\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005528307&office_id=014&code=358570&page=&sm=",
-          "source": "파이낸셜뉴스",
-          "date": "2026.05.29"
+          "title": "반등 불씨 지폈다…K바이오, 상반기 기술거래 최대치 경신",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005366636&office_id=008&code=358570&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.03"
         }
       ],
       "forward_score": 61,
@@ -7694,6 +7682,12 @@
           "date": "2026.06.02"
         },
         {
+          "title": "국가AI컴퓨팅센터, SPC 이달 출범…본사는 해남·이사회 3자 구성",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003434056&office_id=030&code=028260&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.06.03"
+        },
+        {
           "title": "\"벌써 30도 불볕더위\"…패션업계 여름 장사 '공식' 바뀐다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006296566&office_id=018&code=028260&page=&sm=",
           "source": "이데일리",
@@ -7733,12 +7727,6 @@
           "title": "코스피 종가기준 사상 첫 8800고지 입성...외국인은 18일째 순매...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005529692&office_id=014&code=028260&page=&sm=",
           "source": "파이낸셜뉴스",
-          "date": "2026.06.02"
-        },
-        {
-          "title": "8800선 뚫은 코스피…또 '사상 최고치'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005294212&office_id=015&code=028260&page=&sm=",
-          "source": "한국경제",
           "date": "2026.06.02"
         }
       ],
@@ -7889,6 +7877,12 @@
           "date": "2026.06.01"
         },
         {
+          "title": "[단독] ‘K컬처 플랫폼’된 편의점...CU·GS25 해외 점포만 15...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004627270&office_id=011&code=282330&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.06.03"
+        },
+        {
           "title": "참여형 ESG 강화…환경의 날 앞두고 유통가 ‘녹색소비’ 경쟁",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004132583&office_id=022&code=282330&page=&sm=",
           "source": "세계일보",
@@ -7934,12 +7928,6 @@
           "title": "CU, 제주 첫 러닝 특화 편의점 '러닝 스테이션'",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006295846&office_id=018&code=282330&page=&sm=",
           "source": "이데일리",
-          "date": "2026.06.02"
-        },
-        {
-          "title": "\"이번엔 제주 바다 보며 달린다\"…CU 러닝스테이션 제주 상륙",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008979007&office_id=421&code=282330&page=&sm=",
-          "source": "뉴스1",
           "date": "2026.06.02"
         }
       ],
@@ -8476,6 +8464,12 @@
           "date": "2026.06.02"
         },
         {
+          "title": "코스피는 9000 코앞인데…코스닥은 고점 대비 16% ‘미끄럼’",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006296600&office_id=018&code=036930&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.03"
+        },
+        {
           "title": "“도대체 언제까지 오를까?”…코스피 등락 끝에 8800선 마감 ‘또 또...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002651374&office_id=016&code=036930&page=&sm=",
           "source": "헤럴드경제",
@@ -8522,12 +8516,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005771099&office_id=277&code=036930&page=&sm=",
           "source": "아시아경제",
           "date": "2026.06.02"
-        },
-        {
-          "title": "코스피, 최고 8900선 터치 후 숨 고르기…환율 1516.4원",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000504406&office_id=629&code=036930&page=&sm=",
-          "source": "더팩트",
-          "date": "2026.06.02"
         }
       ],
       "forward_score": 58,
@@ -8570,6 +8558,18 @@
       },
       "rise_reason": "손해보험 관련 뉴스",
       "news": [
+        {
+          "title": "\"40대 여성 다발 '유방암'…표적치료 늘며 부담 가중\"",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013984146&office_id=003&code=000810&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.06.03"
+        },
+        {
+          "title": "차보험 손해율 '비상'…손보사들 장마철 침수 대비 분주",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006296581&office_id=018&code=000810&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.03"
+        },
         {
           "title": "4대 그룹 상표권 부자는 SK…“하이닉스 고맙다”",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003029834&office_id=029&code=000810&page=&sm=",
@@ -8616,18 +8616,6 @@
           "title": "글루코핏, 시바이오닉스 GS1 연동 사용자 데이터 공개…\"생활습관 개....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005293997&office_id=015&code=000810&page=&sm=",
           "source": "한국경제",
-          "date": "2026.06.02"
-        },
-        {
-          "title": "코스피 10위권 수준…이재용, 보유주식 60조 돌파 [이런국장 저런주식...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004626838&office_id=011&code=000810&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.06.02"
-        },
-        {
-          "title": "이재용 회장 주식 재산 60조원 첫 돌파…시가총액 15위 수준",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005529340&office_id=014&code=000810&page=&sm=",
-          "source": "파이낸셜뉴스",
           "date": "2026.06.02"
         }
       ],
@@ -9646,6 +9634,162 @@
         "small_size": 6,
         "consec_lu": 0
       }
+    }
+  ],
+  "pullbacks": [
+    {
+      "ticker": "073540",
+      "name": "에프알텍",
+      "market": "KOSDAQ",
+      "sector": "통신장비",
+      "peakPrice": 6440,
+      "peakDate": "20260414",
+      "reason": "+30.0% 급등",
+      "currentPrice": 2945,
+      "dropPct": 54.27,
+      "postPeakLow": 2600,
+      "bouncePct": 13.27,
+      "bounceBack": false
+    },
+    {
+      "ticker": "033240",
+      "name": "자화전자",
+      "market": "KOSPI",
+      "sector": "통신장비",
+      "peakPrice": 60000,
+      "peakDate": "20260515",
+      "reason": "52주 신고가",
+      "currentPrice": 40050,
+      "dropPct": 33.25,
+      "postPeakLow": 35600,
+      "bouncePct": 12.5,
+      "bounceBack": false
+    },
+    {
+      "ticker": "033160",
+      "name": "엠케이전자",
+      "market": "KOSDAQ",
+      "sector": "반도체와반도체장비",
+      "peakPrice": 37000,
+      "peakDate": "20260521",
+      "reason": "52주 신고가",
+      "currentPrice": 25150,
+      "dropPct": 32.03,
+      "postPeakLow": 19540,
+      "bouncePct": 28.71,
+      "bounceBack": true
+    },
+    {
+      "ticker": "084670",
+      "name": "동양고속",
+      "market": "KOSPI",
+      "sector": "도로와철도운송",
+      "peakPrice": 56200,
+      "peakDate": "20260514",
+      "reason": "+29.9% 급등",
+      "currentPrice": 38900,
+      "dropPct": 30.78,
+      "postPeakLow": 34000,
+      "bouncePct": 14.41,
+      "bounceBack": false
+    },
+    {
+      "ticker": "000650",
+      "name": "천일고속",
+      "market": "KOSPI",
+      "sector": "도로와철도운송",
+      "peakPrice": 295000,
+      "peakDate": "20260514",
+      "reason": "+30.0% 급등",
+      "currentPrice": 217500,
+      "dropPct": 26.27,
+      "postPeakLow": 184100,
+      "bouncePct": 18.14,
+      "bounceBack": false
+    },
+    {
+      "ticker": "425040",
+      "name": "티이엠씨",
+      "market": "KOSDAQ",
+      "sector": "반도체와반도체장비",
+      "peakPrice": 26350,
+      "peakDate": "20260519",
+      "reason": "52주 신고가",
+      "currentPrice": 19900,
+      "dropPct": 24.48,
+      "postPeakLow": 17400,
+      "bouncePct": 14.37,
+      "bounceBack": false
+    },
+    {
+      "ticker": "460470",
+      "name": "아이빔테크놀로지",
+      "market": "KOSDAQ",
+      "sector": "생명과학도구및서비스",
+      "peakPrice": 4945,
+      "peakDate": "20260511",
+      "reason": "52주 신고가",
+      "currentPrice": 3740,
+      "dropPct": 24.37,
+      "postPeakLow": 3400,
+      "bouncePct": 10.0,
+      "bounceBack": false
+    },
+    {
+      "ticker": "130740",
+      "name": "티피씨글로벌",
+      "market": "KOSDAQ",
+      "sector": "자동차부품",
+      "peakPrice": 2580,
+      "peakDate": "20260515",
+      "reason": "+30.0% 급등",
+      "currentPrice": 2015,
+      "dropPct": 21.9,
+      "postPeakLow": 1651,
+      "bouncePct": 22.05,
+      "bounceBack": false
+    },
+    {
+      "ticker": "950160",
+      "name": "코오롱티슈진",
+      "market": "KOSDAQ",
+      "sector": "생물공학",
+      "peakPrice": 138000,
+      "peakDate": "20260508",
+      "reason": "52주 신고가",
+      "currentPrice": 108000,
+      "dropPct": 21.74,
+      "postPeakLow": 89700,
+      "bouncePct": 20.4,
+      "bounceBack": false
+    },
+    {
+      "ticker": "242040",
+      "name": "나무기술",
+      "market": "KOSDAQ",
+      "sector": "IT서비스",
+      "peakPrice": 8940,
+      "peakDate": "20260529",
+      "reason": "52주 신고가",
+      "currentPrice": 7100,
+      "dropPct": 20.58,
+      "postPeakLow": 5380,
+      "bouncePct": 31.97,
+      "bounceBack": true
+    },
+    {
+      "ticker": "131400",
+      "name": "이브이첨단소재",
+      "market": "KOSDAQ",
+      "sector": "전자장비와기기",
+      "peakPrice": 2050,
+      "peakDate": "20260421",
+      "reason": "+29.8% 급등",
+      "currentPrice": 1633,
+      "dropPct": 20.34,
+      "postPeakLow": 1400,
+      "bouncePct": 16.64,
+      "bounceBack": false
     }
   ]
 }
