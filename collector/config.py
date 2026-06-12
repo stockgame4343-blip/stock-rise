@@ -37,8 +37,9 @@ USER_AGENTS = [
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0',
 ]
-REQUEST_DELAY_MIN = 1.0
-REQUEST_DELAY_MAX = 2.5
+# 1.0~2.5s 시절 한 사이클 15~22분 → 15분 수집 그리드에 못 맞춰 단축 (평균 0.85s, 약 1.2req/s)
+REQUEST_DELAY_MIN = 0.5
+REQUEST_DELAY_MAX = 1.2
 
 # ── 거래 강도 설정 ──
 # 5일 평균 대비 기준 (%)

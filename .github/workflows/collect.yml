@@ -2,10 +2,12 @@ name: 주식 데이터 수집
 
 on:
   # GitHub Actions native cron — 외부 cron-job.org 호출 누락 대비 백업·이중화
-  # 평일 KST 09:06~14:36 30분 간격 (intraday) + 15:36 / 16:06 (closing)
+  # 평일 KST 09:06~15:21 15분 간격 (intraday) + 15:36 / 16:06 (closing)
   schedule:
-    # KST 09:06~14:36 (UTC 00:06~05:36) 30분 간격, 평일
-    - cron: '6,36 0,1,2,3,4,5 * * 1-5'
+    # KST 09:06~14:51 (UTC 00:06~05:51) 15분 간격, 평일
+    - cron: '6,21,36,51 0,1,2,3,4,5 * * 1-5'
+    # KST 15:06 / 15:21 (UTC 06:06/06:21) — intraday 마지막 구간
+    - cron: '6,21 6 * * 1-5'
     # KST 15:36 (UTC 06:36) — closing 1차
     - cron: '36 6 * * 1-5'
     # KST 16:06 (UTC 07:06) — closing 최종
@@ -155,9 +157,25 @@ jobs:
           else
             MSG="data: ${TODAY} $(date +%H:%M) 장중 업데이트"
           fi
-          git diff --staged --quiet || git commit -m "$MSG"
-          git pull --rebase origin master
-          git push
+          git diff --staged --quiet && echo "변경 없음" && exit 0
+          git commit -m "$MSG"
+          # 단발 pull --rebase 는 cards/nxt 워크플로 push 와 경합 시 충돌 즉사 이력 —
+          # 충돌 시 방금 수집한 데이터(-X theirs)가 이기도록 rebase 후 최대 3회 재시도
+          for attempt in 1 2 3; do
+            git fetch origin master
+            if git -c rebase.autoStash=true rebase -X theirs origin/master; then
+              if git push; then
+                echo "push 성공 (시도 $attempt)"
+                exit 0
+              fi
+            else
+              echo "rebase 충돌 — abort 후 재시도"
+              git rebase --abort || true
+            fi
+            sleep 5
+          done
+          echo "::error::push 3회 실패"
+          exit 1
 
       # 마지막 안전망 — 외부 cron + GitHub schedule 모두 누락된 worst case 보호
       # collect 가 발사된다는 건 외부 cron-job.org 가 살아있음 → 그 발사 안에서 PRE 카드

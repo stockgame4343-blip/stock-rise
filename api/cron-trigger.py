@@ -22,6 +22,19 @@ from kr_holidays import is_kr_holiday  # noqa: E402
 
 KST = timezone(timedelta(hours=9))
 
+STOCK_RISE_REPO = 'stockgame4343-blip/stock-rise'
+WHYRISE_REPO = 'stockgame4343-blip/whyrise'
+WHYRISE_EVENT = 'marketmap-intraday'   # whyrise build-history.yml repository_dispatch type
+TRIGGER_WINDOW_MIN = 3                 # 슬롯 매칭 허용 오차 (외부 cron 호출 지연 흡수)
+DISPATCH_TIMEOUT_SEC = 6               # 한 호출에 dispatch 2회 가능 → Vercel 함수 10s 한도 내 유지
+
+# 본장 intraday 슬롯 — 09:06~15:21 15분 그리드 (26회)
+# 외부 cron-job.org 를 5분 간격으로 호출해야 모든 슬롯이 발사된다 (시간당 1회면 :06만 발사)
+_INTRADAY_SLOTS = [
+    (h, m) for h in range(9, 16) for m in (6, 21, 36, 51)
+    if (h, m) <= (15, 21)
+]
+
 # 트리거 스케줄 (KST 시:분, event_type, payload)
 # - collect : 수집 워크플로우 (intraday/closing)
 # - cards   : 카드뉴스 자동 생성 (pre/closing)
@@ -31,25 +44,32 @@ SCHEDULE = [
     (8,  5,  'cards',   {'series': 'pre'}),       # 프리장 시작 직후
     (8,  35, 'cards',   {'series': 'pre'}),       # backup 1
     (9,  0,  'cards',   {'series': 'pre'}),       # 본장 시작 직전
-    # ── 본장 30분 간격 (09:06~14:36, 12회) ──
-    (9,  6,  'collect', {'mode': 'intraday'}),
-    (9,  36, 'collect', {'mode': 'intraday'}),
-    (10, 6,  'collect', {'mode': 'intraday'}),
-    (10, 36, 'collect', {'mode': 'intraday'}),
-    (11, 6,  'collect', {'mode': 'intraday'}),
-    (11, 36, 'collect', {'mode': 'intraday'}),
-    (12, 6,  'collect', {'mode': 'intraday'}),
-    (12, 36, 'collect', {'mode': 'intraday'}),
-    (13, 6,  'collect', {'mode': 'intraday'}),
-    (13, 36, 'collect', {'mode': 'intraday'}),
-    (14, 6,  'collect', {'mode': 'intraday'}),
-    (14, 36, 'collect', {'mode': 'intraday'}),
+] + [
+    (h, m, 'collect', {'mode': 'intraday'}) for h, m in _INTRADAY_SLOTS
+] + [
     # ── 마감 ──
     (15, 36, 'collect', {'mode': 'closing'}),
     (16, 0,  'cards',   {'series': 'closing'}),   # 1차 LEADER+CLOSE (마감 직후)
     (16, 6,  'collect', {'mode': 'closing'}),
     (20, 0,  'cards',   {'series': 'closing'}),   # 2차 — 데이터 안정화 후 덮어쓰기
 ]
+
+# whyrise marketmap-intraday 슬롯 — GitHub native cron 만성 누락(하루 3회 수준) 보완.
+# 같은 PAT 로 cross-repo dispatch, 실패해도 본 응답은 fail-soft (whyrise 는 자체 cron 백업 보유).
+WHYRISE_SLOTS = _INTRADAY_SLOTS + [(15, 36), (16, 6)]
+
+
+def _is_market_day(now_kst):
+    if now_kst.weekday() >= 5:  # 토(5), 일(6)
+        return False
+    if is_kr_holiday(now_kst):  # 한국 공휴일(근로자의 날·어린이날·추석 등)
+        return False
+    return True
+
+
+def _matches(now_kst, h, m):
+    diff = abs((now_kst.hour * 60 + now_kst.minute) - (h * 60 + m))
+    return diff <= TRIGGER_WINDOW_MIN
 
 
 def _should_trigger(now_kst):
@@ -58,24 +78,23 @@ def _should_trigger(now_kst):
     Returns:
         (event_type, payload) or None
     """
-    if now_kst.weekday() >= 5:  # 토(5), 일(6)
-        return None
-    if is_kr_holiday(now_kst):  # 한국 공휴일(근로자의 날·어린이날·추석 등)
-        return None
     for h, m, event_type, payload in SCHEDULE:
-        diff = abs((now_kst.hour * 60 + now_kst.minute) - (h * 60 + m))
-        if diff <= 3:  # 3분 이내
+        if _matches(now_kst, h, m):
             return (event_type, payload)
     return None
 
 
-def _trigger_github(event_type, payload):
+def _whyrise_due(now_kst):
+    return any(_matches(now_kst, h, m) for h, m in WHYRISE_SLOTS)
+
+
+def _trigger_github(event_type, payload, repo=STOCK_RISE_REPO):
     """GitHub repository_dispatch 발송."""
     token = os.environ.get('GITHUB_TOKEN', '')
     if not token:
         return False, 'GITHUB_TOKEN not set'
 
-    url = 'https://api.github.com/repos/stockgame4343-blip/stock-rise/dispatches'
+    url = f'https://api.github.com/repos/{repo}/dispatches'
     body = json.dumps({
         'event_type': event_type,
         'client_payload': payload,
@@ -89,7 +108,7 @@ def _trigger_github(event_type, payload):
     })
 
     try:
-        resp = urllib.request.urlopen(req, timeout=10)
+        resp = urllib.request.urlopen(req, timeout=DISPATCH_TIMEOUT_SEC)
         return True, f'dispatched ({resp.status})'
     except urllib.error.HTTPError as e:
         return False, f'HTTP {e.code}: {e.read().decode()[:200]}'
@@ -147,30 +166,44 @@ class handler(BaseHTTPRequestHandler):
             })
             return
 
-        slot = _should_trigger(now)
-
-        if slot is None:
-            if now.weekday() >= 5:
-                reason = 'weekend'
-            elif is_kr_holiday(now):
-                reason = 'kr_holiday'
-            else:
-                reason = 'not scheduled'
+        if not _is_market_day(now):
             self._respond(200, {
                 'status': 'skip',
                 'time': now.strftime('%Y-%m-%d %H:%M KST'),
-                'reason': reason,
+                'reason': 'weekend' if now.weekday() >= 5 else 'kr_holiday',
             })
             return
 
-        event_type, payload = slot
-        ok, msg = _trigger_github(event_type, payload)
-        self._respond(200 if ok else 500, {
-            'status': 'triggered' if ok else 'error',
-            'event': event_type,
-            'payload': payload,
+        slot = _should_trigger(now)
+        whyrise_due = _whyrise_due(now)
+
+        if slot is None and not whyrise_due:
+            self._respond(200, {
+                'status': 'skip',
+                'time': now.strftime('%Y-%m-%d %H:%M KST'),
+                'reason': 'not scheduled',
+            })
+            return
+
+        events = []
+        ok_all = True
+        if slot is not None:
+            event_type, payload = slot
+            ok, msg = _trigger_github(event_type, payload)
+            ok_all = ok_all and ok
+            events.append({'repo': 'stock-rise', 'event': event_type,
+                           'payload': payload, 'ok': ok, 'detail': msg})
+
+        # whyrise 는 fail-soft — PAT 범위 미포함 등으로 실패해도 본 트리거 상태를 오염시키지 않음
+        if whyrise_due:
+            ok, msg = _trigger_github(WHYRISE_EVENT, {}, repo=WHYRISE_REPO)
+            events.append({'repo': 'whyrise', 'event': WHYRISE_EVENT,
+                           'ok': ok, 'detail': msg})
+
+        self._respond(200 if ok_all else 500, {
+            'status': 'triggered' if ok_all else 'error',
+            'events': events,
             'time': now.strftime('%Y-%m-%d %H:%M KST'),
-            'detail': msg,
         })
 
     def _respond(self, code, data):
