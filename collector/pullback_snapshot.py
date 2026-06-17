@@ -49,6 +49,26 @@ def _load_past_rankings(data_dir, current_date, days=LOOKBACK_DAYS):
     return past
 
 
+def _load_prev_pullbacks(data_dir, current_date):
+    """current_date 직전 거래일의 pullbacks 배열 (졸업 감지용). 없으면 []."""
+    files = sorted([
+        f for f in os.listdir(data_dir)
+        if f.endswith('.json') and len(f) == 13 and f.replace('.json', '').isdigit()
+    ], reverse=True)
+    for fname in files:
+        date = fname.replace('.json', '')
+        if date >= current_date:
+            continue
+        try:
+            with open(os.path.join(data_dir, fname), 'r', encoding='utf-8') as f:
+                data = json.load(f)
+            return data.get('pullbacks', []) or []
+        except Exception as e:
+            logger.warning(f'  직전 pullbacks 로드 실패 {fname}: {e}')
+            continue
+    return []
+
+
 def _find_peak_stocks(past_rankings):
     """과거 30일 rankings 에서 급등/신고가 종목 → peakStocks {ticker: {..., peakPrice, peakDate}}."""
     peak_stocks = {}
@@ -155,8 +175,15 @@ def build_snapshot(current_date, data_dir, current_rankings):
     if not peak_stocks:
         return []
 
-    # 1. 현재가 조회 → dropPct 필터
+    # 직전 거래일 pullback 목록 — '오늘 고점 회복(졸업)' 감지용
+    prev_by_ticker = {}
+    for p in _load_prev_pullbacks(data_dir, current_date):
+        if p.get('ticker'):
+            prev_by_ticker[p['ticker']] = p
+
+    # 1. 현재가 조회 → dropPct 필터 (+ 어제 pullback 의 오늘 졸업 분리)
     pullbacks = []
+    recovered = []
     for idx, (ticker, peak) in enumerate(peak_stocks.items()):
         current_price = today_prices.get(ticker) or _fetch_close_price(ticker, current_date)
         if not today_prices.get(ticker):
@@ -165,6 +192,19 @@ def build_snapshot(current_date, data_dir, current_rankings):
             continue
         drop_pct = (peak['peakPrice'] - current_price) / peak['peakPrice'] * 100
         if drop_pct < DROP_PCT:
+            # 조정이 얕음 — 단, 어제 pullback 이었는데 오늘 고점을 회복했으면 '졸업'으로 그날만 기록
+            prev = prev_by_ticker.get(ticker)
+            if prev and current_price >= peak['peakPrice']:
+                entry = dict(peak)
+                entry['currentPrice'] = current_price
+                entry['dropPct'] = round(drop_pct, 2)
+                entry['recovered'] = True
+                entry['recoveredDate'] = current_date
+                low = prev.get('postPeakLow') or prev.get('lowPrice') or current_price
+                entry['postPeakLow'] = low
+                entry['bouncePct'] = round((current_price - low) / low * 100, 2) if low else 0
+                entry['bounceBack'] = True
+                recovered.append(entry)
             continue
         entry = dict(peak)
         entry['currentPrice'] = current_price
@@ -173,11 +213,11 @@ def build_snapshot(current_date, data_dir, current_rankings):
         if (idx + 1) % 20 == 0:
             logger.info(f'    현재가 조회: {idx + 1}/{len(peak_stocks)}')
 
-    logger.info(f'  pullback 스냅샷: {len(pullbacks)}개 조정 확정')
-    if not pullbacks:
+    logger.info(f'  pullback 스냅샷: {len(pullbacks)}개 조정 확정, {len(recovered)}개 고점회복(졸업)')
+    if not pullbacks and not recovered:
         return []
 
-    # 2. postPeakLow + bouncePct
+    # 2. postPeakLow + bouncePct (정상 pullback 만 — 졸업분은 어제 저점을 이어받음)
     for idx, p in enumerate(pullbacks):
         post_low = _fetch_post_peak_low(p['ticker'], p['peakDate'], current_date)
         if post_low and post_low > 0:
@@ -194,4 +234,5 @@ def build_snapshot(current_date, data_dir, current_rankings):
             logger.info(f'    postPeakLow 조회: {idx + 1}/{len(pullbacks)}')
 
     pullbacks.sort(key=lambda x: x['dropPct'], reverse=True)
-    return pullbacks
+    # 졸업(고점회복) 종목을 맨 앞에 — whyrise 가 [고점회복] 배지로 상단 표시
+    return recovered + pullbacks
