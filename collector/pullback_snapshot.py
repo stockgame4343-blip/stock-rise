@@ -20,7 +20,7 @@ logger = logging.getLogger(__name__)
 HEADERS = {'User-Agent': 'Mozilla/5.0'}
 
 # report.js 와 동일한 상수 (backtest_pullback.py 결과 기반)
-PEAK_PCT = 20
+PEAK_PCT = 15
 DROP_PCT = 20
 REBOUND_PCT = 25
 LOOKBACK_DAYS = 90
