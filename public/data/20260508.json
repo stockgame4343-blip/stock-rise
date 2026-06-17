@@ -9503,6 +9503,22 @@
   ],
   "pullbacks": [
     {
+      "ticker": "012205",
+      "name": "계양전기우",
+      "market": "KOSPI",
+      "sector": "자동차부품",
+      "peakPrice": 10070,
+      "peakDate": "20260423",
+      "reason": "+29.9% 급등",
+      "currentPrice": 10400,
+      "dropPct": -3.28,
+      "postPeakLow": 7670,
+      "bouncePct": 35.59,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260508"
+    },
+    {
       "ticker": "0131D0",
       "name": "키움히어로제2호스팩",
       "market": "KOSDAQ",

@@ -7708,6 +7708,22 @@
   ],
   "pullbacks": [
     {
+      "ticker": "001740",
+      "name": "SK네트웍스",
+      "market": "KOSPI",
+      "sector": "복합기업",
+      "peakPrice": 13960,
+      "peakDate": "20260527",
+      "reason": "52주 신고가",
+      "currentPrice": 14170,
+      "dropPct": -1.5,
+      "postPeakLow": 10740,
+      "bouncePct": 31.94,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260608"
+    },
+    {
       "ticker": "487580",
       "name": "폴레드",
       "market": "KOSDAQ",

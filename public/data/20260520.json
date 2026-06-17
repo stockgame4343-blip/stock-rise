@@ -9262,6 +9262,22 @@
   ],
   "pullbacks": [
     {
+      "ticker": "424760",
+      "name": "벨로크",
+      "market": "KOSDAQ",
+      "sector": "IT서비스",
+      "peakPrice": 2370,
+      "peakDate": "20260421",
+      "reason": "+29.9% 급등",
+      "currentPrice": 3055,
+      "dropPct": -28.9,
+      "postPeakLow": 1826,
+      "bouncePct": 67.31,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260520"
+    },
+    {
       "ticker": "0131D0",
       "name": "키움히어로제2호스팩",
       "market": "KOSDAQ",

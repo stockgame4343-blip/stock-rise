@@ -9551,6 +9551,38 @@
   ],
   "pullbacks": [
     {
+      "ticker": "052710",
+      "name": "아모텍",
+      "market": "KOSDAQ",
+      "sector": "핸드셋",
+      "peakPrice": 29450,
+      "peakDate": "20260422",
+      "reason": "52주 신고가",
+      "currentPrice": 29600,
+      "dropPct": -0.51,
+      "postPeakLow": 15590,
+      "bouncePct": 89.87,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260526"
+    },
+    {
+      "ticker": "021880",
+      "name": "메이슨캐피탈",
+      "market": "KOSDAQ",
+      "sector": "기타금융",
+      "peakPrice": 282,
+      "peakDate": "20260519",
+      "reason": "+29.9% 급등",
+      "currentPrice": 287,
+      "dropPct": -1.77,
+      "postPeakLow": 221,
+      "bouncePct": 29.86,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260526"
+    },
+    {
       "ticker": "0131D0",
       "name": "키움히어로제2호스팩",
       "market": "KOSDAQ",

@@ -9309,6 +9309,22 @@
   ],
   "pullbacks": [
     {
+      "ticker": "007610",
+      "name": "선도전기",
+      "market": "KOSPI",
+      "sector": "전기장비",
+      "peakPrice": 12740,
+      "peakDate": "20260506",
+      "reason": "52주 신고가",
+      "currentPrice": 12870,
+      "dropPct": -1.02,
+      "postPeakLow": 9510,
+      "bouncePct": 35.33,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260511"
+    },
+    {
       "ticker": "0131D0",
       "name": "키움히어로제2호스팩",
       "market": "KOSDAQ",

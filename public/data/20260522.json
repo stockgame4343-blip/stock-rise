@@ -9665,6 +9665,38 @@
   ],
   "pullbacks": [
     {
+      "ticker": "131760",
+      "name": "파인텍",
+      "market": "KOSDAQ",
+      "sector": "디스플레이장비및부품",
+      "peakPrice": 2040,
+      "peakDate": "20260421",
+      "reason": "+29.7% 급등",
+      "currentPrice": 4790,
+      "dropPct": -134.8,
+      "postPeakLow": 1036,
+      "bouncePct": 362.36,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260522"
+    },
+    {
+      "ticker": "069540",
+      "name": "빛과전자",
+      "market": "KOSDAQ",
+      "sector": "통신장비",
+      "peakPrice": 6390,
+      "peakDate": "20260414",
+      "reason": "+29.9% 급등",
+      "currentPrice": 6610,
+      "dropPct": -3.44,
+      "postPeakLow": 4265,
+      "bouncePct": 54.98,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260522"
+    },
+    {
       "ticker": "0131D0",
       "name": "키움히어로제2호스팩",
       "market": "KOSDAQ",

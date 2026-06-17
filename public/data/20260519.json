@@ -9354,6 +9354,22 @@
   ],
   "pullbacks": [
     {
+      "ticker": "011000",
+      "name": "진원생명과학",
+      "market": "KOSPI",
+      "sector": "생물공학",
+      "peakPrice": 1322,
+      "peakDate": "20260420",
+      "reason": "+30.0% 급등",
+      "currentPrice": 1366,
+      "dropPct": -3.33,
+      "postPeakLow": 783,
+      "bouncePct": 74.46,
+      "bounceBack": true,
+      "recovered": true,
+      "recoveredDate": "20260519"
+    },
+    {
       "ticker": "0131D0",
       "name": "키움히어로제2호스팩",
       "market": "KOSDAQ",
