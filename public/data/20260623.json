@@ -1,6 +1,6 @@
 {
   "date": "20260623",
-  "collected_at": "2026-06-23T15:45:26",
+  "collected_at": "2026-06-23T16:15:11",
   "mode": "closing",
   "is_final": true,
   "count": 100,
@@ -14,7 +14,7 @@
       "close_price": 50,
       "change_amount": 32,
       "change_rate": 177.78,
-      "trading_value": 644000000,
+      "trading_value": 654000000,
       "market_cap": 1200000000,
       "sector": "건설",
       "industry_no": 279,
@@ -106,7 +106,7 @@
       "close_price": 32,
       "change_amount": 13,
       "change_rate": 68.42,
-      "trading_value": 857000000,
+      "trading_value": 866000000,
       "market_cap": 1000000000,
       "sector": "조선",
       "industry_no": 291,
@@ -276,7 +276,7 @@
       "close_price": 4290,
       "change_amount": 990,
       "change_rate": 30.0,
-      "trading_value": 7406000000,
+      "trading_value": 7407000000,
       "market_cap": 46800000000,
       "sector": "건축자재",
       "industry_no": 289,
@@ -312,12 +312,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000504475&office_id=374&code=006920&page=&sm=",
           "source": "SBS Biz",
           "date": "2026.04.15"
-        },
-        {
-          "title": "[이 시각 시황] K-스틸법 시행령 초안 기대감 등에 철강주 강세",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000480200&office_id=374&code=006920&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2025.12.12"
         }
       ],
       "forward_score": 74,
@@ -335,7 +329,7 @@
       "close_price": 7500,
       "change_amount": 1730,
       "change_rate": 29.98,
-      "trading_value": 767000000,
+      "trading_value": 768000000,
       "market_cap": 136500000000,
       "sector": "화장품",
       "industry_no": 266,
@@ -357,8 +351,14 @@
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "화장품 공급 계약 체결",
+      "rise_reason": "공급 계약 체결",
       "news": [
+        {
+          "title": "[특징주] 차AI헬스케어, 급락장에도 대규모 장기 공급계약에 상한가(....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016154292&office_id=001&code=025620&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.06.23"
+        },
         {
           "title": "[ET특징주]차AI헬스케어, 526억원 공급계약 체결에 상승세",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003440344&office_id=030&code=025620&page=&sm=",
@@ -412,12 +412,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001145209&office_id=417&code=025620&page=&sm=",
           "source": "동행미디어 시대",
           "date": "2026.05.28"
-        },
-        {
-          "title": "“PX 화장품 추천 좀요” 군인들 열광하자…뷰티업계 경쟁 붙었다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004624729&office_id=011&code=025620&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.05.26"
         }
       ],
       "forward_score": 66,
@@ -435,7 +429,7 @@
       "close_price": 724,
       "change_amount": 167,
       "change_rate": 29.98,
-      "trading_value": 1510000000,
+      "trading_value": 1513000000,
       "market_cap": 17700000000,
       "sector": "레저용장비와제품",
       "industry_no": 271,
@@ -503,12 +497,6 @@
           "date": "2026.04.30"
         },
         {
-          "title": "헝셩그룹, 작년 영업손실 2.8억…적자전환",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006253063&office_id=018&code=900270&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.04.08"
-        },
-        {
           "title": "오가노이드사이언스, 1년 확약물량 매각제한 해제",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001027610&office_id=031&code=900270&page=&sm=",
           "source": "아이뉴스24",
@@ -518,6 +506,12 @@
           "title": "황제주 한화에어로스페이스 주식, 5월 '의무보유등록' 풀린다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001141289&office_id=417&code=900270&page=&sm=",
           "source": "동행미디어 시대",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "한화에어로 등 56곳 2억242만주, 내달 의무보유등록 해제",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013918771&office_id=003&code=900270&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.04.30"
         }
       ],
@@ -637,7 +631,7 @@
       "close_price": 3755,
       "change_amount": 865,
       "change_rate": 29.93,
-      "trading_value": 81911000000,
+      "trading_value": 81915000000,
       "market_cap": 75100000000,
       "sector": "철강",
       "industry_no": 304,
@@ -691,12 +685,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005373012&office_id=008&code=026940&page=&sm=",
           "source": "머니투데이",
           "date": "2026.06.17"
-        },
-        {
-          "title": "“소형주 오르면 10배도 우습지” 했는데…현실은 대형주 반도 못갔다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005672856&office_id=009&code=026940&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.04.29"
         }
       ],
       "forward_score": 65,
@@ -815,7 +803,7 @@
       "close_price": 8120,
       "change_amount": 1870,
       "change_rate": 29.92,
-      "trading_value": 6172000000,
+      "trading_value": 6177000000,
       "market_cap": 162400000000,
       "sector": "건축자재",
       "industry_no": 289,
@@ -899,6 +887,12 @@
       "rise_reason": "투자 관련 뉴스",
       "news": [
         {
+          "title": "[특징주] 보해양조, 투자주의 지정에도…상한가 마감(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016154316&office_id=001&code=000890&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.06.23"
+        },
+        {
           "title": "[특징주] 보해양조, '반도체 호남 유치설'에 강세…투자주의 지정",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016153075&office_id=001&code=000890&page=&sm=",
           "source": "연합뉴스",
@@ -917,7 +911,7 @@
           "date": "2026.05.24"
         },
         {
-          "title": "“소주 회사가 반도체 수혜주?” 오늘도 30% 급등…도대체 왜? [종목...",
+          "title": "“소주 회사가 반도체 수혜주?” 오늘도 30% 급등…도대체 왜? [종...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002660205&office_id=016&code=000890&page=&sm=",
           "source": "헤럴드경제",
           "date": "2026.06.23"
@@ -1259,7 +1253,7 @@
       "close_price": 2020,
       "change_amount": 388,
       "change_rate": 23.77,
-      "trading_value": 7945000000,
+      "trading_value": 7952000000,
       "market_cap": 56400000000,
       "sector": "건강관리업체및서비스",
       "industry_no": 316,
@@ -1360,7 +1354,7 @@
       "close_price": 19690,
       "change_amount": 3490,
       "change_rate": 21.54,
-      "trading_value": 132627000000,
+      "trading_value": 132641000000,
       "market_cap": 562000000000,
       "sector": "소프트웨어",
       "industry_no": 287,
@@ -1461,7 +1455,7 @@
       "close_price": 4115,
       "change_amount": 710,
       "change_rate": 20.85,
-      "trading_value": 16970000000,
+      "trading_value": 16976000000,
       "market_cap": 73500000000,
       "sector": "음료",
       "industry_no": 309,
@@ -1562,7 +1556,7 @@
       "close_price": 2800,
       "change_amount": 450,
       "change_rate": 19.15,
-      "trading_value": 1243000000,
+      "trading_value": 1244000000,
       "market_cap": 85400000000,
       "sector": "핸드셋",
       "industry_no": 292,
@@ -1663,7 +1657,7 @@
       "close_price": 37750,
       "change_amount": 5900,
       "change_rate": 18.52,
-      "trading_value": 48912000000,
+      "trading_value": 48964000000,
       "market_cap": 109300000000,
       "sector": "도로와철도운송",
       "industry_no": 329,
@@ -1764,7 +1758,7 @@
       "close_price": 53,
       "change_amount": 8,
       "change_rate": 17.78,
-      "trading_value": 702000000,
+      "trading_value": 709000000,
       "market_cap": 900000000,
       "sector": "핸드셋",
       "industry_no": 292,
@@ -1923,7 +1917,7 @@
       "close_price": 1730,
       "change_amount": 256,
       "change_rate": 17.37,
-      "trading_value": 11363000000,
+      "trading_value": 11369000000,
       "market_cap": 122200000000,
       "sector": "생물공학",
       "industry_no": 286,
@@ -2024,7 +2018,7 @@
       "close_price": 5000,
       "change_amount": 630,
       "change_rate": 14.42,
-      "trading_value": 10533000000,
+      "trading_value": 10549000000,
       "market_cap": 258000000000,
       "sector": "디스플레이장비및부품",
       "industry_no": 269,
@@ -2124,7 +2118,7 @@
       "close_price": 3105,
       "change_amount": 375,
       "change_rate": 13.74,
-      "trading_value": 216636000000,
+      "trading_value": 216765000000,
       "market_cap": 174000000000,
       "sector": "제약",
       "industry_no": 261,
@@ -2195,7 +2189,7 @@
       "close_price": 2570,
       "change_amount": 310,
       "change_rate": 13.72,
-      "trading_value": 6269000000,
+      "trading_value": 6306000000,
       "market_cap": 66400000000,
       "sector": "식품",
       "industry_no": 268,
@@ -2296,7 +2290,7 @@
       "close_price": 6220,
       "change_amount": 750,
       "change_rate": 13.71,
-      "trading_value": 17813000000,
+      "trading_value": 17875000000,
       "market_cap": 181100000000,
       "sector": "식품",
       "industry_no": 268,
@@ -2397,7 +2391,7 @@
       "close_price": 793,
       "change_amount": 93,
       "change_rate": 13.29,
-      "trading_value": 888000000,
+      "trading_value": 891000000,
       "market_cap": 39300000000,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -2443,7 +2437,7 @@
       "close_price": 202000,
       "change_amount": 23100,
       "change_rate": 12.91,
-      "trading_value": 29608000000,
+      "trading_value": 29615000000,
       "market_cap": 288700000000,
       "sector": "도로와철도운송",
       "industry_no": 329,
@@ -2544,7 +2538,7 @@
       "close_price": 4020,
       "change_amount": 435,
       "change_rate": 12.13,
-      "trading_value": 13264000000,
+      "trading_value": 13276000000,
       "market_cap": 161400000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -2691,7 +2685,7 @@
       "close_price": 5730,
       "change_amount": 600,
       "change_rate": 11.7,
-      "trading_value": 4109000000,
+      "trading_value": 4110000000,
       "market_cap": 41300000000,
       "sector": "건축제품",
       "industry_no": 320,
@@ -2892,7 +2886,7 @@
       "close_price": 1414,
       "change_amount": 124,
       "change_rate": 9.61,
-      "trading_value": 33609000000,
+      "trading_value": 33632000000,
       "market_cap": 146000000000,
       "sector": "건강관리장비와용품",
       "industry_no": 281,
@@ -2992,7 +2986,7 @@
       "close_price": 564,
       "change_amount": 49,
       "change_rate": 9.51,
-      "trading_value": 2290000000,
+      "trading_value": 2293000000,
       "market_cap": 18400000000,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -3056,7 +3050,7 @@
       "close_price": 2310,
       "change_amount": 190,
       "change_rate": 8.96,
-      "trading_value": 79213000000,
+      "trading_value": 79237000000,
       "market_cap": 140800000000,
       "sector": "건축자재",
       "industry_no": 289,
@@ -3103,7 +3097,7 @@
       "close_price": 1184,
       "change_amount": 93,
       "change_rate": 8.52,
-      "trading_value": 1426000000,
+      "trading_value": 1427000000,
       "market_cap": 26500000000,
       "sector": "소프트웨어",
       "industry_no": 287,
@@ -3204,7 +3198,7 @@
       "close_price": 116800,
       "change_amount": 8800,
       "change_rate": 8.15,
-      "trading_value": 12808000000,
+      "trading_value": 12811000000,
       "market_cap": 2018800000000,
       "sector": "백화점과일반상점",
       "industry_no": 264,
@@ -3305,7 +3299,7 @@
       "close_price": 1730,
       "change_amount": 120,
       "change_rate": 7.45,
-      "trading_value": 15521000000,
+      "trading_value": 15526000000,
       "market_cap": 22600000000,
       "sector": "철강",
       "industry_no": 304,
@@ -3431,15 +3425,15 @@
           "date": "2026.06.16"
         },
         {
-          "title": "'중동전쟁 여파' 1분기 기관 해외투자 잔액 42.6억달러 감소",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005770380&office_id=277&code=001020&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.06.01"
-        },
-        {
           "title": "美 증시 조정에 평가 손실 확대…기관 해외투자 42.6억불↓",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0013979487&office_id=003&code=001020&page=&sm=",
           "source": "뉴시스",
+          "date": "2026.06.01"
+        },
+        {
+          "title": "'중동전쟁 여파' 1분기 기관 해외투자 잔액 42.6억달러 감소",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005770380&office_id=277&code=001020&page=&sm=",
+          "source": "아시아경제",
           "date": "2026.06.01"
         }
       ],
@@ -3458,7 +3452,7 @@
       "close_price": 2710,
       "change_amount": 165,
       "change_rate": 6.48,
-      "trading_value": 32315000000,
+      "trading_value": 32346000000,
       "market_cap": 98700000000,
       "sector": "기계",
       "industry_no": 299,
@@ -3559,7 +3553,7 @@
       "close_price": 30600,
       "change_amount": 1850,
       "change_rate": 6.43,
-      "trading_value": 7427000000,
+      "trading_value": 7428000000,
       "market_cap": 465900000000,
       "sector": "생물공학",
       "industry_no": 286,
@@ -3659,7 +3653,7 @@
       "close_price": 734,
       "change_amount": 44,
       "change_rate": 6.38,
-      "trading_value": 5157000000,
+      "trading_value": 5158000000,
       "market_cap": 14400000000,
       "sector": "화학",
       "industry_no": 272,
@@ -3987,7 +3981,7 @@
       "close_price": 761,
       "change_amount": 43,
       "change_rate": 5.99,
-      "trading_value": 1036000000,
+      "trading_value": 1038000000,
       "market_cap": 35600000000,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -4049,15 +4043,15 @@
           "date": "2025.12.23"
         },
         {
-          "title": "충남도, 이차전지 등 18개사 4355억원 투자 유치",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002576393&office_id=016&code=002880&page=&sm=",
-          "source": "헤럴드경제",
-          "date": "2025.12.23"
-        },
-        {
           "title": "천안·아산 등 충남 6개 시군, 자동차·반도체 등 18개 기업 435...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003383612&office_id=030&code=002880&page=&sm=",
           "source": "전자신문",
+          "date": "2025.12.23"
+        },
+        {
+          "title": "충남도, 이차전지 등 18개사 4355억원 투자 유치",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002576393&office_id=016&code=002880&page=&sm=",
+          "source": "헤럴드경제",
           "date": "2025.12.23"
         },
         {
@@ -4088,7 +4082,7 @@
       "close_price": 1500,
       "change_amount": 82,
       "change_rate": 5.78,
-      "trading_value": 8507000000,
+      "trading_value": 8508000000,
       "market_cap": 36400000000,
       "sector": "부동산",
       "industry_no": 280,
@@ -4472,7 +4466,7 @@
       "close_price": 2390,
       "change_amount": 120,
       "change_rate": 5.29,
-      "trading_value": 147000000,
+      "trading_value": 161000000,
       "market_cap": 27200000000,
       "sector": "통신장비",
       "industry_no": 294,
@@ -4549,7 +4543,7 @@
       "close_price": 2490,
       "change_amount": 120,
       "change_rate": 5.06,
-      "trading_value": 451000000,
+      "trading_value": 452000000,
       "market_cap": 18900000000,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -4697,7 +4691,7 @@
       "close_price": 3055,
       "change_amount": 130,
       "change_rate": 4.44,
-      "trading_value": 28877000000,
+      "trading_value": 28908000000,
       "market_cap": 60900000000,
       "sector": "건축자재",
       "industry_no": 289,
@@ -4750,7 +4744,7 @@
       "close_price": 6610,
       "change_amount": 280,
       "change_rate": 4.42,
-      "trading_value": 36688000000,
+      "trading_value": 36748000000,
       "market_cap": 105600000000,
       "sector": "상업서비스와공급품",
       "industry_no": 324,
@@ -4850,7 +4844,7 @@
       "close_price": 2410,
       "change_amount": 100,
       "change_rate": 4.33,
-      "trading_value": 10849000000,
+      "trading_value": 10854000000,
       "market_cap": 49400000000,
       "sector": "철강",
       "industry_no": 304,
@@ -4951,7 +4945,7 @@
       "close_price": 25,
       "change_amount": 1,
       "change_rate": 4.17,
-      "trading_value": 329000000,
+      "trading_value": 336000000,
       "market_cap": 1000000000,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -5251,7 +5245,7 @@
       "close_price": 10490,
       "change_amount": 400,
       "change_rate": 3.96,
-      "trading_value": 49609000000,
+      "trading_value": 49702000000,
       "market_cap": 396500000000,
       "sector": "은행",
       "industry_no": 301,
@@ -5747,7 +5741,7 @@
       "close_price": 15600,
       "change_amount": 500,
       "change_rate": 3.31,
-      "trading_value": 10895000000,
+      "trading_value": 10952000000,
       "market_cap": 512500000000,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -5948,7 +5942,7 @@
       "close_price": 138000,
       "change_amount": 4100,
       "change_rate": 3.06,
-      "trading_value": 80522000000,
+      "trading_value": 80529000000,
       "market_cap": 5108700000000,
       "sector": "제약",
       "industry_no": 261,
@@ -5971,12 +5965,18 @@
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "면역항암제 신약 관련 뉴스",
+      "rise_reason": "기관 순매수 보도",
       "news": [
         {
           "title": "리가켐바이오, 코스닥 1부 편입 기대…TROP2 ADC 2상 진입 ‘주...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004633888&office_id=011&code=141080&page=&sm=",
           "source": "서울경제",
+          "date": "2026.06.23"
+        },
+        {
+          "title": "'검은 화요일' 코스피, 9.99% 급락…역대 5번째 하락률",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005780345&office_id=277&code=141080&page=&sm=",
+          "source": "아시아경제",
           "date": "2026.06.23"
         },
         {
@@ -6026,12 +6026,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009017594&office_id=421&code=141080&page=&sm=",
           "source": "뉴스1",
           "date": "2026.06.23"
-        },
-        {
-          "title": "\"면역항암제 한계 넘는다\"… K바이오 대장암 신약 개발 경쟁",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005538182&office_id=014&code=141080&page=&sm=",
-          "source": "파이낸셜뉴스",
-          "date": "2026.06.22"
         }
       ],
       "forward_score": 51,
@@ -6125,7 +6119,7 @@
       "close_price": 2220,
       "change_amount": 60,
       "change_rate": 2.78,
-      "trading_value": 2591000000,
+      "trading_value": 2598000000,
       "market_cap": 52000000000,
       "sector": "건강관리장비와용품",
       "industry_no": 281,
@@ -6651,7 +6645,7 @@
       "close_price": 1324,
       "change_amount": 29,
       "change_rate": 2.24,
-      "trading_value": 4141000000,
+      "trading_value": 4142000000,
       "market_cap": 39000000000,
       "sector": "핸드셋",
       "industry_no": 292,
@@ -7409,14 +7403,14 @@
       "news": [
         {
           "title": "이노테나, 글로벌 제조 대기업 생성형 AI 플랫폼 내 '실시간 데이터 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003435678&office_id=030&code=333050&page=&sm=",
-          "source": "전자신문",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006301209&office_id=018&code=333050&page=&sm=",
+          "source": "이데일리",
           "date": "2026.06.09"
         },
         {
           "title": "이노테나, 글로벌 제조 대기업 생성형 AI 플랫폼 내 '실시간 데이터...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006301209&office_id=018&code=333050&page=&sm=",
-          "source": "이데일리",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003435678&office_id=030&code=333050&page=&sm=",
+          "source": "전자신문",
           "date": "2026.06.09"
         },
         {
@@ -8436,7 +8430,7 @@
       "close_price": 1405,
       "change_amount": 13,
       "change_rate": 0.93,
-      "trading_value": 849000000,
+      "trading_value": 852000000,
       "market_cap": 35400000000,
       "sector": "핸드셋",
       "industry_no": 292,
