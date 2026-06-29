@@ -1,6 +1,6 @@
 {
   "date": "20260629",
-  "collected_at": "2026-06-29T15:54:03",
+  "collected_at": "2026-06-29T16:24:24",
   "mode": "closing",
   "is_final": true,
   "count": 100,
@@ -14,7 +14,7 @@
       "close_price": 17530,
       "change_amount": 5030,
       "change_rate": 40.24,
-      "trading_value": 791290000000,
+      "trading_value": 791623000000,
       "market_cap": 211241846650,
       "sector": "기계",
       "industry_no": 299,
@@ -37,7 +37,7 @@
         "tl": 32,
         "ti": 11
       },
-      "rise_reason": "공모 흥행",
+      "rise_reason": "거래량 증가",
       "news": [],
       "forward_score": 71,
       "forward_bonus": 0,
@@ -54,7 +54,7 @@
       "close_price": 7410,
       "change_amount": 1710,
       "change_rate": 30.0,
-      "trading_value": 969000000,
+      "trading_value": 980000000,
       "market_cap": 134891439930,
       "sector": "화장품",
       "industry_no": 266,
@@ -207,12 +207,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001842102&office_id=005&code=002995&page=&sm=",
           "source": "국민일보",
           "date": "2026.04.09"
-        },
-        {
-          "title": "'이날만 기다렸나'…코스피 폭등하자 개미 5조 털었다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001248338&office_id=215&code=002995&page=&sm=",
-          "source": "한국경제TV",
-          "date": "2026.04.08"
         }
       ],
       "forward_score": 88,
@@ -307,12 +301,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005366417&office_id=008&code=322780&page=&sm=",
           "source": "머니투데이",
           "date": "2026.06.02"
-        },
-        {
-          "title": "툭하면 증자 발표·철회…코스닥서 피보는 개미",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005284295&office_id=015&code=322780&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.05.07"
         }
       ],
       "forward_score": 71,
@@ -377,7 +365,7 @@
       "close_price": 6370,
       "change_amount": 1470,
       "change_rate": 30.0,
-      "trading_value": 24316000000,
+      "trading_value": 24332000000,
       "market_cap": 131145560000,
       "sector": "호텔,레스토랑,레저",
       "industry_no": 317,
@@ -402,33 +390,33 @@
       "rise_reason": "골프 관련 뉴스",
       "news": [
         {
-          "title": "남화산업, 최영곤 단독 대표이사 체제로 변경",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000081480&office_id=293&code=111710&page=&sm=",
-          "source": "블로터",
-          "date": "2026.03.24"
-        },
-        {
-          "title": "남화산업, 최영곤 단독 대표이사 체제 변경",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006241894&office_id=018&code=111710&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.03.24"
-        },
-        {
           "title": "[특징주] 호남 반도체 투자계획 발표 앞두고 광주·전남 건설주 ‘불.....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001175110&office_id=366&code=111710&page=&sm=",
           "source": "조선비즈",
           "date": "2026.06.29"
         },
         {
-          "title": "“반도체 공장 들어선다”...‘삼전·닉스' 떨어지는데 호남 건설주는.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003984676&office_id=023&code=111710&page=&sm=",
-          "source": "조선일보",
+          "title": "삼전닉스 호남 투자에…금호전기 등 호남 기업들 줄줄이 상한가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002232463&office_id=138&code=111710&page=&sm=",
+          "source": "디지털데일리",
           "date": "2026.06.29"
         },
         {
-          "title": "\"이름만 '금호'인데\" 이 종목도 상한가...호남 투자 삼전닉스는 하락",
+          "title": "\"이름만 '금호'인데\" 이 종목도 상한가...호남 투자 삼전닉스는 하...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378457&office_id=008&code=111710&page=&sm=",
           "source": "머니투데이",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "메가 프로젝트에 광주·전남 건설주 상한가…삼전하닉 하락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378691&office_id=008&code=111710&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "“반도체 공장 들어선다”...‘삼전·닉스' 떨어지는데 호남 건설주는.....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003984676&office_id=023&code=111710&page=&sm=",
+          "source": "조선일보",
           "date": "2026.06.29"
         },
         {
@@ -465,7 +453,7 @@
       "close_price": 4465,
       "change_amount": 1030,
       "change_rate": 29.99,
-      "trading_value": 58950000000,
+      "trading_value": 59469000000,
       "market_cap": 89068806765,
       "sector": "건축자재",
       "industry_no": 289,
@@ -601,12 +589,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006278561&office_id=018&code=270520&page=&sm=",
           "source": "이데일리",
           "date": "2026.05.11"
-        },
-        {
-          "title": "이달에만 98개사 액면병합…절반이상이 영업손실 [마켓딥다이브]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001250308&office_id=215&code=270520&page=&sm=",
-          "source": "한국경제TV",
-          "date": "2026.04.27"
         }
       ],
       "forward_score": 96,
@@ -656,6 +638,12 @@
           "date": "2026.06.17"
         },
         {
+          "title": "데브시스터즈, 신작 '쿠키런: 크럼블' 글로벌 사전 등록 개시…대세 ....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002428464&office_id=092&code=194480&page=&sm=",
+          "source": "지디넷코리아",
+          "date": "2026.06.29"
+        },
+        {
           "title": "데브시스터즈, '쿠키런: 크럼블' 글로벌 사전 등록 스타트",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000048437&office_id=648&code=194480&page=&sm=",
           "source": "비즈워치",
@@ -702,12 +690,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001038246&office_id=031&code=194480&page=&sm=",
           "source": "아이뉴스24",
           "date": "2026.06.29"
-        },
-        {
-          "title": "데브시스터즈 '쿠키런 카드 게임', 글로벌 최대 마켓 'TCG플레이어'...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002428040&office_id=092&code=194480&page=&sm=",
-          "source": "지디넷코리아",
-          "date": "2026.06.25"
         }
       ],
       "forward_score": 67,
@@ -826,7 +808,7 @@
       "close_price": 1098,
       "change_amount": 253,
       "change_rate": 29.94,
-      "trading_value": 21170000000,
+      "trading_value": 21172000000,
       "market_cap": 67944331134,
       "sector": "디스플레이장비및부품",
       "industry_no": 269,
@@ -848,8 +830,14 @@
         "tl": 38,
         "ti": 11
       },
-      "rise_reason": "상장 이슈",
+      "rise_reason": "투자 관련 뉴스",
       "news": [
+        {
+          "title": "삼전닉스 호남 투자에…금호전기 등 호남 기업들 줄줄이 상한가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002232463&office_id=138&code=001210&page=&sm=",
+          "source": "디지털데일리",
+          "date": "2026.06.29"
+        },
         {
           "title": "'호남 반도체 클러스터' 발표 앞두고…금호전기·건설 '상한가' 찍었다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014033700&office_id=003&code=001210&page=&sm=",
@@ -860,6 +848,24 @@
           "title": "삼전·닉스 호남 공장설에…금호건설·전기 상한가[특징주]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003105609&office_id=119&code=001210&page=&sm=",
           "source": "데일리안",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "\"이름만 '금호'인데\" 이 종목도 상한가...호남 투자 삼전닉스는 하...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378457&office_id=008&code=001210&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "메가 프로젝트에 광주·전남 건설주 상한가…삼전하닉 하락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378691&office_id=008&code=001210&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "'반도체 클러스터' 호남권 건설株 수혜 기대감↑…대거 상한가(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034956&office_id=003&code=001210&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.06.29"
         },
         {
@@ -875,12 +881,6 @@
           "date": "2026.06.29"
         },
         {
-          "title": "\"이름만 '금호'인데\" 이 종목도 상한가...호남 투자 삼전닉스는 하락",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378457&office_id=008&code=001210&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.06.29"
-        },
-        {
           "title": "\"삼전닉스 들어선다\" 호남 반도체 기대감↑…지역 기대주가 '훨훨'",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001256891&office_id=215&code=001210&page=&sm=",
           "source": "한국경제TV",
@@ -891,24 +891,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303759&office_id=015&code=001210&page=&sm=",
           "source": "한국경제",
           "date": "2026.06.29"
-        },
-        {
-          "title": "\"삼전닉스 호남 공장 짓는대\" 개미들 몰려간 종목...장 초반 '상한가...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378328&office_id=008&code=001210&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "'반도체 투자설'에 호남 상장사 들썩",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303318&office_id=015&code=001210&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "호남 반도체 클러스터 추진에 광주·전남 상장사 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303246&office_id=015&code=001210&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.26"
         }
       ],
       "forward_score": 86,
@@ -926,7 +908,7 @@
       "close_price": 8680,
       "change_amount": 2000,
       "change_rate": 29.94,
-      "trading_value": 7048000000,
+      "trading_value": 7051000000,
       "market_cap": 101903200000,
       "sector": "건설",
       "industry_no": 279,
@@ -964,6 +946,36 @@
           "date": "2026.06.29"
         },
         {
+          "title": "삼전닉스 호남 투자에…금호전기 등 호남 기업들 줄줄이 상한가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002232463&office_id=138&code=091590&page=&sm=",
+          "source": "디지털데일리",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "\"이름만 '금호'인데\" 이 종목도 상한가...호남 투자 삼전닉스는 하...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378457&office_id=008&code=091590&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "메가 프로젝트에 광주·전남 건설주 상한가…삼전하닉 하락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378691&office_id=008&code=091590&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "\"이재용·최태원 가는 곳에 돈 몰린다\"…호남·신재생주 '폭등' [종합....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005304000&office_id=015&code=091590&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "'반도체 클러스터' 호남권 건설株 수혜 기대감↑…대거 상한가(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034956&office_id=003&code=091590&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.06.29"
+        },
+        {
           "title": "2000조 '반도체 클러스터' 호재에…지역 건설업계 주가 '청신호'",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034046&office_id=003&code=091590&page=&sm=",
           "source": "뉴시스",
@@ -976,40 +988,10 @@
           "date": "2026.06.29"
         },
         {
-          "title": "\"이름만 '금호'인데\" 이 종목도 상한가...호남 투자 삼전닉스는 하락",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378457&office_id=008&code=091590&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.06.29"
-        },
-        {
           "title": "호남이면 일단 ‘상한가’ 친다?…반도체 ‘메가프로젝트’ 투자 앞두...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004635967&office_id=011&code=091590&page=&sm=",
           "source": "서울경제",
           "date": "2026.06.29"
-        },
-        {
-          "title": "삼전닉스 호남 공장 기대감에…광주·전남 상장사들 덩달아 '상한가'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009028706&office_id=421&code=091590&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "'호남 반도체' 스치기만 해도 터졌다…주가 30% 폭등 [종목+]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303759&office_id=015&code=091590&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "\"삼전닉스 던진다\" 코스피 와르르...이 때 오른 종목은?[김근희의 증...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005377874&office_id=008&code=091590&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.06.27"
-        },
-        {
-          "title": "'반도체 투자설'에 호남 상장사 들썩",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303318&office_id=015&code=091590&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.26"
         }
       ],
       "forward_score": 79,
@@ -1222,7 +1204,7 @@
       "close_price": 3695,
       "change_amount": 850,
       "change_rate": 29.88,
-      "trading_value": 1011000000,
+      "trading_value": 1012000000,
       "market_cap": 73900000000,
       "sector": "건축자재",
       "industry_no": 289,
@@ -1323,14 +1305,14 @@
       "rise_reason": "공급 관련 뉴스",
       "news": [
         {
-          "title": "[단독] 부품 1만개 필요한 아틀라스, 韓서 공급망 생태계 구축한다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303720&office_id=015&code=126640&page=&sm=",
+          "title": "[단독] 로봇 두뇌부터 관절까지 'K부품 풀장착'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303719&office_id=015&code=126640&page=&sm=",
           "source": "한국경제",
           "date": "2026.06.29"
         },
         {
-          "title": "[단독] 로봇 두뇌부터 관절까지 'K부품 풀장착'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303719&office_id=015&code=126640&page=&sm=",
+          "title": "[단독] 부품 1만개 필요한 아틀라스, 韓서 공급망 생태계 구축한다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303720&office_id=015&code=126640&page=&sm=",
           "source": "한국경제",
           "date": "2026.06.29"
         },
@@ -1362,7 +1344,7 @@
       "close_price": 8610,
       "change_amount": 1980,
       "change_rate": 29.86,
-      "trading_value": 10916000000,
+      "trading_value": 10949000000,
       "market_cap": 320808376140,
       "sector": "건설",
       "industry_no": 279,
@@ -1391,6 +1373,24 @@
           "title": "삼전·닉스 호남 공장설에…금호건설·전기 상한가[특징주]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003105609&office_id=119&code=002990&page=&sm=",
           "source": "데일리안",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "금호건설은, 토목·건축 풍부한 경험 더해 환경 기술까지 입증",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005304015&office_id=015&code=002990&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "조완석 금호건설 사장 \"자연의 미 담은 설계…여유 안겨주는 공간\"",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005304016&office_id=015&code=002990&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "금호건설, 롯데칠성 손잡고 혹서기 근로자 건강 챙긴다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002663088&office_id=016&code=002990&page=&sm=",
+          "source": "헤럴드경제",
           "date": "2026.06.29"
         },
         {
@@ -1427,24 +1427,6 @@
           "title": "금호건설, 롯데칠성음료와 온열질환 예방 MOU…건설현장 근로자 건강....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005699975&office_id=009&code=002990&page=&sm=",
           "source": "매일경제",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "금호건설, 롯데칠성음료와 건설현장 온열질환 예방 캠페인",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006317705&office_id=018&code=002990&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "금호건설, 롯데칠성음료와 건설현장 근로자 온열질환 예방 업무협약",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005782532&office_id=277&code=002990&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "커뮤니티 경쟁력 주목받는 아파트…로열파크씨티 브랜드평판 1위",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002663073&office_id=016&code=002990&page=&sm=",
-          "source": "헤럴드경제",
           "date": "2026.06.29"
         }
       ],
@@ -1546,7 +1528,7 @@
       "close_price": 2245,
       "change_amount": 516,
       "change_rate": 29.84,
-      "trading_value": 5695000000,
+      "trading_value": 5706000000,
       "market_cap": 696705038400,
       "sector": "손해보험",
       "industry_no": 315,
@@ -1583,6 +1565,12 @@
           "date": "2026.06.29"
         },
         {
+          "title": "롯데손해보험, 새 주인 찾나?…'인수전 기대감'에 상한가 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000518851&office_id=374&code=000400&page=&sm=",
+          "source": "SBS Biz",
+          "date": "2026.06.29"
+        },
+        {
           "title": "롯데손해보험, 새 주인 찾기 재시동... 신한·한투 인수 검토",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002385555&office_id=123&code=000400&page=&sm=",
           "source": "조세일보",
@@ -1607,27 +1595,21 @@
           "date": "2026.06.29"
         },
         {
-          "title": "“새 주인 찾나”…롯데손보, 대형 금융그룹 인수설에 상한가 직행",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005700013&office_id=009&code=000400&page=&sm=",
-          "source": "매일경제",
+          "title": "몸값 낮추니 인수 후보군 속속 등장… 보험사 M&A 활기",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001175283&office_id=366&code=000400&page=&sm=",
+          "source": "조선비즈",
           "date": "2026.06.29"
         },
         {
-          "title": "롯데손보, 대형금융그룹 매각설에 장 초반 20% 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378321&office_id=008&code=000400&page=&sm=",
-          "source": "머니투데이",
+          "title": "롯데손보, 대형 금융그룹 M&A 기대감에 상한가[핫종목]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009029025&office_id=421&code=000400&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.06.29"
         },
         {
-          "title": "한국금융지주 \"롯데손보 인수 검토 중\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000518819&office_id=374&code=000400&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "코스피 1% 대 하락·코스닥 6% 급등…외국인 '팔자' 지속 삼성전자·...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000518779&office_id=374&code=000400&page=&sm=",
-          "source": "SBS Biz",
+          "title": "“손보 퍼즐 맞추는 진옥동”…신한금융, 롯데손보 인수 물밑작업",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002232406&office_id=138&code=000400&page=&sm=",
+          "source": "디지털데일리",
           "date": "2026.06.29"
         }
       ],
@@ -1958,50 +1940,79 @@
       "low_price": 2500,
       "theme_tag": "엔터테인먼트",
       "theme_tags": [
-        "면역항암제",
-        "반도체 장비"
+        "엔터테인먼트"
       ],
-      "theme_no": 389,
+      "theme_no": 128,
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 49,
+      "score": 77,
       "score_detail": {
         "tp": 25,
-        "tl": 17,
+        "tl": 45,
         "ti": 7
       },
-      "rise_reason": "유상증자 공시",
+      "rise_reason": "엔터테인먼트 관련 뉴스",
       "news": [
         {
-          "title": "더코디, 50억원 규모 전환사채권 발행 결정",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006234176&office_id=018&code=224060&page=&sm=",
+          "title": "아이오케이이엔엠, 150억원 유증 결정…독립 경영·신사업 확장 탄력",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005377499&office_id=008&code=078860&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.26"
+        },
+        {
+          "title": "아이오케이이엔엠, 제3자배정 유상증자 청신호…독립 경영·신사업 확.....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005781678&office_id=277&code=078860&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.06.26"
+        },
+        {
+          "title": "아이오케이이엔엠, '박지훈 아시아 투어' 흥행 성공…글로벌 공연 매.....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005780241&office_id=277&code=078860&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.06.23"
+        },
+        {
+          "title": "아이오케이이엔엠, '박지훈 아시아 투어' 흥행…글로벌 공연 매출 본....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005375807&office_id=008&code=078860&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.23"
+        },
+        {
+          "title": "아이오케이이엔엠, 최석우 단독 대표이사 체제로 변경",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006302405&office_id=018&code=078860&page=&sm=",
           "source": "이데일리",
-          "date": "2026.03.13"
+          "date": "2026.06.10"
         },
         {
-          "title": "더코디, 50억 규모 전환사채 발행 결정",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013819483&office_id=003&code=224060&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.03.13"
+          "title": "[메자닌 투자파일] 시선AI, CB로 넓힌 외형…오버행 해소 시험대",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000085815&office_id=293&code=078860&page=&sm=",
+          "source": "블로터",
+          "date": "2026.06.05"
         },
         {
-          "title": "더코디, 70억 규모 제3자 배정 유상증자 결정",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006233671&office_id=018&code=224060&page=&sm=",
+          "title": "[딜 인사이드] 쌍방울 그림자 지우기…경영 정상화 과제 | 비투엔②",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000084511&office_id=293&code=078860&page=&sm=",
+          "source": "블로터",
+          "date": "2026.05.13"
+        },
+        {
+          "title": "?[딜 인사이드] 새 주인 된 투자조합…104억 차입 눈길 | 비투엔①",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000084473&office_id=293&code=078860&page=&sm=",
+          "source": "블로터",
+          "date": "2026.05.12"
+        },
+        {
+          "title": "스테이지원엔터, 10억 규모 3자배정 유상증자 결정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006273260&office_id=018&code=078860&page=&sm=",
           "source": "이데일리",
-          "date": "2026.03.12"
+          "date": "2026.05.04"
         },
         {
-          "title": "부채비율 9.2%p↑…HEM파마 2947% '최고'[1분기 코스닥 결산...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006285091&office_id=018&code=224060&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.05.19"
-        },
-        {
-          "title": "기업 공시 [3월 13일]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004599068&office_id=011&code=224060&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.03.13"
+          "title": "스테이지원엔터, 보통주 5342만6032주 무상감자",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000083135&office_id=293&code=078860&page=&sm=",
+          "source": "블로터",
+          "date": "2026.04.21"
         }
       ],
       "forward_score": 83,
@@ -2019,7 +2030,7 @@
       "close_price": 1098,
       "change_amount": 233,
       "change_rate": 26.94,
-      "trading_value": 1333000000,
+      "trading_value": 1340000000,
       "market_cap": 98931231792,
       "sector": "제약",
       "industry_no": 261,
@@ -2114,7 +2125,7 @@
       "close_price": 62200,
       "change_amount": 12900,
       "change_rate": 26.17,
-      "trading_value": 17902000000,
+      "trading_value": 17907000000,
       "market_cap": 1350958498000,
       "sector": "제약",
       "industry_no": 261,
@@ -2157,6 +2168,12 @@
           "date": "2026.06.19"
         },
         {
+          "title": "제약·바이오株 급등…국민성장펀드 날개 달고 다시 비상할까(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016165532&office_id=001&code=475830&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.06.29"
+        },
+        {
           "title": "제약·바이오株 급등…국민성장펀드 날개 달고 다시 비상하나",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016164373&office_id=001&code=475830&page=&sm=",
           "source": "연합뉴스",
@@ -2191,12 +2208,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005777597&office_id=277&code=475830&page=&sm=",
           "source": "아시아경제",
           "date": "2026.06.17"
-        },
-        {
-          "title": "바이오株, 모두가 반등을 위해 싸우고 있다 [B급기자의 B급리포트]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001255528&office_id=215&code=475830&page=&sm=",
-          "source": "한국경제TV",
-          "date": "2026.06.16"
         }
       ],
       "forward_score": 65,
@@ -2214,7 +2225,7 @@
       "close_price": 20100,
       "change_amount": 4160,
       "change_rate": 26.1,
-      "trading_value": 4620000000,
+      "trading_value": 4632000000,
       "market_cap": 219792253800,
       "sector": "건강관리장비와용품",
       "industry_no": 281,
@@ -2415,7 +2426,7 @@
       "close_price": 711,
       "change_amount": 140,
       "change_rate": 24.52,
-      "trading_value": 538000000,
+      "trading_value": 539000000,
       "market_cap": 32765791545,
       "sector": "건축자재",
       "industry_no": 289,
@@ -2532,10 +2543,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 46,
+      "score": 49,
       "score_detail": {
         "tp": 25,
-        "tl": 14,
+        "tl": 17,
         "ti": 7
       },
       "rise_reason": "면역항암제 기술이전 뉴스",
@@ -2616,7 +2627,7 @@
       "close_price": 8330,
       "change_amount": 1630,
       "change_rate": 24.33,
-      "trading_value": 2834000000,
+      "trading_value": 2835000000,
       "market_cap": 109178052970,
       "sector": "소프트웨어",
       "industry_no": 287,
@@ -2717,7 +2728,7 @@
       "close_price": 15580,
       "change_amount": 3040,
       "change_rate": 24.24,
-      "trading_value": 4068000000,
+      "trading_value": 4069000000,
       "market_cap": 153957665000,
       "sector": "건강관리장비와용품",
       "industry_no": 281,
@@ -2806,7 +2817,7 @@
       "forward_score": 65,
       "forward_bonus": 6,
       "forward_detail": {
-        "small_size": 4,
+        "small_size": 6,
         "consec_lu": 0
       }
     },
@@ -2818,7 +2829,7 @@
       "close_price": 167200,
       "change_amount": 32600,
       "change_rate": 24.22,
-      "trading_value": 139954000000,
+      "trading_value": 139960000000,
       "market_cap": 3397919157600,
       "sector": "생명과학도구및서비스",
       "industry_no": 262,
@@ -2919,7 +2930,7 @@
       "close_price": 118000,
       "change_amount": 22600,
       "change_rate": 23.69,
-      "trading_value": 322648000000,
+      "trading_value": 322653000000,
       "market_cap": 16021585936000,
       "sector": "화학",
       "industry_no": 272,
@@ -2927,81 +2938,75 @@
       "high_52w_date": "20260226",
       "high_price": 118700,
       "low_price": 95600,
-      "theme_tag": "2차전지(나트륨이온)",
+      "theme_tag": "리튬",
       "theme_tags": [
-        "2차전지(나트륨이온)",
-        "2차전지(소재/부품)"
+        "리튬",
+        "2차전지(나트륨이온)"
       ],
-      "theme_no": 579,
+      "theme_no": 523,
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
       "score": 57,
       "score_detail": {
-        "tp": 18,
-        "tl": 32,
+        "tp": 32,
+        "tl": 18,
         "ti": 7
       },
       "rise_reason": "외국인 연속순매수",
       "news": [
         {
-          "title": "반도체 숨고르기에 2차전지 ‘급반등’…LG엔솔 19%↑·에코프로 23%...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004636035&office_id=011&code=086520&page=&sm=",
-          "source": "서울경제",
+          "title": "[마켓뷰] 반도체주 부진에…코스피, 0.2% 하락한 8394.65 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001175285&office_id=366&code=086520&page=&sm=",
+          "source": "조선비즈",
           "date": "2026.06.29"
         },
         {
-          "title": "피노, 이차전지 강세 속 장중 13%대 상승[특징주]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318035&office_id=018&code=086520&page=&sm=",
-          "source": "이데일리",
+          "title": "[속보] 반도체 '머쓱'…주인공 따돌린 급등에 주주 '환호'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001256956&office_id=215&code=086520&page=&sm=",
+          "source": "한국경제TV",
           "date": "2026.06.29"
         },
         {
-          "title": "[티타임] 외인 6조 탈출 코스피, 삼전 6% 뚝…코스닥은 7%대 강세...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001149439&office_id=417&code=086520&page=&sm=",
-          "source": "동행미디어 시대",
+          "title": "외국인 8조 투매·개미 5조 줍줍…코스피, 0.2% 하락 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034995&office_id=003&code=086520&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.06.29"
         },
         {
-          "title": "'롤러코스피' 삼전닉스 투자안에 반등…환율 1540원 '고개'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000518841&office_id=374&code=086520&page=&sm=",
-          "source": "SBS Biz",
+          "title": "코스피, 외국인 매도에 숨고르기…코스닥은 8%대 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005782902&office_id=277&code=086520&page=&sm=",
+          "source": "아시아경제",
           "date": "2026.06.29"
         },
         {
-          "title": "SK하이닉스 낙폭 줄이자…코스피 1%대 반등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318132&office_id=018&code=086520&page=&sm=",
-          "source": "이데일리",
+          "title": "호남 투자 확정일에 삼전·하닉 약세…코스피, 약보합 마감 [시황]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003105880&office_id=119&code=086520&page=&sm=",
+          "source": "데일리안",
           "date": "2026.06.29"
         },
         {
-          "title": "삼전닉스만 계속 오를 줄 알았더니…바이오·전력 등 소외 업종 부각...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005700177&office_id=009&code=086520&page=&sm=",
-          "source": "매일경제",
+          "title": "메가 프로젝트에 광주·전남 건설주 상한가…삼전하닉 하락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378691&office_id=008&code=086520&page=&sm=",
+          "source": "머니투데이",
           "date": "2026.06.29"
         },
         {
-          "title": "반도체 쏠림 해소…코스피 2% 내리고 코스닥 6% 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318055&office_id=018&code=086520&page=&sm=",
-          "source": "이데일리",
+          "title": "\"전국이 반도체 기지\" 정부 발표에…코스닥 8%대 폭등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000107970&office_id=050&code=086520&page=&sm=",
+          "source": "한경비즈니스",
           "date": "2026.06.29"
         },
         {
-          "title": "코스닥 7% ‘깜짝 급등’…바이오·2차전지 불기둥에 매수 사이드카",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002811793&office_id=028&code=086520&page=&sm=",
-          "source": "한겨레",
+          "title": "모처럼 웃음꽃 핀 코스닥…정책자금 호재에 8%대 급등 마감(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034948&office_id=003&code=086520&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.06.29"
         },
         {
-          "title": "코스닥 바이오·2차전지 '순환매'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000518803&office_id=374&code=086520&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "코스피, 역대급 변동성…'순환매 온기' 코스닥, 6~7%대 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016164732&office_id=001&code=086520&page=&sm=",
-          "source": "연합뉴스",
+          "title": "'국민성장펀드 훈풍'에 모처럼 웃은 코스닥…성장주 반등 랠리 기대감....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034066&office_id=003&code=086520&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.06.29"
         }
       ],
@@ -3121,7 +3126,7 @@
       "close_price": 10150,
       "change_amount": 1920,
       "change_rate": 23.33,
-      "trading_value": 1996000000,
+      "trading_value": 1997000000,
       "market_cap": 131948041050,
       "sector": "기계",
       "industry_no": 299,
@@ -3222,7 +3227,7 @@
       "close_price": 17500,
       "change_amount": 3270,
       "change_rate": 22.98,
-      "trading_value": 3381000000,
+      "trading_value": 3384000000,
       "market_cap": 204794467500,
       "sector": "우주항공과국방",
       "industry_no": 284,
@@ -3424,7 +3429,7 @@
       "close_price": 1116,
       "change_amount": 206,
       "change_rate": 22.64,
-      "trading_value": 4306000000,
+      "trading_value": 4318000000,
       "market_cap": 123978347244,
       "sector": "통신장비",
       "industry_no": 294,
@@ -3571,142 +3576,6 @@
           "title": "소프트센 투자사 케이클라스, TGV 기술 개발 본격화…\"반도체 유리기...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006244230&office_id=018&code=032680&page=&sm=",
           "source": "이데일리",
-          "date": "2026.06.29"
-        }
-      ],
-      "forward_score": 67,
-      "forward_bonus": 6,
-      "forward_detail": {
-        "small_size": 6,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 43,
-      "ticker": "058730",
-      "name": "다스코",
-      "market": "KOSPI",
-      "close_price": 4200,
-      "change_amount": 765,
-      "change_rate": 22.27,
-      "trading_value": 58084000000,
-      "market_cap": 83782528200,
-      "sector": "건축자재",
-      "industry_no": 289,
-      "high_52w": 5080,
-      "high_52w_date": "20260212",
-      "high_price": 4465,
-      "low_price": 3750,
-      "theme_tag": "전후 재건(우크라/중동 전쟁 등)",
-      "theme_tags": [
-        "전후 재건(우크라/중동 전쟁 등)",
-        "태양광에너지"
-      ],
-      "theme_no": 517,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 61,
-      "score_detail": {
-        "tp": 18,
-        "tl": 32,
-        "ti": 11
-      },
-      "rise_reason": "호남 상장 이슈",
-      "news": [
-        {
-          "title": "호남이면 일단 ‘상한가’ 친다?…반도체 ‘메가프로젝트’ 투자 앞두...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004635967&office_id=011&code=058730&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "삼전닉스 호남 공장 기대감에…광주·전남 상장사들 덩달아 '상한가'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009028706&office_id=421&code=058730&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "\"삼전닉스 호남 공장 짓는대\" 개미들 몰려간 종목...장 초반 '상한가...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378328&office_id=008&code=058730&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "정부 대형투자 발표 예고에… 금호타이어·파루 등 호남 관련주 ‘급...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000107857&office_id=050&code=058730&page=&sm=",
-          "source": "한경비즈니스",
-          "date": "2026.06.26"
-        }
-      ],
-      "forward_score": 63,
-      "forward_bonus": 2,
-      "forward_detail": {
-        "small_size": 2,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 44,
-      "ticker": "032680",
-      "name": "소프트센",
-      "market": "KOSDAQ",
-      "close_price": 908,
-      "change_amount": 165,
-      "change_rate": 22.21,
-      "trading_value": 797000000,
-      "market_cap": 18937139948,
-      "sector": "IT서비스",
-      "industry_no": 267,
-      "high_52w": 1835,
-      "high_52w_date": "20250703",
-      "high_price": 948,
-      "low_price": 750,
-      "theme_tag": "2차전지(LFP/리튬인산철)",
-      "theme_tags": [
-        "2차전지(LFP/리튬인산철)",
-        "2차전지"
-      ],
-      "theme_no": 503,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 48,
-      "score_detail": {
-        "tp": 20,
-        "tl": 21,
-        "ti": 7
-      },
-      "rise_reason": "유상증자 공시",
-      "news": [
-        {
-          "title": "소프트센, 22억원 규모 제3자배정 유상증자 결정",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006298862&office_id=018&code=032680&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.05"
-        },
-        {
-          "title": "소프트센 1우선주, 관리종목 지정 우려예고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006295587&office_id=018&code=032680&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.01"
-        },
-        {
-          "title": "소프트센, 26일 주권매매거래 정지 해제",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006288187&office_id=018&code=032680&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.05.22"
-        },
-        {
-          "title": "소프트센 투자사 케이글라스, TGV 기술 개발 본격화",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013850344&office_id=003&code=032680&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.03.27"
-        },
-        {
-          "title": "소프트센 투자사 케이클라스, TGV 기술 개발 본격화…\"반도체 유리기...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006244230&office_id=018&code=032680&page=&sm=",
-          "source": "이데일리",
           "date": "2026.03.27"
         },
         {
@@ -3749,7 +3618,7 @@
       "close_price": 26550,
       "change_amount": 4800,
       "change_rate": 22.07,
-      "trading_value": 2190000000,
+      "trading_value": 2191000000,
       "market_cap": 243036045000,
       "sector": "우주항공과국방",
       "industry_no": 284,
@@ -4033,7 +3902,7 @@
       "close_price": 1577,
       "change_amount": 280,
       "change_rate": 21.59,
-      "trading_value": 2279000000,
+      "trading_value": 2282000000,
       "market_cap": 32013667720,
       "sector": "철강",
       "industry_no": 304,
@@ -4043,16 +3912,117 @@
       "low_price": 1500,
       "theme_tag": "철도",
       "theme_tags": [
-        "제대혈",
-        "면역항암제"
+        "철도",
+        "철강 중소형"
       ],
-      "theme_no": 124,
+      "theme_no": 250,
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 49,
+      "score": 57,
       "score_detail": {
-        "tp": 25,
+        "tp": 18,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "자사주 매입",
+      "news": [
+        {
+          "title": "동일제강, 최대주주 공개매수 소식에 28% 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014033842&office_id=003&code=002690&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "에스폼, 자사주 매입 이어 동일제강 공개매수",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001038196&office_id=031&code=002690&page=&sm=",
+          "source": "아이뉴스24",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "‘주주가치 제고’ 에스폼, 동일제강 주식 공개매수 나선다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303707&office_id=015&code=002690&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "에스폼, 동일제강 지분 10.84% 공개매수…“책임 경영 강화” [시그...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004635804&office_id=011&code=002690&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "강관株, UAE와 호르무즈 우회 송유관 건설 협력 추진에 '급등'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005299619&office_id=015&code=002690&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.17"
+        },
+        {
+          "title": "지배구조 공시 첫해 '평균 준수율 47.8%'…포스코홀딩스 '1위'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009005283&office_id=421&code=002690&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.06.16"
+        },
+        {
+          "title": "삼목에스폼 최대주주, 주당 2만2800원에 8.16%지분 공개매수",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005288537&office_id=015&code=002690&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.05.19"
+        },
+        {
+          "title": "삼목에스폼 자사주 처분 논란…액트·주주연대 금감원 진정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000995572&office_id=031&code=002690&page=&sm=",
+          "source": "아이뉴스24",
+          "date": "2026.01.09"
+        },
+        {
+          "title": "“자사주 날리긴 아깝다”…교환사채 외 생존법 찾는 기업들",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005207148&office_id=015&code=002690&page=&sm=",
+          "source": "한국경제",
+          "date": "2025.11.05"
+        },
+        {
+          "title": "대선조선 영도조선소 부지 우선협상자 한라IMS",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000123703&office_id=658&code=002690&page=&sm=",
+          "source": "국제신문",
+          "date": "2025.10.23"
+        }
+      ],
+      "forward_score": 63,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 44,
+      "ticker": "456160",
+      "name": "지투지바이오",
+      "market": "KOSDAQ",
+      "close_price": 43700,
+      "change_amount": 7700,
+      "change_rate": 21.39,
+      "trading_value": 10168000000,
+      "market_cap": 726705916200,
+      "sector": "제약",
+      "industry_no": 261,
+      "high_52w": 124000,
+      "high_52w_date": "20260316",
+      "high_price": 44200,
+      "low_price": 36200,
+      "theme_tag": "비만치료제",
+      "theme_tags": [
+        "비만치료제",
+        "치매"
+      ],
+      "theme_no": 540,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 21,
         "tl": 17,
         "ti": 7
       },
@@ -4119,7 +4089,7 @@
           "date": "2026.06.25"
         }
       ],
-      "forward_score": 53,
+      "forward_score": 49,
       "forward_bonus": 4,
       "forward_detail": {
         "small_size": 4,
@@ -4127,15 +4097,15 @@
       }
     },
     {
-      "rank": 46,
+      "rank": 45,
       "ticker": "217190",
       "name": "제너셈",
       "market": "KOSDAQ",
-      "close_price": 5880,
-      "change_amount": 1025,
-      "change_rate": 21.11,
-      "trading_value": 1700000000,
-      "market_cap": 77344114680,
+      "close_price": 5890,
+      "change_amount": 1035,
+      "change_rate": 21.32,
+      "trading_value": 1710000000,
+      "market_cap": 77475652290,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
       "high_52w": 9670,
@@ -4151,9 +4121,9 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 57,
+      "score": 58,
       "score_detail": {
-        "tp": 21,
+        "tp": 22,
         "tl": 29,
         "ti": 7
       },
@@ -4220,7 +4190,78 @@
           "date": "2026.06.27"
         }
       ],
-      "forward_score": 63,
+      "forward_score": 64,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 46,
+      "ticker": "224060",
+      "name": "더코디",
+      "market": "KOSDAQ",
+      "close_price": 3990,
+      "change_amount": 700,
+      "change_rate": 21.28,
+      "trading_value": 846000000,
+      "market_cap": 20591280780,
+      "sector": "건축자재",
+      "industry_no": 283,
+      "high_52w": 7470,
+      "high_52w_date": "20260324",
+      "high_price": 4275,
+      "low_price": 3290,
+      "theme_tag": "면역항암제",
+      "theme_tags": [
+        "면역항암제",
+        "반도체 장비"
+      ],
+      "theme_no": 389,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 46,
+      "score_detail": {
+        "tp": 25,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "유상증자 공시",
+      "news": [
+        {
+          "title": "더코디, 50억원 규모 전환사채권 발행 결정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006234176&office_id=018&code=224060&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.03.13"
+        },
+        {
+          "title": "더코디, 50억 규모 전환사채 발행 결정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013819483&office_id=003&code=224060&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.03.13"
+        },
+        {
+          "title": "더코디, 70억 규모 제3자 배정 유상증자 결정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006233671&office_id=018&code=224060&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.03.12"
+        },
+        {
+          "title": "부채비율 9.2%p↑…HEM파마 2947% '최고'[1분기 코스닥 결산...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006285091&office_id=018&code=224060&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.05.19"
+        },
+        {
+          "title": "기업 공시 [3월 13일]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004599068&office_id=011&code=224060&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.03.13"
+        }
+      ],
+      "forward_score": 52,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -4609,7 +4650,7 @@
       "close_price": 34000,
       "change_amount": 5900,
       "change_rate": 21.0,
-      "trading_value": 15059000000,
+      "trading_value": 15060000000,
       "market_cap": 934454232000,
       "sector": "가정용기기와용품",
       "industry_no": 298,
@@ -4727,10 +4768,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 57,
+      "score": 51,
       "score_detail": {
-        "tp": 18,
-        "tl": 32,
+        "tp": 15,
+        "tl": 29,
         "ti": 7
       },
       "rise_reason": "증권사 리포트 공개",
@@ -4796,7 +4837,7 @@
           "date": "2026.05.07"
         }
       ],
-      "forward_score": 63,
+      "forward_score": 57,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -4811,7 +4852,7 @@
       "close_price": 400500,
       "change_amount": 69000,
       "change_rate": 20.81,
-      "trading_value": 317930000000,
+      "trading_value": 317932000000,
       "market_cap": 93717000000000,
       "sector": "전기제품",
       "industry_no": 283,
@@ -4828,54 +4869,66 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 60,
+      "score": 57,
       "score_detail": {
         "tp": 32,
-        "tl": 21,
+        "tl": 18,
         "ti": 7
       },
       "rise_reason": "흑자전환 전망",
       "news": [
         {
-          "title": "[구광모 리더십 8년]① HBM 없는 LG, 'AI 수혜주' 반전 꾀할...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000086924&office_id=293&code=373220&page=&sm=",
-          "source": "블로터",
+          "title": "[속보] 반도체 '머쓱'…주인공 따돌린 급등에 주주 '환호'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001256956&office_id=215&code=373220&page=&sm=",
+          "source": "한국경제TV",
           "date": "2026.06.29"
         },
         {
-          "title": "[티타임] 외인 6조 탈출 코스피, 삼전 6% 뚝…코스닥은 7%대 강세...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001149439&office_id=417&code=373220&page=&sm=",
-          "source": "동행미디어 시대",
+          "title": "외국인 8조 투매·개미 5조 줍줍…코스피, 0.2% 하락 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034995&office_id=003&code=373220&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.06.29"
         },
         {
-          "title": "SK하이닉스 낙폭 줄이자…코스피 1%대 반등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318132&office_id=018&code=373220&page=&sm=",
-          "source": "이데일리",
+          "title": "코스피, 외국인 매도에 숨고르기…코스닥은 8%대 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005782902&office_id=277&code=373220&page=&sm=",
+          "source": "아시아경제",
           "date": "2026.06.29"
         },
         {
-          "title": "3% 급락했다 \"코스피 반등\"...외인 7조 매도에도 '놀라운 매수세'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378605&office_id=008&code=373220&page=&sm=",
+          "title": "호남 투자 확정일에 삼전·하닉 약세…코스피, 약보합 마감 [시황]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003105880&office_id=119&code=373220&page=&sm=",
+          "source": "데일리안",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "메가 프로젝트에 광주·전남 건설주 상한가…삼전하닉 하락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378691&office_id=008&code=373220&page=&sm=",
           "source": "머니투데이",
           "date": "2026.06.29"
         },
         {
-          "title": "보릿고개 넘은 이차전지 수요…K-배터리·소재 업계 반등 예고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000511430&office_id=629&code=373220&page=&sm=",
-          "source": "더팩트",
+          "title": "\"전국이 반도체 기지\" 정부 발표에…코스닥 8%대 폭등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000107970&office_id=050&code=373220&page=&sm=",
+          "source": "한경비즈니스",
           "date": "2026.06.29"
         },
         {
-          "title": "코스피, 삼전·닉스 약세에 8200선 주춤...코스닥은 7% 강세[fn...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005541001&office_id=014&code=373220&page=&sm=",
-          "source": "파이낸셜뉴스",
+          "title": "코스피 소폭 내리고…하락세였던 코스닥은 하루에 8%대 급등 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005700223&office_id=009&code=373220&page=&sm=",
+          "source": "매일경제",
           "date": "2026.06.29"
         },
         {
-          "title": "반도체 숨고르기에 2차전지 ‘급반등’…LG엔솔 19%↑·에코프로 23%...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004636035&office_id=011&code=373220&page=&sm=",
-          "source": "서울경제",
+          "title": "코스피, 반도체 고점 부담에 약보합 마감…코스닥은 8%대 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303984&office_id=015&code=373220&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "\"반도체 쏠림 해소에 순환매\"…코스피 내리고 코스닥 8% 급등[마감]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318185&office_id=018&code=373220&page=&sm=",
+          "source": "이데일리",
           "date": "2026.06.29"
         },
         {
@@ -4883,21 +4936,9 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318055&office_id=018&code=373220&page=&sm=",
           "source": "이데일리",
           "date": "2026.06.29"
-        },
-        {
-          "title": "힘 못쓰는 삼전닉스, 코스피 1% 약세…코스닥 900선 회복[장중시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009029165&office_id=421&code=373220&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "삼전닉스 하락, 코스피 2% 약세…코스닥 5% 강세[개장시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009028643&office_id=421&code=373220&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.29"
         }
       ],
-      "forward_score": 61,
+      "forward_score": 58,
       "forward_bonus": 1,
       "forward_detail": {
         "small_size": 1,
@@ -5013,7 +5054,7 @@
       "close_price": 1404,
       "change_amount": 239,
       "change_rate": 20.52,
-      "trading_value": 3677000000,
+      "trading_value": 3678000000,
       "market_cap": 102596824044,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -5237,58 +5278,34 @@
         "tl": 21,
         "ti": 7
       },
-      "rise_reason": "증권사 리포트 공개",
+      "rise_reason": "정부 정책 관련",
       "news": [
         {
-          "title": "SK하이닉스 낙폭 줄이자…코스피 1%대 반등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318132&office_id=018&code=298380&page=&sm=",
-          "source": "이데일리",
+          "title": "[속보] 반도체 '머쓱'…주인공 따돌린 급등에 주주 '환호'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001256956&office_id=215&code=298380&page=&sm=",
+          "source": "한국경제TV",
           "date": "2026.06.29"
         },
         {
-          "title": "삼전닉스만 계속 오를 줄 알았더니…바이오·전력 등 소외 업종 부각...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005700177&office_id=009&code=298380&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "서울바이오허브, ‘2026 바이오 오픈이노베이션 체인’ 참가사 모집",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005700174&office_id=009&code=298380&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "반도체 쏠림 해소…코스피 2% 내리고 코스닥 6% 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318055&office_id=018&code=298380&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "바이오USA 달군 K-바이오…'기술홍보' 넘어 글로벌 파트너십 승부",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000511382&office_id=629&code=298380&page=&sm=",
-          "source": "더팩트",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "코스닥 바이오·2차전지 '순환매'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000518803&office_id=374&code=298380&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "코스피, 역대급 변동성…'순환매 온기' 코스닥, 6~7%대 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016164732&office_id=001&code=298380&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "'국민성장펀드 훈풍'에 모처럼 웃은 코스닥…성장주 반등 랠리 기대감.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034066&office_id=003&code=298380&page=&sm=",
+          "title": "외국인 8조 투매·개미 5조 줍줍…코스피, 0.2% 하락 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034995&office_id=003&code=298380&page=&sm=",
           "source": "뉴시스",
           "date": "2026.06.29"
         },
         {
-          "title": "제약·바이오 폭등에 코스닥 900선 회복…리가켐바이오 15% 넘게 상승",
+          "title": "코스피, 외국인 매도에 숨고르기…코스닥은 8%대 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005782902&office_id=277&code=298380&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "제약·바이오株 급등…국민성장펀드 날개 달고 다시 비상할까(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016165532&office_id=001&code=298380&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "제약·바이오 폭등에 코스닥 900선 회복…리가켐바이오 15% 넘게 상...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000518781&office_id=374&code=298380&page=&sm=",
           "source": "SBS Biz",
           "date": "2026.06.29"
@@ -5297,6 +5314,30 @@
           "title": "바이오주 급등에 코스닥 900선 회복…국민성장펀드發 훈풍 [코주부]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004635969&office_id=011&code=298380&page=&sm=",
           "source": "서울경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "제약·바이오株 급등…국민성장펀드 날개 달고 다시 비상하나",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016164373&office_id=001&code=298380&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "\"전국이 반도체 기지\" 정부 발표에…코스닥 8%대 폭등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000107970&office_id=050&code=298380&page=&sm=",
+          "source": "한경비즈니스",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "모처럼 웃음꽃 핀 코스닥…정책자금 호재에 8%대 급등 마감(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034948&office_id=003&code=298380&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "'국민성장펀드 훈풍'에 모처럼 웃은 코스닥…성장주 반등 랠리 기대감....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014034066&office_id=003&code=298380&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.06.29"
         }
       ],
@@ -5432,14 +5473,592 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
+      "score": 53,
+      "score_detail": {
+        "tp": 14,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "수출 관련 뉴스",
+      "news": [
+        {
+          "title": "파세코, ‘하이브리드 후면덕트 설치키트’ 출시...공간 효율성 높여",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001253971&office_id=215&code=037070&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.06.01"
+        },
+        {
+          "title": "파세코, 좁은 창문·캠핑용 ‘하이브리드 후면덕트 설치키트’ 출시",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005293488&office_id=015&code=037070&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.01"
+        },
+        {
+          "title": "파세코, '하이브리드 후면덕트 키트' 출시…“작은 창문에도 에어컨 ....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003433102&office_id=030&code=037070&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.06.01"
+        },
+        {
+          "title": "파세코, 창문 구조 제약 줄인 ‘하이브리드 후면덕트 설치키트’ 출시",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001168478&office_id=366&code=037070&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.06.01"
+        },
+        {
+          "title": "틈새도 비집고…좁은 창문도 파고드는 파세코의 냉방 집념, ‘하이브.....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001118402&office_id=144&code=037070&page=&sm=",
+          "source": "스포츠경향",
+          "date": "2026.06.01"
+        },
+        {
+          "title": "파세코 '창문형 에어컨', 유럽 진출",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003425076&office_id=030&code=037070&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.05.07"
+        },
+        {
+          "title": "파세코 '창문형 에어컨', 프랑스 진출…유럽 시장 공략 본격화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005284059&office_id=015&code=037070&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.05.07"
+        },
+        {
+          "title": "파세코, ‘창문형 에어컨’ 유럽 수출 확대",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001162418&office_id=366&code=037070&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.05.07"
+        },
+        {
+          "title": "파세코, 이상기후 폭염 속 K-가전 창문형 에어컨 국내최 초 유럽 진...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005518229&office_id=014&code=037070&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.05.07"
+        },
+        {
+          "title": "파세코 ‘창문형 에어컨’, 기어코 유럽 시장 대문 열다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001113869&office_id=144&code=037070&page=&sm=",
+          "source": "스포츠경향",
+          "date": "2026.05.07"
+        }
+      ],
+      "forward_score": 59,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 78,
+      "ticker": "376180",
+      "name": "피코그램",
+      "market": "KOSDAQ",
+      "close_price": 1470,
+      "change_amount": 230,
+      "change_rate": 18.55,
+      "trading_value": 142000000,
+      "market_cap": 27284725860,
+      "sector": "가정용기기와용품",
+      "industry_no": 298,
+      "high_52w": 4295,
+      "high_52w_date": "20250704",
+      "high_price": 1485,
+      "low_price": 1240,
+      "theme_tag": "뉴스",
+      "theme_tags": [
+        "뉴스"
+      ],
+      "theme_no": null,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 46,
+      "score_detail": {
+        "tp": 22,
+        "tl": 17,
+        "ti": 7
+      },
+      "rise_reason": "실적 관련 뉴스",
+      "news": [
+        {
+          "title": "[메자닌 투자파일] 피코그램, 첫 CB 후유증…풋 행사에 현금 부담",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000083591&office_id=293&code=376180&page=&sm=",
+          "source": "블로터",
+          "date": "2026.04.28"
+        },
+        {
+          "title": "피코그램, 셀린스템으로 '코스모프로프 볼로냐 2026' 참가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000104321&office_id=050&code=376180&page=&sm=",
+          "source": "한경비즈니스",
+          "date": "2026.03.30"
+        },
+        {
+          "title": "피코그램, 지난해 영업손실 7억…전년比 적자 전환",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013778368&office_id=003&code=376180&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.02.20"
+        },
+        {
+          "title": "해외서 잘나가는 K정수기…부품 3사 실적도 반등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004635770&office_id=011&code=376180&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "‘매우 나쁨’ 1시간 노출했는데…미세먼지 ‘이곳’까지 간다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000094800&office_id=662&code=376180&page=&sm=",
+          "source": "농민신문",
+          "date": "2026.05.10"
+        },
+        {
+          "title": "퓨리얼, '세계 물의 날' 기부 캠페인 마무리 \"고객 참여 기부금 전달...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005751860&office_id=277&code=376180&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.04.20"
+        },
+        {
+          "title": "'기술사업화상'에 앱솔로지·넥스젤바이오텍",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005665888&office_id=009&code=376180&page=&sm=",
+          "source": "매일경제",
+          "date": "2026.04.14"
+        },
+        {
+          "title": "퓨리얼, ‘세계 물의 날’ 맞아 옥스팜과 식수 지원 기부 캠페인 전개",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005488892&office_id=014&code=376180&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.03.10"
+        },
+        {
+          "title": "퓨리얼, ‘정수기 보상판매 프로모션’ 진행… 선착순 200명 한정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006223525&office_id=018&code=376180&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.02.24"
+        }
+      ],
+      "forward_score": 52,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 79,
+      "ticker": "042000",
+      "name": "카페24",
+      "market": "KOSDAQ",
+      "close_price": 19680,
+      "change_amount": 3060,
+      "change_rate": 18.41,
+      "trading_value": 3097000000,
+      "market_cap": 475826365920,
+      "sector": "IT서비스",
+      "industry_no": 267,
+      "high_52w": 49850,
+      "high_52w_date": "20250701",
+      "high_price": 19870,
+      "low_price": 16260,
+      "theme_tag": "전자결제(전자화폐)",
+      "theme_tags": [
+        "전자결제(전자화폐)",
+        "모바일솔루션(스마트폰)"
+      ],
+      "theme_no": 272,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 53,
+      "score_detail": {
+        "tp": 14,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "매출 관련 뉴스",
+      "news": [
+        {
+          "title": "레뷰, 카페24와 제휴… 레뷰 광고주 대상 카페24 PRO 6개월 무료...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006317751&office_id=018&code=042000&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "카페24 쇼핑몰, 계정 연결로 구글 광고·유튜브 쇼핑 한번에 쓴다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003441961&office_id=030&code=042000&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "카페24, 동대문 사입 서비스 '이지픽' 활용 교육 진행",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000107814&office_id=050&code=042000&page=&sm=",
+          "source": "한경비즈니스",
+          "date": "2026.06.25"
+        },
+        {
+          "title": "한진, 이커머스 셀러 지원 행사…성공사례·맞춤형 컨설팅 제공",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003442147&office_id=030&code=042000&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "“4시간 라방 2억 매출 비결은”…한진, 중소 셀러 성장법 공유",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002662733&office_id=016&code=042000&page=&sm=",
+          "source": "헤럴드경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "한진, 중소 셀러 키운다…'원클릭 커넥트' 개최",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005782527&office_id=277&code=042000&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "\"제발 팔아달라\"…사겠다는 손님 줄 섰는데 놓치는 K화장품[글로벌 페....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005782582&office_id=277&code=042000&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "쇼피파이 \"韓 채널톡과 협업, K뷰티 글로벌 전도사 될 것”",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006316940&office_id=018&code=042000&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "라프디, 신용보증기금 'Start-up NEST' 19기 선정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003441591&office_id=030&code=042000&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.06.26"
+        },
+        {
+          "title": "\"문자발송 '성공'인데 실제론 차단\"…'허공문자' 주의보",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009025321&office_id=421&code=042000&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.06.26"
+        }
+      ],
+      "forward_score": 59,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 80,
+      "ticker": "0007J0",
+      "name": "인벤테라",
+      "market": "KOSDAQ",
+      "close_price": 9530,
+      "change_amount": 1480,
+      "change_rate": 18.39,
+      "trading_value": 736000000,
+      "market_cap": 74960254420,
+      "sector": "제약",
+      "industry_no": 261,
+      "high_52w": 60200,
+      "high_52w_date": "20260402",
+      "high_price": 9650,
+      "low_price": 7810,
+      "theme_tag": "2026 상반기 신규상장",
+      "theme_tags": [
+        "2026 상반기 신규상장"
+      ],
+      "theme_no": 590,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 59,
+      "score_detail": {
+        "tp": 20,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "임상 관련 뉴스",
+      "news": [
+        {
+          "title": "인벤테라, 경구용 MRCP 조영제 비임상 패키지 완성…임상 진입 본격화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005376535&office_id=008&code=0007J0&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.24"
+        },
+        {
+          "title": "인벤테라, 경구용 MRCP 조영제 비임상 패키지 완성…연내 IND 제...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006313916&office_id=018&code=0007J0&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.24"
+        },
+        {
+          "title": "인벤테라, 세계 첫 경구용 MRCP 조영제 임상 채비…비임상 패키지 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006313872&office_id=018&code=0007J0&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.24"
+        },
+        {
+          "title": "'공모가 하회' 인벤테라·채비, 풋백옵션 행사 '위험권'…증권사 영향....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006312216&office_id=018&code=0007J0&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.22"
+        },
+        {
+          "title": "바이오 특례상장 상반기 5곳 그쳐…하반기 반전 가능할까",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000048162&office_id=648&code=0007J0&page=&sm=",
+          "source": "비즈워치",
+          "date": "2026.06.19"
+        },
+        {
+          "title": "반도체 소부장이 이끄는 코스닥…우량주 투자 생태계 다진다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004632181&office_id=011&code=0007J0&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.06.17"
+        },
+        {
+          "title": "공모가 하회 새내기주 속출에도…'AI·로봇'은 살았다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006306918&office_id=018&code=0007J0&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.15"
+        },
+        {
+          "title": "호재도 안 먹히는 바이오…IPO·CB·비상장까지 연쇄 압박",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000047910&office_id=648&code=0007J0&page=&sm=",
+          "source": "비즈워치",
+          "date": "2026.06.11"
+        },
+        {
+          "title": "에버그린투자, 563억 AI 펀드 결성…바이오 엑시트도 본격화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000086048&office_id=293&code=0007J0&page=&sm=",
+          "source": "블로터",
+          "date": "2026.06.10"
+        },
+        {
+          "title": "‘따따블’ 달리던 새내기주, 증시 급락에 쓴맛",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006300935&office_id=018&code=0007J0&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.08"
+        }
+      ],
+      "forward_score": 65,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 81,
+      "ticker": "079950",
+      "name": "인베니아",
+      "market": "KOSDAQ",
+      "close_price": 1118,
+      "change_amount": 173,
+      "change_rate": 18.31,
+      "trading_value": 175000000,
+      "market_cap": 15427393800,
+      "sector": "디스플레이장비및부품",
+      "industry_no": 269,
+      "high_52w": 7440,
+      "high_52w_date": "20260113",
+      "high_price": 1120,
+      "low_price": 885,
+      "theme_tag": "OLED(유기 발광 다이오드)",
+      "theme_tags": [
+        "OLED(유기 발광 다이오드)"
+      ],
+      "theme_no": 9,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 59,
+      "score_detail": {
+        "tp": 20,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "계약 관련 뉴스",
+      "news": [
+        {
+          "title": "인베니아, BOE와 86억원 규모 디스플레이 장비 공급계약",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006313151&office_id=018&code=079950&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.23"
+        },
+        {
+          "title": "인베니아, 87억 규모 디스플레이 제조장비 공급계약",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002660394&office_id=016&code=079950&page=&sm=",
+          "source": "헤럴드경제",
+          "date": "2026.06.23"
+        },
+        {
+          "title": "기업공시 [6월 23일]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004634098&office_id=011&code=079950&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.06.23"
+        },
+        {
+          "title": "광진실업·코이즈·예선테크·골드앤에스, '관리종목 임박'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001020184&office_id=031&code=079950&page=&sm=",
+          "source": "아이뉴스24",
+          "date": "2026.04.07"
+        },
+        {
+          "title": "\"이러다 휴짓조각 될라\" 7월 상폐 공포에…코스닥 초소형주 급락",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005319448&office_id=008&code=079950&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.02.19"
+        }
+      ],
+      "forward_score": 65,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 82,
+      "ticker": "066970",
+      "name": "엘앤에프",
+      "market": "KOSPI",
+      "close_price": 116900,
+      "change_amount": 18000,
+      "change_rate": 18.2,
+      "trading_value": 66581000000,
+      "market_cap": 4742392536700,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 225000,
+      "high_52w_date": "20260504",
+      "high_price": 117500,
+      "low_price": 98600,
+      "theme_tag": "2차전지(LFP/리튬인산철)",
+      "theme_tags": [
+        "2차전지(LFP/리튬인산철)",
+        "2차전지(소재/부품)"
+      ],
+      "theme_no": 503,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 52,
+      "score_detail": {
+        "tp": 20,
+        "tl": 25,
+        "ti": 7
+      },
+      "rise_reason": "흑자 전환",
+      "news": [
+        {
+          "title": "[K-소재 재충전]③엘앤에프, 러브콜 몰린 하이니켈···흑자전환 가시....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000086116&office_id=293&code=066970&page=&sm=",
+          "source": "블로터",
+          "date": "2026.06.11"
+        },
+        {
+          "title": "엘앤에프, 하반기 ESS향 LFP가 신규 성장 모멘텀-다올",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006312682&office_id=018&code=066970&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.23"
+        },
+        {
+          "title": "엘앤에프, 업종 주가 약세 감안해 목표가 21만원으로 하향-삼성",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005373605&office_id=008&code=066970&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.18"
+        },
+        {
+          "title": "엘앤에프, 국내 최초 LFP 양극재 상업화…기술 리더십 부각-삼성",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006308589&office_id=018&code=066970&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.18"
+        },
+        {
+          "title": "[코스닥 30년] '한국판 나스닥' 표방 출범…시총 66배 커졌다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016162968&office_id=001&code=066970&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "[단독] 허제홍 \"이젠 가격보다 수명이 더 중요…배터리 산업 패러다임....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005298540&office_id=015&code=066970&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.14"
+        },
+        {
+          "title": "LG에너지솔루션·삼성SDI 8% 급등…이차전지주 강세[핫종목]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009028681&office_id=421&code=066970&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "출범 30주년인데 ‘초상집 코스닥’… 해외선 코스피 150배 파생상품 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004138911&office_id=022&code=066970&page=&sm=",
+          "source": "세계일보",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "코스피 99% 오를 때 8% 하락… ‘한국판 나스닥’ 무색, 성적은 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004138883&office_id=022&code=066970&page=&sm=",
+          "source": "세계일보",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "대구 100대 기업 매출 39조9,000억 원…수익성 큰 폭 개선",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006317482&office_id=018&code=066970&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.29"
+        }
+      ],
+      "forward_score": 54,
+      "forward_bonus": 2,
+      "forward_detail": {
+        "small_size": 2,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 83,
+      "ticker": "475960",
+      "name": "토모큐브",
+      "market": "KOSDAQ",
+      "close_price": 37800,
+      "change_amount": 5750,
+      "change_rate": 17.94,
+      "trading_value": 2389000000,
+      "market_cap": 505887757200,
+      "sector": "생명과학도구및서비스",
+      "industry_no": null,
+      "high_52w": 67800,
+      "high_52w_date": "20260225",
+      "high_price": 37800,
+      "low_price": 31700,
+      "theme_tag": "오가노이드",
+      "theme_tags": [
+        "오가노이드"
+      ],
+      "theme_no": 597,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
       "score": 57,
       "score_detail": {
         "tp": 18,
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "매출 관련 뉴스",
+      "rise_reason": "수주 공시",
       "news": [
+        {
+          "title": "구본삼 자이에스앤디 대표 \"상주서 가장 아름다운 단지…자부심 느낄...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303996&office_id=015&code=317400&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "자이에스앤디는, 주택 수주 1조 돌파…브랜드 저력 통했다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303993&office_id=015&code=317400&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
+        },
         {
           "title": "자이에스앤디 1400억 부동산 유동화…신사업 투자 유동성 대응",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000086834&office_id=293&code=317400&page=&sm=",
@@ -5451,6 +6070,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002661638&office_id=016&code=317400&page=&sm=",
           "source": "헤럴드경제",
           "date": "2026.06.25"
+        },
+        {
+          "title": "상주자이르네, 중앙광장·산책로…리조트 닮은 아파트",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005304002&office_id=015&code=317400&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
         },
         {
           "title": "검암역자이르네, 30일 무순위 청약…분양가상한제 이점",
@@ -5471,34 +6096,16 @@
           "date": "2026.06.24"
         },
         {
-          "title": "김욱수 자이C&A 대표 \"데이터센터 매출 5년 후 2.2조\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001148777&office_id=417&code=317400&page=&sm=",
-          "source": "동행미디어 시대",
-          "date": "2026.06.24"
-        },
-        {
           "title": "자이C&A \"AI 데이터센터 분야 선도해 연매출 2.2조원 이룰 것\"",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014024033&office_id=003&code=317400&page=&sm=",
           "source": "뉴시스",
           "date": "2026.06.24"
         },
         {
-          "title": "'시니어' 바라보는 건설업계 \"짓거나, 돌보거나\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000048266&office_id=648&code=317400&page=&sm=",
-          "source": "비즈워치",
+          "title": "김욱수 자이C&A 대표 \"데이터센터 매출 5년 후 2.2조\"",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001148777&office_id=417&code=317400&page=&sm=",
+          "source": "동행미디어 시대",
           "date": "2026.06.24"
-        },
-        {
-          "title": "청약 경쟁률 7배 높았다…정비사업 단지, 분양시장 ‘흥행 보증수표’",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003102995&office_id=119&code=317400&page=&sm=",
-          "source": "데일리안",
-          "date": "2026.06.21"
-        },
-        {
-          "title": "정비사업 단지, 비정비보다 청약 경쟁률 7배 높다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005536563&office_id=014&code=317400&page=&sm=",
-          "source": "파이낸셜뉴스",
-          "date": "2026.06.18"
         }
       ],
       "forward_score": 63,
@@ -5716,7 +6323,7 @@
       "close_price": 10370,
       "change_amount": 1710,
       "change_rate": 19.75,
-      "trading_value": 6547000000,
+      "trading_value": 6549000000,
       "market_cap": 378571658360,
       "sector": "건축자재",
       "industry_no": 289,
@@ -5810,7 +6417,7 @@
       "close_price": 1914,
       "change_amount": 315,
       "change_rate": 19.7,
-      "trading_value": 12184000000,
+      "trading_value": 12191000000,
       "market_cap": 99403829250,
       "sector": "건설",
       "industry_no": 279,
@@ -5933,13 +6540,19 @@
         "tl": 14,
         "ti": 7
       },
-      "rise_reason": "FDA 관련 뉴스",
+      "rise_reason": "바이오주 강세",
       "news": [
         {
           "title": "[클리니컬 히스토리] 中서 돌아온 펩트론 ADC 자산, 스위스서 재검증",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000086886&office_id=293&code=087010&page=&sm=",
           "source": "블로터",
           "date": "2026.06.28"
+        },
+        {
+          "title": "제약·바이오株 급등…국민성장펀드 날개 달고 다시 비상할까(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016165532&office_id=001&code=087010&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.06.29"
         },
         {
           "title": "코스닥 6%대 급등...코스피는 외국인 매도에 1%대 하락 출발",
@@ -5970,12 +6583,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006315225&office_id=018&code=087010&page=&sm=",
           "source": "이데일리",
           "date": "2026.06.26"
-        },
-        {
-          "title": "\"싸게 살 기회\"…호재 쌓였는데 3년 전 주가로 돌아간 종목 [프리미엄...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005302538&office_id=015&code=087010&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.25"
         }
       ],
       "forward_score": 44,
@@ -6296,7 +6903,7 @@
       "close_price": 69000,
       "change_amount": 11200,
       "change_rate": 19.38,
-      "trading_value": 113773000000,
+      "trading_value": 113780000000,
       "market_cap": 3604604022000,
       "sector": "제약",
       "industry_no": 261,
@@ -6620,13 +7227,19 @@
         "tl": 18,
         "ti": 9
       },
-      "rise_reason": "비만치료제 신약 관련 뉴스",
+      "rise_reason": "국민펀드 수혜",
       "news": [
         {
           "title": "디앤디파마텍 \"MASH 신약으로 K-바이오 이정표 세울 것\"",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378040&office_id=008&code=347850&page=&sm=",
           "source": "머니투데이",
           "date": "2026.06.28"
+        },
+        {
+          "title": "제약·바이오株 급등…국민성장펀드 날개 달고 다시 비상할까(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016165532&office_id=001&code=347850&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.06.29"
         },
         {
           "title": "9000피 뚫을 때 바이오 -23%…'반도체 쏠림' 탓? 이유 따로 있...",
@@ -6686,7 +7299,7 @@
       "close_price": 22150,
       "change_amount": 3540,
       "change_rate": 19.02,
-      "trading_value": 20223000000,
+      "trading_value": 20245000000,
       "market_cap": 197819590050,
       "sector": "건설",
       "industry_no": 279,
@@ -6717,28 +7330,22 @@
           "date": "2026.06.23"
         },
         {
-          "title": "계룡건설 컨소시엄, 삼성전자 평택캠퍼스까지 차로 5분",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005694587&office_id=009&code=013580&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.06.16"
-        },
-        {
-          "title": "계룡건설, 폭염 땐 작업 멈춘다…온열질환 예방 총력",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009004841&office_id=421&code=013580&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.15"
-        },
-        {
-          "title": "계룡건설, 폭염·집중호우 대비 총력…'온열질환 Zero 캠페인' 가동",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005535096&office_id=014&code=013580&page=&sm=",
-          "source": "파이낸셜뉴스",
-          "date": "2026.06.15"
-        },
-        {
           "title": "[르포]사천 빈 들판 위 '우주항공청 신청사' 표지…2030년 우주항공...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014027834&office_id=003&code=013580&page=&sm=",
           "source": "뉴시스",
           "date": "2026.06.25"
+        },
+        {
+          "title": "\"이재용·최태원 가는 곳에 돈 몰린다\"…호남·신재생주 '폭등' [종합....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005304000&office_id=015&code=013580&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "코스피, 반도체 고점 부담에 약보합 마감…코스닥은 8%대 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303984&office_id=015&code=013580&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.06.29"
         },
         {
           "title": "민간 개발 막히자… 중견 건설사, 3기 신도시 공공주택으로 몰린다",
@@ -6768,6 +7375,12 @@
           "title": "시행사 브랜드평판 6월 조사… DK아시아 1위, BS산업, 신영 뒤쫓...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003033427&office_id=029&code=013580&page=&sm=",
           "source": "디지털타임스",
+          "date": "2026.06.24"
+        },
+        {
+          "title": "DK아시아, 시행사 브랜드평판 6월 1위…BS산업·신영 뒤이어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000099560&office_id=243&code=013580&page=&sm=",
+          "source": "이코노미스트",
           "date": "2026.06.24"
         }
       ],
@@ -7189,7 +7802,7 @@
       "close_price": 20950,
       "change_amount": 3310,
       "change_rate": 18.76,
-      "trading_value": 21920000000,
+      "trading_value": 21922000000,
       "market_cap": 779208601600,
       "sector": "기계",
       "industry_no": 299,
@@ -7289,7 +7902,7 @@
       "close_price": 4855,
       "change_amount": 765,
       "change_rate": 18.7,
-      "trading_value": 2191000000,
+      "trading_value": 2196000000,
       "market_cap": 70897773765,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -7951,7 +8564,7 @@
       "close_price": 116900,
       "change_amount": 18000,
       "change_rate": 18.2,
-      "trading_value": 66581000000,
+      "trading_value": 66589000000,
       "market_cap": 4742392536700,
       "sector": "전기제품",
       "industry_no": 283,
@@ -8068,385 +8681,6 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 57,
-      "score_detail": {
-        "tp": 18,
-        "tl": 32,
-        "ti": 7
-      },
-      "rise_reason": "수출 관련 뉴스",
-      "news": [
-        {
-          "title": "신성델타테크, AI 홈비서 ‘레미’ 첫 공개",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005699213&office_id=009&code=065350&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "신성델타테크, AI 에이전트 홈 로봇 ‘레미’ 공개",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303153&office_id=015&code=065350&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "신성에스티·신성델타테크, 애프터마켓서 10% 넘게 급락 중",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006315099&office_id=018&code=065350&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.25"
-        },
-        {
-          "title": "디엑스솔루션즈, 신성델타테크에 제조 AI 공급.. PINN PoC 확인",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005323504&office_id=008&code=065350&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.02.27"
-        },
-        {
-          "title": "[애프터마켓 브리핑] 코스피, 올해 5번째 서킷브레이커 발동",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000518515&office_id=374&code=065350&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "美 증시 뒤흔든 '웬디스 랠리'…한국 테마주와 무엇이 닮았나",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002385486&office_id=123&code=065350&page=&sm=",
-          "source": "조세일보",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "AI가 습도까지 맞춰 나사 조절…100명이 할 일, 60명이 한다 [A...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003529330&office_id=025&code=065350&page=&sm=",
-          "source": "중앙일보",
-          "date": "2026.06.10"
-        },
-        {
-          "title": "무보, 국내은행 전용 '해외사업금융보험' 출시…해외법인 자금조달 ‘.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001383193&office_id=082&code=065350&page=&sm=",
-          "source": "부산일보",
-          "date": "2026.05.31"
-        },
-        {
-          "title": "무보, 국내은행 전용 특별보험 출시… 중소기업 해외자금 '숨통'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003432399&office_id=030&code=065350&page=&sm=",
-          "source": "전자신문",
-          "date": "2026.05.28"
-        },
-        {
-          "title": "中企 해외법인 대출 문턱 낮춘다…무보, 국내은행 전용 보험 출시",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006292436&office_id=018&code=065350&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.05.28"
-        }
-      ],
-      "forward_score": 61,
-      "forward_bonus": 4,
-      "forward_detail": {
-        "small_size": 4,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 55,
-      "ticker": "087010",
-      "name": "펩트론",
-      "market": "KOSDAQ",
-      "close_price": 200500,
-      "change_amount": 33500,
-      "change_rate": 20.06,
-      "trading_value": 47977000000,
-      "market_cap": 4675128675000,
-      "sector": "생물공학",
-      "industry_no": 286,
-      "high_52w": 392500,
-      "high_52w_date": "20251120",
-      "high_price": 204000,
-      "low_price": 173800,
-      "theme_tag": "비만치료제",
-      "theme_tags": [
-        "비만치료제",
-        "치매"
-      ],
-      "theme_no": 540,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 46,
-      "score_detail": {
-        "tp": 25,
-        "tl": 14,
-        "ti": 7
-      },
-      "rise_reason": "FDA 관련 뉴스",
-      "news": [
-        {
-          "title": "[클리니컬 히스토리] 中서 돌아온 펩트론 ADC 자산, 스위스서 재검증",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000086886&office_id=293&code=087010&page=&sm=",
-          "source": "블로터",
-          "date": "2026.06.28"
-        },
-        {
-          "title": "코스닥 6%대 급등...코스피는 외국인 매도에 1%대 하락 출발",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000048423&office_id=648&code=087010&page=&sm=",
-          "source": "비즈워치",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "'FDA 허가부터 3상 톱라인까지'…하반기 눈여겨볼 K바이오 빅이벤트는...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006317607&office_id=018&code=087010&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "\"K-의약품 신속 허가\"…'규제 장벽' 낮춘 멕시코",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014033152&office_id=003&code=087010&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "코스피·코스닥 장 초반 약세",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005781751&office_id=277&code=087010&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "'바이오USA' 훈풍 속 급등한 로킷·한올·에이프릴…배경은?[바이오 맥...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006315225&office_id=018&code=087010&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "\"싸게 살 기회\"…호재 쌓였는데 3년 전 주가로 돌아간 종목 [프리미엄...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005302538&office_id=015&code=087010&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.25"
-        }
-      ],
-      "forward_score": 48,
-      "forward_bonus": 2,
-      "forward_detail": {
-        "small_size": 2,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 56,
-      "ticker": "373220",
-      "name": "LG에너지솔루션",
-      "market": "KOSPI",
-      "close_price": 397500,
-      "change_amount": 66000,
-      "change_rate": 19.91,
-      "trading_value": 295951000000,
-      "market_cap": 93015000000000,
-      "sector": "전기제품",
-      "industry_no": 283,
-      "high_52w": 527000,
-      "high_52w_date": "20251029",
-      "high_price": 397500,
-      "low_price": 334000,
-      "theme_tag": "리튬",
-      "theme_tags": [
-        "리튬",
-        "2차전지(생산)"
-      ],
-      "theme_no": 523,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 57,
-      "score_detail": {
-        "tp": 32,
-        "tl": 18,
-        "ti": 7
-      },
-      "rise_reason": "흑자전환 전망",
-      "news": [
-        {
-          "title": "[구광모 리더십 8년]① HBM 없는 LG, 'AI 수혜주' 반전 꾀할...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000086924&office_id=293&code=373220&page=&sm=",
-          "source": "블로터",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "[티타임] 외인 6조 탈출 코스피, 삼전 6% 뚝…코스닥은 7%대 강세...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001149439&office_id=417&code=373220&page=&sm=",
-          "source": "동행미디어 시대",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "SK하이닉스 낙폭 줄이자…코스피 1%대 반등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318132&office_id=018&code=373220&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "3% 급락했다 \"코스피 반등\"...외인 7조 매도에도 '놀라운 매수세'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378605&office_id=008&code=373220&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "보릿고개 넘은 이차전지 수요…K-배터리·소재 업계 반등 예고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000511430&office_id=629&code=373220&page=&sm=",
-          "source": "더팩트",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "코스피, 삼전·닉스 약세에 8200선 주춤...코스닥은 7% 강세[fn...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005541001&office_id=014&code=373220&page=&sm=",
-          "source": "파이낸셜뉴스",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "반도체 숨고르기에 2차전지 ‘급반등’…LG엔솔 19%↑·에코프로 23%...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004636035&office_id=011&code=373220&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "반도체 쏠림 해소…코스피 2% 내리고 코스닥 6% 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318055&office_id=018&code=373220&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "힘 못쓰는 삼전닉스, 코스피 1% 약세…코스닥 900선 회복[장중시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009029165&office_id=421&code=373220&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "삼전닉스 하락, 코스피 2% 약세…코스닥 5% 강세[개장시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009028643&office_id=421&code=373220&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.06.29"
-        }
-      ],
-      "forward_score": 58,
-      "forward_bonus": 1,
-      "forward_detail": {
-        "small_size": 1,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 57,
-      "ticker": "183190",
-      "name": "아세아시멘트",
-      "market": "KOSPI",
-      "close_price": 10370,
-      "change_amount": 1710,
-      "change_rate": 19.75,
-      "trading_value": 6361000000,
-      "market_cap": 378571658360,
-      "sector": "건축자재",
-      "industry_no": 289,
-      "high_52w": 15700,
-      "high_52w_date": "20250805",
-      "high_price": 10700,
-      "low_price": 9300,
-      "theme_tag": "시멘트/레미콘",
-      "theme_tags": [
-        "시멘트/레미콘"
-      ],
-      "theme_no": 44,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 59,
-      "score_detail": {
-        "tp": 20,
-        "tl": 32,
-        "ti": 7
-      },
-      "rise_reason": "증권사 리포트 공개",
-      "news": [
-        {
-          "title": "[올댓차이나] 대만 증시, 이익확정 매물 출회로 속락 마감…2.24%↓",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014026201&office_id=003&code=183190&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.06.24"
-        },
-        {
-          "title": "[올댓차이나] 대만 증시, 이익확정 매물로 7거래일 만에 반락…1.34...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014023383&office_id=003&code=183190&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.06.23"
-        },
-        {
-          "title": "[올댓차이나] 대만 증시, 반도체 주도 연일 최고치 경신 마감…2.75...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014021068&office_id=003&code=183190&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.06.22"
-        },
-        {
-          "title": "[올댓차이나] 대만 증시, 중동 정세 격화에 대폭 반락 마감…3.31%...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013999220&office_id=003&code=183190&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.06.10"
-        },
-        {
-          "title": "[올댓차이나] 대만 증시, AI 관련주 매수로 연일 최고치 경신…1.3...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013980500&office_id=003&code=183190&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.06.01"
-        },
-        {
-          "title": "[올댓차이나] 대만 증시, 주력 반도체주 매수에 최고치 경신…2.51%...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013976739&office_id=003&code=183190&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.05.29"
-        },
-        {
-          "title": "멜트업 장세엔 이 포지션 구축해야 [한경 프리미엄9 TODAY]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005301465&office_id=015&code=183190&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.22"
-        },
-        {
-          "title": "'미·이란 종전' 쌍용·한일·삼표·아세아, 운송비 숨통…유연탄 부담.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001147531&office_id=417&code=183190&page=&sm=",
-          "source": "동행미디어 시대",
-          "date": "2026.06.15"
-        },
-        {
-          "title": "기업 공시 [6월 10일]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004629719&office_id=011&code=183190&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.06.10"
-        }
-      ],
-      "forward_score": 63,
-      "forward_bonus": 4,
-      "forward_detail": {
-        "small_size": 4,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 58,
-      "ticker": "002690",
-      "name": "동일제강",
-      "market": "KOSPI",
-      "close_price": 1553,
-      "change_amount": 256,
-      "change_rate": 19.74,
-      "trading_value": 2269000000,
-      "market_cap": 31526459080,
-      "sector": "철강",
-      "industry_no": 304,
-      "high_52w": 1990,
-      "high_52w_date": "20260409",
-      "high_price": 1679,
-      "low_price": 1500,
-      "theme_tag": "철도",
-      "theme_tags": [
-        "철도",
-        "철강 중소형"
-      ],
-      "theme_no": 250,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
       "score": 53,
       "score_detail": {
         "tp": 14,
@@ -8516,7 +8750,7 @@
           "date": "2026.05.19"
         }
       ],
-      "forward_score": 58,
+      "forward_score": 59,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -8531,7 +8765,7 @@
       "close_price": 25150,
       "change_amount": 3800,
       "change_rate": 17.8,
-      "trading_value": 4042000000,
+      "trading_value": 4058000000,
       "market_cap": 253634530800,
       "sector": "건설",
       "industry_no": 279,
@@ -8751,7 +8985,19 @@
       "rise_reason": "증권사 리포트 공개",
       "news": [
         {
-          "title": "위메이드, ‘지속가능경영보고서 2025’ 발간…서비스 품질·이용자 보....",
+          "title": "위메이드, 지속가능경영보고서 발간…게임·블록체인 특화 ESG 강화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378676&office_id=008&code=112040&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "위메이드, '지속가능경영보고서 2025' 발간…ESG 경영 성과 공유",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002428457&office_id=092&code=112040&page=&sm=",
+          "source": "지디넷코리아",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "위메이드, ‘지속가능경영보고서 2025’ 발간…서비스 품질·이용자 보...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000748166&office_id=396&code=112040&page=&sm=",
           "source": "스포츠월드",
           "date": "2026.06.29"
@@ -8797,18 +9043,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002428195&office_id=092&code=112040&page=&sm=",
           "source": "지디넷코리아",
           "date": "2026.06.26"
-        },
-        {
-          "title": "한국 대표 250명 맞붙는다…위메이드 ‘이미르컵’ 월드 챔피언 개",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004078716&office_id=117&code=112040&page=&sm=",
-          "source": "마이데일리",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "위메이드, 공식 블로그 '위메이드 스토리즈' 개설…대외 소통 채널 강....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002428208&office_id=092&code=112040&page=&sm=",
-          "source": "지디넷코리아",
-          "date": "2026.06.26"
         }
       ],
       "forward_score": 62,
@@ -8843,13 +9077,13 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 57,
+      "score": 56,
       "score_detail": {
-        "tp": 18,
+        "tp": 17,
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "수주 공시",
+      "rise_reason": "종속사 지분취득",
       "news": [
         {
           "title": "스피어, 300억 규모 수입금융 확보…\"인도네시아 니켈 사업 본격화\"",
@@ -9028,7 +9262,7 @@
       "close_price": 4820,
       "change_amount": 720,
       "change_rate": 17.56,
-      "trading_value": 24457000000,
+      "trading_value": 24490000000,
       "market_cap": 52634400000,
       "sector": "건축자재",
       "industry_no": 289,
@@ -9277,7 +9511,7 @@
       "close_price": 10300,
       "change_amount": 1520,
       "change_rate": 17.31,
-      "trading_value": 3784000000,
+      "trading_value": 3785000000,
       "market_cap": 184854563500,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -9478,7 +9712,7 @@
       "close_price": 3435,
       "change_amount": 505,
       "change_rate": 17.24,
-      "trading_value": 275000000,
+      "trading_value": 276000000,
       "market_cap": 66703883715,
       "sector": "건강관리업체및서비스",
       "industry_no": 316,
@@ -9579,7 +9813,7 @@
       "close_price": 45400,
       "change_amount": 6650,
       "change_rate": 17.16,
-      "trading_value": 8469000000,
+      "trading_value": 8472000000,
       "market_cap": 781027777000,
       "sector": "생명과학도구및서비스",
       "industry_no": 262,
@@ -9711,6 +9945,12 @@
           "date": "2026.06.24"
         },
         {
+          "title": "씨어스, 모비케어 美 FDA 510(k) 허가…\"메디케어 시장 진출 본...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318193&office_id=018&code=458870&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.06.29"
+        },
+        {
           "title": "씨어스, 중동 이어 美 뚫었다…모비케어 FDA 품목허가 획득",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378655&office_id=008&code=458870&page=&sm=",
           "source": "머니투데이",
@@ -9723,15 +9963,15 @@
           "date": "2026.06.29"
         },
         {
-          "title": "씨어스, 모비케어 美 FDA 허가 획득…메디케어 시장 공략 본격화",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318155&office_id=018&code=458870&page=&sm=",
-          "source": "이데일리",
+          "title": "씨어스, 모비케어 美 FDA 품목허가 획득…글로벌 사업 키운다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303957&office_id=015&code=458870&page=&sm=",
+          "source": "한국경제",
           "date": "2026.06.29"
         },
         {
-          "title": "씨어스, 모비케어 美 FDA 품목허가 획득 … 글로벌 사업 키운다",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303957&office_id=015&code=458870&page=&sm=",
-          "source": "한국경제",
+          "title": "씨어스, 모비케어 美 FDA 허가 획득…메디케어 시장 공략 본격화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006318155&office_id=018&code=458870&page=&sm=",
+          "source": "이데일리",
           "date": "2026.06.29"
         },
         {
@@ -9757,12 +9997,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303812&office_id=015&code=458870&page=&sm=",
           "source": "한국경제",
           "date": "2026.06.29"
-        },
-        {
-          "title": "\"삼성·SK하이닉스에 '이것' 더해라\"…수익률 78% 낸 1위의 승부수",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005303475&office_id=015&code=458870&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.06.27"
         }
       ],
       "forward_score": 57,
@@ -9881,7 +10115,7 @@
       "close_price": 23700,
       "change_amount": 3450,
       "change_rate": 17.04,
-      "trading_value": 2982000000,
+      "trading_value": 2983000000,
       "market_cap": 351626211300,
       "sector": "제약",
       "industry_no": 261,
@@ -9982,7 +10216,7 @@
       "close_price": 22350,
       "change_amount": 3240,
       "change_rate": 16.95,
-      "trading_value": 4723000000,
+      "trading_value": 4724000000,
       "market_cap": 367633116150,
       "sector": "전기장비",
       "industry_no": 306,
@@ -10014,55 +10248,61 @@
           "date": "2026.06.29"
         },
         {
-          "title": "쿼드메디슨, 글로벌 백신포럼서 마이크로니들 기술 발표",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006317629&office_id=018&code=464490&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.06.29"
+          "title": "LGU+·지엔씨에너지 맞손… AIDC 전력 확보 가속",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005540649&office_id=014&code=119850&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.06.28"
         },
         {
-          "title": "쿼드메디슨, OLED 융합 마이크로니들 특허 출원",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006290518&office_id=018&code=464490&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.05.26"
-        },
-        {
-          "title": "쿼드메디슨, 마이크로니들 세계적 권위자 초청 강연",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006285740&office_id=018&code=464490&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.05.20"
-        },
-        {
-          "title": "쿼드메디슨, 에피네프린 마이크로니들 생산장비 계약 체결",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006282619&office_id=018&code=464490&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.05.15"
-        },
-        {
-          "title": "쿼드메디슨, '현장로딩 마이크로니들' 연구 논문 게재",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006278906&office_id=018&code=464490&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.05.12"
-        },
-        {
-          "title": "[여의도단신]한화투자증권·키움증권·카카오페이증권",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001011564&office_id=088&code=464490&page=&sm=",
-          "source": "매일신문",
-          "date": "2026.05.26"
-        },
-        {
-          "title": "라이트재단, 세계 최대 백신 조달기구와 협력 강화…SK바이오·LG화학....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001169686&office_id=366&code=464490&page=&sm=",
+          "title": "LG유플러스, 지엔씨에너지와 AIDC 전력 인프라 협력",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001175043&office_id=366&code=119850&page=&sm=",
           "source": "조선비즈",
-          "date": "2026.06.05"
+          "date": "2026.06.28"
         },
         {
-          "title": "키움증권, 개인 참여 콥데이 연다…코스닥 기업 18곳 한자리",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003094296&office_id=119&code=464490&page=&sm=",
-          "source": "데일리안",
-          "date": "2026.05.26"
+          "title": "\"신속한 AIDC 전력 설비 확보\" LG U+, 지엔씨에너지와 맞손",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005540564&office_id=014&code=119850&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "LGU+, AI데이터센터 전력 인프라 강화…지엔씨에너지와 협력",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002232331&office_id=138&code=119850&page=&sm=",
+          "source": "디지털데일리",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "LGU+, AIDC 전력 인프라 강화…지엔씨에너지와 MOU 체결",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001250502&office_id=468&code=119850&page=&sm=",
+          "source": "스포츠서울",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "LGU+, 지엔씨에너지와 AIDC 전력 구축 맞손",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002428297&office_id=092&code=119850&page=&sm=",
+          "source": "지디넷코리아",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "LG유플러스, AIDC 전력 인프라 안정성 확보…지엔씨에너지와 MOU",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378057&office_id=008&code=119850&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "LGU+, AIDC 비상전력 공급망 강화…지엔씨에너지와 맞손",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009027447&office_id=421&code=119850&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.06.28"
+        },
+        {
+          "title": "LGU+, 지엔씨에너지와 맞손…데이터센터 전력 인프라 강화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005782252&office_id=277&code=119850&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.06.28"
         }
       ],
-      "forward_score": 48,
+      "forward_score": 59,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -10077,7 +10317,7 @@
       "close_price": 428000,
       "change_amount": 62000,
       "change_rate": 16.94,
-      "trading_value": 64049000000,
+      "trading_value": 64051000000,
       "market_cap": 5483104148000,
       "sector": "제약",
       "industry_no": 261,
@@ -10106,6 +10346,12 @@
           "title": "[바이오USA] 릴리의 ‘스타트업 인큐베이터’ 송도 상륙…샌디에이고.....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001175074&office_id=366&code=128940&page=&sm=",
           "source": "조선비즈",
+          "date": "2026.06.29"
+        },
+        {
+          "title": "\"기업 고객 잡아라\"...편의점, 도시락 B2B 사업 키운다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002428463&office_id=092&code=128940&page=&sm=",
+          "source": "지디넷코리아",
           "date": "2026.06.29"
         },
         {
@@ -10154,12 +10400,6 @@
           "title": "기술수출 '30조' 꿈이 아니다…선급금만 수천억, 몸값 뛴 K-바이오",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005378274&office_id=008&code=128940&page=&sm=",
           "source": "머니투데이",
-          "date": "2026.06.29"
-        },
-        {
-          "title": "차화정·BBIG는 무너졌는데…‘삼전닉스’는 다를까",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000107926&office_id=050&code=128940&page=&sm=",
-          "source": "한경비즈니스",
           "date": "2026.06.29"
         }
       ],
