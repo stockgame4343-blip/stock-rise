@@ -1,6 +1,6 @@
 {
   "date": "20260715",
-  "collected_at": "2026-07-15T15:45:50",
+  "collected_at": "2026-07-15T16:15:37",
   "mode": "closing",
   "is_final": true,
   "count": 100,
@@ -14,7 +14,7 @@
       "close_price": 3445,
       "change_amount": 795,
       "change_rate": 30.0,
-      "trading_value": 13616000000,
+      "trading_value": 13619000000,
       "market_cap": 65101222615,
       "sector": "문구류",
       "industry_no": 332,
@@ -37,7 +37,7 @@
         "tl": 45,
         "ti": 11
       },
-      "rise_reason": "테마 관련 뉴스",
+      "rise_reason": "애국 이슈",
       "news": [
         {
           "title": "[ET특징주] “상폐 막자” 애국 매수세에… 모나미·한성기업 주가 강...",
@@ -52,9 +52,9 @@
           "date": "2026.07.14"
         },
         {
-          "title": "모나미·한성·에넥스 연일 상한가…'애국주' 열풍 어디까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000521898&office_id=374&code=005360&page=&sm=",
-          "source": "SBS Biz",
+          "title": "'애국 테마 매수세' 모나미·한성기업 연일 상한가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001019226&office_id=088&code=005360&page=&sm=",
+          "source": "매일신문",
           "date": "2026.07.15"
         },
         {
@@ -64,7 +64,13 @@
           "date": "2026.07.15"
         },
         {
-          "title": "'애국주 입소문' 모나미·에넥스 2연상…\"따뜻한 관심에 감사\"[핫종목....",
+          "title": "모나미·한성·에넥스 연일 상한가…'애국주' 열풍 어디까지",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000521898&office_id=374&code=005360&page=&sm=",
+          "source": "SBS Biz",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "'애국주 입소문' 모나미·에넥스 2연상…\"따뜻한 관심에 감사\"[핫종목...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009060305&office_id=421&code=005360&page=&sm=",
           "source": "뉴스1",
           "date": "2026.07.15"
@@ -92,12 +98,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009058137&office_id=421&code=005360&page=&sm=",
           "source": "뉴스1",
           "date": "2026.07.14"
-        },
-        {
-          "title": "“애국기업 살리자” 개미들 힘모으자…상폐 위기 딛고 상한가 간 ‘...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707848&office_id=009&code=005360&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.07.15"
         }
       ],
       "forward_score": 90,
@@ -115,7 +115,7 @@
       "close_price": 2990,
       "change_amount": 690,
       "change_rate": 30.0,
-      "trading_value": 12565000000,
+      "trading_value": 12567000000,
       "market_cap": 108945448950,
       "sector": "기계",
       "industry_no": 299,
@@ -241,6 +241,12 @@
       "rise_reason": "FDA 관련 뉴스",
       "news": [
         {
+          "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196831&office_id=001&code=115450&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.07.15"
+        },
+        {
           "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196427&office_id=001&code=115450&page=&sm=",
           "source": "연합뉴스",
@@ -259,6 +265,30 @@
           "date": "2026.07.13"
         },
         {
+          "title": "[ET특징주] HLB, 간암 신약 후보물질 FDA 허가 불발… 그룹주 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003446517&office_id=030&code=115450&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.07.10"
+        },
+        {
+          "title": "[특징주] HLB그룹주, FDA 승인 무산에 줄줄이 ‘하한가’",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001178187&office_id=366&code=115450&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.07.10"
+        },
+        {
+          "title": "HLB 29% ↓…FDA 허가 불발에 그룹주 ‘와르르’[특징주]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003110049&office_id=119&code=115450&page=&sm=",
+          "source": "데일리안",
+          "date": "2026.07.10"
+        },
+        {
+          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=115450&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.15"
+        },
+        {
           "title": "HLB, 간암 신약 FDA 우려 완화에 상한가…그룹주 동반 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707685&office_id=009&code=115450&page=&sm=",
           "source": "매일경제",
@@ -268,36 +298,6 @@
           "title": "간암 신약 FDA 불발 우려 완화에…HLB그룹株, 무더기 상한가",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001019119&office_id=088&code=115450&page=&sm=",
           "source": "매일신문",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB, 간암 신약 FDA 허가 불발 사유 일부 해소…그룹주 동반 상...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386271&office_id=008&code=115450&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB, 허가 불발 사유 일부 해소 소식에 '상한가'…그룹주 동반 반...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330516&office_id=018&code=115450&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "“FDA 악재 끝 보이나”…HLB그룹주, 이틀 하한가 뒤 무더기 상한가...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002386592&office_id=123&code=115450&page=&sm=",
-          "source": "조세일보",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=115450&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=115450&page=&sm=",
-          "source": "뉴시스",
           "date": "2026.07.15"
         }
       ],
@@ -342,6 +342,12 @@
       "rise_reason": "FDA 관련 뉴스",
       "news": [
         {
+          "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196831&office_id=001&code=047920&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.07.15"
+        },
+        {
           "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196427&office_id=001&code=047920&page=&sm=",
           "source": "연합뉴스",
@@ -360,10 +366,22 @@
           "date": "2026.07.15"
         },
         {
+          "title": "[ET특징주] HLB, 리보세라닙 FDA 불발 여파 이틀째… 28%↓",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003447028&office_id=030&code=047920&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.07.13"
+        },
+        {
           "title": "[애프터마켓 리뷰] 로킷헬스케어, 신장재생 임상 수술 전 세계 첫 도전",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000521520&office_id=374&code=047920&page=&sm=",
           "source": "SBS Biz",
           "date": "2026.07.14"
+        },
+        {
+          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=047920&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.15"
         },
         {
           "title": "HLB, 간암 신약 FDA 우려 완화에 상한가…그룹주 동반 급등",
@@ -381,24 +399,6 @@
           "title": "HLB, 간암 신약 FDA 허가 불발 사유 일부 해소…그룹주 동반 상...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386271&office_id=008&code=047920&page=&sm=",
           "source": "머니투데이",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB, 허가 불발 사유 일부 해소 소식에 '상한가'…그룹주 동반 반...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330516&office_id=018&code=047920&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "“FDA 악재 끝 보이나”…HLB그룹주, 이틀 하한가 뒤 무더기 상한가...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002386592&office_id=123&code=047920&page=&sm=",
-          "source": "조세일보",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=047920&page=&sm=",
-          "source": "뉴시스",
           "date": "2026.07.15"
         }
       ],
@@ -484,12 +484,6 @@
           "date": "2026.07.15"
         },
         {
-          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=046210&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.07.15"
-        },
-        {
           "title": "\"리보세라닙 미국 허가 보류 사유 해소\" 주장에…HLB그룹株 '급등'",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310152&office_id=015&code=046210&page=&sm=",
           "source": "한국경제",
@@ -499,6 +493,12 @@
           "title": "HLB, 간암 신약 FDA 우려 완화에 상한가…그룹주 동반 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707685&office_id=009&code=046210&page=&sm=",
           "source": "매일경제",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "간암 신약 FDA 불발 우려 완화에…HLB그룹株, 무더기 상한가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001019119&office_id=088&code=046210&page=&sm=",
+          "source": "매일신문",
           "date": "2026.07.15"
         }
       ],
@@ -542,7 +542,7 @@
       "rise_reason": "FDA 관련 뉴스",
       "news": [
         {
-          "title": "[ET특징주] HLB, 간암 신약 FDA 승인 우려 해소?… 그룹주 일...",
+          "title": "[ET특징주] HLB, 간암 신약 FDA 승인 우려 해소?… 그룹주 ...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003448050&office_id=030&code=024850&page=&sm=",
           "source": "전자신문",
           "date": "2026.07.15"
@@ -563,12 +563,6 @@
           "title": "“FDA 악재 끝 보이나”…HLB그룹주, 이틀 하한가 뒤 무더기 상한가...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002386592&office_id=123&code=024850&page=&sm=",
           "source": "조세일보",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=024850&page=&sm=",
-          "source": "뉴시스",
           "date": "2026.07.15"
         },
         {
@@ -596,6 +590,12 @@
           "date": "2026.07.15"
         },
         {
+          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=024850&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.07.15"
+        },
+        {
           "title": "반도체 랠리에 돌아온 외국인...28만전자·210만닉스 복귀",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386342&office_id=008&code=024850&page=&sm=",
           "source": "머니투데이",
@@ -617,7 +617,7 @@
       "close_price": 14520,
       "change_amount": 3350,
       "change_rate": 29.99,
-      "trading_value": 77392000000,
+      "trading_value": 77415000000,
       "market_cap": 90162157800,
       "sector": "식품",
       "industry_no": 268,
@@ -640,7 +640,7 @@
         "tl": 45,
         "ti": 11
       },
-      "rise_reason": "테마 관련 뉴스",
+      "rise_reason": "애국 이슈",
       "news": [
         {
           "title": "[ET특징주] “상폐 막자” 애국 매수세에… 모나미·한성기업 주가 강...",
@@ -653,6 +653,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001178933&office_id=366&code=003680&page=&sm=",
           "source": "조선비즈",
           "date": "2026.07.14"
+        },
+        {
+          "title": "'애국 테마 매수세' 모나미·한성기업 연일 상한가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001019226&office_id=088&code=003680&page=&sm=",
+          "source": "매일신문",
+          "date": "2026.07.15"
         },
         {
           "title": "'애국 매수'에 한성기업 15%↑·모나미 상한가",
@@ -679,25 +685,19 @@
           "date": "2026.07.14"
         },
         {
-          "title": "모나미·한성·에넥스 연일 상한가…'애국주' 열풍 어디까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000521898&office_id=374&code=003680&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "“애국기업 살리자” 개미들 힘모으자…상폐 위기 딛고 상한가 간 ‘...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707848&office_id=009&code=003680&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.07.15"
-        },
-        {
           "title": "주가 다 떨어졌는데 그 와중에 연일 급등…2배 오른 기업",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005790028&office_id=277&code=003680&page=&sm=",
           "source": "아시아경제",
           "date": "2026.07.15"
         },
         {
-          "title": "'애국주 입소문' 모나미·에넥스 2연상…\"따뜻한 관심에 감사\"[핫종목....",
+          "title": "모나미·한성·에넥스 연일 상한가…'애국주' 열풍 어디까지",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000521898&office_id=374&code=003680&page=&sm=",
+          "source": "SBS Biz",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "'애국주 입소문' 모나미·에넥스 2연상…\"따뜻한 관심에 감사\"[핫종목...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009060305&office_id=421&code=003680&page=&sm=",
           "source": "뉴스1",
           "date": "2026.07.15"
@@ -743,6 +743,12 @@
       "rise_reason": "FDA 관련 뉴스",
       "news": [
         {
+          "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196831&office_id=001&code=003580&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.07.15"
+        },
+        {
           "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196427&office_id=001&code=003580&page=&sm=",
           "source": "연합뉴스",
@@ -767,6 +773,12 @@
           "date": "2026.07.10"
         },
         {
+          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=003580&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.15"
+        },
+        {
           "title": "HLB, 간암 신약 FDA 우려 완화에 상한가…그룹주 동반 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707685&office_id=009&code=003580&page=&sm=",
           "source": "매일경제",
@@ -785,21 +797,9 @@
           "date": "2026.07.15"
         },
         {
-          "title": "HLB, 허가 불발 사유 일부 해소 소식에 '상한가'…그룹주 동반 반...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330516&office_id=018&code=003580&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "“FDA 악재 끝 보이나”…HLB그룹주, 이틀 하한가 뒤 무더기 상한가...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002386592&office_id=123&code=003580&page=&sm=",
-          "source": "조세일보",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=003580&page=&sm=",
-          "source": "서울경제",
+          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=003580&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.15"
         }
       ],
@@ -956,15 +956,15 @@
           "date": "2026.07.15"
         },
         {
-          "title": "사흘째 상한가 에넥스 \"주주 성원 감사\"…본업 경쟁력 강화 의지 강조",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330607&office_id=018&code=011090&page=&sm=",
-          "source": "이데일리",
+          "title": "'애국주 입소문' 모나미·에넥스 2연상…\"따뜻한 관심에 감사\"[핫종목...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009060305&office_id=421&code=011090&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.07.15"
         },
         {
-          "title": "'애국주 입소문' 모나미·에넥스 2연상…\"따뜻한 관심에 감사\"[핫종목....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009060305&office_id=421&code=011090&page=&sm=",
-          "source": "뉴스1",
+          "title": "사흘째 상한가 에넥스 \"주주 성원 감사\"…본업 경쟁력 강화 의지 강조",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330607&office_id=018&code=011090&page=&sm=",
+          "source": "이데일리",
           "date": "2026.07.15"
         },
         {
@@ -978,6 +978,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005548027&office_id=014&code=011090&page=&sm=",
           "source": "파이낸셜뉴스",
           "date": "2026.07.14"
+        },
+        {
+          "title": "'애국 테마 매수세' 모나미·한성기업 연일 상한가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001019226&office_id=088&code=011090&page=&sm=",
+          "source": "매일신문",
+          "date": "2026.07.15"
         },
         {
           "title": "“애국기업 살리자” 개미들 힘모으자…상폐 위기 딛고 상한가 간 ‘...",
@@ -1051,7 +1057,7 @@
           "date": "2026.06.30"
         },
         {
-          "title": "[ET특징주] HLB, 간암 신약 FDA 승인 우려 해소?… 그룹주 일...",
+          "title": "[ET특징주] HLB, 간암 신약 FDA 승인 우려 해소?… 그룹주 ...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003448050&office_id=030&code=196300&page=&sm=",
           "source": "전자신문",
           "date": "2026.07.15"
@@ -1063,15 +1069,9 @@
           "date": "2026.07.15"
         },
         {
-          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
+          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍리...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=196300&page=&sm=",
           "source": "서울경제",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=196300&page=&sm=",
-          "source": "뉴시스",
           "date": "2026.07.15"
         },
         {
@@ -1084,6 +1084,12 @@
           "title": "HLB, 간암 신약 FDA 허가 불발 사유 일부 해소…그룹주 동반 상...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386271&office_id=008&code=196300&page=&sm=",
           "source": "머니투데이",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=196300&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.15"
         },
         {
@@ -1158,12 +1164,6 @@
           "date": "2026.07.15"
         },
         {
-          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=187420&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.07.15"
-        },
-        {
           "title": "HLB, 간암 신약 FDA 우려 완화에 상한가…그룹주 동반 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707685&office_id=009&code=187420&page=&sm=",
           "source": "매일경제",
@@ -1179,6 +1179,12 @@
           "title": "HLB, 간암 신약 FDA 허가 불발 사유 일부 해소…그룹주 동반 상...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386271&office_id=008&code=187420&page=&sm=",
           "source": "머니투데이",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=187420&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.15"
         },
         {
@@ -1215,7 +1221,7 @@
       "close_price": 34700,
       "change_amount": 8000,
       "change_rate": 29.96,
-      "trading_value": 34957000000,
+      "trading_value": 34963000000,
       "market_cap": 4621978338100,
       "sector": "건강관리장비와용품",
       "industry_no": 281,
@@ -1240,6 +1246,12 @@
       "rise_reason": "FDA 관련 뉴스",
       "news": [
         {
+          "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196831&office_id=001&code=028300&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.07.15"
+        },
+        {
           "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196427&office_id=001&code=028300&page=&sm=",
           "source": "연합뉴스",
@@ -1258,6 +1270,12 @@
           "date": "2026.07.15"
         },
         {
+          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=028300&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.15"
+        },
+        {
           "title": "HLB, 간암 신약 FDA 우려 완화에 상한가…그룹주 동반 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707685&office_id=009&code=028300&page=&sm=",
           "source": "매일경제",
@@ -1270,20 +1288,14 @@
           "date": "2026.07.15"
         },
         {
-          "title": "HLB “FDA, 中항서 제조시설 ‘개선 권고’ 판정…간암 신약 허가...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001179280&office_id=366&code=028300&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.07.15"
-        },
-        {
           "title": "HLB, 간암 신약 FDA 허가 불발 사유 일부 해소…그룹주 동반 상...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386271&office_id=008&code=028300&page=&sm=",
           "source": "머니투데이",
           "date": "2026.07.15"
         },
         {
-          "title": "HLB \"FDA 승인거절, 자발적 개선조치로 최종확정\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067507&office_id=003&code=028300&page=&sm=",
+          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=028300&page=&sm=",
           "source": "뉴시스",
           "date": "2026.07.15"
         },
@@ -1291,12 +1303,6 @@
           "title": "HLB, 허가 불발 사유 일부 해소 소식에 '상한가'…그룹주 동반 반...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330516&office_id=018&code=028300&page=&sm=",
           "source": "이데일리",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB \"간암 신약, 미국 승인 문제점 대부분 해소\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016195030&office_id=001&code=028300&page=&sm=",
-          "source": "연합뉴스",
           "date": "2026.07.15"
         }
       ],
@@ -1315,7 +1321,7 @@
       "close_price": 1870,
       "change_amount": 431,
       "change_rate": 29.95,
-      "trading_value": 49962000000,
+      "trading_value": 49965000000,
       "market_cap": 104789382610,
       "sector": "제약",
       "industry_no": 261,
@@ -1499,7 +1505,7 @@
       "close_price": 11730,
       "change_amount": 2700,
       "change_rate": 29.9,
-      "trading_value": 31156000000,
+      "trading_value": 31161000000,
       "market_cap": 99568157820,
       "sector": "통신장비",
       "industry_no": 294,
@@ -1543,6 +1549,12 @@
           "date": "2026.07.10"
         },
         {
+          "title": "‘K-오픈랜 패키지’ 일본 간다…국내외 동시 실증",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330915&office_id=018&code=049080&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.07.15"
+        },
+        {
           "title": "NIA, 국산 오픈랜 장비 국내외 동시실증…해외 진출 돕는다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003537753&office_id=025&code=049080&page=&sm=",
           "source": "중앙일보",
@@ -1576,12 +1588,6 @@
           "title": "SNS 미담주·3대 메가 수혜주…급락장서 튀어 오른 테마주들(종합)",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016189796&office_id=001&code=049080&page=&sm=",
           "source": "연합뉴스",
-          "date": "2026.07.12"
-        },
-        {
-          "title": "'호남 테마주' 70%대 주가 껑충…증권가 \"신중한 접근 필요\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000100343&office_id=243&code=049080&page=&sm=",
-          "source": "이코노미스트",
           "date": "2026.07.12"
         }
       ],
@@ -1688,7 +1694,7 @@
       "close_price": 269500,
       "change_amount": 62000,
       "change_rate": 29.88,
-      "trading_value": 607908000000,
+      "trading_value": 608070000000,
       "market_cap": 25686637900000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -1711,54 +1717,24 @@
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "2분기 실적 호조",
+      "rise_reason": "2분기 최대실적",
       "news": [
         {
-          "title": "[ET특징주]한미반도체, 2분기 호실적에 상승세",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003447952&office_id=030&code=042700&page=&sm=",
-          "source": "전자신문",
+          "title": "[특징주] 한미반도체, '2분기 역대 최대 매출' 소식에 상한가 마감(...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196729&office_id=001&code=042700&page=&sm=",
+          "source": "연합뉴스",
           "date": "2026.07.15"
         },
         {
-          "title": "[특징주] 한미반도체, 역대 최대 분기 실적에 장 초반 21% 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001179274&office_id=366&code=042700&page=&sm=",
-          "source": "조선비즈",
+          "title": "[특징주] 한미반도체, 2분기 호실적에 장초반 20% 폭등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016195103&office_id=001&code=042700&page=&sm=",
+          "source": "연합뉴스",
           "date": "2026.07.15"
         },
         {
-          "title": "한미반도체 19% 급등…2분기 호실적에 강세[특징주]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330543&office_id=018&code=042700&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "한미반도체, 역대 최대 분기 실적에 20%대 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001019137&office_id=088&code=042700&page=&sm=",
-          "source": "매일신문",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "'분기 최대실적' 한미반도체 24% 급등…소부장 강세[핫종목]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009060427&office_id=421&code=042700&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "한미반도체, 2분기 사상 최대 실적에 20%대 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067549&office_id=003&code=042700&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "한미반도체, 2분기 호실적에 장 초반 14% 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310149&office_id=015&code=042700&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "한미반도체 역대급 실적에 27% 급등…SK·삼성도 불붙었다 [칩칩폭폭]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002386571&office_id=123&code=042700&page=&sm=",
-          "source": "조세일보",
+          "title": "한미반도체, 2분기 최대 매출에 장 초반 20%대 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000190574&office_id=654&code=042700&page=&sm=",
+          "source": "강원도민일보",
           "date": "2026.07.15"
         },
         {
@@ -1768,9 +1744,39 @@
           "date": "2026.07.15"
         },
         {
+          "title": "증시, 모처럼 강한 반등…코스피, 반도체 업고 7200선 회복",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310326&office_id=015&code=042700&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "코스피 6.24% 급반등…외국인 돌아오며 3거래일 만에 7000선",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330928&office_id=018&code=042700&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "ASML이 지운 ‘반도체 고점론’… 전방위 훈풍에 코스피 7200선 안...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641911&office_id=011&code=042700&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "코스피, 7280선 회복…6%대 반등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003448174&office_id=030&code=042700&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.07.15"
+        },
+        {
           "title": "“미국 물가만 바라보는 코스피”…CPI·PPI 변수 맞이한 증시, 투자...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707876&office_id=009&code=042700&page=&sm=",
           "source": "매일경제",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "코스피, 장중 7400 넘었다…코스닥도 5%대 상승",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005790390&office_id=277&code=042700&page=&sm=",
+          "source": "아시아경제",
           "date": "2026.07.15"
         }
       ],
@@ -1909,7 +1915,7 @@
       "rise_reason": "FDA 관련 뉴스",
       "news": [
         {
-          "title": "[ET특징주] HLB, 간암 신약 FDA 승인 우려 해소?… 그룹주 일...",
+          "title": "[ET특징주] HLB, 간암 신약 FDA 승인 우려 해소?… 그룹주 ...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003448050&office_id=030&code=278650&page=&sm=",
           "source": "전자신문",
           "date": "2026.07.15"
@@ -1933,15 +1939,9 @@
           "date": "2026.07.15"
         },
         {
-          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
+          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍리...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=278650&page=&sm=",
           "source": "서울경제",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=278650&page=&sm=",
-          "source": "뉴시스",
           "date": "2026.07.15"
         },
         {
@@ -1960,6 +1960,12 @@
           "title": "HLB, 간암 신약 FDA 허가 불발 사유 일부 해소…그룹주 동반 상...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386271&office_id=008&code=278650&page=&sm=",
           "source": "머니투데이",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=278650&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.15"
         },
         {
@@ -2010,6 +2016,12 @@
       "rise_reason": "FDA 관련 뉴스",
       "news": [
         {
+          "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가(종합)",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196831&office_id=001&code=067630&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.07.15"
+        },
+        {
           "title": "[특징주] HLB, 간암 신약 美승인 문제 해소 기대에 상한가",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016196427&office_id=001&code=067630&page=&sm=",
           "source": "연합뉴스",
@@ -2026,6 +2038,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003447028&office_id=030&code=067630&page=&sm=",
           "source": "전자신문",
           "date": "2026.07.13"
+        },
+        {
+          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=067630&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.15"
         },
         {
           "title": "HLB, 간암 신약 FDA 우려 완화에 상한가…그룹주 동반 급등",
@@ -2046,27 +2064,15 @@
           "date": "2026.07.15"
         },
         {
-          "title": "“FDA 악재 끝 보이나”…HLB그룹주, 이틀 하한가 뒤 무더기 상한가...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002386592&office_id=123&code=067630&page=&sm=",
-          "source": "조세일보",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "‘하한가 악몽’ 털어낸 HLB, 그룹주 8개 ‘무더기 상한가’ [줍줍...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641858&office_id=011&code=067630&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.07.15"
-        },
-        {
           "title": "HLB 그룹株, '리보세라닙' FDA 불발 사유 해소에 무더기 '上'",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014067458&office_id=003&code=067630&page=&sm=",
           "source": "뉴시스",
           "date": "2026.07.15"
         },
         {
-          "title": "\"리보세라닙 미국 허가 보류 사유 해소\" 주장에…HLB그룹株 '급등'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310152&office_id=015&code=067630&page=&sm=",
-          "source": "한국경제",
+          "title": "“FDA 악재 끝 보이나”…HLB그룹주, 이틀 하한가 뒤 무더기 상한가...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002386592&office_id=123&code=067630&page=&sm=",
+          "source": "조세일보",
           "date": "2026.07.15"
         }
       ],
@@ -2085,7 +2091,7 @@
       "close_price": 3250,
       "change_amount": 680,
       "change_rate": 26.46,
-      "trading_value": 520000000,
+      "trading_value": 521000000,
       "market_cap": 19468754500,
       "sector": "섬유,의류,신발,호화품",
       "industry_no": 274,
@@ -2173,7 +2179,7 @@
       "close_price": 16380,
       "change_amount": 3150,
       "change_rate": 23.81,
-      "trading_value": 4208000000,
+      "trading_value": 4215000000,
       "market_cap": 218423024820,
       "sector": "기계",
       "industry_no": 299,
@@ -2267,7 +2273,7 @@
       "close_price": 10340,
       "change_amount": 1980,
       "change_rate": 23.68,
-      "trading_value": 27390000000,
+      "trading_value": 27408000000,
       "market_cap": 420109205780,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -2368,7 +2374,7 @@
       "close_price": 2855,
       "change_amount": 545,
       "change_rate": 23.59,
-      "trading_value": 1859000000,
+      "trading_value": 1860000000,
       "market_cap": 39134912500,
       "sector": "교육서비스",
       "industry_no": 290,
@@ -2468,7 +2474,7 @@
       "close_price": 4120,
       "change_amount": 750,
       "change_rate": 22.26,
-      "trading_value": 2871000000,
+      "trading_value": 2873000000,
       "market_cap": 217650346480,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -2669,7 +2675,7 @@
       "close_price": 143200,
       "change_amount": 25800,
       "change_rate": 21.98,
-      "trading_value": 254079000000,
+      "trading_value": 254150000000,
       "market_cap": 7076503660000,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -2692,7 +2698,7 @@
         "tl": 32,
         "ti": 9
       },
-      "rise_reason": "반도체 훈풍",
+      "rise_reason": "증설 발표",
       "news": [
         {
           "title": "대덕전자, 가격 인상·증설·AI 수요 '삼박자'…목표가↑-메리츠",
@@ -2770,7 +2776,7 @@
       "close_price": 1237,
       "change_amount": 222,
       "change_rate": 21.87,
-      "trading_value": 2180000000,
+      "trading_value": 2188000000,
       "market_cap": 34922120574,
       "sector": "건설",
       "industry_no": 279,
@@ -2871,7 +2877,7 @@
       "close_price": 89100,
       "change_amount": 15400,
       "change_rate": 20.9,
-      "trading_value": 350638000000,
+      "trading_value": 350842000000,
       "market_cap": 3068856420300,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -2893,7 +2899,7 @@
         "tl": 45,
         "ti": 11
       },
-      "rise_reason": "반도체 훈풍",
+      "rise_reason": "투자 관련 뉴스",
       "news": [
         {
           "title": "[주총 포커스] 제주반도체, 메자닌 한도 상향…조달 창구 정비",
@@ -2971,7 +2977,7 @@
       "close_price": 15690,
       "change_amount": 2710,
       "change_rate": 20.88,
-      "trading_value": 30201000000,
+      "trading_value": 30235000000,
       "market_cap": 944818678410,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -3071,7 +3077,7 @@
       "close_price": 19110,
       "change_amount": 3290,
       "change_rate": 20.8,
-      "trading_value": 16397000000,
+      "trading_value": 16444000000,
       "market_cap": 279245754060,
       "sector": "핸드셋",
       "industry_no": 292,
@@ -3166,7 +3172,7 @@
       "close_price": 15420,
       "change_amount": 2640,
       "change_rate": 20.66,
-      "trading_value": 7640000000,
+      "trading_value": 7641000000,
       "market_cap": 117652780440,
       "sector": "생명과학도구및서비스",
       "industry_no": 262,
@@ -3266,7 +3272,7 @@
       "close_price": 28800,
       "change_amount": 4900,
       "change_rate": 20.5,
-      "trading_value": 7534000000,
+      "trading_value": 7539000000,
       "market_cap": 218990764800,
       "sector": "통신장비",
       "industry_no": 294,
@@ -3390,7 +3396,7 @@
         "tl": 17,
         "ti": 7
       },
-      "rise_reason": "지분 관련 이슈",
+      "rise_reason": "반도체 훈풍",
       "news": [
         {
           "title": "티엘비, AI향 고부가제품 출하 확대 지속-메리츠",
@@ -3450,7 +3456,7 @@
       "close_price": 838,
       "change_amount": 139,
       "change_rate": 19.89,
-      "trading_value": 691000000,
+      "trading_value": 692000000,
       "market_cap": 43628602936,
       "sector": "통신장비",
       "industry_no": 294,
@@ -3539,7 +3545,7 @@
       "close_price": 41000,
       "change_amount": 6800,
       "change_rate": 19.88,
-      "trading_value": 11103000000,
+      "trading_value": 11106000000,
       "market_cap": 447893963000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -3741,7 +3747,7 @@
       "close_price": 23900,
       "change_amount": 3850,
       "change_rate": 19.2,
-      "trading_value": 31380000000,
+      "trading_value": 31387000000,
       "market_cap": 888930099200,
       "sector": "기계",
       "industry_no": 299,
@@ -3841,7 +3847,7 @@
       "close_price": 17760,
       "change_amount": 2860,
       "change_rate": 19.19,
-      "trading_value": 3033000000,
+      "trading_value": 3035000000,
       "market_cap": 207837128160,
       "sector": "우주항공과국방",
       "industry_no": 284,
@@ -3942,7 +3948,7 @@
       "close_price": 566,
       "change_amount": 91,
       "change_rate": 19.16,
-      "trading_value": 4753000000,
+      "trading_value": 4786000000,
       "market_cap": 34746886594,
       "sector": "섬유,의류,신발,호화품",
       "industry_no": 274,
@@ -4043,7 +4049,7 @@
       "close_price": 5220,
       "change_amount": 830,
       "change_rate": 18.91,
-      "trading_value": 91479000000,
+      "trading_value": 91534000000,
       "market_cap": 104129713620,
       "sector": "건축자재",
       "industry_no": 289,
@@ -4209,7 +4215,7 @@
       "close_price": 6010,
       "change_amount": 910,
       "change_rate": 17.84,
-      "trading_value": 8671000000,
+      "trading_value": 8739000000,
       "market_cap": 167868134700,
       "sector": "제약",
       "industry_no": 261,
@@ -4404,7 +4410,7 @@
       "close_price": 53200,
       "change_amount": 8000,
       "change_rate": 17.7,
-      "trading_value": 35135000000,
+      "trading_value": 35138000000,
       "market_cap": 844485574800,
       "sector": "건강관리장비와용품",
       "industry_no": 281,
@@ -4505,7 +4511,7 @@
       "close_price": 12400,
       "change_amount": 1850,
       "change_rate": 17.54,
-      "trading_value": 33746000000,
+      "trading_value": 33792000000,
       "market_cap": 298768390000,
       "sector": "조선",
       "industry_no": 291,
@@ -4555,14 +4561,14 @@
           "date": "2026.07.08"
         },
         {
-          "title": "물적분할 '쪼개기 상장' 어려워진다…바늘구멍 열쇠는 '주주보호'",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006324035&office_id=018&code=217590&page=&sm=",
+          "title": "중복상장 문턱 높네...HD현대로보틱스·보스턴다이나믹스 그래도 도전.....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006324034&office_id=018&code=217590&page=&sm=",
           "source": "이데일리",
           "date": "2026.07.06"
         },
         {
-          "title": "중복상장 문턱 높네...HD현대로보틱스·보스턴다이나믹스 그래도 도전....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006324034&office_id=018&code=217590&page=&sm=",
+          "title": "물적분할 '쪼개기 상장' 어려워진다…바늘구멍 열쇠는 '주주보호'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006324035&office_id=018&code=217590&page=&sm=",
           "source": "이데일리",
           "date": "2026.07.06"
         },
@@ -4694,7 +4700,7 @@
       "close_price": 16790,
       "change_amount": 2380,
       "change_rate": 16.52,
-      "trading_value": 1435000000,
+      "trading_value": 1436000000,
       "market_cap": 134829139960,
       "sector": "IT서비스",
       "industry_no": 267,
@@ -4841,7 +4847,7 @@
       "close_price": 23950,
       "change_amount": 3350,
       "change_rate": 16.26,
-      "trading_value": 4479000000,
+      "trading_value": 4480000000,
       "market_cap": 261669509100,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -4942,7 +4948,7 @@
       "close_price": 2205,
       "change_amount": 307,
       "change_rate": 16.17,
-      "trading_value": 798000000,
+      "trading_value": 799000000,
       "market_cap": 9473257710,
       "sector": "섬유,의류,신발,호화품",
       "industry_no": 274,
@@ -5042,7 +5048,7 @@
       "close_price": 1382000,
       "change_amount": 192000,
       "change_rate": 16.13,
-      "trading_value": 1409609000000,
+      "trading_value": 1409655000000,
       "market_cap": 182366489452000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -5068,63 +5074,63 @@
       "rise_reason": "하이닉스 지분부각",
       "news": [
         {
-          "title": "개인 3.4조 몰린 반도체 ETF 1위…5개 종목 신규 편입",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310300&office_id=015&code=402340&page=&sm=",
-          "source": "한국경제",
+          "title": "[오늘증시]코스피 외국인 컴백, 7280선 상승 마감…하이닉스 9%↑",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001151792&office_id=417&code=402340&page=&sm=",
+          "source": "동행미디어 시대",
           "date": "2026.07.15"
         },
         {
-          "title": "장비주 담았다…신한운용, ‘AI반도체TOP2플러스 ETF’ 리밸런싱",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005707863&office_id=009&code=402340&page=&sm=",
-          "source": "매일경제",
+          "title": "[마켓뷰] 외인 ‘사자’에 매수 사이드카까지… 코스피 6% 폭등하며 7...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001179448&office_id=366&code=402340&page=&sm=",
+          "source": "조선비즈",
           "date": "2026.07.15"
         },
         {
-          "title": "메모리 설비투자 확대에 장비주 담았다…SOL AI반도체TOP2플러스 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005548490&office_id=014&code=402340&page=&sm=",
+          "title": "개미 한숨 돌렸다...삼전·닉스 반등에 코스피 6% 상승 마감 [fn마...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005548620&office_id=014&code=402340&page=&sm=",
           "source": "파이낸셜뉴스",
           "date": "2026.07.15"
         },
         {
-          "title": "'SOL AI반도체TOP2플러스' 정기 리밸런싱… \"전공정 기업 편입...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386333&office_id=008&code=402340&page=&sm=",
+          "title": "코스피, 6.24% 오른 7284.41 마감…3거래일 만에 7000선 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000190619&office_id=654&code=402340&page=&sm=",
+          "source": "강원도민일보",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "외인·기관 쌍끌이 매수에 코스피 상승 랠리",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386542&office_id=008&code=402340&page=&sm=",
           "source": "머니투데이",
           "date": "2026.07.15"
         },
         {
-          "title": "신한운용, ‘SOL AI반도체TOP2플러스’ 리밸런싱",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003111576&office_id=119&code=402340&page=&sm=",
-          "source": "데일리안",
+          "title": "코스피, 하루 새 6%대 폭등하며 7200선 안착…‘삼전닉스’ 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003037243&office_id=029&code=402340&page=&sm=",
+          "source": "디지털타임스",
           "date": "2026.07.15"
         },
         {
-          "title": "신한자산운용, ‘SOL AI반도체TOP2플러스 ETF’ 정기 리밸런싱...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002670452&office_id=016&code=402340&page=&sm=",
-          "source": "헤럴드경제",
+          "title": "증시, 모처럼 강한 반등…코스피, 반도체 업고 7200선 회복",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310326&office_id=015&code=402340&page=&sm=",
+          "source": "한국경제",
           "date": "2026.07.15"
         },
         {
-          "title": "신한자산, SOL AI반도체TOP2플러스 ETF 정기 리밸런싱 진행",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016195151&office_id=001&code=402340&page=&sm=",
-          "source": "연합뉴스",
+          "title": "코스피, 반도체 랠리에 6.24% 상승, 7200선 안착…코스닥도 80...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014069079&office_id=003&code=402340&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.15"
         },
         {
-          "title": "'SOL AI반도체TOP2플러스' ETF, 정기 리밸런싱…원익IPS ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005790143&office_id=277&code=402340&page=&sm=",
-          "source": "아시아경제",
+          "title": "외인 사는데 그 많던 개미들 어디에…800 회복 코스닥, ETF는 -2...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386541&office_id=008&code=402340&page=&sm=",
+          "source": "머니투데이",
           "date": "2026.07.15"
         },
         {
-          "title": "신한 ‘SOL AI반도체TOP2플러스 ETF’ 리밸런싱… 전공정 소부...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641716&office_id=011&code=402340&page=&sm=",
+          "title": "ASML이 지운 ‘반도체 고점론’… 전방위 훈풍에 코스피 7200선 안...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641911&office_id=011&code=402340&page=&sm=",
           "source": "서울경제",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "'신한운용 SOL AI반도체TOP2플러스 ETF', 전공정 장비주 비...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006330478&office_id=018&code=402340&page=&sm=",
-          "source": "이데일리",
           "date": "2026.07.15"
         }
       ],
@@ -5143,7 +5149,7 @@
       "close_price": 1039,
       "change_amount": 144,
       "change_rate": 16.09,
-      "trading_value": 1819000000,
+      "trading_value": 1820000000,
       "market_cap": 61546391020,
       "sector": "핸드셋",
       "industry_no": 292,
@@ -5244,7 +5250,7 @@
       "close_price": 18260,
       "change_amount": 2510,
       "change_rate": 15.94,
-      "trading_value": 8987000000,
+      "trading_value": 8989000000,
       "market_cap": 238307553220,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -5345,7 +5351,7 @@
       "close_price": 5410,
       "change_amount": 740,
       "change_rate": 15.85,
-      "trading_value": 48572000000,
+      "trading_value": 48632000000,
       "market_cap": 96695229250,
       "sector": "가정용기기와용품",
       "industry_no": 298,
@@ -5490,15 +5496,15 @@
           "date": "2026.07.07"
         },
         {
-          "title": "에이비온, 우성윤 부사장 3만2620주 장내 매수…파이프라인 자신감",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005306970&office_id=015&code=203400&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.07.07"
-        },
-        {
           "title": "에이비온, 우성윤 부사장 자사주 3만여주 장내 매수…\"핵심 파이프라....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006324266&office_id=018&code=203400&page=&sm=",
           "source": "이데일리",
+          "date": "2026.07.07"
+        },
+        {
+          "title": "에이비온, 우성윤 부사장 3만2620주 장내 매수…파이프라인 자신감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005306970&office_id=015&code=203400&page=&sm=",
+          "source": "한국경제",
           "date": "2026.07.07"
         },
         {
@@ -5547,7 +5553,7 @@
       "close_price": 1162,
       "change_amount": 157,
       "change_rate": 15.62,
-      "trading_value": 6582000000,
+      "trading_value": 6590000000,
       "market_cap": 66336969468,
       "sector": "통신장비",
       "industry_no": 294,
@@ -5730,7 +5736,7 @@
       "close_price": 17100,
       "change_amount": 2290,
       "change_rate": 15.46,
-      "trading_value": 4290000000,
+      "trading_value": 4299000000,
       "market_cap": 246889800000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -5847,10 +5853,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 55,
+      "score": 69,
       "score_detail": {
-        "tp": 14,
-        "tl": 34,
+        "tp": 17,
+        "tl": 45,
         "ti": 7
       },
       "rise_reason": "수출 관련 뉴스",
@@ -5916,7 +5922,7 @@
           "date": "2025.07.22"
         }
       ],
-      "forward_score": 61,
+      "forward_score": 75,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -5931,7 +5937,7 @@
       "close_price": 1500,
       "change_amount": 195,
       "change_rate": 14.94,
-      "trading_value": 94000000,
+      "trading_value": 95000000,
       "market_cap": 7151472000,
       "sector": "교육서비스",
       "industry_no": 290,
@@ -6031,7 +6037,7 @@
       "close_price": 1670,
       "change_amount": 217,
       "change_rate": 14.93,
-      "trading_value": 7697000000,
+      "trading_value": 7712000000,
       "market_cap": 61073995850,
       "sector": "가정용품",
       "industry_no": 297,
@@ -6120,7 +6126,7 @@
       "close_price": 18050,
       "change_amount": 2320,
       "change_rate": 14.75,
-      "trading_value": 29910000000,
+      "trading_value": 29938000000,
       "market_cap": 436710111300,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -6221,7 +6227,7 @@
       "close_price": 52400,
       "change_amount": 6700,
       "change_rate": 14.66,
-      "trading_value": 8770000000,
+      "trading_value": 8772000000,
       "market_cap": 471345074000,
       "sector": "우주항공과국방",
       "industry_no": 284,
@@ -6500,7 +6506,7 @@
       "close_price": 48000,
       "change_amount": 6050,
       "change_rate": 14.42,
-      "trading_value": 22203000000,
+      "trading_value": 22205000000,
       "market_cap": 2423442720000,
       "sector": "통신장비",
       "industry_no": 294,
@@ -6601,7 +6607,7 @@
       "close_price": 51200,
       "change_amount": 6450,
       "change_rate": 14.41,
-      "trading_value": 15620000000,
+      "trading_value": 15624000000,
       "market_cap": 1359536230400,
       "sector": "통신장비",
       "industry_no": 294,
@@ -6702,7 +6708,7 @@
       "close_price": 4335,
       "change_amount": 545,
       "change_rate": 14.38,
-      "trading_value": 709000000,
+      "trading_value": 710000000,
       "market_cap": 86700000000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -6948,7 +6954,7 @@
       "close_price": 7000,
       "change_amount": 870,
       "change_rate": 14.19,
-      "trading_value": 2368000000,
+      "trading_value": 2406000000,
       "market_cap": 32576635000,
       "sector": "식품",
       "industry_no": 268,
@@ -7049,7 +7055,7 @@
       "close_price": 1798,
       "change_amount": 223,
       "change_rate": 14.16,
-      "trading_value": 302000000,
+      "trading_value": 303000000,
       "market_cap": 29714299986,
       "sector": "교육서비스",
       "industry_no": 290,
@@ -7149,7 +7155,7 @@
       "close_price": 6050,
       "change_amount": 750,
       "change_rate": 14.15,
-      "trading_value": 64915000000,
+      "trading_value": 64961000000,
       "market_cap": 994984833150,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -7326,7 +7332,7 @@
       "close_price": 17330,
       "change_amount": 2130,
       "change_rate": 14.01,
-      "trading_value": 5865000000,
+      "trading_value": 5877000000,
       "market_cap": 251325725500,
       "sector": "통신장비",
       "industry_no": 294,
@@ -7560,15 +7566,9 @@
           "date": "2026.07.15"
         },
         {
-          "title": "애플, AI 모델 압축 스타트업과 협상…\"온디바이스 AI\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016195530&office_id=001&code=187870&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "애플, AI 압축 스타트업 프리즘ML과 초기 협상…온디바이스 전략 강...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005548230&office_id=014&code=187870&page=&sm=",
-          "source": "파이낸셜뉴스",
+          "title": "웨이브컴퍼니, '日 SPORTEC' 참가…현지 100여개사와 기술협력 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386544&office_id=008&code=187870&page=&sm=",
+          "source": "머니투데이",
           "date": "2026.07.15"
         },
         {
@@ -7611,6 +7611,12 @@
           "title": "롯데홈쇼핑, LA 한복판서 ‘K-브랜드’ 띄운다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002670626&office_id=016&code=187870&page=&sm=",
           "source": "헤럴드경제",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "롯데홈쇼핑, 미국 LA서 ‘K-뷰티·라이프스타일’ 팝업스토어 운영",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001283365&office_id=382&code=187870&page=&sm=",
+          "source": "스포츠동아",
           "date": "2026.07.15"
         }
       ],
@@ -7667,10 +7673,10 @@
           "date": "2026.07.14"
         },
         {
-          "title": "[인터뷰] 이주연 성남산업진흥원장 “AI·반도체·방산 연결···성남.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003447037&office_id=030&code=079550&page=&sm=",
-          "source": "전자신문",
-          "date": "2026.07.13"
+          "title": "ASML이 지운 ‘반도체 고점론’… 전방위 훈풍에 코스피 7200선 안...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641911&office_id=011&code=079550&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.15"
         },
         {
           "title": "美 자주포·스페인 K9 출격 대기…K-방산 5개사 다시 날아오를까",
@@ -7730,7 +7736,7 @@
       "close_price": 222500,
       "change_amount": 27000,
       "change_rate": 13.81,
-      "trading_value": 29178000000,
+      "trading_value": 29190000000,
       "market_cap": 3262078730000,
       "sector": "기계",
       "industry_no": 299,
@@ -7831,7 +7837,7 @@
       "close_price": 511000,
       "change_amount": 61500,
       "change_rate": 13.68,
-      "trading_value": 36677000000,
+      "trading_value": 36718000000,
       "market_cap": 1485468824000,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -7931,7 +7937,7 @@
       "close_price": 41650,
       "change_amount": 4950,
       "change_rate": 13.49,
-      "trading_value": 20517000000,
+      "trading_value": 20518000000,
       "market_cap": 2436977527250,
       "sector": "자동차부품",
       "industry_no": 270,
@@ -7956,6 +7962,12 @@
       },
       "rise_reason": "양산 보도",
       "news": [
+        {
+          "title": "DN오토모티브, 주당 500원 현금배당 결정",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002670795&office_id=016&code=007340&page=&sm=",
+          "source": "헤럴드경제",
+          "date": "2026.07.15"
+        },
         {
           "title": "DN오토모티브, 기업가치 재평가 본격화…중복상장 우려 해소-하나",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006307809&office_id=018&code=007340&page=&sm=",
@@ -7985,12 +7997,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0016032668&office_id=001&code=007340&page=&sm=",
           "source": "연합뉴스",
           "date": "2026.04.21"
-        },
-        {
-          "title": "DN오토모티브 공장서 기준초과 납 검출…과태료 4천620만원",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016031216&office_id=001&code=007340&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.04.20"
         },
         {
           "title": "[유상증자 모니터] 피지컬AI 생산체계 전환 시험대 I 뉴로메카②",
@@ -8121,7 +8127,7 @@
       "close_price": 2825,
       "change_amount": 335,
       "change_rate": 13.45,
-      "trading_value": 132056000000,
+      "trading_value": 132182000000,
       "market_cap": 318354609025,
       "sector": "통신장비",
       "industry_no": 294,
@@ -8192,7 +8198,7 @@
       "close_price": 3740,
       "change_amount": 440,
       "change_rate": 13.33,
-      "trading_value": 39477000000,
+      "trading_value": 39553000000,
       "market_cap": 26819659680,
       "sector": "해운사",
       "industry_no": 323,
@@ -8215,7 +8221,7 @@
         "tl": 45,
         "ti": 11
       },
-      "rise_reason": "해상운임 상승",
+      "rise_reason": "해운 관련 뉴스",
       "news": [
         {
           "title": "[특징주] 중동 긴장 고조에 정유·해운주 줄줄이 상승(종합)",
@@ -8489,7 +8495,7 @@
       "close_price": 32550,
       "change_amount": 3800,
       "change_rate": 13.22,
-      "trading_value": 11365000000,
+      "trading_value": 11366000000,
       "market_cap": 537432822150,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -8689,7 +8695,7 @@
       "close_price": 20300,
       "change_amount": 2360,
       "change_rate": 13.15,
-      "trading_value": 5616000000,
+      "trading_value": 5620000000,
       "market_cap": 690716432000,
       "sector": "반도체와반도체장비",
       "industry_no": 278,
@@ -8711,7 +8717,7 @@
         "tl": 16,
         "ti": 7
       },
-      "rise_reason": "수주 공시",
+      "rise_reason": "투자 확대 발표",
       "news": [
         {
           "title": "세미파이브, SAP S/4HANA Public Cloud ERP 구축…...",
@@ -8720,16 +8726,10 @@
           "date": "2026.07.01"
         },
         {
-          "title": "세미파이브, 日서 110억 규모 AI 반도체 양산 수주",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001174756&office_id=366&code=490470&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.06.26"
-        },
-        {
-          "title": "세미파이브, 日서 110억원 규모 HPC용 AI 반도체 양산 수주",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001037816&office_id=031&code=490470&page=&sm=",
-          "source": "아이뉴스24",
-          "date": "2026.06.26"
+          "title": "박기호 사장 “LB인베 창립 30주년… '선택과 집중'으로 유니콘 키워...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310317&office_id=015&code=490470&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.07.15"
         },
         {
           "title": "해외 자금, 韓 상장사 투자 확대…1년 새 30% 늘었다",
@@ -8771,6 +8771,12 @@
           "title": "\"칩 구동까지 단 4주\"…SAFE 포럼서 본 K-반도체 속도",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002428863&office_id=092&code=490470&page=&sm=",
           "source": "지디넷코리아",
+          "date": "2026.07.01"
+        },
+        {
+          "title": "'파운드리 훈풍' 삼성전자 '세이프 포럼' 열기 후끈…젠슨 황 어디?",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009035340&office_id=421&code=490470&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.07.01"
         }
       ],
@@ -8890,7 +8896,7 @@
       "close_price": 2650,
       "change_amount": 300,
       "change_rate": 12.77,
-      "trading_value": 8011000000,
+      "trading_value": 8045000000,
       "market_cap": 822391248000,
       "sector": "손해보험",
       "industry_no": 315,
@@ -8990,7 +8996,7 @@
       "close_price": 6870,
       "change_amount": 770,
       "change_rate": 12.62,
-      "trading_value": 1232000000,
+      "trading_value": 1233000000,
       "market_cap": 91322456580,
       "sector": "전기제품",
       "industry_no": 283,
@@ -9091,7 +9097,7 @@
       "close_price": 121600,
       "change_amount": 13600,
       "change_rate": 12.59,
-      "trading_value": 76548000000,
+      "trading_value": 76550000000,
       "market_cap": 4555614009600,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -9114,8 +9120,14 @@
         "tl": 28,
         "ti": 7
       },
-      "rise_reason": "외국인 순매수 보도",
+      "rise_reason": "반도체주 강세",
       "news": [
+        {
+          "title": "외인·기관 쌍끌이 매수에 코스피 상승 랠리",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005386542&office_id=008&code=222800&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.07.15"
+        },
         {
           "title": "ADR 27% 급등? 고수들은 하이닉스 팔고 삼전 담았다 [주식 초고수...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641822&office_id=011&code=222800&page=&sm=",
@@ -9145,12 +9157,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005383785&office_id=008&code=222800&page=&sm=",
           "source": "머니투데이",
           "date": "2026.07.09"
-        },
-        {
-          "title": "7,300선까지 밀린 코스피... 반도체 쇼크에 호르무즈 악재까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001957490&office_id=057&code=222800&page=&sm=",
-          "source": "MBN",
-          "date": "2026.07.08"
         }
       ],
       "forward_score": 58,
@@ -9268,7 +9274,7 @@
       "close_price": 28400,
       "change_amount": 3150,
       "change_rate": 12.48,
-      "trading_value": 33974000000,
+      "trading_value": 33996000000,
       "market_cap": 1936999649200,
       "sector": "전자장비와기기",
       "industry_no": 282,
@@ -9470,7 +9476,7 @@
       "close_price": 12050,
       "change_amount": 1330,
       "change_rate": 12.41,
-      "trading_value": 7244000000,
+      "trading_value": 7245000000,
       "market_cap": 547164472000,
       "sector": "제약",
       "industry_no": 261,
@@ -9478,9 +9484,9 @@
       "high_52w_date": "20260225",
       "high_price": 12170,
       "low_price": 11340,
-      "theme_tag": "뉴스",
+      "theme_tag": "항암",
       "theme_tags": [
-        "뉴스"
+        "항암"
       ],
       "theme_no": null,
       "avg_5day": 0,
@@ -9488,11 +9494,11 @@
       "foreign_net": 0,
       "score": 49,
       "score_detail": {
-        "tp": 14,
-        "tl": 28,
+        "tp": 10,
+        "tl": 32,
         "ti": 7
       },
-      "rise_reason": "임상 관련 뉴스",
+      "rise_reason": "항암 공동연구",
       "news": [
         {
           "title": "온코닉테라퓨틱스 ‘자큐보’, 심혈관계 약물 병용 근거 확보",
@@ -9507,12 +9513,6 @@
           "date": "2026.07.15"
         },
         {
-          "title": "온코닉테라퓨틱스 \"자큐보-심혈관계 치료제 4종, 유의미한 약물상호작....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005790176&office_id=277&code=476060&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.07.15"
-        },
-        {
           "title": "온코닉테라퓨틱스 \"자큐보, 심혈관계 치료제 4종과 병용 안전성 확인....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009060172&office_id=421&code=476060&page=&sm=",
           "source": "뉴스1",
@@ -9522,12 +9522,6 @@
           "title": "온코닉테라퓨틱스 “자큐보, 심혈관계 치료제 병용 근거 확보”",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641733&office_id=011&code=476060&page=&sm=",
           "source": "서울경제",
-          "date": "2026.07.15"
-        },
-        {
-          "title": "온코닉테라퓨틱스 \"자큐보, 심혈관계 치료제 4종과 임상적 유의미한 ....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310128&office_id=015&code=476060&page=&sm=",
-          "source": "한국경제",
           "date": "2026.07.15"
         },
         {
@@ -9553,6 +9547,18 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310114&office_id=015&code=476060&page=&sm=",
           "source": "한국경제",
           "date": "2026.07.15"
+        },
+        {
+          "title": "온코닉테라퓨틱스 \"자큐보-심혈관계 치료제 4종, 유의미한 약물상호작....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005790176&office_id=277&code=476060&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.07.15"
+        },
+        {
+          "title": "온코닉테라퓨틱스 \"자큐보, 심혈관계 치료제 4종과 임상적 유의미한 ....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005310128&office_id=015&code=476060&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.07.15"
         }
       ],
       "forward_score": 53,
@@ -9570,7 +9576,7 @@
       "close_price": 5840,
       "change_amount": 640,
       "change_rate": 12.31,
-      "trading_value": 5199000000,
+      "trading_value": 5220000000,
       "market_cap": 274185611440,
       "sector": "전기제품",
       "industry_no": 283,
