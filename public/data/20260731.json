@@ -1,6 +1,6 @@
 {
   "date": "20260731",
-  "collected_at": "2026-07-31T16:13:55",
+  "collected_at": "2026-07-31T16:39:50",
   "mode": "closing",
   "is_final": true,
   "count": 100,
@@ -207,7 +207,7 @@
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "수주 공시",
+      "rise_reason": "SK실트론 인수기대",
       "news": [
         {
           "title": "[르포]'축구장 6개 크기' 두산에너빌 SMR 전용공장, 첨단 스마트팩...",
@@ -423,6 +423,12 @@
           "date": "2026.07.31"
         },
         {
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=095610&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
           "title": "하루 만에 1000P 오르며 상승률 역대 최고치 찍은 코스피",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005797416&office_id=277&code=095610&page=&sm=",
           "source": "아시아경제",
@@ -457,18 +463,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004646405&office_id=011&code=095610&page=&sm=",
           "source": "서울경제",
           "date": "2026.07.29"
-        },
-        {
-          "title": "'성장주 투자·월분배 동시에' RISE 코스닥커버드콜액티브 ETF 출시",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005392222&office_id=008&code=095610&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.07.28"
-        },
-        {
-          "title": "'RISE 코스닥커버드콜액티브' ETF 신규 상장",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000524064&office_id=374&code=095610&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.07.28"
         }
       ],
       "forward_score": 70,
@@ -796,85 +790,85 @@
       "high_52w_date": "20260625",
       "high_price": 1718000,
       "low_price": 1586000,
-      "theme_tag": "S7(삼성전자/SK하이닉스 등)",
+      "theme_tag": "반도체 대표주(생산)",
       "theme_tags": [
-        "S7(삼성전자/SK하이닉스 등)",
-        "반도체 대표주(생산)"
+        "반도체 대표주(생산)",
+        "시스템반도체"
       ],
-      "theme_no": 614,
+      "theme_no": 155,
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 65,
+      "score": 62,
       "score_detail": {
-        "tp": 26,
+        "tp": 23,
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "AI 투자심리 회복",
+      "rise_reason": "AI우려 완화",
       "news": [
         {
-          "title": "코스피, 폭등 속 6500선 마감…SK하이닉스 상한가까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000520827&office_id=629&code=000660&page=&sm=",
-          "source": "더팩트",
+          "title": "코스피 6595.45 폭등 마감...‘역대 최대’ 하루 1000포인트 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004647370&office_id=011&code=000660&page=&sm=",
+          "source": "서울경제",
           "date": "2026.07.31"
         },
         {
-          "title": "최태원도 주주 됐다…순현금 108조 SK하이닉스, '통큰 환원' 나설까",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000088436&office_id=293&code=000660&page=&sm=",
-          "source": "블로터",
+          "title": "코스피 1000포인트 폭등 마감...개미들, 한숨 돌린 하루",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002387616&office_id=123&code=000660&page=&sm=",
+          "source": "조세일보",
           "date": "2026.07.31"
         },
         {
-          "title": "[속보] 코스피 17.9% 폭등 역대 최대 상승률‥하이닉스·삼성전기도 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001515172&office_id=214&code=000660&page=&sm=",
-          "source": "MBC",
+          "title": "'코인 아닙니다'…코스피 시총 1~5위, 26% 넘게 올라 등 [7/3...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117081&office_id=119&code=000660&page=&sm=",
+          "source": "데일리안",
           "date": "2026.07.31"
         },
         {
-          "title": "[그래픽] 코스피 역대 상승률 순위",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090810&office_id=421&code=000660&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "멀미나는 코스피, 사상 최초 하루 1000포인트 상승 마감",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000060338&office_id=053&code=000660&page=&sm=",
-          "source": "주간조선",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "키옥시아 1분기 영업익 1조 2700억엔, 시장 예상 7% 밑돌아",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001183548&office_id=366&code=000660&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "삼전닉스 반도체, 귀한 몸값만큼 수출도 선박이 아닌 비행기 타네. [현...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003461626&office_id=032&code=000660&page=&sm=",
-          "source": "경향신문",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "코스피 폭등 '불기둥'에도 관망해야?…\"매도 물량 확인 먼저\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101354&office_id=003&code=000660&page=&sm=",
+          "title": "코스피 '최고의 랠리', 하루 만에 1001p 폭등…외국인 8.8조 폭...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101405&office_id=003&code=000660&page=&sm=",
           "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "홍콩 CSOP, 코스피200 커버드콜 상장",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005394028&office_id=008&code=000660&page=&sm=",
-          "source": "머니투데이",
+          "title": "코스피 18년 만의 최고 상승률 이끈 外人…'9조 순매수' 신기록 배경...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101403&office_id=003&code=000660&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "현기증 나는 ‘널뛰기’ 증시...코스피 상승률 17.9% 역대 최고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002816650&office_id=028&code=000660&page=&sm=",
-          "source": "한겨레",
+          "title": "‘불기둥’ 쏜 코스피, 17% 급등…글로벌 금융위기 뛰어넘어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341242&office_id=018&code=000660&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "AI 거품 터지면 한국부터?…英 이코노미스트의 경고",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000107245&office_id=024&code=000660&page=&sm=",
+          "source": "매경이코노미",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "HBM4 앞세운 삼성, 수성 나선 SK…주도권 경쟁 본격화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341240&office_id=018&code=000660&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "거래량 74% 줄었다…'3000만원 규제' 통한 삼전닉스 레버리지ETF",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101393&office_id=003&code=000660&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "단일 레버리지 보완 첫날…거래대금 '4분의 1' 수준 급감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000524920&office_id=374&code=000660&page=&sm=",
+          "source": "SBS Biz",
           "date": "2026.07.31"
         }
       ],
-      "forward_score": 65,
+      "forward_score": 62,
       "forward_bonus": 0,
       "forward_detail": {
         "small_size": 0,
@@ -1034,6 +1028,12 @@
           "date": "2026.07.31"
         },
         {
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=222800&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
           "title": "하루 만에 1000P 오르며 상승률 역대 최고치 찍은 코스피",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005797416&office_id=277&code=222800&page=&sm=",
           "source": "아시아경제",
@@ -1055,12 +1055,6 @@
           "title": "장중 7100선 돌파한 코스피, 상승분 반납…6800선 아래 마감",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000100742&office_id=243&code=222800&page=&sm=",
           "source": "이코노미스트",
-          "date": "2026.07.22"
-        },
-        {
-          "title": "로봇 시장 정조준 삼성전자…‘대표 직속+S급 인재’ 드림팀 출범",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004643871&office_id=011&code=222800&page=&sm=",
-          "source": "서울경제",
           "date": "2026.07.22"
         }
       ],
@@ -1117,6 +1111,12 @@
           "date": "2026.07.03"
         },
         {
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=131290&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
           "title": "하루 만에 1000P 오르며 상승률 역대 최고치 찍은 코스피",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005797416&office_id=277&code=131290&page=&sm=",
           "source": "아시아경제",
@@ -1157,12 +1157,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001255085&office_id=215&code=131290&page=&sm=",
           "source": "한국경제TV",
           "date": "2026.06.11"
-        },
-        {
-          "title": "반도체 건강검진센터, ‘수율’을 잡는 자가 시장을 지배한다 [반도체.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000106994&office_id=050&code=131290&page=&sm=",
-          "source": "한경비즈니스",
-          "date": "2026.06.05"
         }
       ],
       "forward_score": 68,
@@ -1324,6 +1318,12 @@
           "date": "2026.07.23"
         },
         {
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=080220&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
           "title": "하루 만에 1000P 오르며 상승률 역대 최고치 찍은 코스피",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005797416&office_id=277&code=080220&page=&sm=",
           "source": "아시아경제",
@@ -1358,12 +1358,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005389680&office_id=008&code=080220&page=&sm=",
           "source": "머니투데이",
           "date": "2026.07.23"
-        },
-        {
-          "title": "법인지방소득세 130억 증가…“제주 이전기업 세액↑”",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0012222346&office_id=056&code=080220&page=&sm=",
-          "source": "KBS",
-          "date": "2026.07.21"
         }
       ],
       "forward_score": 74,
@@ -1505,54 +1499,66 @@
         "tl": 28,
         "ti": 7
       },
-      "rise_reason": "AI부품 실적호조",
+      "rise_reason": "실적 서프라이즈",
       "news": [
         {
-          "title": "[속보] 코스피 17.9% 폭등 역대 최대 상승률‥하이닉스·삼성전기도 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001515172&office_id=214&code=009150&page=&sm=",
-          "source": "MBC",
+          "title": "코스피 6595.45 폭등 마감...‘역대 최대’ 하루 1000포인트 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004647370&office_id=011&code=009150&page=&sm=",
+          "source": "서울경제",
           "date": "2026.07.31"
         },
         {
-          "title": "[오늘증시]코스피, 역대 최대 17.9%·1002포인트 폭등…하이닉스 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001153920&office_id=417&code=009150&page=&sm=",
-          "source": "동행미디어 시대",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "[속보] '불기둥 코스피' 천 포인트 이상 급상승한 6,595.45로 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000053900&office_id=657&code=009150&page=&sm=",
-          "source": "대구MBC",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "코스피, 폭등 속 6500선 마감…SK하이닉스 상한가까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000520827&office_id=629&code=009150&page=&sm=",
-          "source": "더팩트",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "현기증 나는 ‘널뛰기’ 증시...코스피 상승률 17.9% 역대 최고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002816650&office_id=028&code=009150&page=&sm=",
-          "source": "한겨레",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "코스피, 하루에만 17.91% 올랐다…사상 최대 상승률 [시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117056&office_id=119&code=009150&page=&sm=",
+          "title": "'코인 아닙니다'…코스피 시총 1~5위, 26% 넘게 올라 등 [7/3...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117081&office_id=119&code=009150&page=&sm=",
           "source": "데일리안",
           "date": "2026.07.31"
         },
         {
-          "title": "코스피, 18% 폭등 6500대 마감…역대 최대 상승폭 기록",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003453109&office_id=030&code=009150&page=&sm=",
-          "source": "전자신문",
+          "title": "코스피 '최고의 랠리', 하루 만에 1001p 폭등…외국인 8.8조 폭...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101405&office_id=003&code=009150&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "17% 폭등에도 안심하긴 이르다…‘데드캣 바운스’ 가능성 배제할 수.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001183540&office_id=366&code=009150&page=&sm=",
-          "source": "조선비즈",
+          "title": "코스피 18년 만의 최고 상승률 이끈 外人…'9조 순매수' 신기록 배경...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101403&office_id=003&code=009150&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "‘불기둥’ 쏜 코스피, 17% 급등…글로벌 금융위기 뛰어넘어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341242&office_id=018&code=009150&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "\"최악의 한 달, 최고의 하루\"…코스피 18%↑ SK하닉 '上' [시황...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090878&office_id=421&code=009150&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=009150&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "패닉 후 역대급 폭등…코스피 하루 새 1000P 올랐다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000049410&office_id=648&code=009150&page=&sm=",
+          "source": "비즈워치",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "코스피 5500→6500, SK하이닉스 '상한가'...진기록 쏟아진 증...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005394036&office_id=008&code=009150&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "'코인 아닙니다'…코스피 시총 1~5위, 26% 넘게 올라",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117069&office_id=119&code=009150&page=&sm=",
+          "source": "데일리안",
           "date": "2026.07.31"
         },
         {
@@ -1795,76 +1801,76 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 61,
+      "score": 62,
       "score_detail": {
-        "tp": 26,
-        "tl": 28,
+        "tp": 23,
+        "tl": 32,
         "ti": 7
       },
-      "rise_reason": "하이닉스 지분부각",
+      "rise_reason": "하이닉스 급등 수혜",
       "news": [
         {
-          "title": "[속보] 코스피 17.9% 폭등 역대 최대 상승률‥하이닉스·삼성전기도 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001515172&office_id=214&code=402340&page=&sm=",
-          "source": "MBC",
+          "title": "코스피 6595.45 폭등 마감...‘역대 최대’ 하루 1000포인트 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004647370&office_id=011&code=402340&page=&sm=",
+          "source": "서울경제",
           "date": "2026.07.31"
         },
         {
-          "title": "[오늘증시]코스피, 역대 최대 17.9%·1002포인트 폭등…하이닉스 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001153920&office_id=417&code=402340&page=&sm=",
-          "source": "동행미디어 시대",
+          "title": "코스피 '최고의 랠리', 하루 만에 1001p 폭등…외국인 8.8조 폭...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101405&office_id=003&code=402340&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "코스피, 폭등 속 6500선 마감…SK하이닉스 상한가까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000520827&office_id=629&code=402340&page=&sm=",
-          "source": "더팩트",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "현기증 나는 ‘널뛰기’ 증시...코스피 상승률 17.9% 역대 최고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002816650&office_id=028&code=402340&page=&sm=",
-          "source": "한겨레",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "코스피, 하루에만 17.91% 올랐다…사상 최대 상승률 [시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117056&office_id=119&code=402340&page=&sm=",
+          "title": "'코인 아닙니다'…코스피 시총 1~5위, 26% 넘게 올라 등 [7/3...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117081&office_id=119&code=402340&page=&sm=",
           "source": "데일리안",
           "date": "2026.07.31"
         },
         {
-          "title": "SK하이닉스 상한가 '불기둥'…삼성전자, 26.81% 폭등 정규장 마감",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000524912&office_id=374&code=402340&page=&sm=",
-          "source": "SBS Biz",
+          "title": "코스피 18년 만의 최고 상승률 이끈 外人…'9조 순매수' 신기록 배경...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101403&office_id=003&code=402340&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "코스피, 18% 폭등 6500대 마감…역대 최대 상승폭 기록",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003453109&office_id=030&code=402340&page=&sm=",
-          "source": "전자신문",
+          "title": "‘불기둥’ 쏜 코스피, 17% 급등…글로벌 금융위기 뛰어넘어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341242&office_id=018&code=402340&page=&sm=",
+          "source": "이데일리",
           "date": "2026.07.31"
         },
         {
-          "title": "17% 폭등에도 안심하긴 이르다…‘데드캣 바운스’ 가능성 배제할 수.....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001183540&office_id=366&code=402340&page=&sm=",
-          "source": "조선비즈",
+          "title": "\"최악의 한 달, 최고의 하루\"…코스피 18%↑ SK하닉 '上' [시황...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090878&office_id=421&code=402340&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.07.31"
         },
         {
-          "title": "하루 만에 1000P 오르며 상승률 역대 최고치 찍은 코스피",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005797416&office_id=277&code=402340&page=&sm=",
-          "source": "아시아경제",
+          "title": "코스피 사상 최대 18% 상승…하루 만에 1천피 '훌쩍'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001260739&office_id=215&code=402340&page=&sm=",
+          "source": "한국경제TV",
           "date": "2026.07.31"
         },
         {
-          "title": "SK하이닉스, 17년 만에 상한가 '쾅'…삼성전자도 26% '폭등' [...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005316053&office_id=015&code=402340&page=&sm=",
-          "source": "한국경제",
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=402340&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "패닉 후 역대급 폭등…코스피 하루 새 1000P 올랐다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000049410&office_id=648&code=402340&page=&sm=",
+          "source": "비즈워치",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "코스피 5500→6500, SK하이닉스 '상한가'...진기록 쏟아진 증...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005394036&office_id=008&code=402340&page=&sm=",
+          "source": "머니투데이",
           "date": "2026.07.31"
         }
       ],
-      "forward_score": 61,
+      "forward_score": 62,
       "forward_bonus": 0,
       "forward_detail": {
         "small_size": 0,
@@ -1991,7 +1997,7 @@
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "영업이익 공시",
+      "rise_reason": "실적 관련 뉴스",
       "news": [
         {
           "title": "엘티씨, 자회사가 실적 견인차...자금조달 한도도 확대",
@@ -2000,15 +2006,15 @@
           "date": "2026.05.15"
         },
         {
-          "title": "엘티씨, 1분기 영업이익 181억…전년比 92%↑",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013945506&office_id=003&code=170920&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.05.14"
-        },
-        {
           "title": "[이 시각 시황] 코스피 6,300 돌파…반도체가 증시 이끌었다",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000524802&office_id=374&code=170920&page=&sm=",
           "source": "SBS Biz",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=170920&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.07.31"
         },
         {
@@ -3260,7 +3266,7 @@
           "date": "2026.07.31"
         },
         {
-          "title": "20만전자 130만닉스 실화냐…“지나친 저평가” 반전 전망 [전문가 1...",
+          "title": "“삼전닉스 팔지 마라, 지나친 저평가” 전문가 10인 뜻밖의 전망 [반...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003541435&office_id=025&code=042700&page=&sm=",
           "source": "중앙일보",
           "date": "2026.07.31"
@@ -3319,27 +3325,51 @@
       "rise_reason": "외국인 순매수 보도",
       "news": [
         {
-          "title": "[오늘증시]코스피, 역대 최대 17.9%·1002포인트 폭등…하이닉스 ...",
+          "title": "[오늘증시]코스피, 역대 최대 18%·1002포인트 폭등…하이닉스 30...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001153920&office_id=417&code=240810&page=&sm=",
           "source": "동행미디어 시대",
           "date": "2026.07.31"
         },
         {
-          "title": "[속보] 코스피, 사상최대 폭등 마감…17.9% 오른 6595",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005714973&office_id=009&code=240810&page=&sm=",
-          "source": "매일경제",
+          "title": "코스피 '최고의 랠리', 하루 만에 1001p 폭등…외국인 8.8조 폭...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101405&office_id=003&code=240810&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "[마켓뷰] “시총 2위가 상한가”…코스피, 하루 만에 1000포인트 올...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001183529&office_id=366&code=240810&page=&sm=",
-          "source": "조선비즈",
+          "title": "‘불기둥’ 쏜 코스피, 17% 급등…글로벌 금융위기 뛰어넘어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341242&office_id=018&code=240810&page=&sm=",
+          "source": "이데일리",
           "date": "2026.07.31"
         },
         {
-          "title": "[티타임]불기둥 코스피, 외국인 7.6조 폭풍 매수…하이닉스 27%↑",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001153887&office_id=417&code=240810&page=&sm=",
-          "source": "동행미디어 시대",
+          "title": "\"최악의 한 달, 최고의 하루\"…코스피 18%↑ SK하닉 '上' [시황...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090878&office_id=421&code=240810&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "코스피 5500→6500, SK하이닉스 '상한가'...진기록 쏟아진 증...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005394036&office_id=008&code=240810&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "\"빨간불, 얼마 만이냐\" 코스피 6300 회복...삼전닉스 20%대 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005393815&office_id=008&code=240810&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "“하루 1000P 폭등”…믿기지 않는 코스피 반전, 외국인·기관 ‘쌍끌...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002236191&office_id=138&code=240810&page=&sm=",
+          "source": "디지털데일리",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "코스피, 하루 만에 1000P 뛰었다…17.9% 역대 최대 폭등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005316047&office_id=015&code=240810&page=&sm=",
+          "source": "한국경제",
           "date": "2026.07.31"
         },
         {
@@ -3349,33 +3379,9 @@
           "date": "2026.07.31"
         },
         {
-          "title": "현기증 나는 ‘널뛰기’ 증시...코스피 상승률 17.9% 역대 최고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002816650&office_id=028&code=240810&page=&sm=",
-          "source": "한겨레",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "코스피, 하루에만 17.91% 올랐다…사상 최대 상승률 [시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117056&office_id=119&code=240810&page=&sm=",
-          "source": "데일리안",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "하루 만에 1000P 오르며 상승률 역대 최고치 찍은 코스피",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005797416&office_id=277&code=240810&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "코스피, 삼전닉스 폭등에 역대 최대 상승…17.9% 뛰어 6500선 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005316047&office_id=015&code=240810&page=&sm=",
-          "source": "한국경제",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "6500 뚫은 코스피 '17% 폭등' 사상 최대…SK하닉 '상한가'[장...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090586&office_id=421&code=240810&page=&sm=",
-          "source": "뉴스1",
+          "title": "코스피 급등 속 6300선 탈환…삼성전자·하이닉스도 20%대 '껑충'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000520643&office_id=629&code=240810&page=&sm=",
+          "source": "더팩트",
           "date": "2026.07.31"
         }
       ],
@@ -3417,8 +3423,20 @@
         "tl": 14,
         "ti": 7
       },
-      "rise_reason": "기관 순매수 보도",
+      "rise_reason": "증권사 리포트 공개",
       "news": [
+        {
+          "title": "‘불기둥’ 쏜 코스피, 17% 급등…글로벌 금융위기 뛰어넘어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341242&office_id=018&code=319660&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "\"최악의 한 달, 최고의 하루\"…코스피 18%↑ SK하닉 '上' [시황...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090878&office_id=421&code=319660&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
         {
           "title": "6500 뚫은 코스피 '17% 폭등' 사상 최대…SK하닉 '상한가'[장...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090586&office_id=421&code=319660&page=&sm=",
@@ -3448,18 +3466,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009089910&office_id=421&code=319660&page=&sm=",
           "source": "뉴스1",
           "date": "2026.07.31"
-        },
-        {
-          "title": "\"외인·기관 줍줍 나섰나\"...코스피 , 삼전닉스 필두로 상승 출발",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006338835&office_id=018&code=319660&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.07.29"
-        },
-        {
-          "title": "코스닥 액티브 수익률 '비명'…DS -8.9% 뒤에서 3등, KoAct...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009082125&office_id=421&code=319660&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.07.28"
         }
       ],
       "forward_score": 51,
@@ -3588,7 +3594,7 @@
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "전력기기 강세",
+      "rise_reason": "AI 전력기기 강세",
       "news": [
         {
           "title": "에스넷시스템, 효성중공업·시스코와 디지털 변전소 기술 검증",
@@ -3601,6 +3607,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006331325&office_id=018&code=298040&page=&sm=",
           "source": "이데일리",
           "date": "2026.07.16"
+        },
+        {
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=298040&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
         },
         {
           "title": "MS발 AI 투자 희소식에 전력주도 반등…효성重 26%↑[핫종목]",
@@ -3643,12 +3655,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009062695&office_id=421&code=298040&page=&sm=",
           "source": "뉴스1",
           "date": "2026.07.16"
-        },
-        {
-          "title": "ASML이 지운 ‘반도체 고점론’… 전방위 훈풍에 코스피 7200선 안...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004641911&office_id=011&code=298040&page=&sm=",
-          "source": "서울경제",
-          "date": "2026.07.15"
         }
       ],
       "forward_score": 63,
@@ -3775,85 +3781,79 @@
       "high_52w_date": "20260619",
       "high_price": 267000,
       "low_price": 243000,
-      "theme_tag": "S7(삼성전자/SK하이닉스 등)",
+      "theme_tag": "반도체 대표주(생산)",
       "theme_tags": [
-        "S7(삼성전자/SK하이닉스 등)",
-        "반도체 대표주(생산)"
+        "반도체 대표주(생산)",
+        "뉴로모픽 반도체"
       ],
-      "theme_no": 614,
+      "theme_no": 155,
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 51,
+      "score": 55,
       "score_detail": {
-        "tp": 26,
-        "tl": 18,
+        "tp": 23,
+        "tl": 25,
         "ti": 7
       },
-      "rise_reason": "사상 최대 실적",
+      "rise_reason": "반도체주 강세",
       "news": [
         {
-          "title": "SK하이닉스-삼성전자도 큰 폭 올라",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101342&office_id=003&code=005930&page=&sm=",
+          "title": "삼성전자, 제주서 차세대 'EHS 올인원' 히트펌프 실증 현장 공개",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016227304&office_id=001&code=005930&page=&sm=",
+          "source": "연합뉴스",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "삼성전자, 제주서 'EHS 올인원' 히트펌프 실증…냉난방·온수 통합 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005797427&office_id=277&code=005930&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "코스피 6595.45 폭등 마감...‘역대 최대’ 하루 1000포인트 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004647370&office_id=011&code=005930&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "코스피 '최고의 랠리', 하루 만에 1001p 폭등…외국인 8.8조 폭...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101405&office_id=003&code=005930&page=&sm=",
           "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "[속보] 코스피 17.9% 폭등 역대 최대 상승률‥하이닉스·삼성전기도 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001515172&office_id=214&code=005930&page=&sm=",
-          "source": "MBC",
+          "title": "'코인 아닙니다'…코스피 시총 1~5위, 26% 넘게 올라 등 [7/3...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117081&office_id=119&code=005930&page=&sm=",
+          "source": "데일리안",
           "date": "2026.07.31"
         },
         {
-          "title": "[그래픽] 코스피 역대 상승률 순위",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090810&office_id=421&code=005930&page=&sm=",
-          "source": "뉴스1",
+          "title": "코스피 1000포인트 폭등 마감...개미들, 한숨 돌린 하루",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002387616&office_id=123&code=005930&page=&sm=",
+          "source": "조세일보",
           "date": "2026.07.31"
         },
         {
-          "title": "코스피, 폭등 속 6500선 마감…SK하이닉스 상한가까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000520827&office_id=629&code=005930&page=&sm=",
-          "source": "더팩트",
+          "title": "‘불기둥’ 쏜 코스피, 17% 급등…글로벌 금융위기 뛰어넘어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341242&office_id=018&code=005930&page=&sm=",
+          "source": "이데일리",
           "date": "2026.07.31"
         },
         {
-          "title": "멀미나는 코스피, 사상 최초 하루 1000포인트 상승 마감",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000060338&office_id=053&code=005930&page=&sm=",
-          "source": "주간조선",
+          "title": "HBM4 앞세운 삼성, 수성 나선 SK…주도권 경쟁 본격화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341240&office_id=018&code=005930&page=&sm=",
+          "source": "이데일리",
           "date": "2026.07.31"
         },
         {
-          "title": "삼전닉스 반도체, 귀한 몸값만큼 수출도 선박이 아닌 비행기 타네. [현...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003461626&office_id=032&code=005930&page=&sm=",
-          "source": "경향신문",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "홍콩 CSOP, 코스피200 커버드콜 상장",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005394028&office_id=008&code=005930&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "SK하이닉스, 상한가 기록",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101338&office_id=003&code=005930&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "큰 폭 오른 코스피와 삼전닉스",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101336&office_id=003&code=005930&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "상한가 기록한 SK하이닉스",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101337&office_id=003&code=005930&page=&sm=",
-          "source": "뉴시스",
+          "title": "AI 거품 터지면 한국부터?…英 이코노미스트의 경고",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000107245&office_id=024&code=005930&page=&sm=",
+          "source": "매경이코노미",
           "date": "2026.07.31"
         }
       ],
-      "forward_score": 51,
+      "forward_score": 55,
       "forward_bonus": 0,
       "forward_detail": {
         "small_size": 0,
@@ -4181,66 +4181,66 @@
         "tl": 32,
         "ti": 9
       },
-      "rise_reason": "외국인 순매수 보도",
+      "rise_reason": "반도체 투심 회복",
       "news": [
         {
-          "title": "[오늘증시]코스피, 역대 최대 17.9%·1002포인트 폭등…하이닉스 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001153920&office_id=417&code=036930&page=&sm=",
-          "source": "동행미디어 시대",
+          "title": "[속보]코스피·코스닥 '급등' 매수 사이드카 발동... 삼전닉스 등 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002387583&office_id=123&code=036930&page=&sm=",
+          "source": "조세일보",
           "date": "2026.07.31"
         },
         {
-          "title": "[속보] 코스피, 사상최대 폭등 마감…17.9% 오른 6595",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005714973&office_id=009&code=036930&page=&sm=",
-          "source": "매일경제",
+          "title": "코스피 '최고의 랠리', 하루 만에 1001p 폭등…외국인 8.8조 폭...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101405&office_id=003&code=036930&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "[마켓뷰] “시총 2위가 상한가”…코스피, 하루 만에 1000포인트 올...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001183529&office_id=366&code=036930&page=&sm=",
-          "source": "조선비즈",
+          "title": "‘불기둥’ 쏜 코스피, 17% 급등…글로벌 금융위기 뛰어넘어",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006341242&office_id=018&code=036930&page=&sm=",
+          "source": "이데일리",
           "date": "2026.07.31"
         },
         {
-          "title": "코스피, 폭등 속 6500선 마감…SK하이닉스 상한가까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000520827&office_id=629&code=036930&page=&sm=",
-          "source": "더팩트",
+          "title": "‘하루 1000포인트 상승 실화냐’…코스피 17.9％↑ ‘역대급 불기둥...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002678020&office_id=016&code=036930&page=&sm=",
+          "source": "헤럴드경제",
           "date": "2026.07.31"
         },
         {
-          "title": "현기증 나는 ‘널뛰기’ 증시...코스피 상승률 17.9% 역대 최고",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002816650&office_id=028&code=036930&page=&sm=",
-          "source": "한겨레",
+          "title": "\"최악의 한 달, 최고의 하루\"…코스피 18%↑ SK하닉 '上' [시황...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090878&office_id=421&code=036930&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.07.31"
         },
         {
-          "title": "코스피, 하루에만 17.91% 올랐다…사상 최대 상승률 [시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117056&office_id=119&code=036930&page=&sm=",
-          "source": "데일리안",
+          "title": "코스피 5500→6500, SK하이닉스 '상한가'...진기록 쏟아진 증...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005394036&office_id=008&code=036930&page=&sm=",
+          "source": "머니투데이",
           "date": "2026.07.31"
         },
         {
-          "title": "하루 만에 1000P 오르며 상승률 역대 최고치 찍은 코스피",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005797416&office_id=277&code=036930&page=&sm=",
-          "source": "아시아경제",
+          "title": "\"빨간불, 얼마 만이냐\" 코스피 6300 회복...삼전닉스 20%대 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005393815&office_id=008&code=036930&page=&sm=",
+          "source": "머니투데이",
           "date": "2026.07.31"
         },
         {
-          "title": "코스피, 삼전닉스 폭등에 역대 최대 상승…17.9% 뛰어 6500선 ...",
+          "title": "7월 34% 빠진 코스피, '삼전닉스' 폭등에 단숨에 '1,000P' ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001260736&office_id=215&code=036930&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "“하루 1000P 폭등”…믿기지 않는 코스피 반전, 외국인·기관 ‘쌍끌...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002236191&office_id=138&code=036930&page=&sm=",
+          "source": "디지털데일리",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "코스피, 하루 만에 1000P 뛰었다…17.9% 역대 최대 폭등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005316047&office_id=015&code=036930&page=&sm=",
           "source": "한국경제",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "외국인 7조 순매수에 17%↑…폭락 뒤 폭등 ‘투전판’ 증시에 현기증",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002816631&office_id=028&code=036930&page=&sm=",
-          "source": "한겨레",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "6500 뚫은 코스피 '17% 폭등' 사상 최대…SK하닉 '상한가'[장...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090586&office_id=421&code=036930&page=&sm=",
-          "source": "뉴스1",
           "date": "2026.07.31"
         }
       ],
@@ -4471,76 +4471,76 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 43,
+      "score": 58,
       "score_detail": {
-        "tp": 26,
-        "tl": 10,
+        "tp": 23,
+        "tl": 28,
         "ti": 7
       },
-      "rise_reason": "사상 최대 실적",
+      "rise_reason": "반도체주 강세",
       "news": [
         {
-          "title": "[특징주] '반도체 투 톱' 폭등에 SK스퀘어 등 관련주도 초강세(종합...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016227196&office_id=001&code=005935&page=&sm=",
-          "source": "연합뉴스",
+          "title": "[속보] 코스피, 사상 최고 상승폭 기록…17.91% 폭등한 6,595...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000101118&office_id=243&code=005935&page=&sm=",
+          "source": "이코노미스트",
           "date": "2026.07.31"
         },
         {
-          "title": "[특징주] '반도체 투 톱' 폭등에 SK스퀘어 등 관련주도 강세",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016226150&office_id=001&code=005935&page=&sm=",
-          "source": "연합뉴스",
+          "title": "[속보]코스피·코스닥 '급등' 매수 사이드카 발동... 삼전닉스 등 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002387583&office_id=123&code=005935&page=&sm=",
+          "source": "조세일보",
           "date": "2026.07.31"
         },
         {
-          "title": "[속보]코스피 6595.45로 마감…‘하루 1000P 이상 폭등’ 첫 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003738000&office_id=020&code=005935&page=&sm=",
-          "source": "동아일보",
+          "title": "코스피 6595.45 폭등 마감...‘역대 최대’ 하루 1000포인트 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004647370&office_id=011&code=005935&page=&sm=",
+          "source": "서울경제",
           "date": "2026.07.31"
         },
         {
-          "title": "[오늘증시]코스피, 역대 최대 17.9%·1002포인트 폭등…하이닉스 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001153920&office_id=417&code=005935&page=&sm=",
-          "source": "동행미디어 시대",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "코스피, 폭등 속 6500선 마감…SK하이닉스 상한가까지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000520827&office_id=629&code=005935&page=&sm=",
-          "source": "더팩트",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "코스피, 하루에만 17.91% 올랐다…사상 최대 상승률 [시황]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117056&office_id=119&code=005935&page=&sm=",
+          "title": "'코인 아닙니다'…코스피 시총 1~5위, 26% 넘게 올라 등 [7/3...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117081&office_id=119&code=005935&page=&sm=",
           "source": "데일리안",
           "date": "2026.07.31"
         },
         {
-          "title": "SK하이닉스, 17년 만에 상한가 '쾅'…삼성전자도 26% '폭등' [...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005316053&office_id=015&code=005935&page=&sm=",
-          "source": "한국경제",
+          "title": "\"최악의 한 달, 최고의 하루\"…코스피 18%↑ SK하닉 '上' [시황...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090878&office_id=421&code=005935&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.07.31"
         },
         {
-          "title": "SK하이닉스, 17년 만에 장중 상한가?반도체주 동반 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001046406&office_id=031&code=005935&page=&sm=",
-          "source": "아이뉴스24",
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=005935&page=&sm=",
+          "source": "뉴스1",
           "date": "2026.07.31"
         },
         {
-          "title": "SK하이닉스, 17년 만에 상한가…코스피 폭등장 반도체주 ‘활활’",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117028&office_id=119&code=005935&page=&sm=",
+          "title": "'코인 아닙니다'…코스피 시총 1~5위, 26% 넘게 올라",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003117069&office_id=119&code=005935&page=&sm=",
           "source": "데일리안",
           "date": "2026.07.31"
         },
         {
-          "title": "SK하이닉스 장중 29.95% 폭등...사상 첫 상한가",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003990721&office_id=023&code=005935&page=&sm=",
-          "source": "조선일보",
+          "title": "코스피, 1,000포인트 폭등…SK하이닉스 상한가",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000891030&office_id=422&code=005935&page=&sm=",
+          "source": "연합뉴스TV",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "“하루 1000P 폭등”…믿기지 않는 코스피 반전, 외국인·기관 ‘쌍끌...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002236191&office_id=138&code=005935&page=&sm=",
+          "source": "디지털데일리",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "7월 34% 빠진 코스피, '삼전닉스' 폭등에 단숨에 '1,000P' ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001260736&office_id=215&code=005935&page=&sm=",
+          "source": "한국경제TV",
           "date": "2026.07.31"
         }
       ],
-      "forward_score": 43,
+      "forward_score": 58,
       "forward_bonus": 0,
       "forward_detail": {
         "small_size": 0,
@@ -4687,6 +4687,12 @@
           "date": "2026.07.27"
         },
         {
+          "title": "성호전자, 주식담보대출 상환 속도…책임경영도 강화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004647359&office_id=011&code=043260&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.31"
+        },
+        {
           "title": "성호전자, 주식담보대출 상환 '가속'…담보 여력은 '확충'",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005393190&office_id=008&code=043260&page=&sm=",
           "source": "머니투데이",
@@ -4703,12 +4709,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005792181&office_id=277&code=043260&page=&sm=",
           "source": "아시아경제",
           "date": "2026.07.21"
-        },
-        {
-          "title": "성호전자, 350억 규모 단기차입금 증가 결정",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006328938&office_id=018&code=043260&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.07.13"
         },
         {
           "title": "문페이, AI에이전트용 금고 서비스 ‘페이박스’ 출시",
@@ -4883,6 +4883,12 @@
           "date": "2026.07.23"
         },
         {
+          "title": "반도체 역사적 반등…SK하이닉스 상한가·삼성전자 27%↑[핫종목](종합...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090868&office_id=421&code=006340&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.07.31"
+        },
+        {
           "title": "MS발 AI 투자 희소식에 전력주도 반등…효성重 26%↑[핫종목]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009090453&office_id=421&code=006340&page=&sm=",
           "source": "뉴스1",
@@ -4905,6 +4911,18 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101252&office_id=003&code=005930&page=&sm=",
           "source": "뉴시스",
           "date": "2026.07.31"
+        },
+        {
+          "title": "반도체 훈풍에 전기장비 장초반 '불기둥'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005393811&office_id=008&code=006340&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "‘반도체 급락’에도 저가매수…초고수, SK하이닉스·SK텔레콤 담았다.....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004645958&office_id=011&code=006340&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.28"
         }
       ],
       "forward_score": 53,
@@ -5865,15 +5883,15 @@
           "date": "2026.07.01"
         },
         {
-          "title": "국민성장펀드, ‘피지컬AI 1강’ 위해 6개 분야에 올해 약 16조 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002664106&office_id=016&code=129920&page=&sm=",
-          "source": "헤럴드경제",
-          "date": "2026.07.01"
-        },
-        {
           "title": "AI는 공장으로 간다…금융위·산업부, 피지컬 AI 패권전에 ‘16조원...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002385712&office_id=123&code=129920&page=&sm=",
           "source": "조세일보",
+          "date": "2026.07.01"
+        },
+        {
+          "title": "국민성장펀드, ‘피지컬AI 1강’ 위해 6개 분야에 올해 약 16조 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002664106&office_id=016&code=129920&page=&sm=",
+          "source": "헤럴드경제",
           "date": "2026.07.01"
         },
         {
@@ -6848,15 +6866,27 @@
       "rise_reason": "외국인 순매수 보도",
       "news": [
         {
-          "title": "코스피 장 초반 14% 급등...'육천피' 회복",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001260677&office_id=215&code=039030&page=&sm=",
-          "source": "한국경제TV",
+          "title": "코스피 '최고의 랠리', 하루 만에 1001p 폭등…외국인 8.8조 폭...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014101405&office_id=003&code=039030&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.07.31"
         },
         {
-          "title": "\"빨간불, 얼마 만이냐\" 코스피 6300 회복...삼전닉스 20%대 급...",
+          "title": "코스피 5500→6500, SK하이닉스 '상한가'...진기록 쏟아진 증...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005394036&office_id=008&code=039030&page=&sm=",
+          "source": "머니투데이",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "\"빨간불, 얼마 만이냐\" 코스피 6300 회복...삼전닉스 20%대 ...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005393815&office_id=008&code=039030&page=&sm=",
           "source": "머니투데이",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "코스피 장 초반 14% 급등...'육천피' 회복",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001260677&office_id=215&code=039030&page=&sm=",
+          "source": "한국경제TV",
           "date": "2026.07.31"
         },
         {
@@ -6887,12 +6917,6 @@
           "title": "\"465% 폭등\" 창신메모리 쇼크...코스피 8% 급락, 또 '서킷브레...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005391949&office_id=008&code=039030&page=&sm=",
           "source": "머니투데이",
-          "date": "2026.07.28"
-        },
-        {
-          "title": "중국 DUV 쇼크에 삼성·SK 10% 폭락…소부장도 와르르 [칩칩폭폭]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002387346&office_id=123&code=039030&page=&sm=",
-          "source": "조세일보",
           "date": "2026.07.28"
         }
       ],
@@ -6934,7 +6958,7 @@
         "tl": 34,
         "ti": 11
       },
-      "rise_reason": "양산 보도",
+      "rise_reason": "외국인 기관 매수",
       "news": [
         {
           "title": "로봇 사업에 삼성전자가 직접 나섰다… 레인보우로보틱스·에스피지 ...",
@@ -8022,9 +8046,15 @@
           "date": "2026.07.31"
         },
         {
-          "title": "[영상] 쓰레기봉투 묶고 전구도 간다…구글, 로봇 전신 제어 AI모델 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002816629&office_id=028&code=187870&page=&sm=",
-          "source": "한겨레",
+          "title": "KAI, 국산 AI 반도체 탑재한 무인기 개발 나선다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004647363&office_id=011&code=187870&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.07.31"
+        },
+        {
+          "title": "KAI, 국산 AI 반도체 무인기에 탑재…‘방산 피지컬 AI’ 추진",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005714994&office_id=009&code=187870&page=&sm=",
+          "source": "매일경제",
           "date": "2026.07.31"
         },
         {
@@ -8043,18 +8073,6 @@
           "title": "KAI, 국산 AI 반도체로 무인기 '피지컬 AI' 띄운다... 95...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005555673&office_id=014&code=187870&page=&sm=",
           "source": "파이낸셜뉴스",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "KAI 국산 반도체로 '피지컬 AI' 본격화…무인기 자율제어 개발",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005393991&office_id=008&code=187870&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.07.31"
-        },
-        {
-          "title": "“저전력 NPU로 CCTV 시장 공략”…KT, 딥엑스·세솔과 공동개발 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005714963&office_id=009&code=187870&page=&sm=",
-          "source": "매일경제",
           "date": "2026.07.31"
         }
       ],
