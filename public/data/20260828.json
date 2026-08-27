@@ -1,6 +1,6 @@
 {
   "date": "20260828",
-  "collected_at": "2026-08-28T03:06:57",
+  "collected_at": "2026-08-28T03:26:00",
   "mode": "intraday",
   "is_final": false,
   "count": 100,
@@ -636,7 +636,7 @@
         "tl": 38,
         "ti": 7
       },
-      "rise_reason": "영업이익 공시",
+      "rise_reason": "합병 관련 뉴스",
       "news": [
         {
           "title": "[특징주] 휴온스글로벌, 자회사 합병 중단 소식에 상한가 기록",
@@ -681,22 +681,22 @@
           "date": "2026.08.26"
         },
         {
-          "title": "휴온스글로벌, 2분기 영업익 195억…전분기 대비 112.9%↑",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009116889&office_id=421&code=084110&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.08.17"
-        },
-        {
-          "title": "휴온스글로벌, 2분기 영업익 195억원… 전년比 22.8%↓",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001186474&office_id=366&code=084110&page=&sm=",
+          "title": "[마켓뷰] 코스피, 엔비디아 훈풍·기타법인 매수세에 6900선 안착",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188760&office_id=366&code=084110&page=&sm=",
           "source": "조선비즈",
-          "date": "2026.08.14"
+          "date": "2026.08.27"
         },
         {
-          "title": "휴온스글로벌, 2분기 영업이익 195억원…전년 대비 23%↓",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016252657&office_id=001&code=084110&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.08.14"
+          "title": "\"땡큐, 엔비디아\"…코스피, '백투백' 금리인상에도 1%대 상승",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005325517&office_id=015&code=084110&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "주주가 합병 막았다…휴온스 운명 가른 건 '핵심 기술'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001263869&office_id=215&code=084110&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.08.27"
         }
       ],
       "forward_score": 81,
@@ -892,12 +892,6 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005405336&office_id=008&code=000500&page=&sm=",
           "source": "머니투데이",
           "date": "2026.08.27"
-        },
-        {
-          "title": "LS전선 주요 자회사, 상반기 '역대 최대' 실적…3사 합산 매출 2....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005807305&office_id=277&code=000500&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.08.26"
         }
       ],
       "forward_score": 66,
@@ -1093,6 +1087,12 @@
           "date": "2026.08.27"
         },
         {
+          "title": "엔켐, 2380억원 규모 14차 CB 풋옵션 삭제 가결… 단기 상환 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188714&office_id=366&code=348370&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.08.27"
+        },
+        {
           "title": "엔켐, 14CB '풋옵션' 없앴다…750억 분할상환",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005567339&office_id=014&code=348370&page=&sm=",
           "source": "파이낸셜뉴스",
@@ -1102,12 +1102,6 @@
           "title": "엔켐, 전환사채 상환 부담 낮춘다…3년간 750억원 매입·소각",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005808224&office_id=277&code=348370&page=&sm=",
           "source": "아시아경제",
-          "date": "2026.08.27"
-        },
-        {
-          "title": "엔켐, 2380억원 규모 14차 CB 풋옵션 삭제 가결… 단기 상환 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188714&office_id=366&code=348370&page=&sm=",
-          "source": "조선비즈",
           "date": "2026.08.27"
         },
         {
@@ -1395,12 +1389,6 @@
           "date": "2026.08.27"
         },
         {
-          "title": "상반기 역대 최대 실적…블랙야크아이앤씨, 18% 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014151825&office_id=003&code=478560&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.08.27"
-        },
-        {
           "title": "블랙야크아이앤씨, 상반기 역대 최대 실적에 20%대 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005325354&office_id=015&code=478560&page=&sm=",
           "source": "한국경제",
@@ -1419,13 +1407,19 @@
           "date": "2026.08.27"
         },
         {
+          "title": "상반기 역대 최대 실적…블랙야크아이앤씨, 18% 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014151825&office_id=003&code=478560&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.08.27"
+        },
+        {
           "title": "블랙야크아이앤씨, 상반기 역대 최대 실적 달성",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014151011&office_id=003&code=478560&page=&sm=",
           "source": "뉴시스",
           "date": "2026.08.27"
         },
         {
-          "title": "블랙야크아이앤씨, 상반기 최대 실적…반도체 팹 늘자 안전용품도 ‘.....",
+          "title": "블랙야크아이앤씨, 상반기 최대 실적…반도체 팹 늘자 안전용품도 ‘...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188582&office_id=366&code=478560&page=&sm=",
           "source": "조선비즈",
           "date": "2026.08.27"
@@ -2364,7 +2358,7 @@
         "tl": 34,
         "ti": 9
       },
-      "rise_reason": "증설 발표",
+      "rise_reason": "실적 관련 뉴스",
       "news": [
         {
           "title": "\"AI 수요 계속\" 엔비디아 실적 발표에 기판주 '방긋'… 심텍, 5%...",
@@ -2373,25 +2367,13 @@
           "date": "2026.08.27"
         },
         {
-          "title": "하나증권 “심텍, 2,742억원 증설…자금조달 부담에도 중장기 성장 유...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001263659&office_id=215&code=222800&page=&sm=",
-          "source": "한국경제TV",
-          "date": "2026.08.26"
-        },
-        {
-          "title": "하나證 “심텍 2700억 시설 투자, 단기적으로 주식가치 희석 불가피...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188307&office_id=366&code=222800&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.08.26"
-        },
-        {
           "title": "엔비디아 호재로 금리인상 충격 흡수…코스피 6900선 안착[시황종합]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009136446&office_id=421&code=222800&page=&sm=",
           "source": "뉴스1",
           "date": "2026.08.27"
         },
         {
-          "title": "‘한은 이긴 엔비디아’ 기준금리 인상에도 코스피 2% 상승[장중시황....",
+          "title": "‘한은 이긴 엔비디아’ 기준금리 인상에도 코스피 2% 상승[장중시황.....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009135561&office_id=421&code=222800&page=&sm=",
           "source": "뉴스1",
           "date": "2026.08.27"
@@ -2425,6 +2407,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005325267&office_id=015&code=222800&page=&sm=",
           "source": "한국경제",
           "date": "2026.08.27"
+        },
+        {
+          "title": "코스피, 개인 2兆 '팔자'에도 1% 가까이 반등…6800선 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014150187&office_id=003&code=222800&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.08.26"
         }
       ],
       "forward_score": 63,
@@ -2815,12 +2803,6 @@
           "date": "2026.08.27"
         },
         {
-          "title": "트럼프 사실상 中전력장비 수입 제한에 … K전력·전선주 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005726886&office_id=009&code=267260&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.08.27"
-        },
-        {
           "title": "HD현대중공업 노조 파업 찬반투표 가결, 쟁의권 확보",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001156636&office_id=417&code=267260&page=&sm=",
           "source": "동행미디어 시대",
@@ -2830,6 +2812,12 @@
           "title": "美, 中 겨냥한 외산 전력장비 금지…북미 공략나선 韓기업 반사이익(.....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006359262&office_id=018&code=267260&page=&sm=",
           "source": "이데일리",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "트럼프 사실상 中전력장비 수입 제한에 … K전력·전선주 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005726886&office_id=009&code=267260&page=&sm=",
+          "source": "매일경제",
           "date": "2026.08.27"
         },
         {
@@ -3724,21 +3712,9 @@
           "date": "2026.08.27"
         },
         {
-          "title": "에스원 2대주주 노리는 FCP…보안 성장전략까지 압박",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000089677&office_id=293&code=006400&page=&sm=",
-          "source": "블로터",
-          "date": "2026.08.27"
-        },
-        {
           "title": "싱가포르 FCP, 삼성그룹에…4.4조 가치 에스원 인수 제안",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005325612&office_id=015&code=006400&page=&sm=",
           "source": "한국경제",
-          "date": "2026.08.27"
-        },
-        {
-          "title": "행동주의펀드 FCP “삼성 계열사 보유 에스원 지분, 9066억원에 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188751&office_id=366&code=006400&page=&sm=",
-          "source": "조선비즈",
           "date": "2026.08.27"
         },
         {
@@ -3748,21 +3724,33 @@
           "date": "2026.08.27"
         },
         {
-          "title": "플래쉬라이트 캐피탈 \"삼성 계열사 보유 에스원 지분, 전량인수 제안....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000529711&office_id=374&code=006400&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.08.27"
-        },
-        {
           "title": "FCP, 삼성 '에스원' 지분 20.6% 인수 제안",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001263841&office_id=215&code=006400&page=&sm=",
           "source": "한국경제TV",
           "date": "2026.08.27"
         },
         {
-          "title": "FCP, 삼성 측 에스원 지분 인수 제안…45% 프리미엄 제시 [시그...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004655752&office_id=011&code=006400&page=&sm=",
+          "title": "\"내년엔 LFP와 단가 같아져\"…나트륨 배터리, ESS 접수하나",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005325687&office_id=015&code=006400&page=&sm=",
+          "source": "한국경제",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "주주환원 실망한 초고액 자산가, 삼전 또 팔았다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004655950&office_id=011&code=006400&page=&sm=",
           "source": "서울경제",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "에스원 2대주주 노리는 FCP…보안 성장전략까지 압박",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000089677&office_id=293&code=006400&page=&sm=",
+          "source": "블로터",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "행동주의펀드 FCP “삼성 계열사 보유 에스원 지분, 9066억원에 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188751&office_id=366&code=006400&page=&sm=",
+          "source": "조선비즈",
           "date": "2026.08.27"
         }
       ],
@@ -3950,14 +3938,14 @@
           "date": "2026.08.26"
         },
         {
-          "title": "2000억달러 대미투자 협상 난항…관세 리스크 커지나",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004652571&office_id=011&code=010170&page=&sm=",
+          "title": "“수산물 시세 잡는다”…AI로 가격 예측·수급 이상 체크",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004652568&office_id=011&code=010170&page=&sm=",
           "source": "서울경제",
           "date": "2026.08.18"
         },
         {
-          "title": "“수산물 시세 잡는다”…AI로 가격 예측·수급 이상 체크",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004652568&office_id=011&code=010170&page=&sm=",
+          "title": "2000억달러 대미투자 협상 난항…관세 리스크 커지나",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004652571&office_id=011&code=010170&page=&sm=",
           "source": "서울경제",
           "date": "2026.08.18"
         }
@@ -4725,12 +4713,6 @@
           "date": "2026.08.27"
         },
         {
-          "title": "유니슨, 993억원 고창해상풍력 수주…해상풍력 시장 공략 본격화",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003461025&office_id=030&code=018000&page=&sm=",
-          "source": "전자신문",
-          "date": "2026.08.27"
-        },
-        {
           "title": "유니슨, 동촌풍력발전과 993억 규모 계약 체결",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006359034&office_id=018&code=018000&page=&sm=",
           "source": "이데일리",
@@ -4746,6 +4728,12 @@
           "title": "유니슨, 1000억 규모 고창해상풍력 수주…해상풍력 사업 본격 확대",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005808242&office_id=277&code=018000&page=&sm=",
           "source": "아시아경제",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "유니슨, 993억원 고창해상풍력 수주…해상풍력 시장 공략 본격화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003461025&office_id=030&code=018000&page=&sm=",
+          "source": "전자신문",
           "date": "2026.08.27"
         },
         {
@@ -5068,12 +5056,6 @@
           "date": "2026.08.27"
         },
         {
-          "title": "한화, 서울 밤 수놓는다… 세계불꽃축제 9월 5일 개최",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005567560&office_id=014&code=000880&page=&sm=",
-          "source": "파이낸셜뉴스",
-          "date": "2026.08.27"
-        },
-        {
           "title": "서울 밤하늘 수놓을 100만 불꽃…㈜한화 ‘서울세계불꽃축제’ 9월 5...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001262479&office_id=468&code=000880&page=&sm=",
           "source": "스포츠서울",
@@ -5101,6 +5083,12 @@
           "title": "원효대교에 새 불꽃탑 뜬다…한화, 내달 5일 여의도 불꽃축제",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003126023&office_id=119&code=000880&page=&sm=",
           "source": "데일리안",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "가을밤 수놓는 ‘한화 불꽃축제’, 여의도 한강공원서 9월 5일 개최",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002689126&office_id=016&code=000880&page=&sm=",
+          "source": "헤럴드경제",
           "date": "2026.08.27"
         }
       ],
@@ -5683,15 +5671,15 @@
           "date": "2026.08.13"
         },
         {
-          "title": "코스피·코스닥 36개 관리종목 지정…90거래일 '상폐' 갈림길",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004178178&office_id=079&code=008290&page=&sm=",
-          "source": "노컷뉴스",
-          "date": "2026.08.12"
-        },
-        {
           "title": "상폐 카운트다운…'동전주·시총 미달' 경고장 받은 36곳 어디?",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000524062&office_id=629&code=008290&page=&sm=",
           "source": "더팩트",
+          "date": "2026.08.12"
+        },
+        {
+          "title": "코스피·코스닥 36개 관리종목 지정…90거래일 '상폐' 갈림길",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004178178&office_id=079&code=008290&page=&sm=",
+          "source": "노컷뉴스",
           "date": "2026.08.12"
         },
         {
@@ -5937,15 +5925,15 @@
           "date": "2026.08.27"
         },
         {
-          "title": "K-배터리 위기, 전기차 캐즘 넘어 '미국 ESS'에서 새 활로 찾아...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003125991&office_id=119&code=003670&page=&sm=",
-          "source": "데일리안",
-          "date": "2026.08.27"
-        },
-        {
           "title": "전기차서 밀린 K-배터리, ESS로 반전 노린다…2035년 시장 8배...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014151361&office_id=003&code=003670&page=&sm=",
           "source": "뉴시스",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "K-배터리 위기, 전기차 캐즘 넘어 '미국 ESS'에서 새 활로 찾아야",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003125991&office_id=119&code=003670&page=&sm=",
+          "source": "데일리안",
           "date": "2026.08.27"
         },
         {
@@ -6216,24 +6204,6 @@
       "rise_reason": "정책 관련 뉴스",
       "news": [
         {
-          "title": "[특징주] 中겨냥?…美 외국산 금지조치에 전력기기주 강세(종합)",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016275075&office_id=001&code=010120&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.08.27"
-        },
-        {
-          "title": "[특징주] 트럼프 ‘외국산 전력장비 금지’ 명령에… 전력기기株 일제....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188635&office_id=366&code=010120&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.08.27"
-        },
-        {
-          "title": "[특징주] 中겨냥? 美 외국산 금지조치에 전력기기주 강세",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016273559&office_id=001&code=010120&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.08.27"
-        },
-        {
           "title": "고금리 버티려면…보·은·주 잡아라",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003547360&office_id=025&code=010120&page=&sm=",
           "source": "중앙일보",
@@ -6242,12 +6212,6 @@
         {
           "title": "“전력 아쉬워도 중국 장비는 쓰지마”...트럼프 명령에 K전력株 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005726942&office_id=009&code=010120&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.08.27"
-        },
-        {
-          "title": "트럼프 사실상 中전력장비 수입 제한에 … K전력·전선주 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005726886&office_id=009&code=010120&page=&sm=",
           "source": "매일경제",
           "date": "2026.08.27"
         },
@@ -6264,6 +6228,12 @@
           "date": "2026.08.27"
         },
         {
+          "title": "트럼프 사실상 中전력장비 수입 제한에 … K전력·전선주 급등",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005726886&office_id=009&code=010120&page=&sm=",
+          "source": "매일경제",
+          "date": "2026.08.27"
+        },
+        {
           "title": "美 중국산 규제 반사익…전력기기株 반등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005325617&office_id=015&code=010120&page=&sm=",
           "source": "한국경제",
@@ -6273,6 +6243,24 @@
           "title": "美 전력망 외산 장비 퇴출…中 대체 국내 전력기기주 급등[핫종목](종....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009136564&office_id=421&code=010120&page=&sm=",
           "source": "뉴스1",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "트럼프, 외산 장비 퇴출 행정명령…전력기기주 강세[핫종목]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009135045&office_id=421&code=010120&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "LS·LIG, 전기버스 충전 인프라 확대 '맞손'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000528238&office_id=629&code=010120&page=&sm=",
+          "source": "더팩트",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "LS-LIG, 전기버스 충전 인프라 확대 '맞손'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003460768&office_id=030&code=010120&page=&sm=",
+          "source": "전자신문",
           "date": "2026.08.27"
         }
       ],
@@ -8296,21 +8284,9 @@
           "date": "2026.08.27"
         },
         {
-          "title": "에스원 2대주주 노리는 FCP…보안 성장전략까지 압박",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000089677&office_id=293&code=012750&page=&sm=",
-          "source": "블로터",
-          "date": "2026.08.27"
-        },
-        {
           "title": "싱가포르 FCP, 삼성그룹에…4.4조 가치 에스원 인수 제안",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005325612&office_id=015&code=012750&page=&sm=",
           "source": "한국경제",
-          "date": "2026.08.27"
-        },
-        {
-          "title": "행동주의펀드 FCP “삼성 계열사 보유 에스원 지분, 9066억원에 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188751&office_id=366&code=012750&page=&sm=",
-          "source": "조선비즈",
           "date": "2026.08.27"
         },
         {
@@ -8320,15 +8296,27 @@
           "date": "2026.08.27"
         },
         {
-          "title": "플래쉬라이트 캐피탈 \"삼성 계열사 보유 에스원 지분, 전량인수 제안....",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000529711&office_id=374&code=012750&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.08.27"
-        },
-        {
           "title": "FCP, 삼성 '에스원' 지분 20.6% 인수 제안",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001263841&office_id=215&code=012750&page=&sm=",
           "source": "한국경제TV",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "에스원 2대주주 노리는 FCP…보안 성장전략까지 압박",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000089677&office_id=293&code=012750&page=&sm=",
+          "source": "블로터",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "행동주의펀드 FCP “삼성 계열사 보유 에스원 지분, 9066억원에 ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001188751&office_id=366&code=012750&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.08.27"
+        },
+        {
+          "title": "플래쉬라이트 캐피탈 \"삼성 계열사 보유 에스원 지분, 전량인수 제안....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000529711&office_id=374&code=012750&page=&sm=",
+          "source": "SBS Biz",
           "date": "2026.08.27"
         },
         {
@@ -8426,15 +8414,15 @@
           "date": "2026.08.13"
         },
         {
-          "title": "상폐 카운트다운…'동전주·시총 미달' 경고장 받은 36곳 어디?",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000524062&office_id=629&code=050090&page=&sm=",
-          "source": "더팩트",
-          "date": "2026.08.12"
-        },
-        {
           "title": "코스피·코스닥 36개 관리종목 지정…90거래일 '상폐' 갈림길",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004178178&office_id=079&code=050090&page=&sm=",
           "source": "노컷뉴스",
+          "date": "2026.08.12"
+        },
+        {
+          "title": "상폐 카운트다운…'동전주·시총 미달' 경고장 받은 36곳 어디?",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000524062&office_id=629&code=050090&page=&sm=",
+          "source": "더팩트",
           "date": "2026.08.12"
         },
         {
@@ -8862,7 +8850,7 @@
         "tl": 10,
         "ti": 9
       },
-      "rise_reason": "전선 영업이익 공시",
+      "rise_reason": "전선 흑자 전환 보도",
       "news": [
         {
           "title": "KBI메탈 \"역대 최대 상반기 실적 달성\"",
@@ -8907,12 +8895,6 @@
           "date": "2026.08.27"
         },
         {
-          "title": "[이 시각 시황] 코스피 2%대 강세·코스닥 약세…전력설비·건설·LPG...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000526976&office_id=374&code=024840&page=&sm=",
-          "source": "SBS Biz",
-          "date": "2026.08.12"
-        },
-        {
           "title": "“전력 아쉬워도 중국 장비는 쓰지마”...트럼프 명령에 K전력株 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005726942&office_id=009&code=024840&page=&sm=",
           "source": "매일경제",
@@ -8923,6 +8905,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005726886&office_id=009&code=024840&page=&sm=",
           "source": "매일경제",
           "date": "2026.08.27"
+        },
+        {
+          "title": "연일 치솟는 구릿값에…소재업계 ‘흑자 전환’",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004653148&office_id=011&code=024840&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.08.19"
         }
       ],
       "forward_score": 34,
