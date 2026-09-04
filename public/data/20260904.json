@@ -1,8 +1,8 @@
 {
   "date": "20260904",
-  "collected_at": "2026-09-04T20:49:38",
-  "mode": "closing",
-  "is_final": true,
+  "collected_at": "2026-09-04T21:18:59",
+  "mode": "intraday",
+  "is_final": false,
   "count": 100,
   "version": 4,
   "rankings": [
@@ -2673,15 +2673,15 @@
           "date": "2026.08.14"
         },
         {
-          "title": "유티아이, 소액공모서 30억원 전액 모집…경쟁률 1.96대 1",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006350788&office_id=018&code=179900&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.08.13"
-        },
-        {
           "title": "유티아이, 소액공모 청약 경쟁률 1.96대 1 기록",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014124517&office_id=003&code=179900&page=&sm=",
           "source": "뉴시스",
+          "date": "2026.08.13"
+        },
+        {
+          "title": "유티아이, 소액공모서 30억원 전액 모집…경쟁률 1.96대 1",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006350788&office_id=018&code=179900&page=&sm=",
+          "source": "이데일리",
           "date": "2026.08.13"
         },
         {
@@ -2863,15 +2863,21 @@
           "date": "2026.09.03"
         },
         {
-          "title": "기업 공시 [9월 4일]",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004658644&office_id=011&code=336260&page=&sm=",
-          "source": "서울경제",
+          "title": "“호재라는데 주가 왜 이래?” 삼성전자·알테오젠도 못 피한 ‘셀온...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002693095&office_id=016&code=336260&page=&sm=",
+          "source": "헤럴드경제",
           "date": "2026.09.04"
         },
         {
           "title": "반복되는 ‘셀온<호재 발표 뒤 대량 매도>’…증시 기대 꺾였나",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002692904&office_id=016&code=336260&page=&sm=",
           "source": "헤럴드경제",
+          "date": "2026.09.04"
+        },
+        {
+          "title": "기업 공시 [9월 4일]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004658644&office_id=011&code=336260&page=&sm=",
+          "source": "서울경제",
           "date": "2026.09.04"
         },
         {
@@ -3248,15 +3254,15 @@
           "date": "2026.09.04"
         },
         {
-          "title": "'붉은사막' DLC 공개에 펄어비스 9%대 상승",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005571070&office_id=014&code=263750&page=&sm=",
-          "source": "파이낸셜뉴스",
-          "date": "2026.09.04"
-        },
-        {
           "title": "펄어비스, 붉은사막 DLC 일정 공개에 10% 급등",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014168978&office_id=003&code=263750&page=&sm=",
           "source": "뉴시스",
+          "date": "2026.09.04"
+        },
+        {
+          "title": "'붉은사막' DLC 공개에 펄어비스 9%대 상승",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005571070&office_id=014&code=263750&page=&sm=",
+          "source": "파이낸셜뉴스",
           "date": "2026.09.04"
         },
         {
@@ -3858,6 +3864,12 @@
           "date": "2026.08.28"
         },
         {
+          "title": "씨이랩, 엔비디아 AI 제품 28억 공급계약",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006354909&office_id=018&code=189330&page=&sm=",
+          "source": "이데일리",
+          "date": "2026.08.20"
+        },
+        {
           "title": "씨이랩, '아스트라고 파트너 서밋 2026' 성료",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000089313&office_id=293&code=189330&page=&sm=",
           "source": "블로터",
@@ -3873,12 +3885,6 @@
           "title": "씨이랩, 신규 GPU 운용 진단 솔루션 'AstraMon' 공개",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005804962&office_id=277&code=189330&page=&sm=",
           "source": "아시아경제",
-          "date": "2026.08.20"
-        },
-        {
-          "title": "씨이랩, 엔비디아 AI 제품 28억 공급계약",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006354909&office_id=018&code=189330&page=&sm=",
-          "source": "이데일리",
           "date": "2026.08.20"
         },
         {
@@ -5894,7 +5900,7 @@
         "tl": 21,
         "ti": 7
       },
-      "rise_reason": "기관 순매수 보도",
+      "rise_reason": "반도체 장비 관련 뉴스",
       "news": [
         {
           "title": "“엿새 만에 돌아온 그들”…외인·기관 ‘쌍끌이’에 코스피 1.6% 상승...",
@@ -5927,15 +5933,15 @@
           "date": "2026.09.04"
         },
         {
-          "title": "외인·기관 '쌍끌이' 매수…코스피·코스닥 상승 마감",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005812169&office_id=277&code=240810&page=&sm=",
-          "source": "아시아경제",
-          "date": "2026.09.04"
-        },
-        {
           "title": "\"美 금리 인상 우려 완화\" 코스피 1.6% 반등…반도체 강세",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002240270&office_id=138&code=240810&page=&sm=",
           "source": "디지털데일리",
+          "date": "2026.09.04"
+        },
+        {
+          "title": "외인·기관 '쌍끌이' 매수…코스피·코스닥 상승 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005812169&office_id=277&code=240810&page=&sm=",
+          "source": "아시아경제",
           "date": "2026.09.04"
         },
         {
@@ -6802,7 +6808,7 @@
         "tl": 18,
         "ti": 9
       },
-      "rise_reason": "투자 관련 뉴스",
+      "rise_reason": "수주 공시",
       "news": [
         {
           "title": "[특징주] 비트코인 반등에 두나무株 한화투자증권·우리기술투자 10%↑",
@@ -6859,9 +6865,15 @@
           "date": "2026.09.04"
         },
         {
-          "title": "한화자산운용, ‘다이내믹AI병목해소테마 EMP 목표전환형 펀드’ 모집",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006363518&office_id=018&code=003530&page=&sm=",
-          "source": "이데일리",
+          "title": "비트코인, 3개월만에 8.1만 달러선 돌파...관련주도 '들썩'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001264838&office_id=215&code=003530&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.09.04"
+        },
+        {
+          "title": "데이터센터 외부 수주 늘린 롯데이노베이트…“기업가치 재평가 기대...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005730458&office_id=009&code=003530&page=&sm=",
+          "source": "매일경제",
           "date": "2026.09.04"
         }
       ],
@@ -8654,10 +8666,10 @@
           "date": "2026.09.02"
         },
         {
-          "title": "[DD 주간브리핑] '게임스컴 2026' 개막·e스포츠 국가대표 출정…...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002238650&office_id=138&code=348340&page=&sm=",
-          "source": "디지털데일리",
-          "date": "2026.08.23"
+          "title": "냉장고가 식재료 인식하고 로봇이 집안 연결…IFA의 'AI 일상'",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009152247&office_id=421&code=348340&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.09.04"
         },
         {
           "title": "로보터블, 한국로봇산업진흥원 휴머노이드 운영 용역 수주",
@@ -9478,12 +9490,6 @@
           "date": "2026.09.04"
         },
         {
-          "title": "기술특례 300社 시대…코스닥 IPO 시총 62% 차지",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005730389&office_id=009&code=087010&page=&sm=",
-          "source": "매일경제",
-          "date": "2026.09.04"
-        },
-        {
           "title": "코스닥 기술특례상장 300사 달성…누적 공모액 8조",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001190380&office_id=366&code=087010&page=&sm=",
           "source": "조선비즈",
@@ -9499,6 +9505,12 @@
           "title": "코스닥 기술특례상장 300사 돌파…제도 도입 21년 만",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001026791&office_id=088&code=087010&page=&sm=",
           "source": "매일신문",
+          "date": "2026.09.04"
+        },
+        {
+          "title": "거래소 \"코스닥 기술특례상장 21년 만에 300곳 달성\"",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014168873&office_id=003&code=087010&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.09.04"
         }
       ],
