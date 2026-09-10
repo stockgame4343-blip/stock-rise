@@ -1,6 +1,6 @@
 {
   "date": "20260910",
-  "collected_at": "2026-09-10T20:56:41",
+  "collected_at": "2026-09-10T21:29:53",
   "mode": "closing",
   "is_final": true,
   "count": 100,
@@ -82,12 +82,6 @@
           "date": "2026.04.01"
         },
         {
-          "title": "'獨 미쉐린 셰프' 알렉산더 헤르만, 샘표 우리맛연구중심 방문",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0008804972&office_id=421&code=007540&page=&sm=",
-          "source": "뉴스1",
-          "date": "2026.03.04"
-        },
-        {
           "title": "독일 대형 마켓서 K푸드 매출 7배 ‘쑥’…판촉전 성황",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004654479&office_id=011&code=007540&page=&sm=",
           "source": "서울경제",
@@ -97,6 +91,12 @@
           "title": "'K-푸드에 AI 제조혁신 바람 분다…'스마트제조 얼라이언스' 출범",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005369938&office_id=008&code=007540&page=&sm=",
           "source": "머니투데이",
+          "date": "2026.06.10"
+        },
+        {
+          "title": "'K-푸드 스마트제조' 위해 민관이 손 잡았다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005297185&office_id=015&code=007540&page=&sm=",
+          "source": "한국경제",
           "date": "2026.06.10"
         }
       ],
@@ -283,22 +283,22 @@
           "date": "2026.07.02"
         },
         {
-          "title": "알파칩스 \"자율주행 라이다 센서 칩 설계 프로젝트 수행\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0013969419&office_id=003&code=117670&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.05.27"
-        },
-        {
-          "title": "알파칩스, 글로벌 탑티어 반도체 기업과 자율주행 라이다 칩 개발",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0006291313&office_id=018&code=117670&page=&sm=",
-          "source": "이데일리",
-          "date": "2026.05.27"
-        },
-        {
           "title": "[이 시각 시황] 美 광통신주 강세에 관련주 '들썩'",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000514868&office_id=374&code=117670&page=&sm=",
           "source": "SBS Biz",
           "date": "2026.06.09"
+        },
+        {
+          "title": "삼성 파운드리 훈풍 타고…국내 DSP 5곳, 반년만에 작년 매출 70%...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002434879&office_id=092&code=117670&page=&sm=",
+          "source": "지디넷코리아",
+          "date": "2026.08.24"
+        },
+        {
+          "title": "D램값 상승에도 삼성·SK 급락…증권가는 “매수 기회” [칩칩폭폭]",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002386667&office_id=123&code=117670&page=&sm=",
+          "source": "조세일보",
+          "date": "2026.07.16"
         }
       ],
       "forward_score": 64,
@@ -917,12 +917,6 @@
       "rise_reason": "테마 관련 뉴스",
       "news": [
         {
-          "title": "[특징주] 국제유가 '100달러 돌파' SK이노·흥구석유 급등",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001057091&office_id=031&code=024060&page=&sm=",
-          "source": "아이뉴스24",
-          "date": "2026.09.10"
-        },
-        {
           "title": "국제유가 급등에 정유주 강세…흥구석유 22%↑",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001027699&office_id=088&code=024060&page=&sm=",
           "source": "매일신문",
@@ -965,15 +959,21 @@
           "date": "2026.09.10"
         },
         {
-          "title": "[특징주] 계속되는 중동 긴장·국제유가 상승세에…정유株 강세",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001190333&office_id=366&code=024060&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.09.04"
-        },
-        {
           "title": "100달러 돌파한 국제유가…정유주 ‘불기둥’ [특징주]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003131118&office_id=119&code=024060&page=&sm=",
           "source": "데일리안",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "“기름값 100달러 뚫자 주가도 출렁”…정유 뜨고 항공 울었다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005733398&office_id=009&code=024060&page=&sm=",
+          "source": "매일경제",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "\"SK하이닉스, 대외 변수 없었다면 200만원 초중반 반등…대형주 수급...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014183036&office_id=003&code=024060&page=&sm=",
+          "source": "뉴시스",
           "date": "2026.09.10"
         }
       ],
@@ -2745,13 +2745,13 @@
       "rise_reason": "FDA 관련 뉴스",
       "news": [
         {
-          "title": "페니트리움바이오, 美 FDA 승인 표적약 ‘다락손라십’과 오가노이드....",
+          "title": "페니트리움바이오, 美 FDA 승인 표적약 ‘다락손라십’과 오가노이드.....",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0006366185&office_id=018&code=187660&page=&sm=",
           "source": "이데일리",
           "date": "2026.09.09"
         },
         {
-          "title": "페니트리움바이오, 표적 항암제와 '페니트리움' 비교 1차 연구 결과 ...",
+          "title": "페니트리움바이오, 표적 항암제와 '페니트리움' 비교 1차 연구 결과 확...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005411294&office_id=008&code=187660&page=&sm=",
           "source": "머니투데이",
           "date": "2026.09.09"
@@ -2864,6 +2864,12 @@
           "date": "2026.09.10"
         },
         {
+          "title": "컴투스, SBS스포츠와 U-18 한국 야구 대표팀 경기 중계",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005733147&office_id=009&code=078340&page=&sm=",
+          "source": "매일경제",
+          "date": "2026.09.10"
+        },
+        {
           "title": "컴투스, SBS스포츠와 U-18 야구대표팀 경기 중계",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002240897&office_id=138&code=078340&page=&sm=",
           "source": "디지털데일리",
@@ -2873,12 +2879,6 @@
           "title": "컴투스, SBS스포츠와 '아시아청소년야구선수권' U-18 대표팀 경기...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0000256863&office_id=236&code=078340&page=&sm=",
           "source": "포모스",
-          "date": "2026.09.10"
-        },
-        {
-          "title": "컴투스, SBS스포츠와 U-18 한국 야구 대표팀 경기 중계",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005733147&office_id=009&code=078340&page=&sm=",
-          "source": "매일경제",
           "date": "2026.09.10"
         },
         {
@@ -3471,12 +3471,6 @@
           "date": "2026.07.14"
         },
         {
-          "title": "[특징주] 중동 긴장에 국제유가 급등…정유주 줄상승",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0016192589&office_id=001&code=004090&page=&sm=",
-          "source": "연합뉴스",
-          "date": "2026.07.14"
-        },
-        {
           "title": "100달러 돌파한 국제유가…정유주 ‘불기둥’ [특징주]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003131118&office_id=119&code=004090&page=&sm=",
           "source": "데일리안",
@@ -3505,6 +3499,12 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0004645395&office_id=011&code=004090&page=&sm=",
           "source": "서울경제",
           "date": "2026.07.27"
+        },
+        {
+          "title": "‘널뛰기’ 삼전닉스 ‘피난처’ 원유 ETN…이달 수익률 69% ‘껑충’",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003038965&office_id=029&code=004090&page=&sm=",
+          "source": "디지털타임스",
+          "date": "2026.07.26"
         }
       ],
       "forward_score": 50,
@@ -3842,7 +3842,7 @@
         "tl": 17,
         "ti": 9
       },
-      "rise_reason": "거래량 급증",
+      "rise_reason": "테마 관련 뉴스",
       "news": [
         {
           "title": "브렌트유 100달러 돌파…흥구석유 25%·중앙에너비스 17%↑[핫종목]",
@@ -3869,12 +3869,6 @@
           "date": "2026.09.10"
         },
         {
-          "title": "[특징주] 美·이란 교전 재개와 국제유가 폭등에… 정유株, 장 초반 ...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001189840&office_id=366&code=000440&page=&sm=",
-          "source": "조선비즈",
-          "date": "2026.09.02"
-        },
-        {
           "title": "100달러 돌파한 국제유가…정유주 ‘불기둥’ [특징주]",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0003131118&office_id=119&code=000440&page=&sm=",
           "source": "데일리안",
@@ -3896,6 +3890,12 @@
           "title": "\"SK하이닉스, 대외 변수 없었다면 200만원 초중반 반등…대형주 수급...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0014183036&office_id=003&code=000440&page=&sm=",
           "source": "뉴시스",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "국제유가 급등에 정유주 강세…흥구석유 22%↑",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001027699&office_id=088&code=000440&page=&sm=",
+          "source": "매일신문",
           "date": "2026.09.10"
         },
         {
@@ -4245,48 +4245,12 @@
         "tl": 28,
         "ti": 7
       },
-      "rise_reason": "공급 관련 뉴스",
+      "rise_reason": "협력 관련 뉴스",
       "news": [
         {
           "title": "HD현대, 2·3차 협력사까지 상생 확대… “대금 100% 현금 결제”",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0001872181&office_id=005&code=443060&page=&sm=",
           "source": "국민일보",
-          "date": "2026.09.10"
-        },
-        {
-          "title": "HD현대, 2·3차 협력사까지 상생 협력 확대",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000953383&office_id=469&code=443060&page=&sm=",
-          "source": "한국일보",
-          "date": "2026.09.10"
-        },
-        {
-          "title": "HD현대, 2·3차 협력사까지 상생협력 확대…\"지속가능 공급망\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003131380&office_id=119&code=443060&page=&sm=",
-          "source": "데일리안",
-          "date": "2026.09.10"
-        },
-        {
-          "title": "HD현대, 1·2·3차 협력사와 상생협약…경쟁력 강화",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0000532678&office_id=629&code=443060&page=&sm=",
-          "source": "더팩트",
-          "date": "2026.09.10"
-        },
-        {
-          "title": "HD현대도 협력사 상생협약…7500곳 금융 지원·비밀유지 의무화",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014182629&office_id=003&code=443060&page=&sm=",
-          "source": "뉴시스",
-          "date": "2026.09.10"
-        },
-        {
-          "title": "HD현대, 1·2·3차 협력사와 상생 강화…\"금융·기술지원 강화\"",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005412063&office_id=008&code=443060&page=&sm=",
-          "source": "머니투데이",
-          "date": "2026.09.10"
-        },
-        {
-          "title": "HD현대, 협력사들과 '상생협력을 위한 공동 협약' 체결",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005412061&office_id=008&code=443060&page=&sm=",
-          "source": "머니투데이",
           "date": "2026.09.10"
         },
         {
@@ -4296,15 +4260,51 @@
           "date": "2026.09.10"
         },
         {
+          "title": "HD현대중공업, ‘엔진·SMR’ 미래사업에 1조원 투자",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004157987&office_id=022&code=443060&page=&sm=",
+          "source": "세계일보",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "HD현대, 1·2·3차 협력사와 상생협력 확대…“7500곳 지원”",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001191642&office_id=366&code=443060&page=&sm=",
+          "source": "조선비즈",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "HD현대, 1·2·3차 협력사와 상생협약…7500곳 지원",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005814696&office_id=277&code=443060&page=&sm=",
+          "source": "아시아경제",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "HD현대도 협력사 상생협약…7500곳 금융 지원·비밀유지 의무화",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0014182629&office_id=003&code=443060&page=&sm=",
+          "source": "뉴시스",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "HD현대, 1·2·3차 협력사 7500곳에 상생 온기 확산",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0004660538&office_id=011&code=443060&page=&sm=",
+          "source": "서울경제",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "HD현대, 2·3차 협력사까지 상생 확대…7500개사 수혜 기대",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005574012&office_id=014&code=443060&page=&sm=",
+          "source": "파이낸셜뉴스",
+          "date": "2026.09.10"
+        },
+        {
           "title": "HD현대, 2·3차 협력사까지 상생협약 확대…대기업 6번째",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0009163255&office_id=421&code=443060&page=&sm=",
           "source": "뉴스1",
           "date": "2026.09.10"
         },
         {
-          "title": "HD현대, 1~3차 협력사와 '상생협약' 체결 \"지속가능한 공급망 구...",
-          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009163259&office_id=421&code=443060&page=&sm=",
-          "source": "뉴스1",
+          "title": "HD현대, 1·2·3차 협력사와 상생 강화…\"금융·기술지원 강화\"",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005412063&office_id=008&code=443060&page=&sm=",
+          "source": "머니투데이",
           "date": "2026.09.10"
         }
       ],
@@ -6646,6 +6646,42 @@
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0002240970&office_id=138&code=036930&page=&sm=",
           "source": "디지털데일리",
           "date": "2026.09.10"
+        },
+        {
+          "title": "'48.88%·45.88%·44.19%↑' 한 달 새 줄줄이…'형님' ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0001265560&office_id=215&code=036930&page=&sm=",
+          "source": "한국경제TV",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "모두가 삼전닉스 매달릴때…한 달 수익률 30% 뛴 'ETF 주인공' ...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0003465714&office_id=030&code=036930&page=&sm=",
+          "source": "전자신문",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "“삼전닉스만 샀다면 배 아플 만하네”…한 달 새 30% 뛴 반도체 장...",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005733304&office_id=009&code=036930&page=&sm=",
+          "source": "매일경제",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "ETF 수익률 상위 휩쓴 반도체…삼전닉스보다 '장비주' 날았다",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0009161620&office_id=421&code=036930&page=&sm=",
+          "source": "뉴스1",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "‘네 마녀의 심술’에도 잘 버틴 코스피…7000선 턱걸이 마감",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0005733402&office_id=009&code=036930&page=&sm=",
+          "source": "매일경제",
+          "date": "2026.09.10"
+        },
+        {
+          "title": "장중 흔들린 코스피, 7000선 턱걸이 마감…역대급 국제유가·금리불안....",
+          "link": "https://finance.naver.com/item/news_read.naver?article_id=0002695626&office_id=016&code=036930&page=&sm=",
+          "source": "헤럴드경제",
+          "date": "2026.09.10"
         }
       ],
       "forward_score": 52,
@@ -8464,7 +8500,7 @@
           "date": "2026.09.09"
         },
         {
-          "title": "\"지엔씨에너지, 신규수주 올해 4700억→2028년 1조원 전망\"-I...",
+          "title": "\"지엔씨에너지, 신규수주 올해 4700억→2028년 1조원 전망\"-IB...",
           "link": "https://finance.naver.com/item/news_read.naver?article_id=0005330302&office_id=015&code=119850&page=&sm=",
           "source": "한국경제",
           "date": "2026.09.09"
