@@ -1,0 +1,3990 @@
+{
+  "date": "20260930",
+  "collected_at": "2026-09-30T09:22:20",
+  "mode": "intraday",
+  "is_final": false,
+  "count": 100,
+  "version": 4,
+  "rankings": [
+    {
+      "rank": 1,
+      "ticker": "266690",
+      "name": "덕산넵코어스",
+      "market": "KOSDAQ",
+      "close_price": 28250,
+      "change_amount": 13650,
+      "change_rate": 93.49,
+      "trading_value": 136506000000,
+      "market_cap": 533752364250,
+      "sector": "우주항공과국방",
+      "industry_no": 284,
+      "high_52w": 28700,
+      "high_52w_date": "20260930",
+      "high_price": 28700,
+      "low_price": 25750,
+      "theme_tag": "드론(Drone)",
+      "theme_tags": [
+        "드론(Drone)",
+        "우주항공산업(누리호/인공위성 등)"
+      ],
+      "theme_no": 349,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 66,
+      "score_detail": {
+        "tp": 23,
+        "tl": 32,
+        "ti": 11
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 67,
+      "forward_bonus": 1,
+      "forward_detail": {
+        "small_size": 1,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 2,
+      "ticker": "097800",
+      "name": "윈팩",
+      "market": "KOSDAQ",
+      "close_price": 3035,
+      "change_amount": 700,
+      "change_rate": 29.98,
+      "trading_value": 447000000,
+      "market_cap": 82825286575,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 3765,
+      "high_52w_date": "20251014",
+      "high_price": 3035,
+      "low_price": 3035,
+      "theme_tag": "HBM(고대역폭메모리)",
+      "theme_tags": [
+        "HBM(고대역폭메모리)",
+        "시스템반도체"
+      ],
+      "theme_no": 536,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 47,
+      "score_detail": {
+        "tp": 8,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 53,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 3,
+      "ticker": "023790",
+      "name": "동일스틸럭스",
+      "market": "KOSDAQ",
+      "close_price": 1729,
+      "change_amount": 372,
+      "change_rate": 27.41,
+      "trading_value": 1134000000,
+      "market_cap": 22597698032,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 7135,
+      "high_52w_date": "20251024",
+      "high_price": 1764,
+      "low_price": 1450,
+      "theme_tag": "철강 중소형",
+      "theme_tags": [
+        "철강 중소형"
+      ],
+      "theme_no": 72,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 17,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 4,
+      "ticker": "005030",
+      "name": "부산주공",
+      "market": "KOSPI",
+      "close_price": 46,
+      "change_amount": 9,
+      "change_rate": 24.32,
+      "trading_value": 51000000,
+      "market_cap": 4268017448,
+      "sector": "자동차부품",
+      "industry_no": 270,
+      "high_52w": 50,
+      "high_52w_date": "20260929",
+      "high_price": 46,
+      "low_price": 46,
+      "theme_tag": "거래량",
+      "theme_tags": [
+        "거래량"
+      ],
+      "theme_no": null,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 57,
+      "score_detail": {
+        "tp": 18,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 63,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 5,
+      "ticker": "123010",
+      "name": "MSDI",
+      "market": "KOSDAQ",
+      "close_price": 4320,
+      "change_amount": 655,
+      "change_rate": 17.87,
+      "trading_value": 354000000,
+      "market_cap": 87332113440,
+      "sector": "핸드셋",
+      "industry_no": 292,
+      "high_52w": 6274,
+      "high_52w_date": "20260522",
+      "high_price": 4370,
+      "low_price": 3665,
+      "theme_tag": "카메라모듈/부품",
+      "theme_tags": [
+        "카메라모듈/부품",
+        "양자암호/양자컴퓨팅"
+      ],
+      "theme_no": 41,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 69,
+      "score_detail": {
+        "tp": 17,
+        "tl": 45,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 75,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 6,
+      "ticker": "010280",
+      "name": "아이티센엔텍",
+      "market": "KOSDAQ",
+      "close_price": 6010,
+      "change_amount": 870,
+      "change_rate": 16.93,
+      "trading_value": 667000000,
+      "market_cap": 78278789570,
+      "sector": "IT서비스",
+      "industry_no": 267,
+      "high_52w": 7950,
+      "high_52w_date": "20260515",
+      "high_price": 6640,
+      "low_price": 5220,
+      "theme_tag": "방위산업/전쟁 및 테러",
+      "theme_tags": [
+        "방위산업/전쟁 및 테러",
+        "클라우드 컴퓨팅"
+      ],
+      "theme_no": 144,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 53,
+      "score_detail": {
+        "tp": 14,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 59,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 7,
+      "ticker": "053260",
+      "name": "금강철강",
+      "market": "KOSDAQ",
+      "close_price": 7710,
+      "change_amount": 1100,
+      "change_rate": 16.64,
+      "trading_value": 7897000000,
+      "market_cap": 144331200000,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 9170,
+      "high_52w_date": "20260911",
+      "high_price": 7870,
+      "low_price": 7120,
+      "theme_tag": "철강 중소형",
+      "theme_tags": [
+        "철강 중소형"
+      ],
+      "theme_no": 72,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 52,
+      "score_detail": {
+        "tp": 17,
+        "tl": 28,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 56,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 8,
+      "ticker": "012170",
+      "name": "아센디오",
+      "market": "KOSPI",
+      "close_price": 3245,
+      "change_amount": 390,
+      "change_rate": 13.66,
+      "trading_value": 22000000,
+      "market_cap": 23677859645,
+      "sector": "방송과엔터테인먼트",
+      "industry_no": 285,
+      "high_52w": 4755,
+      "high_52w_date": "20260828",
+      "high_price": 3265,
+      "low_price": 2960,
+      "theme_tag": "초전도체",
+      "theme_tags": [
+        "초전도체",
+        "영화"
+      ],
+      "theme_no": 537,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 49,
+      "score_detail": {
+        "tp": 10,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 55,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 9,
+      "ticker": "162300",
+      "name": "신스틸",
+      "market": "KOSDAQ",
+      "close_price": 2380,
+      "change_amount": 275,
+      "change_rate": 13.06,
+      "trading_value": 3296000000,
+      "market_cap": 98701889160,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 3155,
+      "high_52w_date": "20260909",
+      "high_price": 2420,
+      "low_price": 2280,
+      "theme_tag": "철강 중소형",
+      "theme_tags": [
+        "철강 중소형"
+      ],
+      "theme_no": 72,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 42,
+      "score_detail": {
+        "tp": 17,
+        "tl": 18,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 48,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 10,
+      "ticker": "452280",
+      "name": "한선엔지니어링",
+      "market": "KOSDAQ",
+      "close_price": 13920,
+      "change_amount": 1490,
+      "change_rate": 11.99,
+      "trading_value": 9894000000,
+      "market_cap": 267927566400,
+      "sector": "기계",
+      "industry_no": 299,
+      "high_52w": 37300,
+      "high_52w_date": "20260522",
+      "high_price": 14090,
+      "low_price": 13300,
+      "theme_tag": "고체산화물 연료전지(SOFC)",
+      "theme_tags": [
+        "고체산화물 연료전지(SOFC)",
+        "피팅(관이음쇠)/밸브"
+      ],
+      "theme_no": 559,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 46,
+      "score_detail": {
+        "tp": 10,
+        "tl": 29,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 50,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 11,
+      "ticker": "049120",
+      "name": "파인디앤씨",
+      "market": "KOSDAQ",
+      "close_price": 3100,
+      "change_amount": 325,
+      "change_rate": 11.71,
+      "trading_value": 0,
+      "market_cap": 32865155300,
+      "sector": "디스플레이장비및부품",
+      "industry_no": 269,
+      "high_52w": 5245,
+      "high_52w_date": "20260331",
+      "high_price": 3100,
+      "low_price": 3100,
+      "theme_tag": "OLED(유기 발광 다이오드)",
+      "theme_tags": [
+        "OLED(유기 발광 다이오드)"
+      ],
+      "theme_no": 9,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 34,
+      "score_detail": {
+        "tp": 6,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 40,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 12,
+      "ticker": "126340",
+      "name": "비나텍",
+      "market": "KOSDAQ",
+      "close_price": 93700,
+      "change_amount": 9400,
+      "change_rate": 11.15,
+      "trading_value": 5067000000,
+      "market_cap": 672804791800,
+      "sector": "전기장비",
+      "industry_no": 306,
+      "high_52w": 204500,
+      "high_52w_date": "20260506",
+      "high_price": 96400,
+      "low_price": 91600,
+      "theme_tag": "고체산화물 연료전지(SOFC)",
+      "theme_tags": [
+        "고체산화물 연료전지(SOFC)",
+        "전력저장장치(ESS)"
+      ],
+      "theme_no": 559,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 38,
+      "score_detail": {
+        "tp": 10,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 42,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 13,
+      "ticker": "240600",
+      "name": "유진테크놀로지",
+      "market": "KOSDAQ",
+      "close_price": 990,
+      "change_amount": 98,
+      "change_rate": 10.99,
+      "trading_value": 5000000,
+      "market_cap": 8216415900,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 4173,
+      "high_52w_date": "20251017",
+      "high_price": 999,
+      "low_price": 988,
+      "theme_tag": "리비안(RIVIAN)",
+      "theme_tags": [
+        "리비안(RIVIAN)",
+        "2차전지(소재/부품)"
+      ],
+      "theme_no": 501,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 36,
+      "score_detail": {
+        "tp": 8,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 42,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 14,
+      "ticker": "102120",
+      "name": "어보브반도체",
+      "market": "KOSDAQ",
+      "close_price": 8650,
+      "change_amount": 850,
+      "change_rate": 10.9,
+      "trading_value": 963000000,
+      "market_cap": 153803513450,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 16850,
+      "high_52w_date": "20260506",
+      "high_price": 9220,
+      "low_price": 7950,
+      "theme_tag": "전력반도체",
+      "theme_tags": [
+        "전력반도체",
+        "온디바이스 AI"
+      ],
+      "theme_no": 533,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 15,
+      "ticker": "417200",
+      "name": "LS머트리얼즈",
+      "market": "KOSDAQ",
+      "close_price": 14430,
+      "change_amount": 1370,
+      "change_rate": 10.49,
+      "trading_value": 6731000000,
+      "market_cap": 976227869370,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 32725,
+      "high_52w_date": "20260429",
+      "high_price": 14480,
+      "low_price": 13380,
+      "theme_tag": "고체산화물 연료전지(SOFC)",
+      "theme_tags": [
+        "고체산화물 연료전지(SOFC)",
+        "풍력에너지"
+      ],
+      "theme_no": 559,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 35,
+      "score_detail": {
+        "tp": 10,
+        "tl": 18,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 39,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 16,
+      "ticker": "382900",
+      "name": "범한퓨얼셀",
+      "market": "KOSDAQ",
+      "close_price": 25300,
+      "change_amount": 2400,
+      "change_rate": 10.48,
+      "trading_value": 1053000000,
+      "market_cap": 221653300000,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 44200,
+      "high_52w_date": "20251030",
+      "high_price": 26200,
+      "low_price": 25200,
+      "theme_tag": "고체산화물 연료전지(SOFC)",
+      "theme_tags": [
+        "고체산화물 연료전지(SOFC)",
+        "조선기자재"
+      ],
+      "theme_no": 559,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 27,
+      "score_detail": {
+        "tp": 10,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 33,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 17,
+      "ticker": "054540",
+      "name": "삼영엠텍",
+      "market": "KOSDAQ",
+      "close_price": 7200,
+      "change_amount": 650,
+      "change_rate": 9.92,
+      "trading_value": 273000000,
+      "market_cap": 93600000000,
+      "sector": "조선",
+      "industry_no": 291,
+      "high_52w": 22800,
+      "high_52w_date": "20251023",
+      "high_price": 7260,
+      "low_price": 6610,
+      "theme_tag": "조선기자재",
+      "theme_tags": [
+        "조선기자재",
+        "원자력발전"
+      ],
+      "theme_no": 94,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 39,
+      "score_detail": {
+        "tp": 11,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 45,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 18,
+      "ticker": "008970",
+      "name": "KBI동양철관",
+      "market": "KOSPI",
+      "close_price": 1248,
+      "change_amount": 107,
+      "change_rate": 9.38,
+      "trading_value": 1232000000,
+      "market_cap": 129501099936,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 2970,
+      "high_52w_date": "20251030",
+      "high_price": 1295,
+      "low_price": 1221,
+      "theme_tag": "남-북-러 가스관사업",
+      "theme_tags": [
+        "남-북-러 가스관사업",
+        "강관업체(Steel pipe)"
+      ],
+      "theme_no": 313,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 42,
+      "score_detail": {
+        "tp": 10,
+        "tl": 25,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 48,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 19,
+      "ticker": "002710",
+      "name": "TCC스틸",
+      "market": "KOSPI",
+      "close_price": 12270,
+      "change_amount": 1030,
+      "change_rate": 9.16,
+      "trading_value": 1966000000,
+      "market_cap": 321642062190,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 22950,
+      "high_52w_date": "20260429",
+      "high_price": 12700,
+      "low_price": 12130,
+      "theme_tag": "철강 중소형",
+      "theme_tags": [
+        "철강 중소형",
+        "리비안(RIVIAN)"
+      ],
+      "theme_no": 72,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 34,
+      "score_detail": {
+        "tp": 17,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 40,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 20,
+      "ticker": "050090",
+      "name": "비케이홀딩스",
+      "market": "KOSDAQ",
+      "close_price": 541,
+      "change_amount": 45,
+      "change_rate": 9.07,
+      "trading_value": 72000000,
+      "market_cap": 12732291635,
+      "sector": "광고",
+      "industry_no": 310,
+      "high_52w": 1196,
+      "high_52w_date": "20260113",
+      "high_price": 620,
+      "low_price": 512,
+      "theme_tag": "광고",
+      "theme_tags": [
+        "광고"
+      ],
+      "theme_no": 59,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 48,
+      "score_detail": {
+        "tp": 9,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 54,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 21,
+      "ticker": "224060",
+      "name": "더코디",
+      "market": "KOSDAQ",
+      "close_price": 5230,
+      "change_amount": 425,
+      "change_rate": 8.84,
+      "trading_value": 437000000,
+      "market_cap": 26990576060,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 12750,
+      "high_52w_date": "20260911",
+      "high_price": 5400,
+      "low_price": 4600,
+      "theme_tag": "반도체 장비",
+      "theme_tags": [
+        "반도체 장비",
+        "면역항암제"
+      ],
+      "theme_no": 12,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 41,
+      "score_detail": {
+        "tp": 13,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 47,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 22,
+      "ticker": "457190",
+      "name": "이수스페셜티케미컬",
+      "market": "KOSPI",
+      "close_price": 74000,
+      "change_amount": 6000,
+      "change_rate": 8.82,
+      "trading_value": 5317000000,
+      "market_cap": 2236196528000,
+      "sector": "화학",
+      "industry_no": 272,
+      "high_52w": 131800,
+      "high_52w_date": "20260423",
+      "high_price": 74700,
+      "low_price": 71500,
+      "theme_tag": "2차전지",
+      "theme_tags": [
+        "2차전지",
+        "2차전지(전고체)"
+      ],
+      "theme_no": 64,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 47,
+      "score_detail": {
+        "tp": 8,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 23,
+      "ticker": "441270",
+      "name": "파인엠텍",
+      "market": "KOSDAQ",
+      "close_price": 9590,
+      "change_amount": 750,
+      "change_rate": 8.48,
+      "trading_value": 3182000000,
+      "market_cap": 405585314750,
+      "sector": "핸드셋",
+      "industry_no": 292,
+      "high_52w": 12420,
+      "high_52w_date": "20260417",
+      "high_price": 9660,
+      "low_price": 9190,
+      "theme_tag": "폴더블폰",
+      "theme_tags": [
+        "폴더블폰"
+      ],
+      "theme_no": 404,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 24,
+      "ticker": "018880",
+      "name": "한온시스템",
+      "market": "KOSPI",
+      "close_price": 3465,
+      "change_amount": 265,
+      "change_rate": 8.28,
+      "trading_value": 6502000000,
+      "market_cap": 3555960900030,
+      "sector": "자동차부품",
+      "industry_no": 270,
+      "high_52w": 5940,
+      "high_52w_date": "20260527",
+      "high_price": 3470,
+      "low_price": 3250,
+      "theme_tag": "자동차 대표주",
+      "theme_tags": [
+        "자동차 대표주",
+        "수소에너지(수소차/연료전지 등)"
+      ],
+      "theme_no": 159,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "신사업 가시화",
+      "news": [],
+      "forward_score": 49,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 25,
+      "ticker": "215480",
+      "name": "토박스코리아",
+      "market": "KOSDAQ",
+      "close_price": 2115,
+      "change_amount": 161,
+      "change_rate": 8.24,
+      "trading_value": 11000000,
+      "market_cap": 22715100000,
+      "sector": "섬유,의류,신발,호화품",
+      "industry_no": 274,
+      "high_52w": 2455,
+      "high_52w_date": "20260520",
+      "high_price": 2125,
+      "low_price": 2050,
+      "theme_tag": "패션/의류",
+      "theme_tags": [
+        "패션/의류",
+        "출산장려정책"
+      ],
+      "theme_no": 32,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 39,
+      "score_detail": {
+        "tp": 11,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 45,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 26,
+      "ticker": "025560",
+      "name": "미래산업",
+      "market": "KOSPI",
+      "close_price": 8170,
+      "change_amount": 620,
+      "change_rate": 8.21,
+      "trading_value": 929000000,
+      "market_cap": 226951799260,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 13400,
+      "high_52w_date": "20260701",
+      "high_price": 8360,
+      "low_price": 7560,
+      "theme_tag": "반도체 장비",
+      "theme_tags": [
+        "반도체 장비",
+        "리튬"
+      ],
+      "theme_no": 12,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 37,
+      "score_detail": {
+        "tp": 13,
+        "tl": 17,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 43,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 27,
+      "ticker": "071090",
+      "name": "하이스틸",
+      "market": "KOSPI",
+      "close_price": 3565,
+      "change_amount": 270,
+      "change_rate": 8.19,
+      "trading_value": 3693000000,
+      "market_cap": 71982594115,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 5680,
+      "high_52w_date": "20260428",
+      "high_price": 3730,
+      "low_price": 3450,
+      "theme_tag": "남-북-러 가스관사업",
+      "theme_tags": [
+        "남-북-러 가스관사업",
+        "강관업체(Steel pipe)"
+      ],
+      "theme_no": 313,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 10,
+        "tl": 28,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 28,
+      "ticker": "290090",
+      "name": "트윔",
+      "market": "KOSDAQ",
+      "close_price": 4775,
+      "change_amount": 360,
+      "change_rate": 8.15,
+      "trading_value": 0,
+      "market_cap": 35528712200,
+      "sector": "소프트웨어",
+      "industry_no": 287,
+      "high_52w": 8450,
+      "high_52w_date": "20251001",
+      "high_price": 4785,
+      "low_price": 4420,
+      "theme_tag": "스마트팩토리(스마트공장)",
+      "theme_tags": [
+        "스마트팩토리(스마트공장)",
+        "지능형로봇/인공지능(AI)"
+      ],
+      "theme_no": 392,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 34,
+      "score_detail": {
+        "tp": 6,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 40,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 29,
+      "ticker": "382800",
+      "name": "지앤비에스 에코",
+      "market": "KOSDAQ",
+      "close_price": 5770,
+      "change_amount": 430,
+      "change_rate": 8.05,
+      "trading_value": 1665000000,
+      "market_cap": 183665106570,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 10150,
+      "high_52w_date": "20260515",
+      "high_price": 5820,
+      "low_price": 5430,
+      "theme_tag": "반도체 장비",
+      "theme_tags": [
+        "반도체 장비",
+        "태양광에너지"
+      ],
+      "theme_no": 12,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 34,
+      "score_detail": {
+        "tp": 13,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 40,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 30,
+      "ticker": "347860",
+      "name": "알체라",
+      "market": "KOSDAQ",
+      "close_price": 1648,
+      "change_amount": 122,
+      "change_rate": 7.99,
+      "trading_value": 636000000,
+      "market_cap": 69469210256,
+      "sector": "소프트웨어",
+      "industry_no": 287,
+      "high_52w": 3235,
+      "high_52w_date": "20260428",
+      "high_price": 1831,
+      "low_price": 1570,
+      "theme_tag": "메타버스(Metaverse)",
+      "theme_tags": [
+        "메타버스(Metaverse)",
+        "딥페이크(deepfake)"
+      ],
+      "theme_no": 480,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 31,
+      "ticker": "006200",
+      "name": "한국전자홀딩스",
+      "market": "KOSPI",
+      "close_price": 1980,
+      "change_amount": 145,
+      "change_rate": 7.9,
+      "trading_value": 0,
+      "market_cap": 18534041460,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 5590,
+      "high_52w_date": "20260325",
+      "high_price": 1987,
+      "low_price": 1968,
+      "theme_tag": "쿠팡(coupang)",
+      "theme_tags": [
+        "쿠팡(coupang)",
+        "지주사"
+      ],
+      "theme_no": 474,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 35,
+      "score_detail": {
+        "tp": 7,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 41,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 32,
+      "ticker": "089970",
+      "name": "브이엠",
+      "market": "KOSDAQ",
+      "close_price": 65700,
+      "change_amount": 4700,
+      "change_rate": 7.7,
+      "trading_value": 4920000000,
+      "market_cap": 1729668460500,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 122100,
+      "high_52w_date": "20260701",
+      "high_price": 66200,
+      "low_price": 62400,
+      "theme_tag": "반도체 장비",
+      "theme_tags": [
+        "반도체 장비"
+      ],
+      "theme_no": 12,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 30,
+      "score_detail": {
+        "tp": 13,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 36,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 33,
+      "ticker": "003030",
+      "name": "세아제강지주",
+      "market": "KOSPI",
+      "close_price": 119600,
+      "change_amount": 8400,
+      "change_rate": 7.55,
+      "trading_value": 372000000,
+      "market_cap": 495342177200,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 260000,
+      "high_52w_date": "20260403",
+      "high_price": 120800,
+      "low_price": 117800,
+      "theme_tag": "풍력에너지",
+      "theme_tags": [
+        "풍력에너지",
+        "지주사"
+      ],
+      "theme_no": 188,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 34,
+      "ticker": "306200",
+      "name": "세아제강",
+      "market": "KOSPI",
+      "close_price": 157000,
+      "change_amount": 10800,
+      "change_rate": 7.39,
+      "trading_value": 733000000,
+      "market_cap": 445299100000,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 189000,
+      "high_52w_date": "20260428",
+      "high_price": 158100,
+      "low_price": 153800,
+      "theme_tag": "남-북-러 가스관사업",
+      "theme_tags": [
+        "남-북-러 가스관사업",
+        "강관업체(Steel pipe)"
+      ],
+      "theme_no": 313,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 31,
+      "score_detail": {
+        "tp": 10,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 37,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 35,
+      "ticker": "464580",
+      "name": "닷밀",
+      "market": "KOSDAQ",
+      "close_price": 1656,
+      "change_amount": 112,
+      "change_rate": 7.25,
+      "trading_value": 1000000,
+      "market_cap": 30480483384,
+      "sector": "방송과엔터테인먼트",
+      "industry_no": 285,
+      "high_52w": 3110,
+      "high_52w_date": "20251029",
+      "high_price": 1665,
+      "low_price": 1544,
+      "theme_tag": "테마파크",
+      "theme_tags": [
+        "테마파크"
+      ],
+      "theme_no": 181,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 61,
+      "score_detail": {
+        "tp": 9,
+        "tl": 45,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 67,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 36,
+      "ticker": "141000",
+      "name": "비아트론",
+      "market": "KOSDAQ",
+      "close_price": 10360,
+      "change_amount": 670,
+      "change_rate": 6.91,
+      "trading_value": 587000000,
+      "market_cap": 125508395600,
+      "sector": "디스플레이장비및부품",
+      "industry_no": 269,
+      "high_52w": 12890,
+      "high_52w_date": "20260506",
+      "high_price": 10790,
+      "low_price": 10170,
+      "theme_tag": "플렉서블 디스플레이",
+      "theme_tags": [
+        "플렉서블 디스플레이",
+        "OLED(유기 발광 다이오드)"
+      ],
+      "theme_no": 382,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 37,
+      "ticker": "403870",
+      "name": "HPSP",
+      "market": "KOSDAQ",
+      "close_price": 65200,
+      "change_amount": 4200,
+      "change_rate": 6.89,
+      "trading_value": 40315000000,
+      "market_cap": 5365960000000,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 92000,
+      "high_52w_date": "20260615",
+      "high_price": 66000,
+      "low_price": 60100,
+      "theme_tag": "반도체 장비",
+      "theme_tags": [
+        "반도체 장비",
+        "온디바이스 AI"
+      ],
+      "theme_no": 12,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 41,
+      "score_detail": {
+        "tp": 13,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "반도체주 강세",
+      "news": [],
+      "forward_score": 43,
+      "forward_bonus": 2,
+      "forward_detail": {
+        "small_size": 2,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 38,
+      "ticker": "101360",
+      "name": "에코앤드림",
+      "market": "KOSDAQ",
+      "close_price": 8040,
+      "change_amount": 500,
+      "change_rate": 6.63,
+      "trading_value": 421000000,
+      "market_cap": 143000356560,
+      "sector": "화학",
+      "industry_no": 272,
+      "high_52w": 26900,
+      "high_52w_date": "20251027",
+      "high_price": 8220,
+      "low_price": 7930,
+      "theme_tag": "2차전지(소재/부품)",
+      "theme_tags": [
+        "2차전지(소재/부품)",
+        "2차전지"
+      ],
+      "theme_no": 446,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 42,
+      "score_detail": {
+        "tp": 10,
+        "tl": 25,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 48,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 39,
+      "ticker": "450950",
+      "name": "아스테라시스",
+      "market": "KOSDAQ",
+      "close_price": 5960,
+      "change_amount": 360,
+      "change_rate": 6.43,
+      "trading_value": 584000000,
+      "market_cap": 224260448320,
+      "sector": "건강관리장비와용품",
+      "industry_no": 281,
+      "high_52w": 17480,
+      "high_52w_date": "20251020",
+      "high_price": 6200,
+      "low_price": 5940,
+      "theme_tag": "미용기기",
+      "theme_tags": [
+        "미용기기",
+        "의료기기"
+      ],
+      "theme_no": 513,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 48,
+      "score_detail": {
+        "tp": 9,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 54,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 40,
+      "ticker": "005010",
+      "name": "휴스틸",
+      "market": "KOSPI",
+      "close_price": 4085,
+      "change_amount": 245,
+      "change_rate": 6.38,
+      "trading_value": 821000000,
+      "market_cap": 229528286375,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 7300,
+      "high_52w_date": "20260429",
+      "high_price": 4220,
+      "low_price": 4050,
+      "theme_tag": "남-북-러 가스관사업",
+      "theme_tags": [
+        "남-북-러 가스관사업",
+        "강관업체(Steel pipe)"
+      ],
+      "theme_no": 313,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 27,
+      "score_detail": {
+        "tp": 10,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 33,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 41,
+      "ticker": "092790",
+      "name": "넥스틸",
+      "market": "KOSPI",
+      "close_price": 14040,
+      "change_amount": 840,
+      "change_rate": 6.36,
+      "trading_value": 4008000000,
+      "market_cap": 365068080000,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 23000,
+      "high_52w_date": "20260507",
+      "high_price": 14500,
+      "low_price": 13960,
+      "theme_tag": "강관업체(Steel pipe)",
+      "theme_tags": [
+        "강관업체(Steel pipe)",
+        "철강 중소형"
+      ],
+      "theme_no": 223,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 46,
+      "score_detail": {
+        "tp": 7,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 52,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 42,
+      "ticker": "005160",
+      "name": "동국산업",
+      "market": "KOSDAQ",
+      "close_price": 3465,
+      "change_amount": 205,
+      "change_rate": 6.29,
+      "trading_value": 919000000,
+      "market_cap": 187957130130,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 3980,
+      "high_52w_date": "20260922",
+      "high_price": 3525,
+      "low_price": 3310,
+      "theme_tag": "철강 중소형",
+      "theme_tags": [
+        "철강 중소형",
+        "풍력에너지"
+      ],
+      "theme_no": 72,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 34,
+      "score_detail": {
+        "tp": 17,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 40,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 43,
+      "ticker": "37550L",
+      "name": "DL이앤씨2우(전환)",
+      "market": "KOSPI",
+      "close_price": 51700,
+      "change_amount": 3000,
+      "change_rate": 6.16,
+      "trading_value": 0,
+      "market_cap": 109187866700,
+      "sector": "건설",
+      "industry_no": 279,
+      "high_52w": 62900,
+      "high_52w_date": "20260428",
+      "high_price": 51700,
+      "low_price": 51200,
+      "theme_tag": "거래량",
+      "theme_tags": [
+        "거래량"
+      ],
+      "theme_no": null,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 42,
+      "score_detail": {
+        "tp": 18,
+        "tl": 17,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 48,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 44,
+      "ticker": "140860",
+      "name": "파크시스템스",
+      "market": "KOSDAQ",
+      "close_price": 286500,
+      "change_amount": 16500,
+      "change_rate": 6.11,
+      "trading_value": 1586000000,
+      "market_cap": 2006207368500,
+      "sector": "전자장비와기기",
+      "industry_no": 282,
+      "high_52w": 350500,
+      "high_52w_date": "20260512",
+      "high_price": 287000,
+      "low_price": 274500,
+      "theme_tag": "반도체 장비",
+      "theme_tags": [
+        "반도체 장비"
+      ],
+      "theme_no": 12,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 30,
+      "score_detail": {
+        "tp": 13,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 36,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 45,
+      "ticker": "023160",
+      "name": "태광",
+      "market": "KOSDAQ",
+      "close_price": 29050,
+      "change_amount": 1650,
+      "change_rate": 6.02,
+      "trading_value": 2429000000,
+      "market_cap": 751443380100,
+      "sector": "기계",
+      "industry_no": 299,
+      "high_52w": 51300,
+      "high_52w_date": "20260424",
+      "high_price": 29650,
+      "low_price": 28750,
+      "theme_tag": "피팅(관이음쇠)/밸브",
+      "theme_tags": [
+        "피팅(관이음쇠)/밸브",
+        "조선기자재"
+      ],
+      "theme_no": 520,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 47,
+      "score_detail": {
+        "tp": 8,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 53,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 46,
+      "ticker": "089890",
+      "name": "코세스",
+      "market": "KOSDAQ",
+      "close_price": 34400,
+      "change_amount": 1900,
+      "change_rate": 5.85,
+      "trading_value": 983000000,
+      "market_cap": 570522692800,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 51400,
+      "high_52w_date": "20260504",
+      "high_price": 35150,
+      "low_price": 34150,
+      "theme_tag": "고체산화물 연료전지(SOFC)",
+      "theme_tags": [
+        "고체산화물 연료전지(SOFC)",
+        "반도체 장비"
+      ],
+      "theme_no": 559,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 27,
+      "score_detail": {
+        "tp": 10,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 33,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 47,
+      "ticker": "001440",
+      "name": "대한전선",
+      "market": "KOSPI",
+      "close_price": 31200,
+      "change_amount": 1700,
+      "change_rate": 5.76,
+      "trading_value": 12131000000,
+      "market_cap": 6114968995200,
+      "sector": "전기장비",
+      "industry_no": 306,
+      "high_52w": 75900,
+      "high_52w_date": "20260511",
+      "high_price": 31400,
+      "low_price": 30050,
+      "theme_tag": "전선",
+      "theme_tags": [
+        "전선",
+        "원자력발전"
+      ],
+      "theme_no": 178,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 49,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 48,
+      "ticker": "084650",
+      "name": "랩지노믹스",
+      "market": "KOSDAQ",
+      "close_price": 2670,
+      "change_amount": 145,
+      "change_rate": 5.74,
+      "trading_value": 73000000,
+      "market_cap": 39644154660,
+      "sector": "생명과학도구및서비스",
+      "industry_no": 262,
+      "high_52w": 12725,
+      "high_52w_date": "20251028",
+      "high_price": 2800,
+      "low_price": 2580,
+      "theme_tag": "마이크로바이옴",
+      "theme_tags": [
+        "마이크로바이옴",
+        "마이크로바이옴"
+      ],
+      "theme_no": 470,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 49,
+      "ticker": "043260",
+      "name": "성호전자",
+      "market": "KOSDAQ",
+      "close_price": 25000,
+      "change_amount": 1350,
+      "change_rate": 5.71,
+      "trading_value": 9575000000,
+      "market_cap": 1886296200000,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 59600,
+      "high_52w_date": "20260311",
+      "high_price": 25400,
+      "low_price": 24600,
+      "theme_tag": "광통신(광케이블/광섬유 등)",
+      "theme_tags": [
+        "광통신(광케이블/광섬유 등)",
+        "전기차"
+      ],
+      "theme_no": 586,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 49,
+      "score_detail": {
+        "tp": 10,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 53,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 50,
+      "ticker": "001120",
+      "name": "LX인터내셔널",
+      "market": "KOSPI",
+      "close_price": 42700,
+      "change_amount": 2300,
+      "change_rate": 5.69,
+      "trading_value": 829000000,
+      "market_cap": 1655052000000,
+      "sector": "무역회사와판매업체",
+      "industry_no": 334,
+      "high_52w": 57700,
+      "high_52w_date": "20260429",
+      "high_price": 43500,
+      "low_price": 40600,
+      "theme_tag": "종합상사",
+      "theme_tags": [
+        "종합상사",
+        "자원개발"
+      ],
+      "theme_no": 325,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 51,
+      "ticker": "006110",
+      "name": "삼아알미늄",
+      "market": "KOSPI",
+      "close_price": 61400,
+      "change_amount": 3300,
+      "change_rate": 5.68,
+      "trading_value": 725000000,
+      "market_cap": 928580137000,
+      "sector": "비철금속",
+      "industry_no": 322,
+      "high_52w": 104600,
+      "high_52w_date": "20260514",
+      "high_price": 62200,
+      "low_price": 59900,
+      "theme_tag": "2차전지(소재/부품)",
+      "theme_tags": [
+        "2차전지(소재/부품)",
+        "2차전지"
+      ],
+      "theme_no": 446,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 42,
+      "score_detail": {
+        "tp": 10,
+        "tl": 25,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 48,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 52,
+      "ticker": "232140",
+      "name": "와이씨",
+      "market": "KOSDAQ",
+      "close_price": 15020,
+      "change_amount": 790,
+      "change_rate": 5.55,
+      "trading_value": 10627000000,
+      "market_cap": 1232321157000,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 24150,
+      "high_52w_date": "20260507",
+      "high_price": 15450,
+      "low_price": 14230,
+      "theme_tag": "HBM(고대역폭메모리)",
+      "theme_tags": [
+        "HBM(고대역폭메모리)",
+        "반도체 장비"
+      ],
+      "theme_no": 536,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 43,
+      "score_detail": {
+        "tp": 8,
+        "tl": 28,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 47,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 53,
+      "ticker": "054780",
+      "name": "키이스트",
+      "market": "KOSDAQ",
+      "close_price": 1871,
+      "change_amount": 96,
+      "change_rate": 5.41,
+      "trading_value": 24000000,
+      "market_cap": 36779730703,
+      "sector": "방송과엔터테인먼트",
+      "industry_no": 285,
+      "high_52w": 6270,
+      "high_52w_date": "20251016",
+      "high_price": 1900,
+      "low_price": 1776,
+      "theme_tag": "엔터테인먼트",
+      "theme_tags": [
+        "엔터테인먼트",
+        "영상콘텐츠"
+      ],
+      "theme_no": 128,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 48,
+      "score_detail": {
+        "tp": 9,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 54,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 54,
+      "ticker": "178320",
+      "name": "서진시스템",
+      "market": "KOSDAQ",
+      "close_price": 38950,
+      "change_amount": 2000,
+      "change_rate": 5.41,
+      "trading_value": 8329000000,
+      "market_cap": 2482029896550,
+      "sector": "전기장비",
+      "industry_no": 306,
+      "high_52w": 83300,
+      "high_52w_date": "20260528",
+      "high_price": 39250,
+      "low_price": 37400,
+      "theme_tag": "고체산화물 연료전지(SOFC)",
+      "theme_tags": [
+        "고체산화물 연료전지(SOFC)",
+        "반도체 장비"
+      ],
+      "theme_no": 559,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 31,
+      "score_detail": {
+        "tp": 10,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 35,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 55,
+      "ticker": "412350",
+      "name": "레이저쎌",
+      "market": "KOSDAQ",
+      "close_price": 6290,
+      "change_amount": 320,
+      "change_rate": 5.36,
+      "trading_value": 283000000,
+      "market_cap": 91853140470,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 14640,
+      "high_52w_date": "20260518",
+      "high_price": 6380,
+      "low_price": 6000,
+      "theme_tag": "HBM(고대역폭메모리)",
+      "theme_tags": [
+        "HBM(고대역폭메모리)",
+        "LED장비"
+      ],
+      "theme_no": 536,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 29,
+      "score_detail": {
+        "tp": 8,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 35,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 56,
+      "ticker": "475960",
+      "name": "토모큐브",
+      "market": "KOSDAQ",
+      "close_price": 33500,
+      "change_amount": 1700,
+      "change_rate": 5.35,
+      "trading_value": 429000000,
+      "market_cap": 451451829000,
+      "sector": "생명과학도구및서비스",
+      "industry_no": 262,
+      "high_52w": 67800,
+      "high_52w_date": "20260225",
+      "high_price": 33900,
+      "low_price": 32000,
+      "theme_tag": "오가노이드",
+      "theme_tags": [
+        "오가노이드"
+      ],
+      "theme_no": 597,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 57,
+      "ticker": "047050",
+      "name": "포스코인터내셔널",
+      "market": "KOSPI",
+      "close_price": 57300,
+      "change_amount": 2900,
+      "change_rate": 5.33,
+      "trading_value": 3808000000,
+      "market_cap": 10080375752400,
+      "sector": "무역회사와판매업체",
+      "industry_no": 334,
+      "high_52w": 91200,
+      "high_52w_date": "20260504",
+      "high_price": 57500,
+      "low_price": 55600,
+      "theme_tag": "리비안(RIVIAN)",
+      "theme_tags": [
+        "리비안(RIVIAN)",
+        "종합상사"
+      ],
+      "theme_no": 501,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 43,
+      "score_detail": {
+        "tp": 8,
+        "tl": 28,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 49,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 58,
+      "ticker": "357780",
+      "name": "솔브레인",
+      "market": "KOSDAQ",
+      "close_price": 407000,
+      "change_amount": 20500,
+      "change_rate": 5.3,
+      "trading_value": 2294000000,
+      "market_cap": 3165876362000,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 530000,
+      "high_52w_date": "20260130",
+      "high_price": 409500,
+      "low_price": 391500,
+      "theme_tag": "반도체 재료/부품",
+      "theme_tags": [
+        "반도체 재료/부품",
+        "2차전지(소재/부품)"
+      ],
+      "theme_no": 14,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 43,
+      "score_detail": {
+        "tp": 11,
+        "tl": 25,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 49,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 59,
+      "ticker": "014280",
+      "name": "금강공업",
+      "market": "KOSPI",
+      "close_price": 4980,
+      "change_amount": 245,
+      "change_rate": 5.17,
+      "trading_value": 3930000000,
+      "market_cap": 146060197860,
+      "sector": "건축제품",
+      "industry_no": 320,
+      "high_52w": 8470,
+      "high_52w_date": "20251020",
+      "high_price": 5300,
+      "low_price": 4865,
+      "theme_tag": "강관업체(Steel pipe)",
+      "theme_tags": [
+        "강관업체(Steel pipe)",
+        "철강 중소형"
+      ],
+      "theme_no": 223,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 39,
+      "score_detail": {
+        "tp": 7,
+        "tl": 25,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 45,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 60,
+      "ticker": "107640",
+      "name": "한중엔시에스",
+      "market": "KOSDAQ",
+      "close_price": 41950,
+      "change_amount": 2050,
+      "change_rate": 5.14,
+      "trading_value": 291000000,
+      "market_cap": 380274484700,
+      "sector": "전기장비",
+      "industry_no": 306,
+      "high_52w": 73000,
+      "high_52w_date": "20260422",
+      "high_price": 42100,
+      "low_price": 41400,
+      "theme_tag": "전력저장장치(ESS)",
+      "theme_tags": [
+        "전력저장장치(ESS)",
+        "냉각시스템(액침냉각 등)"
+      ],
+      "theme_no": 329,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 61,
+      "ticker": "450330",
+      "name": "하스",
+      "market": "KOSDAQ",
+      "close_price": 4865,
+      "change_amount": 235,
+      "change_rate": 5.08,
+      "trading_value": 0,
+      "market_cap": 39828991195,
+      "sector": "건강관리장비와용품",
+      "industry_no": 281,
+      "high_52w": 8700,
+      "high_52w_date": "20260506",
+      "high_price": 4880,
+      "low_price": 4670,
+      "theme_tag": "유리 기판",
+      "theme_tags": [
+        "유리 기판",
+        "치아 치료(임플란트 등)"
+      ],
+      "theme_no": 557,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 37,
+      "score_detail": {
+        "tp": 9,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 43,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 62,
+      "ticker": "014620",
+      "name": "성광벤드",
+      "market": "KOSDAQ",
+      "close_price": 32150,
+      "change_amount": 1550,
+      "change_rate": 5.07,
+      "trading_value": 659000000,
+      "market_cap": 853819252600,
+      "sector": "기계",
+      "industry_no": 299,
+      "high_52w": 53300,
+      "high_52w_date": "20260506",
+      "high_price": 32600,
+      "low_price": 31700,
+      "theme_tag": "피팅(관이음쇠)/밸브",
+      "theme_tags": [
+        "피팅(관이음쇠)/밸브",
+        "조선기자재"
+      ],
+      "theme_no": 520,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 36,
+      "score_detail": {
+        "tp": 8,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 42,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 63,
+      "ticker": "072950",
+      "name": "빛샘전자",
+      "market": "KOSDAQ",
+      "close_price": 14220,
+      "change_amount": 680,
+      "change_rate": 5.02,
+      "trading_value": 9077000000,
+      "market_cap": 114508114200,
+      "sector": "전자장비와기기",
+      "industry_no": 282,
+      "high_52w": 25700,
+      "high_52w_date": "20260416",
+      "high_price": 15170,
+      "low_price": 13990,
+      "theme_tag": "광통신(광케이블/광섬유 등)",
+      "theme_tags": [
+        "광통신(광케이블/광섬유 등)",
+        "통신장비"
+      ],
+      "theme_no": 586,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 42,
+      "score_detail": {
+        "tp": 10,
+        "tl": 25,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 46,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 64,
+      "ticker": "302430",
+      "name": "이노메트리",
+      "market": "KOSDAQ",
+      "close_price": 7770,
+      "change_amount": 370,
+      "change_rate": 5.0,
+      "trading_value": 382000000,
+      "market_cap": 76170926160,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 11540,
+      "high_52w_date": "20260508",
+      "high_price": 8120,
+      "low_price": 7540,
+      "theme_tag": "2차전지",
+      "theme_tags": [
+        "2차전지",
+        "유리 기판"
+      ],
+      "theme_no": 64,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 32,
+      "score_detail": {
+        "tp": 8,
+        "tl": 17,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 38,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 65,
+      "ticker": "271940",
+      "name": "일진하이솔루스",
+      "market": "KOSPI",
+      "close_price": 11210,
+      "change_amount": 530,
+      "change_rate": 4.96,
+      "trading_value": 66000000,
+      "market_cap": 407070859900,
+      "sector": "자동차부품",
+      "industry_no": 270,
+      "high_52w": 21200,
+      "high_52w_date": "20251029",
+      "high_price": 11460,
+      "low_price": 11120,
+      "theme_tag": "수소에너지(수소차/연료전지 등)",
+      "theme_tags": [
+        "수소에너지(수소차/연료전지 등)",
+        "자동차부품"
+      ],
+      "theme_no": 386,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 66,
+      "ticker": "100840",
+      "name": "SNT에너지",
+      "market": "KOSPI",
+      "close_price": 38100,
+      "change_amount": 1800,
+      "change_rate": 4.96,
+      "trading_value": 898000000,
+      "market_cap": 787937832300,
+      "sector": "에너지장비및서비스",
+      "industry_no": 295,
+      "high_52w": 67400,
+      "high_52w_date": "20260506",
+      "high_price": 38450,
+      "low_price": 37550,
+      "theme_tag": "원자력발전",
+      "theme_tags": [
+        "원자력발전",
+        "LNG(액화천연가스)"
+      ],
+      "theme_no": 205,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 46,
+      "score_detail": {
+        "tp": 7,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 52,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 67,
+      "ticker": "093370",
+      "name": "후성",
+      "market": "KOSPI",
+      "close_price": 14820,
+      "change_amount": 700,
+      "change_rate": 4.96,
+      "trading_value": 7421000000,
+      "market_cap": 1589523990600,
+      "sector": "화학",
+      "industry_no": 272,
+      "high_52w": 23550,
+      "high_52w_date": "20260615",
+      "high_price": 14850,
+      "low_price": 14140,
+      "theme_tag": "반도체 재료/부품",
+      "theme_tags": [
+        "반도체 재료/부품",
+        "2차전지(소재/부품)"
+      ],
+      "theme_no": 14,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 46,
+      "score_detail": {
+        "tp": 11,
+        "tl": 28,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 50,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 68,
+      "ticker": "039030",
+      "name": "이오테크닉스",
+      "market": "KOSDAQ",
+      "close_price": 520000,
+      "change_amount": 24500,
+      "change_rate": 4.94,
+      "trading_value": 2812000000,
+      "market_cap": 6406166000000,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 623000,
+      "high_52w_date": "20260612",
+      "high_price": 525000,
+      "low_price": 504000,
+      "theme_tag": "HBM(고대역폭메모리)",
+      "theme_tags": [
+        "HBM(고대역폭메모리)",
+        "LED장비"
+      ],
+      "theme_no": 536,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 29,
+      "score_detail": {
+        "tp": 8,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 35,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 69,
+      "ticker": "357580",
+      "name": "아모센스",
+      "market": "KOSDAQ",
+      "close_price": 7540,
+      "change_amount": 350,
+      "change_rate": 4.87,
+      "trading_value": 672000000,
+      "market_cap": 88894805480,
+      "sector": "핸드셋",
+      "industry_no": 292,
+      "high_52w": 29900,
+      "high_52w_date": "20260316",
+      "high_price": 7900,
+      "low_price": 7500,
+      "theme_tag": "고체산화물 연료전지(SOFC)",
+      "theme_tags": [
+        "고체산화물 연료전지(SOFC)",
+        "무선충전기술"
+      ],
+      "theme_no": 559,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 27,
+      "score_detail": {
+        "tp": 10,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 33,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 70,
+      "ticker": "039610",
+      "name": "화성밸브",
+      "market": "KOSDAQ",
+      "close_price": 6320,
+      "change_amount": 290,
+      "change_rate": 4.81,
+      "trading_value": 580000000,
+      "market_cap": 65793728000,
+      "sector": "기계",
+      "industry_no": 299,
+      "high_52w": 11680,
+      "high_52w_date": "20260428",
+      "high_price": 6580,
+      "low_price": 6150,
+      "theme_tag": "피팅(관이음쇠)/밸브",
+      "theme_tags": [
+        "피팅(관이음쇠)/밸브",
+        "남-북-러 가스관사업"
+      ],
+      "theme_no": 520,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 33,
+      "score_detail": {
+        "tp": 8,
+        "tl": 18,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 39,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 71,
+      "ticker": "461030",
+      "name": "아이엠비디엑스",
+      "market": "KOSDAQ",
+      "close_price": 2840,
+      "change_amount": 130,
+      "change_rate": 4.8,
+      "trading_value": 2000000,
+      "market_cap": 40710028280,
+      "sector": "생명과학도구및서비스",
+      "industry_no": 262,
+      "high_52w": 12990,
+      "high_52w_date": "20251017",
+      "high_price": 2845,
+      "low_price": 2705,
+      "theme_tag": "유전자 치료제/분석",
+      "theme_tags": [
+        "유전자 치료제/분석"
+      ],
+      "theme_no": 376,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 72,
+      "ticker": "051780",
+      "name": "큐로홀딩스",
+      "market": "KOSDAQ",
+      "close_price": 2200,
+      "change_amount": 100,
+      "change_rate": 4.76,
+      "trading_value": 15000000,
+      "market_cap": 16720052800,
+      "sector": "식품",
+      "industry_no": 268,
+      "high_52w": 8770,
+      "high_52w_date": "20251023",
+      "high_price": 2260,
+      "low_price": 2115,
+      "theme_tag": "자원개발",
+      "theme_tags": [
+        "자원개발",
+        "엔터테인먼트"
+      ],
+      "theme_no": 79,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 73,
+      "ticker": "104830",
+      "name": "원익머트리얼즈",
+      "market": "KOSDAQ",
+      "close_price": 39800,
+      "change_amount": 1800,
+      "change_rate": 4.74,
+      "trading_value": 824000000,
+      "market_cap": 501798400000,
+      "sector": "화학",
+      "industry_no": 272,
+      "high_52w": 56100,
+      "high_52w_date": "20260427",
+      "high_price": 40900,
+      "low_price": 39200,
+      "theme_tag": "반도체 재료/부품",
+      "theme_tags": [
+        "반도체 재료/부품",
+        "OLED(유기 발광 다이오드)"
+      ],
+      "theme_no": 14,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 11,
+        "tl": 27,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 74,
+      "ticker": "014285",
+      "name": "금강공업우",
+      "market": "KOSPI",
+      "close_price": 5570,
+      "change_amount": 250,
+      "change_rate": 4.7,
+      "trading_value": 0,
+      "market_cap": 3285603750,
+      "sector": "건축제품",
+      "industry_no": 320,
+      "high_52w": 16500,
+      "high_52w_date": "20251229",
+      "high_price": 5570,
+      "low_price": 5570,
+      "theme_tag": "저유동성",
+      "theme_tags": [
+        "저유동성"
+      ],
+      "theme_no": null,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 34,
+      "score_detail": {
+        "tp": 6,
+        "tl": 21,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 40,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 75,
+      "ticker": "136150",
+      "name": "원일티엔아이",
+      "market": "KOSDAQ",
+      "close_price": 8370,
+      "change_amount": 370,
+      "change_rate": 4.63,
+      "trading_value": 3000000,
+      "market_cap": 70149221100,
+      "sector": "에너지장비및서비스",
+      "industry_no": 295,
+      "high_52w": 29150,
+      "high_52w_date": "20251030",
+      "high_price": 8380,
+      "low_price": 8070,
+      "theme_tag": "원자력발전",
+      "theme_tags": [
+        "원자력발전",
+        "LNG(액화천연가스)"
+      ],
+      "theme_no": 205,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 31,
+      "score_detail": {
+        "tp": 7,
+        "tl": 17,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 37,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 76,
+      "ticker": "083550",
+      "name": "케이엠",
+      "market": "KOSDAQ",
+      "close_price": 3410,
+      "change_amount": 150,
+      "change_rate": 4.6,
+      "trading_value": 34000000,
+      "market_cap": 46226522650,
+      "sector": "섬유,의류,신발,호화품",
+      "industry_no": 274,
+      "high_52w": 3950,
+      "high_52w_date": "20260227",
+      "high_price": 3500,
+      "low_price": 3260,
+      "theme_tag": "마스크",
+      "theme_tags": [
+        "마스크",
+        "황사/미세먼지"
+      ],
+      "theme_no": 285,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 77,
+      "ticker": "272210",
+      "name": "한화시스템",
+      "market": "KOSPI",
+      "close_price": 75200,
+      "change_amount": 3300,
+      "change_rate": 4.59,
+      "trading_value": 5745000000,
+      "market_cap": 14206738052800,
+      "sector": "우주항공과국방",
+      "industry_no": 284,
+      "high_52w": 184000,
+      "high_52w_date": "20260304",
+      "high_price": 76800,
+      "low_price": 73300,
+      "theme_tag": "드론(Drone)",
+      "theme_tags": [
+        "드론(Drone)",
+        "우주항공산업(누리호/인공위성 등)"
+      ],
+      "theme_no": 349,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 47,
+      "score_detail": {
+        "tp": 23,
+        "tl": 17,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 4,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 78,
+      "ticker": "053290",
+      "name": "NE능률",
+      "market": "KOSDAQ",
+      "close_price": 1639,
+      "change_amount": 72,
+      "change_rate": 4.59,
+      "trading_value": 0,
+      "market_cap": 27086617173,
+      "sector": "교육서비스",
+      "industry_no": 290,
+      "high_52w": 2540,
+      "high_52w_date": "20260402",
+      "high_price": 1639,
+      "low_price": 1549,
+      "theme_tag": "교육/온라인 교육",
+      "theme_tags": [
+        "교육/온라인 교육"
+      ],
+      "theme_no": 52,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 50,
+      "score_detail": {
+        "tp": 9,
+        "tl": 34,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 56,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 79,
+      "ticker": "315640",
+      "name": "딥노이드",
+      "market": "KOSDAQ",
+      "close_price": 2175,
+      "change_amount": 95,
+      "change_rate": 4.57,
+      "trading_value": 65000000,
+      "market_cap": 63884604600,
+      "sector": "IT서비스",
+      "industry_no": 267,
+      "high_52w": 4640,
+      "high_52w_date": "20251029",
+      "high_price": 2200,
+      "low_price": 2085,
+      "theme_tag": "의료기기",
+      "theme_tags": [
+        "의료기기"
+      ],
+      "theme_no": 175,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 48,
+      "score_detail": {
+        "tp": 9,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 54,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 80,
+      "ticker": "137400",
+      "name": "피엔티",
+      "market": "KOSDAQ",
+      "close_price": 29800,
+      "change_amount": 1300,
+      "change_rate": 4.56,
+      "trading_value": 282000000,
+      "market_cap": 705983694400,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 62000,
+      "high_52w_date": "20260422",
+      "high_price": 30000,
+      "low_price": 29250,
+      "theme_tag": "리비안(RIVIAN)",
+      "theme_tags": [
+        "리비안(RIVIAN)",
+        "전력저장장치(ESS)"
+      ],
+      "theme_no": 501,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 29,
+      "score_detail": {
+        "tp": 8,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 35,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 81,
+      "ticker": "082740",
+      "name": "한화엔진",
+      "market": "KOSPI",
+      "close_price": 48650,
+      "change_amount": 2100,
+      "change_rate": 4.51,
+      "trading_value": 2817000000,
+      "market_cap": 4059703458300,
+      "sector": "조선",
+      "industry_no": 291,
+      "high_52w": 94400,
+      "high_52w_date": "20260427",
+      "high_price": 49250,
+      "low_price": 47400,
+      "theme_tag": "조선기자재",
+      "theme_tags": [
+        "조선기자재",
+        "LNG(액화천연가스)"
+      ],
+      "theme_no": 94,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 46,
+      "score_detail": {
+        "tp": 11,
+        "tl": 28,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 52,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 82,
+      "ticker": "119850",
+      "name": "지엔씨에너지",
+      "market": "KOSDAQ",
+      "close_price": 58000,
+      "change_amount": 2500,
+      "change_rate": 4.5,
+      "trading_value": 2181000000,
+      "market_cap": 954036722000,
+      "sector": "전기장비",
+      "industry_no": 306,
+      "high_52w": 58300,
+      "high_52w_date": "20260930",
+      "high_price": 58300,
+      "low_price": 56600,
+      "theme_tag": "전력설비",
+      "theme_tags": [
+        "전력설비",
+        "남북경협"
+      ],
+      "theme_no": 123,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 83,
+      "ticker": "007340",
+      "name": "DN오토모티브",
+      "market": "KOSPI",
+      "close_price": 51300,
+      "change_amount": 2200,
+      "change_rate": 4.48,
+      "trading_value": 699000000,
+      "market_cap": 3001607374500,
+      "sector": "자동차부품",
+      "industry_no": 270,
+      "high_52w": 67500,
+      "high_52w_date": "20260818",
+      "high_price": 52900,
+      "low_price": 49950,
+      "theme_tag": "자동차부품",
+      "theme_tags": [
+        "자동차부품",
+        "지주사"
+      ],
+      "theme_no": 27,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 48,
+      "score_detail": {
+        "tp": 9,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 54,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 84,
+      "ticker": "281740",
+      "name": "레이크머티리얼즈",
+      "market": "KOSDAQ",
+      "close_price": 11650,
+      "change_amount": 500,
+      "change_rate": 4.48,
+      "trading_value": 2315000000,
+      "market_cap": 765760884200,
+      "sector": "화학",
+      "industry_no": 272,
+      "high_52w": 28700,
+      "high_52w_date": "20260202",
+      "high_price": 11870,
+      "low_price": 11320,
+      "theme_tag": "반도체 재료/부품",
+      "theme_tags": [
+        "반도체 재료/부품",
+        "2차전지(전고체)"
+      ],
+      "theme_no": 14,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 32,
+      "score_detail": {
+        "tp": 11,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 38,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 85,
+      "ticker": "333430",
+      "name": "일승",
+      "market": "KOSDAQ",
+      "close_price": 3800,
+      "change_amount": 160,
+      "change_rate": 4.4,
+      "trading_value": 48000000,
+      "market_cap": 116761638600,
+      "sector": "조선",
+      "industry_no": 291,
+      "high_52w": 9400,
+      "high_52w_date": "20251023",
+      "high_price": 3820,
+      "low_price": 3700,
+      "theme_tag": "조선기자재",
+      "theme_tags": [
+        "조선기자재",
+        "LNG(액화천연가스)"
+      ],
+      "theme_no": 94,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 32,
+      "score_detail": {
+        "tp": 11,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 38,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 86,
+      "ticker": "288980",
+      "name": "모아데이타",
+      "market": "KOSDAQ",
+      "close_price": 214,
+      "change_amount": 9,
+      "change_rate": 4.39,
+      "trading_value": 41000000,
+      "market_cap": 7785615106,
+      "sector": "소프트웨어",
+      "industry_no": 287,
+      "high_52w": 1648,
+      "high_52w_date": "20260428",
+      "high_price": 220,
+      "low_price": 196,
+      "theme_tag": "지능형로봇/인공지능(AI)",
+      "theme_tags": [
+        "지능형로봇/인공지능(AI)"
+      ],
+      "theme_no": 99,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 87,
+      "ticker": "026940",
+      "name": "부국철강",
+      "market": "KOSPI",
+      "close_price": 2155,
+      "change_amount": 90,
+      "change_rate": 4.36,
+      "trading_value": 437000000,
+      "market_cap": 43100000000,
+      "sector": "철강",
+      "industry_no": 304,
+      "high_52w": 4690,
+      "high_52w_date": "20260624",
+      "high_price": 2315,
+      "low_price": 2125,
+      "theme_tag": "남-북-러 가스관사업",
+      "theme_tags": [
+        "남-북-러 가스관사업",
+        "철강 중소형"
+      ],
+      "theme_no": 313,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 27,
+      "score_detail": {
+        "tp": 10,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 33,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 88,
+      "ticker": "114190",
+      "name": "강원에너지",
+      "market": "KOSDAQ",
+      "close_price": 8480,
+      "change_amount": 350,
+      "change_rate": 4.31,
+      "trading_value": 30000000,
+      "market_cap": 221523362240,
+      "sector": "전자장비와기기",
+      "industry_no": 282,
+      "high_52w": 20250,
+      "high_52w_date": "20251104",
+      "high_price": 8500,
+      "low_price": 8380,
+      "theme_tag": "2차전지(소재/부품)",
+      "theme_tags": [
+        "2차전지(소재/부품)",
+        "원자력발전"
+      ],
+      "theme_no": 446,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 31,
+      "score_detail": {
+        "tp": 10,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 37,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 89,
+      "ticker": "121600",
+      "name": "나노신소재",
+      "market": "KOSDAQ",
+      "close_price": 56400,
+      "change_amount": 2300,
+      "change_rate": 4.25,
+      "trading_value": 174000000,
+      "market_cap": 691587572400,
+      "sector": "화학",
+      "industry_no": 272,
+      "high_52w": 95300,
+      "high_52w_date": "20260424",
+      "high_price": 56400,
+      "low_price": 55000,
+      "theme_tag": "2차전지(소재/부품)",
+      "theme_tags": [
+        "2차전지(소재/부품)",
+        "2차전지"
+      ],
+      "theme_no": 446,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 27,
+      "score_detail": {
+        "tp": 10,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 33,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 90,
+      "ticker": "267790",
+      "name": "배럴",
+      "market": "KOSDAQ",
+      "close_price": 3145,
+      "change_amount": 125,
+      "change_rate": 4.14,
+      "trading_value": 1000000,
+      "market_cap": 24182876805,
+      "sector": "섬유,의류,신발,호화품",
+      "industry_no": 274,
+      "high_52w": 4045,
+      "high_52w_date": "20260212",
+      "high_price": 3245,
+      "low_price": 3135,
+      "theme_tag": "패션/의류",
+      "theme_tags": [
+        "패션/의류",
+        "日제품 불매운동(수혜)"
+      ],
+      "theme_no": 32,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 35,
+      "score_detail": {
+        "tp": 11,
+        "tl": 17,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 41,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 91,
+      "ticker": "071970",
+      "name": "HD현대마린엔진",
+      "market": "KOSPI",
+      "close_price": 49150,
+      "change_amount": 1950,
+      "change_rate": 4.13,
+      "trading_value": 974000000,
+      "market_cap": 1667241479250,
+      "sector": "조선",
+      "industry_no": 291,
+      "high_52w": 118200,
+      "high_52w_date": "20260427",
+      "high_price": 49250,
+      "low_price": 48000,
+      "theme_tag": "조선기자재",
+      "theme_tags": [
+        "조선기자재"
+      ],
+      "theme_no": 94,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 32,
+      "score_detail": {
+        "tp": 11,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 38,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 92,
+      "ticker": "289010",
+      "name": "아이스크림에듀",
+      "market": "KOSDAQ",
+      "close_price": 905,
+      "change_amount": 35,
+      "change_rate": 4.02,
+      "trading_value": 10000000,
+      "market_cap": 12620456680,
+      "sector": "교육서비스",
+      "industry_no": 290,
+      "high_52w": 2060,
+      "high_52w_date": "20251027",
+      "high_price": 935,
+      "low_price": 861,
+      "theme_tag": "쿠팡(coupang)",
+      "theme_tags": [
+        "쿠팡(coupang)",
+        "교육/온라인 교육"
+      ],
+      "theme_no": 474,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 42,
+      "score_detail": {
+        "tp": 7,
+        "tl": 28,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 48,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 93,
+      "ticker": "020120",
+      "name": "키다리스튜디오",
+      "market": "KOSPI",
+      "close_price": 8330,
+      "change_amount": 320,
+      "change_rate": 4.0,
+      "trading_value": 332000000,
+      "market_cap": 308741170780,
+      "sector": "양방향미디어와서비스",
+      "industry_no": 300,
+      "high_52w": 9450,
+      "high_52w_date": "20260916",
+      "high_price": 8780,
+      "low_price": 7990,
+      "theme_tag": "모바일콘텐츠(스마트폰/태블릿PC)",
+      "theme_tags": [
+        "모바일콘텐츠(스마트폰/태블릿PC)",
+        "웹툰"
+      ],
+      "theme_no": 270,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 94,
+      "ticker": "054050",
+      "name": "NH농우바이오",
+      "market": "KOSDAQ",
+      "close_price": 7330,
+      "change_amount": 280,
+      "change_rate": 3.97,
+      "trading_value": 101000000,
+      "market_cap": 117504012130,
+      "sector": "생물공학",
+      "industry_no": 286,
+      "high_52w": 8980,
+      "high_52w_date": "20251010",
+      "high_price": 7400,
+      "low_price": 7180,
+      "theme_tag": "비료",
+      "theme_tags": [
+        "비료",
+        "농업"
+      ],
+      "theme_no": 204,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 95,
+      "ticker": "368770",
+      "name": "파이버프로",
+      "market": "KOSDAQ",
+      "close_price": 13200,
+      "change_amount": 500,
+      "change_rate": 3.94,
+      "trading_value": 231000000,
+      "market_cap": 433675770000,
+      "sector": "전자장비와기기",
+      "industry_no": 282,
+      "high_52w": 29950,
+      "high_52w_date": "20260414",
+      "high_price": 13270,
+      "low_price": 12800,
+      "theme_tag": "우주항공산업(누리호/인공위성 등)",
+      "theme_tags": [
+        "우주항공산업(누리호/인공위성 등)",
+        "방위산업/전쟁 및 테러"
+      ],
+      "theme_no": 200,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 96,
+      "ticker": "020000",
+      "name": "한섬",
+      "market": "KOSPI",
+      "close_price": 21150,
+      "change_amount": 800,
+      "change_rate": 3.93,
+      "trading_value": 329000000,
+      "market_cap": 454238423100,
+      "sector": "섬유,의류,신발,호화품",
+      "industry_no": 274,
+      "high_52w": 28750,
+      "high_52w_date": "20260515",
+      "high_price": 21500,
+      "low_price": 20300,
+      "theme_tag": "패션/의류",
+      "theme_tags": [
+        "패션/의류",
+        "밸류업(24년 기업가치 제고계획 발표)"
+      ],
+      "theme_no": 32,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 43,
+      "score_detail": {
+        "tp": 11,
+        "tl": 25,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 49,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 97,
+      "ticker": "257370",
+      "name": "피엔티엠에스",
+      "market": "KOSDAQ",
+      "close_price": 1881,
+      "change_amount": 71,
+      "change_rate": 3.92,
+      "trading_value": 2000000,
+      "market_cap": 23521643541,
+      "sector": "전기제품",
+      "industry_no": 283,
+      "high_52w": 4050,
+      "high_52w_date": "20260205",
+      "high_price": 1881,
+      "low_price": 1857,
+      "theme_tag": "2차전지",
+      "theme_tags": [
+        "2차전지",
+        "OLED(유기 발광 다이오드)"
+      ],
+      "theme_no": 64,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 29,
+      "score_detail": {
+        "tp": 8,
+        "tl": 14,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 35,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 98,
+      "ticker": "005950",
+      "name": "이수화학",
+      "market": "KOSPI",
+      "close_price": 10900,
+      "change_amount": 410,
+      "change_rate": 3.91,
+      "trading_value": 460000000,
+      "market_cap": 286606442100,
+      "sector": "화학",
+      "industry_no": 272,
+      "high_52w": 17990,
+      "high_52w_date": "20260612",
+      "high_price": 11120,
+      "low_price": 10720,
+      "theme_tag": "석유화학",
+      "theme_tags": [
+        "석유화학"
+      ],
+      "theme_no": 180,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 99,
+      "ticker": "419050",
+      "name": "삼기에너지솔루션즈",
+      "market": "KOSDAQ",
+      "close_price": 1819,
+      "change_amount": 67,
+      "change_rate": 3.82,
+      "trading_value": 820000000,
+      "market_cap": 104039960560,
+      "sector": "자동차부품",
+      "industry_no": 270,
+      "high_52w": 2465,
+      "high_52w_date": "20260703",
+      "high_price": 1839,
+      "low_price": 1762,
+      "theme_tag": "2차전지(소재/부품)",
+      "theme_tags": [
+        "2차전지(소재/부품)",
+        "2차전지"
+      ],
+      "theme_no": 446,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 35,
+      "score_detail": {
+        "tp": 10,
+        "tl": 18,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 41,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 100,
+      "ticker": "071280",
+      "name": "로체시스템즈",
+      "market": "KOSDAQ",
+      "close_price": 8200,
+      "change_amount": 300,
+      "change_rate": 3.8,
+      "trading_value": 248000000,
+      "market_cap": 125432144600,
+      "sector": "반도체와반도체장비",
+      "industry_no": 278,
+      "high_52w": 13940,
+      "high_52w_date": "20251002",
+      "high_price": 8250,
+      "low_price": 7900,
+      "theme_tag": "반도체 장비",
+      "theme_tags": [
+        "반도체 장비"
+      ],
+      "theme_no": 12,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 30,
+      "score_detail": {
+        "tp": 13,
+        "tl": 10,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "news": [],
+      "forward_score": 36,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    }
+  ]
+}
