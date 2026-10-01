@@ -1,8 +1,10 @@
 """네이버 증권 뉴스/섹터/업종등락률/증권사리포트 크롤링"""
+import html
 import random
 import time
 import logging
 import re
+from datetime import datetime
 
 import requests
 from bs4 import BeautifulSoup
@@ -86,8 +88,87 @@ def _article_priority(title, stock_name=''):
     return score
 
 
+NAVER_STOCK_NEWS_API_URL = 'https://api.stock.naver.com/news/stock/{ticker}?pageSize={size}'
+NEWS_MAX_AGE_DAYS = 10   # 수집일 기준 이보다 오래된 기사는 사유 근거에서 제외(없으면 원본 유지)
+
+
+def _api_news_candidates(ticker, stock_name='', date_str='', page_size=20):
+    """api.stock.naver.com 종목뉴스(JSON) → crawl_news 후보 형식.
+
+    2026-09-18 이후 finance.naver.com 뉴스 iframe(HTML)이 0건을 돌려줘
+    전 종목 사유가 '거래량 증가'로 떨어졌다. whyrise 가 같은 Actions 환경에서
+    정상 수신 중인 JSON API 를 1순위로 쓴다.
+    """
+    url = NAVER_STOCK_NEWS_API_URL.format(ticker=ticker, size=page_size)
+    try:
+        resp = requests.get(url, headers={
+            'User-Agent': random.choice(USER_AGENTS),
+            'Accept': 'application/json, text/plain, */*',
+            'Referer': 'https://m.stock.naver.com/',
+        }, timeout=10)
+        resp.raise_for_status()
+        data = resp.json()
+    except (requests.RequestException, ValueError) as e:
+        logger.warning(f"  뉴스 API 실패 ({ticker}): {e}")
+        return []
+
+    items = []
+    if isinstance(data, list):
+        for grp in data:
+            if isinstance(grp, dict) and isinstance(grp.get('items'), list):
+                items.extend(grp['items'])
+            elif isinstance(grp, dict) and 'title' in grp:
+                items.append(grp)
+    elif isinstance(data, dict):
+        for k in ('items', 'news', 'list'):
+            if isinstance(data.get(k), list):
+                items.extend(data[k])
+
+    out = []
+    seen = set()
+    for it in items:
+        title = html.unescape(str(it.get('title') or '')).strip()
+        title = re.sub(r'<[^>]+>', '', title)
+        source = str(it.get('officeName') or '').strip()
+        if not title or title in seen or _is_spam_article(title, source):
+            continue
+        seen.add(title)
+        office, article = it.get('officeId'), it.get('articleId')
+        link = f'https://n.news.naver.com/mnews/article/{office}/{article}' if office and article else ''
+        dt = str(it.get('datetime') or '')
+        art_date = f'{dt[:4]}.{dt[4:6]}.{dt[6:8]}' if len(dt) >= 8 and dt[:8].isdigit() else ''
+        out.append({
+            'title': title,
+            'link': link,
+            'source': source,
+            'date': art_date or date_str,
+            '_priority': _article_priority(title, stock_name),
+        })
+
+    # 수집일 기준 오래된 기사 제외 — 단, 전부 오래됐으면 원본 유지(기존 HTML 경로와 동일한 관대함)
+    if date_str and len(date_str) == 8 and date_str.isdigit():
+        try:
+            base = datetime.strptime(date_str, '%Y%m%d')
+            recent = [a for a in out if a['date'][:10].count('.') == 2 and
+                      0 <= (base - datetime.strptime(a['date'][:10], '%Y.%m.%d')).days <= NEWS_MAX_AGE_DAYS]
+            if recent:
+                out = recent
+        except ValueError:
+            pass
+    return out
+
+
+def _finalize_articles(candidates, max_articles):
+    # 우선순위 정렬: [특징주]+종목명 포함 기사를 상위로 (안정 정렬 → 동점은 최신순 유지)
+    candidates.sort(key=lambda a: a['_priority'], reverse=True)
+    return [{'title': a['title'], 'link': a['link'], 'source': a['source'], 'date': a['date']}
+            for a in candidates[:max_articles]]
+
+
 def crawl_news(ticker, max_articles=10, stock_name='', date_str=''):
     """단일 종목의 최근 뉴스 크롤링 (제목, 링크, 출처, 날짜)
+
+    1순위 api.stock.naver.com JSON, 0건이면 finance.naver.com HTML(구 경로)로 폴백.
 
     Args:
         ticker: 종목코드
@@ -95,6 +176,10 @@ def crawl_news(ticker, max_articles=10, stock_name='', date_str=''):
         stock_name: 종목명 (우선순위 정렬용)
         date_str: 수집일 YYYYMMDD (기사에 기록)
     """
+    api_candidates = _api_news_candidates(ticker, stock_name=stock_name, date_str=date_str)
+    if api_candidates:
+        return _finalize_articles(api_candidates, max_articles)
+
     url = NAVER_NEWS_IFRAME_URL.format(ticker=ticker)
     resp = _request_with_retry(url)
     if resp is None:
@@ -142,20 +227,8 @@ def crawl_news(ticker, max_articles=10, stock_name='', date_str=''):
                 '_priority': _article_priority(title, stock_name),
             })
 
-    # 우선순위 정렬: [특징주]+종목명 포함 기사를 상위로
-    candidates.sort(key=lambda a: a['_priority'], reverse=True)
-
-    # 상위 max_articles개만 선택, _priority 필드 제거
-    articles = []
-    for a in candidates[:max_articles]:
-        articles.append({
-            'title': a['title'],
-            'link': a['link'],
-            'source': a['source'],
-            'date': a['date'],
-        })
-
-    return articles
+    # 우선순위 정렬 + 상위 max_articles개만 선택, _priority 필드 제거
+    return _finalize_articles(candidates, max_articles)
 
 
 def crawl_news_for_tickers(tickers, date_str, stock_names=None):
