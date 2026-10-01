@@ -427,8 +427,10 @@ def collect_and_save(date_str=None, mode='closing'):
                     theme_tags = [theme_tag]
 
         # 상승 이유 (우선순위: Toss AI > 뉴스 키워드 분석)
+        reason_origin = 'rule'
         if t in toss_reasons:
             reason = toss_reasons[t]
+            reason_origin = 'toss'
         else:
             reason = generate_rise_reason(news_articles, report_map.get(t, []),
                                           theme_tag=theme_tag, stock_name=s['name'],
@@ -456,11 +458,41 @@ def collect_and_save(date_str=None, mode='closing'):
             'is_limit_up': td.get('is_limit_up', False),
             'intensity_label': intensity_label,
             'reason': reason,
+            'reason_origin': reason_origin if reason != '거래량 증가' else 'fallback',
             'news': news_articles,
             'td': td,
         })
 
     logger.info(f"  매핑 히트: {mapping_hit}, 미스: {mapping_miss}")
+
+    # ── 상승 이유 2차: 같은 날 기사 근거 (종목 기사 원인구절 > 신규상장 > 업종 동반 기사 > 테마 동반) ──
+    # 키워드 템플릿('수주 공시' 등)은 종목과 무관한 기사에서 나오는 경우가 많아, 근거가 잡히면 교체한다.
+    # Toss AI 사유는 유지. 근거가 끝내 없으면 템플릿을 남기되 reason_origin='rule' 로 표시(whyrise 가 재검증).
+    try:
+        from reason_extract import build_day_context, explain
+        ctx_rows = [{'name': rs['name'], 'news': rs['news'], 'theme_tag': rs.get('theme_tag', ''),
+                     'theme_tags': rs.get('theme_tags') or [], 'sector': rs.get('sector', ''),
+                     'change_rate': rs.get('change_rate') or 0}
+                    for rs in resolved_stocks]
+        day_ctx = build_day_context(ctx_rows, date_str)
+        upgraded = 0
+        for rs, row in zip(resolved_stocks, ctx_rows):
+            if rs.get('reason_origin') == 'toss':
+                continue
+            ex = explain(row, date_str, day_ctx)
+            if not ex:
+                continue
+            rs['reason'] = ex['reason']
+            rs['reason_origin'] = 'news'
+            rs['reason_kind'] = ex.get('kind', '')
+            rs['reason_confidence'] = ex.get('confidence', '')
+            rs['reason_evidence'] = [
+                {k: (it or {}).get(k, '') for k in ('title', 'link', 'source', 'date')}
+                for it in (ex.get('evidence_items') or [])][:2]
+            upgraded += 1
+        logger.info(f"  기사 근거 사유: {upgraded}/{len(resolved_stocks)} (업종 원인 {len(day_ctx['sector_causes'])}건)")
+    except Exception as e:  # 사유 보강 실패가 수집 전체를 막지 않게
+        logger.warning(f"  기사 근거 사유 단계 실패: {e}")
 
     # ── 테마 그룹 빌드 (primary tag 기준) ──
     theme_groups = {}
@@ -511,6 +543,12 @@ def collect_and_save(date_str=None, mode='closing'):
             'score': score_result['total'],
             'score_detail': score_result['detail'],
             'rise_reason': rs['reason'],
+            # toss=토스증권 AI 시그널, rule=뉴스 키워드 템플릿, fallback=근거 없음('거래량 증가')
+            # whyrise 가 rule/fallback 만 같은 날 기사로 재검증한다.
+            'reason_origin': rs.get('reason_origin', 'rule'),
+            'reason_kind': rs.get('reason_kind', ''),
+            'reason_confidence': rs.get('reason_confidence', ''),
+            'reason_evidence': rs.get('reason_evidence', []),
             'news': rs['news'],
         })
 
