@@ -469,7 +469,7 @@ def collect_and_save(date_str=None, mode='closing'):
     # 키워드 템플릿('수주 공시' 등)은 종목과 무관한 기사에서 나오는 경우가 많아, 근거가 잡히면 교체한다.
     # Toss AI 사유는 유지. 근거가 끝내 없으면 템플릿을 남기되 reason_origin='rule' 로 표시(whyrise 가 재검증).
     try:
-        from reason_extract import build_day_context, explain
+        from reason_extract import build_day_context, explain, should_replace
         ctx_rows = [{'name': rs['name'], 'news': rs['news'], 'theme_tag': rs.get('theme_tag', ''),
                      'theme_tags': rs.get('theme_tags') or [], 'sector': rs.get('sector', ''),
                      'change_rate': rs.get('change_rate') or 0}
@@ -480,7 +480,8 @@ def collect_and_save(date_str=None, mode='closing'):
             if rs.get('reason_origin') == 'toss':
                 continue
             ex = explain(row, date_str, day_ctx)
-            if not ex:
+            # 이미 구체적인 사유는 종목 자체 기사일 때만 교체 (업종·테마 동반으로 덮지 않음)
+            if not should_replace(rs.get('reason', ''), ex):
                 continue
             rs['reason'] = ex['reason']
             rs['reason_origin'] = 'news'
