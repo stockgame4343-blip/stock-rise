@@ -469,7 +469,7 @@ def collect_and_save(date_str=None, mode='closing'):
     # 키워드 템플릿('수주 공시' 등)은 종목과 무관한 기사에서 나오는 경우가 많아, 근거가 잡히면 교체한다.
     # Toss AI 사유는 유지. 근거가 끝내 없으면 템플릿을 남기되 reason_origin='rule' 로 표시(whyrise 가 재검증).
     try:
-        from reason_extract import build_day_context, explain, should_replace
+        from reason_extract import build_day_context, explain, should_replace, recent_hint, is_template_reason
         ctx_rows = [{'name': rs['name'], 'news': rs['news'], 'theme_tag': rs.get('theme_tag', ''),
                      'theme_tags': rs.get('theme_tags') or [], 'sector': rs.get('sector', ''),
                      'change_rate': rs.get('change_rate') or 0}
@@ -482,6 +482,11 @@ def collect_and_save(date_str=None, mode='closing'):
             ex = explain(row, date_str, day_ctx)
             # 이미 구체적인 사유는 종목 자체 기사일 때만 교체 (업종·테마 동반으로 덮지 않음)
             if not should_replace(rs.get('reason', ''), ex):
+                if not ex and is_template_reason(rs.get('reason', '')):
+                    # 같은 날 근거가 없으면 최근 2주 종목 재료 기사(날짜 표기)를 '단서'로 남긴다
+                    h = recent_hint(rs['name'], rs['news'], date_str)
+                    if h:
+                        rs['reason_hint'] = h
                 continue
             rs['reason'] = ex['reason']
             rs['reason_origin'] = 'news'
@@ -550,6 +555,7 @@ def collect_and_save(date_str=None, mode='closing'):
             'reason_kind': rs.get('reason_kind', ''),
             'reason_confidence': rs.get('reason_confidence', ''),
             'reason_evidence': rs.get('reason_evidence', []),
+            'reason_hint': rs.get('reason_hint') or None,
             'news': rs['news'],
         })
 
