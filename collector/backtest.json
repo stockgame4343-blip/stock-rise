@@ -3,939 +3,6 @@
     "date": "20260930",
     "stocks": [
       {
-        "ticker": "005030",
-        "name": "부산주공",
-        "score": 60,
-        "close_price": 49,
-        "change_rate": 32.43,
-        "next_change_pct": -2.04
-      },
-      {
-        "ticker": "023790",
-        "name": "동일스틸럭스",
-        "score": 66,
-        "close_price": 1764,
-        "change_rate": 29.99,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "097800",
-        "name": "윈팩",
-        "score": 55,
-        "close_price": 3035,
-        "change_rate": 29.98,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "008970",
-        "name": "KBI동양철관",
-        "score": 57,
-        "close_price": 1483,
-        "change_rate": 29.97,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "0035S0",
-        "name": "빅웨이브로보틱스",
-        "score": 52,
-        "close_price": 36900,
-        "change_rate": 23.41,
-        "next_change_pct": 5.28
-      },
-      {
-        "ticker": "360350",
-        "name": "코셈",
-        "score": 52,
-        "close_price": 11200,
-        "change_rate": 23.08,
-        "next_change_pct": 1.07
-      },
-      {
-        "ticker": "053260",
-        "name": "금강철강",
-        "score": 62,
-        "close_price": 8060,
-        "change_rate": 21.94,
-        "next_change_pct": -0.5
-      },
-      {
-        "ticker": "291650",
-        "name": "츌립앤사이언스",
-        "score": 47,
-        "close_price": 2285,
-        "change_rate": 21.48,
-        "next_change_pct": -2.41
-      },
-      {
-        "ticker": "002710",
-        "name": "TCC스틸",
-        "score": 50,
-        "close_price": 13610,
-        "change_rate": 21.09,
-        "next_change_pct": 3.01
-      },
-      {
-        "ticker": "900070",
-        "name": "글로벌에스엠",
-        "score": 42,
-        "close_price": 1187,
-        "change_rate": 20.14,
-        "next_change_pct": -4.72
-      },
-      {
-        "ticker": "266690",
-        "name": "덕산넵코어스",
-        "score": 52,
-        "close_price": 17320,
-        "change_rate": 18.63,
-        "next_change_pct": 4.82
-      },
-      {
-        "ticker": "084990",
-        "name": "헬릭스미스",
-        "score": 51,
-        "close_price": 3805,
-        "change_rate": 18.54,
-        "next_change_pct": -1.05
-      },
-      {
-        "ticker": "084180",
-        "name": "수성웹툰",
-        "score": 55,
-        "close_price": 258,
-        "change_rate": 17.81
-      },
-      {
-        "ticker": "457190",
-        "name": "이수스페셜티케미컬",
-        "score": 49,
-        "close_price": 79400,
-        "change_rate": 16.76,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "050090",
-        "name": "비케이홀딩스",
-        "score": 56,
-        "close_price": 579,
-        "change_rate": 16.73,
-        "next_change_pct": -1.38
-      },
-      {
-        "ticker": "071090",
-        "name": "하이스틸",
-        "score": 54,
-        "close_price": 3815,
-        "change_rate": 15.78,
-        "next_change_pct": 1.97
-      },
-      {
-        "ticker": "112290",
-        "name": "와이씨켐",
-        "score": 48,
-        "close_price": 12250,
-        "change_rate": 13.64,
-        "next_change_pct": 0.41
-      },
-      {
-        "ticker": "010280",
-        "name": "아이티센엔텍",
-        "score": 49,
-        "close_price": 5840,
-        "change_rate": 13.62,
-        "next_change_pct": 1.03
-      },
-      {
-        "ticker": "314130",
-        "name": "지놈앤컴퍼니",
-        "score": 49,
-        "close_price": 5100,
-        "change_rate": 13.59,
-        "next_change_pct": -0.59
-      },
-      {
-        "ticker": "200470",
-        "name": "에이팩트",
-        "score": 54,
-        "close_price": 9260,
-        "change_rate": 13.06,
-        "next_change_pct": 0.32
-      },
-      {
-        "ticker": "123010",
-        "name": "MSDI",
-        "score": 49,
-        "close_price": 4130,
-        "change_rate": 12.69,
-        "next_change_pct": -1.82
-      },
-      {
-        "ticker": "145170",
-        "name": "노브랜드",
-        "score": 65,
-        "close_price": 3705,
-        "change_rate": 11.76,
-        "next_change_pct": -0.94
-      },
-      {
-        "ticker": "072950",
-        "name": "빛샘전자",
-        "score": 53,
-        "close_price": 15100,
-        "change_rate": 11.52,
-        "next_change_pct": -0.73
-      },
-      {
-        "ticker": "191410",
-        "name": "육일씨엔에쓰",
-        "score": 48,
-        "close_price": 1557,
-        "change_rate": 11.29,
-        "next_change_pct": 0.9
-      },
-      {
-        "ticker": "039610",
-        "name": "화성밸브",
-        "score": 46,
-        "close_price": 6710,
-        "change_rate": 11.28,
-        "next_change_pct": 1.19
-      },
-      {
-        "ticker": "439580",
-        "name": "블루엠텍",
-        "score": 50,
-        "close_price": 2965,
-        "change_rate": 11.05,
-        "next_change_pct": -0.34
-      },
-      {
-        "ticker": "373200",
-        "name": "엑스플러스",
-        "score": 45,
-        "close_price": 1796,
-        "change_rate": 11.0,
-        "next_change_pct": 1.67
-      },
-      {
-        "ticker": "043260",
-        "name": "성호전자",
-        "score": 44,
-        "close_price": 26200,
-        "change_rate": 10.78,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "051780",
-        "name": "큐로홀딩스",
-        "score": 45,
-        "close_price": 2325,
-        "change_rate": 10.71,
-        "next_change_pct": 1.72
-      },
-      {
-        "ticker": "126340",
-        "name": "비나텍",
-        "score": 42,
-        "close_price": 93300,
-        "change_rate": 10.68,
-        "next_change_pct": -0.54
-      },
-      {
-        "ticker": "009190",
-        "name": "대양금속",
-        "score": 35,
-        "close_price": 786,
-        "change_rate": 10.55,
-        "next_change_pct": -0.38
-      },
-      {
-        "ticker": "412350",
-        "name": "레이저쎌",
-        "score": 41,
-        "close_price": 6590,
-        "change_rate": 10.39,
-        "next_change_pct": 0.15
-      },
-      {
-        "ticker": "078350",
-        "name": "한양디지텍",
-        "score": 43,
-        "close_price": 31400,
-        "change_rate": 10.37,
-        "next_change_pct": -0.48
-      },
-      {
-        "ticker": "267320",
-        "name": "나인테크",
-        "score": 44,
-        "close_price": 2845,
-        "change_rate": 10.27,
-        "next_change_pct": -0.7
-      },
-      {
-        "ticker": "494120",
-        "name": "큐리오시스",
-        "score": 41,
-        "close_price": 9770,
-        "change_rate": 9.78,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "043260",
-        "name": "성호전자",
-        "score": 48,
-        "close_price": 26300,
-        "change_rate": 11.21
-      },
-      {
-        "ticker": "145170",
-        "name": "노브랜드",
-        "score": 65,
-        "close_price": 3680,
-        "change_rate": 11.01
-      },
-      {
-        "ticker": "072950",
-        "name": "빛샘전자",
-        "score": 49,
-        "close_price": 3510,
-        "change_rate": 9.69,
-        "next_change_pct": 0.14
-      },
-      {
-        "ticker": "228760",
-        "name": "지노믹트리",
-        "score": 38,
-        "close_price": 12010,
-        "change_rate": 9.68,
-        "next_change_pct": 1.5
-      },
-      {
-        "ticker": "450950",
-        "name": "아스테라시스",
-        "score": 37,
-        "close_price": 6140,
-        "change_rate": 9.64,
-        "next_change_pct": 0.49
-      },
-      {
-        "ticker": "119830",
-        "name": "아이텍",
-        "score": 45,
-        "close_price": 6780,
-        "change_rate": 9.53,
-        "next_change_pct": -0.29
-      },
-      {
-        "ticker": "018880",
-        "name": "한온시스템",
-        "score": 49,
-        "close_price": 3515,
-        "change_rate": 9.84
-      },
-      {
-        "ticker": "412350",
-        "name": "레이저쎌",
-        "score": 41,
-        "close_price": 6550,
-        "change_rate": 9.72
-      },
-      {
-        "ticker": "494120",
-        "name": "큐리오시스",
-        "score": 41,
-        "close_price": 9760,
-        "change_rate": 9.66
-      },
-      {
-        "ticker": "228760",
-        "name": "지노믹트리",
-        "score": 38,
-        "close_price": 12000,
-        "change_rate": 9.59
-      },
-      {
-        "ticker": "014990",
-        "name": "인디에프",
-        "score": 45,
-        "close_price": 3465,
-        "change_rate": 9.48,
-        "next_change_pct": -0.14
-      },
-      {
-        "ticker": "005720",
-        "name": "넥센",
-        "score": 45,
-        "close_price": 5920,
-        "change_rate": 9.43,
-        "next_change_pct": 2.7
-      },
-      {
-        "ticker": "002680",
-        "name": "한탑",
-        "score": 45,
-        "close_price": 34750,
-        "change_rate": 9.28,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "389470",
-        "name": "인벤티지랩",
-        "score": 31,
-        "close_price": 25950,
-        "change_rate": 9.26,
-        "next_change_pct": -0.39
-      },
-      {
-        "ticker": "475960",
-        "name": "토모큐브",
-        "score": 45,
-        "close_price": 51500,
-        "change_rate": 8.88,
-        "next_change_pct": 1.17
-      },
-      {
-        "ticker": "005010",
-        "name": "휴스틸",
-        "score": 47,
-        "close_price": 4180,
-        "change_rate": 8.85,
-        "next_change_pct": 0.72
-      },
-      {
-        "ticker": "382900",
-        "name": "범한퓨얼셀",
-        "score": 34,
-        "close_price": 24900,
-        "change_rate": 8.73,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "014990",
-        "name": "인디에프",
-        "score": 45,
-        "close_price": 3710,
-        "change_rate": 8.64,
-        "next_change_pct": 1.35
-      },
-      {
-        "ticker": "398120",
-        "name": "에스지헬스케어",
-        "score": 30,
-        "close_price": 2220,
-        "change_rate": 8.56,
-        "next_change_pct": 0.9
-      },
-      {
-        "ticker": "215480",
-        "name": "토박스코리아",
-        "score": 45,
-        "close_price": 2120,
-        "change_rate": 8.5,
-        "next_change_pct": -0.47
-      },
-      {
-        "ticker": "092790",
-        "name": "넥스틸",
-        "score": 45,
-        "close_price": 14320,
-        "change_rate": 8.48,
-        "next_change_pct": 0.35
-      },
-      {
-        "ticker": "357580",
-        "name": "아모센스",
-        "score": 31,
-        "close_price": 7790,
-        "change_rate": 8.34,
-        "next_change_pct": -1.67
-      },
-      {
-        "ticker": "141000",
-        "name": "비아트론",
-        "score": 45,
-        "close_price": 10470,
-        "change_rate": 8.05,
-        "next_change_pct": -0.29
-      },
-      {
-        "ticker": "012030",
-        "name": "DB",
-        "score": 42,
-        "close_price": 1869,
-        "change_rate": 8.03,
-        "next_change_pct": -0.16
-      },
-      {
-        "ticker": "025560",
-        "name": "미래산업",
-        "score": 43,
-        "close_price": 8150,
-        "change_rate": 7.95,
-        "next_change_pct": -1.1
-      },
-      {
-        "ticker": "014285",
-        "name": "금강공업우",
-        "score": 45,
-        "close_price": 5740,
-        "change_rate": 7.89,
-        "next_change_pct": -0.87
-      },
-      {
-        "ticker": "382800",
-        "name": "지앤비에스 에코",
-        "score": 45,
-        "close_price": 5760,
-        "change_rate": 7.87,
-        "next_change_pct": 1.22
-      },
-      {
-        "ticker": "067630",
-        "name": "HLB생명과학",
-        "score": 45,
-        "close_price": 3915,
-        "change_rate": 7.85,
-        "next_change_pct": -0.38
-      },
-      {
-        "ticker": "355150",
-        "name": "코스텍시스",
-        "score": 34,
-        "close_price": 22700,
-        "change_rate": 7.84,
-        "next_change_pct": 0.22
-      },
-      {
-        "ticker": "162300",
-        "name": "신스틸",
-        "score": 42,
-        "close_price": 2270,
-        "change_rate": 7.84,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "323280",
-        "name": "태성",
-        "score": 49,
-        "close_price": 58200,
-        "change_rate": 7.78,
-        "next_change_pct": 0.34
-      },
-      {
-        "ticker": "452280",
-        "name": "한선엔지니어링",
-        "score": 33,
-        "close_price": 13390,
-        "change_rate": 7.72,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "101360",
-        "name": "에코앤드림",
-        "score": 34,
-        "close_price": 8120,
-        "change_rate": 7.69,
-        "next_change_pct": 0.25
-      },
-      {
-        "ticker": "011500",
-        "name": "한농화성",
-        "score": 29,
-        "close_price": 14440,
-        "change_rate": 7.6,
-        "next_change_pct": 0.07
-      },
-      {
-        "ticker": "099430",
-        "name": "바이오플러스",
-        "score": 30,
-        "close_price": 3570,
-        "change_rate": 7.53,
-        "next_change_pct": -0.7
-      },
-      {
-        "ticker": "054780",
-        "name": "키이스트",
-        "score": 61,
-        "close_price": 1908,
-        "change_rate": 7.49,
-        "next_change_pct": -1.99
-      },
-      {
-        "ticker": "011790",
-        "name": "SKC",
-        "score": 42,
-        "close_price": 98800,
-        "change_rate": 7.39,
-        "next_change_pct": -0.1
-      },
-      {
-        "ticker": "461030",
-        "name": "아이엠비디엑스",
-        "score": 31,
-        "close_price": 2910,
-        "change_rate": 7.38,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "445680",
-        "name": "큐리옥스바이오시스템즈",
-        "score": 61,
-        "close_price": 57500,
-        "change_rate": 7.28,
-        "next_change_pct": 0.17
-      },
-      {
-        "ticker": "452280",
-        "name": "한선엔지니어링",
-        "score": 37,
-        "close_price": 13380,
-        "change_rate": 7.64
-      },
-      {
-        "ticker": "169330",
-        "name": "엠브레인",
-        "score": 51,
-        "close_price": 1882,
-        "change_rate": 7.6
-      },
-      {
-        "ticker": "101360",
-        "name": "에코앤드림",
-        "score": 34,
-        "close_price": 8110,
-        "change_rate": 7.56
-      },
-      {
-        "ticker": "033790",
-        "name": "피노",
-        "score": 31,
-        "close_price": 8830,
-        "change_rate": 7.55
-      },
-      {
-        "ticker": "011790",
-        "name": "SKC",
-        "score": 42,
-        "close_price": 98900,
-        "change_rate": 7.5
-      },
-      {
-        "ticker": "067630",
-        "name": "HLB생명과학",
-        "score": 45,
-        "close_price": 3900,
-        "change_rate": 7.44
-      },
-      {
-        "ticker": "054780",
-        "name": "키이스트",
-        "score": 61,
-        "close_price": 3540,
-        "change_rate": 7.27,
-        "next_change_pct": -1.41
-      },
-      {
-        "ticker": "240600",
-        "name": "유진테크놀로지",
-        "score": 31,
-        "close_price": 956,
-        "change_rate": 7.17,
-        "next_change_pct": -0.31
-      },
-      {
-        "ticker": "299030",
-        "name": "하나기술",
-        "score": 25,
-        "close_price": 14290,
-        "change_rate": 7.04,
-        "next_change_pct": -0.21
-      },
-      {
-        "ticker": "486510",
-        "name": "글로벌테크놀로지",
-        "score": 45,
-        "close_price": 19500,
-        "change_rate": 7.03,
-        "next_change_pct": 10.77
-      },
-      {
-        "ticker": "169330",
-        "name": "엠브레인",
-        "score": 51,
-        "close_price": 1871,
-        "change_rate": 6.98,
-        "next_change_pct": 0.64
-      },
-      {
-        "ticker": "001120",
-        "name": "LX인터내셔널",
-        "score": 42,
-        "close_price": 43200,
-        "change_rate": 6.93,
-        "next_change_pct": 0.12
-      },
-      {
-        "ticker": "417200",
-        "name": "LS머트리얼즈",
-        "score": 37,
-        "close_price": 13960,
-        "change_rate": 6.89
-      },
-      {
-        "ticker": "445180",
-        "name": "퓨릿",
-        "score": 35,
-        "close_price": 9720,
-        "change_rate": 6.81
-      },
-      {
-        "ticker": "086390",
-        "name": "유니테스트",
-        "score": 37,
-        "close_price": 14020,
-        "change_rate": 6.78
-      },
-      {
-        "ticker": "397030",
-        "name": "에이프릴바이오",
-        "score": 48,
-        "close_price": 19940,
-        "change_rate": 6.69
-      },
-      {
-        "ticker": "357580",
-        "name": "아모센스",
-        "score": 27,
-        "close_price": 7670,
-        "change_rate": 6.68
-      },
-      {
-        "ticker": "002360",
-        "name": "SH에너지화학",
-        "score": 61,
-        "close_price": 3520,
-        "change_rate": 6.67
-      },
-      {
-        "ticker": "093370",
-        "name": "후성",
-        "score": 42,
-        "close_price": 15050,
-        "change_rate": 6.59,
-        "next_change_pct": -0.47
-      },
-      {
-        "ticker": "033790",
-        "name": "피노",
-        "score": 27,
-        "close_price": 8750,
-        "change_rate": 6.58,
-        "next_change_pct": 2.06
-      },
-      {
-        "ticker": "417200",
-        "name": "LS머트리얼즈",
-        "score": 37,
-        "close_price": 13920,
-        "change_rate": 6.58,
-        "next_change_pct": 0.07
-      },
-      {
-        "ticker": "445180",
-        "name": "퓨릿",
-        "score": 35,
-        "close_price": 9690,
-        "change_rate": 6.48,
-        "next_change_pct": -0.21
-      },
-      {
-        "ticker": "397030",
-        "name": "에이프릴바이오",
-        "score": 48,
-        "close_price": 19900,
-        "change_rate": 6.47,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "086390",
-        "name": "유니테스트",
-        "score": 37,
-        "close_price": 13980,
-        "change_rate": 6.47,
-        "next_change_pct": -0.07
-      },
-      {
-        "ticker": "234690",
-        "name": "녹십자웰빙",
-        "score": 48,
-        "close_price": 9870,
-        "change_rate": 6.47,
-        "next_change_pct": 0.3
-      },
-      {
-        "ticker": "322000",
-        "name": "HD현대에너지솔루션",
-        "score": 45,
-        "close_price": 128900,
-        "change_rate": 6.27,
-        "next_change_pct": -0.16
-      },
-      {
-        "ticker": "005950",
-        "name": "이수화학",
-        "score": 45,
-        "close_price": 11145,
-        "change_rate": 6.24,
-        "next_change_pct": 0.04
-      },
-      {
-        "ticker": "199800",
-        "name": "툴젠",
-        "score": 31,
-        "close_price": 36700,
-        "change_rate": 6.22,
-        "next_change_pct": -0.27
-      },
-      {
-        "ticker": "012210",
-        "name": "삼미금속",
-        "score": 47,
-        "close_price": 12180,
-        "change_rate": 6.1,
-        "next_change_pct": 0.16
-      },
-      {
-        "ticker": "104830",
-        "name": "원익머트리얼즈",
-        "score": 45,
-        "close_price": 40250,
-        "change_rate": 5.92,
-        "next_change_pct": 0.37
-      },
-      {
-        "ticker": "322000",
-        "name": "HD현대에너지솔루션",
-        "score": 45,
-        "close_price": 128800,
-        "change_rate": 6.18
-      },
-      {
-        "ticker": "059090",
-        "name": "미코",
-        "score": 27,
-        "close_price": 23100,
-        "change_rate": 5.96
-      },
-      {
-        "ticker": "187870",
-        "name": "디바이스",
-        "score": 35,
-        "close_price": 12450,
-        "change_rate": 5.87,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "464490",
-        "name": "쿼드메디슨",
-        "score": 38,
-        "close_price": 4755,
-        "change_rate": 5.78,
-        "next_change_pct": -0.21
-      },
-      {
-        "ticker": "003465",
-        "name": "유화증권우",
-        "score": 34,
-        "close_price": 3125,
-        "change_rate": 5.75
-      },
-      {
-        "ticker": "059090",
-        "name": "미코",
-        "score": 27,
-        "close_price": 23050,
-        "change_rate": 5.73,
-        "next_change_pct": 0.22
-      },
-      {
-        "ticker": "348150",
-        "name": "고바이오랩",
-        "score": 27,
-        "close_price": 2870,
-        "change_rate": 5.71
-      },
-      {
-        "ticker": "071280",
-        "name": "로체시스템즈",
-        "score": 32,
-        "close_price": 8350,
-        "change_rate": 5.7,
-        "next_change_pct": 0.36
-      },
-      {
-        "ticker": "119610",
-        "name": "인터로조",
-        "score": 48,
-        "close_price": 15420,
-        "change_rate": 5.69,
-        "next_change_pct": 0.65
-      },
-      {
-        "ticker": "003030",
-        "name": "세아제강지주",
-        "score": 45,
-        "close_price": 117500,
-        "change_rate": 5.67,
-        "next_change_pct": -0.26
-      },
-      {
-        "ticker": "441270",
-        "name": "파인엠텍",
-        "score": 45,
-        "close_price": 9340,
-        "change_rate": 5.66
-      },
-      {
-        "ticker": "417840",
-        "name": "저스템",
-        "score": 41,
-        "close_price": 18460,
-        "change_rate": 5.61,
-        "next_change_pct": -0.05
-      },
-      {
-        "ticker": "360070",
-        "name": "탑머티리얼",
-        "score": 45,
-        "close_price": 9470,
-        "change_rate": 5.57
-      },
-      {
-        "ticker": "389650",
-        "name": "넥스트바이오메디컬",
-        "score": 45,
-        "close_price": 32350,
-        "change_rate": 5.55,
-        "next_change_pct": 0.0
-      },
-      {
-        "ticker": "425040",
-        "name": "티이엠씨",
-        "score": 41,
-        "close_price": 14100,
-        "change_rate": 5.54,
-        "next_change_pct": 0.07
-      }
-    ],
-    "next_day_filled": true
-  },
-  {
-    "date": "20260930",
-    "stocks": [
-      {
         "ticker": "023790",
         "name": "동일스틸럭스",
         "score": 66,
@@ -71410,329 +70477,376 @@
         "name": "동양고속",
         "score": 61,
         "close_price": 29250,
-        "change_rate": 30.0
+        "change_rate": 30.0,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "000650",
         "name": "천일고속",
         "score": 57,
         "close_price": 180300,
-        "change_rate": 29.99
+        "change_rate": 29.99,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "250930",
         "name": "예선테크",
         "score": 80,
         "close_price": 893,
-        "change_rate": 29.99
+        "change_rate": 29.99,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "002720",
         "name": "국제약품",
         "score": 55,
         "close_price": 4430,
-        "change_rate": 29.91
+        "change_rate": 29.91,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "009190",
         "name": "대양금속",
         "score": 61,
         "close_price": 752,
-        "change_rate": 29.88
+        "change_rate": 29.88,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "205470",
         "name": "휴마시스",
         "score": 38,
         "close_price": 3310,
-        "change_rate": 27.06
+        "change_rate": 27.06,
+        "next_change_pct": -3.17
       },
       {
         "ticker": "015260",
         "name": "에이엔피",
         "score": 48,
         "close_price": 203,
-        "change_rate": 23.78
+        "change_rate": 23.78,
+        "next_change_pct": -1.97
       },
       {
         "ticker": "114450",
         "name": "그린생명과학",
         "score": 52,
         "close_price": 2830,
-        "change_rate": 23.31
+        "change_rate": 23.31,
+        "next_change_pct": -8.3
       },
       {
         "ticker": "128820",
         "name": "대성산업",
         "score": 47,
         "close_price": 5110,
-        "change_rate": 21.09
+        "change_rate": 21.09,
+        "next_change_pct": -0.98
       },
       {
         "ticker": "199730",
         "name": "바이오인프라",
         "score": 70,
         "close_price": 744,
-        "change_rate": 20.39
+        "change_rate": 20.39,
+        "next_change_pct": 2.42
       },
       {
         "ticker": "142280",
         "name": "녹십자엠에스",
         "score": 49,
         "close_price": 3920,
-        "change_rate": 18.43
+        "change_rate": 18.43,
+        "next_change_pct": 1.66
       },
       {
         "ticker": "070300",
         "name": "퀀텀레일",
         "score": 55,
         "close_price": 688,
-        "change_rate": 18.21
+        "change_rate": 18.21,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "204270",
         "name": "제이앤티씨",
         "score": 71,
         "close_price": 26750,
-        "change_rate": 16.56
+        "change_rate": 16.56,
+        "next_change_pct": -0.19
       },
       {
         "ticker": "089230",
         "name": "THE E&M",
         "score": 15,
         "close_price": 1999,
-        "change_rate": 15.82
+        "change_rate": 15.82,
+        "next_change_pct": 1.8
       },
       {
         "ticker": "003350",
         "name": "한국화장품제조",
         "score": 54,
         "close_price": 17380,
-        "change_rate": 15.56
+        "change_rate": 15.56,
+        "next_change_pct": -2.3
       },
       {
         "ticker": "348030",
         "name": "모비릭스",
         "score": 62,
         "close_price": 3550,
-        "change_rate": 15.07
+        "change_rate": 15.07,
+        "next_change_pct": -0.85
       },
       {
         "ticker": "058450",
         "name": "한주에이알티",
         "score": 50,
         "close_price": 659,
-        "change_rate": 15.01
+        "change_rate": 15.01,
+        "next_change_pct": -3.03
       },
       {
         "ticker": "109820",
         "name": "진매트릭스",
         "score": 33,
         "close_price": 1860,
-        "change_rate": 14.53
+        "change_rate": 14.53,
+        "next_change_pct": -0.32
       },
       {
         "ticker": "005110",
         "name": "한창",
         "score": 15,
         "close_price": 88,
-        "change_rate": 14.29
+        "change_rate": 14.29,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "278650",
         "name": "HLB바이오스텝",
         "score": 67,
         "close_price": 4265,
-        "change_rate": 14.19
+        "change_rate": 14.19,
+        "next_change_pct": 3.05
       },
       {
         "ticker": "038500",
         "name": "삼표시멘트",
         "score": 50,
         "close_price": 7700,
-        "change_rate": 14.07
+        "change_rate": 14.07,
+        "next_change_pct": -1.43
       },
       {
         "ticker": "281820",
         "name": "케이씨텍",
         "score": 52,
         "close_price": 122400,
-        "change_rate": 13.97
+        "change_rate": 13.97,
+        "next_change_pct": -0.41
       },
       {
         "ticker": "095700",
         "name": "제넥신",
         "score": 48,
         "close_price": 3175,
-        "change_rate": 11.99
+        "change_rate": 11.99,
+        "next_change_pct": -0.47
       },
       {
         "ticker": "011090",
         "name": "에넥스",
         "score": 45,
         "close_price": 1468,
-        "change_rate": 11.72
+        "change_rate": 11.72,
+        "next_change_pct": 6.54
       },
       {
         "ticker": "419530",
         "name": "SAMG엔터",
         "score": 45,
         "close_price": 19770,
-        "change_rate": 10.26
+        "change_rate": 10.26,
+        "next_change_pct": 0.66
       },
       {
         "ticker": "058110",
         "name": "멕아이씨에스",
         "score": 36,
         "close_price": 1720,
-        "change_rate": 10.26
+        "change_rate": 10.26,
+        "next_change_pct": -1.69
       },
       {
         "ticker": "019990",
         "name": "에너토크",
         "score": 45,
         "close_price": 5910,
-        "change_rate": 10.26
+        "change_rate": 10.26,
+        "next_change_pct": -0.34
       },
       {
         "ticker": "012210",
         "name": "삼미금속",
         "score": 57,
         "close_price": 13500,
-        "change_rate": 9.49
+        "change_rate": 9.49,
+        "next_change_pct": -1.19
       },
       {
         "ticker": "351870",
         "name": "차이커뮤니케이션",
         "score": 61,
         "close_price": 2375,
-        "change_rate": 9.45
+        "change_rate": 9.45,
+        "next_change_pct": 3.16
       },
       {
         "ticker": "042510",
         "name": "라온시큐어",
         "score": 66,
         "close_price": 16210,
-        "change_rate": 9.01
+        "change_rate": 9.01,
+        "next_change_pct": 4.97
       },
       {
         "ticker": "060900",
         "name": "에이전트AI",
         "score": 48,
         "close_price": 1749,
-        "change_rate": 8.7
+        "change_rate": 8.7,
+        "next_change_pct": -1.14
       },
       {
         "ticker": "085620",
         "name": "미래에셋생명",
         "score": 45,
         "close_price": 22150,
-        "change_rate": 8.58
+        "change_rate": 8.58,
+        "next_change_pct": -0.23
       },
       {
         "ticker": "084650",
         "name": "랩지노믹스",
         "score": 27,
         "close_price": 2895,
-        "change_rate": 8.22
+        "change_rate": 8.22,
+        "next_change_pct": 2.07
       },
       {
         "ticker": "299660",
         "name": "셀리드",
         "score": 48,
         "close_price": 2580,
-        "change_rate": 8.18
+        "change_rate": 8.18,
+        "next_change_pct": 0.58
       },
       {
         "ticker": "002680",
         "name": "한탑",
         "score": 49,
         "close_price": 3780,
-        "change_rate": 8.15
+        "change_rate": 8.15,
+        "next_change_pct": -1.46
       },
       {
         "ticker": "465770",
         "name": "STX그린로지스",
         "score": 45,
         "close_price": 2280,
-        "change_rate": 8.06
+        "change_rate": 8.06,
+        "next_change_pct": -1.1
       },
       {
         "ticker": "019170",
         "name": "신풍제약",
         "score": 46,
         "close_price": 10440,
-        "change_rate": 7.96
+        "change_rate": 7.96,
+        "next_change_pct": 0.57
       },
       {
         "ticker": "069540",
         "name": "빛과전자",
         "score": 62,
         "close_price": 5400,
-        "change_rate": 7.78
+        "change_rate": 7.78,
+        "next_change_pct": 1.11
       },
       {
         "ticker": "019175",
         "name": "신풍제약우",
         "score": 45,
         "close_price": 15390,
-        "change_rate": 7.7
+        "change_rate": 7.7,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "223250",
         "name": "드림씨아이에스",
         "score": 45,
         "close_price": 3970,
-        "change_rate": 7.59
+        "change_rate": 7.59,
+        "next_change_pct": -1.01
       },
       {
         "ticker": "004835",
         "name": "덕성우",
         "score": 48,
         "close_price": 4920,
-        "change_rate": 7.42
+        "change_rate": 7.42,
+        "next_change_pct": -1.52
       },
       {
         "ticker": "036570",
         "name": "NC",
         "score": 46,
         "close_price": 240500,
-        "change_rate": 7.37
+        "change_rate": 7.37,
+        "next_change_pct": 0.83
       },
       {
         "ticker": "253840",
         "name": "수젠텍",
         "score": 43,
         "close_price": 4910,
-        "change_rate": 7.32
+        "change_rate": 7.32,
+        "next_change_pct": 0.61
       },
       {
         "ticker": "204620",
         "name": "글로벌텍스프리",
         "score": 45,
         "close_price": 5800,
-        "change_rate": 7.21
+        "change_rate": 7.21,
+        "next_change_pct": 0.17
       },
       {
         "ticker": "005030",
         "name": "부산주공",
         "score": 15,
         "close_price": 30,
-        "change_rate": 7.14
+        "change_rate": 7.14,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "156100",
         "name": "엘앤케이바이오",
         "score": 45,
         "close_price": 6750,
-        "change_rate": 6.97
+        "change_rate": 6.97,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "950130",
         "name": "엑세스바이오",
         "score": 29,
         "close_price": 2335,
-        "change_rate": 6.86
+        "change_rate": 6.86,
+        "next_change_pct": -0.43
       },
       {
         "ticker": "291650",
@@ -71746,140 +70860,160 @@
         "name": "동국제약",
         "score": 47,
         "close_price": 23150,
-        "change_rate": 6.68
+        "change_rate": 6.68,
+        "next_change_pct": 0.86
       },
       {
         "ticker": "418620",
         "name": "E8",
         "score": 45,
         "close_price": 480,
-        "change_rate": 6.67
+        "change_rate": 6.67,
+        "next_change_pct": -1.04
       },
       {
         "ticker": "063160",
         "name": "종근당바이오",
         "score": 49,
         "close_price": 14420,
-        "change_rate": 6.66
+        "change_rate": 6.66,
+        "next_change_pct": -0.21
       },
       {
         "ticker": "377030",
         "name": "비트맥스",
         "score": 31,
         "close_price": 2485,
-        "change_rate": 6.65
+        "change_rate": 6.65,
+        "next_change_pct": -1.41
       },
       {
         "ticker": "012320",
         "name": "경동인베스트",
         "score": 46,
         "close_price": 46600,
-        "change_rate": 6.64
+        "change_rate": 6.64,
+        "next_change_pct": 2.9
       },
       {
         "ticker": "215790",
         "name": "이노인스트루먼트",
         "score": 45,
         "close_price": 679,
-        "change_rate": 6.59
+        "change_rate": 6.59,
+        "next_change_pct": -0.88
       },
       {
         "ticker": "123010",
         "name": "MSDI",
         "score": 48,
         "close_price": 4490,
-        "change_rate": 6.52
+        "change_rate": 6.52,
+        "next_change_pct": -0.11
       },
       {
         "ticker": "251970",
         "name": "펌텍코리아",
         "score": 40,
         "close_price": 67100,
-        "change_rate": 6.51
+        "change_rate": 6.51,
+        "next_change_pct": 0.15
       },
       {
         "ticker": "219750",
         "name": "한국비티비",
         "score": 45,
         "close_price": 1833,
-        "change_rate": 6.45
+        "change_rate": 6.45,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "000400",
         "name": "롯데손해보험",
         "score": 45,
         "close_price": 2270,
-        "change_rate": 6.07
+        "change_rate": 6.07,
+        "next_change_pct": -1.1
       },
       {
         "ticker": "004060",
         "name": "SG세계물산",
         "score": 39,
         "close_price": 2200,
-        "change_rate": 6.02
+        "change_rate": 6.02,
+        "next_change_pct": 0.0
       },
       {
         "ticker": "260970",
         "name": "에스앤디",
         "score": 46,
         "close_price": 63900,
-        "change_rate": 5.97
+        "change_rate": 5.97,
+        "next_change_pct": -0.47
       },
       {
         "ticker": "012170",
         "name": "아센디오",
         "score": 52,
         "close_price": 3130,
-        "change_rate": 5.92
+        "change_rate": 5.92,
+        "next_change_pct": -1.28
       },
       {
         "ticker": "290650",
         "name": "엘앤씨바이오",
         "score": 37,
         "close_price": 55500,
-        "change_rate": 5.92
+        "change_rate": 5.92,
+        "next_change_pct": -0.36
       },
       {
         "ticker": "065170",
         "name": "비엘팜텍",
         "score": 45,
         "close_price": 2350,
-        "change_rate": 5.86
+        "change_rate": 5.86,
+        "next_change_pct": 6.6
       },
       {
         "ticker": "383930",
         "name": "디티앤씨알오",
         "score": 45,
         "close_price": 2030,
-        "change_rate": 5.84
+        "change_rate": 5.84,
+        "next_change_pct": 6.4
       },
       {
         "ticker": "115160",
         "name": "휴맥스",
         "score": 38,
         "close_price": 5690,
-        "change_rate": 5.76
+        "change_rate": 5.76,
+        "next_change_pct": -0.7
       },
       {
         "ticker": "372320",
         "name": "큐로셀",
         "score": 48,
         "close_price": 24000,
-        "change_rate": 5.73
+        "change_rate": 5.73,
+        "next_change_pct": 2.71
       },
       {
         "ticker": "010280",
         "name": "아이티센엔텍",
         "score": 45,
         "close_price": 6040,
-        "change_rate": 5.59
+        "change_rate": 5.59,
+        "next_change_pct": -0.5
       },
       {
         "ticker": "084990",
         "name": "헬릭스미스",
         "score": 38,
         "close_price": 3990,
-        "change_rate": 5.56
+        "change_rate": 5.56,
+        "next_change_pct": -0.25
       },
       {
         "ticker": "217590",
@@ -71893,14 +71027,16 @@
         "name": "씨젠",
         "score": 31,
         "close_price": 39300,
-        "change_rate": 5.5
+        "change_rate": 5.5,
+        "next_change_pct": 1.4
       },
       {
         "ticker": "034940",
         "name": "조아제약",
         "score": 32,
         "close_price": 2675,
-        "change_rate": 5.31
+        "change_rate": 5.31,
+        "next_change_pct": -0.75
       },
       {
         "ticker": "036220",
@@ -71914,42 +71050,48 @@
         "name": "코스맥스비티아이",
         "score": 35,
         "close_price": 25100,
-        "change_rate": 5.24
+        "change_rate": 5.24,
+        "next_change_pct": 0.2
       },
       {
         "ticker": "261520",
         "name": "이지스",
         "score": 15,
         "close_price": 5840,
-        "change_rate": 5.23
+        "change_rate": 5.23,
+        "next_change_pct": 1.54
       },
       {
         "ticker": "355390",
         "name": "크라우드웍스",
         "score": 47,
         "close_price": 1673,
-        "change_rate": 5.22
+        "change_rate": 5.22,
+        "next_change_pct": 0.24
       },
       {
         "ticker": "352820",
         "name": "하이브",
         "score": 45,
         "close_price": 165100,
-        "change_rate": 5.16
+        "change_rate": 5.16,
+        "next_change_pct": -0.12
       },
       {
         "ticker": "044960",
         "name": "이글벳",
         "score": 31,
         "close_price": 3265,
-        "change_rate": 4.98
+        "change_rate": 4.98,
+        "next_change_pct": 0.15
       },
       {
         "ticker": "176750",
         "name": "듀켐바이오",
         "score": 48,
         "close_price": 7750,
-        "change_rate": 4.87
+        "change_rate": 4.87,
+        "next_change_pct": -0.26
       },
       {
         "ticker": "038530",
@@ -71963,7 +71105,8 @@
         "name": "콜마바이오텍",
         "score": 45,
         "close_price": 2380,
-        "change_rate": 4.85
+        "change_rate": 4.85,
+        "next_change_pct": 2.1
       },
       {
         "ticker": "296640",
@@ -71991,21 +71134,24 @@
         "name": "디에스케이",
         "score": 45,
         "close_price": 4035,
-        "change_rate": 4.81
+        "change_rate": 4.81,
+        "next_change_pct": 2.6
       },
       {
         "ticker": "101730",
         "name": "위메이드맥스",
         "score": 42,
         "close_price": 4825,
-        "change_rate": 4.78
+        "change_rate": 4.78,
+        "next_change_pct": 0.41
       },
       {
         "ticker": "248070",
         "name": "솔루엠",
         "score": 58,
         "close_price": 17600,
-        "change_rate": 4.76
+        "change_rate": 4.76,
+        "next_change_pct": 2.44
       },
       {
         "ticker": "044480",
@@ -72019,21 +71165,24 @@
         "name": "브이티",
         "score": 33,
         "close_price": 13310,
-        "change_rate": 4.72
+        "change_rate": 4.72,
+        "next_change_pct": 0.75
       },
       {
         "ticker": "026890",
         "name": "스틱인베스트먼트",
         "score": 45,
         "close_price": 8240,
-        "change_rate": 4.7
+        "change_rate": 4.7,
+        "next_change_pct": 0.12
       },
       {
         "ticker": "065950",
         "name": "웰크론",
         "score": 29,
         "close_price": 1172,
-        "change_rate": 4.64
+        "change_rate": 4.64,
+        "next_change_pct": 5.2
       },
       {
         "ticker": "003220",
@@ -72047,21 +71196,24 @@
         "name": "에이피알",
         "score": 41,
         "close_price": 377500,
-        "change_rate": 4.57
+        "change_rate": 4.57,
+        "next_change_pct": 0.53
       },
       {
         "ticker": "159580",
         "name": "제로투세븐",
         "score": 33,
         "close_price": 2215,
-        "change_rate": 4.48
+        "change_rate": 4.48,
+        "next_change_pct": 0.23
       },
       {
         "ticker": "008040",
         "name": "사조동아원",
         "score": 38,
         "close_price": 7710,
-        "change_rate": 4.47
+        "change_rate": 4.47,
+        "next_change_pct": 0.65
       },
       {
         "ticker": "464280",
@@ -72082,7 +71234,8 @@
         "name": "네오팜",
         "score": 33,
         "close_price": 23600,
-        "change_rate": 4.42
+        "change_rate": 4.42,
+        "next_change_pct": 0.64
       },
       {
         "ticker": "377220",
@@ -72103,7 +71256,714 @@
         "name": "뷰티스킨",
         "score": 33,
         "close_price": 2530,
-        "change_rate": 4.33
+        "change_rate": 4.33,
+        "next_change_pct": 0.99
+      }
+    ],
+    "next_day_filled": true
+  },
+  {
+    "date": "20261007",
+    "stocks": [
+      {
+        "ticker": "084670",
+        "name": "동양고속",
+        "score": 57,
+        "close_price": 29250,
+        "change_rate": 30.0
+      },
+      {
+        "ticker": "000650",
+        "name": "천일고속",
+        "score": 53,
+        "close_price": 180300,
+        "change_rate": 29.99
+      },
+      {
+        "ticker": "250930",
+        "name": "예선테크",
+        "score": 80,
+        "close_price": 893,
+        "change_rate": 29.99
+      },
+      {
+        "ticker": "002720",
+        "name": "국제약품",
+        "score": 55,
+        "close_price": 4430,
+        "change_rate": 29.91
+      },
+      {
+        "ticker": "009190",
+        "name": "대양금속",
+        "score": 61,
+        "close_price": 752,
+        "change_rate": 29.88
+      },
+      {
+        "ticker": "199730",
+        "name": "바이오인프라",
+        "score": 70,
+        "close_price": 762,
+        "change_rate": 23.3
+      },
+      {
+        "ticker": "205470",
+        "name": "휴마시스",
+        "score": 46,
+        "close_price": 3205,
+        "change_rate": 23.03
+      },
+      {
+        "ticker": "015260",
+        "name": "에이엔피",
+        "score": 41,
+        "close_price": 199,
+        "change_rate": 21.34
+      },
+      {
+        "ticker": "142280",
+        "name": "녹십자엠에스",
+        "score": 57,
+        "close_price": 3985,
+        "change_rate": 20.39
+      },
+      {
+        "ticker": "128820",
+        "name": "대성산업",
+        "score": 43,
+        "close_price": 5060,
+        "change_rate": 19.91
+      },
+      {
+        "ticker": "011090",
+        "name": "에넥스",
+        "score": 53,
+        "close_price": 1564,
+        "change_rate": 19.03
+      },
+      {
+        "ticker": "070300",
+        "name": "퀀텀레일",
+        "score": 55,
+        "close_price": 688,
+        "change_rate": 18.21
+      },
+      {
+        "ticker": "089230",
+        "name": "THE E&M",
+        "score": 15,
+        "close_price": 2035,
+        "change_rate": 17.9
+      },
+      {
+        "ticker": "278650",
+        "name": "HLB바이오스텝",
+        "score": 71,
+        "close_price": 4395,
+        "change_rate": 17.67
+      },
+      {
+        "ticker": "204270",
+        "name": "제이앤티씨",
+        "score": 64,
+        "close_price": 26700,
+        "change_rate": 16.34
+      },
+      {
+        "ticker": "042510",
+        "name": "라온시큐어",
+        "score": 66,
+        "close_price": 17015,
+        "change_rate": 14.43
+      },
+      {
+        "ticker": "005110",
+        "name": "한창",
+        "score": 15,
+        "close_price": 88,
+        "change_rate": 14.29
+      },
+      {
+        "ticker": "109820",
+        "name": "진매트릭스",
+        "score": 41,
+        "close_price": 1854,
+        "change_rate": 14.16
+      },
+      {
+        "ticker": "348030",
+        "name": "모비릭스",
+        "score": 52,
+        "close_price": 3520,
+        "change_rate": 14.1
+      },
+      {
+        "ticker": "281820",
+        "name": "케이씨텍",
+        "score": 52,
+        "close_price": 121900,
+        "change_rate": 13.5
+      },
+      {
+        "ticker": "114450",
+        "name": "그린생명과학",
+        "score": 51,
+        "close_price": 2595,
+        "change_rate": 13.07
+      },
+      {
+        "ticker": "003350",
+        "name": "한국화장품제조",
+        "score": 54,
+        "close_price": 16980,
+        "change_rate": 12.9
+      },
+      {
+        "ticker": "351870",
+        "name": "차이커뮤니케이션",
+        "score": 65,
+        "close_price": 2450,
+        "change_rate": 12.9
+      },
+      {
+        "ticker": "065170",
+        "name": "비엘팜텍",
+        "score": 49,
+        "close_price": 2505,
+        "change_rate": 12.84
+      },
+      {
+        "ticker": "383930",
+        "name": "디티앤씨알오",
+        "score": 49,
+        "close_price": 2160,
+        "change_rate": 12.62
+      },
+      {
+        "ticker": "038500",
+        "name": "삼표시멘트",
+        "score": 46,
+        "close_price": 7590,
+        "change_rate": 12.44
+      },
+      {
+        "ticker": "058450",
+        "name": "한주에이알티",
+        "score": 50,
+        "close_price": 639,
+        "change_rate": 11.52
+      },
+      {
+        "ticker": "095700",
+        "name": "제넥신",
+        "score": 48,
+        "close_price": 3160,
+        "change_rate": 11.46
+      },
+      {
+        "ticker": "419530",
+        "name": "SAMG엔터",
+        "score": 45,
+        "close_price": 19900,
+        "change_rate": 10.99
+      },
+      {
+        "ticker": "084650",
+        "name": "랩지노믹스",
+        "score": 35,
+        "close_price": 2955,
+        "change_rate": 10.47
+      },
+      {
+        "ticker": "065950",
+        "name": "웰크론",
+        "score": 36,
+        "close_price": 1233,
+        "change_rate": 10.09
+      },
+      {
+        "ticker": "019990",
+        "name": "에너토크",
+        "score": 45,
+        "close_price": 5890,
+        "change_rate": 9.89
+      },
+      {
+        "ticker": "012320",
+        "name": "경동인베스트",
+        "score": 46,
+        "close_price": 47950,
+        "change_rate": 9.73
+      },
+      {
+        "ticker": "069540",
+        "name": "빛과전자",
+        "score": 61,
+        "close_price": 5460,
+        "change_rate": 8.98
+      },
+      {
+        "ticker": "299660",
+        "name": "셀리드",
+        "score": 48,
+        "close_price": 2595,
+        "change_rate": 8.81
+      },
+      {
+        "ticker": "372320",
+        "name": "큐로셀",
+        "score": 48,
+        "close_price": 24650,
+        "change_rate": 8.59
+      },
+      {
+        "ticker": "019170",
+        "name": "신풍제약",
+        "score": 46,
+        "close_price": 10500,
+        "change_rate": 8.58
+      },
+      {
+        "ticker": "058110",
+        "name": "멕아이씨에스",
+        "score": 36,
+        "close_price": 1691,
+        "change_rate": 8.4
+      },
+      {
+        "ticker": "372170",
+        "name": "윤성에프앤씨",
+        "score": 49,
+        "close_price": 25200,
+        "change_rate": 8.39
+      },
+      {
+        "ticker": "085620",
+        "name": "미래에셋생명",
+        "score": 45,
+        "close_price": 22100,
+        "change_rate": 8.33
+      },
+      {
+        "ticker": "036570",
+        "name": "NC",
+        "score": 46,
+        "close_price": 242500,
+        "change_rate": 8.26
+      },
+      {
+        "ticker": "012210",
+        "name": "삼미금속",
+        "score": 50,
+        "close_price": 13340,
+        "change_rate": 8.19
+      },
+      {
+        "ticker": "253840",
+        "name": "수젠텍",
+        "score": 43,
+        "close_price": 4940,
+        "change_rate": 7.98
+      },
+      {
+        "ticker": "019175",
+        "name": "신풍제약우",
+        "score": 45,
+        "close_price": 15390,
+        "change_rate": 7.7
+      },
+      {
+        "ticker": "086450",
+        "name": "동국제약",
+        "score": 43,
+        "close_price": 23350,
+        "change_rate": 7.6
+      },
+      {
+        "ticker": "109740",
+        "name": "디에스케이",
+        "score": 45,
+        "close_price": 4140,
+        "change_rate": 7.53
+      },
+      {
+        "ticker": "060900",
+        "name": "에이전트AI",
+        "score": 48,
+        "close_price": 1729,
+        "change_rate": 7.46
+      },
+      {
+        "ticker": "204620",
+        "name": "글로벌텍스프리",
+        "score": 45,
+        "close_price": 5810,
+        "change_rate": 7.39
+      },
+      {
+        "ticker": "248070",
+        "name": "솔루엠",
+        "score": 62,
+        "close_price": 18030,
+        "change_rate": 7.32
+      },
+      {
+        "ticker": "005030",
+        "name": "부산주공",
+        "score": 15,
+        "close_price": 30,
+        "change_rate": 7.14
+      },
+      {
+        "ticker": "041960",
+        "name": "코미팜",
+        "score": 39,
+        "close_price": 11170,
+        "change_rate": 7.09
+      },
+      {
+        "ticker": "215380",
+        "name": "콜마바이오텍",
+        "score": 45,
+        "close_price": 2430,
+        "change_rate": 7.05
+      },
+      {
+        "ticker": "096530",
+        "name": "씨젠",
+        "score": 39,
+        "close_price": 39850,
+        "change_rate": 6.98
+      },
+      {
+        "ticker": "156100",
+        "name": "엘앤케이바이오",
+        "score": 45,
+        "close_price": 6750,
+        "change_rate": 6.97
+      },
+      {
+        "ticker": "465770",
+        "name": "STX그린로지스",
+        "score": 45,
+        "close_price": 2255,
+        "change_rate": 6.87
+      },
+      {
+        "ticker": "261520",
+        "name": "이지스",
+        "score": 15,
+        "close_price": 5930,
+        "change_rate": 6.85
+      },
+      {
+        "ticker": "251970",
+        "name": "펌텍코리아",
+        "score": 40,
+        "close_price": 67200,
+        "change_rate": 6.67
+      },
+      {
+        "ticker": "002680",
+        "name": "한탑",
+        "score": 49,
+        "close_price": 3725,
+        "change_rate": 6.58
+      },
+      {
+        "ticker": "223250",
+        "name": "드림씨아이에스",
+        "score": 45,
+        "close_price": 3930,
+        "change_rate": 6.5
+      },
+      {
+        "ticker": "219750",
+        "name": "한국비티비",
+        "score": 45,
+        "close_price": 1833,
+        "change_rate": 6.45
+      },
+      {
+        "ticker": "063160",
+        "name": "종근당바이오",
+        "score": 49,
+        "close_price": 14390,
+        "change_rate": 6.43
+      },
+      {
+        "ticker": "123010",
+        "name": "MSDI",
+        "score": 48,
+        "close_price": 4485,
+        "change_rate": 6.41
+      },
+      {
+        "ticker": "950130",
+        "name": "엑세스바이오",
+        "score": 29,
+        "close_price": 2325,
+        "change_rate": 6.41
+      },
+      {
+        "ticker": "452450",
+        "name": "피아이이",
+        "score": 47,
+        "close_price": 6210,
+        "change_rate": 6.15
+      },
+      {
+        "ticker": "004060",
+        "name": "SG세계물산",
+        "score": 35,
+        "close_price": 2200,
+        "change_rate": 6.02
+      },
+      {
+        "ticker": "084440",
+        "name": "유비온",
+        "score": 45,
+        "close_price": 5110,
+        "change_rate": 5.91
+      },
+      {
+        "ticker": "004835",
+        "name": "덕성우",
+        "score": 48,
+        "close_price": 4845,
+        "change_rate": 5.79
+      },
+      {
+        "ticker": "107640",
+        "name": "한중엔시에스",
+        "score": 32,
+        "close_price": 47950,
+        "change_rate": 5.73
+      },
+      {
+        "ticker": "215790",
+        "name": "이노인스트루먼트",
+        "score": 45,
+        "close_price": 673,
+        "change_rate": 5.65
+      },
+      {
+        "ticker": "418620",
+        "name": "E8",
+        "score": 45,
+        "close_price": 475,
+        "change_rate": 5.56
+      },
+      {
+        "ticker": "290650",
+        "name": "엘앤씨바이오",
+        "score": 37,
+        "close_price": 55300,
+        "change_rate": 5.53
+      },
+      {
+        "ticker": "011330",
+        "name": "유니켐",
+        "score": 15,
+        "close_price": 4405,
+        "change_rate": 5.51
+      },
+      {
+        "ticker": "018290",
+        "name": "브이티",
+        "score": 33,
+        "close_price": 13410,
+        "change_rate": 5.51
+      },
+      {
+        "ticker": "355390",
+        "name": "크라우드웍스",
+        "score": 47,
+        "close_price": 1677,
+        "change_rate": 5.47
+      },
+      {
+        "ticker": "260970",
+        "name": "에스앤디",
+        "score": 48,
+        "close_price": 63600,
+        "change_rate": 5.47
+      },
+      {
+        "ticker": "044820",
+        "name": "코스맥스비티아이",
+        "score": 35,
+        "close_price": 25150,
+        "change_rate": 5.45
+      },
+      {
+        "ticker": "406820",
+        "name": "뷰티스킨",
+        "score": 33,
+        "close_price": 2555,
+        "change_rate": 5.36
+      },
+      {
+        "ticker": "084990",
+        "name": "헬릭스미스",
+        "score": 38,
+        "close_price": 3980,
+        "change_rate": 5.29
+      },
+      {
+        "ticker": "241710",
+        "name": "코스메카코리아",
+        "score": 33,
+        "close_price": 116200,
+        "change_rate": 5.25
+      },
+      {
+        "ticker": "101730",
+        "name": "위메이드맥스",
+        "score": 32,
+        "close_price": 4845,
+        "change_rate": 5.21
+      },
+      {
+        "ticker": "008040",
+        "name": "사조동아원",
+        "score": 38,
+        "close_price": 7760,
+        "change_rate": 5.15
+      },
+      {
+        "ticker": "377030",
+        "name": "비트맥스",
+        "score": 46,
+        "close_price": 2450,
+        "change_rate": 5.15
+      },
+      {
+        "ticker": "044960",
+        "name": "이글벳",
+        "score": 31,
+        "close_price": 3270,
+        "change_rate": 5.14
+      },
+      {
+        "ticker": "278470",
+        "name": "에이피알",
+        "score": 41,
+        "close_price": 379500,
+        "change_rate": 5.12
+      },
+      {
+        "ticker": "092730",
+        "name": "네오팜",
+        "score": 33,
+        "close_price": 23750,
+        "change_rate": 5.09
+      },
+      {
+        "ticker": "010280",
+        "name": "아이티센엔텍",
+        "score": 45,
+        "close_price": 6010,
+        "change_rate": 5.07
+      },
+      {
+        "ticker": "352820",
+        "name": "하이브",
+        "score": 45,
+        "close_price": 164900,
+        "change_rate": 5.03
+      },
+      {
+        "ticker": "115160",
+        "name": "휴맥스",
+        "score": 34,
+        "close_price": 5650,
+        "change_rate": 5.02
+      },
+      {
+        "ticker": "000400",
+        "name": "롯데손해보험",
+        "score": 45,
+        "close_price": 2245,
+        "change_rate": 4.91
+      },
+      {
+        "ticker": "026890",
+        "name": "스틱인베스트먼트",
+        "score": 45,
+        "close_price": 8250,
+        "change_rate": 4.83
+      },
+      {
+        "ticker": "002320",
+        "name": "한진",
+        "score": 45,
+        "close_price": 16770,
+        "change_rate": 4.81
+      },
+      {
+        "ticker": "159580",
+        "name": "제로투세븐",
+        "score": 33,
+        "close_price": 2220,
+        "change_rate": 4.72
+      },
+      {
+        "ticker": "234690",
+        "name": "녹십자웰빙",
+        "score": 38,
+        "close_price": 11160,
+        "change_rate": 4.69
+      },
+      {
+        "ticker": "176750",
+        "name": "듀켐바이오",
+        "score": 48,
+        "close_price": 7730,
+        "change_rate": 4.6
+      },
+      {
+        "ticker": "012170",
+        "name": "아센디오",
+        "score": 51,
+        "close_price": 3090,
+        "change_rate": 4.57
+      },
+      {
+        "ticker": "251630",
+        "name": "브이원텍",
+        "score": 34,
+        "close_price": 4020,
+        "change_rate": 4.55
+      },
+      {
+        "ticker": "034940",
+        "name": "조아제약",
+        "score": 29,
+        "close_price": 2655,
+        "change_rate": 4.53
+      },
+      {
+        "ticker": "274400",
+        "name": "이노시뮬레이션",
+        "score": 39,
+        "close_price": 2310,
+        "change_rate": 4.52
+      },
+      {
+        "ticker": "159010",
+        "name": "아스플로",
+        "score": 48,
+        "close_price": 33600,
+        "change_rate": 4.51
+      },
+      {
+        "ticker": "090430",
+        "name": "아모레퍼시픽",
+        "score": 33,
+        "close_price": 139100,
+        "change_rate": 4.43
       }
     ],
     "next_day_filled": false
