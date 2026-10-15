@@ -1,6 +1,6 @@
 {
   "date": "20261015",
-  "collected_at": "2026-10-15T12:51:05",
+  "collected_at": "2026-10-15T13:17:23",
   "mode": "intraday",
   "is_final": false,
   "count": 100,
@@ -355,9 +355,9 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 65,
+      "score": 73,
       "score_detail": {
-        "tp": 22,
+        "tp": 30,
         "tl": 32,
         "ti": 11
       },
@@ -387,7 +387,7 @@
           "date": "2026.10.08"
         }
       ],
-      "forward_score": 71,
+      "forward_score": 79,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -469,81 +469,6 @@
     },
     {
       "rank": 7,
-      "ticker": "004415",
-      "name": "서울식품우",
-      "market": "KOSPI",
-      "close_price": 4610,
-      "change_amount": 1060,
-      "change_rate": 29.86,
-      "trading_value": 36000000,
-      "market_cap": 1025494500,
-      "sector": "식품",
-      "industry_no": 268,
-      "high_52w": 15400,
-      "high_52w_date": "20260219",
-      "high_price": 4610,
-      "low_price": 3550,
-      "theme_tag": "기반",
-      "theme_tags": [
-        "기반"
-      ],
-      "theme_no": null,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 61,
-      "score_detail": {
-        "tp": 22,
-        "tl": 32,
-        "ti": 7
-      },
-      "rise_reason": "주주환원 정책",
-      "reason_origin": "rule",
-      "reason_kind": "",
-      "reason_confidence": "",
-      "reason_evidence": [],
-      "reason_hint": null,
-      "news": [
-        {
-          "title": "조정장서 키맞추는 ‘우선주’…주주환원 기대감에 투자해볼까",
-          "link": "https://n.news.naver.com/mnews/article/011/0004650750",
-          "source": "서울경제",
-          "date": "2026.08.11"
-        },
-        {
-          "title": "시총 작은 우선주 '이상 급등'…CJ씨푸드우 '上' [핫종목]",
-          "link": "https://n.news.naver.com/mnews/article/421/0009082694",
-          "source": "뉴스1",
-          "date": "2026.07.28"
-        },
-        {
-          "title": "\"돈쭐 내주자\" 응원 쏟아지더니…주가 폭등 '상한가' 터졌다 [종목+]",
-          "link": "https://n.news.naver.com/mnews/article/015/0005310045",
-          "source": "한국경제",
-          "date": "2026.07.14"
-        },
-        {
-          "title": "상폐 요건 강화하자…동전주들 병합 러시",
-          "link": "https://n.news.naver.com/mnews/article/011/0004619627",
-          "source": "서울경제",
-          "date": "2026.05.11"
-        },
-        {
-          "title": "한국거래소, 단일가 매매 적용 대상 저유동성 24개 종목 확정",
-          "link": "https://n.news.naver.com/mnews/article/417/0001122088",
-          "source": "동행미디어 시대",
-          "date": "2025.12.30"
-        }
-      ],
-      "forward_score": 67,
-      "forward_bonus": 6,
-      "forward_detail": {
-        "small_size": 6,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 8,
       "ticker": "065650",
       "name": "하이퍼코퍼레이션",
       "market": "KOSDAQ",
@@ -566,9 +491,9 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 70,
+      "score": 78,
       "score_detail": {
-        "tp": 22,
+        "tp": 30,
         "tl": 41,
         "ti": 7
       },
@@ -641,7 +566,7 @@
           "date": "2026.10.06"
         }
       ],
-      "forward_score": 80,
+      "forward_score": 88,
       "forward_bonus": 10,
       "forward_detail": {
         "small_size": 6,
@@ -649,7 +574,7 @@
       }
     },
     {
-      "rank": 9,
+      "rank": 8,
       "ticker": "015260",
       "name": "에이엔피",
       "market": "KOSPI",
@@ -679,10 +604,10 @@
         "tl": 38,
         "ti": 9
       },
-      "rise_reason": "자동차부품 테마 3종목 동반 상승",
-      "reason_origin": "news",
-      "reason_kind": "theme",
-      "reason_confidence": "low",
+      "rise_reason": "상장 이슈",
+      "reason_origin": "rule",
+      "reason_kind": "",
+      "reason_confidence": "",
       "reason_evidence": [],
       "reason_hint": null,
       "news": [
@@ -728,6 +653,81 @@
       "forward_detail": {
         "small_size": 6,
         "consec_lu": 2
+      }
+    },
+    {
+      "rank": 9,
+      "ticker": "004415",
+      "name": "서울식품우",
+      "market": "KOSPI",
+      "close_price": 4500,
+      "change_amount": 950,
+      "change_rate": 26.76,
+      "trading_value": 50000000,
+      "market_cap": 1001025000,
+      "sector": "식품",
+      "industry_no": 268,
+      "high_52w": 15400,
+      "high_52w_date": "20260219",
+      "high_price": 4610,
+      "low_price": 3550,
+      "theme_tag": "기반",
+      "theme_tags": [
+        "기반"
+      ],
+      "theme_no": null,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 61,
+      "score_detail": {
+        "tp": 22,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "주주환원 정책",
+      "reason_origin": "rule",
+      "reason_kind": "",
+      "reason_confidence": "",
+      "reason_evidence": [],
+      "reason_hint": null,
+      "news": [
+        {
+          "title": "조정장서 키맞추는 ‘우선주’…주주환원 기대감에 투자해볼까",
+          "link": "https://n.news.naver.com/mnews/article/011/0004650750",
+          "source": "서울경제",
+          "date": "2026.08.11"
+        },
+        {
+          "title": "시총 작은 우선주 '이상 급등'…CJ씨푸드우 '上' [핫종목]",
+          "link": "https://n.news.naver.com/mnews/article/421/0009082694",
+          "source": "뉴스1",
+          "date": "2026.07.28"
+        },
+        {
+          "title": "\"돈쭐 내주자\" 응원 쏟아지더니…주가 폭등 '상한가' 터졌다 [종목+]",
+          "link": "https://n.news.naver.com/mnews/article/015/0005310045",
+          "source": "한국경제",
+          "date": "2026.07.14"
+        },
+        {
+          "title": "상폐 요건 강화하자…동전주들 병합 러시",
+          "link": "https://n.news.naver.com/mnews/article/011/0004619627",
+          "source": "서울경제",
+          "date": "2026.05.11"
+        },
+        {
+          "title": "한국거래소, 단일가 매매 적용 대상 저유동성 24개 종목 확정",
+          "link": "https://n.news.naver.com/mnews/article/417/0001122088",
+          "source": "동행미디어 시대",
+          "date": "2025.12.30"
+        }
+      ],
+      "forward_score": 67,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
       }
     },
     {
@@ -788,6 +788,71 @@
     },
     {
       "rank": 11,
+      "ticker": "010580",
+      "name": "에스엠벡셀",
+      "market": "KOSPI",
+      "close_price": 3175,
+      "change_amount": 505,
+      "change_rate": 18.91,
+      "trading_value": 79350000000,
+      "market_cap": 353224338000,
+      "sector": "자동차부품",
+      "industry_no": 270,
+      "high_52w": 3495,
+      "high_52w_date": "20251023",
+      "high_price": 3240,
+      "low_price": 2670,
+      "theme_tag": "자동차부품",
+      "theme_tags": [
+        "자동차부품",
+        "2차전지"
+      ],
+      "theme_no": 27,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 58,
+      "score_detail": {
+        "tp": 19,
+        "tl": 28,
+        "ti": 11
+      },
+      "rise_reason": "저궤도 위성용 배터리 제조 기술 확보",
+      "reason_origin": "news",
+      "reason_kind": "catalyst",
+      "reason_confidence": "mid",
+      "reason_evidence": [
+        {
+          "title": "에스엠벡셀, 저궤도 위성용 배터리 제조 기술 확보…우주환경 시험 통...",
+          "link": "https://n.news.naver.com/mnews/article/018/0006387694",
+          "source": "이데일리",
+          "date": "2026.10.14"
+        }
+      ],
+      "reason_hint": null,
+      "news": [
+        {
+          "title": "에스엠벡셀, 저궤도 위성용 배터리 제조 기술 확보…우주환경 시험 통...",
+          "link": "https://n.news.naver.com/mnews/article/018/0006387694",
+          "source": "이데일리",
+          "date": "2026.10.14"
+        },
+        {
+          "title": "8월 '반짝 반등' 충청 상장사 시총…한 달 만에 다시 하락",
+          "link": "https://n.news.naver.com/mnews/article/656/0000189503",
+          "source": "대전일보",
+          "date": "2026.10.14"
+        }
+      ],
+      "forward_score": 62,
+      "forward_bonus": 4,
+      "forward_detail": {
+        "small_size": 2,
+        "consec_lu": 2
+      }
+    },
+    {
+      "rank": 12,
       "ticker": "176750",
       "name": "듀켐바이오",
       "market": "KOSDAQ",
@@ -816,18 +881,11 @@
         "tl": 25,
         "ti": 7
       },
-      "rise_reason": "치매약 키순라 국내 허가 기대감",
-      "reason_origin": "news",
-      "reason_kind": "move",
-      "reason_confidence": "high",
-      "reason_evidence": [
-        {
-          "title": "[ET특징주] 치매약 '키순라' 국내 허가 기대감… 듀켐바이오 주가 21%↑",
-          "link": "https://n.news.naver.com/mnews/article/030/0003475390",
-          "source": "전자신문",
-          "date": "2026.10.15"
-        }
-      ],
+      "rise_reason": "키순라 허가 기대",
+      "reason_origin": "toss",
+      "reason_kind": "",
+      "reason_confidence": "",
+      "reason_evidence": [],
       "reason_hint": null,
       "news": [
         {
@@ -854,64 +912,6 @@
       "forward_detail": {
         "small_size": 4,
         "consec_lu": 0
-      }
-    },
-    {
-      "rank": 12,
-      "ticker": "010580",
-      "name": "에스엠벡셀",
-      "market": "KOSPI",
-      "close_price": 3142,
-      "change_amount": 472,
-      "change_rate": 17.68,
-      "trading_value": 78014000000,
-      "market_cap": 349553029920,
-      "sector": "자동차부품",
-      "industry_no": 270,
-      "high_52w": 3495,
-      "high_52w_date": "20251023",
-      "high_price": 3240,
-      "low_price": 2670,
-      "theme_tag": "자동차부품",
-      "theme_tags": [
-        "자동차부품",
-        "2차전지"
-      ],
-      "theme_no": 27,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 58,
-      "score_detail": {
-        "tp": 19,
-        "tl": 28,
-        "ti": 11
-      },
-      "rise_reason": "위성용 배터리 기술 확보",
-      "reason_origin": "toss",
-      "reason_kind": "",
-      "reason_confidence": "",
-      "reason_evidence": [],
-      "reason_hint": null,
-      "news": [
-        {
-          "title": "에스엠벡셀, 저궤도 위성용 배터리 제조 기술 확보…우주환경 시험 통...",
-          "link": "https://n.news.naver.com/mnews/article/018/0006387694",
-          "source": "이데일리",
-          "date": "2026.10.14"
-        },
-        {
-          "title": "8월 '반짝 반등' 충청 상장사 시총…한 달 만에 다시 하락",
-          "link": "https://n.news.naver.com/mnews/article/656/0000189503",
-          "source": "대전일보",
-          "date": "2026.10.14"
-        }
-      ],
-      "forward_score": 62,
-      "forward_bonus": 4,
-      "forward_detail": {
-        "small_size": 2,
-        "consec_lu": 2
       }
     },
     {
@@ -1091,11 +1091,11 @@
       "ticker": "012750",
       "name": "에스원",
       "market": "KOSPI",
-      "close_price": 95800,
-      "change_amount": 10100,
-      "change_rate": 11.79,
-      "trading_value": 19590000000,
-      "market_cap": 3640321252400,
+      "close_price": 96000,
+      "change_amount": 10300,
+      "change_rate": 12.02,
+      "trading_value": 19826000000,
+      "market_cap": 3647921088000,
       "sector": "상업서비스와공급품",
       "industry_no": 324,
       "high_52w": 106500,
@@ -1259,6 +1259,112 @@
     },
     {
       "rank": 17,
+      "ticker": "047400",
+      "name": "유니온머티리얼",
+      "market": "KOSPI",
+      "close_price": 838,
+      "change_amount": 76,
+      "change_rate": 9.97,
+      "trading_value": 1947000000,
+      "market_cap": 35196000000,
+      "sector": "자동차부품",
+      "industry_no": 270,
+      "high_52w": 2575,
+      "high_52w_date": "20251015",
+      "high_price": 942,
+      "low_price": 680,
+      "theme_tag": "요소수",
+      "theme_tags": [
+        "요소수",
+        "공작기계"
+      ],
+      "theme_no": 504,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 61,
+      "score_detail": {
+        "tp": 9,
+        "tl": 45,
+        "ti": 7
+      },
+      "rise_reason": "수출 관련 뉴스",
+      "reason_origin": "rule",
+      "reason_kind": "",
+      "reason_confidence": "",
+      "reason_evidence": [],
+      "reason_hint": null,
+      "news": [
+        {
+          "title": "유니온머티리얼, 병합 나섰지만 본업 '빠듯'…시총 부담 여전",
+          "link": "https://n.news.naver.com/mnews/article/293/0000089731",
+          "source": "블로터",
+          "date": "2026.08.28"
+        },
+        {
+          "title": "희토류 테마에 불기둥 세웠던 유니온머티리얼[급등주 지금은]",
+          "link": "https://n.news.naver.com/mnews/article/003/0013935347",
+          "source": "뉴시스",
+          "date": "2026.05.10"
+        },
+        {
+          "title": "[단독] TKG그룹, 에이프릴바이오 인수한다",
+          "link": "https://n.news.naver.com/mnews/article/015/0005302515",
+          "source": "한국경제",
+          "date": "2026.06.24"
+        },
+        {
+          "title": "[기업이슈] 미중회담 희토류 관련 조치 논의 예정…관련주 '들썩'",
+          "link": "https://n.news.naver.com/mnews/article/374/0000510030",
+          "source": "SBS Biz",
+          "date": "2026.05.14"
+        },
+        {
+          "title": "[이 시각 시황] 이란 전쟁 '中 희토류' 변수…중·러 밀착 가속도",
+          "link": "https://n.news.naver.com/mnews/article/374/0000497397",
+          "source": "SBS Biz",
+          "date": "2026.03.12"
+        },
+        {
+          "title": "'국내생산'도 세제 지원…수혜주는 무엇?",
+          "link": "https://n.news.naver.com/mnews/article/018/0006330234",
+          "source": "이데일리",
+          "date": "2026.07.14"
+        },
+        {
+          "title": "반도체 수출규제 완화카드 꺼낼까…미·중 회담 증시 영향은? [분석+]",
+          "link": "https://n.news.naver.com/mnews/article/015/0005286711",
+          "source": "한국경제",
+          "date": "2026.05.13"
+        },
+        {
+          "title": "OCI그룹, 장애인의 날 자선행사 ‘다 함께 드림’ 성료… 수익금 전액...",
+          "link": "https://n.news.naver.com/mnews/article/020/0003713336",
+          "source": "동아일보",
+          "date": "2026.04.17"
+        },
+        {
+          "title": "공급망 비상에 원자재株 고공행진…남선알미늄 '上'(종합)",
+          "link": "https://n.news.naver.com/mnews/article/003/0013884577",
+          "source": "뉴시스",
+          "date": "2026.04.13"
+        },
+        {
+          "title": "이란전 불똥 여기까지 튀나…희토류 관련주 일제히 강세",
+          "link": "https://n.news.naver.com/mnews/article/009/0005649322",
+          "source": "매일경제",
+          "date": "2026.03.12"
+        }
+      ],
+      "forward_score": 67,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 18,
       "ticker": "396300",
       "name": "HT로보틱스",
       "market": "KOSDAQ",
@@ -1323,7 +1429,7 @@
       }
     },
     {
-      "rank": 18,
+      "rank": 19,
       "ticker": "387690",
       "name": "레메디",
       "market": "KOSDAQ",
@@ -1429,7 +1535,7 @@
       }
     },
     {
-      "rank": 19,
+      "rank": 20,
       "ticker": "445680",
       "name": "큐리옥스바이오시스템즈",
       "market": "KOSDAQ",
@@ -1478,121 +1584,15 @@
       }
     },
     {
-      "rank": 20,
-      "ticker": "047400",
-      "name": "유니온머티리얼",
-      "market": "KOSPI",
-      "close_price": 819,
-      "change_amount": 57,
-      "change_rate": 7.48,
-      "trading_value": 1919000000,
-      "market_cap": 34398000000,
-      "sector": "자동차부품",
-      "industry_no": 270,
-      "high_52w": 2575,
-      "high_52w_date": "20251015",
-      "high_price": 942,
-      "low_price": 680,
-      "theme_tag": "요소수",
-      "theme_tags": [
-        "요소수",
-        "공작기계"
-      ],
-      "theme_no": 504,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 61,
-      "score_detail": {
-        "tp": 9,
-        "tl": 45,
-        "ti": 7
-      },
-      "rise_reason": "수출 관련 뉴스",
-      "reason_origin": "rule",
-      "reason_kind": "",
-      "reason_confidence": "",
-      "reason_evidence": [],
-      "reason_hint": null,
-      "news": [
-        {
-          "title": "유니온머티리얼, 병합 나섰지만 본업 '빠듯'…시총 부담 여전",
-          "link": "https://n.news.naver.com/mnews/article/293/0000089731",
-          "source": "블로터",
-          "date": "2026.08.28"
-        },
-        {
-          "title": "희토류 테마에 불기둥 세웠던 유니온머티리얼[급등주 지금은]",
-          "link": "https://n.news.naver.com/mnews/article/003/0013935347",
-          "source": "뉴시스",
-          "date": "2026.05.10"
-        },
-        {
-          "title": "[단독] TKG그룹, 에이프릴바이오 인수한다",
-          "link": "https://n.news.naver.com/mnews/article/015/0005302515",
-          "source": "한국경제",
-          "date": "2026.06.24"
-        },
-        {
-          "title": "[기업이슈] 미중회담 희토류 관련 조치 논의 예정…관련주 '들썩'",
-          "link": "https://n.news.naver.com/mnews/article/374/0000510030",
-          "source": "SBS Biz",
-          "date": "2026.05.14"
-        },
-        {
-          "title": "[이 시각 시황] 이란 전쟁 '中 희토류' 변수…중·러 밀착 가속도",
-          "link": "https://n.news.naver.com/mnews/article/374/0000497397",
-          "source": "SBS Biz",
-          "date": "2026.03.12"
-        },
-        {
-          "title": "'국내생산'도 세제 지원…수혜주는 무엇?",
-          "link": "https://n.news.naver.com/mnews/article/018/0006330234",
-          "source": "이데일리",
-          "date": "2026.07.14"
-        },
-        {
-          "title": "반도체 수출규제 완화카드 꺼낼까…미·중 회담 증시 영향은? [분석+]",
-          "link": "https://n.news.naver.com/mnews/article/015/0005286711",
-          "source": "한국경제",
-          "date": "2026.05.13"
-        },
-        {
-          "title": "OCI그룹, 장애인의 날 자선행사 ‘다 함께 드림’ 성료… 수익금 전액...",
-          "link": "https://n.news.naver.com/mnews/article/020/0003713336",
-          "source": "동아일보",
-          "date": "2026.04.17"
-        },
-        {
-          "title": "공급망 비상에 원자재株 고공행진…남선알미늄 '上'(종합)",
-          "link": "https://n.news.naver.com/mnews/article/003/0013884577",
-          "source": "뉴시스",
-          "date": "2026.04.13"
-        },
-        {
-          "title": "이란전 불똥 여기까지 튀나…희토류 관련주 일제히 강세",
-          "link": "https://n.news.naver.com/mnews/article/009/0005649322",
-          "source": "매일경제",
-          "date": "2026.03.12"
-        }
-      ],
-      "forward_score": 67,
-      "forward_bonus": 6,
-      "forward_detail": {
-        "small_size": 6,
-        "consec_lu": 0
-      }
-    },
-    {
       "rank": 21,
       "ticker": "009190",
       "name": "대양금속",
       "market": "KOSPI",
-      "close_price": 817,
-      "change_amount": 44,
-      "change_rate": 5.69,
-      "trading_value": 8494000000,
-      "market_cap": 36715305975,
+      "close_price": 834,
+      "change_amount": 61,
+      "change_rate": 7.89,
+      "trading_value": 8784000000,
+      "market_cap": 37479271950,
       "sector": "철강",
       "industry_no": 304,
       "high_52w": 2545,
@@ -1781,7 +1781,7 @@
       "close_price": 236500,
       "change_amount": 12500,
       "change_rate": 5.58,
-      "trading_value": 39318000000,
+      "trading_value": 39477000000,
       "market_cap": 338010530000,
       "sector": "도로와철도운송",
       "industry_no": 329,
@@ -2126,7 +2126,7 @@
       "close_price": 2410,
       "change_amount": 110,
       "change_rate": 4.78,
-      "trading_value": 8212000000,
+      "trading_value": 8291000000,
       "market_cap": 484829178530,
       "sector": "IT서비스",
       "industry_no": 267,
@@ -2338,13 +2338,13 @@
       "close_price": 1023,
       "change_amount": 46,
       "change_rate": 4.71,
-      "trading_value": 74000000,
+      "trading_value": 78000000,
       "market_cap": 37968135546,
       "sector": "철강",
       "industry_no": 304,
       "high_52w": 2620,
       "high_52w_date": "20251022",
-      "high_price": 1025,
+      "high_price": 1029,
       "low_price": 927,
       "theme_tag": "철강 중소형",
       "theme_tags": [
@@ -2391,6 +2391,112 @@
     },
     {
       "rank": 30,
+      "ticker": "282330",
+      "name": "BGF리테일",
+      "market": "KOSPI",
+      "close_price": 133200,
+      "change_amount": 5500,
+      "change_rate": 4.31,
+      "trading_value": 4002000000,
+      "market_cap": 2302216279200,
+      "sector": "백화점과일반상점",
+      "industry_no": 264,
+      "high_52w": 156600,
+      "high_52w_date": "20260811",
+      "high_price": 134100,
+      "low_price": 127700,
+      "theme_tag": "편의점",
+      "theme_tags": [
+        "편의점",
+        "소매유통"
+      ],
+      "theme_no": 384,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 45,
+      "score_detail": {
+        "tp": 6,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "편의점 관련 뉴스",
+      "reason_origin": "rule",
+      "reason_kind": "",
+      "reason_confidence": "",
+      "reason_evidence": [],
+      "reason_hint": null,
+      "news": [
+        {
+          "title": "“조금만, 더 싸게”…고물가에 ‘소비 다운사이징’",
+          "link": "https://n.news.naver.com/mnews/article/056/0012274206",
+          "source": "KBS",
+          "date": "2026.10.15"
+        },
+        {
+          "title": "CU, 'get모닝 꼬마김밥' 누적 판매량 400만개 돌파",
+          "link": "https://n.news.naver.com/mnews/article/030/0003475317",
+          "source": "전자신문",
+          "date": "2026.10.15"
+        },
+        {
+          "title": "군고구마에 핫팩, 경량패딩까지… 빨라진 편의점 '겨울 장사'",
+          "link": "https://n.news.naver.com/mnews/article/014/0005589327",
+          "source": "파이낸셜뉴스",
+          "date": "2026.10.14"
+        },
+        {
+          "title": "아직 가을인데, 벌써 호빵·어묵 떴다…빨라진 겨울 장사, 왜",
+          "link": "https://n.news.naver.com/mnews/article/025/0003557749",
+          "source": "중앙일보",
+          "date": "2026.10.14"
+        },
+        {
+          "title": "‘노래캔디’ 3탄 나온다…CU, K-POP 상품으로 차별화",
+          "link": "https://n.news.naver.com/mnews/article/468/0001272214",
+          "source": "스포츠서울",
+          "date": "2026.10.13"
+        },
+        {
+          "title": "군고구마부터 경량패딩까지···‘겨울장사’ 일찍 시작한 편의점, 왜...",
+          "link": "https://n.news.naver.com/mnews/article/032/0003475880",
+          "source": "경향신문",
+          "date": "2026.10.13"
+        },
+        {
+          "title": "\"삼각김밥도 접는다\"…CU, 듀오 참치마요 출시",
+          "link": "https://n.news.naver.com/mnews/article/018/0006386661",
+          "source": "이데일리",
+          "date": "2026.10.12"
+        },
+        {
+          "title": "BGF그룹, 형제 계열분리 멀어지나…차남 키운 반도체 지주사로",
+          "link": "https://n.news.naver.com/mnews/article/293/0000091474",
+          "source": "블로터",
+          "date": "2026.10.12"
+        },
+        {
+          "title": "신제품 출시 전 반응… '사람' 대신 'AI'에 묻는다",
+          "link": "https://n.news.naver.com/mnews/article/030/0003474171",
+          "source": "전자신문",
+          "date": "2026.10.12"
+        },
+        {
+          "title": "갤럭시아머니트리, CU POS 연동 스테이블코인 결제 실증 완료",
+          "link": "https://n.news.naver.com/mnews/article/366/0001197386",
+          "source": "조선비즈",
+          "date": "2026.10.12"
+        }
+      ],
+      "forward_score": 51,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 31,
       "ticker": "142280",
       "name": "녹십자엠에스",
       "market": "KOSDAQ",
@@ -2503,121 +2609,15 @@
       }
     },
     {
-      "rank": 31,
-      "ticker": "282330",
-      "name": "BGF리테일",
-      "market": "KOSPI",
-      "close_price": 133100,
-      "change_amount": 5400,
-      "change_rate": 4.23,
-      "trading_value": 3853000000,
-      "market_cap": 2300487888600,
-      "sector": "백화점과일반상점",
-      "industry_no": 264,
-      "high_52w": 156600,
-      "high_52w_date": "20260811",
-      "high_price": 134100,
-      "low_price": 127700,
-      "theme_tag": "편의점",
-      "theme_tags": [
-        "편의점",
-        "소매유통"
-      ],
-      "theme_no": 384,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 45,
-      "score_detail": {
-        "tp": 6,
-        "tl": 32,
-        "ti": 7
-      },
-      "rise_reason": "편의점 관련 뉴스",
-      "reason_origin": "rule",
-      "reason_kind": "",
-      "reason_confidence": "",
-      "reason_evidence": [],
-      "reason_hint": null,
-      "news": [
-        {
-          "title": "“조금만, 더 싸게”…고물가에 ‘소비 다운사이징’",
-          "link": "https://n.news.naver.com/mnews/article/056/0012274206",
-          "source": "KBS",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "CU, 'get모닝 꼬마김밥' 누적 판매량 400만개 돌파",
-          "link": "https://n.news.naver.com/mnews/article/030/0003475317",
-          "source": "전자신문",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "군고구마에 핫팩, 경량패딩까지… 빨라진 편의점 '겨울 장사'",
-          "link": "https://n.news.naver.com/mnews/article/014/0005589327",
-          "source": "파이낸셜뉴스",
-          "date": "2026.10.14"
-        },
-        {
-          "title": "아직 가을인데, 벌써 호빵·어묵 떴다…빨라진 겨울 장사, 왜",
-          "link": "https://n.news.naver.com/mnews/article/025/0003557749",
-          "source": "중앙일보",
-          "date": "2026.10.14"
-        },
-        {
-          "title": "‘노래캔디’ 3탄 나온다…CU, K-POP 상품으로 차별화",
-          "link": "https://n.news.naver.com/mnews/article/468/0001272214",
-          "source": "스포츠서울",
-          "date": "2026.10.13"
-        },
-        {
-          "title": "군고구마부터 경량패딩까지···‘겨울장사’ 일찍 시작한 편의점, 왜...",
-          "link": "https://n.news.naver.com/mnews/article/032/0003475880",
-          "source": "경향신문",
-          "date": "2026.10.13"
-        },
-        {
-          "title": "\"삼각김밥도 접는다\"…CU, 듀오 참치마요 출시",
-          "link": "https://n.news.naver.com/mnews/article/018/0006386661",
-          "source": "이데일리",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "BGF그룹, 형제 계열분리 멀어지나…차남 키운 반도체 지주사로",
-          "link": "https://n.news.naver.com/mnews/article/293/0000091474",
-          "source": "블로터",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "신제품 출시 전 반응… '사람' 대신 'AI'에 묻는다",
-          "link": "https://n.news.naver.com/mnews/article/030/0003474171",
-          "source": "전자신문",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "갤럭시아머니트리, CU POS 연동 스테이블코인 결제 실증 완료",
-          "link": "https://n.news.naver.com/mnews/article/366/0001197386",
-          "source": "조선비즈",
-          "date": "2026.10.12"
-        }
-      ],
-      "forward_score": 51,
-      "forward_bonus": 6,
-      "forward_detail": {
-        "small_size": 6,
-        "consec_lu": 0
-      }
-    },
-    {
       "rank": 32,
       "ticker": "033780",
       "name": "KT&G",
       "market": "KOSPI",
-      "close_price": 188700,
-      "change_amount": 6900,
-      "change_rate": 3.8,
-      "trading_value": 42490000000,
-      "market_cap": 19589033047200,
+      "close_price": 188900,
+      "change_amount": 7100,
+      "change_rate": 3.91,
+      "trading_value": 43518000000,
+      "market_cap": 19609795138400,
       "sector": "담배",
       "industry_no": 275,
       "high_52w": 192400,
@@ -2723,93 +2723,6 @@
     },
     {
       "rank": 33,
-      "ticker": "001527",
-      "name": "동양2우B",
-      "market": "KOSPI",
-      "close_price": 5050,
-      "change_amount": 180,
-      "change_rate": 3.7,
-      "trading_value": 1000000,
-      "market_cap": 1038810250,
-      "sector": "건축자재",
-      "industry_no": 289,
-      "high_52w": 29100,
-      "high_52w_date": "20251219",
-      "high_price": 5100,
-      "low_price": 4840,
-      "theme_tag": "보통",
-      "theme_tags": [
-        "보통"
-      ],
-      "theme_no": null,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 45,
-      "score_detail": {
-        "tp": 6,
-        "tl": 32,
-        "ti": 7
-      },
-      "rise_reason": "주주환원 정책",
-      "reason_origin": "rule",
-      "reason_kind": "",
-      "reason_confidence": "",
-      "reason_evidence": [],
-      "reason_hint": null,
-      "news": [
-        {
-          "title": "조정장서 키맞추는 ‘우선주’…주주환원 기대감에 투자해볼까",
-          "link": "https://n.news.naver.com/mnews/article/011/0004650750",
-          "source": "서울경제",
-          "date": "2026.08.11"
-        },
-        {
-          "title": "SK바사·에코프로머티…조정장에 역대 최저가 종목 속출",
-          "link": "https://n.news.naver.com/mnews/article/011/0004649290",
-          "source": "서울경제",
-          "date": "2026.08.06"
-        },
-        {
-          "title": "시총 작은 우선주 '이상 급등'…CJ씨푸드우 '上' [핫종목]",
-          "link": "https://n.news.naver.com/mnews/article/421/0009082694",
-          "source": "뉴스1",
-          "date": "2026.07.28"
-        },
-        {
-          "title": "한국거래소, 단일가 매매 적용 대상 저유동성 24개 종목 확정",
-          "link": "https://n.news.naver.com/mnews/article/417/0001122088",
-          "source": "동행미디어 시대",
-          "date": "2025.12.30"
-        },
-        {
-          "title": "거래소, 저유동성종목 24개 예비 선정",
-          "link": "https://n.news.naver.com/mnews/article/119/0003034997",
-          "source": "데일리안",
-          "date": "2025.12.09"
-        },
-        {
-          "title": "거래소, 내년 단일가매매 적용 저유동성종목 24개 예비 선정",
-          "link": "https://n.news.naver.com/mnews/article/018/0006180441",
-          "source": "이데일리",
-          "date": "2025.12.09"
-        },
-        {
-          "title": "거래소, 내년 단일가매매 적용될 24개 종목 예비 선정",
-          "link": "https://n.news.naver.com/mnews/article/008/0005289484",
-          "source": "머니투데이",
-          "date": "2025.12.09"
-        }
-      ],
-      "forward_score": 51,
-      "forward_bonus": 6,
-      "forward_detail": {
-        "small_size": 6,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 34,
       "ticker": "079650",
       "name": "서산",
       "market": "KOSDAQ",
@@ -2826,8 +2739,7 @@
       "low_price": 6500,
       "theme_tag": "시멘트/레미콘",
       "theme_tags": [
-        "건강기능식품",
-        "밸류업(24년 기업가치 제고계획 발표)"
+        "시멘트/레미콘"
       ],
       "theme_no": 44,
       "avg_5day": 0,
@@ -2839,79 +2751,67 @@
         "tl": 45,
         "ti": 11
       },
-      "rise_reason": "증시는 타들어 가는데",
+      "rise_reason": "최태원 호남 반도체 팹 철회설 진화",
       "reason_origin": "news",
       "reason_kind": "move",
-      "reason_confidence": "high",
+      "reason_confidence": "mid",
       "reason_evidence": [
         {
-          "title": "증시는 타들어 가는데…KT&G는 4%대 강세[종목 NOW]",
-          "link": "https://n.news.naver.com/mnews/article/014/0005589570",
-          "source": "파이낸셜뉴스",
-          "date": "2026.10.15"
+          "title": "최태원 '호남 반도체 팹' 철회설 진화…금호전기·서산 '上' [핫종목]",
+          "link": "https://n.news.naver.com/mnews/article/421/0009221538",
+          "source": "뉴스1",
+          "date": "2026.10.12"
         }
       ],
       "reason_hint": null,
       "news": [
         {
-          "title": "LG엔솔, 전기차 부진에도 ESS 앞세워 목표가↑… KT&G, 사상 최대 영업...",
-          "link": "https://n.news.naver.com/mnews/article/014/0005589618",
-          "source": "파이낸셜뉴스",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "급락장서 돋보인 방어주…KT&G, 실적 기대 4%대 상승[핫종목]",
-          "link": "https://n.news.naver.com/mnews/article/421/0009229220",
+          "title": "최태원 '호남 반도체 팹' 철회설 진화…금호전기·서산 '上' [핫종목]",
+          "link": "https://n.news.naver.com/mnews/article/421/0009221538",
           "source": "뉴스1",
-          "date": "2026.10.15"
+          "date": "2026.10.12"
         },
         {
-          "title": "증시 파란불에도 빛나는 방어주…KT&G, 4%대 상승",
-          "link": "https://n.news.naver.com/mnews/article/003/0014255032",
+          "title": "호남 반도체팹 수혜주, 이틀 연속 '고공행진'",
+          "link": "https://n.news.naver.com/mnews/article/015/0005342076",
+          "source": "한국경제",
+          "date": "2026.10.13"
+        },
+        {
+          "title": "호남 반도체 테마株 ‘나홀로 급등’…삼전닉스 하락세와 대조",
+          "link": "https://n.news.naver.com/mnews/article/009/0005747670",
+          "source": "매일경제",
+          "date": "2026.10.13"
+        },
+        {
+          "title": "반도체 급락장에도 호남 테마주 강세…금호전기 20% 급등 [핫종목]",
+          "link": "https://n.news.naver.com/mnews/article/421/0009224034",
+          "source": "뉴스1",
+          "date": "2026.10.13"
+        },
+        {
+          "title": "최태원 호남 반도체 팹 철회설 진화에…호남 기반株 이틀째 강세",
+          "link": "https://n.news.naver.com/mnews/article/008/0005425336",
+          "source": "머니투데이",
+          "date": "2026.10.13"
+        },
+        {
+          "title": "'속도' 언급한 최태원…호남 반도체 테마주 '방긋'",
+          "link": "https://n.news.naver.com/mnews/article/119/0003141912",
+          "source": "데일리안",
+          "date": "2026.10.12"
+        },
+        {
+          "title": "최태원 \"속도전\" 주문에…'호남 반도체' 테마주 다시 불타올라(종합)",
+          "link": "https://n.news.naver.com/mnews/article/003/0014247684",
           "source": "뉴시스",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "증시는 타들어 가는데…KT&G는 4%대 강세[종목 NOW]",
-          "link": "https://n.news.naver.com/mnews/article/014/0005589570",
-          "source": "파이낸셜뉴스",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "\"증시 불확실성에 '화려한 방어주'…KT&G, 해외 성장이 배당 확대로\"",
-          "link": "https://n.news.naver.com/mnews/article/014/0005589485",
-          "source": "파이낸셜뉴스",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "KT&G, 청년 창압 지원 '상상스타트업캠프' 성과공유회 개최",
-          "link": "https://n.news.naver.com/mnews/article/076/0004455267",
-          "source": "스포츠조선",
           "date": "2026.10.12"
         },
         {
-          "title": "KT&G 특허분쟁 공정위로…계약 종료 일방통행?",
-          "link": "https://n.news.naver.com/mnews/article/374/0000537261",
-          "source": "SBS Biz",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "중진공·KT&G, 부산서 상생페스타…지역 中企 판로 확대",
-          "link": "https://n.news.naver.com/mnews/article/366/0001197263",
-          "source": "조선비즈",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "KT&G, 印尼 신공장 가동… ‘5國 생산체제’ 완성",
-          "link": "https://n.news.naver.com/mnews/article/022/0004165791",
-          "source": "세계일보",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "KT&G, 3분기 사상 최대 실적 전망…해외담배 호조에 신기록 행진",
-          "link": "https://n.news.naver.com/mnews/article/011/0004669954",
+          "title": "최태원 호남 반도체 속도전에…금호전기30%·금호건설 25%↑[이런국장...",
+          "link": "https://n.news.naver.com/mnews/article/011/0004670251",
           "source": "서울경제",
-          "date": "2026.10.11"
+          "date": "2026.10.12"
         }
       ],
       "forward_score": 70,
@@ -2922,7 +2822,7 @@
       }
     },
     {
-      "rank": 35,
+      "rank": 34,
       "ticker": "054940",
       "name": "엑사이엔씨",
       "market": "KOSDAQ",
@@ -2949,7 +2849,7 @@
       "score_detail": {
         "tp": 10,
         "tl": 32,
-        "ti": 11
+        "ti": 7
       },
       "rise_reason": "영업이익 공시",
       "reason_origin": "rule",
@@ -3027,27 +2927,84 @@
       }
     },
     {
-      "rank": 36,
-      "ticker": "000100",
-      "name": "유한양행",
+      "rank": 35,
+      "ticker": "030720",
+      "name": "동원수산",
       "market": "KOSPI",
-      "close_price": 75000,
-      "change_amount": 2300,
-      "change_rate": 3.16,
-      "trading_value": 15918000000,
-      "market_cap": 5521183575000,
-      "sector": "제약",
-      "industry_no": 261,
-      "high_52w": 129200,
-      "high_52w_date": "20251114",
-      "high_price": 75300,
-      "low_price": 70800,
-      "theme_tag": "겨울",
+      "close_price": 5040,
+      "change_amount": 170,
+      "change_rate": 3.49,
+      "trading_value": 151000000,
+      "market_cap": 23455177200,
+      "sector": "식품",
+      "industry_no": 268,
+      "high_52w": 8050,
+      "high_52w_date": "20260506",
+      "high_price": 5190,
+      "low_price": 4630,
+      "theme_tag": "구제역/광우병 수혜",
       "theme_tags": [
-        "겨울",
-        "치매"
+        "구제역/광우병 수혜",
+        "수산"
       ],
-      "theme_no": 266,
+      "theme_no": 16,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 46,
+      "score_detail": {
+        "tp": 7,
+        "tl": 32,
+        "ti": 7
+      },
+      "rise_reason": "상한가 기록",
+      "reason_origin": "rule",
+      "reason_kind": "",
+      "reason_confidence": "",
+      "reason_evidence": [],
+      "reason_hint": null,
+      "news": [
+        {
+          "title": "해수부-KOMSA, '2026 대한민국 해사안전 리더상' 공모…최대 4명 선정",
+          "link": "https://n.news.naver.com/mnews/article/421/0009224255",
+          "source": "뉴스1",
+          "date": "2026.10.13"
+        },
+        {
+          "title": "상폐 절차 유예에 시총 미달주 '들썩'…무더기 상한가 마감",
+          "link": "https://n.news.naver.com/mnews/article/586/0000139644",
+          "source": "시사저널",
+          "date": "2026.10.08"
+        }
+      ],
+      "forward_score": 52,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 36,
+      "ticker": "001527",
+      "name": "동양2우B",
+      "market": "KOSPI",
+      "close_price": 5040,
+      "change_amount": 170,
+      "change_rate": 3.49,
+      "trading_value": 1000000,
+      "market_cap": 1036753200,
+      "sector": "건축자재",
+      "industry_no": 289,
+      "high_52w": 29100,
+      "high_52w_date": "20251219",
+      "high_price": 5100,
+      "low_price": 4840,
+      "theme_tag": "보통",
+      "theme_tags": [
+        "보통"
+      ],
+      "theme_no": null,
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
@@ -3057,83 +3014,58 @@
         "tl": 32,
         "ti": 7
       },
-      "rise_reason": "3Q 실적 개선 전망",
-      "reason_origin": "news",
-      "reason_kind": "move",
-      "reason_confidence": "mid",
-      "reason_evidence": [
-        {
-          "title": "유한양행, 3Q 실적 개선 전망…“주가 반등엔 로열티 성장 확인 필요...",
-          "link": "https://n.news.naver.com/mnews/article/018/0006386837",
-          "source": "이데일리",
-          "date": "2026.10.13"
-        }
-      ],
+      "rise_reason": "주주환원 정책",
+      "reason_origin": "rule",
+      "reason_kind": "",
+      "reason_confidence": "",
+      "reason_evidence": [],
       "reason_hint": null,
       "news": [
         {
-          "title": "유한양행 차기 대표 3파전…이달 이사회 논의 주목",
-          "link": "https://n.news.naver.com/mnews/article/629/0000542147",
-          "source": "더팩트",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "유한양행 렉라자 병용요법, 3분기 매출 3억달러 돌파",
-          "link": "https://n.news.naver.com/mnews/article/014/0005589381",
-          "source": "파이낸셜뉴스",
-          "date": "2026.10.14"
-        },
-        {
-          "title": "휴이노·유한양행 \"울산 동강병원에 메모큐 공급\"",
-          "link": "https://n.news.naver.com/mnews/article/003/0014249084",
-          "source": "뉴시스",
-          "date": "2026.10.13"
-        },
-        {
-          "title": "유한양행, 3Q 실적 개선 전망…“주가 반등엔 로열티 성장 확인 필요...",
-          "link": "https://n.news.naver.com/mnews/article/018/0006386837",
-          "source": "이데일리",
-          "date": "2026.10.13"
-        },
-        {
-          "title": "치료 영역 넓어지는 유한양행 글로벌 신약 ‘렉라자’…핵심은 ‘급여...",
-          "link": "https://n.news.naver.com/mnews/article/366/0001197493",
-          "source": "조선비즈",
-          "date": "2026.10.13"
-        },
-        {
-          "title": "\"맞춤형 피부 진단\"…유한양행, '딘시' 팝업 성료",
-          "link": "https://n.news.naver.com/mnews/article/003/0014246302",
-          "source": "뉴시스",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "[바이오스냅] 동아제약, '판피린타임 이부프로펜' 3종 출시",
-          "link": "https://n.news.naver.com/mnews/article/001/0016370167",
-          "source": "연합뉴스",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "[단독]글로벌 제약사, 엔솔바이오 비만치료제서 대안 찾았다... ‘기전...",
-          "link": "https://n.news.naver.com/mnews/article/018/0006386294",
-          "source": "이데일리",
-          "date": "2026.10.12"
-        },
-        {
-          "title": "[사설] 세라젬 전문경영인이 후계자로, 기업 승계 출구 더 넓혀야",
-          "link": "https://n.news.naver.com/mnews/article/011/0004670080",
+          "title": "조정장서 키맞추는 ‘우선주’…주주환원 기대감에 투자해볼까",
+          "link": "https://n.news.naver.com/mnews/article/011/0004650750",
           "source": "서울경제",
-          "date": "2026.10.12"
+          "date": "2026.08.11"
         },
         {
-          "title": "[단독]세라젬, 신입사원 출신 CEO를 후계자로…지분 이전 방식에 주목",
-          "link": "https://n.news.naver.com/mnews/article/011/0004670024",
+          "title": "SK바사·에코프로머티…조정장에 역대 최저가 종목 속출",
+          "link": "https://n.news.naver.com/mnews/article/011/0004649290",
           "source": "서울경제",
-          "date": "2026.10.11"
+          "date": "2026.08.06"
+        },
+        {
+          "title": "시총 작은 우선주 '이상 급등'…CJ씨푸드우 '上' [핫종목]",
+          "link": "https://n.news.naver.com/mnews/article/421/0009082694",
+          "source": "뉴스1",
+          "date": "2026.07.28"
+        },
+        {
+          "title": "한국거래소, 단일가 매매 적용 대상 저유동성 24개 종목 확정",
+          "link": "https://n.news.naver.com/mnews/article/417/0001122088",
+          "source": "동행미디어 시대",
+          "date": "2025.12.30"
+        },
+        {
+          "title": "거래소, 저유동성종목 24개 예비 선정",
+          "link": "https://n.news.naver.com/mnews/article/119/0003034997",
+          "source": "데일리안",
+          "date": "2025.12.09"
+        },
+        {
+          "title": "거래소, 내년 단일가매매 적용 저유동성종목 24개 예비 선정",
+          "link": "https://n.news.naver.com/mnews/article/018/0006180441",
+          "source": "이데일리",
+          "date": "2025.12.09"
+        },
+        {
+          "title": "거래소, 내년 단일가매매 적용될 24개 종목 예비 선정",
+          "link": "https://n.news.naver.com/mnews/article/008/0005289484",
+          "source": "머니투데이",
+          "date": "2025.12.09"
         }
       ],
-      "forward_score": 49,
-      "forward_bonus": 4,
+      "forward_score": 51,
+      "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
         "consec_lu": 0
@@ -3370,112 +3302,6 @@
     },
     {
       "rank": 40,
-      "ticker": "207940",
-      "name": "삼성바이오로직스",
-      "market": "KOSPI",
-      "close_price": 1216000,
-      "change_amount": 34000,
-      "change_rate": 2.88,
-      "trading_value": 85715000000,
-      "market_cap": 56289796416000,
-      "sector": "제약",
-      "industry_no": 261,
-      "high_52w": 1971704,
-      "high_52w_date": "20260115",
-      "high_price": 1226000,
-      "low_price": 1150000,
-      "theme_tag": "모더나(MODERNA)",
-      "theme_tags": [
-        "모더나(MODERNA)",
-        "모더나(MODERNA)"
-      ],
-      "theme_no": 467,
-      "avg_5day": 0,
-      "inst_net": 0,
-      "foreign_net": 0,
-      "score": 45,
-      "score_detail": {
-        "tp": 6,
-        "tl": 32,
-        "ti": 7
-      },
-      "rise_reason": "제약 업종 강세",
-      "reason_origin": "toss",
-      "reason_kind": "",
-      "reason_confidence": "",
-      "reason_evidence": [],
-      "reason_hint": null,
-      "news": [
-        {
-          "title": "[단독] 삼성바이오로직스, 롯데바이오 임원 상대 소송서 '패소'",
-          "link": "https://n.news.naver.com/mnews/article/293/0000091625",
-          "source": "블로터",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "[속보] 코스피, 5.6% 급락한 5673 개장…코스닥도 4.8% 내려",
-          "link": "https://n.news.naver.com/mnews/article/009/0005748836",
-          "source": "매일경제",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "코스피, 5500선 붕괴 위협…‘미 CPI 쇼크·AI 리스크’",
-          "link": "https://n.news.naver.com/mnews/article/050/0000111992",
-          "source": "한경비즈니스",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "‘검은 목요일’ 고수는 삼성전자·전기 던지고 삼전우·배터리 ‘줍...",
-          "link": "https://n.news.naver.com/mnews/article/011/0004671544",
-          "source": "서울경제",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "코스피 7%대 폭락해 5500선…외인, 8거래일 연속 '팔자' [장중시황]",
-          "link": "https://n.news.naver.com/mnews/article/421/0009229588",
-          "source": "뉴스1",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "삼성바이오 “파업 땐 6천억 손실”…3조 유증까지 흔들리나",
-          "link": "https://n.news.naver.com/mnews/article/374/0000537967",
-          "source": "SBS Biz",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "코스피 5500선까지 추락…삼전닉스 10% 폭락에 '사이드카' 잇달아",
-          "link": "https://n.news.naver.com/mnews/article/629/0000542313",
-          "source": "더팩트",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "코스피, AI 수익성 논란에 장중 6∼7%대 급락…한때 5500선 위협",
-          "link": "https://n.news.naver.com/mnews/article/001/0016378672",
-          "source": "연합뉴스",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "삼성바이오, 호실적 전망인데 주가는 '흔들'…유증·파업에 눈높이 하...",
-          "link": "https://n.news.naver.com/mnews/article/088/0001034473",
-          "source": "매일신문",
-          "date": "2026.10.15"
-        },
-        {
-          "title": "‘검은 목요일’ 코스피·코스닥, 美 물가·AI 충격에 와르르 [시황]",
-          "link": "https://n.news.naver.com/mnews/article/119/0003143007",
-          "source": "데일리안",
-          "date": "2026.10.15"
-        }
-      ],
-      "forward_score": 47,
-      "forward_bonus": 2,
-      "forward_detail": {
-        "small_size": 2,
-        "consec_lu": 0
-      }
-    },
-    {
-      "rank": 41,
       "ticker": "016100",
       "name": "리더스코스메틱",
       "market": "KOSDAQ",
@@ -3581,7 +3407,7 @@
       }
     },
     {
-      "rank": 42,
+      "rank": 41,
       "ticker": "464500",
       "name": "아이언디바이스",
       "market": "KOSDAQ",
@@ -3687,7 +3513,7 @@
       }
     },
     {
-      "rank": 43,
+      "rank": 42,
       "ticker": "072950",
       "name": "빛샘전자",
       "market": "KOSDAQ",
@@ -3739,7 +3565,7 @@
       }
     },
     {
-      "rank": 44,
+      "rank": 43,
       "ticker": "219750",
       "name": "한국비티비",
       "market": "KOSDAQ",
@@ -3791,7 +3617,7 @@
       }
     },
     {
-      "rank": 45,
+      "rank": 44,
       "ticker": "340810",
       "name": "시선AI",
       "market": "KOSDAQ",
@@ -3897,7 +3723,7 @@
       }
     },
     {
-      "rank": 46,
+      "rank": 45,
       "ticker": "048550",
       "name": "SM C&C",
       "market": "KOSDAQ",
@@ -3946,7 +3772,7 @@
       }
     },
     {
-      "rank": 47,
+      "rank": 46,
       "ticker": "376290",
       "name": "씨유테크",
       "market": "KOSDAQ",
@@ -4010,7 +3836,7 @@
       }
     },
     {
-      "rank": 48,
+      "rank": 47,
       "ticker": "271830",
       "name": "팸텍",
       "market": "KOSDAQ",
@@ -4062,7 +3888,7 @@
       }
     },
     {
-      "rank": 49,
+      "rank": 48,
       "ticker": "053350",
       "name": "이니텍",
       "market": "KOSDAQ",
@@ -4114,7 +3940,7 @@
       }
     },
     {
-      "rank": 50,
+      "rank": 49,
       "ticker": "377330",
       "name": "이지트로닉스",
       "market": "KOSDAQ",
@@ -4220,7 +4046,7 @@
       }
     },
     {
-      "rank": 51,
+      "rank": 50,
       "ticker": "089230",
       "name": "THE E&M",
       "market": "KOSDAQ",
@@ -4323,7 +4149,7 @@
       }
     },
     {
-      "rank": 52,
+      "rank": 51,
       "ticker": "331920",
       "name": "셀레믹스",
       "market": "KOSDAQ",
@@ -4372,7 +4198,7 @@
       }
     },
     {
-      "rank": 53,
+      "rank": 52,
       "ticker": "235980",
       "name": "메드팩토",
       "market": "KOSDAQ",
@@ -4440,7 +4266,7 @@
       }
     },
     {
-      "rank": 54,
+      "rank": 53,
       "ticker": "154040",
       "name": "다산솔루에타",
       "market": "KOSDAQ",
@@ -4546,7 +4372,7 @@
       }
     },
     {
-      "rank": 55,
+      "rank": 54,
       "ticker": "011080",
       "name": "형지I&C",
       "market": "KOSDAQ",
@@ -4652,7 +4478,7 @@
       }
     },
     {
-      "rank": 56,
+      "rank": 55,
       "ticker": "037950",
       "name": "엘컴텍",
       "market": "KOSDAQ",
@@ -4711,7 +4537,7 @@
       }
     },
     {
-      "rank": 57,
+      "rank": 56,
       "ticker": "309930",
       "name": "조이웍스앤코",
       "market": "KOSDAQ",
@@ -4762,7 +4588,7 @@
       }
     },
     {
-      "rank": 58,
+      "rank": 57,
       "ticker": "031510",
       "name": "오스템",
       "market": "KOSDAQ",
@@ -4820,7 +4646,7 @@
       }
     },
     {
-      "rank": 59,
+      "rank": 58,
       "ticker": "432980",
       "name": "엠에프씨",
       "market": "KOSDAQ",
@@ -4871,7 +4697,7 @@
       }
     },
     {
-      "rank": 60,
+      "rank": 59,
       "ticker": "053050",
       "name": "지에스이",
       "market": "KOSDAQ",
@@ -4977,7 +4803,7 @@
       }
     },
     {
-      "rank": 61,
+      "rank": 60,
       "ticker": "311690",
       "name": "CJ 바이오사이언스",
       "market": "KOSDAQ",
@@ -5029,7 +4855,7 @@
       }
     },
     {
-      "rank": 62,
+      "rank": 61,
       "ticker": "036800",
       "name": "나이스정보통신",
       "market": "KOSDAQ",
@@ -5088,7 +4914,7 @@
       }
     },
     {
-      "rank": 63,
+      "rank": 62,
       "ticker": "056730",
       "name": "CNT85",
       "market": "KOSDAQ",
@@ -5157,7 +4983,7 @@
       }
     },
     {
-      "rank": 64,
+      "rank": 63,
       "ticker": "079190",
       "name": "케스피온",
       "market": "KOSDAQ",
@@ -5187,8 +5013,8 @@
         "tl": 45,
         "ti": 7
       },
-      "rise_reason": "수주 공시",
-      "reason_origin": "rule",
+      "rise_reason": "거래량 증가",
+      "reason_origin": "fallback",
       "reason_kind": "",
       "reason_confidence": "",
       "reason_evidence": [],
@@ -5209,7 +5035,7 @@
       }
     },
     {
-      "rank": 65,
+      "rank": 64,
       "ticker": "221840",
       "name": "하이즈항공",
       "market": "KOSDAQ",
@@ -5315,7 +5141,7 @@
       }
     },
     {
-      "rank": 66,
+      "rank": 65,
       "ticker": "024950",
       "name": "삼천리자전거",
       "market": "KOSDAQ",
@@ -5372,7 +5198,7 @@
       }
     },
     {
-      "rank": 67,
+      "rank": 66,
       "ticker": "038950",
       "name": "파인디지털",
       "market": "KOSDAQ",
@@ -5424,7 +5250,7 @@
       }
     },
     {
-      "rank": 68,
+      "rank": 67,
       "ticker": "208140",
       "name": "정다운",
       "market": "KOSDAQ",
@@ -5448,10 +5274,10 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 45,
+      "score": 35,
       "score_detail": {
-        "tp": 6,
-        "tl": 32,
+        "tp": 7,
+        "tl": 21,
         "ti": 7
       },
       "rise_reason": "실적 관련 뉴스",
@@ -5474,7 +5300,7 @@
           "date": "2026.10.13"
         }
       ],
-      "forward_score": 51,
+      "forward_score": 41,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -5482,7 +5308,7 @@
       }
     },
     {
-      "rank": 69,
+      "rank": 68,
       "ticker": "049830",
       "name": "승일",
       "market": "KOSDAQ",
@@ -5526,7 +5352,7 @@
       }
     },
     {
-      "rank": 70,
+      "rank": 69,
       "ticker": "032080",
       "name": "아즈텍WB",
       "market": "KOSDAQ",
@@ -5631,7 +5457,7 @@
       }
     },
     {
-      "rank": 71,
+      "rank": 70,
       "ticker": "045510",
       "name": "정원엔시스",
       "market": "KOSDAQ",
@@ -5736,7 +5562,7 @@
       }
     },
     {
-      "rank": 72,
+      "rank": 71,
       "ticker": "196700",
       "name": "웹스",
       "market": "KOSDAQ",
@@ -5824,7 +5650,7 @@
       }
     },
     {
-      "rank": 73,
+      "rank": 72,
       "ticker": "035620",
       "name": "바른손이앤에이",
       "market": "KOSDAQ",
@@ -5900,7 +5726,7 @@
       }
     },
     {
-      "rank": 74,
+      "rank": 73,
       "ticker": "002680",
       "name": "한탑",
       "market": "KOSDAQ",
@@ -5924,9 +5750,9 @@
       "avg_5day": 0,
       "inst_net": 0,
       "foreign_net": 0,
-      "score": 51,
+      "score": 52,
       "score_detail": {
-        "tp": 12,
+        "tp": 13,
         "tl": 32,
         "ti": 7
       },
@@ -5944,7 +5770,7 @@
           "date": "2026.10.14"
         }
       ],
-      "forward_score": 57,
+      "forward_score": 58,
       "forward_bonus": 6,
       "forward_detail": {
         "small_size": 6,
@@ -5952,7 +5778,7 @@
       }
     },
     {
-      "rank": 75,
+      "rank": 74,
       "ticker": "493790",
       "name": "유안타제17호스팩",
       "market": "KOSDAQ",
@@ -5996,7 +5822,7 @@
       }
     },
     {
-      "rank": 76,
+      "rank": 75,
       "ticker": "487360",
       "name": "신한제14호스팩",
       "market": "KOSDAQ",
@@ -6047,7 +5873,7 @@
       }
     },
     {
-      "rank": 77,
+      "rank": 76,
       "ticker": "153710",
       "name": "옵티팜",
       "market": "KOSDAQ",
@@ -6104,7 +5930,7 @@
       }
     },
     {
-      "rank": 78,
+      "rank": 77,
       "ticker": "355690",
       "name": "에이텀",
       "market": "KOSDAQ",
@@ -6210,7 +6036,7 @@
       }
     },
     {
-      "rank": 79,
+      "rank": 78,
       "ticker": "007330",
       "name": "푸른저축은행",
       "market": "KOSDAQ",
@@ -6313,7 +6139,7 @@
       }
     },
     {
-      "rank": 80,
+      "rank": 79,
       "ticker": "079940",
       "name": "가비아",
       "market": "KOSDAQ",
@@ -6418,7 +6244,7 @@
       }
     },
     {
-      "rank": 81,
+      "rank": 80,
       "ticker": "0007C0",
       "name": "아크릴",
       "market": "KOSDAQ",
@@ -6477,7 +6303,7 @@
       }
     },
     {
-      "rank": 82,
+      "rank": 81,
       "ticker": "334970",
       "name": "프레스티지바이오로직스",
       "market": "KOSDAQ",
@@ -6583,7 +6409,7 @@
       }
     },
     {
-      "rank": 83,
+      "rank": 82,
       "ticker": "296640",
       "name": "이노에이엑스",
       "market": "KOSDAQ",
@@ -6634,7 +6460,7 @@
       }
     },
     {
-      "rank": 84,
+      "rank": 83,
       "ticker": "087600",
       "name": "픽셀플러스",
       "market": "KOSDAQ",
@@ -6686,7 +6512,7 @@
       }
     },
     {
-      "rank": 85,
+      "rank": 84,
       "ticker": "457600",
       "name": "벡트",
       "market": "KOSDAQ",
@@ -6791,7 +6617,7 @@
       }
     },
     {
-      "rank": 86,
+      "rank": 85,
       "ticker": "487830",
       "name": "신한제15호스팩",
       "market": "KOSDAQ",
@@ -6835,7 +6661,7 @@
       }
     },
     {
-      "rank": 87,
+      "rank": 86,
       "ticker": "466690",
       "name": "키움히어로제1호스팩",
       "market": "KOSDAQ",
@@ -6928,7 +6754,7 @@
       }
     },
     {
-      "rank": 88,
+      "rank": 87,
       "ticker": "363250",
       "name": "진시스템",
       "market": "KOSDAQ",
@@ -6986,7 +6812,7 @@
       }
     },
     {
-      "rank": 89,
+      "rank": 88,
       "ticker": "071850",
       "name": "캐스텍코리아",
       "market": "KOSDAQ",
@@ -7091,7 +6917,7 @@
       }
     },
     {
-      "rank": 90,
+      "rank": 89,
       "ticker": "0054V0",
       "name": "엔에이치스팩32호",
       "market": "KOSDAQ",
@@ -7196,7 +7022,7 @@
       }
     },
     {
-      "rank": 91,
+      "rank": 90,
       "ticker": "0041B0",
       "name": "교보18호스팩",
       "market": "KOSDAQ",
@@ -7240,7 +7066,7 @@
       }
     },
     {
-      "rank": 92,
+      "rank": 91,
       "ticker": "481890",
       "name": "엔에이치스팩31호",
       "market": "KOSDAQ",
@@ -7284,7 +7110,7 @@
       }
     },
     {
-      "rank": 93,
+      "rank": 92,
       "ticker": "474660",
       "name": "신한제12호스팩",
       "market": "KOSDAQ",
@@ -7328,21 +7154,21 @@
       }
     },
     {
-      "rank": 94,
+      "rank": 93,
       "ticker": "0105P0",
       "name": "유진스팩12호",
       "market": "KOSDAQ",
       "close_price": 1987,
-      "change_amount": 2,
-      "change_rate": 0.1,
-      "trading_value": 0,
-      "market_cap": 13909000000,
+      "change_amount": 4,
+      "change_rate": 0.2,
+      "trading_value": 4000000,
+      "market_cap": 11246420000,
       "sector": "창업투자",
       "industry_no": 277,
-      "high_52w": 4965,
-      "high_52w_date": "20251222",
-      "high_price": 1987,
-      "low_price": 1974,
+      "high_52w": 3850,
+      "high_52w_date": "20251211",
+      "high_price": 2000,
+      "low_price": 1971,
       "theme_tag": "기업인수목적회사(SPAC)",
       "theme_tags": [
         "기업인수목적회사(SPAC)"
@@ -7365,46 +7191,52 @@
       "reason_hint": null,
       "news": [
         {
-          "title": "[특징주] 미래에셋비전스팩11호·하나36호스팩 상장 첫날 급등",
-          "link": "https://n.news.naver.com/mnews/article/366/0001131561",
+          "title": "[특징주] 유진스팩12호, 코스닥 상장 첫날 50%대 ‘쑥’",
+          "link": "https://n.news.naver.com/mnews/article/366/0001129428",
           "source": "조선비즈",
-          "date": "2025.12.22"
-        },
-        {
-          "title": "고환율에 생산자 물가 석달째 상승 [3분 브리프]",
-          "link": "https://n.news.naver.com/mnews/article/277/0005696707",
-          "source": "아시아경제",
-          "date": "2025.12.22"
-        },
-        {
-          "title": "'어묵 명가' 삼진식품, 오늘 증시 입성…리브스메드, 24일 코스닥 상장...",
-          "link": "https://n.news.naver.com/mnews/article/011/0004569952",
-          "source": "서울경제",
-          "date": "2025.12.22"
-        },
-        {
-          "title": "삼진식품·리브스메드 등 5개사 이번 주 코스닥 출격",
-          "link": "https://n.news.naver.com/mnews/article/366/0001131441",
-          "source": "조선비즈",
-          "date": "2025.12.21"
-        },
-        {
-          "title": "삼진식품·리브스메드 상장[증시캘린더]",
-          "link": "https://n.news.naver.com/mnews/article/018/0006187280",
-          "source": "이데일리",
-          "date": "2025.12.21"
-        },
-        {
-          "title": "\"2030 빼고 취업\"…11월 취업자 수 22.5만명 증가 [3분 브리프]",
-          "link": "https://n.news.naver.com/mnews/article/277/0005691900",
-          "source": "아시아경제",
           "date": "2025.12.11"
         },
         {
-          "title": "李 대통령 \"똑같은 일하면 비정규직 더 줘야\" 정부 관행 질타 [3분 브...",
-          "link": "https://n.news.naver.com/mnews/article/277/0005691314",
+          "title": "유진스팩12호, 상장 첫날 50%대 상승[특징주]",
+          "link": "https://n.news.naver.com/mnews/article/018/0006181581",
+          "source": "이데일리",
+          "date": "2025.12.11"
+        },
+        {
+          "title": "유진스팩12호, 코스닥 상장 첫날 70%대 상승",
+          "link": "https://n.news.naver.com/mnews/article/015/0005223023",
+          "source": "한국경제",
+          "date": "2025.12.11"
+        },
+        {
+          "title": "코스닥 훈풍에 스팩株 급반등…IPO 활성화 기대에 개인 매수세 유입",
+          "link": "https://n.news.naver.com/mnews/article/243/0000089463",
+          "source": "이코노미스트",
+          "date": "2025.12.11"
+        },
+        {
+          "title": "테라뷰홀딩스 상장·알지노믹스 공모[증시캘린더]",
+          "link": "https://n.news.naver.com/mnews/article/018/0006178836",
+          "source": "이데일리",
+          "date": "2025.12.07"
+        },
+        {
+          "title": "“연말 증시 막차 타자”…하루 한 종목씩 상장 러시 [시그널]",
+          "link": "https://n.news.naver.com/mnews/article/011/0004564075",
+          "source": "서울경제",
+          "date": "2025.12.05"
+        },
+        {
+          "title": "고환율이 낳은 고물가…두 달 연속 2.4% 상승 [3분 브리프]",
+          "link": "https://n.news.naver.com/mnews/article/277/0005687996",
           "source": "아시아경제",
-          "date": "2025.12.10"
+          "date": "2025.12.03"
+        },
+        {
+          "title": "'3370만명' 고객정보 유출 쿠팡…피해 5개월간 모를 수 있나 [3분 브리...",
+          "link": "https://n.news.naver.com/mnews/article/277/0005687349",
+          "source": "아시아경제",
+          "date": "2025.12.02"
         }
       ],
       "forward_score": 33,
@@ -7415,7 +7247,7 @@
       }
     },
     {
-      "rank": 95,
+      "rank": 94,
       "ticker": "0041J0",
       "name": "엘에스스팩1호",
       "market": "KOSDAQ",
@@ -7466,7 +7298,7 @@
       }
     },
     {
-      "rank": 96,
+      "rank": 95,
       "ticker": "373110",
       "name": "엑셀세라퓨틱스",
       "market": "KOSDAQ",
@@ -7518,7 +7350,7 @@
       }
     },
     {
-      "rank": 97,
+      "rank": 96,
       "ticker": "204020",
       "name": "그리티",
       "market": "KOSDAQ",
@@ -7594,7 +7426,7 @@
       }
     },
     {
-      "rank": 98,
+      "rank": 97,
       "ticker": "095660",
       "name": "네오위즈",
       "market": "KOSDAQ",
@@ -7671,7 +7503,7 @@
       }
     },
     {
-      "rank": 99,
+      "rank": 98,
       "ticker": "019770",
       "name": "서연탑메탈",
       "market": "KOSDAQ",
@@ -7765,7 +7597,7 @@
       }
     },
     {
-      "rank": 100,
+      "rank": 99,
       "ticker": "364950",
       "name": "에이아이코리아",
       "market": "KOSDAQ",
@@ -7860,6 +7692,112 @@
           "link": "https://n.news.naver.com/mnews/article/028/0002822336",
           "source": "한겨레",
           "date": "2026.09.09"
+        }
+      ],
+      "forward_score": 43,
+      "forward_bonus": 6,
+      "forward_detail": {
+        "small_size": 6,
+        "consec_lu": 0
+      }
+    },
+    {
+      "rank": 100,
+      "ticker": "318010",
+      "name": "팜스빌",
+      "market": "KOSDAQ",
+      "close_price": 3510,
+      "change_amount": 5,
+      "change_rate": 0.14,
+      "trading_value": 1000000,
+      "market_cap": 27831976380,
+      "sector": "건강관리업체및서비스",
+      "industry_no": 316,
+      "high_52w": 4320,
+      "high_52w_date": "20260225",
+      "high_price": 3535,
+      "low_price": 3505,
+      "theme_tag": "음식료업종",
+      "theme_tags": [
+        "음식료업종",
+        "건강기능식품"
+      ],
+      "theme_no": 113,
+      "avg_5day": 0,
+      "inst_net": 0,
+      "foreign_net": 0,
+      "score": 37,
+      "score_detail": {
+        "tp": 13,
+        "tl": 17,
+        "ti": 7
+      },
+      "rise_reason": "거래량 증가",
+      "reason_origin": "fallback",
+      "reason_kind": "",
+      "reason_confidence": "",
+      "reason_evidence": [],
+      "reason_hint": null,
+      "news": [
+        {
+          "title": "팜스빌, 'K-감귤 기능성 크림'.. 식약처서 피부장벽 개선 효능 인정",
+          "link": "https://n.news.naver.com/mnews/article/008/0005351738",
+          "source": "머니투데이",
+          "date": "2026.04.30"
+        },
+        {
+          "title": "팜스빌, 창사 26주년 맞아 지역사회에 기부 및 플로깅 진행",
+          "link": "https://n.news.naver.com/mnews/article/008/0005330413",
+          "source": "머니투데이",
+          "date": "2026.03.16"
+        },
+        {
+          "title": "[사이언스게시판] 극지연, 남극과학기지 월동연구대 모집 外",
+          "link": "https://n.news.naver.com/mnews/article/584/0000036783",
+          "source": "동아사이언스",
+          "date": "2026.03.16"
+        },
+        {
+          "title": "부채비율 12%p↑…비트맥스 8194% '최고'[상반기 코스닥 결산]",
+          "link": "https://n.news.naver.com/mnews/article/018/0006354072",
+          "source": "이데일리",
+          "date": "2026.08.19"
+        },
+        {
+          "title": "부채비율 9.2%p↑…HEM파마 2947% '최고'[1분기 코스닥 결산]",
+          "link": "https://n.news.naver.com/mnews/article/018/0006285091",
+          "source": "이데일리",
+          "date": "2026.05.19"
+        },
+        {
+          "title": "6월부터 '폭염중대경보' 운영 外 [과학게시판]",
+          "link": "https://n.news.naver.com/mnews/article/031/0001013811",
+          "source": "아이뉴스24",
+          "date": "2026.03.16"
+        },
+        {
+          "title": "김치 유산균으로 만든 ‘살 빼는 건강기능식품’ 나온다",
+          "link": "https://n.news.naver.com/mnews/article/029/0003016037",
+          "source": "디지털타임스",
+          "date": "2026.03.16"
+        },
+        {
+          "title": "‘김치유산균’ 체지방 감소 효능 입증…식약처 ‘개별인정형 원료’...",
+          "link": "https://n.news.naver.com/mnews/article/016/0002613940",
+          "source": "헤럴드경제",
+          "date": "2026.03.16"
+        },
+        {
+          "title": "한국 민들레 김치에서 발견된 유산균, 체지방 감소 기능성 인정",
+          "link": "https://n.news.naver.com/mnews/article/008/0005318257",
+          "source": "머니투데이",
+          "date": "2026.02.13"
+        },
+        {
+          "title": "[2025 한국소비자만족지수 1위] 약사 개발 건강기능식품 브랜드, 애플...",
+          "link": "https://n.news.naver.com/mnews/article/050/0000098558",
+          "source": "한경비즈니스",
+          "date": "2025.11.18"
         }
       ],
       "forward_score": 43,
