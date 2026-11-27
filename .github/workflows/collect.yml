@@ -33,7 +33,7 @@ env:
 
 jobs:
   collect:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # 26.04는 Playwright chromium 미지원 (2026-10-22~ 수집 실패 원인)
     permissions:
       contents: write
 
